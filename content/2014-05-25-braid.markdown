@@ -45,6 +45,8 @@ Remember, this is still World 1, and everything but Tim has been playing out in 
 
 As Tim runs _backwards_ through the catacombs, events take on a completely different meaning.  Tim is now chasing after the princess, not running ahead of her.  The princess isn't clearing obstacles out of the way; she's closing off all the escape routes out of the catacombs.  And she never escaped from the knight — rather, the last we see of her is as she jumps into his arms, and he takes her away from the madman in the basement.
 
+Perhaps we should've seen this coming.  The level, the only one in World 1 that has a title at all, is called simply "Braid" — the last thing he remembers seeing when she turned away from him.
+
 The shift in perspective is absolutely, beautifully, perfect.  The intro levels are simple so the mechanic doesn't stick in your head too hard, and the entire castle level is designed to let you forget that everything else is moving in reverse.
 
 There's an epilogue.  It has some simple platforming, but for the most part it's just more flavor text.  This stuff is a bit more abstract; it speaks of moments of Tim's childhood, of an experimenting scientist, of the birth and death of the world.
@@ -135,7 +137,7 @@ In her bedroom, directly above her bed, Tim finds the final 8th star.  Then ther
 
 I love this, by the way.  The slightest change in the level design changes absolutely everything.
 
-If World 1 truly is the beginning of a cycle, then getting all the stars is the end of it.  Because there _is_ no princess after that.  He caught up with her, and she was a phantom.  And since it's World 1, where time moves backwards, this last level is really the first level of the game.  Without a princess, none of the rest of it needs to happen.  Tim is free.
+If World 1 truly is the beginning of a cycle, then getting all the stars is the end of it.  Because there _is_ no princess after that.  He caught up with her, and she was a phantom.  And since it's World 1, where time moves backwards, this last level is really the first level of the game.  Even the levels are numbered in reverse in World 1.  Without a princess, none of the rest of it needs to happen.  Tim is free.
 
 You can only find the stars by replaying the game at least one more time, and the original 360 version had a speedrun achievement to encourage you to play it a few more times.  So you really do get to see Tim jump through the same hoops over and over again.
 
