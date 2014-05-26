@@ -1,0 +1,33 @@
+<ul class="subscription" data-subscription="rss">
+    {% if FEED_ATOM %}
+    <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="subscribe-atom">
+        <img src="/theme/images/feed-icon-14x14.png" alt="">
+            Atom</a></li>
+    {% endif %}
+    {% if FEED_RSS %}
+    <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="subscribe-rss">
+        <img src="/theme/images/feed-icon-14x14.png" alt="">
+            RSS</a></li>
+    {% endif %}
+</ul>
+
+{% if SEARCH_BOX %}
+<form action="{{ SITESEARCH|default('http://google.com/search') }}" method="get" class="site-search">
+    <fieldset role="search">
+        <input type="hidden" name="q" value="site:{{SITEURL|replace('https://','')|replace('http://','') }}" />
+        <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+    </fieldset>
+</form>
+{% endif %}
+
+<ul class="main-navigation">
+    <li><a href="{{ SITEURL }}/">Blog</a></li>
+{% for title, link in MENUITEMS %}
+    <li><a href="{{ link }}">{{ title }}</a></li>
+{% endfor %}
+{% if DISPLAY_PAGES_ON_MENU %}
+    {% for page in PAGES %}
+    <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+    {% endfor %}
+{% endif %}
+</ul>

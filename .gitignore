@@ -1,0 +1,10 @@
+*.pyc
+.sw*
+.*.sw*
+.ropeproject/
+__pycache__/
+
+# Pelican detritus
+/pelican.pid
+/srv.pid
+/output/

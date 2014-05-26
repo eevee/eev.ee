@@ -1,0 +1,19 @@
+title: Level 27
+date: 2014-01-12 21:13
+category: personal
+
+Another year gone by.  I don't think I even did one of these last year, but let me think about what I did while I was 26.
+
+* I [lost a cat](/blog/2013/04/30/goodbye-styx/) for the first time.  It had...  quite an impact.  Later I adopted a new little buddy, [Anise](http://lexyeevee.tumblr.com/post/68035288334/anise-up-to-no-good-taken-with-nexus-5-camera-if).
+
+* I bought a Soekris router and slapped pfSense on it.  No, really, you would not believe what a nightmare this was to actually make work.
+
+* I did a whole bunch of Yelp-funded work on [pyScss](https://github.com/Kronuz/pyScss), turning it into a rather solid Sass compiler.  I learned a good bit about parsing from this, which is cool since I've always thought it interesting but never found a good opportunity for getting my feet wet.
+
+* We (myself, my boyfriend, my girlfriend, and her husband) just moved to Vegas, which has been fantastic.  The old house was co-owned by someone I'd gone to room with after moving out initially, and with the addition of my cluster (and accomanying menagerie) it had gotten a bit crowded.  We finally got around to buying a new house in December, and it's been pretty great so far; the house is cheap but huge (with a _pool_!), food is everywhere and also cheap, and the weather is rather a bit less dreary than Seattle.
+
+* I did a _whole lot_ of technical tinkering and not a whole lot of releasing software and that is a shame.  I'd really like to actually spit out some useful things this year.  Fingers crossed.
+
+Surely I'm forgetting something; that doesn't sound like a lot.  Okay yeah obviously _buying a house_ is kind of significant, but it only ate a month.  And I guess Styx's declining health ate another month, during which I was largely a zombie.  And pyScss was the only significant project I worked on for quite a while...  hmm.
+
+Seems like 2013 was a dreary void of a year for a lot of people.  Even a millenium can't escape being awkward and useless when it's 13.

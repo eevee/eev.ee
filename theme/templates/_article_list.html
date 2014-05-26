@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for article in articles_page.object_list %}
+    <article>
+        <header>
+            <p class="meta">
+                <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
+            </p>
+            <h1>
+                <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title | striptags }}</a>
+            </h1>
+        </header>
+
+        <div class="entry-content">{{ article.summary }}</div>
+
+        {% if article.content != article.summary %}
+        <footer>
+            <a rel="full-article" href="{{ SITEURL }}/{{ article.url }}">📖 But wait, there's more...</a>
+        </footer>
+        {% endif %}
+    </article>
+    {% endfor %}
+
+    {# pagination #}
+    <footer class="pagination">
+        {% if articles_page.has_next() %}
+            <a class="prev" href="{{ SITEURL }}/{{ articles_next_page.url }}">&larr; Older</a>
+        {% else %}
+            <span class="prev"></span>
+        {% endif %}
+
+        <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Blog archive</a>
+
+        {% if articles_page.has_previous() %}
+            <a class="next" href="{{ SITEURL }}/{{ articles_previous_page.url }}">Newer &rarr;</a>
+        {% else %}
+            <span class="next"></span>
+        {% endif %}
+    </footer>
+{% endblock %}

@@ -1,0 +1,799 @@
+@import "flex";
+
+// fonts
+$font-header: Lusitana, serif;
+$font-prose: Merriweather, serif;
+$font-sans: Ubuntu, sans-serif;
+$font-mono: 'Source Code Pro', 'Inconsolata', 'DejaVu Sans Mono', monospace;
+
+// colors
+$link-normal: hsl(215, 50%, 50%);
+$link-visited: hsl(250, 50%, 50%);
+$link-hover: hsl(215, 50%, 40%);
+// used for very light text on a dark background...  just the header honestly, could be header-fg
+$offwhite: hsl(215, 30%, 90%);
+$main-bg: hsl(36, 30%, 98%);
+$sidebar-bg: hsl(36, 30%, 93%);
+$main-accent: hsl(36, 30%, 70%);
+
+@mixin block-link() {
+    padding: 0.5em 0.75em;
+    line-height: 1;
+    border: 1px solid transparent;
+
+    text-decoration: none;
+    background: scale-color($main-bg, $lightness: -10%);
+    color: scale-color($main-bg, $lightness: -67%);
+
+    &:hover {
+        border-color: scale-color($main-bg, $lightness: -40%);
+    }
+}
+
+@mixin tablet-size {
+    @media (max-width: 800px) {
+        @content;
+    }
+}
+
+@mixin phone-size {
+    @media (max-width: 400px) {
+        @content;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// GENERAL
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 0.5em;
+
+    font-family: $font-header;
+    text-align: left;  // override the justify that comes later
+
+    a {
+        text-decoration: none;
+        &, &:visited {
+            color: inherit;
+        }
+        &:hover {
+            text-decoration: underline;
+            color: $link-hover;
+        }
+    }
+}
+h1 {
+    font-size: 2rem;
+}
+h2 {
+    font-size: 1.75em;
+}
+h3 {
+    font-size: 1.5em;
+}
+h4 {
+    font-size: 1.25em;
+}
+
+p, li {
+    margin-bottom: 1em;
+    line-height: 1.5;
+}
+
+a {
+    transition: color 0.1s linear;
+
+    color: $link-normal;
+
+    &:visited {
+        color: $link-visited;
+    }
+    &:hover {
+        color: $link-hover;
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// LAYOUT
+
+html {
+    // This has to be on the root element for rem to work
+    font-size: 14px;
+
+    background: url(/theme/images/stardust.png) hsl(240, 30%, 10%);
+}
+body {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+
+    //border: 2px solid hsl(215, 30%, 30%);
+
+    font-family: $font-sans;
+    color: #202020;
+}
+
+body > header {
+    //background: hsl(215, 30%, 50%);
+
+    h1 {
+        font-size: 4em;
+        margin: 0.5em 0 0;
+        padding: 2rem;
+        font-family: 'Love Ya Like A Sister', cursive;
+        font-weight: normal;  // bold doesn't work well with that font
+        color: $offwhite;
+
+        > a {
+            &, &:visited, &:hover, &:active {
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+
+        @include phone-size {
+            font-size: 2em;
+            padding: 1rem;
+        }
+    }
+
+    nav {
+        @include flexbox;
+        padding: 0;
+        //background: hsl(215, 30%, 40%);
+        background: hsl(215, 30%, 30%);
+
+        .main-navigation {
+            @include flex(1);
+            @include order(1);
+        }
+        .site-search {
+            @include order(2);
+        }
+        .subscription {
+            @include order(3);
+        }
+
+        ul, ol {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        li {
+            display: inline-block;
+            margin: 0;
+        }
+
+        a {
+            display: block;
+            padding: 0.5em 1em;
+
+            &, &:visited, &:hover {
+                color: $offwhite;
+            }
+            &:hover {
+                background: hsl(215, 30%, 25%);
+            }
+
+            img {
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+body > #main {
+    @include flexbox;
+    //border: 2px solid hsl(215, 30%, 30%);
+
+    #content {
+        @include flex(1);
+        background: url(/theme/images/textured_paper.png) $main-bg;
+    }
+    #sidebar {
+        width: 20em;
+        background: url(/theme/images/textured_paper.png) $sidebar-bg;
+    }
+
+    @include tablet-size {
+        @include flex-direction(column);
+
+        #sidebar {
+            width: auto;
+        }
+    }
+}
+
+body > footer {
+    margin: 0.5em 0 4em;
+    color: $offwhite;
+
+    a {
+        color: scale-color($link-normal, $lightness: 30%);
+
+        &:visited {
+            color: scale-color($link-visited, $lightness: 30%);
+        }
+        &:hover {
+            color: scale-color($link-hover, $lightness: 30%);
+        }
+    }
+
+    .powered-by {
+        float: right;
+    }
+}
+
+#content,
+#content > section {
+    > h1 {
+        font-size: 2.5rem;
+        border-bottom: 1px solid $main-accent;
+    }
+}
+#content > h1 {
+    // Same padding as articles and sections, but without the excess bottom
+    // padding.  Using margin so the border doesn't run all the way across.
+    margin: 3rem 4rem 0;
+
+    .category-atom {
+        display: block;
+        float: right;
+    }
+
+    @include phone-size {
+        margin: 1rem 1rem 0;
+    }
+}
+
+#content > footer {
+    // Used for e.g. pagination on the front page
+    // Use margin instead of padding so the border DOESN'T span the container
+    margin: 2em 4em 4em;
+    padding-top: 2em;
+    border-top: 1px dotted $main-accent;
+
+    &.pagination {
+        @include flexbox;
+
+        > a,
+        > span {
+            display: block;
+            @include flex(1);
+
+            text-align: center;
+            &.next {
+                text-align: right;
+            }
+            &.prev {
+                text-align: left;
+            }
+        }
+    }
+
+    @include phone-size {
+        margin: 1em;
+        padding-top: 1em;
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// SIDEBAR
+
+#sidebar {
+    font-size: 0.9rem;
+    font-family: $font-sans;
+    border-left: 1px solid scale-color($sidebar-bg, $lightness: -10%);
+
+    header > a {
+        font-size: 2em;
+        display: block;
+        float: right;
+
+        @include block-link;
+
+        padding: 0.25em;
+    }
+
+    section {
+        margin: 2em;
+
+        @include phone-size {
+            margin: 1em;
+        }
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    h1, a {
+        text-shadow: 1px 1px 0 $main-bg;
+    }
+
+    ul, ol {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    li {
+        margin-bottom: 0.5em;
+    }
+
+    .sidebar-tags {
+        line-height: 1.2;
+        
+        a {
+            padding-right: 0.25em;
+        }
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// ARTICLES
+
+article, #content section {
+    // not a fan of padding usually, but i need it here to make the border-top
+    // span the entire width
+    padding: 3em 4em;
+    font-family: $font-prose;
+
+    @include phone-size {
+        padding: 1em;
+    }
+}
+
+article {
+    text-align: justify;
+
+    // TODO front page only...?
+    & + article {
+        border-top: 1px dotted $main-accent;
+    }
+    > header {
+        position: relative;
+        .meta {
+            float: right;
+            margin: 0;
+            color: $main-accent;
+        }
+
+        @include phone-size {
+            // Title and date collide frequently on a small screen
+            h1 {
+                clear: right;
+            }
+        }
+    }
+
+    > footer {
+        margin-top: 2em;
+        font-family: $font-sans;
+
+        ul.meta {
+            margin: 0;
+            padding: 0;
+
+            li {
+                display: inline;
+            }
+            li::before {
+                content: ' • ';
+                margin: 0 0.33em;
+            }
+            li:first-child::before {
+                content: none;
+                margin: 0;
+            }
+        }
+
+        a[rel="full-article"] {
+            @include block-link;
+        }
+    }
+}
+
+.entry-content {
+    h2 {
+        margin-top: 1em;
+        padding-top: 1em;
+        border-top: 1px dotted $main-accent;
+    }
+
+    ul {
+        margin: 1em 0;
+        margin-left: 2em;
+        padding-left: 0;
+        list-style-type: none;
+
+        > li::before {
+            content: '▸';
+            display: block;
+            float: left;
+            margin-left: -1em;
+        }
+    }
+
+    img {
+        padding: 0.5rem;
+        max-width: 100%;
+        box-sizing: border-box;
+        background: white;
+        border-radius: 0.25rem;
+        box-shadow: 0 1px 2px 1px #eee;
+        transition: box-shadow linear 0.1s;
+
+        &:hover {
+            box-shadow: 0 1px 2px 1px #ddd;
+        }
+    }
+
+    blockquote {
+        margin: 1em 0;
+        // 1.17em on the left makes 1.5em total on the left; 1px top/bottom
+        // just stops the paragraphs' margins from collapsing
+        padding: 1px 1em 1px 1.17em;
+        border-left: 0.33em solid scale-color($main-bg, $lightness: -20%);
+        background: scale-color($main-bg, $lightness: -5%);
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// WIDGETS
+
+.prose-illustration {
+    float: right;
+    margin: 0.5em;
+    margin-right: 0;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// SPECIFIC PAGES
+
+// -----------------------------------------------------------------------------
+// ARCHIVES
+
+section.archives {
+    > h2, article h1, article time[pubdate] {
+        //line-height: 4rem;  // hopefully tall enough to contain everyone
+    }
+
+    $title-line-height: 1.2;
+    $row-height: $title-line-height * 1.5rem;  // biggest size in a row
+    $year-width: 5rem;  // 4 chars max
+    $date-width: 5rem;  // 6 chars max
+
+    // Each <h2> is a year separator
+    > h2 {
+        font-size: 1.5rem;
+        float: left;
+        width: $year-width;
+        margin: 0;
+        line-height: $row-height;
+        vertical-align: baseline;
+
+        font-weight: normal;
+        color: $main-accent;
+    }
+
+    // Each <article> is a listing; float the date to the right
+    article {
+        // override default padding; just want breathing room
+        padding: 0 0 1.5rem;
+        margin-left: $year-width + $date-width;
+
+        & + article {
+            // TODO remove this once the rule is fixed
+            border: none;
+        }
+
+        // Month and date
+        > time[pubdate] {
+            display: block;
+            width: $date-width;
+            float: left;
+            margin-left: -$date-width;
+            line-height: $row-height;
+            vertical-align: baseline;
+            color: $main-accent;
+        }
+
+        // Article title
+        h1 {
+            font-size: 1.33rem;
+            margin: 0;
+            line-height: $row-height;
+            vertical-align: baseline;
+            font-weight: normal;
+        }
+
+        > footer {
+            // override default article footer margin
+            margin: 0;
+
+            color: $main-accent;
+
+            .meta a {
+                &, &:visited, &:active {
+                    color: $main-accent;
+                }
+                &:hover {
+                    color: scale-color($main-accent, $lightness: -20%);
+                }
+            }
+        }
+    }
+
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// PYGMENTS (solarized)
+
+$solarized-base03:    #002b36;
+$solarized-base02:    #073642;
+$solarized-base01:    #586e75;
+$solarized-base00:    #657b83;
+$solarized-base0:     #839496;
+$solarized-base1:     #93a1a1;
+$solarized-base2:     #eee8d5;
+$solarized-base3:     #fdf6e3;
+$solarized-yellow:    #b58900;
+$solarized-orange:    #cb4b16;
+$solarized-red:       #dc322f;
+$solarized-magenta:   #d33682;
+$solarized-violet:    #6c71c4;
+$solarized-blue:      #268bd2;
+$solarized-cyan:      #2aa198;
+$solarized-green:     #859900;
+
+table.highlighttable {
+    width: 100%;
+    border-collapse: collapse;
+    line-height: 1.2;
+    background: url(/theme/images/textured_paper.png) $solarized-base3;
+    box-shadow: 0 0 1em $solarized-base2;
+
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+
+    td {
+        padding: 0.5em;
+        border: 1px solid $solarized-base2;
+    }
+    td.linenos {
+        width: 0;
+        padding-left: 1em;
+        text-align: right;
+        color: $solarized-base1;
+        background: url(/theme/images/textured_paper.png) $solarized-base2;
+        vertical-align: top;
+    }
+}
+
+// h6 is special and used to indicate filenames for code blocks
+h6 {
+    position: relative;
+    z-index: 1;  // stay above the table's box-shadow
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 1rem 0 0;
+    font-family: sans-serif;
+    font-weight: normal;
+    text-align: center;
+    background: $solarized-base2;
+    text-shadow: 1px 1px $solarized-base3;
+    color: $solarized-base1;
+}
+h6 + table.hilighttable {
+    margin-top: 0;
+}
+
+// Pygments theme
+.highlight {
+    .hll { background-color: #ffffcc }
+    .c { color: #93a1a1; font-style: italic } /* Comment */
+    .err { color: #dc322f } /* Error */
+    .g { color: $solarized-base00 } /* Generic */
+    .k { color: $solarized-red } /* Keyword */
+    .l { color: $solarized-base00 } /* Literal */
+    .n { color: #586e75 } /* Name */
+    .o { color: $solarized-base00 } /* Operator */
+    .x { color: $solarized-base00 } /* Other */
+    .p { color: $solarized-base00 } /* Punctuation */
+
+    .cm { color: #93a1a1; font-style: italic } /* Comment.Multiline */
+    .cp { color: #93a1a1; font-style: italic } /* Comment.Preproc */
+    .c1 { color: #93a1a1; font-style: italic } /* Comment.Single */
+    .cs { color: #93a1a1; font-style: italic } /* Comment.Special */
+
+    .gd { color: $solarized-base00 } /* Generic.Deleted */
+    .ge { color: $solarized-base00 } /* Generic.Emph */
+    .gr { color: $solarized-base00 } /* Generic.Error */
+    .gh { color: $solarized-base00 } /* Generic.Heading */
+    .gi { color: $solarized-base00 } /* Generic.Inserted */
+    .go { color: $solarized-base00 } /* Generic.Output */
+    .gp { color: $solarized-base00 } /* Generic.Prompt */
+    .gs { color: $solarized-base00 } /* Generic.Strong */
+    .gu { color: $solarized-base00 } /* Generic.Subheading */
+    .gt { color: $solarized-base00 } /* Generic.Traceback */
+
+    .kc { color: $solarized-red } /* Keyword.Constant */
+    .kd { color: $solarized-red } /* Keyword.Declaration */
+    .kn { color: #cb4b16 } /* Keyword.Namespace */
+    .kp { color: #cb4b16 } /* Keyword.Pseudo */
+    .kr { color: $solarized-red } /* Keyword.Reserved */
+    .kt { color: $solarized-red } /* Keyword.Type */
+
+    .ld { color: $solarized-base00 } /* Literal.Date */
+    .m { color: #2aa198 } /* Literal.Number */
+    .s { color: #2aa198 } /* Literal.String */
+
+    .na { color: $solarized-base00 } /* Name.Attribute */
+    .nb { color: #268bd2 } /* Name.Builtin */
+    .nc { color: #268bd2 } /* Name.Class */
+    .no { color: #b58900 } /* Name.Constant */
+    .nd { color: #cb4b16 } /* Name.Decorator */
+    .ni { color: #cb4b16 } /* Name.Entity */
+    .ne { color: #cb4b16 } /* Name.Exception */
+    .nf { color: #268bd2 } /* Name.Function */
+    .nl { color: $solarized-base00 } /* Name.Label */
+    .nn { color: #b58900 } /* Name.Namespace */
+    .nx { color: $solarized-base00 } /* Name.Other */
+    .py { color: #268bd2 } /* Name.Property */
+    .nt { color: $solarized-red } /* Name.Tag */
+    .nv { color: #cb4b16 } /* Name.Variable */
+    .ow { color: $solarized-red } /* Operator.Word */
+    .w { color: #fdf6e3 } /* Text.Whitespace */
+
+    .mf { color: #2aa198 } /* Literal.Number.Float */
+    .mh { color: #2aa198 } /* Literal.Number.Hex */
+    .mi { color: #2aa198 } /* Literal.Number.Integer */
+    .mo { color: #2aa198 } /* Literal.Number.Oct */
+
+    .sb { color: #2aa198 } /* Literal.String.Backtick */
+    .sc { color: #2aa198 } /* Literal.String.Char */
+    .sd { color: #2aa198 } /* Literal.String.Doc */
+    .s2 { color: #2aa198 } /* Literal.String.Double */
+    .se { color: #cb4b16 } /* Literal.String.Escape */
+    .sh { color: #2aa198 } /* Literal.String.Heredoc */
+    .si { color: #cb4b16 } /* Literal.String.Interpol */
+    .sx { color: #2aa198 } /* Literal.String.Other */
+    .sr { color: #2aa198 } /* Literal.String.Regex */
+    .s1 { color: #2aa198 } /* Literal.String.Single */
+    .ss { color: #2aa198 } /* Literal.String.Symbol */
+
+    .bp { color: #268bd2; font-weight: bold } /* Name.Builtin.Pseudo */
+    .vc { color: #268bd2 } /* Name.Variable.Class */
+    .vg { color: #268bd2 } /* Name.Variable.Global */
+    .vi { color: #268bd2 } /* Name.Variable.Instance */
+    .il { color: #2aa198 } /* Literal.Number.Integer.Long */
+}
+
+// Also, inline code.
+code {
+    padding: 0.1em 0.25em;
+    border-radius: 0.25em;
+    background: scale-color($main-bg, $lightness: -8%);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// COLORBOX
+// Based on the example themes
+
+// Base CSS, shared between all the example themes
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxWrapper {max-width:none;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto; -webkit-overflow-scrolling: touch;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block; max-width:none; -ms-interpolation-mode:bicubic;}
+.cboxIframe{width:100%; height:100%; display:block; border:0; padding:0; margin:0;}
+#colorbox, #cboxContent, #cboxLoadedContent{box-sizing:content-box; -moz-box-sizing:content-box; -webkit-box-sizing:content-box;}
+
+#cboxOverlay {
+    background: black;
+}
+#colorbox{outline:0;}
+    #cboxBottomCenter {
+        height: 36px;
+    }
+    #cboxContent {
+        border-radius: 0.5em;
+        overflow: visible;
+        background: white;
+    }
+        .cboxIframe{background:#fff;}
+        #cboxError{padding:50px; border:1px solid #ccc;}
+        #cboxLoadedContent {
+            border-radius: 0.5em;
+            padding: 1em;
+            border: 1px solid black;
+        }
+        #cboxLoadingOverlay {}
+        #cboxLoadingGraphic {}
+        #cboxTitle{position:absolute; bottom:-25px; left:0; text-align:center; width:100%; font-weight:bold; color:#ddd;}
+
+        // "image X of Y"
+        #cboxCurrent {
+            font-size: 0.8em;
+            position: absolute;
+            bottom: 0;
+            left: 1.5rem;
+            line-height: 1rem;
+            color: #aaa;
+        }
+
+        // these are all buttons, and need to be replaced with fancy-ass css nonsense
+        #cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {
+            position: absolute;
+            bottom: -32px;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            overflow: visible;
+
+            // hide the existing button text
+            line-height: 0;
+            color: transparent;
+            font-size: 0;
+            background: transparent;
+
+            &::before {
+                content: '~';
+                display: block;
+                height: 24px;
+                width: 24px;
+                font-size: 24px;
+                font-weight: bold;
+                line-height: 21px;  // clumsy hack to compensate for baseline
+                text-align: center;
+                color: black;
+                background: white;
+                border-radius: 100%;
+                border: 2px solid black;
+                box-shadow: 0 0 2px #444;
+            }
+            &:hover::before {
+                border-color: white;
+                color: white;
+                background: black;
+            }
+        }
+
+        #cboxPrevious {
+            left: 0;
+            &::before { content: '‹'; }
+        }
+        #cboxNext {
+            right: 0;
+            &::before { content: '›'; }
+        }
+        #cboxSlideshow {
+            &::before { content: 'S'; }
+        }
+        #cboxClose {
+            top: 4px;
+            right: 4px;
+            bottom: auto;
+            &::before { content: '×'; }
+        }
+
+        /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+        #cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {outline:0;}
+
+        .cboxSlideshow_on #cboxSlideshow{background-position:-125px 0px; right:27px;}
+        .cboxSlideshow_on #cboxSlideshow:hover{background-position:-150px 0px;}
+        .cboxSlideshow_off #cboxSlideshow{background-position:-150px -25px; right:27px;}
+        .cboxSlideshow_off #cboxSlideshow:hover{background-position:-125px 0px;}

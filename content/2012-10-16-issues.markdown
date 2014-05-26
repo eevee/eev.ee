@@ -1,0 +1,19 @@
+title: Issues
+date: 2012-10-16 19:03
+category: status
+
+I love tinkering with things, but in the absence of external stimuli (like, "it's my job"), I'm pretty bad at _finishing_ things.  Instead I gradually accrete a ball of projects, todo lists, XXX comments, half-written blog posts, and mental notes-to-self.  Eventually the mental load becomes overwhelming and I freak out at how many recreational things I "have" to do.
+
+_So_ I spent much of last weekend trying to alleviate this, by dumping various todo files and the contents of my head and tabs that have been open for months and half of my [Workflowy][] into issue trackers.  I know, duh, but I always get out of the habit of using them, and then it seems like more effort to get back into the habit than to just jot down or remember one more thing.  Maybe this time it'll stick.  I have far more brain to be dumped, but what's left is generally more detailed planning that won't come into focus until I sit down to seriously work on the corresponding project.  The real test will be whether I keep filing tickets as they come to mind.  And actually, like, assign them to myself.  And do them!  Whoa.
+
+I'm also making an effort to make my code more accessible to anyone who wants to contribute to it; I've been using git and GitHub for ages and attracted a couple pull requests, but I'm pretty lax about even _build_ documentation.  I wrote a few READMEs to alleviate this, and will be writing some more as I touch repositories that lack them.
+
+Oh, if you give half a crap about what I hack, I've thrown together a [projects page][] listing some of the things I've started attempting to build.  Or you could just look at [my GitHub][], really.  Feel free to contribute, or tell me how I'm making it hard to contribute.
+
+And I totally cut down on the number of distinct [categories][] I was using for this blog, so when I start posting more than once a month, categories will be useful for sifting through posts!
+
+
+[Workflowy]: http://workflowy.com/
+[categories]: /blog/categories/
+[my GitHub]: https://github.com/eevee
+[projects page]: /projects/

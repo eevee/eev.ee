@@ -1,0 +1,58 @@
+title: Flora
+date: 2012-07-06 00:24
+tags: flora
+category: thinking out loud
+
+[Mel][mel's da], [Jayson][marl's tumblr], and I are attempting to construct a game called Flora.  It seems obvious now that we've actually started: between us we have the pixels, the words, and the binaries.  That's everything right there.
+
+I could blather about my adventures figuring out how to [make OpenGL do anything useful][jwz on opengl], but who the hell cares.  Far more interesting is the adventure of figuring out what the game actually _is_.
+
+We have a pretty simple approach here: we've each played some decent set of video games, and we each have unreasonably strong opinions about what was good or bad.  All we have to do is make a game with all the good stuff and none of the bad stuff.  Done.  Ship it.
+
+
+## The big picture
+
+The game revolves around Mel's [fictional universe][flowercat gallery], populated by all manner of colorful critters.  The protagonists and namesakes are flowercats, so named because they are flowers with cats growing out of their stems.
+
+It's a top-down role-playing adventure, except everyone has a different idea of what that means, so let's say it's roughly the same style of game as [Link's Awakening][].  Turns out all three of us like _adventuring_: exploring a world, feeling like part of it, discovering secrets, finding teases of the plot, and hitting stuff.  Luckily, the [main characters][Trevor and Maya] are into the same kinds of stuff, so we're off to a good start there.
+
+The theme is turning out to be "elements": both of nature (earth, fire, etc.) and of _gameplay itself_.  We keep finding ways that distinct focus on each of exploration, puzzles, and combat seems appropriate.  Possibly because each of us has a different favorite of the three.
+
+
+## Balance
+
+Which brings me to the tricky bit: finding a middle ground between what we _like_ and what _drives us fucking bonkers_.
+
+* **Good:** Exploring a wide, open world.  **Bad:** Calling GTA4 a "wide, open world".  Backtracking like crazy.  Fast-travel that makes you never _see_ the world.  A map that, paradoxically, doesn't show you where anything is or how to get to it.
+* **Good:** Unlocking new ways to move through the environment.  **Bad:** Realizing you don't remember the ten places you saw an obstacle that you can now pass.
+* **Good:** Collecting stuff.  **Bad:** Being forced to collect the same worthless plot items to progress.  Collection that doesn't actually lead anywhere.  Collection you don't have a prayer of finishing until you've otherwised finished the game, thus turning it into a lame "post-game".
+* **Good:** A populated world.  **Bad:** NPCs who walk back and forth their entire lives and only say one thing to you.  A quantum world that seems to pause while you're not around to look at it.
+* **Good:** Multiple ways to defeat obstacles.  **Bad:** Letting the player skip an obstacle with no punishment.  Fallout 3.
+* **Good:** A sense of progression.  **Bad:** Screenfuls of stats that don't seem to mean anything or change predictably.  Huge numbers of stat-changing options.  Minmaxing.
+* **Good:** Novel puzzles that instill a sense of accomplishment when solved.  **Bad:** Puzzles the game solves for you.  Puzzles that are afraid to be difficult.  Puzzles that rely on the author's perspective.  Puzzles that you can opt to skip, thus making solving it a complete waste of time.
+
+Avoiding the **bad** is going to be tricky, to say the least.  Some of these plague virtually every game because it's just damn hard to do anything else.  Still, I have every confidence that we are uniquely suited to avoid pitfalls that the biggest and most successful game development studios have yet to subvert.  Cause we're awesome.
+
+
+## Status
+
+So far we have one sprite drawn, and I've built an engine that lets it [walk around a fixed region][programmer art].  (Spot the programmer art.)  Basically done!  I guess I'm building it half-from-scratch: I'm using pyglet and cocos2d, which provide a lot of basic niceties like event handling and layering and transformation and actions over time, but they're both simple enough that I can easily understand everything they're doing and could replicate it with a gun to my head.  It's the same kind of sweet spot as Pyramid is for Web development.
+
+We have a [Large Pad][] with tons of small ideas scribbled on it, and we brainstorm every other day.  Currently trying to pin down how combat and advancement will work; there are a ton of options and getting it right is tricky.  As the engine becomes useful, we'll be able to actually try stuff out.
+
+This is a side project among side projects for all of us, completely unfunded, with no deadline.  So there's no ETA, and we'll just work on it as we feel inspired to do so.  Interest is always interesting, of course.
+
+The code is ISC and the assets are CC BY-NC-SA.  All of it [lives on GitHub][github].  We'd still like to sell the completed game, but the plan is to only charge for the _installer_.  (Oh, right: I develop on Linux (who doesn't!) and it's all Python and OpenGL, so it oughta run on pretty much anything.)
+
+Yep, that's all I got.  May write about bits of it in more detail later, if there be interest.
+
+
+[flowercat gallery]: http://purplekecleon.deviantart.com/gallery/308455
+[github]: https://github.com/eevee/flora
+[jwz on opengl]: http://www.jwz.org/blog/2012/06/i-have-ported-xscreensaver-to-the-iphone/
+[Large Pad]: http://video.google.com/videoplay?docid=-8175247823467099595
+[Link's Awakening]: http://www.nintendogal.com/wp-content/uploads/2010/12/ZeldaLinksAwakening1.png
+[marl's tumblr]: http://marlcabinet.tumblr.com/
+[mel's da]: http://purplekecleon.deviantart.com/
+[programmer art]: http://i.imgur.com/8nSK4.png
+[Trevor and Maya]: http://purplekecleon.deviantart.com/art/Trevor-s-Accident-185564812

@@ -1,0 +1,45 @@
+title: Crash!
+date: 2012-12-06 21:04
+tags: photos
+category: personal
+
+
+<div class="prose-illustration" markdown="1">
+{% photo /media/2012-12/crash-distance.jpg %}
+</div>
+
+So someone hit my car last week.
+
+It was parked on the curb, right in front of my house. (We have four cars and a packed garage, so.)  I heard a super loud _smack_, but thought someone had dropped a large appliance on the sidewalk until Mel appeared in my doorway with _someone hit your car_.
+
+Outside I scurried in pajamas and slippers (working from home is awesome) and I beheld the scene you see inset.  The driver was very apologetic, and luckily unharmed.  She'd been fiddling with something on her dashboard and wasn't even looking at the road, so she hit my car at full speed.  The photo is framed as it is because my car had been parked with its rear wheel _on that grate_, and with the parking brake on.  That's how far she knocked it.  (Speed limit on this street is 25, by the way.)
+
+I felt kinda bad for her, but at the same time, that this even happened is _terrifying_.  I don't know if a human being would have survived the same impact.  She said she's "normally such a safe driver"—I guess she's only a dangerous driver sometimes, then, and it turns out those are the times when you hit things.
+
+Called 911; couple police cars came to direct traffic around her and file an accident report, and a flatbed tow truck took her car off.  I had to leave my car "parked" in front of a fire hydrant overnight, because the rear axle was bent so much that it doesn't move at all.
+
+My car was towed to a local shop the day after; they called me back earlier this week with an estimate around $7400.  The driver's insurance is paying for absolutely everything without question, though, so I shouldn't be out a dime over this.  I have a rental in the meantime.
+
+This is actually the _second_ time this has happened; early this year I was street-parked on the other side of the street, and I awoke to find a conspicuous dent in the driver's side door.  And when I say "dent", I mean it spanned the bottom of the door up to the window; looked like a shopping cart had hit it at an angle while going 40.  I'd only slept for a few hours the night before, and Mel had been awake through the night, but neither of us heard or saw anything.  Don't know what happened or who did it.  I thought it would be a simple fix, but the shop had to replace the _entire door_, I had to pay a few hundred deductible, and my insurance went up.  Super.
+
+I've never hit anything, never gotten a ticket, never even been pulled over.  I live in a fairly sleepy town, not on a major road.  And in two years my car has been hit _twice_, while _parked at home_.  I'm just gonna start parking on the lawn.
+
+Here are some photos of my poor darling car.  Consider this a test of this [fancybox plugin][].
+
+<!-- more -->
+
+{% gallery %}
+/media/2012-12/crash-back.jpg
+/media/2012-12/crash-below.jpg
+/media/2012-12/crash-corner.jpg
+/media/2012-12/crash-side.jpg
+/media/2012-12/crash-other-corner.jpg
+/media/2012-12/crash-other-front.jpg
+{% endgallery %}
+
+By the way: she was elderly, and had a handicap permit hanging from her rear-view mirror.  Were you envisioning a young adult or middle-aged woman?  How does the story change, now?  I don't know.
+
+One of the last things she said to me was "I shouldn't be driving".  Hm.
+
+
+[fancybox plugin]: http://tritarget.org/blog/2012/05/07/integrating-photos-into-octopress-using-fancybox-and-plugin/

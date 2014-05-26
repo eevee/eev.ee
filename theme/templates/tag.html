@@ -1,0 +1,9 @@
+{% extends '_article_list.html' %}
+
+{% block title %}🔖 {{ tag.name }} / {{ SITENAME }}{% endblock %}
+
+{% block content %}
+    <h1>Tagged: {{ tag.name }}</h1>
+
+    {{ super() }}
+{% endblock %}

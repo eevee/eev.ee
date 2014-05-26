@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% import '_lib.html' as lib with context %}
+
+{% block title %}{{ page.title | striptags }} / {{ SITENAME }}{% endblock %}
+
+{% block content %}
+    <article class="single" role="article">
+        <header>
+            {# <p class="meta">{{ lib.article_time(page) }}</p> #}
+            <h1>
+                <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title | striptags }}</a>
+            </h1>
+        </header>
+
+        <div class="entry-content">{{ page.content }}</div>
+        {#
+        <footer>
+            {{ lib.article_footer(page) }}
+            {{ lib.article_social_cruft(page) }}
+        </footer>
+        #}
+    </article>
+
+    {{ lib.article_disqus_comments(page) }}
+{% endblock %}

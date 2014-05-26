@@ -1,0 +1,37 @@
+title: P.A.D.D.
+date: 2011-03-20 21:00:00
+tags: gadgets
+category: essay
+
+<div class="prose-illustration">
+    <img src="http://images.wikia.com/memoryalpha/en/images/4/4e/Harrens_theorem.jpg" alt="Screenshot of a P.A.D.D. from Star Trek">
+</div>
+
+Hey, remember these things?
+
+This was the _future_, man.  A gadget that displays anything in the universe you want to know, at your fingertips.  One of the coolest things in Star Trek.  "Hey, Bob, you have those simulation results?"  "Yeah, right here—on my _magical tiny touch computer_."  And nerds everywhere cheered; paper was for norms, man.
+
+Now we actually _have_ these devices: smartphones, tablets with their own custom-tailored OSes, ebook readers.  But what are we using them for?
+
+Ebook readers actually get a pass here; I expect them to do exactly one thing, and anything else is just noise.  I know Sony and Barnes & Noble are embroiled in an arms race over this, but the results on both sides are _worse_ at the one thing I want an ebook reader to do.  (The Nook Color has an LCD screen.  Why would you do this?)  I do welcome the merger of tablets and readers, should the screens somehow become as easy on the eyes as e-ink.
+
+But a significant chunk of smartphone applications are just "Our Website: The App", built by developers who forget that every phone platform has a fully-featured Web browser on it.  Many of the rest are desktop applications jammed into the alien form factor and made worse—either in UI or functionality—by the transition.  Tablets aren't much better off; last I heard, many tablet applications were those same shrunken-down smartphone applications, scaled back up again.
+
+Look at the [top Android apps](https://market.android.com/) and this [Time list of alleged top iPhone apps](http://www.time.com/time/specials/packages/completelist/0,29569,2044480,00.html).  YouTube, a website.  Gmail, a website-slash-email-app.  Twitter, a website.  Best Buy?  Cut the Rope?
+
+Smartphones are incredible pieces of hardware, and by all appearances, we're barely using them for anything.  Crappy versions of desktop software, crappy versions of websites, and perhaps an MP3 player so we have one more free pocket each.  This is a sad state of affairs.
+
+<!-- more -->
+
+I want to find functionality that's novel, practical, and _more_ appropriate for the form factor of a smartphone.  It's great that I can do anything I need to in a pinch no matter where I am, but I'd like my expensive and powerful device to be more than just the Swiss army knife I have to dig up when I go camping once a year.  I have only a few examples so far:
+
+* [Anki](http://ankisrs.net/), the flashcard program I use, has a third-party [Android app](https://code.google.com/p/ankidroid/) that works just as well as its desktop equivalent for reviewing.  I mention this as standing out, despite being a port, because I _enjoy using it_ more than I enjoy using fully-fledged Anki.  There's not much context switching required, so I don't mind doing it while out for a walk or sitting on the couch or anywhere else I might have to immediately stop using my phone.  The interface is just four buttons, so tedious mouse/keyboard effort is reduced to fairly simple tapping.  And I don't have anything else on the same screen acting as a distrction.  I've pretty much stopped using desktop Anki except when I need its deck browser.
+* There are several apps that act as media center remote controls; either for generic desktop control, or specifically integrated with some desktop media center package.  Again, the form factor shines here; a small touchscreen acts like a second monitor and is much easier to control than a mouse and keyboard.
+* Google Maps navigation and pedometers are essentially mergers of other devices into this one.  It would take something a bit more clever to really impress me with either; Google Maps, for example, is no better about suggesting where I might be going than Mel's GPS.
+* Google Latitude and its accompanying History need an omnipresent device like a phone to work, but I've yet to figure out what to do with this kind of data.
+
+I freely admit, and hope, that I might be missing something.  Maybe there are tons of brilliantly clever mobile applications out there just waiting to be found.  If so, please, let me know what they are!  My scouring of tech blogs has only found a lot of articles that assume I don't know Twitter has an official app, or suggest four different backup utilities in a single top-ten list.
+
+I know about Last.fm and Pandora.  I'm not a busy businessperson away from my desktop most of the day, so I don't need todo lists and calendars and file managers and teeny office suites.  And I don't need clunky mobile games when I own a DS.  (I can't stand Angry Birds.  It's like Bejeweled for 20-somethings.  Sorry.)
+
+So what else is there?  Or what else should we be building?

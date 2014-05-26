@@ -1,0 +1,55 @@
+<aside id="sidebar">
+    {% if SIDEBAR_IMAGE %}
+    <section>
+        <img src="{{ SITEURL }}/{{ SIDEBAR_IMAGE }}" alt="{{ SIDEBAR_IMAGE_ALT}}" width="{{SIDEBAR_IMAGE_WIDTH}}"/> 
+    </section>
+    {% endif %}
+
+    <section>
+        <header>
+            <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">📅</a>
+            <h1>Recent Posts</h1>
+        </header>
+        <ul id="recent_posts">
+        {% for article in articles[:5] %}
+        <li class="post">
+            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title|striptags }}</a>
+        </li>
+        {% endfor %}
+        </ul>
+    </section>
+
+    {% if categories and DISPLAY_CATEGORIES_ON_MENU %}
+    <section>
+        <header>
+            <a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">📂</a>
+            <h1>Categories</h1>
+        </header>
+        <ul id="recent_posts">
+        {% for category, articles in categories %}
+            <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+        {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+
+    <section>
+        <header>
+            <a href="{{ SITEURL }}/{{ TAGS_URL }}">🔖</a>
+            <h1>Tags</h1>
+        </header>
+        <div class="sidebar-tags">
+        {% for tag, article in tags %}
+            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+        {% endfor %}
+        </div>
+    </section>
+
+    {#
+    {% include '_includes/github.html' %}
+    {% include '_includes/social.html' %}
+    {% include '_includes/links.html' %}
+    {% include '_includes/twitter_sidebar.html' %}
+    {% include '_includes/gplus_sidebar.html' %}
+    #}
+</aside>
