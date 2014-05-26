@@ -1,0 +1,158 @@
+title: Braid
+date: 2014-05-25 19:37
+category: people
+tags: gender
+
+There was a shooting, but this post is not about that shooting.
+
+This post is about what we tried to do to stop thinking about the shooting, because the deluge of apologists can wear on a person after a while.  So we got some lunch and sat down to watch some funny Internet videos.  We enjoy the vidcons, so I scrolled back through retsupurae looking for something that caught my eye.
+
+I found "[Braidple Story][]", which sounded promising because I would still gladly call Braid the best vidcon I've ever played.
+
+Spoilers: the game is terrible, like you do.  More spoilers: the game is a hamfisted attempt at recreating Braid's theme that falls completely flat, because 99% of it is the protagonist's overt creeping on this girl (with totally believable voice acting and horrifying dialogue) and then right at the end she goes "Leave me alone ugh!" and that's the end of the game.
+
+All told, that didn't really help get my mind off of Gender Stuff.  But it did put my mind on something else, which is: Braid.
+
+## A brief recap of Braid
+
+Since time-travelling platformers are not everyone's cup of tea, let me go over the game's "plot" real quick here.  If you haven't played it yet and _want_ to, you might want to just bail on this post until you've cleared out your Steam queue.
+
+Braid is a simple platformer, complete with overt Mario homages, including the chasing of a princess.  The game is split into six chapters, and before each one, you get few paragraphs of flavor text about what your protagonist Tim is thinking.  (Wikiquote has it all [quoted in its entirety][Braid script] if you care to read it.)
+
+World 2 (Time and Forgiveness) opens with the plot of the game: "Tim is off on a search to rescue the Princess."  But not just any princess; the narrative makes clear that the two were in a relationship, and Tim made some (perhaps many) mistakes, and now feels he ought to be forgiven for having learned from them.  Tim's memories are muddled, but very clear in his mind is the sight of the princess turning sharply away, her braid waving at him.  (Ah!  That's the game's title!)  This chapter is the introduction to the controls: you can walk around, jump, and activate switches.  You then run across a platforming puzzle that requires almost inhuman timing to get right, and this is where you discover the core mechanic of the game: But most importantly, there's the core mechanic of the game: you can reverse time, at will, whenever you want, all the way back to when you entered the level if you so choose.  And so, quite appropriately, you can undo any mistakes you've made and learn from them.
+
+World 3 (Time and Mystery) reveals that Tim was the one who left, and now he's trying to go back to her.  Apparently he felt trapped by her expectations, which he himself had preserved by undoing all of his own missteps, and felt that he could never escape beyond the person she thought he was.  Sometimes, he needed to be immune to her expectations, to preserve some other part of himself even as he undid his mistakes.  And so we have the new mechanic for World 3: in each level, some objects glow a sparkly green, and these objects aren't affected by the reversal of time.  If you use a sparkly green key to open a door and then reverse time, the door will close, but the key will remain broken.  Everything else is the same, but this makes your power vulnerable.
+
+World 4 (Time and Place) remarks on how certain places remind us of memories of those places — of other times.  Tim sets off wandering to various places where he has memories of his princess, in the hopes that he will find her there, or even be transported back to when he was with her.  In this world, the levels literally link time with place: time advances forwards as you move to the right, and backwards as you move to the left.  You can still reverse time, but only for yourself; time for everything else in the world is linked to your horizontal position.
+
+World 5 (Time and Decision) hints that Tim is leaving another lover to search for his princess, the obsession is so strong.  Here, whenever you reverse time, a shadow of yourself is left behind to act out whatever you had last done from that point forward.  You can see your former decisions play out alongside your current ones.
+
+World 6 (Hesitance) mentions a ring, and strongly suggests that it's an engagement or even marriage ring from the princess.  He still wears it, and it makes it harder to romance other women — so he's learned to approach slowly when he wears the ring, or forego wearing it entirely whenever he can bear it.  In this world, Tim can place his ring anywhere he wishes, and time will be slowed down within a small radius of it.  He can, as usual, still rewind time, but slowing it down in only part of the level can make patterns go out of sync.  Curiously, this is the first world to have a black background and break with the naming scheme.  The music is, as I recall, also significantly darker than before.
+
+This brings us to the end of the story.  But as this is a game about going backwards, the final part is World 1.
+
+World 1 has no title.  The intro text paints Tim as eerily calculating, and explicitly names him as moving contrary to everyone else — or everyone else contrary to him.
+
+World 1 begins with three simple levels, each one removing more platforms from the last.  The gimmick here is simple: time moves backwards.  When you enter a level, you see a series of events play out backwards.  You can still reverse time, but that makes everything else move _forwards_.  This has funny implications for cause and effect: if you jump on a monster, it can't die, because the next moment it experiences is the _preceding_ moment and it hadn't yet been jumped on.  Wacky platforming abounds.
+
+After these few simple introductory levels, we have the final boss, in a sense.  Tim emerges into the catacombs of a castle; above him, the princess is in the arms of a knight yelling "I've got you!"  She gets away from him and yells "Help!"; he calls to her to get back to him.  And the chase is on: the knight has a stomping fit which starts to bring down parts of the ceiling above you, and a wall of flame starts to approach from the left.  Both Tim and the princess run to the right, running from the fire and the knight respectively, and occasionally the princess stops to throw a switch that clears an obstacle for Tim.  After some excellent platforming, assisted by the occasional time reversal, she finally reaches her bedroom, and he finally escapes the catacombs and climbs a lattice to arrive outside her window.
+
+The screen flashes, and the player loses control.  Seemingly nothing has changed.
+
+But now the music is running backwards, and everything the player just did with Tim is running backwards as well.  And as you watch the level unplay itself, a horrible realization creeps up on you.
+
+Remember, this is still World 1, and everything but Tim has been playing out in reverse.
+
+As Tim runs _backwards_ through the catacombs, events take on a completely different meaning.  Tim is now chasing after the princess, not running ahead of her.  The princess isn't clearing obstacles out of the way; she's closing off all the escape routes out of the catacombs.  And she never escaped from the knight — rather, the last we see of her is as she jumps into his arms, and he takes her away from the madman in the basement.
+
+The shift in perspective is absolutely, beautifully, perfect.  The intro levels are simple so the mechanic doesn't stick in your head too hard, and the entire castle level is designed to let you forget that everything else is moving in reverse.
+
+There's an epilogue.  It has some simple platforming, but for the most part it's just more flavor text.  This stuff is a bit more abstract; it speaks of moments of Tim's childhood, of an experimenting scientist, of the birth and death of the world.
+
+## The interpretation
+
+After I played Braid, I was fascinated by the somewhat more mysterious passages in the epilogue.  I scurried to the Internet to see if anyone else had made any deep sense out of them.
+
+I was pretty disappointed with what I found.  The epilogue quotes "Now we are all sons of bitches", and uses the words "radiated" and "ashes".  So it became something of a widespread consensus that the game was _clearly_ one big metaphor for the Manhattan Project.  That interpretation has never made any sense to me, yet everyone who said it seemed to feel very clever for having figured it out.  (The game's author has refused to say what the game is about.)
+
+If you haven't read through [the script][Braid script], now might be a good time.  Remember, this is _all the text in the entire game_.  There are no NPCs, no dialogue; just these glimpses of a story.
+
+I always thought the game was about two things.  The first: _time_, which you have to really stretch to relate to the development of a nuclear bomb.  The second: _Tim_, who is after all the protagonist of both the game and most of the plot text.
+
+It all seems pretty cut and dry to me.  The game is entirely about undoing what we've already done, and Tim wishes to return to the arms of his "princess".  The various worlds are the ways he dwells on her and imagines how things might have gone differently.  Consider also that the prose, despite being written in third-person, is written from Tim's point of view — and we already know Tim is an unreliable narrator.  He said he left the princess, but we _watched her_ run away from him.
+
+Thus I have slightly different interpretations of what the worlds were actually about.  World 2 is the obsession with reliving mistakes, trying to see where he went wrong, and feeling like figuring that out means he's undone the mistake entirely.  World 3 is the uncomfortable discovery that not everything can be so easily undone.  World 4 is his aimless drifting through the world, as time passes him by.  World 5 is confusion between what he _did_ and what he _might have done_, so intertwined that there's no telling which is real.  World 6 is a final memento he obsesses over, a trinket that no longer holds any real meaning but still distorts everything around it from Tim's perspective.
+
+World 1 is the actual breakup.  His princess was stolen away by a knight in shining armor.  He remembers it backwards, because his perspective is just that warped, and that's the only way to preserve his view of events.
+
+This all seems pretty reasonable, right?  Tim is a creep.  You've been playing as a creep the entire time.  Reading through the transcript again now, I can't believe I didn't think he was _ten times creepier_ at the time.  Were they even dating, or was he just stalking her?  If he stalked her, why did he have a wedding ring?  He left other women to go pine over her some more, and they missed him?  Crrrreepy.
+
+But everyone chose to focus on the couple lines about the Manhattan Project, which need some severe contorting to relate to the rest of the game.  Why?
+
+## Why
+
+Watching that longplay of the Braid ripoff, in the context of everything that's happened in the last couple days, I realized something.
+
+Nobody wants to be Tim.
+
+Well, sure.  But it's stronger than that: _nobody wants to believe Tim could exist_.
+
+We played as Tim.  He was just a platformer guy, but we identified with him on some basic level.  He was our little avatar, solving cool time puzzles with us.  We _were_ Tim.
+
+But we don't want to be Tim.  Nobody wants to be Tim.  So instead we want to reach out for something, _anything_ else that will let us not be the Tim the game appears to be presenting to us.  And the epilogue provides us an escape hatch: if the entire game is a metaphor for the atom bomb, then we aren't Tim.  We aren't who the game tells us Tim is, anyway.  We're something else, something fuzzier, something we don't really have to think about.
+
+It doesn't matter that the metaphor doesn't make any sense.  It doesn't matter that more of it is about plain old daily life than about nuclear explosions.  It only matters that it's _not Tim_.
+
+And this, I believe, is the heart of the backlash against `#YesAllWomen` and anyone expressing any real outrage about the UCSB shooting.  Because these things drive home that some people just might be Tim, or worse.  Maybe some of _us_ are Tim.  And we don't want to be Tim, whatever the cost.
+
+So we paint the shooter as "just" mentally ill, crazy, depraved.  We'd call him a religious fundamentalist (read: nut) if we could, or a terrorist if we could, or just a plain old natural criminal if we could.  But we've only got so much to work with here.
+
+We paint lines around him.  Thick, hard lines.  Lines to make it clear that he's nothing like us.  Even the people who fueled his rage, the people who practically identify themselves as antagonists, the people he seemed to identify with, draw these lines.  Not one of us.  Nope.  Never heard of 'im.
+
+Because even they, fundamentally, recognize that they don't want to be Tim.  They want to put Tim as far away from themselves as possible.  They don't want to think about how many other Tims might be in their midst; that's deeply unsettling, and the human mind is great at rationalizing such things away.  So instead of using this as an opportunity to root out the Tims and make the group better by pushing them out, we distance ourselves from this particular Tim, and just don't think about it further.
+
+And that's why Tim was free to do whatever he wanted.  In his whole tale, he never remembered anyone telling him no, or pushing back.  The only time we see anyone really resist Tim in a meaningful way is when the final level runs in reverse and the princess runs away from him — something he doesn't even believe happened.
+
+The most striking part of the epilogue, for me:
+
+> "The candy store. Everything he wanted was on the opposite side of that pane of glass. The store was decorated in bright colors, and the scents wafting out drove him crazy. He tried to rush for the door, or just get closer to the glass, but he couldn't. She held him back with great strength. Why would she hold him back? How might he break free of her grasp? He considered violence."
+> 
+> "They had been here before on their daily walks. She didn't mind his screams and his shrieks, or the way he yanked painfully on her braid to make her stop. He was too little to know better."
+> 
+> "She picked him up and hugged him: "No, baby," she said. He was shaking. She followed his gaze toward treats sitting on pillows behind the glass: the chocolate bar and the magnetic monopole, the It-From-Bit and the Ethical Calculus; and so many other things, deeper inside. "Maybe when you're older, baby," she whispered, setting him back on his feet and leading him home, "Maybe when you're older."
+> 
+> "Every day thereafter, as before, she always walked him on a route that passed in front of the candy store."
+
+Does this sound familiar?  Tim wanted the candy, but she wouldn't let him have it.  He felt entitled to it, he got violent over it as best he could.  And when he couldn't have it, he grew to resent her for taunting him with it, even though to her it was just the usual route home.
+
+How far is it from Tim to Elliot Rodger?
+
+How many Tims are we enabling by refusing to acknowledge that he already exists, that we're creating and nurturing Tims all the time?
+
+Even one is too many.  In our world, _everything_ has green sparkles.
+
+## As for Tim
+
+Enough heavy stuff.  Let's talk about World 1 a bit.
+
+Trick question: where does the story end?  Is it where the game ends, in World 1, or is it where the numbering ends, in World 6?
+
+Or...  is it both?  Is this one big cycle, as Tim hops from princess to princess, and the game begins anew?  Is it his own cycle, of reliving his time with her over and over?
+
+Ah, but there's something else about World 1.
+
+The game has 8 stars hidden throughout it, generally not even _visible_ without some outrageously finnicky puzzle solving.  But if you manage to find 7 of them, something changes in the final level.  Two of the switches in the catacombs now have green sparkles.
+
+It's a very subtle change, but it means that Tim can throw a switch, reverse time, and now go through the passage he opened _earlier_ than he could've otherwise.  It's a small difference, but it's enough to let Tim run so far ahead that the wall of fire, the wall of causality, falls off the screen entirely.
+
+In fact, he gets so far ahead that he gets _ahead_ of the princess before she reaches her bedroom.  He's already nearby and waiting when she springs her last (actually first) distraction on him: dropping a chandelier.  And with some well-timed jumping, Tim can hop on the chandelier as it un-falls upwards, and ride it up to the ceiling.
+
+Tim **catches up to the princess.**
+
+The screen whites out, more violently than before.  When it returns, the princess is gone.  The music is gone.
+
+In her bedroom, directly above her bed, Tim finds the final 8th star.  Then there's nothing left to do but run back to the beginning, leave through a previously inaccessible door, and see the epilogue again.
+
+I love this, by the way.  The slightest change in the level design changes absolutely everything.
+
+If World 1 truly is the beginning of a cycle, then getting all the stars is the end of it.  Because there _is_ no princess after that.  He caught up with her, and she was a phantom.  And since it's World 1, where time moves backwards, this last level is really the first level of the game.  Without a princess, none of the rest of it needs to happen.  Tim is free.
+
+You can only find the stars by replaying the game at least one more time, and the original 360 version had a speedrun achievement to encourage you to play it a few more times.  So you really do get to see Tim jump through the same hoops over and over again.
+
+But the stars are different.  The stars are new.  The stars are things you — and thus Tim — never noticed the first time around.  The stars require patience and careful thought to find.  And only once you, and Tim, have found all these moments hidden away in Tim's romanticized memories, can Tim get a different ending.
+
+I can't know what the game's author was truly going for, but I'm content to believe that it's this: maybe we can't undo what we've done, but there's always hope for Tim going forward, with a little help from someone willing to stick through it with him.
+
+I leave you with the very end of the epilogue:
+
+> "He cannot say he understood all of this. Possibly he's more confused now than ever. But all these moments he's contemplated — something has occurred. The moments feel substantial in his mind, like stones. Kneeling, reaching down toward the closest one, running his hand across it, he finds it smooth, and slightly cold."
+> 
+> "He tests the stone's weight; he finds he can lift it, and the others too. He can fit them together to create a foundation, an embankment, a castle."
+> 
+> "To build a castle of appropriate size, he will need a great many stones. But what he's got, now, feels like an acceptable start."
+
+If you're interested: [Braid's climax](http://www.youtube.com/watch?v=f1hRReQkaBs), and [Braid's secret climax](http://www.youtube.com/watch?v=BuQFBJvyFG4).
+
+
+[Braidple Story]: https://www.youtube.com/watch?v=UsUihT9hD2s
+[Braid script]: http://en.wikiquote.org/wiki/Braid
