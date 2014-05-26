@@ -1,6 +1,12 @@
+from __future__ import print_function
+
+from datetime import datetime
+from io import open
+import os
+import sys
+
 from fabric.api import *
 import fabric.contrib.project as project
-import os
 
 # Local path configuration (can be absolute or relative to fabfile)
 env.deploy_path = 'output'
@@ -20,6 +26,28 @@ def clean():
     if os.path.isdir(DEPLOY_PATH):
         local('rm -rf {deploy_path}'.format(**env))
         local('mkdir {deploy_path}'.format(**env))
+
+def new(title):
+    from pelican.utils import slugify
+    now = datetime.now()
+    fn = "content/{date:%Y-%m-%d}-{slug}.markdown".format(
+        date=now,
+        slug=slugify(title),
+    )
+
+    with open(fn, 'w', encoding='utf8') as f:
+        f.write(u"title: {}\n".format(title))
+        f.write(u"date: {:%Y-%m-%d %H:%M}\n".format(now))
+        f.write(u"category: UNCATEGORIZED\n")
+        f.write(u"status: draft\n")
+        f.write(u"\n")
+
+    print("Created new post as {}".format(fn))
+    sys.stdout.flush()
+
+    # Switch to the editor
+    EDITOR = os.environ['EDITOR']
+    os.execlp(EDITOR, EDITOR, fn)
 
 def build():
     local('pelican -s pelicanconf.py')
