@@ -28,14 +28,12 @@ Here are some photos of my poor darling car.  Consider this a test of this [fanc
 
 <!-- more -->
 
-{% gallery %}
-/media/2012-12/crash-back.jpg
-/media/2012-12/crash-below.jpg
-/media/2012-12/crash-corner.jpg
-/media/2012-12/crash-side.jpg
-/media/2012-12/crash-other-corner.jpg
-/media/2012-12/crash-other-front.jpg
-{% endgallery %}
+{% photo /media/2012-12/crash-back.jpg %}
+{% photo /media/2012-12/crash-below.jpg %}
+{% photo /media/2012-12/crash-corner.jpg %}
+{% photo /media/2012-12/crash-side.jpg %}
+{% photo /media/2012-12/crash-other-corner.jpg %}
+{% photo /media/2012-12/crash-other-front.jpg %}
 
 By the way: she was elderly, and had a handicap permit hanging from her rear-view mirror.  Were you envisioning a young adult or middle-aged woman?  How does the story change, now?  I don't know.
 
