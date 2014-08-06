@@ -360,13 +360,16 @@ First I have to install some Ruby thing, naturally.  Let us pause for twenty min
 
 I seem to need a pip-style `requirements.txt` (just a list of Python distributions, one per line) and a `Procfile` (which tells heroku how to launch my thing).  There are [instructions for Flask][heroku flask], but as I already made an app, I'm just beating what I have into submission with minimal changes.  And some trial and error.
 
-{% codeblock requirements.txt lang:text https://github.com/eevee/guestbook_demo/blob/f047a4c1e7315eab48d30d9974f72466f262970b/requirements.txt %}
-Flask>=0.8
-SQLAlchemy>=0.7
-psycopg2
+###### [requirements.txt](https://github.com/eevee/guestbook_demo/blob/e4ed3a09b271ba00db924391386dc701aa19e084/requirements.txt)
 ```
-{% codeblock Procfile %}
-web: python -m guestbook_demo
+    Flask>=0.8
+    SQLAlchemy>=0.7
+    psycopg2
+```
+
+###### [Procfile](https://github.com/eevee/guestbook_demo/blob/e4ed3a09b271ba00db924391386dc701aa19e084/Procfile)
+```
+    web: python -m guestbook_demo
 ```
 
 Other changes:
