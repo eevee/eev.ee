@@ -72,7 +72,7 @@ MD_EXTENSIONS = [
 ]
 
 PATH = 'content/'
-PAGE_DIR = '../pages/'
+PAGE_PATHS = ['../pages/']
 STATIC_PATHS = ['favicon.png', 'media']
 
 # URL schema; compatible with Octopress, but i happen to like it anyway
@@ -108,7 +108,7 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 import eeveeblog.liquid_photo
 
-PLUGIN_PATH = "pelican-plugins.git"
+PLUGIN_PATHS = ["pelican-plugins.git"]
 PLUGINS = [
     eeveeblog.liquid_photo,
     'summary'
