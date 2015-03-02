@@ -20,7 +20,7 @@ This is a brain dump, not a linear narrative, so some of this might be mutually 
 
 3. **Convenience**.  We like to say "expressiveness" or "elegance" or "ease of use" but honestly I just want to splort out some code with as few arbitrary hurdles as possible.  Note that this is somewhat at odds with familiarity, since extreme brevity makes code more obtuse.
 
-4. **Rigor**.  I really don't like C-derived static typing, but I _love_ being able to statically reason about code without having to run it.  That's what humans do all the time, but we have relatively primitive automated tools for doing the same.  So I would like to have lots of that, without getting stuck in the existing box of "let's static types that look a lot like java, well that's the best that we can do, I guess we're done here".
+4. **Rigor**.  I really don't like C-derived static typing, but I _love_ being able to statically reason about code without having to run it.  That's what humans do all the time, but we have relatively primitive automated tools for doing the same.  So I would like to have lots of that, without getting stuck in the existing box of "let's add static types that look a lot like Java, well that's the best that we can do, I guess we're done here".
 
 5. **Locality**.  A stronger and better-defined constraint than "readability".  I want to maximize how much I can know about runtime context for a given line of code, while minimizing how much stuff I have to read (or, worse, hunt down).  Brevity is part of this: an idea that seems simple to humans should ideally take less code to express.  Namespacing is another part: if I see a function name I don't recognize, I want to know where it came from as easily as possible.
 
@@ -919,15 +919,15 @@ I had a couple thoughts about this.
 
     I'm not proposing that dicts and lists actually be _removed_ in favor of a larger and more complex structure.  But this might be a useful thing to have exist, and if it does, it would be nice for it to have an API that lists and dicts and the like could emulate.
 
-* Sometimes, we do this:
+* Different data structures have different performance characteristics for different operations.  Sure.  We know this.
 
-    ```python
-    x = [1, 2, 3]
-    if 3 in x:
-        ...
-    ```
+    But sometimes, we write code like this anyway:
 
-    Tut, tut.  That should really be a set!  It's much faster, O(1).
+        x = [1, 2, 3]
+        if 3 in x:
+            ...
+
+    Tut, tut.  That should really be a set!  It's much faster, O(1), for some value of 1.
 
     This seems so ridiculous.  I have a computer.  Can't it figure that out for me and use the right data structure?
 
@@ -951,7 +951,7 @@ With all the stuff about types and semantics out of the way, here are some other
 
 - Can `if foo == 1 or 2` possibly work?  It's a common enough error.  Perl 6 has a whole thing called _junctions_ that are simultaneously multiple values, so you can actually write `if $foo == 1 | 2`, but I don't think I want to go down that route.
 
-    Maybe it could just be a compile-time error/warning when constant folding eliminates an entire condition like that.  (Unless it's `if False and...`, which I use for debugging.)o
+    Maybe it could just be a compile-time error/warning when constant folding eliminates an entire condition like that.  (Unless it's `if False and...`, which I use for debugging.)
 
 - It'd be slick to be able to tell if this is the first or last iteration of a loop.  I don't know how to do that without having a magical loop value.  Maybe it could be done in a library.
 
