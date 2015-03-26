@@ -1,0 +1,57 @@
+{% extends '_base.html' %}
+{% import '_lib.html' as lib with context %}
+
+{% block entirebody %}
+    <img src="/theme/images/home-eevee.png" alt="drawing of an eevee" class="home-eevee">
+
+    <section class="home-words">
+        {{ page.content }}
+    </section>
+
+    <section class="home-links">
+        <a href="/about" style="background-color: #a5634a; background-image: url(/theme/images/logo-eevee.png);">
+            <h1>me</h1>
+            <p>fascinating but true facts about yours truly</p>
+        </a>
+        <a href="/blog" style="background-color: #f6b441; background-image: url(/theme/images/logo-blog.png);">
+            <h1>blog</h1>
+            <p>detailed, thoughtful prose about why computers are the worst</p>
+        </a>
+        <a href="/projects" style="background-color: #0883a4; background-image: url(/theme/images/logo-code.png);">
+            <h1>code, etc.</h1>
+            <p>things i have made with the aid of computers, beep boop</p>
+        </a>
+        <a href="http://lexyeevee.tumblr.com/tagged/my+art" style="background-color: #41c518; background-image: url(/theme/images/logo-doodles.png);">
+            <h1>doodles</h1>
+            <p>i'm learning to draw, here are the results!</p>
+        </a>
+        <a href="http://lexyeevee.tumblr.com/tagged/sphynx" style="background-color: #deb46a; background-image: url(/theme/images/logo-cats.png);">
+            <h1>cats</h1>
+            <p>our house is overrun with them, they are the best</p>
+        </a>
+
+        <hr>
+
+        <a href="mailto:eevee.fuzzynotepad@veekun.com" style="background-color: #9966cc; background-image: url(/theme/images/logo-email.png);">
+            <h1>email</h1>
+            <p>like sending a facebook message, but with less facebook</p>
+        </a>
+        <a href="https://twitter.com/eevee" style="background-color: #55acee; background-image: url(/theme/images/logo-twitter.png);">
+            <h1>twitter</h1>
+            <p>follow me for bad nerd jokes and the occasional yelling</p>
+        </a>
+        <a href="https://github.com/eevee/" style="background-color: #4183c4; background-image: url(/theme/images/logo-github.png);">
+            <h1>github</h1>
+            <p>all the code i've ever written and then abandoned</p>
+        </a>
+        <a href="https://www.patreon.com/eevee" style="background-color: #ff5900; background-image: url(/theme/images/logo-patreon.png);">
+            <h1>patreon</h1>
+            <p>force me to blog more often, via dollars</p>
+        </a>
+        <a href="https://cash.me/$eevee" style="background-color: #29c501; background-image: url(/theme/images/logo-square-cash.png);">
+            <h1>square cash</h1>
+            <p>just plain give me money, i don't know why you would do this</p>
+        </a>
+    </section>
+
+{% endblock %}

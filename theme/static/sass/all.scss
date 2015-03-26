@@ -101,7 +101,7 @@ html {
     // This has to be on the root element for rem to work
     font-size: 14px;
 
-    background: url(/theme/images/stardust.png) hsl(240, 30%, 10%);
+    background: url(/theme/images/concrete_seamless.png) hsl(240, 30%, 10%);
 }
 body {
     width: 100%;
@@ -209,7 +209,14 @@ body > #main {
 body > footer {
     margin: 0.5em 0 4em;
     color: $offwhite;
+    text-transform: lowercase;
 
+    @include flexbox;
+    @include justify-content(space-between);
+
+    p {
+        margin: 0;
+    }
     a {
         color: scale-color($link-normal, $lightness: 30%);
 
@@ -219,10 +226,6 @@ body > footer {
         &:hover {
             color: scale-color($link-hover, $lightness: 30%);
         }
-    }
-
-    .powered-by {
-        float: right;
     }
 }
 
@@ -453,6 +456,89 @@ article {
 
 ////////////////////////////////////////////////////////////////////////////////
 // SPECIFIC PAGES
+
+// -----------------------------------------------------------------------------
+// HOMEPAGE
+
+.home-eevee {
+    display: block;
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 1em;
+
+    @include phone-size {
+        float: none;
+        margin: 0 auto 1em;
+    }
+}
+section.home-words {
+    margin: 2em 1em;
+
+    color: $offwhite;
+
+    p {
+        font-size: 1.33em;
+    }
+}
+section.home-links {
+    clear: both;
+    margin: 1em;
+
+    hr {
+        height: 1em;
+        border: none;
+    }
+    > a {
+        $height: 4em;  // roughly!  box might end up taller
+
+        display: block;
+        position: relative;
+        padding: 0.5em 1em;
+        padding-right: $height * 1.5;  // leave space for the bg image
+        margin: 1em 0;
+        line-height: 1.25;
+
+        background-color: #808080;
+        background-size: auto $height;
+        background-position: right 0.5em top 0.5em;
+        background-repeat: no-repeat;
+        border-radius: 0.5em;
+        border: 1px solid rgba(black, 0.8);
+        box-shadow:
+            inset 0 0 0 ($height * 10) rgba(black, 0.2),
+            inset 0 -$height ($height * 2) ($height * -0.9) rgba(black, 0.5),
+            inset 0 0 3px rgba(white, 0.5);
+
+        color: white;
+        text-decoration: none;
+
+        h1 {
+            font-size: 2em;
+            margin: 0;
+            font-family: inherit;
+            font-weight: bold;
+            text-align: left;
+            text-shadow:
+                0.5px 0.5px 0.5px black,
+                -0.5px 0.5px 0.5px black,
+                0.5px -0.5px 0.5px black,
+                -0.5px -0.5px 0.5px black;
+        }
+        p {
+            margin: 0;
+            color: #e0e0e0;
+            text-shadow: 0.5px 0.5px 0.5px #202020;
+        }
+
+        transition: box-shadow linear 0.2s;
+        &:hover {
+            box-shadow:
+                inset 0 0 0 ($height * 10) rgba(black, 0),
+                inset 0 -$height ($height * 2) ($height * -0.9) rgba(black, 0.5),
+                inset 0 0 3px rgba(white, 0.5);
+        }
+    }
+}
 
 // -----------------------------------------------------------------------------
 // ARCHIVES
