@@ -115,12 +115,21 @@ body {
 }
 
 body > header {
-    //background: hsl(215, 30%, 50%);
+    margin-top: 2em;
+    background: url(/theme/images/home-eevee.png) top left no-repeat;
 
+    @include tablet-size {
+        margin-top: 1em;
+        background: none;
+    }
+
+    // main site title
     h1 {
         font-size: 4em;
         margin: 0.5em 0 0;
-        padding: 2rem;
+        // nudge it into the space to the right of eevee's ears
+        margin-left: 175px;
+        padding: 0;
         font-family: 'Love Ya Like A Sister', cursive;
         font-weight: normal;  // bold doesn't work well with that font
         color: $offwhite;
@@ -132,6 +141,10 @@ body > header {
             }
         }
 
+        @include tablet-size {
+            // compensate for lack of huge background
+            margin: 0.25em;
+        }
         @include phone-size {
             font-size: 2em;
             padding: 1rem;
@@ -139,15 +152,10 @@ body > header {
     }
 
     nav {
-        @include flexbox;
+        position: relative;
         padding: 0;
-        //background: hsl(215, 30%, 40%);
-        background: hsl(215, 30%, 30%);
+        text-align: right;
 
-        .main-navigation {
-            @include flex(1);
-            @include order(1);
-        }
         .site-search {
             @include order(2);
         }
@@ -155,6 +163,9 @@ body > header {
             @include order(3);
         }
 
+        form {
+            margin: 0.5em 0;
+        }
         ul, ol {
             margin: 0;
             padding: 0;
@@ -167,18 +178,89 @@ body > header {
         }
 
         a {
-            display: block;
-            padding: 0.5em 1em;
-
             &, &:visited, &:hover {
                 color: $offwhite;
             }
             &:hover {
                 background: hsl(215, 30%, 25%);
             }
+        }
 
-            img {
-                vertical-align: middle;
+        img, input {
+            vertical-align: middle;
+        }
+    }
+
+    .eevee-navigation-tabs {
+        $size: 2rem;
+        $padding: 0.5rem;
+        $total-size: $size + $padding * 2;
+
+        > li.-empty {
+            width: $padding;
+        }
+        > li {
+            background-color: lightgray;
+            vertical-align: bottom;
+
+            > a {
+                display: block;
+                position: relative;
+                z-index: 0;
+                width: $size;
+                height: $size;
+                padding: $padding;
+                line-height: $size;
+                border: 1px solid rgba(black, 0.5);
+                border-bottom: none;
+
+                background-image: linear-gradient(to bottom, rgba(black, 0.2), rgba(black, 0.4));
+                background-color: inherit;
+                text-align: center;
+
+                > img {
+                    max-height: $size;
+                    max-width: $size;
+                    vertical-align: middle;
+                    opacity: 0.9;
+                }
+            }
+            > .-details {
+                position: absolute;
+                z-index: 1;
+                height: 0;
+                left: 0;
+                right: 0;
+                margin-top: -1px;
+                overflow: hidden;
+
+                text-align: left;
+                color: #f0f0f0;
+                background-image: linear-gradient(to bottom, rgba(black, 0.4), rgba(black, 0.45));
+                background-color: inherit;
+                box-shadow: inset 0 0 0 1px rgba(black, 0.5);
+                text-shadow: 0.5px 0.5px 0.5px #202020;
+
+                transition: height 0.1s linear;
+
+                > h2 {
+                    font-size: 1.2em;
+                    float: left;
+                    padding-right: 1.33rem;
+                }
+                > h2, > p {
+                    margin: 0.33rem;
+                    line-height: 1.33rem;
+                }
+            }
+
+            &:hover {
+                > a {
+                    z-index: 2;
+                }
+                > .-details {
+                    height: 2rem;
+                }
             }
         }
     }
@@ -214,6 +296,11 @@ body > footer {
     @include flexbox;
     @include justify-content(space-between);
 
+    @include tablet-size {
+        // no flexbox; just stack em
+        display: block;
+    }
+
     p {
         margin: 0;
     }
@@ -226,6 +313,9 @@ body > footer {
         &:hover {
             color: scale-color($link-hover, $lightness: 30%);
         }
+    }
+    img {
+        vertical-align: middle;
     }
 }
 
@@ -343,6 +433,9 @@ article, #content section {
     padding: 3em 4em;
     font-family: $font-prose;
 
+    @include tablet-size {
+        padding: 2em;
+    }
     @include phone-size {
         padding: 1em;
     }

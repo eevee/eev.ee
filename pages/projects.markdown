@@ -2,6 +2,10 @@ title: Projects
 date: 2012-10-16 19:02
 comments: true
 sharing: false
+home-title: code, etc.
+home-color: #0883a4
+home-image: logo-code.png
+home-desc: things i have made with the aid of computers, beep boop
 
 I like to tinker.  Here are some things I'm tinkering with.  Few of them are finished, but some of them are useful, and all of them would appreciate a pull request...
 

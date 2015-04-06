@@ -1,33 +1,61 @@
 <ul class="subscription" data-subscription="rss">
-    {% if FEED_ATOM %}
+    {% if FEED_ATOM or 1 %}
     <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="subscribe-atom">
-        <img src="/theme/images/feed-icon-14x14.png" alt="">
-            Atom</a></li>
+        <img src="/theme/images/feed-icon-14x14.png" alt="Atom feed">
+            Atom </a></li>
     {% endif %}
     {% if FEED_RSS %}
     <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="subscribe-rss">
-        <img src="/theme/images/feed-icon-14x14.png" alt="">
-            RSS</a></li>
+        <img src="/theme/images/feed-icon-14x14.png" alt="RSS feed">
+            RSS </a></li>
     {% endif %}
 </ul>
 
 {% if SEARCH_BOX %}
-<form action="{{ SITESEARCH|default('http://google.com/search') }}" method="get" class="site-search">
-    <fieldset role="search">
-        <input type="hidden" name="q" value="site:{{SITEURL|replace('https://','')|replace('http://','') }}" />
-        <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-    </fieldset>
+<form action="{{ SITESEARCH|default('http://google.com/search') }}" method="get" class="site-search" role="search">
+    <input type="hidden" name="q" value="site:{{SITEURL|replace('https://','')|replace('http://','') }}">
+    <input class="search" type="search" name="q" results="0" placeholder="Search">
 </form>
 {% endif %}
 
-<ul class="main-navigation">
-    <li><a href="{{ SITEURL }}/">Blog</a></li>
-{% for title, link in MENUITEMS %}
-    <li><a href="{{ link }}">{{ title }}</a></li>
-{% endfor %}
-{% if DISPLAY_PAGES_ON_MENU %}
+{% macro _render_link(title, url, color, image, desc) %}
+    <li style="background-color: {{ color }};">
+        <a href="{{ url }}">
+            <img src="{{ SITEURL }}/theme/images/{{ image }}" alt="{{ title }}">
+        </a>
+        <div class="-details">
+            <h2>{{ title }}</h2>
+            <p>{{ desc }}</p>
+        </div>
+    </li>
+{% endmacro %}
+
+<ul class="eevee-navigation-tabs">
+    <li style="background-color: #f6b441;">
+        <a href="{{ SITEURL }}/{{ INDEX_URL }}">
+            <img src="{{ SITEURL }}/theme/images/logo-blog.png" alt="blog">
+        </a>
+        <div class="-details">
+            <h2>blog</h2>
+            <p>detailed, thoughtful prose about why computers are the worst</p>
+        </div>
+    </li>
     {% for page in PAGES %}
-    <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+        {{ _render_link(
+            title=page.metadata.get('home-title', page.title),
+            url=SITEURL + "/" + page.url,
+            color=page.metadata.get('home-color'),
+            image=page.metadata.get('home-image'),
+            desc=page.metadata.get('home-desc', ''),
+        ) }}
     {% endfor %}
-{% endif %}
+    {% for linkdef in LINKS_EX %}
+        {{ _render_link(*linkdef) }}
+    {% endfor %}
+
+    <li class="-empty"></li>
+
+    {% for linkdef in SOCIAL_EX %}
+        {{ _render_link(*linkdef) }}
+    {% endfor %}
 </ul>

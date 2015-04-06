@@ -17,19 +17,49 @@ FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
-# Blogroll
-# TODO lol these don't exist in my theme and i'm not sure whether i care??
-LINKS =  (('Pelican', 'http://getpelican.com/'),
-          ('Python.org', 'http://python.org/'),
-          ('Jinja2', 'http://jinja.pocoo.org/'),
-          ('You can modify those links in your config file', '#'),)
-
-# Social cruft
-# TODO theme doesn't support this, but i'd kinda like it for the main page
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+# Links and social cruft
+# NOTE: These aren't called just LINKS and SOCIAL because those are assumed by
+# the default theme to be 2-tuples, but I need more info.
+LINKS_EX = ((
+    'doodles',
+    'http://lexyeevee.tumblr.com/tagged/my+art',
+    '#41c518', 'logo-doodles.png',
+    "i'm learning to draw, here are the results!",
+), (
+    'cats',
+    'http://lexyeevee.tumblr.com/tagged/sphynx',
+    '#deb46a', 'logo-cats.png',
+    "our house is overrun with them and they are the best",
+))
+SOCIAL_EX = ((
+    'email',
+    'mailto:eevee.fuzzynotepad@veekun.com',
+    '#9966cc', 'logo-email.png',
+    "like sending a facebook message, but with less facebook",
+), (
+    'twitter',
+    'https://twitter.com/eevee',
+    '#55acee', 'logo-twitter.png',
+    "follow me for bad nerd jokes and yelling about computers",
+), (
+    'github',
+    'https://github.com/eevee/',
+    '#4183c4', 'logo-github.png',
+    "a mausoleum for all the code i've ever written, then abandoned",
+), (
+    'patreon',
+    'https://www.patreon.com/eevee',
+    '#ff5900', 'logo-patreon.png',
+    "force me to blog more often, with dollars",
+), (
+    'square cash',
+    'https://cash.me/$eevee',
+    '#29c501', 'logo-square-cash.png',
+    "just plain give me money.  i don't know why you would do this",
+))
 TWITTER_USERNAME = 'eevee'
 GITHUB_URL = 'https://github.com/eevee'
+SEARCH_BOX = True
 
 DEFAULT_PAGINATION = 17
 DEFAULT_ORPHANS = 4
@@ -74,6 +104,11 @@ MD_EXTENSIONS = [
 PATH = 'content/'
 PAGE_PATHS = ['../pages/']
 STATIC_PATHS = ['favicon.png', 'media']
+
+# For the landing page
+TEMPLATE_PAGES = {
+    '../theme/templates/home.html': 'index.html',
+}
 
 # URL schema; compatible with Octopress, but i happen to like it anyway
 ARCHIVES_URL = 'blog/archives/'  # doesn't officially exist but whatever

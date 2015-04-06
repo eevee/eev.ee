@@ -2,6 +2,10 @@ title: About
 date: 2012-10-16 19:02
 comments: false
 sharing: false
+home-title: me
+home-color: #a5634a
+home-image: logo-eevee.png
+home-desc: fascinating but true facts about yours truly
 
 Hello!  I'm Eevee.  I do also have a legal name, but it doesn't see much use outside of forms and bills.  I respond to any pronoun; pick your favorite.
 
