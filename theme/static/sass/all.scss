@@ -234,7 +234,7 @@ body > header {
                 margin-top: -1px;
                 overflow: hidden;
 
-                text-align: left;
+                text-align: right;
                 color: #f0f0f0;
                 background-image: linear-gradient(to bottom, rgba(black, 0.4), rgba(black, 0.45));
                 background-color: inherit;
@@ -245,12 +245,11 @@ body > header {
 
                 > h2 {
                     font-size: 1.2em;
-                    float: left;
-                    padding-right: 1.33rem;
                 }
                 > h2, > p {
-                    margin: 0.33rem;
-                    line-height: 1.33rem;
+                    display: inline-block;
+                    margin: 0.5rem;
+                    line-height: 1.5rem;
                 }
             }
 
@@ -259,7 +258,7 @@ body > header {
                     z-index: 2;
                 }
                 > .-details {
-                    height: 2rem;
+                    height: 2.5rem;
                 }
             }
         }
