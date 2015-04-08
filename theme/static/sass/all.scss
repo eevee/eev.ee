@@ -371,6 +371,24 @@ body > footer {
     }
 }
 
+.oh-wow-patreon {
+    overflow: hidden;  // float containment
+    font-style: italic;
+
+    figure {
+        float: left;
+        margin: 0;
+        margin-right: 1em;
+
+        img {
+            height: (186px / 2);
+        }
+    }
+    figcaption {
+        font-size: 0.83em;
+    }
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // SIDEBAR
