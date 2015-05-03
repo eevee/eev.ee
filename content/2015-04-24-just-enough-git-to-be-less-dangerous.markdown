@@ -266,7 +266,7 @@ _Or_, you can crack `~/.gitconfig` open in a text editor, because it's a goddamn
 
 ### Before you do ANYTHING, set your name and email
 
-As we know, every Git commit has a name and an email address attached to it, because Git was devised by people who literally cannot imagine any workflow centered on email.  (Yes, this means your GitHub email address is effectively public, even if it's not obviously exposed on the website.)
+As we know, every Git commit has a name and an email address attached to it, because Git was devised by people who literally cannot imagine any workflow not centered on email.  (Yes, this means your GitHub email address is effectively public, even if it's not obviously exposed on the website.)
 
 If you don't tell Git your name, _it will have to guess_, and it will guess badly.  It will take your name from the "real name" field of `/etc/passwd` (which might be okay), and it will take your email from your login name plus the hostname of your computer (which is certain to be utter nonsense, unless you are on a university server and it's 1983).  And you can't fix them retroactively because they're part of a commit, and commits are immutable-ish.
 
