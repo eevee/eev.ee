@@ -176,7 +176,7 @@ If it's an old checkout and you don't remember whether you've done anything, you
 
 `git branch <name>` creates a new branch based on the commit you have checked out, but doesn't switch to it.  You generally want something like `git checkout -b <name> origin/master` instead, which creates the new branch based on `origin/master` and also checks it out.
 
-`git checkout <branch>` sets your current branch and checks out that state of the codebase.  You can also check out a remote branch, a tag, or an individual commit, but these will unset your current branch, and you'll get warnings about having a "detached HEAD".  That literally means `HEAD` doesn't point to a branch, and if you make new commits, they won't have anything pointing to them and will be easy to lose.
+`git checkout <branch>` sets your current branch and checks out that state of the codebase.  You can also check out a remote branch, a tag, or an individual commit, but these will unset your current branch, and you'll get warnings about having a "detached HEAD".  That literally means `HEAD` (which is a special name that always points to what you have checked out) doesn't point to a branch, and if you make new commits, they won't have anything pointing to them and will be easy to lose.
 
 `git add` tells Git about new files you've created that you'd like to have in the next commit.
 
@@ -186,7 +186,7 @@ If it's an old checkout and you don't remember whether you've done anything, you
 
 `git commit -a` will pop open a text editor to ask for a commit message, then make a commit from all the changes you've made to all the files Git knows about.
 
-Something in the Git model I didn't mention yet: there's a thing called the "index" or "staging area" or sometimes "cache".  (I don't know why it needs so many names.)  This is what you've said you're _going_ to commit.  When you use `git add` and friends, any changes to a file (or the whole thing, if it's a new file) are _staged_ and show up in yellow in `git status`.  Unstaged changes are listed separately, in green.  If you use a plain `git commit` without `-a`, only staged changes become part of the commit.  This is pretty useful at times, because it lets you do a bunch of exploratory work and then parcel it into several commits for future archaeologists.  (If you're feeling fancy, look into `git add -p`.)  But you can just use `git commit -a` every time if you want.  Hell, you don't even need `git add`; you can just pass a list of files to `git commit`.
+Something in the Git model I didn't mention yet: there's a thing called the "index" or "staging area" or sometimes "cache".  (I don't know why it needs so many names.)  This is what you've said you're _going_ to commit.  When you use `git add` and friends, any changes to a file (or the whole thing, if it's a new file) are _staged_ and show up in their own section in `git status`.  Unstaged changes are listed beneath them.  If you use a plain `git commit` without `-a`, only staged changes become part of the commit.  This is pretty useful at times, because it lets you do a bunch of exploratory work and then parcel it into several commits for future archaeologists.  (If you're feeling fancy, look into `git add -p`.)  But you can just use `git commit -a` every time if you want.  Hell, you don't even need `git add`; you can just pass a list of files to `git commit`.
 
 
 ### Okay now how do I get it anywhere
@@ -196,6 +196,35 @@ By pushing, which just means bumping one or more branches on a particular remote
 `git push <remote> <branch>` will push your branch to a branch of the same name to a remote.  If you're using a GitHub fork, then you probably have a single remote called "origin" which is your fork, and you are probably just working on the master branch.  So you can do `git push origin master` and everything will be okay.
 
 You can also do `git push` bare, which will usually do something useful.  The default behavior for this has changed a couple times in recent releases, so I'm out of the habit of using it, but the current behavior is pretty safe and is basically: push the current branch to a remote branch of the same name.
+
+
+### Merge conflicts
+
+If you do a merge, or a pull, or (God forbid) a rebase, it's possible your changes will conflict with someone else's.  Git will stop the merge with "Automatic merge failed; blah blah error message".  If you look in `git status`, you'll see a new section for conflicting files.  You have to fix those to finish the merge, or really do much of anything.
+
+Pop open a conflicting file and you'll find something like this:
+
+    <<<<<<< HEAD
+    something you changed
+    =======
+    something someone else changed
+    >>>>>>> origin/master
+
+(The `diff3` conflict style can improve this somewhat; see the section on configuration below.)
+
+This tells you that two people changed the same lines in the same file, in different ways, and Git doesn't know what the final result should look like.  The first part, labeled `HEAD`, is what your copy of the file looks like (`HEAD` is just a special pointer to the commit or branch you have checked out); the second part is what the other branch's copy of the file looks like.
+
+If you're lucky, the "conflict" is just some jackass fixing a whitespace error, or both of you adding imports in the same place, or some other trivial thing.  Edit the file to look how you want, and `git add` it to tell Git that it's ready to go.  Once all the conflicts are fixed and all the files are `git add`ed, do a plain `git commit` to finish the merge.
+
+If you're unlucky, someone did a huge refactor while you were fixing a small bug and the entire file conflicts and you are now completely screwed.  You may want to `git merge --abort` to cancel the merge, create a new branch based on current `master`, and re-apply your changes manually.
+
+A couple miscellaneous notes:
+
+* **Double-check that you've actually fixed all the conflicts.**  Git **WILL NOT** prevent you from committing conflict markers!
+
+* Sometimes, the conflict is that one side edited a file, and the other side _deleted_ that file.  When this happens, Git will tell you who did the deletion.  I mostly encounter this when doing an automated reformatting or refactor or whatever, in which case I don't actually care about the file that was deleted; if that's the case, you can just `git rm` it.
+
+* There's a semi-interactive `git mergetool` command you can use during a conflict, which will pop open your merge resolution program for each conflicting file.  For me, that's `vimdiff`, which I just never got in the habit of using, so I don't use this very often.  YMMV.
 
 
 ### Oh my god what have I done
@@ -225,6 +254,80 @@ There's a whole bunch of syntax for specifying commits or ranges of commits.  Yo
 There's more of this in `man gitrevisions`, but honestly I've never used 80% of it.
 
 A lot of commands can take both commit names and paths, which is a little ambiguous, especially since branch names can contain slashes.  All such commands should respect the convention of using a `--` argument to mean "everything after here is a filename".
+
+
+## Useful configuration
+
+I don't have much in [my .gitconfig](https://github.com/eevee/rc/blob/master/.gitconfig), but I'm pretty fond of a few things in there, so maybe you will enjoy them too.  If you use Git very heavily at all, it might be worth taking a flick through `man git-config`, for one of its many twiddles may address an aggravating UX problem you have.
+
+You can query your Git configuration with `git config foo.bar.baz`.  You can also edit it with `git config --global foo.bar.baz value`, where the `--global` will change your `~/.gitconfig` file (which applies to any repo you work with), and omitting it will change `.git/config` (which only applies to that repository).
+
+_Or_, you can crack `~/.gitconfig` open in a text editor, because it's a goddamn INI file and those are not rocket science.  Let's pretend we're doing that instead.
+
+### Before you do ANYTHING, set your name and email
+
+As we know, every Git commit has a name and an email address attached to it, because Git was devised by people who literally cannot imagine any workflow centered on email.  (Yes, this means your GitHub email address is effectively public, even if it's not obviously exposed on the website.)
+
+If you don't tell Git your name, _it will have to guess_, and it will guess badly.  It will take your name from the "real name" field of `/etc/passwd` (which might be okay), and it will take your email from your login name plus the hostname of your computer (which is certain to be utter nonsense, unless you are on a university server and it's 1983).  And you can't fix them retroactively because they're part of a commit, and commits are immutable-ish.
+
+So the first three lines of your `.gitconfig` should probably fix those:
+
+    [user]
+        name = Eevee (Alex Munroe)
+        email = eevee.git@veekun.com
+
+Easy peasy.
+
+### The default colors are horrendous garbage
+
+A previous revision of this article suggested that `git status` shows changed files in green, and staged files in yellow.  Someone expressed surprise at these colors, because they always see the reverse.
+
+Some brief investigation revealed that I have actually had the colors customized in my `.gitconfig` for my entire Git career, and in fact I _had no idea_ what the default colors were.  So I commented them out and played with Git for a while.
+
+What I saw horrified and dismayed me.  Please just trust me when I say that you should absolutely blindly paste this block of color definitions into your `.gitconfig`.
+
+    [color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+    [color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+    [color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
+
+### Conflict style
+
+The only other real twiddle of note in my `.gitconfig` is this:
+
+    [merge]
+        conflictstyle = diff3
+
+Usually, a merge conflict appears like this:
+
+    <<<<<<< HEAD
+    what you changed it to
+    =======
+    what they changed it to
+    >>>>>>> master
+
+For simple cases, this is enough, and all is well.  For less simple cases, this can be an aggravating nightmare as you try to figure out what the hell both of you did.
+
+Enter `diff3`, which changes merge conflicts to appear like this:
+
+    <<<<<<< HEAD
+    what you changed it to
+    |||||||
+    what it was originally
+    =======
+    what they changed it to
+    >>>>>>> master
+
+At its best, this is _incredibly_ helpful.  At its worst, you can just ignore it.  I don't think there's much reason not to have this turned on, and I'm amazed it's not the default.
 
 
 ## Some assumptions you might make that you should not make
@@ -272,6 +375,8 @@ You might want to try passing the `-p` switch, which will interactively prompt y
 
 The dangerous part is `git reset --hard <files...>`, which will discard your work with no prompt, just like `git checkout`.  There's no "dry run" option, either.  Be very careful with it, and triple-check that you don't have anything you want to keep first.
 
+A safer option is `git stash`, which will stuff all your uncommitted changes into a sort of temporary faux commit thing not tied to your branch.  You can see them with `git stash list`, and if you realize you wanted to keep some of that work, you can re-apply a stashed patch with `git stash apply`.
+
 ### git rebase
 
 I don't care what _anyone_ says.  **Do not use anything that says "rebase" unless you understand _exactly_ what you are doing.**
@@ -304,6 +409,10 @@ Rebasing can be _very_ disruptive, and _should not be done lightly_.  Definitely
 
 And there are further complications, like: **C** might be more than one commit, **C** might include _merge_ commits, you might edit **C** while you're at it, etc.  It can get pretty gnarly pretty fast, and it's not necessarily obvious how to resolve a wacky problem if you're not totally sure what Git is doing.
 
+If you do decide to experiment with rebasing, one final warning.  In a merge, your branch is "ours", and the foreign branch is "theirs".  But in a rebase, this is _backwards_ — you're starting from the foreign branch, and re-adding your own commits on _top_ of it, even if you thought you were rebasing your current branch.  So from Git's perspective, your branch is "theirs", and the foreign branch is "ours"!  This affects brute-force resolution with `git checkout --ours`, it switches around the patches in conflict markers, and it reverses "them" and "us" when describing conflicts in `git status`.  One more reason not to rebase unless you're totally sure you understand what's going on!
+
+If you _do_ screw up a rebase, you can always `git rebase --abort`.  Or, if the rebase has already finished, you can refer to the old version of the branch with the special syntax `branchname@{1}`, which means "what `branchname` pointed to before the last time it changed".  You'd have to use `git reset --hard` to force the branch back, though, and yikes.
+
 ### `--force`
 
 Usually seen as an argument to `git push` after a rebase.  Be super duper careful, since this will blindly overwrite whatever is on the remote.  If you're reading this article you probably have no good reason to force-push.  And if you think you do, you probably still don't, because Git 2.0 has `--force-with-lease` which at least defends against race conditions.
@@ -315,6 +424,14 @@ Git history is a chain going all the way back to the beginning of time.  If you 
 The only way to get rid of something for good is to effectively rebase your _entire history_ starting from the bad commit.  (You'd rebase that history onto the same point, but you'd edit or delete the bad commit.  That would change the bad commit's hash, so every subsequent commit would change, too.)
 
 You really don't want to have to do that.  Not only is it a huge pain, but it requires coordination with everyone else using your repository — after all, they still have copies of the original history, which they'll need to get rid of as well.  Or you'll end up with the old history merged back into the new history!
+
+### Forgetting you're in the middle of something
+
+Git is a command-line tool, not an interactive program, so it's possible to be in the middle of a multi-step process and then...  forget about it.
+
+Perhaps you tried to do a rebase, but it conflicted.  You got bored while resolving the conflicts, and you went home for the night.  You come back in the morning, all ready to work!  You made some commits all morning, and _then_ you realized that Git still thinks you're in the middle of a rebase, because committing while rebasing is actually a perfectly reasonable thing to do.
+
+There's always some way to fix whatever mess you get yourself into, but the best fix is prevention: run `git status` nigh constantly and be sure you're in the state you think you are.
 
 
 ## That's all I got
