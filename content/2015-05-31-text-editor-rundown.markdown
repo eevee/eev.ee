@@ -108,7 +108,7 @@ This is kind of annoying, and I interpret it as the first sign of the Web platfo
 
 I briefly consider fixing this.  After all, the welcome screen (still open in the right pane) says I can customize _anything_ in this _hackable text editor_, and encourages me to "uncomment some of the examples or try your own".  So I click the button and get a completely empty stylesheet, along with zero indication of what _elements_ are actually available to me, which is a fairly important feature when writing CSS.
 
-I don't really feel like wasting time researching the DOM of my text editor when I'm only going to use for a few hours, so i give up and will just live with Inconsolata for now.
+I don't really feel like wasting time researching the DOM of my text editor when I'm only going to use it for a few hours, so I give up and will just live with Inconsolata for now.
 
 Relatedly, I notice that Atom tries, and largely fails, to use my native theme — active menus have the wrong color and an inappropriate border, and menu items use the wrong background color on hover.  It's wrong in the same way Chromium is wrong, but it's a bit more obvious when there's a menu bar.
 
@@ -230,7 +230,7 @@ We're going all out here.  First, does Nano do syntax highlighting?  (Does Nano 
 
 Thankfully, this doesn't happen.  I create a `.nanorc` (with Nano!) that loads Python syntax.
 
-Time to open a file.  Thankfully, Nano has all its important keys listed at the bottom of the screen.  `Ctrl-O` actually means "write **o**ut", so `Ctrl-R` is "**r**ead", even though in terminals `Ctrl-R` means search through history.  I think this is because `Ctrl-S` is the terminal sequence for freezing output, maybe?  But Emacs uses `Ctrl-S` just fine.  I don't know.  Also, `Ctrl-G` means "**g**et help", probably because `Ctrl-H` is the backspace key.
+Time to open a file.  Nano has all its important keys listed helpfully at the bottom of the screen.  `Ctrl-O` actually means "write **o**ut", so `Ctrl-R` is "**r**ead", even though in terminals `Ctrl-R` means search through history.  I think this is because `Ctrl-S` is the terminal sequence for freezing output, maybe?  But Emacs uses `Ctrl-S` just fine.  I don't know.  Also, `Ctrl-G` means "**g**et help", probably because `Ctrl-H` is the backspace key.
 
 Nano even has tab completion, though it's the crappy kind where it only fills in a unique prefix and then shows you all the possibilities, and you have to mash Tab like three times to get that much.  I successfully load a Python file.
 
