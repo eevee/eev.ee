@@ -39,7 +39,7 @@
             <h1>Tags</h1>
         </header>
         <div class="sidebar-tags">
-        {% for tag, article in tags %}
+        {% for tag, article in tags|sort %}
             <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
         {% endfor %}
         </div>
