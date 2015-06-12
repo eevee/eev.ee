@@ -24,7 +24,7 @@ LINKS_EX = ((
     'doodles',
     'http://lexyeevee.tumblr.com/tagged/my+art',
     '#41c518', 'logo-doodles.png',
-    "i'm learning to draw, here are the results!",
+    "i'm learning to draw, here are the results.  occasionally nsfw!",
 ), (
     'cats',
     'http://lexyeevee.tumblr.com/tagged/sphynx',
