@@ -5,7 +5,13 @@ tags: perl
 category: essay
 
 
-_(This article has been translated into [Bulgarian](http://www.fatcow.com/edu/perl-disaster-bl/) and [Polish](http://www.autoteiledirekt.de/science/perl-5-jest-martwy-perl-6-jest-katastrofa)—thanks!)_
+_(This article has been translated into_
+
+* _[Bulgarian](http://www.fatcow.com/edu/perl-disaster-bl/)_
+* _[Polish](http://www.autoteiledirekt.de/science/perl-5-jest-martwy-perl-6-jest-katastrofa)_
+* _[Kazakh](http://13motors.com/myblog/perl5isdeadperl6isadisaster/)_
+
+_Thanks!)_
 
 ---
 

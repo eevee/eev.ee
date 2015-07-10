@@ -4,7 +4,12 @@ tags: humor
 category: rescued from twitter
 
 
-_(This article has been translated into [Czech](http://czlib.bizow.com/post/cvs-a-pipony-soubor) by [Alex Novak](http://bizow.com/)—thanks!)_
+_(This article has been translated into_
+
+* _[Czech](http://czlib.bizow.com/post/cvs-a-pipony-soubor) by [Alex Novak](http://bizow.com/)_
+* _[Russian](http://translate.coupofy.com/cvs-and-file-extensions/) by the [Coupofy](http://www.coupofy.com/) translation team_
+
+_Thanks!)_
 
 Like many employed engineers, I get roped into the hiring process from time to time.  I don't actually screen résumés, but I do grade some code tests, and the résumé is sent along with it—in case I find myself desperately seeking an explanation for receiving five hundred lines of JavaScript arranged as haiku.
 
