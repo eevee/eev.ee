@@ -126,4 +126,4 @@ Maybe keep in mind that people are complicated.  If you're going to pick on some
 
 Meatspace strangers don't act like this to each other, at least not nearly so often in my experience.  Maybe because we chastise our peers when they jump straight to hostility.  Maybe we need some more of that here.  It's curiously missing, like we fear being abandoned by all our friends if we tell them that one thing they did wasn't cool.
 
-That mean-spirited, irrational, destructive, and totally wrong person on the other end is still a human being.  Don't be a dick.
+That mean-spirited, irrational, destructive, and totally wrong person on the other end is still a human being.  Don't be a dick.  Maybe leave them be, go create something amazing, and share it with the world instead.
