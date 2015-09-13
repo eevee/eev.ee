@@ -5,7 +5,7 @@ tags: tech, web, unicode, fonts
 
 I'm assuming, if you are on the Internet and reading kind of a nerdy blog, that you know what Unicode is.  At the very least, you have a very general understanding of it — maybe "it's what gives us emoji".
 
-That's about as far as _most_ people's understanding extends, in my experience, even among programmers.  And that's a tragedy, because Unicode has a lot of...  ah, _depth_ to it.
+That's about as far as _most_ people's understanding extends, in my experience, even among programmers.  And that's a tragedy, because Unicode has a lot of...  ah, _depth_ to it.  Not to say that Unicode is a terrible disaster — more that human language is a terrible disaster, and anything with the lofty goals of representing _all of it_ is going to have some wrinkles.
 
 So here is a collection of curiosities I've encountered in dealing with Unicode that you generally only find out about through experience.  Enjoy.
 
@@ -42,7 +42,7 @@ Perhaps you want to sort text.  A common enough problem.  Let's give this a try 
 
 Oops.  Turns out Python's sorting just compares by Unicode codepoint, so the English letter "é" (U+00E9) is greater than the English letter "f" (U+0066).
 
-Did you know the German letter "ß" is supposed to sort equivalently to "ss"?  Where do you sort the Icelandic letter "æ"?
+Did you know the German letter "ß" is supposed to sort equivalently to "ss"?  Where do you sort the Icelandic letter "æ"?  What about the English ligature "æ", which is the same character?
 
 What about case?  The Turkish dotless "ı" capitalizes to the familiar capital "I", but in Turkish, the lowercase of that is "ı" and the uppercase of "i" is "İ".  Is uppercase "ß" the more traditional "SS", or maybe "Ss", or the somewhat recent addition "ẞ"?
 
@@ -69,10 +69,10 @@ Great, problem solved.
 
 Hmm.
 
-    >>> normalize('イーブイ')
-    'イーフイ'
     >>> normalize('한글')
     '한글'
+    >>> normalize('イーブイ')
+    'イーフイ'
 
 Uh oh.
 
@@ -80,14 +80,14 @@ Yes, it turns out that Unicode decomposition _also_ decomposes Hangul (the alpha
 
 _Even_ if you only care about English text, there's more than one Latin alphabet in Unicode!  Is "x" equivalent to "𝗑" or "𝘅" or "𝘹" or "𝙭" or "𝚡" or "ｘ" or "𝐱"?  What about "×" or "х" or "⨯" or "ⅹ"?  Ah, sorry, those last four are actually the multiplication sign, a Cyrillic letter, the symbol for cross product, and the Roman numberal for ten.
 
-This is a particularly aggravating problem because most programming languages have facilities for comparing and changing the case of text built in, and most of them are extremely naïve about it.  You can't even correctly change the case of English-looking text without knowing what locale it came from — the title-case of "istanbul" is actually "İstanbul", because in Turkish the capital form of dotted "i" is a capital dotted "İ".
+This is a particularly aggravating problem because most programming languages have facilities for comparing and changing the case of text built in, and most of them are extremely naïve about it.  You can't even correctly change the case of English-looking text without knowing what locale it came from — the title-case of "istanbul" may actually be "İstanbul" depending on language, because of Turkish's dotted "i".
 
 The only library I'm aware of off the top of my head for correctly dealing with any of these problems is [ICU](http://site.icu-project.org/), which is a hulking monstrosity hardly suited for shipping as part of a programming language.  And while their homepage does list a lot of impressive users, I've only encountered it in code I've worked on _once_.
 
 
 ## Combining characters and character width
 
-Typically we think of combining characters as being the floating diacritical marks that can latch onto the preceding letter, such as using U+0301 COMBINING ACUTE ACCENT to make "ź", in case we are direly in need of it for some reason.  There are a few other combining "diacriticals" that aren't so related to language; for example, U+20E0 COMBINING ENCLOSING CIRCLE BACKSLASH can produce "é⃠", the universal symbol for "my software only supports English, and also I am not aware that English has diacritics too".  Or perhaps you'd use U+20E3 COMBINING ENCLOSING KEYCAP to make "é⃣" and indicate that the user should press their é key.
+Typically we think of combining characters as being the floating diacritical marks that can latch onto the preceding letter, such as using U+0301 COMBINING ACUTE ACCENT to make "x́", in case we are direly in need of it for some reason.  There are a few other combining "diacriticals" that aren't so related to language; for example, U+20E0 COMBINING ENCLOSING CIRCLE BACKSLASH can produce "é⃠", the universal symbol for "my software only supports English, and also I am not aware that English has diacritics too".  Or perhaps you'd use U+20E3 COMBINING ENCLOSING KEYCAP to make "é⃣" and indicate that the user should press their é key.
 
 All of these have an impact on the "length" of a string.  You could write either of those "é" sequences with _three_ codepoints: the letter "e", the combining accent, and the combining border.  But clearly they each only contribute one _symbol_ to the final text.  This isn't a particularly difficult problem; just ignore combining characters when counting, right?
 
@@ -104,7 +104,7 @@ Let's return to the simpler world of _letters_ and revisit that Hangul example:
 
 Hangul characters are actually blocks composed of exactly three parts called Jamo.  (Here's [gritty detail on Hangul, Jamo, and Unicode](http://gernot-katzers-spice-pages.com/var/korean_hangul_unicode.html).  It's a really cool alphabet.)  Applying Unicode decomposition actually breaks each character down into its component Jamo, which are then _supposed_ to render exactly the same as the original.  They aren't marked as combining characters in the Unicode database, but if you have three of them in a row (arranged sensibly), you should only see one character.  The actual decomposition for the text above is "ㅎㅏㄴ ㄱㅡㄹ", written with separate characters that don't combine.  There are a good few languages that work this way — [Devanagari](https://en.wikipedia.org/wiki/Devanagari#Unicode) (the script used for Hindi et al.), [Bengali](https://en.wikipedia.org/wiki/Bengali_alphabet#Unicode), and [Hebrew](https://en.wikipedia.org/wiki/Unicode_and_HTML_for_the_Hebrew_alphabet) rely heavily on character composition.
 
-And yet I ended up with three very different renderings.  If I paste the results into a program using a proportional font, I see something very nearly identical to the original characters, albeit slightly fuzzier from being generated on the fly.  In Konsole, I see only the first Jamo for each character: `'ㅎㄱ'`.  And in my usual libvte-based terminal, the combining behavior falls apart, and I see a nonsensical mess that I can't even reproduce with Unicode:
+And yet I ended up with four very different renderings.  In this blog post, with my default monospace font, I see the full sequence of six Jamo.  If I paste the same text somewhere with a proportional font, I see something very nearly identical to the original characters, albeit slightly fuzzier from being generated on the fly.  In Konsole, I see only the first Jamo for each character: `'ㅎㄱ'`.  And in my usual libvte-based terminal, the combining behavior falls apart, and I see a nonsensical mess that I can't even reproduce with Unicode:
 
 ![Screenshot of mangled Hangul in a terminal; several characters overlap](/media/2015-09/bad-hangul.png)
 
@@ -118,7 +118,7 @@ This is not the first width-related problem I've encountered with Unicode and te
 
 You can see how VTE has done the same thing as with Hangul: it thinks the emoji should only take up one character cell, but dutifully renders the entire thing, allowing the contents to spill out and overlap the following space.  You might think Konsole has gotten this one right, but look carefully — the final quote is slightly overlapping the cursor.  Turns out that Konsole will print each line of text as regular text, so any character that doesn't fit the terminal grid will misalign every single character after it.  The cursor (and selection) is always fit to the grid, so if you have several emoji in the same row, the cursor might appear to be many characters away from its correct position.  There are [several bugs open on Konsole](https://bugs.kde.org/show_bug.cgi?id=297390) about this, dating back many years, with no response from developers.  I actually had to stop using Konsole because of this sole issue, because I use ⚘ U+2698 FLOWER as my shell prompt, which misaligned the cursor every time.
 
-I believe all of these problems can be traced back to the same source: a POSIX function called `wcwidth`, which is intended to return the number of terminal columns needed to display a given character.  It exists in glibc, which sent me on a bit of a wild goose chase.  I originally thought that `wcwidth` must be reporting that the second and third Jamo characters are zero width, but this proved not to be the case:
+All of these problems can be traced back to the same source: a POSIX function called `wcwidth`, which is intended to return the number of terminal columns needed to display a given character.  It exists in glibc, which sent me on a bit of a wild goose chase.  I originally thought that `wcwidth` must be reporting that the second and third Jamo characters are zero width, but this proved not to be the case:
 
     >>> libc.wcwidth(c_wchar('\u1100'))  # initial Jamo
     2
@@ -198,7 +198,7 @@ I exaggerate _slightly_.
 
 The word "emoji" is generally used to mean "any character that shows as a colored picture on my screen", much like the word "Unicode" is generally used to mean "any character not on my US QWERTY keyboard".  So what characters qualify as emoji?
 
-There's actually no Unicode block called "emoji".  The set of smiley faces is in a block called [Emoticons](https://codepoints.net/emoticons), and most of the rest are in [Miscellaneous Symbols and Pictographs](https://codepoints.net/miscellaneous_symbols_and_pictographs).
+There's actually no Unicode block called "emoji".  The set of smiley faces is in a block called [Emoticons](https://codepoints.net/emoticons), and most of the rest are in [Miscellaneous Symbols and Pictographs](https://codepoints.net/miscellaneous_symbols_and_pictographs) and [Transport and Map Symbols](https://codepoints.net/transport_and_map_symbols).
 
 The Unicode Consortium has a [technical report about emoji](http://www.unicode.org/reports/tr51/index.html), which should be an immediate hint that this is not a trivial matter.  In fact the report defines [two levels of emoji](http://www.unicode.org/reports/tr51/index.html#Emoji_Levels), and look at how arbitrary these definitions are:
 
