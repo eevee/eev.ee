@@ -87,7 +87,7 @@ The only library I'm aware of off the top of my head for correctly dealing with 
 
 ## Combining characters and character width
 
-Typically we think of combining characters as being the floating diacritical marks that can latch onto the preceding letter, such as using U+0301 COMBINING ACUTE ACCENT to make "x́", in case we are direly in need of it for some reason.  There are a few other combining "diacriticals" that aren't so related to language; for example, U+20E0 COMBINING ENCLOSING CIRCLE BACKSLASH can produce "é⃠", the universal symbol for "my software only supports English, and also I am not aware that English has diacritics too".  Or perhaps you'd use U+20E3 COMBINING ENCLOSING KEYCAP to make "é⃣" and indicate that the user should press their é key.
+Typically we think of combining characters as being the floating diacritical marks that can latch onto the preceding letter, such as using U+0301 COMBINING ACUTE ACCENT to make "q́", in case we are direly in need of it for some reason.  There are a few other combining "diacriticals" that aren't so related to language; for example, U+20E0 COMBINING ENCLOSING CIRCLE BACKSLASH can produce "é⃠", the universal symbol for "my software only supports English, and also I am not aware that English has diacritics too".  Or perhaps you'd use U+20E3 COMBINING ENCLOSING KEYCAP to make "é⃣" and indicate that the user should press their é key.
 
 All of these have an impact on the "length" of a string.  You could write either of those "é" sequences with _three_ codepoints: the letter "e", the combining accent, and the combining border.  But clearly they each only contribute one _symbol_ to the final text.  This isn't a particularly difficult problem; just ignore combining characters when counting, right?
 
