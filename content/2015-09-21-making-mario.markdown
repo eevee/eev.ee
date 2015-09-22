@@ -70,7 +70,7 @@ _But..._
 I find myself left a little wanting.  The most blindingly obvious problem is that you can't actually recreate World 1–1 from any of the four games it emulates:
 
 * Super Mario Bros. has one-way pipes and variable powerups (fire flower if you're super or better, otherwise a mushroom).
-* Super Mario Bros. has a split pipe, black pipes, and four colors of semisolid platform.
+* Super Mario Bros. 3 has a split pipe, black pipes, and four colors of semisolid platform.
 * Super Mario World has a checkpoint, slopes, Yoshi coins, Rexes (the dragons), Banzai Bill (the screen-filling bullet), hint blocks, and a Chargin' Chuck (the football guys).
 * New Super Mario Bros. U has a ridiculous title.  But it also sports a checkpoint, flying squirrels, acorn mushrooms, star coins, fake foreground, moving semisolid platforms, colored pipes, red coins, moving coins, a coin heaven theme, and more complex pipe connections.
 
