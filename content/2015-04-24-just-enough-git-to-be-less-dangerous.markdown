@@ -273,7 +273,7 @@ If you don't tell Git your name, _it will have to guess_, and it will guess badl
 So the first three lines of your `.gitconfig` should probably fix those:
 
     [user]
-        name = Eevee (Alex Munroe)
+        name = Eevee (Lexy Munroe)
         email = eevee.git@veekun.com
 
 Easy peasy.
