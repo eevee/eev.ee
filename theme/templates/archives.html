@@ -10,24 +10,24 @@
     {% set last_year = None %}
     {% for article in articles %}
         {% if last_year != article.date.year %}
+        {% if last_year %}
+        <hr>
+        {% endif %}
         <h2>{{ article.date.year }}</h2>
         {% endif %}
         {% set last_year = article.date.year %}
 
     <article>
         <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.date | strftime("%b %d") }}</time>
-        <h1>
-            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title | striptags }}</a>
+        <h1{% if article.category %} class="category-{{ article.category.slug }}"{% endif %}>
+            <a href="{{ SITEURL }}/{{ article.url }}">
+                {{ CATEGORY_GLYPHS.get(article.category, '') }}
+                {{ article.title | striptags }}
+            </a>
         </h1>
 
         <footer>
             <ul class="meta">
-                {% if article.category %}
-                <li class="byline author vcard">
-                    Posted in <a class="category" href="{{ SITEURL }}/{{ article.category.url }}">
-                        {{ CATEGORY_GLYPHS.get(article.category, '') }} {{ article.category }}</a>
-                </li>
-                {% endif %}
                 {% if article.tags %}
                 <li class="tags">
                     {% for tag in article.tags %}

@@ -678,13 +678,31 @@ section.archives {
 
         font-weight: normal;
         color: $main-accent;
+
+        @include phone-size {
+            float: none;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    > hr {
+        border: none;
+        border-top: 1px dotted $main-accent;
+        margin-bottom: 1.5rem;
     }
 
     // Each <article> is a listing; float the date to the right
     article {
+        @include flexbox;
+
         // override default padding; just want breathing room
         padding: 0 0 1.5rem;
-        margin-left: $year-width + $date-width;
+        margin-left: $year-width;
+
+        @include phone-size {
+            @include flex-wrap(wrap);
+            margin-left: 0;
+        }
 
         & + article {
             // TODO remove this once the rule is fixed
@@ -693,31 +711,53 @@ section.archives {
 
         // Month and date
         > time[pubdate] {
-            display: block;
-            width: $date-width;
-            float: left;
-            margin-left: -$date-width;
+            @include flex(0 0 $date-width);
+
             line-height: $row-height;
             vertical-align: baseline;
             color: $main-accent;
+
+            @include phone-size {
+                @include flex(0 0 auto);
+            }
         }
 
         // Article title
         h1 {
+            @include flex(4 4 auto);
+
             font-size: 1.33rem;
             margin: 0;
+            padding-left: 1.5em;
+            text-indent: -1.5em;
             line-height: $row-height;
             vertical-align: baseline;
             font-weight: normal;
+
+            @include phone-size {
+                @include flex(0 0 100%);
+                @include order(-1);
+            }
         }
 
         > footer {
+            @include flex(1 1 auto);
+
             // override default article footer margin
             margin: 0;
 
+            line-height: $row-height;
+            text-align: right;
             color: $main-accent;
 
+            @include phone-size {
+                // try to keep this on the same line as the date even with
+                // flex-wrap
+                @include flex(1 1 0px);
+            }
+
             .meta a {
+                margin-left: 0.33em;
                 &, &:visited, &:active {
                     color: $main-accent;
                 }
@@ -727,7 +767,6 @@ section.archives {
             }
         }
     }
-
 }
 
 
