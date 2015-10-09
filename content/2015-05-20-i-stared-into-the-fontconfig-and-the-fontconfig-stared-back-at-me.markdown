@@ -1,7 +1,7 @@
 title: I stared into the fontconfig, and the fontconfig stared back at me
 date: 2015-05-20 23:02
-category: essay
-tags: linux, fonts
+category: blog
+tags: linux, typography, tech
 
 Wow!  My [Patreon](https://www.patreon.com/eevee) experiment has been successful enough that I'm finally obliged to write one post per month, and this is the first such post.  Let us celebrate with a post about something near and dear to everyone's heart: _fonts_.  Or rather, about fontconfig.
 

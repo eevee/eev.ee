@@ -1,6 +1,7 @@
 title: The controller pattern is awful (and other OO heresy)
 date: 2013-03-03 17:33
-category: essay
+category: blog
+tags: python, plt, tech, popular
 
 Almost a year ago now, [Jack Diederich][jackdied] gave a talk entitled "[Stop Writing Classes][]", in which he implores Python programmers to stop creating classes just for the hell of it, and specifically calls out the common pattern of a class with only a constructor/initializer and a single method—which should, of course, just be a function.
 

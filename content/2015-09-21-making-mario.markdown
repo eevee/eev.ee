@@ -1,7 +1,7 @@
 title: Making Mario
 date: 2015-09-20 23:45
-category: essay
-tags: game dev
+category: blog
+tags: gamedev, making things
 
 I bought [Super Mario Maker](https://en.wikipedia.org/wiki/Super_Mario_Maker) a few days ago.  I was a little iffy on blowing $60 on a level editor, but I really like level editors, so here we are.
 

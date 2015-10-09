@@ -1,7 +1,7 @@
 title: Python FAQ: Equality
 date: 2012-03-24 23:15
-tags: python
-category: python faq
+category: blog
+tags: python, tech
 
 Part of my [Python FAQ][].
 

@@ -1,7 +1,7 @@
 title: Python FAQ: Webdev
 date: 2012-05-05 21:22
 tags: python, web
-category: python faq
+category: blog
 
 _(This article has been translated into
 [Czech](http://www.zdrojak.cz/clanky/jak-napisu-webovou-aplikaci-v-pythonu/) ([part 2](http://www.zdrojak.cz/clanky/jak-napisu-webovou-aplikaci-v-pythonu-2/)) by [Honza Javorek](http://www.zdrojak.cz/autori/honza-javorek/)—thanks!)_

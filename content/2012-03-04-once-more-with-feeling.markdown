@@ -1,7 +1,7 @@
 title: Once more, with feeling
 date: 2012-03-04 20:02
-tags: ruby
-category: meta
+category: blog
+tags: ruby, meta
 
 Let's try this again.
 

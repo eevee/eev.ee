@@ -1,7 +1,7 @@
 title: Perl Worst Practices
 date: 2011-04-13 20:15:00
-tags: perl
-category: reference
+category: blog
+tags: perl, reference, tech
 
 I hate to rank my own skill at anything, but if you forced me to, I'd say I'm pretty good at Perl.  I get paid for it, at the very least.  I've been around it a long time, and I know it well enough to tell you in intricate detail why I now use Python, instead.
 

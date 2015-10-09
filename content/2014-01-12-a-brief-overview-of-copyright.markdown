@@ -1,7 +1,7 @@
 title: A brief overview of copyright
 date: 2014-01-12 21:16
-tags: intellectual property, law, culture, creation
-category: essay
+tags: law, culture, reference
+category: blog
 
 Technical people can probably skip this one; if you're even remotely aware of what open source is, you probably have a working grasp of copyright.
 

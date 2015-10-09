@@ -1,7 +1,7 @@
 title: FUCK PASSWORDS
 date: 2011-12-04 17:47:00
-tags: infosec
-category: essay
+category: blog
+tags: infosec, tech, yelling
 
 I'm so tired of passwords.  So, so, _so tired_.
 

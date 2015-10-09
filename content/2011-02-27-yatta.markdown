@@ -1,7 +1,7 @@
 title: YATTA
 date: 2011-02-28 13:17:00
-tags: japanese
-category: personal
+category: blog
+tags: japanese, personal
 
 I am now, officially, as literate as a native Japanese two-year-old.  Almost.  Maybe.
 

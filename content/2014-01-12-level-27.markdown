@@ -1,6 +1,7 @@
 title: Level 27
 date: 2014-01-12 21:13
-category: personal
+category: blog
+tags: personal, birthday
 
 Another year gone by.  I don't think I even did one of these last year, but let me think about what I did while I was 26.
 

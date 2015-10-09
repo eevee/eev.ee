@@ -2,14 +2,15 @@
 {% import '_lib.html' as lib %}
 🔖
 
-{% block title %}🔖 Tags / {{ SITENAME }}{% endblock %}
+{% block title %}Tags / {{ SITENAME }}{% endblock %}
 
 {% block content %}
 <section class="tags">
-    <h1>Blog tags</h1>
+    <h1>Tags</h1>
+    <p>This page sure is exciting, wow!</p>
 
     <ul>
-        {% for tag, articles in tags %}
+        {% for tag, articles in tags | sort_by_article_count %}
         <li>
             <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }}</a>
             — {{ articles | length }}

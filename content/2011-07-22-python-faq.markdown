@@ -1,7 +1,7 @@
 title: Python FAQ
 date: 2011-07-22 16:50:00
-tags: python
-category: python faq
+category: blog
+tags: python, reference, tech
 
 I lurk in [#python][].  It gets a lot of questions that are, shall we say, _frequently asked_.  This is my attempt to catalogue interesting and useful questions.  The answers will gradually become separate posts—perhaps on other blogs if someone else gets to them first.  Let me know if there should be other questions, if the answers are unclear, or the answers have bugs in them!
 

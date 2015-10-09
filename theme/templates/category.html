@@ -1,6 +1,6 @@
 {% extends '_article_list.html' %}
 
-{% block title %}📂 {{ category.name }} / {{ SITENAME }}{% endblock %}
+{% block title %}{{ CATEGORY_GLYPHS.get(category, '') }} {{ category.name }} / {{ SITENAME }}{% endblock %}
 
 {% block content %}
     <h1>
@@ -8,7 +8,7 @@
         <a href="{{ SITEURL }}/{{ CATEGORY_FEED_ATOM % category.slug }}" class="category-atom">
             <img src="/theme/images/feed-icon-28x28.png" alt=""></a>
         {% endif %}
-        Category: {{ category.name }}
+        {{ CATEGORY_GLYPHS.get(category, '') }} {{ category.name }}
     </h1>
 
     {{ super() }}

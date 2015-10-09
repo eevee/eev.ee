@@ -1,7 +1,7 @@
 title: Dimorphism
 date: 2012-12-10 21:29
-tags: normal
-category: rescued from twitter
+category: blog
+tags: culture, gender
 
 
 Today I went to the drug store.  I bought nail clippers, a nail file, and a nail buffer.  All existing nail clippers in this house have been transmuted into cat toys and subsequently batted into the void where lost cat toys go.

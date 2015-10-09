@@ -1,7 +1,7 @@
 title: Cython versus CFFI
 date: 2013-09-13 20:01
-tags: python, sanpera
-category: essay
+tags: python, sanpera, tech
+category: blog
 
 I have a hilariously unfinished Python module I work on from time to time named [sanpera](https://github.com/eevee/sanpera).  It's an imaging library for Python, with the vain hope that it might replace PIL someday.  But this isn't about sanpera.
 

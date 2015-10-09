@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
+from functools import partial
+
 AUTHOR = u'Eevee'
 SITENAME = u'fuzzy notepad'
 SITEURL = ''
@@ -70,6 +72,14 @@ PAGINATION_PATTERNS = (
 
 THEME = 'theme'
 
+JINJA_FILTERS = dict(
+    sort_by_article_count=partial(
+        sorted,
+        key=lambda pairs: len(pairs[1]),
+        reverse=True,
+    ),
+)
+
 EXTRA_HEADER = """
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.33/jquery.colorbox-min.js"></script>
@@ -87,6 +97,15 @@ EXTRA_HEADER = """
     });
 </script>
 """
+
+# Entirely my invention
+CATEGORY_GLYPHS = dict(
+    blog='📃',
+    devlog='📒',
+    miniblog='📝',
+    art='🎨',
+    photos='📷',
+)
 
 # Smart quotes and other things
 TYPOGRIFY = True
@@ -111,25 +130,25 @@ TEMPLATE_PAGES = {
 }
 
 # URL schema; compatible with Octopress, but i happen to like it anyway
-ARCHIVES_URL = 'blog/archives/'  # doesn't officially exist but whatever
-ARCHIVES_SAVE_AS = 'blog/archives/index.html'
-ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
-ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+ARCHIVES_URL = 'everything/archives/'  # doesn't officially exist but whatever
+ARCHIVES_SAVE_AS = 'everything/archives/index.html'
+ARTICLE_URL = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+ARTICLE_SAVE_AS = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 AUTHOR_SAVE_AS = False
 AUTHORS_SAVE_AS = False
-CATEGORIES_URL = 'blog/categories/'
-CATEGORIES_SAVE_AS = 'blog/categories/index.html'
-CATEGORY_URL = 'blog/categories/{slug}/'
-CATEGORY_SAVE_AS = 'blog/categories/{slug}/index.html'
+CATEGORIES_URL = 'categories/'
+CATEGORIES_SAVE_AS = 'categories/index.html'
+CATEGORY_URL = '{slug}/'
+CATEGORY_SAVE_AS = '{slug}/index.html'
 # This is the /blog/ index specifically
-INDEX_SAVE_AS = 'blog/index.html'
-INDEX_URL = 'blog/'
+INDEX_SAVE_AS = 'everything/index.html'
+INDEX_URL = 'everything/'
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
-TAG_URL = 'blog/tags/{slug}/'
-TAG_SAVE_AS = 'blog/tags/{slug}/index.html'
-TAGS_URL = 'blog/tags/'
-TAGS_SAVE_AS = 'blog/tags/index.html'
+TAG_URL = 'tags/{slug}/'
+TAG_SAVE_AS = 'tags/{slug}/index.html'
+TAGS_URL = 'tags/'
+TAGS_SAVE_AS = 'tags/index.html'
 
 # Octopress-compatible filename metadata parsing
 FILENAME_METADATA = '(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)'
@@ -149,7 +168,8 @@ import eeveeblog.liquid_photo
 PLUGIN_PATHS = ["pelican-plugins.git"]
 PLUGINS = [
     eeveeblog.liquid_photo,
-    'summary'
+    'summary',
+    'custom_article_urls',
 ]
 
 # Plugin config for summary
@@ -158,3 +178,12 @@ SUMMARY_END_MARKER = '<!-- more -->'  # octopress compat
 # This is actually a stock setting; I don't want an automatic summary if I
 # don't use an explicit marker
 SUMMARY_MAX_LENGTH = None
+
+# Plugin config for custom article urls
+# Preserve the old blog URL for blog stuff
+CUSTOM_ARTICLE_URLS = {
+    'blog': dict(
+        URL='{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/',
+        SAVE_AS='{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html',
+    ),
+}

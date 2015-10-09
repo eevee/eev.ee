@@ -1,7 +1,7 @@
 title: I quit the tech industry
 date: 2015-06-09 21:45
-category: personal
-tags: culture, patreon
+category: blog
+tags: personal, tech
 
 _(This article has been translated into [Chinese](http://www.labazhou.net/2015/06/i-quit-the-tech-industry/)—thanks!)_
 

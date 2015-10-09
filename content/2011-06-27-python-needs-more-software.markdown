@@ -1,7 +1,7 @@
 title: Python needs more software
 date: 2011-06-27 03:21
-tags: python
-category: essay
+category: blog
+tags: python, tech
 
 Consider this a companion article.
 

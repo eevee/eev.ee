@@ -428,14 +428,18 @@ body > footer {
         list-style-type: none;
     }
     li {
-        margin-bottom: 0.5em;
+        margin-bottom: 0.67em;
+    }
+    a {
+        text-decoration: none;
     }
 
     .sidebar-tags {
-        line-height: 1.2;
+        line-height: 1.5;
         
         a {
-            padding-right: 0.25em;
+            padding-right: 0.33em;
+            white-space: nowrap;
         }
     }
 }

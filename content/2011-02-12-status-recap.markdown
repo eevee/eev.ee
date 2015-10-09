@@ -1,8 +1,8 @@
 title: Status recap
 date: 2011-02-12 00:15:00
 modified: 2011-02-12 14:43:00
-tags: veekun, squiggle, raidne, dywypi
-category: status
+tags: veekun, squiggle, raidne, dywypi, status
+category: blog
 
 It's been a while since I've really sat down and thought about where my pet projects are and where they're going, either publicly or privately.  Part of this is just because I haven't really done a lot in the past month and a half or so; between Christmas interruptions, having Mel move in, a brief and disasterous switch of medications, and restless nights due to cats wandering around on my bed, I've been varyingly exhausted or distracted or some other excuse.
 

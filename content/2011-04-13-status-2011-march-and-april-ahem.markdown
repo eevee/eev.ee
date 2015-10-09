@@ -1,7 +1,7 @@
 title: Status, 2011 March...  and April...  ahem
 date: 2011-04-13 18:56:00
-tags: veekun, squiggle, dywypi
-category: status
+tags: veekun, squiggle, dywypi, status
+category: blog
 
 Just as I sit down to actually blog something, I see the first gigantic spider of the summer on my wall, and have to run away screaming like a little girl.  The universe doesn't want me to write!  (Let's pretend every other week for the past six was stalled by _way more_ spiders.)
 

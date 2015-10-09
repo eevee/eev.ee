@@ -1,7 +1,7 @@
 title: Maybe you're just not very funny
 date: 2014-08-06 22:45
-category: people
-tags: humor
+category: blog
+tags: culture
 
 Jeez.  Seems like everyone's outraged over _something_ these days.
 

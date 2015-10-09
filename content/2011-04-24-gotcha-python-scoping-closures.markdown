@@ -1,7 +1,7 @@
 title: Gotcha: Python, scoping, and closures
 date: 2011-04-24 15:39:00
-tags: python, gotcha
-category: essay
+category: blog
+tags: python, plt, tech
 
 I've [touched on this kind of thing][architectural fallacies] before, but I just saw it come up again, and I think it's worth its own post not buried in an avalanche of armchair psychology.  Plus, I remembered that Blogofile does syntax highlighting.
 

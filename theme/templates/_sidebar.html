@@ -1,19 +1,19 @@
 <aside id="sidebar">
     {% if SIDEBAR_IMAGE %}
     <section>
-        <img src="{{ SITEURL }}/{{ SIDEBAR_IMAGE }}" alt="{{ SIDEBAR_IMAGE_ALT}}" width="{{SIDEBAR_IMAGE_WIDTH}}"/> 
+        <img src="{{ SITEURL }}/{{ SIDEBAR_IMAGE }}" alt="{{ SIDEBAR_IMAGE_ALT}}" width="{{SIDEBAR_IMAGE_WIDTH}}"/>
     </section>
     {% endif %}
 
     <section>
-        <header>
-            <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">📅</a>
-            <h1>Recent Posts</h1>
-        </header>
+        <h1><a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Recent stuff</a></h1>
         <ul id="recent_posts">
-        {% for article in articles[:5] %}
+        {% for article in articles[:8] %}
         <li class="post">
-            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title|striptags }}</a>
+            <a href="{{ SITEURL }}/{{ article.url }}">
+                {{ CATEGORY_GLYPHS.get(article.category, '') }}
+                {{ article.title|striptags }}
+            </a>
         </li>
         {% endfor %}
         </ul>
@@ -21,26 +21,22 @@
 
     {% if categories and DISPLAY_CATEGORIES_ON_MENU %}
     <section>
-        <header>
-            <a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">📂</a>
-            <h1>Categories</h1>
-        </header>
+        <h1><a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">Categories</a></h1>
         <ul id="recent_posts">
         {% for category, articles in categories %}
-            <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+            <li><a href="{{ SITEURL }}/{{ category.url }}">{{ CATEGORY_GLYPHS.get(category, '') }} {{ category }}</a></li>
         {% endfor %}
         </ul>
     </section>
     {% endif %}
 
     <section>
-        <header>
-            <a href="{{ SITEURL }}/{{ TAGS_URL }}">🔖</a>
-            <h1>Tags</h1>
-        </header>
+        <h1><a href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a></h1>
         <div class="sidebar-tags">
-        {% for tag, article in tags %}
+        {% for tag, articles in tags | sort %}
+        {% if articles | length > 1 %}
             <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+        {% endif %}
         {% endfor %}
         </div>
     </section>

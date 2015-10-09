@@ -1,6 +1,7 @@
 title: Goodbye, Styx
 date: 2013-04-30 15:22
-category: personal
+category: blog
+tags: cats, styx, personal
 
 <div class="prose-illustration" markdown="1">
 {% photo /media/2013-04/styx-goodbye.jpg %}

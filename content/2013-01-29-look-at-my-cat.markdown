@@ -1,7 +1,7 @@
 title: Look at my cat
 date: 2013-01-29 20:16
-tags: photos
-category: personal
+tags: photos, cats, styx, personal
+category: blog
 
 In early December 2011, I bought a digital SLR.
 

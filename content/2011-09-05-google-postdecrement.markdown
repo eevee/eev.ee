@@ -1,7 +1,7 @@
 title: Google postdecrement
 date: 2011-09-05 16:14:00
-tags: identity, web
-category: essay
+category: blog
+tags: culture, identity, web, tech
 
 It's reasonably well-known by now that, if you don't have a Google+ name that looks sufficiently white and Anglo-Saxon, they'll suspend your account and [require photo ID][google+ names policy, explained].
 

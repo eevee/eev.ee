@@ -1,7 +1,7 @@
 title: Dark corners of Unicode
 date: 2015-09-12 20:39
-category: essay
-tags: tech, web, unicode, fonts
+category: blog
+tags: web, unicode, typography, tech, popular
 
 I'm assuming, if you are on the Internet and reading kind of a nerdy blog, that you know what Unicode is.  At the very least, you have a very general understanding of it — maybe "it's what gives us emoji".
 

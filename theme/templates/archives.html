@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% import '_lib.html' as lib %}
 
-{% block title %}📅 Blog archive / {{ SITENAME }}{% endblock %}
+{% block title %}Archive / {{ SITENAME }}{% endblock %}
 
 {% block content %}
 <section class="archives">
-    <h1>Blog archive</h1>
+    <h1>Archive</h1>
 
     {% set last_year = None %}
     {% for article in articles %}
@@ -25,7 +25,7 @@
                 {% if article.category %}
                 <li class="byline author vcard">
                     Posted in <a class="category" href="{{ SITEURL }}/{{ article.category.url }}">
-                        {{ article.category }}</a>
+                        {{ CATEGORY_GLYPHS.get(article.category, '') }} {{ article.category }}</a>
                 </li>
                 {% endif %}
                 {% if article.tags %}

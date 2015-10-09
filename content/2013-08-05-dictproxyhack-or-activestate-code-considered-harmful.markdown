@@ -1,7 +1,7 @@
 title: dictproxyhack, or: ActiveState Code considered harmful
 date: 2013-08-05 20:36
-tags: python
-category: quick nerd thing
+tags: python, making things, tech
+category: blog
 
 This is a story of how nothing in this story is my fault.
 

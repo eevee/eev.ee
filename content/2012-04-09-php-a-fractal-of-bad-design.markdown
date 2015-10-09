@@ -1,8 +1,8 @@
 title: PHP: a fractal of bad design
 date: 2012-04-09 19:29
 modified: 2013-08-25 17:10
-tags: php
-category: reference
+category: blog
+tags: popular, tech, php, plt, reference, yelling
 
 
 _(This article has been translated into_

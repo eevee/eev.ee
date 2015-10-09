@@ -1,7 +1,7 @@
 title: Catchin' 'em all
 date: 2013-01-28 23:17
-tags: photos, pokemon, stuff
-category: personal
+tags: photos, pokemon, personal
+category: blog
 
 
 Look at this sweet guy [Mel][] got [custom-made][Caldera on dA] for my birthday.  There's context here, but it's [big and complicated][PMDe], so let's just say it's a life-size stained-glass [Chandelure][] and is _totally fuckin rad_.  (That's an official life-size Eevee, for scale.)

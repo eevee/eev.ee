@@ -1,7 +1,7 @@
 title: Python FAQ: Descriptors
 date: 2012-05-23 21:16
-tags: python
-category: python faq
+tags: python, plt
+category: blog
 
 Part of my [Python FAQ][].
 

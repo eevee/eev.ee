@@ -1,7 +1,7 @@
 title: GNOME 3 revisited
 date: 2011-07-26 14:39:00
-tags: linux, interfaces
-category: 90% of everything
+category: blog
+tags: linux, ui, tech, yelling
 
 How did I write this?  I don't know what happened.  I was just jotting down notes and prose came out.
 

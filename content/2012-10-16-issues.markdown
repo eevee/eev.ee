@@ -1,6 +1,7 @@
 title: Issues
 date: 2012-10-16 19:03
-category: status
+category: blog
+tags: meta, status
 
 I love tinkering with things, but in the absence of external stimuli (like, "it's my job"), I'm pretty bad at _finishing_ things.  Instead I gradually accrete a ball of projects, todo lists, XXX comments, half-written blog posts, and mental notes-to-self.  Eventually the mental load becomes overwhelming and I freak out at how many recreational things I "have" to do.
 

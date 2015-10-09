@@ -1,7 +1,7 @@
 title: Mozilla and free speech
 date: 2014-04-05 19:24
-category: essay
-tags: mozilla, tech
+category: blog
+tags: mozilla, culture, tech
 
 What a fucking clusterfuck.
 

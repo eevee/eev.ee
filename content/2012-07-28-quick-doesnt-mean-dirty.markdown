@@ -1,7 +1,7 @@
 title: Quick doesn't have to mean dirty
 date: 2012-07-28 12:40
-tags: python, web, follow along
-category: essay
+tags: python, tech, web, follow along
+category: blog
 
 From [TechCrunch][Quick and Filthy]:
 

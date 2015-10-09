@@ -1,8 +1,8 @@
 title: The deletion problem
 date: 2011-06-23 18:15:00
 modified: 2011-06-23 19:28:00
-tags: squiggle, creation
-category: essay
+tags: squiggle, tech, making things
+category: blog
 
 [floof][] does not, as of yet, support deleting artwork.  It's not exactly a high priority for getting an art site off the ground; we need to facilitate _creating_ content before _removing_ it is even a thing to be done.
 

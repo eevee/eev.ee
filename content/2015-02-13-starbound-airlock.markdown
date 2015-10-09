@@ -1,7 +1,7 @@
 title: Starbound airlock
 date: 2015-02-13 18:42
-category: rescued from twitter
-tags: starbound, puzzles
+category: blog
+tags: starbound, making things, puzzles
 
 Starbound is a 2D exploration and building game currently in development.  Yes, yes, it's like Minecraft, except 2D, and with actual art, and fun.
 

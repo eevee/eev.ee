@@ -1,7 +1,7 @@
 title: CVs and file extensions
 date: 2013-01-09 14:10
-tags: humor
-category: rescued from twitter
+category: blog
+tags: humor, tech
 
 
 _(This article has been translated into_

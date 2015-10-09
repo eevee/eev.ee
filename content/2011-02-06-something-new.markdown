@@ -1,6 +1,7 @@
 title: Something new
 date: 2011-02-07 22:08:00
-category: meta
+category: blog
+tags: meta
 
 Do you remember LiveJournal in its heyday?  It was glorious.  Built like a hacker's hobby project, with all manner of little hidden treasures.  Multiple avatars that use keywords so you can swap them out retroactively.  A threaded comment system that still defies most competition.  Site-wide banning, originally available only via a text-only admin console.  A DSL for styling your blog thing however you want!  It introduced OpenID; it was probably one of the first sites to really embrace RSS.
 

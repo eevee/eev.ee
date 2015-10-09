@@ -1,7 +1,7 @@
 title: Suzanne Venker is a robot alien in disguise
 date: 2013-02-08 19:21
-tags: normal
-category: essay
+tags: culture, gender
+category: blog
 
 It's my best guess.  It would explain some things.
 

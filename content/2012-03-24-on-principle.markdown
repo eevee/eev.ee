@@ -1,6 +1,7 @@
 title: On principle
 date: 2012-03-24 20:44
-category: essay
+category: blog
+tags: culture, tech
 
 Alice shows some code to Bob.  Something about it catches Bob's eye; he tells her that some mechanism is a bad idea and she should find another approach.  She asks _why_.
 

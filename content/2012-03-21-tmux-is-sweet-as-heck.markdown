@@ -1,6 +1,7 @@
 title: tmux is sweet as heck
 date: 2012-03-21 14:24
-category: reference
+category: blog
+tags: reference, tmux, tools, tech
 
 People occasionally ask me why `tmux` is significantly better than `screen`, and I end up mumbling the first few things that come to mind.  This has yet to sway anyone.  Here, then, are some things that I enjoy about using `tmux`.
 
