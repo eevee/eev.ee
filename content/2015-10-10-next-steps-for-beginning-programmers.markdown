@@ -64,7 +64,6 @@ Ah, let's see.  Less abstractly...
 Somewhat related is **abstraction**, which is like handwaving.
 
 You should understand various **data structures** — not necessarily how to make them from scratch, but how they work and when to use them.  Lists (or arrays, see above about terminology), dicts (or hash tables, ahem), sets, queues, stacks, trees.  Bitfields fall under this umbrella too, as they're really just a specific way to pack a set into a very small amount of space.
-bitfields
 
 If your language has them, look into **metaclasses**.  Objects and values have a type, right?  If types are a kind of value in your language, then what's _their_ type?  The answer is a metaclass, and if you're lucky you can write your own and do all kinds of confusing shenanigans.  Your work is done when you can explain why `isinstance(object, type)` _and_ `isinstance(type, object)`.
 
