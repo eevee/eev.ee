@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 {% import '_lib.html' as lib %}
 
-{% block title %}📂 Categories / {{ SITENAME }}{% endblock %}
+{% block title %}Categories / {{ SITENAME }}{% endblock %}
 
 {% block content %}
 <section class="categories">
-    <h1>Blog categories</h1>
+    <h1>Categories</h1>
 
     <ul>
         {% for category, articles in categories %}
         <li>
-            <a href="{{ SITEURL }}/{{ category.url }}">{{ category.name }}</a>
+            <a href="{{ SITEURL }}/{{ category.url }}">
+                {{ CATEGORY_GLYPHS.get(category, '') }}
+                {{ category.name }}
+            </a>
             — {{ articles | length }}
         </li>
         {% endfor %}

@@ -130,14 +130,14 @@ TEMPLATE_PAGES = {
 }
 
 # URL schema; compatible with Octopress, but i happen to like it anyway
-ARCHIVES_URL = 'everything/archives/'  # doesn't officially exist but whatever
+ARCHIVES_URL = 'everything/archives/'
 ARCHIVES_SAVE_AS = 'everything/archives/index.html'
 ARTICLE_URL = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 AUTHOR_SAVE_AS = False
 AUTHORS_SAVE_AS = False
-CATEGORIES_URL = 'categories/'
-CATEGORIES_SAVE_AS = 'categories/index.html'
+CATEGORIES_URL = 'everything/categories/'
+CATEGORIES_SAVE_AS = 'everything/categories/index.html'
 CATEGORY_URL = '{slug}/'
 CATEGORY_SAVE_AS = '{slug}/index.html'
 # This is the /blog/ index specifically
@@ -145,10 +145,10 @@ INDEX_SAVE_AS = 'everything/index.html'
 INDEX_URL = 'everything/'
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
-TAG_URL = 'tags/{slug}/'
-TAG_SAVE_AS = 'tags/{slug}/index.html'
-TAGS_URL = 'tags/'
-TAGS_SAVE_AS = 'tags/index.html'
+TAG_URL = 'everything/tags/{slug}/'
+TAG_SAVE_AS = 'everything/tags/{slug}/index.html'
+TAGS_URL = 'everything/tags/'
+TAGS_SAVE_AS = 'everything/tags/index.html'
 
 # Octopress-compatible filename metadata parsing
 FILENAME_METADATA = '(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)'
