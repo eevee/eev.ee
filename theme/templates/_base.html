@@ -34,6 +34,23 @@
     {% if page and page.latex %}
         {{ page.latex }}
     {% endif %}
+
+    {# twitter card stuff #}
+    {% if article %}
+    {% if article.photo_image %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ SITEURL }}/{{ article.photo_image[1] }}">
+    {% elif article.photo_gallery %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ SITEURL }}/{{ article.photo_gallery[0][1] }}">
+    {% else %}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="{{ SITEURL }}/theme/images/home-eevee.png">
+    {% endif %}
+    <meta name="twitter:site" content="@eevee">
+    <meta name="twitter:title" content="{{ article.title | striptags }}">
+    <meta name="twitter:description" content="I don't have anything meaningful to put in this field yet so I guess you'd better just click the link!">
+    {% endif %}
 </head>
 
 <body>
