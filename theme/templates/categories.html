@@ -11,7 +11,7 @@
         {% for category, articles in categories %}
         <li>
             <a href="{{ SITEURL }}/{{ category.url }}">
-                {{ CATEGORY_GLYPHS.get(category, '') }}
+                {{ lib.category_glyph(category) }}
                 {{ category.name }}
             </a>
             — {{ articles | length }}

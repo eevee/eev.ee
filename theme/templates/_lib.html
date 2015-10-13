@@ -1,3 +1,9 @@
+{% macro category_glyph(category) %}
+{% if category %}
+<img class="category-glyph" src="{{ SITEURL }}/theme/images/category-{{ category.slug }}.png" alt="[{{ category.name }}]">
+{% endif %}
+{% endmacro %}
+
 {% macro article_time(article) %}
 <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
 {% endmacro %}
@@ -28,7 +34,7 @@
         Posted by <span class="fn">{{ article.author }}</span>
         {% if article.category %}
         in <a class="category" href="{{ SITEURL }}/{{ article.category.url }}">
-            {{ article.category }}</a>
+            {{ category_glyph(article.category) }} {{ article.category }}</a>
         {% endif %}
     </li>
     <li>{{ article_time(article) }}</li>

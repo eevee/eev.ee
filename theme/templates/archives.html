@@ -21,7 +21,7 @@
         <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.date | strftime("%b %d") }}</time>
         <h1{% if article.category %} class="category-{{ article.category.slug }}"{% endif %}>
             <a href="{{ SITEURL }}/{{ article.url }}">
-                {{ CATEGORY_GLYPHS.get(article.category, '') }}
+                {{ lib.category_glyph(article.category) }}
                 {{ article.title | striptags }}
             </a>
         </h1>

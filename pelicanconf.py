@@ -23,21 +23,31 @@ TRANSLATION_FEED_ATOM = None
 # NOTE: These aren't called just LINKS and SOCIAL because those are assumed by
 # the default theme to be 2-tuples, but I need more info.
 LINKS_EX = ((
-    'doodles',
-    'http://lexyeevee.tumblr.com/tagged/my+art',
-    '#41c518', 'logo-doodles.png',
-    "i'm learning to draw, here are the results.  occasionally nsfw!",
+    'blog',
+    '/blog/',
+    '#f6b441', 'category-blog.png',
+    "detailed, thoughtful prose about why computers are the worst",
+), (
+    'art',
+    '/art/',
+    '#41c518', 'category-art.png',
+    "i'm learning to draw, here are the results",
 ), (
     'cats',
     'http://lexyeevee.tumblr.com/tagged/sphynx',
-    '#deb46a', 'logo-cats.png',
+    '#deb46a', 'category-cat-photos.png',
     "our house is overrun with them and they are the best",
+), (
+    'everything',
+    '/everything/',
+    '#c57be6', 'category-everything.png',
+    "why limit yourself when you can have it all",
 ))
 SOCIAL_EX = ((
     'email',
     'mailto:eevee.fuzzynotepad@veekun.com',
     '#9966cc', 'logo-email.png',
-    "like sending a facebook message, but with less facebook",
+    "i get so much spam because of this link; make it worth my while",
 ), (
     'twitter',
     'https://twitter.com/eevee',
@@ -98,17 +108,12 @@ EXTRA_HEADER = """
 </script>
 """
 
-# Entirely my invention
-CATEGORY_GLYPHS = dict(
-    blog='📃',
-    devlog='📒',
-    miniblog='📝',
-    art='🎨',
-    photos='📷',
-)
-
 # Smart quotes and other things
 TYPOGRIFY = True
+# Stop putting &nbsp; in the fucking article titles
+TYPOGRIFY_IGNORE_TAGS = [
+    'pre', 'code', 'h1', 'h2', 'h3', 'aside',
+]
 
 MD_EXTENSIONS = [
     'codehilite(css_class=highlight,linenums=True)',

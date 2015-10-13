@@ -9,7 +9,10 @@
                 <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
             </p>
             <h1>
-                <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title | striptags }}</a>
+                <a href="{{ SITEURL }}/{{ article.url }}">
+                    {{ lib.category_glyph(article.category) }}
+                    {{ article.title | striptags }}
+                </a>
             </h1>
         </header>
 

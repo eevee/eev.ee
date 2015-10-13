@@ -116,6 +116,7 @@ body {
 
 body > header {
     margin-top: 2em;
+    min-height: 159px;  // background height
     background: url(/theme/images/home-eevee.png) top left no-repeat;
 
     @include tablet-size {
@@ -188,79 +189,6 @@ body > header {
 
         img, input {
             vertical-align: middle;
-        }
-    }
-
-    .eevee-navigation-tabs {
-        $size: 2rem;
-        $padding: 0.5rem;
-        $total-size: $size + $padding * 2;
-
-        > li.-empty {
-            width: $padding;
-        }
-        > li {
-            background-color: lightgray;
-            vertical-align: bottom;
-
-            > a {
-                display: block;
-                position: relative;
-                z-index: 0;
-                width: $size;
-                height: $size;
-                padding: $padding;
-                line-height: $size;
-                border: 1px solid rgba(black, 0.5);
-                border-bottom: none;
-
-                background-image: linear-gradient(to bottom, rgba(black, 0.2), rgba(black, 0.4));
-                background-color: inherit;
-                text-align: center;
-
-                > img {
-                    max-height: $size;
-                    max-width: $size;
-                    vertical-align: middle;
-                    opacity: 0.9;
-                }
-            }
-            > .-details {
-                position: absolute;
-                z-index: 1;
-                height: 0;
-                left: 0;
-                right: 0;
-                margin-top: -1px;
-                overflow: hidden;
-
-                text-align: right;
-                color: #f0f0f0;
-                background-image: linear-gradient(to bottom, rgba(black, 0.4), rgba(black, 0.45));
-                background-color: inherit;
-                box-shadow: inset 0 0 0 1px rgba(black, 0.5);
-                text-shadow: 0.5px 0.5px 0.5px #202020;
-
-                transition: height 0.1s linear;
-
-                > h2 {
-                    font-size: 1.2em;
-                }
-                > h2, > p {
-                    display: inline-block;
-                    margin: 0.5rem;
-                    line-height: 1.5rem;
-                }
-            }
-
-            &:hover {
-                > a {
-                    z-index: 2;
-                }
-                > .-details {
-                    height: 2.5rem;
-                }
-            }
         }
     }
 }
@@ -394,9 +322,10 @@ body > footer {
 // SIDEBAR
 
 #sidebar {
+    $sidebar-border: scale-color($sidebar-bg, $lightness: -10%);
     font-size: 0.9rem;
     font-family: $font-sans;
-    border-left: 1px solid scale-color($sidebar-bg, $lightness: -10%);
+    border-left: 1px solid $sidebar-border;
 
     header > a {
         font-size: 2em;
@@ -409,11 +338,7 @@ body > footer {
     }
 
     section {
-        margin: 2em;
-
-        @include phone-size {
-            margin: 1em;
-        }
+        margin: 1.5em;
     }
     h1 {
         font-size: 1.5em;
@@ -432,6 +357,84 @@ body > footer {
     }
     a {
         text-decoration: none;
+    }
+
+    .eevee-navigation {
+        $size: 2rem;
+        $padding: 0.5rem;
+        $total-size: $size + $padding * 2;
+
+        position: relative;
+        margin: 1em 0;
+
+        > li.-empty {
+            margin-top: 1em;
+            padding-top: 1em;
+            border-top: 1px dotted $sidebar-border;
+        }
+        > li {
+            margin: 0 0 -1px;
+            vertical-align: bottom;
+
+            // I can't believe this works, but it's the only way to hide the
+            // inline background-color
+            &:not(:hover) {
+                background-color: transparent !important;
+            }
+
+            > a {
+                @include flexbox;
+
+                padding: $padding;
+                border: 1px solid transparent;
+
+                .-glyph {
+                    @include flex(0 0 $size);
+                    margin-right: 0.5em;
+                    text-align: center;
+
+                    > img {
+                        max-height: $size;
+                        max-width: $size;
+                        opacity: 0.9;
+                        filter: grayscale(100%) contrast(60%) brightness(1.25);
+                        -webkit-filter: grayscale(100%) contrast(60%) brightness(1.25);
+                    }
+                }
+
+                .-label {
+                    h2 {
+                        font-size: 1.2em;
+                    }
+                    p {
+                        font-size: 0.9em;
+                        color: #808080;
+                    }
+                    h2, p {
+                        margin: 0;
+                        line-height: 1.1;
+                    }
+                }
+            }
+
+            &:hover > a {
+                background-image: linear-gradient(to bottom, rgba(white, 0.7), rgba(white, 0.6));
+                border-top-color: rgba(black, 0.1);
+                border-bottom-color: rgba(black, 0.15);
+                z-index: 2;
+
+                .-glyph img {
+                    filter: none;
+                    -webkit-filter: none;
+                }
+                .-label h2 {
+                    color: #202020;
+                }
+                .-label p {
+                    color: #404040;
+                }
+            }
+        }
     }
 
     .sidebar-tags {
@@ -591,6 +594,12 @@ article {
 
 ////////////////////////////////////////////////////////////////////////////////
 // WIDGETS
+
+.category-glyph {
+    max-height: 1.2em;
+    margin-right: 0.25em;
+    vertical-align: -10%;  // like baseline, but compensating for feet
+}
 
 .prose-illustration {
     float: right;

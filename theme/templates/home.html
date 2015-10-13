@@ -17,18 +17,17 @@
     {% endmacro %}
 
     <section class="home-links">
-        <a href="{{ SITEURL }}/{{ INDEX_URL }}" style="background-color: #f6b441; background-image: url({{ SITEURL }}/theme/images/logo-blog.png);">
-            <h1>blog</h1>
-            <p>detailed, thoughtful prose about why computers are the worst</p>
-        </a>
+        {% for linkdef in LINKS_EX %}
+            {{ _render_link(*linkdef) }}
+        {% endfor %}
+
+        <hr>
+
         {% for page in PAGES %}
         <a href="{{ SITEURL }}/{{ page.url }}" style="background-color: {{ page.metadata.get('home-color') }}; background-image: url({{ SITEURL }}/theme/images/{{ page.metadata.get('home-image') }});">
             <h1>{{ page.metadata.get('home-title', page.title) }}</h1>
             <p>{{ page.metadata.get('home-desc', '') }}</p>
         </a>
-        {% endfor %}
-        {% for linkdef in LINKS_EX %}
-            {{ _render_link(*linkdef) }}
         {% endfor %}
 
         <hr>
