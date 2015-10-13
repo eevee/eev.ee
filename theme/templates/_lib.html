@@ -2,6 +2,26 @@
 <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
 {% endmacro %}
 
+{% macro article_illustration(article) %}
+{% if article.photo_image %}
+<div class="prose-illustration">
+    {% for name, photo, thumb in [article.photo_image] %}
+    <img src="{{ SITEURL }}/{{ photo }}">
+    {% endfor %}
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro article_gallery(article) %}
+{% if article.photo_gallery %}
+<div class="gallery">
+    {% for name, photo, thumb, exif, caption in article.photo_gallery %}
+    <a href="{{ SITEURL }}/{{ photo }}" title="{{ caption }}" class="photo cboxElement"><img src="{{ SITEURL }}/{{ thumb }}"></a>
+    {% endfor %}
+</div>
+{% endif %}
+{% endmacro %}
+
 {% macro article_footer(article) %}
 <ul class="meta">
     <li class="byline author vcard">

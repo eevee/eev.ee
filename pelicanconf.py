@@ -170,6 +170,8 @@ PLUGINS = [
     eeveeblog.liquid_photo,
     'summary',
     'custom_article_urls',
+    'photos',
+    'optimize_images',
 ]
 
 # Plugin config for summary
@@ -187,3 +189,9 @@ CUSTOM_ARTICLE_URLS = {
         SAVE_AS='{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html',
     ),
 }
+
+# Plugin config for photos
+PHOTO_LIBRARY = 'content/galleries/'
+PHOTO_GALLERY = (1280, 1280, 95)
+PHOTO_ARTICLE = (320, 320, 95)
+PHOTO_THUMB = (224, 224, 95)

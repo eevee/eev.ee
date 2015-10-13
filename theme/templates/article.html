@@ -12,7 +12,13 @@
             </h1>
         </header>
 
-        <div class="entry-content">{{ article.content }}</div>
+        <div class="entry-content">
+            {{ lib.article_illustration(article) }}
+            {{ article.content }}
+        </div>
+
+        {{ lib.article_gallery(article) }}
+
         <footer>
             {{ lib.article_footer(article) }}
             {{ lib.article_social_cruft(article) }}

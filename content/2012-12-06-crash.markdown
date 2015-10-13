@@ -2,11 +2,9 @@ title: Crash!
 date: 2012-12-06 21:04
 category: blog
 tags: photos, personal
+gallery: {photo}2012-12-06-crash
+image: {photo}2012-12-06-crash/crash-distance.jpg
 
-
-<div class="prose-illustration" markdown="1">
-{% photo /media/2012-12/crash-distance.jpg %}
-</div>
 
 So someone hit my car last week.
 
@@ -24,16 +22,9 @@ This is actually the _second_ time this has happened; early this year I was stre
 
 I've never hit anything, never gotten a ticket, never even been pulled over.  I live in a fairly sleepy town, not on a major road.  And in two years my car has been hit _twice_, while _parked at home_.  I'm just gonna start parking on the lawn.
 
-Here are some photos of my poor darling car.  Consider this a test of this [fancybox plugin][].
+Below are some photos of my poor darling car.  Consider this a test of this <s>[fancybox plugin][]</s> [gallery plugin](https://github.com/getpelican/pelican-plugins/tree/master/photos).
 
 <!-- more -->
-
-{% photo /media/2012-12/crash-back.jpg %}
-{% photo /media/2012-12/crash-below.jpg %}
-{% photo /media/2012-12/crash-corner.jpg %}
-{% photo /media/2012-12/crash-side.jpg %}
-{% photo /media/2012-12/crash-other-corner.jpg %}
-{% photo /media/2012-12/crash-other-front.jpg %}
 
 By the way: she was elderly, and had a handicap permit hanging from her rear-view mirror.  Were you envisioning a young adult or middle-aged woman?  How does the story change, now?  I don't know.
 

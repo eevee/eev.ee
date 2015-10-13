@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% import '_lib.html' as lib with context %}
 
 {% block content %}
     {% for article in articles_page.object_list %}
@@ -12,9 +13,15 @@
             </h1>
         </header>
 
-        <div class="entry-content">{{ article.summary }}</div>
+        <div class="entry-content">
+            {{ lib.article_illustration(article) }}
+            {{ article.summary }}
+        </div>
 
-        {% if article.content != article.summary %}
+        {% if article.content == article.summary %}
+        {# only inline the gallery if the article isn't truncated #}
+        {{ lib.article_gallery(article) }}
+        {% else %}
         <footer>
             <a rel="full-article" href="{{ SITEURL }}/{{ article.url }}">📖 But wait, there's more...</a>
         </footer>
