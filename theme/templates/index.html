@@ -1,2 +1,14 @@
 {% extends '_article_list.html' %}
 {% block title %}{{ SITENAME }}{% endblock %}
+
+{% block content %}
+    <h1>
+        {% if FEED_ATOM %}
+        <a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="subscribe-atom" class="category-atom">
+            <img src="/theme/images/feed-icon-28x28.png" alt="Atom feed" title="Atom feed"></a>
+        {% endif %}
+        <img class="category-glyph" src="{{ SITEURL }}/theme/images/category-everything.png"> everything
+    </h1>
+
+    {{ super() }}
+{% endblock %}

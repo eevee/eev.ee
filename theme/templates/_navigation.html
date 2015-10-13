@@ -1,19 +1,6 @@
-<ul class="subscription" data-subscription="rss">
-    {% if FEED_ATOM or 1 %}
-    <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="subscribe-atom">
-        <img src="/theme/images/feed-icon-14x14.png" alt="Atom feed">
-            Atom </a></li>
-    {% endif %}
-    {% if FEED_RSS %}
-    <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="subscribe-rss">
-        <img src="/theme/images/feed-icon-14x14.png" alt="RSS feed">
-            RSS </a></li>
-    {% endif %}
-</ul>
-
 {% if SEARCH_BOX %}
 <form action="{{ SITESEARCH|default('http://google.com/search') }}" method="get" class="site-search" role="search">
     <input type="hidden" name="q" value="site:{{SITEURL|replace('https://','')|replace('http://','') }}">
-    <input class="search" type="search" name="q" results="0" placeholder="Search">
+    <input class="search" type="search" name="q" results="0" placeholder="search with google™®™">
 </form>
 {% endif %}

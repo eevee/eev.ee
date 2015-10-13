@@ -115,21 +115,24 @@ body {
 }
 
 body > header {
-    margin-top: 2em;
+    position: relative;
+    margin: 1em 0;
     min-height: 159px;  // background height
     background: url(/theme/images/home-eevee.png) top left no-repeat;
 
-    @include tablet-size {
+    @include phone-size {
         margin-top: 1em;
+        min-height: auto;
         background: none;
     }
 
     // main site title
     h1 {
+        position: absolute;
         font-size: 4em;
-        margin: 0.5em 0 0;
-        // nudge it into the space to the right of eevee's ears
-        margin-left: 175px;
+        margin: 0 2rem;
+        bottom: 0;
+        left: 237px;  // background width
         padding: 0;
         font-family: 'Love Ya Like A Sister', cursive;
         font-weight: normal;  // bold doesn't work well with that font
@@ -142,18 +145,19 @@ body > header {
             }
         }
 
-        @include tablet-size {
-            // compensate for lack of huge background
-            margin: 0.25em;
-        }
         @include phone-size {
+            // compensate for lack of huge background
+            position: static;
+            margin: 0.25em;
             font-size: 2em;
             padding: 1rem;
         }
     }
 
     nav {
-        position: relative;
+        position: absolute;
+        right: 1em;
+        bottom: 0;
         padding: 0;
         text-align: right;
 
@@ -263,6 +267,9 @@ body > footer {
         float: right;
     }
 
+    @include tablet-size {
+        margin: 2rem 2rem 0;
+    }
     @include phone-size {
         margin: 1rem 1rem 0;
     }
@@ -599,6 +606,14 @@ article {
     max-height: 1.2em;
     margin-right: 0.25em;
     vertical-align: -10%;  // like baseline, but compensating for feet
+}
+@include phone-size {
+    h1 .category-glyph {
+        max-height: 0.6em;
+        max-width: 0.6em;
+        margin-right: 0;
+        vertical-align: middle;
+    }
 }
 
 .prose-illustration {

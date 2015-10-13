@@ -7,7 +7,7 @@
     <h1>
         {% if CATEGORY_FEED_ATOM %}
         <a href="{{ SITEURL }}/{{ CATEGORY_FEED_ATOM % category.slug }}" class="category-atom">
-            <img src="/theme/images/feed-icon-28x28.png" alt=""></a>
+            <img src="/theme/images/feed-icon-28x28.png" alt="Atom feed" title="Atom feed"></a>
         {% endif %}
         {{ lib.category_glyph(category) }} {{ category.name }}
     </h1>

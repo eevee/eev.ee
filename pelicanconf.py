@@ -71,7 +71,9 @@ SOCIAL_EX = ((
 ))
 TWITTER_USERNAME = 'eevee'
 GITHUB_URL = 'https://github.com/eevee'
-SEARCH_BOX = True
+# i hate this stupid eyesore and i'm pretty sure my audience knows how to
+# search a website with their favorite search engine
+SEARCH_BOX = False
 
 DEFAULT_PAGINATION = 17
 DEFAULT_ORPHANS = 4
