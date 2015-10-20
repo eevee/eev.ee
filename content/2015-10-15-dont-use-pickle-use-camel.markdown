@@ -150,7 +150,7 @@ def _dump_table(table):
 @my_types.loader('table', version=1)
 def _load_table_v1(data, version):
     edge = data["size"] ** 0.5
-    return Table(data["size"])
+    return Table(edge, edge)
 
 
 @my_types.loader('table', version=2)
