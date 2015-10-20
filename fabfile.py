@@ -38,7 +38,7 @@ def new(title):
     with open(fn, 'w', encoding='utf8') as f:
         f.write(u"title: {}\n".format(title))
         f.write(u"date: {:%Y-%m-%d %H:%M}\n".format(now))
-        f.write(u"category: UNCATEGORIZED\n")
+        f.write(u"category: blog\n")
         f.write(u"status: draft\n")
         f.write(u"\n")
 
