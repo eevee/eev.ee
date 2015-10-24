@@ -74,7 +74,7 @@ Law inspires our sense of morality; we easily confuse what is legal with what is
 
 Yet paradoxically we draw fanart anyway.  The general unspoken consensus seems to be that we ought to be able to do this, and that the world is a little richer for it.  There are entire miniature economies built upon artists selling their fan work.
 
-This is exactly what copyright is supposed to accomplish!  It's meant to encourage creation, not for the sake of the creator, but for the sake of _everyone else_.  For the sake of culture.  This isn't some zany hippie interpretation; here is [a quote from the Google Books decision](https://twitter.com/BDonahueLaw360/status/655033199320506368/photo/1) earlier this month:
+This is exactly what copyright is supposed to accomplish!  It's meant to encourage creation, not just for the sake of the creator, but for the sake of _everyone else_.  For the sake of culture.  This isn't some zany hippie interpretation; here is [a quote from the Google Books decision](https://twitter.com/BDonahueLaw360/status/655033199320506368/photo/1) earlier this month:
 
 > While authors are undoubtedly important intended beneficiaries of copyright, the ultimate, primary intended beneficiary is the public.
 
