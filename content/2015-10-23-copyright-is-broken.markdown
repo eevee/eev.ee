@@ -62,7 +62,7 @@ Our perceptions of these systems are completely, utterly fucked up.
 
 ## Law
 
-Consider that fanart is basically verboten, everywhere, always.  It's nice that Undertale's creator said it's okay, but (ianal) I'm not sure that's legally binding — if he felt like being a colossal asshole, he could just delete his tweet and sue you.  Entirely within his rights.  The _default_ of copyright is total control, and without some kind of legal agreement, that doesn't change.
+Consider that fanart is basically verboten, everywhere, always.  It's nice that Undertale's creator said it's okay, but (_I am not a lawyer_) I'm not sure that's legally binding — if he felt like being a colossal asshole, he could just delete his tweet and sue you.  Entirely within his rights.  The _default_ of copyright is total control, and without some kind of legal agreement, that doesn't change.
 
 The only creators with the resources to write such an agreement are the ones least interested in doing so.  What are you going to do, email Nintendo and ask for permission to sell Pikachu stickers?  They don't know who you are; they don't want the liability of entering into any kind of contract with you; they have no reason to say yes.
 
