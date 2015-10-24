@@ -132,7 +132,7 @@ There's the DMCA, of course, which carries some of the stern weight of a legal t
 
 > In its submission, Google notes that more than half (57%) of the takedown notices it has received under the US Digital Millennium Copyright Act 1998, were sent by business targeting competitors and over one third (37%) of notices were not valid copyright claims.
 
-If my math is right, that means only **6%** of the DMCAs that Google receives are actually valid.  And by the way DMCA takedowns work, Google doesn't get to judge their validity; it has to obey them.
+We don't know how much those categories overlap.  If not at all, then only **6%** of the DMCAs that Google receives are actually valid.  If entirely, then two-thirds of the ones sent by businesses to their competitors are fraudulent.  Either way, due to how DMCA takedowns work, Google doesn't get to judge their validity; it has to obey them.
 
 Much more often, copyright is "enforced" at the platform level, via various ad-hoc mechanisms.  YouTube, for example, has its ContentID system.  Which is trivially defeated by borders and pitch-shifting, which is frequently confused or abused into [putting ads on creators' work that pay out to someone else](https://twitter.com/vihartvihart/status/601154695441309696) or [blocking work because it "infringes" a _derivative work_](http://waxy.org/2012/06/content_id_run_amok/), and which [has no real appeals process](http://waxy.org/2012/03/youtube_bypasses_the_dmca/).  Oh and just for fun here's a story about [a musician who was told their channel would be blocked if they didn't agree to have ads on their own free music](http://zoekeating.tumblr.com/post/108898194009/what-should-i-do-about-youtube).
 
