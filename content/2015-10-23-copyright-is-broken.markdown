@@ -155,7 +155,7 @@ We _want_, individually, to reward creators for their work.  We want them to kee
 
 It seems to me that the world of copyright law is actually two worlds: the big and rich who can wield the court system to enforce their whims, and everyone else who relies on the goodwill of hosts and platforms.
 
-It seems to me that the current copyright system encourages greed and stangation and concentration of influence more than it encourages a rich and fluorishing culture.
+It seems to me that the current copyright system encourages greed and stagnation and concentration of influence more than it encourages a rich and fluorishing culture.
 
 It seems to me that we could all stand to be a little less possessive of our ideas, and a little more delighted when they inspire someone else.
 
