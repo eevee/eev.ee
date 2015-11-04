@@ -3,6 +3,8 @@ date: 2013-09-13 20:01
 tags: python, sanpera, tech
 category: blog
 
+_(This article has been translated into [Russian](http://www.everycloudtech.com/cython-gainst-cffi) by <a href="http://www.everycloudtech.com/" rel="nofollow">Everycloudtech</a>—thanks!)_
+
 I have a hilariously unfinished Python module I work on from time to time named [sanpera](https://github.com/eevee/sanpera).  It's an imaging library for Python, with the vain hope that it might replace PIL someday.  But this isn't about sanpera.
 
 sanpera happens to be powered by [ImageMagick][].  I distinguish this from being an "ImageMagick wrapper", as it explicitly has nothing resembling the ImageMagick API, because said API is insane.  But this isn't about ImageMagick, either.
