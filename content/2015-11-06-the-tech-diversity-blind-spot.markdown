@@ -3,7 +3,7 @@ date: 2015-11-06 07:41
 category: blog
 tags: tech, culture
 
-The only black engineer in a management role at Twitter [recently quit](https://medium.com/tech-diversity-files/thought-on-diversity-part-2-why-diversity-is-difficult-3dfd552fa1f7).
+Twitter [recently lost](https://medium.com/tech-diversity-files/thought-on-diversity-part-2-why-diversity-is-difficult-3dfd552fa1f7) its only black engineer in a management role.
 
 The top-voted comment about this story on Hacker News begins thusly (emphasis mine):
 
