@@ -565,6 +565,18 @@ article {
         border-left: 0.33em solid scale-color($main-bg, $lightness: -20%);
         background: scale-color($main-bg, $lightness: -5%);
     }
+
+    hr {
+        border: none;
+
+        &::after {
+            content: '✩\a0\a0\a0\a0✩\a0\a0\a0\a0✩';
+            display: block;
+            text-align: center;
+            font-size: 1.2em;
+            margin: 1em 0;
+        }
+    }
 }
 
 .gallery {
