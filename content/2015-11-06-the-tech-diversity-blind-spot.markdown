@@ -69,7 +69,9 @@ _Even if_ you're very very careful about assigning people to cohorts evenly and 
 
 Consider: what if those low-bandwidth users hadn't had as much of an impact?  What if they'd bumped up the average load time for the new page, but not so much that it exceeded the average load time of the old page?  The developer would've said "oh, it's 10% faster, nice", and that would be that.  No one would have ever realized the true impact of the change.  It wasn't the graph that revealed the insight — it was the fact that _the graph seemed to be wrong_ that led humans to dig deeper and discover the insight.
 
-But we trust the graphs.  There's nothing in that story about how they updated the graphs to catch this kind of change in the future, and I'm willing to bet it didn't even occur to anyone.
+This is the blind spot.  We trust graphs.  We trust measurements.  We only think to question them when there's a conflict too large to explain away.  If there are graphs and charts showing that white guys dominate tech, well, that just means white guys are the best at tech, right?  That's what such a graph would seem to measure, and graphs can't be wrong.
+
+Notice there's nothing in that story about updating the graphs to catch this kind of change in the future.  I'm willing to bet it didn't even occur to anyone.  Even when our graphs are wrong, we go right on trusting them next time.
 
 ----
 
@@ -87,7 +89,7 @@ There's a contradiction here.  This isn't about difference of opinion; this is a
 
 Which of these sounds [easier to believe](https://en.wikipedia.org/wiki/Cognitive_dissonance)?
 
-If you believe that everything important can be quantified, if you believe that humans are fundamentally rational, if you believe you can be objective, if you live in a world where everything is factual and measurable and obeys clear immutable rules...
+If you believe that everything important can be quantified, if you believe that humans are fundamentally rational, if you believe you can be objective, if you live in a world where everything is factual and measurable and obeys clear immutable rules, if you trust your graphs...
 
 Then not only is the first choice repulsive, it may be _unthinkable_.  I might as well propose that the planet is made of waffles.  It's so ridiculous that it can't even come to mind as a serious possibility.
 
