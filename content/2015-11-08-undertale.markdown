@@ -80,7 +80,7 @@ But the final cutscene has Lexy — Chara — _me_ — break the fourth wall to 
 
 This is where the game's message, if it has one, starts to come a little unraveled.
 
-The ultimate ending to no mercy is — just like Sans's special attack — literally nothing.  Perhaps that's the game's retort to me: it's not rewarding me after all.  But you'll never find this out without playing through the story, without persevering, without the very `determination` the game otherwise celebrates.
+The ultimate ending to no mercy is — just like Sans's special attack — literally nothing.  Perhaps that's the game's retort to me: it's not rewarding me after all.  But you'll never find this out without playing through the story, without persevering, without the very `determination` the game otherwise celebrates.  In fact, _because_ this is a game with set paths, there's no way whatsoever to learn more about the world other than to try things you haven't tried before within your limited vocabulary.
 
 The game tries to apply real-world moralizing throughout the no mercy story.  Killing is bad.  Killing everyone is _really_ bad.  Okay, I can buy that.  But this is a story that assumes I've already beaten the game, and probably even seen the pacifist ending.  At this point, it's well-established that I have the power _within the universe_ to turn back my own death or even start everything over from scratch.
 
@@ -154,7 +154,7 @@ Because, of course, as we knew all along, Chara is the player.  And Undertale is
 
 They landed on Chara's grave, where buttercups had grown.  Chara's soul, with its extraordinary `determination` (thanks to being the player character), had lingered there all this time, waiting for an empty vessel.
 
-You really _are_ naming the most recent fallen human.  The entire game, no matter which route you choose, you play as Chara.
+You really _are_ naming the most recent fallen human.  The entire game, no matter which route you choose, you play as Chara, as a metaphor for player characters in general and for the way you "possess" one when you play any game.
 
 Remember, Undertale is a game about redemption.  Chara's redemption.  _Your_ redemption, from the usual violent approach to playing games.  _You_ are the antagonistic human, who contrives ways to be attacked so you can attack back.
 
