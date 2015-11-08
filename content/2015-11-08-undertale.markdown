@@ -241,6 +241,10 @@ A lot of Floweys, indeed.
 
 But even Flowey was redeemed.
 
+----
+
+For all their `determination`, it sure is funny that humans only live 80-odd years, whereas at least Asgore has apparently been alive for centuries.
+
 
 ## Undertale is a game about
 
