@@ -444,9 +444,23 @@ body > footer {
         }
     }
 
+    #recent_posts {
+        $glyph-width: 2.5em;
+        li {
+            margin-left: $glyph-width;
+        }
+        .category-glyph {
+            clear: left;
+            float: left;
+            margin-top: 2px;
+            margin-left: -$glyph-width;
+        }
+    }
+
+
     .sidebar-tags {
         line-height: 1.5;
-        
+
         a {
             padding-right: 0.33em;
             white-space: nowrap;

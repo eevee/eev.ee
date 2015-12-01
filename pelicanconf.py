@@ -28,6 +28,11 @@ LINKS_EX = ((
     '#f6b441', 'category-blog.png',
     "detailed, thoughtful prose about why computers are the worst",
 ), (
+    'dev',
+    '/dev/',
+    '#ee7300', 'category-dev.png',
+    "updates on cool things i make",
+), (
     'art',
     '/art/',
     '#41c518', 'category-art.png',
