@@ -134,7 +134,7 @@ MD_EXTENSIONS = [
 
 PATH = 'content/'
 PAGE_PATHS = ['../pages/']
-STATIC_PATHS = ['favicon.png', 'media']
+STATIC_PATHS = ['favicon.png', 'media', 'dev/media']
 
 # For the landing page
 TEMPLATE_PAGES = {

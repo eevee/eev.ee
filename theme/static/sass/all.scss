@@ -653,6 +653,16 @@ article {
     }
 }
 
+.prose-full-illustration {
+    margin: 0 0 1em;
+    text-align: center;
+
+    img {
+        // Don't let large images expand the main container's width
+        width: 100%;
+    }
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // SPECIFIC PAGES
