@@ -193,7 +193,7 @@ The funny thing is that Google's shiny new Hangouts client for Android has exact
 
 With a Twitter account, I started getting a series of notifications about tweets directed at me.  Dozens of them, one at a time, starting from the most recent and going back hours.  I removed the account; they kept coming until some queue had emptied.
 
-The Twitter thing is actually neat little integration for a simple concentp, which is nice, but I'm happy enough with irssi.
+The Twitter thing is actually neat little integration for a simple concept, which is nice, but I'm happy enough with irssi.
 
 ### Alt-Tab
 
