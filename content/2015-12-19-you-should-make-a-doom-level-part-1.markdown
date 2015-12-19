@@ -219,7 +219,7 @@ SLADE is slightly too clever for its own good.  When we split the switch, it add
 
 If only we'd used 3D mode first!  Press <kbd>Q</kbd>.  You can use <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> to move around and explore this (imperfect!) preview of your level.  By default you start on the player start point, but you can move anywhere you like by right-clicking in 2D mode.
 
-Find the switch wall.  The problem should be obvious.  (If you don't see a highlight around the outline, move around a bit — your crosshair might be hitting the player start thing.)  You can use the arrow keys to adjust the texture offsets, or just press <kbd>R</kbd> to reset them to zero.
+Find the switch wall.  The problem should be obvious.  (If you don't see a highlight around the outline, move around a bit — your crosshair might be hitting the player start thing.)  You can use the numpad to adjust the texture offsets, or just press <kbd>R</kbd> to reset them to zero.
 
 Depending on the size of your room, this might now look a little funky.  The left edge of the switch meets with the left wall in an awkward way for me, causing some very oddly-sized bricks.
 
