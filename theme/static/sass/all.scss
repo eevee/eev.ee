@@ -591,6 +591,18 @@ article {
             margin: 1em 0;
         }
     }
+
+    kbd {
+        font-size: 0.83em;
+        padding: 0 0.2em;
+        border-radius: 0.33em;
+        border: 1px double scale-color($main-accent, $lightness: 33%);
+        border-width: 1px 3px 3px 1px;
+        background: scale-color($main-bg, $lightness: -8%);
+    }
+    kbd + kbd {
+        margin-left: 0.25em;
+    }
 }
 
 .gallery {
