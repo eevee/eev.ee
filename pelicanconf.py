@@ -12,6 +12,7 @@ SITEURL = ''
 TIMEZONE = 'America/Los_Angeles'
 
 DEFAULT_LANG = u'en'
+DEFAULT_DATE_FORMAT = '%a %b %d, %Y'
 
 # Feed generation is usually not desired when developing
 FEED_ATOM = None
