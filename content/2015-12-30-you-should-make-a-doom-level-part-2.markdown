@@ -7,7 +7,7 @@ tags: gamedev, tech, making things, doom
 <p style="text-align: center;" markdown="1">
 [Part 1: the basics](/blog/2015/12/19/you-should-make-a-doom-level-part-1/)
 · **Part 2: design**
-· Part 3: cheating
+· [Part 3: cheating](/blog/2015/12/31/you-should-make-a-doom-level-part-3/)
 </p>
 
 I assume you've read the introduction, which tells you the basics of putting a world together.

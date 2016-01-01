@@ -7,7 +7,7 @@ tags: gamedev, tech, making things, doom
 <p style="text-align: center;" markdown="1">
 **Part 1: the basics**
 · [Part 2: design](/blog/2015/12/30/you-should-make-a-doom-level-part-2/)
-· Part 3: cheating
+· [Part 3: cheating](/blog/2015/12/31/you-should-make-a-doom-level-part-3/)
 </p>
 
 I love Doom.  Or, well, I love Doom 2, which is the game we actually had when I was nostalgia years old.
@@ -119,7 +119,7 @@ For example, there are three different map formats: Doom, Hexen, and UDMF.  UDMF
 
 Anyway.
 
-Go to File > New > Map, and you'll get a little prompt.  The defaults are terrible, so **make sure** you set the game to Doom 2 and the port to ZDoom!  Otherwise SLADE will be very confused.  You'll also want to set the base resource the `doom2.wad`.  You only have to do this once; I think SLADE will remember these as defaults in the future.
+Go to File > New > Map, and you'll get a little prompt.  The defaults are terrible, so **make sure** you set the game to Doom 2 and the port to ZDoom!  Otherwise SLADE will be very confused.  You'll also want to set the base resource to `doom2.wad`.  You only have to do this once; I think SLADE will remember these as defaults in the future.
 
 After this you'll get another little prompt, which _should_ have `MAP01` as the map name and UDMF as the format.  Click OK, and finally, at long last, you're in a map editor.
 
