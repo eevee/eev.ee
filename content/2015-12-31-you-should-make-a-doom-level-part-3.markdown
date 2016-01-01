@@ -32,14 +32,14 @@ But we're in the future now, and we can do much better.  We can make honest-to-g
 
 I'm cracking open the map I already had.  There's no water here, but there's plenty of lava, and it can definitely be made to look better.  I'll start with that magma chamber.  First I'm going to lower the floor a bit, remove the lava texture, and remove the floor light level — the lava will be entirely separate, so all I need is a model of an empty chamber.
 
-{% photo /media/2015-12/doom3/slade01-empty-chamber.png %}
+{% photo /media/2015-12/doom3/slade01-empty-chamber.png The magma chamber, without the magma %}
 
 I need to make a _control sector_ — a dummy sector, out in the void.  The _ceiling_ will become the _top_ of the 3D floor, and the _floor_ will become the _bottom_.  I'm just going to make the floor and ceiling both lava, and put the floor height down some ways.  (If the 3D floor's bottom goes below the real sector's floor, it just won't appear.)  Finally, I'm going to make the control sector do 20% damage, and the empty magma chamber _not_.
 
 Now for some magic.  Tag the magma chamber; I'm using `101` here, just to distinguish my 3D floors from actual mechanisms.  Pick a line of the sector and give it the `Sector_Set3dFloor` special (under "Sector").  The type should be "swimmable", and the opacity should definitely not be zero.  I'll use `160`, which is about two-thirds opaque.
 
-{% photo /media/2015-12/doom3/zdoom01-deep-lava.png %}
-{% photo /media/2015-12/doom3/zdoom02-deep-lava-gzdoom.png %}
+{% photo /media/2015-12/doom3/zdoom01-deep-lava.png Deep lava, complete %}
+{% photo /media/2015-12/doom3/zdoom02-deep-lava-gzdoom.png Deep lava, in GZDoom %}
 
 Shazam!  Deep translucent lava, through which you can see the floor below.  If you step in it, you take the 20% damage from the control sector.
 
@@ -53,7 +53,7 @@ That looks kind of goofy in this dim room, so I'm going to hack this into workin
 
 (If you're using a SLADE dev build, or if this is the future and you're using 3.1.1 final, you can just select the sector and then switch to lines mode to select all of its lines.  Of course, you can also just change the wall light levels in 3D mode by unlinking and using <kbd>;</kbd> and </kbd>'</kbd> — this doesn't work correctly in beta 2.)
 
-{% photo /media/2015-12/doom3/zdoom03-bright-lava.png %}
+{% photo /media/2015-12/doom3/zdoom03-bright-lava.png Brightening the deep lava %}
 
 And there you go!  Had to take the scenic route, but hey, it works.  It's most obvious towards the back of the room.
 
@@ -70,14 +70,14 @@ My cave is tagged `6`.  I'm going to tag the main part of the chasm as `102`.  A
 
 I'm also going to do the same lighting trick again, to keep the lava bright and everything else not.
 
-{% photo /media/2015-12/doom3/zdoom04-lava-chasm.png %}
+{% photo /media/2015-12/doom3/zdoom04-lava-chasm.png Deep lava in the chasm %}
 
 I, uh, also went and changed the opacity to `192`, because `160` was really a bit too transparent for _lava_.
 
 That also gives me an interesting idea.  The side cave is really blindingly obvious right now, but this lava is _deep_.  What if I made it a little deeper?  Deep enough to hide the cave entirely?  Seems like a nice way to make a secret.
 
-{% photo /media/2015-12/doom3/slade02-deeper-cave.png %}
-{% photo /media/2015-12/doom3/zdoom05-under-lava.png %}
+{% photo /media/2015-12/doom3/slade02-deeper-cave.png Moving the cave further down %}
+{% photo /media/2015-12/doom3/zdoom05-under-lava.png Cave under the lava...  but... %}
 
 Ah...  hm.  That looks like complete ass.  To fix this, I'll have to take a brief detour into ZDoom's colored lighting.  There are two kinds of light color you can control.
 
@@ -89,7 +89,7 @@ You can set either of these per-sector.  If you set the light color in a control
 
 However, if you set the fog color in the control sector, it won't become the fog color in the 3D floor!  Instead it becomes a [_palette flash_](http://zdoom.org/wiki/Palette_flash), which is the name for effects like the glow when picking up items or the green overlay when wearing the radiation suit.  So if you set the control sector's fog color to a reddish-orange, say...
 
-{% photo /media/2015-12/doom3/zdoom06-palette-blend.png %}
+{% photo /media/2015-12/doom3/zdoom06-palette-blend.png Applying a palette blend %}
 
 Beautiful!  The entire screen is blended with that color.  And this isn't susceptible to palette issues, even in ZDoom, because it actually _modifies the palette_ as long as the player's view is within the lava.
 
@@ -97,13 +97,13 @@ One thing still bugs me here.  This is lava, right?  Lava is thick.  I shouldn't
 
 Well, how do you limit view distance in Doom?  Ironically, after all that effort to make the _top_ of the lava brighter, I have to make the lava itself darker!  And bump up the "fog color" to compensate.
 
-{% photo /media/2015-12/doom3/zdoom07-thick-lava.png %}
+{% photo /media/2015-12/doom3/zdoom07-thick-lava.png Changing the light level to make the lava thicker %}
 
 This took _a lot_ of fiddling, and it's still not quite right — for example, the upper part of the sector shines through the lava, because the sector's "real" light level is so much brighter.  You could bump the opacity up a bit more if you like, but I'm going to leave this how it is.
 
 As for the cave, well, it's currently _under_ the lava, which is doing wacky things to `ExtraFloor_LightOnly`.  I'd better make this an actual cave above the lava, and give the teleporter a little dry land to sit on.  And of course, there should be a prize, and the sector should be marked secret.  (I would mark the wall secret as well, but that doesn't do much good here, since the edges of the cave show on the automap if you look down into the lava.  Consider that the hint.)
 
-{% photo /media/2015-12/doom3/zdoom08-lava-secret.png %}
+{% photo /media/2015-12/doom3/zdoom08-lava-secret.png Teleporter cave, now a secret %}
 
 A worthy prize for braving the magma.
 
@@ -118,7 +118,7 @@ How about we use a 3D floor, so the player can walk under and over it?
 
 This isn't really any different.  I have to draw a sector that will contain the floor; I'm going to cut out bits of it so it looks kind of like a grating.
 
-{% photo /media/2015-12/doom3/slade03-draw-bridge.png %}
+{% photo /media/2015-12/doom3/slade03-draw-bridge.png Drawing a new bridge %}
 
 Now I tag it as `103`, and I make a third copy of the lava special so there's still lava in this sector.
 
@@ -130,9 +130,9 @@ First I need to give _the control sector_ a tag — because the control sector i
 
 Result:
 
-{% photo /media/2015-12/doom3/zdoom09-bridge-bottom.png %}
-{% photo /media/2015-12/doom3/zdoom10-bridge-raising.png %}
-{% photo /media/2015-12/doom3/zdoom11-bridge-raised.png %}
+{% photo /media/2015-12/doom3/zdoom09-bridge-bottom.png The bridge in its starting position %}
+{% photo /media/2015-12/doom3/zdoom10-bridge-raising.png The bridge rising from the lava %}
+{% photo /media/2015-12/doom3/zdoom11-bridge-raised.png The bridge in its final position %}
 
 It even automatically casts its own shadow — because the light _beneath_ a 3D floor is inherited from its control sector.
 
@@ -140,8 +140,8 @@ It even automatically casts its own shadow — because the light _beneath_ a 3D 
 
 You may have noticed something extra in the above screenshots that I'd already made!  I wanted to make a simple decoration with 3D floors.  All I did was draw and texture a crate (which is 64×64×64), draw a second crate outline, rotate them, overlay them, and fill in the second one with a 3D floor.
 
-{% photo /media/2015-12/doom3/slade04-crate-drawing.png %}
-{% photo /media/2015-12/doom3/slade05-crate-stacking.png %}
+{% photo /media/2015-12/doom3/slade04-crate-drawing.png Drawing some crates %}
+{% photo /media/2015-12/doom3/slade05-crate-stacking.png Stacking them together %}
 
 Granted, this would be more impressive if my room were a little taller.  As it stands, I could've done this using only vanilla features, because there's no space directly above another space here.  But I _could_ raise the ceiling, and there would be space both above and below the extra crate.
 
@@ -174,8 +174,8 @@ You know my door between the two tech rooms?  The one that opens with a switch? 
 
 I need to draw a big open empty space somewhere in the void, well away from the rest of the map.  This is kind of like a dummy sector, but it's not the sector itself I care about.  I'm going to draw both sides of my sliding door in this sector, and then _delete them_, leaving a void.  My door frame is 128 tall and 16 wide, so each door half needs to be 64 tall.  I'm also going to texture them like I want them to appear.  I end up with this:
 
-{% photo /media/2015-12/doom3/slade06-polyobj1.png %}
-{% photo /media/2015-12/doom3/slade07-polyobj2.png %}
+{% photo /media/2015-12/doom3/slade06-polyobj1.png Drawing polyobjs in the void %}
+{% photo /media/2015-12/doom3/slade07-polyobj2.png Texturing polyobjs %}
 
 Now I'll turn these into [_polyobjects_](http://zdoom.org/wiki/PolyObjects).  Polyobjects (or, usually, just "polyobjs") are kind of like chunks of geometry that get overlaid onto the map in a different place.  They consist only of lines, not sectors — they'll never have ceilings or floors.  These basic ones consist only of one-sided lines, so they're actually infinitely tall.
 
@@ -187,15 +187,15 @@ Turning a void shape into a polyobject requires three things.
 
 3. Place a "PolyObject Start Spot" thing where you would like the polyobject to appear in the map.  It'll be placed relative to where the anchor is, of course.  Again, use the angle to indicate polyobj number.  (There are actually three types of start spots, and the difference is in how they handle trying to move when someone's in the way.  For a door, you probably want the "Harmless" variant.)
 
-{% photo /media/2015-12/doom3/slade08-polyobj3.png %}
-{% photo /media/2015-12/doom3/zdoom12-polyobj-door.png %}
+{% photo /media/2015-12/doom3/slade08-polyobj3.png Placing the anchors and start spots %}
+{% photo /media/2015-12/doom3/zdoom12-polyobj-door.png The resulting door %}
 
 That sure was a lot of work just to make a barrier.  Let's make it actually do something!  I'm changing my switch from `Door_Open` to `Polyobj_Move`.  (There's a `Polyobj_DoorSlide`, but that closes the door after a delay, which I don't want.)  I only have to move polyobj number `1`, because they're mirrored and will move together.  The angle is a [_byte angle_](http://zdoom.org/wiki/Definitions#Byte_Angles), which SLADE doesn't currently have UI for, but a quick look at that wiki page tells me I want `192` for south.  For the distance, I'm going to use _slightly less_ than 64, so the edge of the door peeks out from the wall.  Just like when a door opens upwards.
 
 And that's it!  A sliding door.  Certainly more cumbersome than a regular door, but a nice change of pace.  It blocks sound and sight when closed, just like you'd expect.
 
-{% photo /media/2015-12/doom3/zdoom13-polyobj-open1.png %}
-{% photo /media/2015-12/doom3/zdoom14-polyobj-open2.png %}
+{% photo /media/2015-12/doom3/zdoom13-polyobj-open1.png Opening the polyobj door %}
+{% photo /media/2015-12/doom3/zdoom14-polyobj-open2.png Fully-opened polyobj door %}
 
 
 ### Two-sided polyobjs
@@ -210,10 +210,10 @@ I will, of course, also have to give it some middle texture.  Doom has several g
 
 Other than that, it's basically the same: plop down an anchor and a start spot.
 
-{% photo /media/2015-12/doom3/slade09-gate-before.png %}
-{% photo /media/2015-12/doom3/slade10-gate-polyobj.png %}
-{% photo /media/2015-12/doom3/slade11-gate-anchor.png %}
-{% photo /media/2015-12/doom3/zdoom15-polyobj-gate.png %}
+{% photo /media/2015-12/doom3/slade09-gate-before.png The door, before changing anything %}
+{% photo /media/2015-12/doom3/slade10-gate-polyobj.png Drawing a single-line polyobj %}
+{% photo /media/2015-12/doom3/slade11-gate-anchor.png Placing the start spot %}
+{% photo /media/2015-12/doom3/zdoom15-polyobj-gate.png Resulting two-sided polyobj %}
 
 Beautiful.  Except you can walk right through it.  Oops.  To fix that you can give the line the "3D MidTex" flag, which makes its _texture_ blocking.  You can use this for regular railings and the like, too, and it'll only block the player where the texture appears.  You can even walk on top of it!
 
@@ -227,8 +227,8 @@ The recommended way to fix this is to give the line a _line id_ — like a secto
 
 Instead I'm going to cheat, in keeping with this theme.  I have perfectly good lines on either side of this door, so I'm just going to have them trigger on "Player Cross", and give _those_ the special.  (I have to edit them a bit because "cross" specials only activate when something's _center_ crosses the line, so they'll never fire if there's not enough room between the line and the door.)  I do want `Polyobj_DoorSlide` this time, with a byte angle of `64` for north.  And, behold:
 
-{% photo /media/2015-12/doom3/slade12-gate-cheating.png %}
-{% photo /media/2015-12/doom3/zdoom16-polyobj-gate-open.png %}
+{% photo /media/2015-12/doom3/slade12-gate-cheating.png Cheating to make the gate work without scripting %}
+{% photo /media/2015-12/doom3/zdoom16-polyobj-gate-open.png The gate, opening %}
 
 ----
 
@@ -257,8 +257,8 @@ I can finally admit that this is mostly why I wanted you to get the SLADE beta: 
 
 This is the easiest, and also my favorite, and also the most limited.  It's a special (under "Sector") you can slap on a line, and it slopes the floor or ceiling of one side to meet the floor or ceiling of the other side.  So if you just carve out the corner of a cave, say, you can stick `Plane_Align` on its edge and get an instant nice slope.
 
-{% photo /media/2015-12/doom3/slade13-plane-align-before.png %}
-{% photo /media/2015-12/doom3/slade14-plane-align-after.png %}
+{% photo /media/2015-12/doom3/slade13-plane-align-before.png Before Plane_Align %}
+{% photo /media/2015-12/doom3/slade14-plane-align-after.png After Plane_Align %}
 
 It takes almost no effort and it's pretty easy to understand.  The slope makes sure the floors touch on either side of the line.  Got it.  (For the curious: yes, the point in the sector furthest from the line will be the point that stays the sector's "native" height.)  And once you have `Plane_Align` on a line, you can just mousewheel the floor or ceiling height of either side in 3D mode, and the slope will update live!  That is _super cool_.
 
@@ -266,8 +266,8 @@ Note that the floor texture stays fixed to the 2D grid, even if the sector is sl
 
 `Plane_Align` works great for very common cases, like rounded(ish) archways or ramps instead of stairs.  It can even help with certain kinds of three-dimensional curve, like...  the top of a volcano.  If I carve it into triangular pieces and apply some `Plane_Align`...
 
-{% photo /media/2015-12/doom3/slade15-plane-align-volcano.png %}
-{% photo /media/2015-12/doom3/slade16-plane-align-volcano2d.png %}
+{% photo /media/2015-12/doom3/slade15-plane-align-volcano.png Volcano with a smooth sloped ceiling %}
+{% photo /media/2015-12/doom3/slade16-plane-align-volcano2d.png Volcano slope geometry in 2D %}
 
 This is, uh, kind of complicated to explain, and [the wiki already has some diagrams](http://zdoom.org/wiki/Using_slopes#Cliff_and_basin_with_Plane_Align).  The key is that the sloped part is made out of alternating triangles all the way around, with both sets of triangles sloping to meet the others.  The idea is that each line is shared between two triangles: one sloping up, and one sloping down.  Since each vertex will end up with the same height, either because it's part of a `Plane_Align`ed line or because it's the corner that stays at its native height, there can't possibly be any seams.  Got it?  Hm.  I'm not even sure how to draw a diagram for this.  Maybe crack my map open and look at the sectors.
 
@@ -278,7 +278,7 @@ Anyway, that's about the extent of tricks you can do with `Plane_Align`.  For mo
 
 These aren't too hard to use, but expressing what you want is definitely more tricky than with `Plane_Align`.  Plop a "Floor Tilt Slope" or "Ceiling Tilt Slope" (Special Effects → Slopes) into a sector.  Its first argument is a "tilt" measured in degrees — `90` is no tilt, less is a downwards tilt, more is an upwards tilt.  The direction the thing faces determines the direction of the tilt.  The slope will, of course, pass through the thing.
 
-{% photo /media/2015-12/doom3/slade17-sector-tilt.png %}
+{% photo /media/2015-12/doom3/slade17-sector-tilt.png Using a sector tilt thing to make a one-off slope %}
 
 That's a floor tilt thing, pointing to the left, with a tilt of `85`.  Not much to it.  Useful for one-off rocks like this, but if you care about avoiding seams, this is probably way too fiddly to bother with.
 
@@ -287,14 +287,14 @@ That's a floor tilt thing, pointing to the left, with a tilt of `85`.  Not much 
 
 If you want to make very complex geometry...  you can use vertex heights.  It's pretty tedious, but it's doable.  Let's make, I dunno, a real stalagtite.  The most important thing is that this only works for triangular sectors, so I have to draw my geometry as triangles.
 
-{% photo /media/2015-12/doom3/slade18-vertex-heights1.png %}
+{% photo /media/2015-12/doom3/slade18-vertex-heights1.png Geometry for a vertex height stalagtite %}
 
 Yeah, like that.  Switch to vertex mode, select a vertex, and make sure "Show All" is checked in the prop panel.  You may notice that there are "Floor Height" and "Ceiling Height" properties.
 
 You can probably guess where this is going.  Three points define a plane, so you can define any plane you want for any sector with only three points by giving them explicit floor or ceiling heights.  So for my stalagtite, I just give the outer vertices a ceiling height equal to the actual ceiling height, and the inner one a ceiling height somewhat lower than that:
 
-{% photo /media/2015-12/doom3/slade19-vertex-heights2.png %}
-{% photo /media/2015-12/doom3/slade20-vertex-heights3.png %}
+{% photo /media/2015-12/doom3/slade19-vertex-heights2.png Vertex height stalagtite, default texture scaling %}
+{% photo /media/2015-12/doom3/slade20-vertex-heights3.png Vertex height stalagtite, fixed texture scaling %}
 
 That's before and after applying some texture scaling, to compensate for the dramatic slope.
 
