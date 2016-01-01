@@ -140,8 +140,8 @@ It even automatically casts its own shadow — because the light _beneath_ a 3D 
 
 You may have noticed something extra in the above screenshots that I'd already made!  I wanted to make a simple decoration with 3D floors.  All I did was draw and texture a crate (which is 64×64×64), draw a second crate outline, rotate them, overlay them, and fill in the second one with a 3D floor.
 
-{% photo /media/2015-12/doom3/slade03-crate-drawing.png %}
-{% photo /media/2015-12/doom3/slade04-crate-stacking.png %}
+{% photo /media/2015-12/doom3/slade04-crate-drawing.png %}
+{% photo /media/2015-12/doom3/slade05-crate-stacking.png %}
 
 Granted, this would be more impressive if my room were a little taller.  As it stands, I could've done this using only vanilla features, because there's no space directly above another space here.  But I _could_ raise the ceiling, and there would be space both above and below the extra crate.
 
