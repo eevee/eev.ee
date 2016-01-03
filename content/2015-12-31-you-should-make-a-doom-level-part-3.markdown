@@ -463,4 +463,4 @@ No, really, build a world.  I've hit Hacker News twice already and all the comme
 
 So do it.  Put something together.  Make creative use of all these little extensions.  Let people run around in your universe.  You don't even have to have monsters if you don't want to; just create a little contraption and appreciate it for its own sake.
 
-I'll be over here, chugging away at this little map set, which I'll release...  someday.  Until then, enjoy [the final version of this tutorial map](/media/2015-12/doom3/part3.wad), which is mostly the same except for these special effects.  And send me yours!
+I'll be over here, chugging away at this little map set, which I'll release...  someday.  Until then, enjoy [the final version of this tutorial map](/media/2015-12/doom3/part3.wad), which is mostly the same except for these special effects.  And send me yours!  There's still a (sloowly) growing list at the bottom of [part 1](/blog/2015/12/19/you-should-make-a-doom-level-part-1/).

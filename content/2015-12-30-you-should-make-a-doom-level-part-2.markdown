@@ -580,6 +580,4 @@ Triple-check that your doors actually work.  I have a bad habit of creating and 
 
 That's all for now, but I am hard at work on part 3, in which we shall break all the rules.  Or, a lot of the rules.
 
-Here's [my version of this map](/media/2015-12/doom2/part2.wad).  I even included a _surprise_, to encourage you to actually look at it in an editor.  Send me yours, so I can put it in this list!
-
-* _none yet  :(_
+Here's [my version of this map](/media/2015-12/doom2/part2.wad).  I even included a _surprise_, to encourage you to actually look at it in an editor.  Send me yours, so I can add it to the list at the bottom of [part 1](/blog/2015/12/19/you-should-make-a-doom-level-part-1/)!

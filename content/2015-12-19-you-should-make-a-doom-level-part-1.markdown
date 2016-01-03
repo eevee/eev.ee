@@ -505,3 +505,4 @@ There's a _lot_ more you can do here.  You can discover a lot of it by poking ar
 'Til then, build some stuff and show it to me!  I will even give your level a cool shout-out right here:
 
 - ["There's technically only 3 rooms, Eevee"](https://twitter.com/wilkieii/status/679410170783510530) by [@wilkieii](https://twitter.com/wilkieii)
+- ["Inspired me to make 4 rooms"](https://twitter.com/gremblor/status/683467868181139456) by [@gremblor](https://twitter.com/gremblor)
