@@ -60,11 +60,11 @@ So, try running ZDoom.  If you got Doom 2 from Steam or GOG, ZDoom _might_ autom
 
 Or, if ZDoom can't find a game at all, it'll spew an error about that.  Or just close immediately without doing anything.  In this case, you have a couple options, in decreasing order of cleanliness:
 
-1. Find your `zdoom.ini` file.  Running ZDoom, even unsuccessfully, should have created one for you automatically.  On Linux or OS X, this will be in `~/.config/zdoom/` (or `~/.config/gzdoom` if you're using GZDoom).  On Windows, it's apparently `zdoom-<username>.ini`, in the same directory as ZDoom itself.  Right at the top is a section called `[IWADSearch.Directories]` followed by several `Path=` lines; just add another one with the path to the directory containing your `doom2.wad`.
+1. Find your `zdoom.ini` file.  Running ZDoom, even unsuccessfully, should have created one for you automatically.  On Linux, this will be in `~/.config/zdoom/` (or `~/.config/gzdoom` if you're using GZDoom).  On OS X, it's in `~/Library/Preferences/zdoom.ini`.  On Windows, it's apparently `zdoom-<username>.ini`, in the same directory as ZDoom itself.  Right at the top is a section called `[IWADSearch.Directories]` followed by several `Path=` lines; just add another one with the path to the directory containing your `doom2.wad`.
 
 2. Set the `DOOMWADDIR` environment variable to the directory containing your IWAD.
 
-3. Copy or move the IWAD into the same directory as ZDoom.  (On Linux or OS X, you can also stick them in `~/.config/zdoom`.  Or any of the directories listed in `zdoom.ini`.)
+3. Copy or move the IWAD into the same directory as ZDoom.  (On Linux, you can also stick them in `~/.config/zdoom`.  Or on any platform, in any of the directories listed in `zdoom.ini`.)
 
 Now you should definitely be able to run the game and see the good ol' Doom 2 title screen.
 
