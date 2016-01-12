@@ -1,6 +1,6 @@
 title: Heteroglot: #15 in COBOL
 date: 2012-09-07 23:17
-tags: math, project euler, cobol
+tags: tech, math, project euler, cobol
 category: blog
 
 
@@ -19,7 +19,9 @@ I figure if this is interesting to me, it might be interesting to someone else. 
 
 ## The math
 
-{% img right http://projecteuler.net/project/images/p_015.gif 'Problem 15 illustration' 'Illustration of the six paths from the top-left to bottom-right of a 2×2 grid, following the grid lines.' %}
+<div class="prose-illustration" markdown="1">
+![Problem 15 illustrated: six paths from the top-left to bottom-right of a 2×2 grid.](http://projecteuler.net/project/images/p_015.gif)
+</div>
 
 [Problem 15][]:
 
@@ -109,7 +111,7 @@ Now I need to learn some COBOL.  OpenCOBOL's site helpfully links this [OpenCOBO
 
 My archaeological adventure is off to a fantastic start.
 
-Right, well, step two: what the hell does a program look like?  I am dimly away that COBOL has a lot of wordy setup and DIVISIONs of code or data or something.  Section 2 starts to explain this setup.  The only required part of a COBOL program appears to be `PROGRAM-ID. {program-name}`, but that won't actually do anything.  So I think I'll actually need something more like this:
+Right, well, step two: what the hell does a program look like?  I am dimly aware that COBOL has a lot of wordy setup and DIVISIONs of code or data or something.  Section 2 starts to explain this setup.  The only required part of a COBOL program appears to be `PROGRAM-ID. {program-name}`, but that won't actually do anything.  So I think I'll actually need something more like this:
 
     IDENTIFICATION DIVISION.
     PROGRAM-ID. project-euler-15
