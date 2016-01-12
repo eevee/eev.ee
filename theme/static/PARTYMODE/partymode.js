@@ -1,6 +1,6 @@
 (function() {
     // Number of kilopixels dedicated to each snowflake
-    var FLAKE_SPARSITY = 10;
+    var FLAKE_SPARSITY = 15;
     // Images
     var IMAGES = Array.apply(null, {length: 12}).map(function(_, index) { return String(index) + ".png"; });
 
