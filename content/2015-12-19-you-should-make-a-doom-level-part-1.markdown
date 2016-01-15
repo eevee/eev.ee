@@ -508,3 +508,4 @@ There's a _lot_ more you can do here.  You can discover a lot of it by poking ar
 - ["Inspired me to make 4 rooms"](https://twitter.com/gremblor/status/683467868181139456) by [@gremblor](https://twitter.com/gremblor)
 - ["My 1st DOOM level, made at @ICTGameJam"](https://twitter.com/BenBlankley/status/686067802461974528) by [@BenBlankley](https://twitter.com/BenBlankley)
 - ["I did a thing!"](https://twitter.com/orbicube/status/686549222154371074) by [@orbicube](https://twitter.com/orbicube)
+- ["First Doom Map"](https://twitter.com/hokazenoflames/status/687955526454521856) by [@hokazenoflames](https://twitter.com/hokazenoflames)
