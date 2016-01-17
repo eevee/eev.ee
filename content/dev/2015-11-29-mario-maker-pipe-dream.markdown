@@ -7,7 +7,7 @@ tags: mario maker
 <img src="/dev/media/mario-maker/pipe-dream.jpg">
 </div>
 
-`1AA3-0000-0104-C7ED`  
+[`1AA3-0000-0104-C7ED`](https://supermariomakerbookmark.nintendo.net/courses/1AA3-0000-0104-C7ED)  
 **Difficulty**: easy  
 **Quality**: ★★★★☆  
 **Secrets**: 🍄🍄🍄🍄

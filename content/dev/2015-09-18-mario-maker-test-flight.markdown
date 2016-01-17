@@ -7,7 +7,7 @@ tags: mario maker
 <img src="/dev/media/mario-maker/test-flight.jpg">
 </div>
 
-`55A7-0000-0049-50DD`  
+[`55A7-0000-0049-50DD`](https://supermariomakerbookmark.nintendo.net/courses/55A7-0000-0049-50DD)  
 **Difficulty**: tricky, not in a good way  
 **Quality**: ★★☆☆☆  
 **Secrets**: 🍄🍄🍄

@@ -7,7 +7,7 @@ tags: mario maker
 <img src="/dev/media/mario-maker/tiny-huge-island.jpg">
 </div>
 
-`A953-0000-0055-15BA`  
+[`A953-0000-0055-15BA`](https://supermariomakerbookmark.nintendo.net/courses/A953-0000-0055-15BA)  
 **Difficulty**: medium, has some annoying spots  
 **Quality**: ★★★☆☆  
 **Secrets**: 🍄🍄🍄🍄

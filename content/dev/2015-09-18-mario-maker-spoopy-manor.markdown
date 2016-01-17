@@ -7,7 +7,7 @@ tags: mario maker
 <img src="/dev/media/mario-maker/spoopy-manor.jpg">
 </div>
 
-`CA39-0000-004B-FF52`  
+[`CA39-0000-004B-FF52`](https://supermariomakerbookmark.nintendo.net/courses/CA39-0000-004B-FF52)  
 **Difficulty**: slightly tricky, not in a good way  
 **Quality**: ★★★☆☆  
 **Secrets**: 🍄🍄 + "secret exit"

@@ -7,7 +7,7 @@ tags: mario maker
 <img src="/dev/media/mario-maker/cookie-dough.jpg">
 </div>
 
-`00EC-0000-00DB-3CA7`  
+[`00EC-0000-00DB-3CA7`](https://supermariomakerbookmark.nintendo.net/courses/00EC-0000-00DB-3CA7)  
 **Difficulty**: fairly easy  
 **Quality**: ★★★★☆  
 **Secrets**: 🍄🍄🍄🍄
@@ -18,6 +18,6 @@ This was the first time I tried to do any real narrative things with the detaili
 
 There are also quite a few branching paths, which is a little difficult to cram into Mario Maker where the world can only be two screens tall.  Jamming in a lot of secrets made it even harder, but I managed.  See if you can find them all!  No backtracking required, I think.
 
-There's a boss battle at the end, though the solution is unfortunately not as obvious as I'd hoped.  A surprisingly tricky problem is finding ways to force the player to actually _beat_ the boss, rather than scurry past it.  (I'm not sure anyone has picked up on what the boss _is_, either.)
+There's a boss battle at the end, though the solution is unfortunately not as obvious as I'd hoped.  A surprisingly tricky problem is finding ways to force the player to actually _beat_ the boss, rather than scurry past it.  (I'm not sure anyone has picked up on what the boss _is_, either.)  It's a real shame, because it feels clumsily tacked onto the end of what is otherwise a pretty nice level.
 
 Overall I think this could use a little bit more cohesion, but I'm pretty happy with it.

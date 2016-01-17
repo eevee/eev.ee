@@ -7,7 +7,7 @@ tags: mario maker
 <img src="/dev/media/mario-maker/mount-erebus.jpg">
 </div>
 
-`8A2E-0000-00FE-85D5`  
+[`8A2E-0000-00FE-85D5`](https://supermariomakerbookmark.nintendo.net/courses/8A2E-0000-00FE-85D5)  
 **Difficulty**: fairly easy  
 **Quality**: ★★★☆☆  
 **Secrets**: 🍄🍄A + trick to make the boss easier

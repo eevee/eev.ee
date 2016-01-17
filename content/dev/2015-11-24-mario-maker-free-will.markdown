@@ -7,7 +7,7 @@ tags: mario maker
 <img src="/dev/media/mario-maker/free-will.jpg">
 </div>
 
-`D161-0000-00FA-5905`  
+[`D161-0000-00FA-5905`](https://supermariomakerbookmark.nintendo.net/courses/D161-0000-00FA-5905)  
 **Difficulty**: entirely in your hands  
 **Quality**: ★★★☆☆  
 **Secrets**: 🍄🍄
