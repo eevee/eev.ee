@@ -5,7 +5,7 @@ tags: status, spline, runed awakening
 
 January's theme is **web dev**, and the major project is **spline**, the thing that runs [Floraverse](http://floraverse.com/).
 
-Getting momentum back after completing blowing it all on AGDQ was surprisingly difficult.  I felt like I'd forgotten that I'd ever done anything and would never be able to do anything again.  After just a week!  Brains are weird.
+Getting momentum back after completely blowing it all on AGDQ was surprisingly difficult.  I felt like I'd forgotten that I'd ever done anything and would never be able to do anything again.  After just a week!  Brains are weird.
 
 - **art**: The [daily comics](http://lexyeevee.tumblr.com/tagged/daily-comic) continue.
 
