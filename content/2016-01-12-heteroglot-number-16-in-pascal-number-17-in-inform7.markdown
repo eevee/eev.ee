@@ -12,7 +12,7 @@ This post necessarily gives away the answers, so **don't read this if you'd like
 
 ## Problem 16 in Pascal
 
-Pascal was the first language suggested after [the last post][heteroglot:cobol] the last post, and is actually a real programming language for once, so that's pretty nice.
+Pascal was the first language suggested after [the last post][heteroglot:cobol], and is actually a real programming language for once, so that's pretty nice.
 
 ### The math
 
