@@ -1,0 +1,105 @@
+title: Writing
+date: 2016-02-01 13:37
+category: blog
+tags: patreon
+
+This month Vladmir brings us:
+
+> Er, hmm, maybe do a piece on what your writing process is like (because yay meta).
+
+Indeed.  This could only be _more_ meta if I described the process I used for writing this article specifically.
+
+So here's the process I used for writing this article specifically.
+
+<!-- more -->
+
+----
+
+I, uh, can't imagine this will be particularly useful to anyone else.  Remember writing essays and reports for English class in high school?  Remember being taught about outlining and notecards and all those important organizational tricks?  Yeah, I don't do any of that.  I make a catastrophic mess, pick out the good bits, and stitch them together.  Instead of treating any of the following as inspiration (or, even worse, as advice!), consider picking up a copy of Stephen King's _On Writing_.  It's been sitting unread on my desk for half a year, but I'm told it's very good.
+
+But if you insist, I suppose there are three general phases.
+
+## Marination
+
+This is how an idea gets from an inkling to "maybe I should actually write about this".  It's like letting the dough rise — an idea has to expand outwards in multiple directions before I can even know what I want to say about it.  It's easy to think "let's write about making a Doom level", but what does that involve?  What would a complete newcomer need to know?  What are the absolute basics to make a function level, or a fun level?  How advanced should this get?  How do I split this particular post into three parts?
+
+Marination can take a few different forms.  Or maybe "speeds" is a better description.  Some ideas resonate so strongly that they stick in my head for days and expand so rapidly that I have thoughts coming out my eyeballs.  That's why a lot of posts expand on things I've recently been tweeting about — I had so much to say in such a short amount of time that I couldn't help but make a flurry of tweets, and then I _still_ had so much left over that I filled a post with it.
+
+Other ideas are far more mellow, but happen to resurface every so often over the course of weeks or months.  I'll be reminded of it by something in passing, think about it in the shower, maybe make a single vague tweet, and then forget about it again for a while.
+
+I probably won't know everything I want to write at this point.  The goal is to map out the general shape of the idea and the places it _could_ lead.  Landmarks.
+
+A secondary goal is to get myself interested enough that I _can_ write about it.  My attention span can be pretty short at times; you might even say I have some kind of deficit of attention.  The worst thing that can happen is that I start writing and completely run out of steam halfway through, with no inspiration for where to go next and not enough interest to think about it seriously.  That happened with the [git post](/blog/2015/04/24/just-enough-git-to-be-less-dangerous/) from April 2015: it was actually based on ideas in a draft I started writing in May 2012, but I was never very happy with it, and it didn't get anywhere until I came back much later and started from scratch.  Or take my trip to Japan over the Christmas of 2012, which I'd intended to write about from the very beginning.  It never got anywhere at all, and eventually I couldn't remember the trip in enough detail to be confident about writing it.
+
+This isn't unique to me, of course.  One of the stranger parts of creative work is how much bad groundwork is created and thrown away, never to be seen by the audience.  Open source programming goes out of its way to _preserve_ some of this old work in the form of commit history.  It's a stark contrast from writing or drawing, where the original outlines or notes or sketch layers or failed attempts to even get started are quietly left out, and all anyone sees is the final product.
+
+
+## Notes
+
+Once I've got a general idea of what I want to explore, I need to flesh it out into something more concrete.  Usually this means making an outline.
+
+I hesitate to call them "outlines", since that conjures the strictly-structured high school thing no one actually does.  What I make is more like a...  linearized brainstorm?  Ideas can extend in many different directions, but writing is generally read linearly from start to finish.  One of the tricky parts is arranging those ideas in a sensible one-dimensional order, and an outline is a middle ground where I start to figure this out.
+
+Uh, let me just show you.  I just write Markdown-formatted lists in vim.  The very early stages of the [first Doom post](/blog/2015/12/19/you-should-make-a-doom-level-part-1/) might have looked something like this:
+
+    - installation
+        - need doom first; steam (anywhere else?)
+        - need zdoom (gzdoom?  nightlies?)
+            - should try zdoom out with a fresh config to see what sucks on first run
+            - need path to iwad!  where does steam install it?  where is zdoom.ini on windows?
+        - install slade
+            - fresh config here too
+    - baby steps
+        - make a room
+        - exit switch
+        - need a player 1
+        - slade modes, types of objects
+        - texturing, 3d mode
+        - pegging ugh
+            - doors, windows
+
+    - monsters and balance
+        - ammo and health too
+    - nonlinearity
+        - metroid backtracking vs true
+
+There's a hierarchy here, but it's pretty fluid, and haphazard, and intentionally minimal.  I write down just barely enough to understand what I was thinking when I come back to it later; otherwise it risks becoming long and dense and difficult to scan.  (Occasionally I'm a little _too_ terse and have no idea what the hell I'm trying to tell myself.)  The top level of the hierarchy is usually a handful of rough categories, which may end up as headings in a final article, but any further nesting just indicates "(parent) made me think of (child)".
+
+Sometimes I'll skip the outline if I already have something that functions as reminders and a linearizer.  For that [last post about making pretzels](http://eev.ee/blog/2016/01/31/i-made-pretzels/), the recipe gave a natural ordering, and the photos were deliberately taken to tell the story of what I'd done.
+
+Observe that the example above actually has _two_ outlines, separated by a blank line.  The bottom part isn't meant to be part of the article structure; rather, it's a set of "floating" ideas.  They may be finished, or they may be waiting further brainstorming, but either way I haven't figured out where to anchor them within a linear narrative.  That can be the hardest part, even with my naturally-meandering writing style — I can end up with a ton of ideas that spread out in many different directions, and it can be a struggle to thread them together in a way that makes sense when read from start to finish.  The Doom posts actually started out as nothing _but_ floating nodes, and I only started arranging them once I'd brainstormed enough ideas.
+
+Or...  occasionally I go the complete opposite direction for this phase!  If an idea has a natural ordered progression and not much hierarchy, then instead of taking notes in the form of an outline, I'll write scraps of sentences separated by varying amounts of vertical whitespace (to illustrate the "distance" between thoughts).  It looks kinda like I'm tweeting at myself.  This way, I can get down an extremely rough version of an article while everything's still in my head.
+
+That's even the process I used for this post:
+
+    another process, which i'm using for this one and used for some of the doom posts, is to just write out sentences and fragments
+    lowercase, no ending punctuation, like i'm tweeting, so it's obvious that it's not done
+    kind of a halfway point between an outline and a post, and i can put headings and whatnot to make it more outlineish
+    in my head i jump around a lot between things i want to say (which may be obvious if you've read much of my writing) and this lets me get some of that out very...  naturally?  in a way that gels with me i guess
+    it's easy to hop around when i don't have to worry about making it fit with what's already there
+
+    and then when i've run dry on new things to say i start to stitch them together, and often find more stuff in the gaps
+
+    sometimes stuff gets rearranged on the fly, or i'll just start writing from scratch and cut+paste from the bits i've written already
+
+Er, I guess I just gave away the next couple paragraphs.  But yes, that's another advantage of the rough approach.  I follow ideas in a...  nonlinear way, and it's much easier to fit new thoughts into existing prose if I only have to worry about the location, not the formatting or connective tissue.
+
+I did this for the first Doom post too, _after_ I'd written an outline.  (Well.  Not so much "written an outline" as produced dozens of scraps of floating ideas and become overwhelmed enough by them that I didn't want to deal with them any more.)  It was too massive to deal with on its own, so I just started writing rough sentences, figuring out what the initial section should look like.  In that case, the rough sentences were fleshed-out enough that I was able to run through and lightly edit them into being finished text.  In the case of this article, I'm rewriting from scratch, but using the scrawl as a guide.
+
+
+## Writing
+
+And then I write the article.
+
+Sorry.  I know that's about as helpful as "[draw the rest of the fucking owl](http://imgur.com/gallery/RadSf)", but that's how it works.  (It's also how art works!)  Once I've exhausted myself of bullet points (or just become exhausted with writing down bullet points), I start writing from the beginning and keep going until I reach the end.  Or give up, I suppose.
+
+I don't usually do all that much editing, either, at least not in the form of rearranging sentences and whatnot.  That was all supposed to be done by now.  If I change anything, chances are I'm going to just completely rewrite several paragraphs.  Making _minor_ edits to text after the fact always feels like a huge slog.  I have to reattach the new text to the surrounding old text, but the old text was a single flowing thought.  Unless I'm very careful, jamming something new in reads like scar tissue.
+
+It's kind of funny, because Jayson just sits down and writes pages upon pages of _fiction_ in one sitting, and I'm always flabbergasted.  Like me, he doesn't do much editing (he actually does this in a physical notebook), and if anything needs more than some cosmetic touches then he'll probably throw it out and rewrite it.  I've only tried writing fiction a few times, but I absolutely cannot do that yet.  I just don't know all the details I'll want to express ahead of time, and I'll only think of some of them much later.  I suppose that's where experience comes in — I don't yet know _how to think about_ writing fiction, and I can't do it in a natural flowing way until I figure that out.
+
+So if you're hoping for some insightful advice, that's all I've really got: write stuff until you learn how to think about writing.  It's the same way you learn anything.  No one can tell you how to write, any more than you can be told how to ride a bike.  It's a new way to use your body, and you just have to keep doing it until you've developed a mapping between the way you think and the results you want.
+
+The most important part for me is really _passion_ about what I'm writing, which is why so many ideas die at the marination stage.  Writing takes effort, and there's a tangible friction when trying to stretch some half-baked cloud of thoughts into a single strand of human language.  If I'm just not feeling it, it's probably not going to happen.
+
+Yeah, uh, that's all I've got, really.  Hope that was...  interesting?
