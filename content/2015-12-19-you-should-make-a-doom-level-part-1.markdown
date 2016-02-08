@@ -510,3 +510,4 @@ There's a _lot_ more you can do here.  You can discover a lot of it by poking ar
 - ["I did a thing!"](https://twitter.com/orbicube/status/686549222154371074) by [@orbicube](https://twitter.com/orbicube)
 - ["First Doom Map"](https://twitter.com/hokazenoflames/status/687955526454521856) by [@hokazenoflames](https://twitter.com/hokazenoflames)
 - ["I was inspired and I made this"](https://twitter.com/HihiDanni/status/692867602620678145) by [@HihiDanni](https://twitter.com/HihiDanni)
+- ["My Doom map inspired by @eevee's blog posts"](https://twitter.com/Reedbeta/status/696572471080669184) by [@Reedbeta](https://twitter.com/Reedbeta) (nb: map slot is `eevee`, run as `zdoom -file eevee.wad +map eevee` or type `map eevee` in the zdoom console)
