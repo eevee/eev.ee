@@ -11,4 +11,4 @@ February's theme is **writing**, and the major project is a **book**.
 
 - **art**: [The usual](http://lexyeevee.tumblr.com/tagged/daily-comic).  Also hourly comic day.
 
-- **doom**: Some more tinkerting.  Made a few weapons that are pretty sweet.  Also made a little start of a ZDoom editing demo map.
+- **doom**: Some more tinkering.  Made a few weapons that are pretty sweet.  Also made a little start of a ZDoom editing demo map.
