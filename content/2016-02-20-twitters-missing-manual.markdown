@@ -52,7 +52,6 @@ You can reply to tweets, which threads them together.  A tweet can only have one
 
 * A reply _must_, somewhere, mention the author of the tweet it's replying to.  If you reply to a tweet and delete the author's `@handle`, it'll become a new top-level tweet rather than a reply.
 
-
 * There is one exception to the previous rule: if you're replying to _yourself_, you don't have to include your own `@handle`, even though clients include it by default.  So if you want to say something that spans multiple tweets, you can just keep replying to yourself and deleting the `@handle`.
 
     It's a really good idea to do this whenever you're making multiple tweets about something.  Otherwise, someone who stumbles upon one of the tweets later will have no idea what the context was, and won't be able to find it without scrolling back however long on your profile.
@@ -172,7 +171,7 @@ A tweet may have _one_ embedded attachment.
 
 * Searching for `to:foo` will only find tweets that _begin with_ `@foo`; dot-replies and other mentions are not included.  Searching for `@foo` will find mentions as well as tweets from that person.  To find only someone's mentions, you can search for `@foo -from:foo`.  You can combine this with the above trick to find quotes as well.
 
-* `from:` only applies to the handle a user had _when the tweet was made_.  If someone changes their handle, you still need to use their old handle to find their old tweets.
+* I've been told that `from:` only applies to the handle a user had _when the tweet was made_, but this doesn't match my own experience.  It's possible the behavior is different depending on whether the old handle has been reclaimed by someone else.
 
 * Some clients, such as TweetDeck, support showing live feeds of search results right alongside your timeline and notifications.  It's therefore possible for people to keep an eye on a live stream of everyone who's talking about them, even when their `@handle` isn't mentioned.  Bear this in mind when grumbling, especially about people whose attention you'd prefer to avoid.
 
