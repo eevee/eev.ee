@@ -161,7 +161,9 @@ A tweet may have _one_ embedded attachment.
 
 ## Search
 
-* I _believe_ all of Twitter's advanced search options are exposed on the [advanced search page](https://twitter.com/search-advanced).  All of them are shorthand for using a prefix in your search query; for example, "from these accounts" just becomes something like `from:username`.
+* _Almost_ all of Twitter's advanced search options are exposed on the [advanced search page](https://twitter.com/search-advanced).  All of them are shorthand for using a prefix in your search query; for example, "from these accounts" just becomes something like `from:username`.
+
+* The one that isn't listed there is `filter:`, which is only mentioned in the [API documentation](https://dev.twitter.com/rest/public/search).  It can appear as `filter:safe`, `filter:media`, `filter:images`, or `filter:links`.  It's possible there are other undocumented forms.
 
 * Search applies to _unshortened_ links, so you can find links to a website just by searching for its URL.  However, because Twitter displays links without a protocol (`http://`), you have to leave it off when searching.  Be aware that people who mention your work without mentioning _you_ might be saying unkind things about it.
 
@@ -192,7 +194,7 @@ A tweet may have _one_ embedded attachment.
 
 * If you _unlock_ your account, any pending follow requests are automatically accepted.
 
-* There is (to my knowledge) no way to see a list of all the locked accounts you've tried to follow but that haven't yet accepted.
+* The only way to see your pending follows (accounts you have _tried to follow_ that haven't yet accepted) is via the API, or a client that makes use of the API.  The official clients don't show them anywhere.
 
 * No one can retweet a locked account, not even followers.
 
