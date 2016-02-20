@@ -52,6 +52,8 @@ You can reply to tweets, which threads them together.  A tweet can only have one
 
     It's a really good idea to do this whenever you're making multiple tweets about something.  Otherwise, someone who stumbles upon one of the tweets later will have no idea what the context was, and won't be able to find it without scrolling back however long on your profile.
 
+    If you reply to yourself but leave your `@handle` at the beginning, the first tweet will appear on your profile, but the others won't, because they start with a mention.
+
 * The previous rule also applies when making longer replies to someone else.  Reply to them once, then reply to _yourself_ with the next tweet (and remove your own `@handle`).  You'll end up with three tweets all threaded together.
 
     This is even more important, because Twitter shows the replies to a tweet in a somewhat arbitrary order, bubbling "important" ones to the top.  If you write a very long response and break it across three tweets, all replying to the same original tweet, they'll probably show as an incoherent jumble to anyone reading the thread.  If you make each tweet a reply to the previous one, they're guaranteed to stay in order.
