@@ -182,7 +182,9 @@ A tweet may have _one_ embedded attachment.
 
 * When you lock your account, any existing followers will remain.  Anyone else will only be able to send a follow _request_, which you can then approve or deny.  You can force anyone to unfollow you at any time (whether locked or not) by blocking and then unblocking them.  Or just blocking them.
 
-* It's unclear whether denying a follow request actually notifies the requester in any way.  Come to think of it, I'm not sure _approving_ a follow request notifies the requester, either, except that your tweets will start appearing on their timeline.
+* Follow requests are easy to miss; only a few places in the UI make a point of telling you when you have new ones.
+
+* Approving or denying a follow request doesn't directly notify the requester.  If you approve, obviously they'll start seeing your tweets in their timeline.  If you deny, the only difference is that if they look at your profile again, the follow button will no longer say "pending".
 
 * If you _unlock_ your account, any pending follow requests are automatically accepted.
 
