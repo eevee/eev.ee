@@ -182,6 +182,8 @@ A tweet may have _one_ embedded attachment.
 
 * Specifically: your banner, avatar, display name, and bio (including location, website, etc.) are still public.  The _number_ of tweets, follows, followers, likes, and lists you have are also public.  Your actual tweets, media, follows, followers, lists, etc. are all hidden.
 
+* iOS Twitter hides the bio and numbers, as well, which is sort of inconvenient if you were using it to explain who you are and who you're cool with having follow you.
+
 * When you lock your account, any existing followers will remain.  Anyone else will only be able to send a follow _request_, which you can then approve or deny.  You can force anyone to unfollow you at any time (whether locked or not) by blocking and then unblocking them.  Or just blocking them.
 
 * Follow requests are easy to miss; only a few places in the UI make a point of telling you when you have new ones.
