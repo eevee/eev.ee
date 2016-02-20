@@ -134,7 +134,7 @@ A tweet may have _one_ embedded attachment.
 
 * A blocked user cannot view your profile.  They can, of course, use a different account, or merely log out.  This is entirely client-side, too, so it's possible that some clients don't even support this "feature".
 
-* A blocked user cannot like or retweet your tweets.  (I believe blocking may cause any existing likes to be undone, but I'm not clear on this.)
+* A blocked user cannot like or retweet your tweets.
 
 * A blocked user cannot follow you.  If you block someone who's already following you, they'll be forced to immediately unfollow.  Likewise, you cannot follow a blocked user.
 
