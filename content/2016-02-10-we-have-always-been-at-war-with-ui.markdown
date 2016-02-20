@@ -1,7 +1,7 @@
 title: We have always been at war with UI
 date: 2016-02-10 16:41
 category: blog
-tags: tech, culture
+tags: tech, culture, ui
 
 
 A familiar story: company makes product, product becomes wildly popular, company royally fucks product up.
