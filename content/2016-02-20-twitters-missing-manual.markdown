@@ -37,6 +37,8 @@ Here, then, is a list of all the non-obvious things about Twitter that I know.  
 
 * Accounts managed by multiple people, such as support accounts or politicians' accounts, sometimes sign tweets with a `^` followed by the author's initials.  This has no special significance to Twitter.
 
+* You cannot use astral plane characters (which includes most emoji) in your display name or bio; they will be silently stripped.  However, you _can_ use anything from the [Miscellaneous Symbols](https://en.wikipedia.org/wiki/Miscellaneous_Symbols) or [Dingbats](https://en.wikipedia.org/wiki/Dingbat#Dingbats_Unicode_block) blocks, and many of these characters are rendered with color glyphs on Web Twitter.  Results may vary on phones and in other clients.
+
 
 ## Replies and mentions
 
