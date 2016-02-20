@@ -46,11 +46,12 @@ A tweet can "mention" other users, which just means including their `@handle` so
 
 * A tweet that begins with a mention won't appear on the timelines of anyone who follows you, _unless_ they also follow the first person you mention.  That is, if you tweet `@foo @bar heya`, it'll only appear on the timelines of people who follow both you and `@foo`.
 
-* If you put some other character before the first `@`, the previous rule no longer applies, and your tweet will appear to all your followers.  So `.@foo @bar heya` will be visible to everyone (and show on your Web profile).  This is called "dot-replying".  The dot isn't actually special; it's just an easy-to-type and unobtrusive character.  I like to use `→` or `\\`.  Some people prefer to put the mentions at the end instead, producing `heya @foo @bar`.
+* If you put some other character before the first `@`, the previous rule no longer applies, and your tweet will appear to all your followers.  So `.@foo @bar heya` will be visible to everyone (and show on your Web profile).  This is called "dot-replying".  The dot isn't actually special; it's just an easy-to-type and unobtrusive character.  I like to use `→` or `\`.  Some people prefer to put the mentions at the end instead, producing `heya @foo @bar`.
 
 You can reply to tweets, which threads them together.  A tweet can only have one parent (or no parent), but any number of replies.  Everything on Twitter is thus arranged into a number of trees, where the root of the tree is a new tweet not responding to anything, and replies branch out from there.
 
 * A reply _must_, somewhere, mention the author of the tweet it's replying to.  If you reply to a tweet and delete the author's `@handle`, it'll become a new top-level tweet rather than a reply.
+
 
 * There is one exception to the previous rule: if you're replying to _yourself_, you don't have to include your own `@handle`, even though clients include it by default.  So if you want to say something that spans multiple tweets, you can just keep replying to yourself and deleting the `@handle`.
 
@@ -58,7 +59,7 @@ You can reply to tweets, which threads them together.  A tweet can only have one
 
     If you reply to yourself but leave your `@handle` at the beginning, the first tweet will appear on your profile, but the others won't, because they start with a mention.
 
-    (I'm told that many third-party clients don't support replying to yourself without your handle included, and the API documentation doesn't mention that it's a feature.  Argh.)
+    I'm told that many third-party clients don't support replying to yourself without your handle included, and the API documentation doesn't mention that it's a feature.  But I'm _also_ told that _only_ first-party clients require you to mention someone in a reply in order to thread, and that third-party clients will merrily thread anything to anything.  (I remember when Web Twitter allowed that, so I totally believe the API still does.)  If you don't use the official clients, I guess give it a whirl and see what happens.
 
 * The previous rule also applies when making longer replies to someone else.  Reply to them once, then reply to _yourself_ with the next tweet (and remove your own `@handle`).  You'll end up with three tweets all threaded together.
 
