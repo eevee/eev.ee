@@ -58,6 +58,8 @@ You can reply to tweets, which threads them together.  A tweet can only have one
 
     If you reply to yourself but leave your `@handle` at the beginning, the first tweet will appear on your profile, but the others won't, because they start with a mention.
 
+    (I'm told that many third-party clients don't support replying to yourself without your handle included, and the API documentation doesn't mention that it's a feature.  Argh.)
+
 * The previous rule also applies when making longer replies to someone else.  Reply to them once, then reply to _yourself_ with the next tweet (and remove your own `@handle`).  You'll end up with three tweets all threaded together.
 
     This is even more important, because Twitter shows the replies to a tweet in a somewhat arbitrary order, bubbling "important" ones to the top.  If you write a very long response and break it across three tweets, all replying to the same original tweet, they'll probably show as an incoherent jumble to anyone reading the thread.  If you make each tweet a reply to the previous one, they're guaranteed to stay in order.
@@ -113,7 +115,7 @@ A tweet may have _one_ embedded attachment.
 
 * Including a poll will not append a link, but curiously, you'll still lose 24 characters.  It's possible this is a client bug, but it happens in both Web and Android Twitter.
 
-* Alternative clients may not support new media types at first.  In particular, people who used TweetDeck were frequently confused right after polls were launched, because TweetDeck showed only the tweet text and no indication that a poll had ever been there.  If this happens again in the future, consider mentioning when you're using a new feature.
+* Alternative clients may not support new media types at first.  In particular, people who used TweetDeck were frequently confused right after polls were launched, because TweetDeck showed only the tweet text and no indication that a poll had ever been there.  Some third-party clients still don't support polls.  Consider mentioning when you're using a new attachment type.  Might I suggest prefixing your tweet with 📊?
 
 * If you don't include an explicit attachment, Twitter will examine the links in your tweet, in _reverse_ order.  If you link to a tweet, that tweet will be quoted in yours.  If you link to a website that supports Twitter "cards" (small brief descriptions of a site, possibly with images), that card will be attached.  There can only be one attachment, so as soon as Twitter finds something it can use, it stops looking.
 
