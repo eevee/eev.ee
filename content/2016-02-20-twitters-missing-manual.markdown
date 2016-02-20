@@ -29,7 +29,7 @@ Here, then, is a list of all the non-obvious things about Twitter that I know.  
 
 * Tweets may contain newlines, and there doesn't seem to be any limit to how many.
 
-* In the middle of a tweet, strings of whitespace (e.g. multiple spaces) are preserved.
+* In the middle of a tweet, strings of whitespace (e.g. multiple spaces) are preserved.  However, more than two _consecutive_ newlines will be reduced to only two.
 
 * Anything remotely resembling a link will be mangled into some `http://t.co/asdf` link-shortened garbage.  In some cases, such as when talking about a domain name, this can make the tweet _longer_.  You can defeat this by sticking an invisible character, such as U+200D ZERO WIDTH JOINER, around the final dot so it no longer looks like a domain name.
 
@@ -215,10 +215,20 @@ A tweet may have _one_ embedded attachment.
 * Replies to a locked account are **not** protected in any way.  If a locked account participates in a thread, its own tweets will be hidden from non-followers, but any public tweets will be left in.  Also, anyone can search for mentions of a locked account to find conversations it's participated in, and may be able to infer what the locked account was saying from context.
 
 
-## Other clients
+## API, other clients, etc.
 
 I've mentioned issues with non-primary clients throughout, but a couple more things to be aware of:
 
 * The official API doesn't support a number of Twitter features, including polls, ads, and DMs with multiple participants.  Clients that use the API (i.e. clients not made by Twitter) thus cannot support these features.
 
 * Even TweetDeck, which is maintained by Twitter, frequently lags behind in feature support.  TweetDeck had the original (client-side-only) implementation of muting, but even after Twitter added it as a real feature, TweetDeck was never changed to make use of it.  So TweetDeck's muting is separate from Twitter's muting.
+
+* I'm hearing various inconsistent tales about how muting or blocking work on some clients, by which I mean iOS — in the few hours since writing this, I've seen a screenshot where a blocked user's tweets still appear in a thread, and twice heard that blocking _and_ muting are necessary to avoid having a user retweeted onto your timeline.  Maybe these are iOS issues specifically?
+
+* Twitter has a "collections" feature, which lets you put any public tweets you like (even other people's) in a group for other people to look over.  However, no official client lets you _create_ one; you have to do it via the API or TweetDeck.  Collections aren't listed anywhere (you have to link to them directly), and you can't control the order of the tweets (they're always reverse chronological).
+
+* Lists are a thing.  I've never really used them.  They don't support a lot of the features the regular timeline does; most notably, threaded tweets aren't shown together.  You can create a private list and add people to it to follow them without their knowledge, though.
+
+* You can "promote" a tweet, i.e. turn it into an ad, which is generally only of interest to advertisers.  However, promoted tweets have the curious property that they don't appear on your profile or in search results _for anyone_.  It's possible to target a promoted tweet at a specific list of users (or no one!), which allows for a couple creative hacks that you'll have to imagine yourself.
+
+* And then there's the verified checkmark (given out arbitrarily), the power tools given to verified users (mysterious), the limits on duplicate tweets and follows and whatnot (pretty high), the analytics tools (pretty but pointless), the secret API-only notifications (Twitter tells you when your tweet is unfavorited!), the Web Twitter metadata that let me [write a hack to hide mentions from non-followers](https://twitter.com/eevee/status/694600729227440128)...  you get the idea.
