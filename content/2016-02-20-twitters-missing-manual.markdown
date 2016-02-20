@@ -117,6 +117,8 @@ A tweet may have _one_ embedded attachment.
 
 * If you don't include an explicit attachment, Twitter will examine the links in your tweet, in _reverse_ order.  If you link to a tweet, that tweet will be quoted in yours.  If you link to a website that supports Twitter "cards" (small brief descriptions of a site, possibly with images), that card will be attached.  There can only be one attachment, so as soon as Twitter finds something it can use, it stops looking.
 
+* You can embed someone _else_'s media in your own tweet by ending it with a link to the media URL — that is, the one that ends with `/photo/1`.  This is different from a quoted tweet, and won't notify the original tweeter.
+
 * Quoted tweets are always just tweets that include links to other tweets.  If the link is the last thing to appear in the tweet text, official clients _will not show_ the link.  This can be extremely confusing if you try to link to two tweets — the first one will be left as a regular link, and the second one will be _replaced_ by a quoted tweet, so at a glance it looks like you linked to a tweet and it was also embedded.  A workaround for this is just to add text after the final link, so it's not the last thing in the tweet and thus isn't hidden.
 
 * Twitter cards may be associated with a Twitter account.  On Android Twitter (not Web Twitter!), replying to a tweet with a card will also include the `@handle` for the associated account.  For example, replying to a tweet that links to a YouTube video will prefill `@YouTube`.  This is pretty goofy, since YouTube itself didn't _make_ the video, and it causes replies to notify the person even though the original link doesn't.
@@ -145,6 +147,8 @@ A tweet may have _one_ embedded attachment.
 * A blocked user **can** link to your tweets — however, rather than an embedded quote, their tweet will have a gray "this tweet is unavailable" box attached.  This effect is retroactive.  However (I think?), if a quoted tweet can't be shown, the _link_ to the tweet is left visible, so people can still click it to view the tweet manually.
 
 * Muting has two different effects.  If you mute someone you're _following_, their tweets won't appear in your timeline, but you'll still get notifications from them.  This can be useful if you set your phone to only buzz on notifications from people you follow.  If you mute someone you're _not following_, nothing they do will send you notifications.  Either way, their tweets will still be visible in threads and search results.
+
+* Relatedly, if you follow someone who's a little eager with the retweeting, you can turn off just their retweets.  It's in the menu on their profile.
 
 * It's trivial to tell whether someone's blocked you, since their profile will tell you.  However, it's _impossible_ to know for sure if someone has muted you or is just manually ignoring you, since being muted doesn't actually prevent you from doing anything.
 
