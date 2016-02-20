@@ -33,6 +33,10 @@ Here, then, is a list of all the non-obvious things about Twitter that I know.  
 
 * Anything remotely resembling a link will be mangled into some `http://t.co/asdf` link-shortened garbage.  In some cases, such as when talking about a domain name, this can make the tweet _longer_.  You can defeat this by sticking an invisible character, such as U+200D ZERO WIDTH JOINER, around the final dot so it no longer looks like a domain name.
 
+* For the sake of its SMS-based roots, Twitter supports performing several commands by typing them _in a tweet_.  In particular, if you start a tweet with the word `d` or `dm`, the second word will be treated as a username, and the rest of the tweet will be DM'd to that user.
+
+* Accounts managed by multiple people, such as support accounts or politicians' accounts, sometimes sign tweets with a `^` followed by the author's initials.  This has no special significance to Twitter.
+
 
 ## Replies and mentions
 
@@ -60,15 +64,15 @@ You can reply to tweets, which threads them together.  A tweet can only have one
 
 * Replying to a tweet will also prefill the `@handle` of anyone mentioned in the tweet.  Replying to a retweet will additionally prefill the `@handle` of the person who retweeted it.  In some cases, it may be polite to remove some of these; you only need the original author's `@handle` to make a reply.  (It's not uncommon to accumulate multiple mentions, then end up in an extended conversation with only one other person, while constantly notifying several third parties.)
 
-* In official clients (Web and Android, at least), long threads of tweets are collapsed on your timeline.  Only the first tweet and the last _two_ tweets are visible.  If you have a lot to say about something, it's a good idea to put the important bits in one of those three tweets where your followers will actually see them.
+* In official clients (Web and Android, at least), long threads of tweets are collapsed on your timeline.  Only the first tweet and the last _two_ tweets are visible.  If you have a lot to say about something, it's a good idea to put the important bits in one of those three tweets where your followers will actually see them.  This is another reason it's polite to thread your tweets together — it saves people from having their timelines flooded by your tweetstorm.
 
-    Sometimes, it's possible to see multiple "branches" of the same conversation on your timeline.  For example, if A makes a few tweets, and B and C both reply, and you follow all three of them, then you'll see B's replies and C's replies separately.  Clients don't handle this particularly well and it can become a bit of a clusterfuck.
+    Sometimes, it's possible to see multiple "branches" of the same conversation on your timeline.  For example, if A makes a few tweets, and B and C both reply, and you follow all three of them, then you'll see B's replies and C's replies separately.  Clients don't handle this particularly well and it can become a bit of a clusterfuck, with the same root tweet appearing multiple times.
 
-* Because official clients treat a thread as a single unit, you can effectively "bump" your own tweet by replying to it.  Your reply is new, so it'll appear on your followers' timelines.  But the client will also include the first tweet in the thread as context, regardless of its age.
+* Because official clients treat a thread as a single unit, you can effectively "bump" your own tweet by replying to it.  Your reply is new, so it'll appear on your followers' timelines; but the client will also include the first tweet in the thread as context, regardless of its age.
 
 * When viewing a single tweet, official clients may not show the replies in chronological order.  Usually the "best" replies are bumped to the top.  "Best" is entirely determined by Twitter, but it seems to work fairly well.  If you reply to yourself, your own replies will almost certainly appear first.
 
-* If reply to a tweet with `@foo heya`, and `@foo` later renames their account to `@quux`, the tweet will retain its threading even though it no longer mentions the author of the parent tweet.  However, your reply will now appear on your profile, because it doesn't begin with the handle of an existing user.
+* If reply to a tweet with `@foo heya`, and `@foo` later renames their account to `@quux`, the tweet will retain its threading even though it no longer mentions the author of the parent tweet.  However, your reply will now appear on your profile, because it doesn't begin with the handle of an existing user.  Note that this means it's fairly easy for a non-follower to figure out what you renamed your account to, by searching for replies to your old name.
 
 * Threads are preserved even if some of the tweets are hidden (either because you've blocked some participants, or because they have their accounts set to private).  Those tweets won't appear for you, but any visible replies to them will.
 
@@ -96,6 +100,8 @@ Hashtags are a `#` character followed by some number of non-whitespace character
 
 * There is no reason to tag a bunch of random words in your tweets.  No one is searching Twitter for `#funny`.  Doing this makes you look like an extremely out-of-touch marketer.
 
+* Twitter also supports "cashtags", which are prefixed with a `$` instead and are generally stock symbols.  I only even know this because it makes shell and Perl code look goofy.
+
 
 ## Media
 
@@ -115,10 +121,16 @@ A tweet may have _one_ embedded attachment.
 
 * Twitter cards may be associated with a Twitter account.  On Android Twitter (not Web Twitter!), replying to a tweet with a card will also include the `@handle` for the associated account.  For example, replying to a tweet that links to a YouTube video will prefill `@YouTube`.  This is pretty goofy, since YouTube itself didn't _make_ the video, and it causes replies to notify the person even though the original link doesn't.
 
+* Uploaded media may be flagged as "sensitive", which generally means "pornographic".  This will require viewers to click through a warning to see the media, unless they're logged in and have their account set to skip the warning.  Flagged media also won't appear in the sidebar on profile pages for people who have the warning enabled.
+
+* The API supports marking individual tweets as containing sensitive media, but official clients _do not_ — instead, there's an account setting that applies to everything you upload from that point forward.  Media may also be flagged by other users as sensitive.  Twitter also has some sort of auto-detection for sensitive media, which I only know about because it sometimes thinks photos of my hairless cats are pornographic.
+
+* If _your own_ tweets have "sensitive" media attached, _you_ will have to click through the warning, even if you have the warning disabled.  A Twitter employee tells me this is so you're aware when your own tweets are flagged, but the message still tells you to disable the warning in account settings, so this is mostly just confusing.
+
 
 ## Blocking and muting
 
-* A blocked user cannot view your profile.  They can, of course, use a different account, or merely log out.
+* A blocked user cannot view your profile.  They can, of course, use a different account, or merely log out.  This is entirely client-side, too, so it's possible that some clients don't even support this "feature".
 
 * A blocked user cannot like or retweet your tweets.  (I believe blocking may cause any existing likes to be undone, but I'm not clear on this.)
 
@@ -130,7 +142,7 @@ A tweet may have _one_ embedded attachment.
 
 * A blocked user **can** mention or reply to you, though you won't be notified either by the tweet itself or by any retweets/likes.  However, if someone else replies to them, your `@handle` will be prefilled, and you'll be notified.  Also, other people viewing your tweets will still see their replies threaded.
 
-* A blocked user **can** link to your tweets — however, rather than an embedded quote, their tweet will have a gray "this tweet is not available" box attached.  This effect is retroactive.
+* A blocked user **can** link to your tweets — however, rather than an embedded quote, their tweet will have a gray "this tweet is unavailable" box attached.  This effect is retroactive.  However (I think?), if a quoted tweet can't be shown, the _link_ to the tweet is left visible, so people can still click it to view the tweet manually.
 
 * Muting has two different effects.  If you mute someone you're _following_, their tweets won't appear in your timeline, but you'll still get notifications from them.  This can be useful if you set your phone to only buzz on notifications from people you follow.  If you mute someone you're _not following_, nothing they do will send you notifications.  Either way, their tweets will still be visible in threads and search results.
 
@@ -151,6 +163,50 @@ A tweet may have _one_ embedded attachment.
 
 * Searching for `to:foo` will only find tweets that _begin with_ `@foo`; dot-replies and other mentions are not included.  Searching for `@foo` will find mentions as well as tweets from that person.  To find only someone's mentions, you can search for `@foo -from:foo`.  You can combine this with the above trick to find quotes as well.
 
+* `from:` only applies to the handle a user had _when the tweet was made_.  If someone changes their handle, you still need to use their old handle to find their old tweets.
+
 * Some clients, such as TweetDeck, support showing live feeds of search results right alongside your timeline and notifications.  It's therefore possible for people to keep an eye on a live stream of everyone who's talking about them, even when their `@handle` isn't mentioned.  Bear this in mind when grumbling, especially about people whose attention you'd prefer to avoid.
 
 * Namesearch — that is, look for mentions of you or your work that don't actually `@`-mention you — with caution.  Liking or replying amicably to tweets that compliment you is probably okay.  Starting arguments with people who dislike your work is rude and kind of creepy, and certainly not likely to improve anyone's impression of you.
+
+
+## Locked accounts
+
+* You may set your account to private, which will hide your tweets from the general public.  Only people who follow you will be able to see your tweets.  Twitter calls this "protected", but since it shows a lock icon next to your handle, everyone calls it "locked".
+
+* Specifically: your banner, avatar, display name, and bio (including location, website, etc.) are still public.  The _number_ of tweets, follows, followers, likes, and lists you have are also public.  Your actual tweets, media, follows, followers, lists, etc. are all hidden.
+
+* When you lock your account, any existing followers will remain.  Anyone else will only be able to send a follow _request_, which you can then approve or deny.  You can force anyone to unfollow you at any time (whether locked or not) by blocking and then unblocking them.  Or just blocking them.
+
+* It's unclear whether denying a follow request actually notifies the requester in any way.  Come to think of it, I'm not sure _approving_ a follow request notifies the requester, either, except that your tweets will start appearing on their timeline.
+
+* If you _unlock_ your account, any pending follow requests are automatically accepted.
+
+* There is (to my knowledge) no way to see a list of all the locked accounts you've tried to follow but that haven't yet accepted.
+
+* No one can retweet a locked account, not even followers.
+
+* Quoting doesn't work with locked account; the quoted tweet will only show the "unavailable" message, even if a locked account quotes itself.  Clicking the tweet link will still work, of course.
+
+* Locked accounts never create notifications for people who aren't following them.  A locked account can like, retweet, quote, follow, etc. as usual, and the various numbers will go up, but only their followers will be notified.
+
+* If a locked account likes a bunch of your tweets (or retweets, etc.), and then you follow them, the notifications will not be created retroactively.
+
+* Locked accounts do not appear in the lists of who liked or retweeted a tweet (except, of course, when viewed by someone following them).
+
+* While a locked account's own follows and followers are hidden, a locked account **will still appear publicly** in the following/follower lists of other unlocked accounts.  There is no blessed way to automatically cross-reference this, but be aware that the _existence_ of a locked account is still public.  In particular, if you follow someone who keeps an eye on their follower count, they can just look at their own list of followers to find you.
+
+* Anyone can still mention a locked account, whether or not they follow it, and it'll receive notifications.
+
+* Open DMs ("receive direct messages from anyone") work as normal for locked accounts.  A locked account can send DMs to anyone with open DMs, and a locked account may turn on open DMs to receive DMs from anyone.
+
+* Replies to a locked account are **not** protected in any way.  If a locked account participates in a thread, its own tweets will be hidden from non-followers, but any public tweets will be left in.  Also, anyone can search for mentions of a locked account to find conversations it's participated in, and may be able to infer what the locked account was saying from context.
+
+
+## Other clients
+
+I've mentioned issues with non-primary clients throughout, but a couple more things to be aware of:
+
+* The official API doesn't support a number of Twitter features, including polls, ads, and DMs with multiple participants.  Clients that use the API (i.e. clients not made by Twitter) thus cannot support these features.
+
+* Even TweetDeck, which is maintained by Twitter, frequently lags behind in feature support.  TweetDeck had the original (client-side-only) implementation of muting, but even after Twitter added it as a real feature, TweetDeck was never changed to make use of it.  So TweetDeck's muting is separate from Twitter's muting.
