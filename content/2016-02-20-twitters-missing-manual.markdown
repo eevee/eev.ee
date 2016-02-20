@@ -109,7 +109,7 @@ A tweet may have _one_ embedded attachment.
 
 * You may explicitly include a set of up to four images _or_ a video _or_ a poll.  You cannot combine this within a single tweet.  Brands™ have access to a handful of other embedded gizmos.
 
-* If you include images or a video, you will lose 24 characters of writing space, because a direct link to the images/video will be silently added to the end of your tweet.  This is for the sake of text-only clients, e.g. people using Twitter over SMS, so they can see that there's an attachment and possible view it in a browser.
+* If you include images or a video, you will lose 24 characters of writing space, because a direct link to the images/video will be silently added to the end of your tweet.  This is for the sake of text-only clients, e.g. people using Twitter over SMS, so they can see that there's an attachment and possibly view it in a browser.
 
 * Including a poll will not append a link, but curiously, you'll still lose 24 characters.  It's possible this is a client bug, but it happens in both Web and Android Twitter.
 
