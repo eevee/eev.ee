@@ -84,7 +84,7 @@ You can reply to tweets, which threads them together.  A tweet can only have one
 
 * You can _quote_ tweets by including a link to them in your tweet, which will cause the quoted tweet to appear in a small box below yours.  This _does not_ create a reply and will not be part of the quoted tweet's thread.  If you want to do that, you can't use the retweet/quote button.  You have to reply to the tweet, manually include a link to it, _and_ be sure to mention the author.
 
-* When you quote a tweet, the author is notified; however, unlike a retweet, they won't be notified when people like or retweet your quote, unless you also mention them.
+* When you quote a tweet, the author is notified; however, unlike a retweet, they won't be notified when people like or retweet your quote (unless you also mention them).  If you don't want to notify the author, you can take a screenshot (though this doesn't let them delete the tweet) or use a URL shortener (though this doesn't let them obviously disable a quote by blocking you).
 
 * Due to the nature of Twitter, it's common for a tweet to end up on many people's timelines simultaneously and attract many similar replies within a short span of time.  It's polite to check the existing replies to a popular tweet, or a tweet from a popular person, before giving your two cents.
 
@@ -123,7 +123,9 @@ A tweet may have _one_ embedded attachment.
 
 * You can embed someone _else_'s media in your own tweet by ending it with a link to the media URL — that is, the one that ends with `/photo/1`.  This is different from a quoted tweet, and won't notify the original tweeter.
 
-* Quoted tweets are always just tweets that include links to other tweets.  If the link is the last thing to appear in the tweet text, official clients _will not show_ the link.  This can be extremely confusing if you try to link to two tweets — the first one will be left as a regular link, and the second one will be _replaced_ by a quoted tweet, so at a glance it looks like you linked to a tweet and it was also embedded.  A workaround for this is just to add text after the final link, so it's not the last thing in the tweet and thus isn't hidden.
+* Quoted tweets are always just tweets that include links to other tweets.  Even if the tweet is deleted, an embed box will still appear, though it'll be grayed out and say the tweet is unavailable.
+
+    If the link is the last thing to appear in the tweet text, official clients _will not show_ the link.  This can be extremely confusing if you try to link to two tweets — the first one will be left as a regular link, and the second one will be _replaced_ by a quoted tweet, so at a glance it looks like you linked to a tweet and it was also embedded.  A workaround for this is just to add text after the final link, so it's not the last thing in the tweet and thus isn't hidden.
 
 * Twitter cards may be associated with a Twitter account.  On Android Twitter (not Web Twitter!), replying to a tweet with a card will also include the `@handle` for the associated account.  For example, replying to a tweet that links to a YouTube video will prefill `@YouTube`.  This is pretty goofy, since YouTube itself didn't _make_ the video, and it causes replies to notify the person even though the original link doesn't.
 
@@ -157,6 +159,8 @@ A tweet may have _one_ embedded attachment.
 * It's trivial to tell whether someone's blocked you, since their profile will tell you.  However, it's _impossible_ to know for sure if someone has muted you or is just manually ignoring you, since being muted doesn't actually prevent you from doing anything.
 
 * You can block and mute someone at the same time, though this has no special effect.  If you unblock them, they'll just still be muted.
+
+* The API strips out tweets from blocked and muted users server-side for streaming requests (such as your timeline), but leaves it up to the client for other requests (such as viewing a single tweet).  So it's possible that a client will neglect to apply the usual rule of "you never see a blocked user's tweets in threads".  In particular, I've heard several reports that this is the case in the official iOS Twitter (!).
 
 * Tweeting screenshots of "you have been blocked" is getting pretty old and we can probably stop doing it.
 
@@ -221,11 +225,17 @@ A tweet may have _one_ embedded attachment.
 
 I've mentioned issues with non-primary clients throughout, but a couple more things to be aware of:
 
+* Web Twitter has some keyboard shortcuts, which you can view by pressing `?`.
+
+* When I say Web Twitter throughout this document, I mean desktop Web Twitter; there's also a mobile Web Twitter, which is much simpler.
+
 * The official API doesn't support a number of Twitter features, including polls, ads, and DMs with multiple participants.  Clients that use the API (i.e. clients not made by Twitter) thus cannot support these features.
 
 * Even TweetDeck, which is maintained by Twitter, frequently lags behind in feature support.  TweetDeck had the original (client-side-only) implementation of muting, but even after Twitter added it as a real feature, TweetDeck was never changed to make use of it.  So TweetDeck's muting is separate from Twitter's muting.
 
-* I'm hearing various inconsistent tales about how muting or blocking work on some clients, by which I mean iOS — in the few hours since writing this, I've seen a screenshot where a blocked user's tweets still appear in a thread, and twice heard that blocking _and_ muting are necessary to avoid having a user retweeted onto your timeline.  Maybe these are iOS issues specifically?
+* Tweets know what client they were sent from.  Official Twitter apps don't show this any more, but it's still available in the API, and some alternative clients show it.
+
+* By default, Twitter allows people to find your account by searching for your email address or phone number.  You may wish to turn this off.
 
 * Twitter has a "collections" feature, which lets you put any public tweets you like (even other people's) in a group for other people to look over.  However, no official client lets you _create_ one; you have to do it via the API or TweetDeck.  Collections aren't listed anywhere (you have to link to them directly), and you can't control the order of the tweets (they're always reverse chronological).
 
