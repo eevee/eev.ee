@@ -33,7 +33,11 @@ Here, then, is a list of all the non-obvious things about Twitter that I know.  
 
 * Anything remotely resembling a link will be mangled into some `http://t.co/asdf` link-shortened garbage.  In some cases, such as when talking about a domain name, this can make the tweet _longer_.  You can defeat this by sticking an invisible character, such as U+200D ZERO WIDTH JOINER, around the final dot so it no longer looks like a domain name.
 
-* For the sake of its SMS-based roots, Twitter supports performing several commands by typing them _in a tweet_.  In particular, if you start a tweet with the word `d` or `dm`, the second word will be treated as a username, and the rest of the tweet will be DM'd to that user.
+    In official clients, links are shown unmangled, but without the protocol and truncated to about 20 characters.  The link to this article, for example, shows as `eev.ee/blog/2016/02/2…`.  However, at least on Web Twitter, copy-pasting preserves the link in full, including protocol.
+
+    Note that Twitter's knowledge of domains is not exhaustive — it will link "google.com" but not "eev.ee".
+
+* For the sake of its SMS-based roots, Twitter supports performing several commands by typing them _in a tweet_.  In particular, if you start a tweet with the word `d` or `m` or `dm`, the second word will be treated as a username, and the rest of the tweet will be DM'd to that user.
 
 * Accounts managed by multiple people, such as support accounts or politicians' accounts, sometimes sign tweets with a `^` followed by the author's initials.  This has no special significance to Twitter.
 
@@ -49,6 +53,8 @@ A tweet can "mention" other users, which just means including their `@handle` so
 * A tweet that begins with a mention won't appear on the timelines of anyone who follows you, _unless_ they also follow the first person you mention.  That is, if you tweet `@foo @bar heya`, it'll only appear on the timelines of people who follow both you and `@foo`.
 
 * If you put some other character before the first `@`, the previous rule no longer applies, and your tweet will appear to all your followers.  So `.@foo @bar heya` will be visible to everyone (and show on your Web profile).  This is called "dot-replying".  The dot isn't actually special; it's just an easy-to-type and unobtrusive character.  I like to use `→` or `\`.  Some people prefer to put the mentions at the end instead, producing `heya @foo @bar`.
+
+    Dot-replying in the middle of a tweet is not strictly necessary, but sometimes it's useful for disambiguation.  If you're replying to `@foo`, and want to say something _about_ `@bar`, it would come out as `@foo @bar is pretty great`, which is a little difficult to read.  Adding a dot to make `.@bar` doesn't do anything as far as Twitter is concerned, but can make it clear that `@bar` is the subject of a sentence rather than a person being talked to.
 
 You can reply to tweets, which threads them together.  A tweet can only have one parent (or no parent), but any number of replies.  Everything on Twitter is thus arranged into a number of trees, where the root of the tree is a new tweet not responding to anything, and replies branch out from there.
 
@@ -98,11 +104,13 @@ Hashtags are a `#` character followed by some number of non-whitespace character
 
 * Exactly _which_ characters may appear in a hashtag is somewhat inconsistent, and has quietly changed at least once.
 
-* The only real point to hashtags is that you can click on them in clients to jump directly to search results.
+* The only real point to hashtags is that you can click on them in clients to jump directly to search results.  Note that searching for `#foo` will only find `#foo`, but searching for `foo` will find both `foo` and `#foo`.
 
 * Hashtags can appear in the "trending" widget, but so can any other regular text.
 
 * There is no reason to tag a bunch of random words in your tweets.  No one is searching Twitter for `#funny`.  Doing this makes you look like an extremely out-of-touch marketer.
+
+* People do sometimes use hashtags as "asides" or "moods", but in this case the tag isn't intended to be searched for, and the real point of using a hashtag is that the link color offsets it from the main text.
 
 * Twitter also supports "cashtags", which are prefixed with a `$` instead and are generally stock symbols.  I only even know this because it makes shell and Perl code look goofy.
 
@@ -239,8 +247,8 @@ I've mentioned issues with non-primary clients throughout, but a couple more thi
 
 * Twitter has a "collections" feature, which lets you put any public tweets you like (even other people's) in a group for other people to look over.  However, no official client lets you _create_ one; you have to do it via the API or TweetDeck.  Collections aren't listed anywhere (you have to link to them directly), and you can't control the order of the tweets (they're always reverse chronological).
 
-* Lists are a thing.  I've never really used them.  They don't support a lot of the features the regular timeline does; most notably, threaded tweets aren't shown together.  You can create a private list and add people to it to follow them without their knowledge, though.
+* Lists are a thing.  I've never really used them.  They don't support a lot of the features the regular timeline does; for example, threaded tweets aren't shown together, and lists don't provide access to locked accounts.  You can create a private list and add people to it to follow them without their knowledge, though.
 
-* You can "promote" a tweet, i.e. turn it into an ad, which is generally only of interest to advertisers.  However, promoted tweets have the curious property that they don't appear on your profile or in search results _for anyone_.  It's possible to target a promoted tweet at a specific list of users (or no one!), which allows for a couple creative hacks that you'll have to imagine yourself.
+* You can "promote" a tweet, i.e. turn it into an ad, which is generally only of interest to advertisers.  However, promoted tweets have the curious property that they don't appear on your profile or in your likes or in search results _for anyone_.  It's possible to target a promoted tweet at a specific list of users (or no one!), which allows for a couple creative hacks that you'll have to imagine yourself.
 
 * And then there's the verified checkmark (given out arbitrarily), the power tools given to verified users (mysterious), the limits on duplicate tweets and follows and whatnot (pretty high), the analytics tools (pretty but pointless), the secret API-only notifications (Twitter tells you when your tweet is unfavorited!), the Web Twitter metadata that let me [write a hack to hide mentions from non-followers](https://twitter.com/eevee/status/694600729227440128)...  you get the idea.
