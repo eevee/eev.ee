@@ -25,7 +25,7 @@ And they are always, _always_ obvious to a human being.  At worst, they're sligh
 
 They'll tweet obvious spam links.  They'll copy a tweet that was the middle of a thought and makes no sense on its own.  They'll Markov a little too heavily, and cut a sentence off halfway.  They'll screw up copying some non-ASCII.  They'll contradict themselves by copying text from two very different people.  Sometimes they're less obvious, but they're always obvious.
 
-Whatever this was, it was completely different.  Because it pulled from a small circle of people, it tweeted about the same general topics.  It made repeated references to being female, to wearing contacts, to having a strong interest in milk — without ever contradicting itself.  It made followup tweets that continued a thought.  It never tweeted junk links.  It kept a consistent writing style.
+Whatever this was, it was completely different.  Because it pulled from a small circle of people, it tweeted about the same general topics.  It made repeated references to being female, to wearing contacts, to having a strong interest in milk — without ever contradicting itself.  It made followup tweets that continued a thought.  It never tweeted junk links.  It kept a consistent writing style.  It occasionally retweeted jokes that I could believe the persona found funny.
 
 It looked like the account of an average nerd named "Nikki V."  Except that it had 1600 followers, yet never garnered a single like or retweet.  And seemingly everything it wrote was a paraphrase of someone else.
 
