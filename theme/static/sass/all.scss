@@ -701,6 +701,16 @@ section.home-words {
     p {
         font-size: 1.33em;
     }
+
+    a {
+        color: scale-color($link-normal, $saturation: 50%, $lightness: 50%);
+    }
+    a:visited {
+        color: scale-color($link-visited, $saturation: 50%, $lightness: 50%);
+    }
+    a:hover {
+        color: scale-color($link-hover, $saturation: 50%, $lightness: 50%);
+    }
 }
 section.home-links {
     clear: both;
