@@ -15,6 +15,6 @@ I wear a lot of hats and have a lot of interests; I have some strong opinions on
 
 I like to write about these things sometimes, and I'm told people like to read it sometimes.  I love thoughtful argument; finding out I'm wrong means I get to be more right in the future.  Just [don't be a dick](/blog/2014/04/05/comment-policy/).
 
-I eject far too many thoughts in overly compact form into [Twitter](https://twitter.com/eevee).  I also have a [tumblr](http://lexyeevee.tumblr.com/), which is mostly used for personal things (read: porn), phone-camera cat photos, and arguments with teenagers.
+I eject far too many thoughts in overly compact form into [Twitter](https://twitter.com/eevee).  I also have a [tumblr](http://lexyeevee.tumblr.com/), which is mostly garbage, but has a lot of old cat photos on it.
 
-I'm currently trying to make a [living](https://www.patreon.com/eevee) on my own, working on things I enjoy.  I live in Las Vegas with my [ridiculous cat](http://lexyeevee.tumblr.com/post/68035288334/anise-up-to-no-good-taken-with-nexus-5-camera-if), my [partner](http://purplekecleon.tumblr.com/), her three cats, her [husband](http://marlcabinet.tumblr.com/), and our boyfriend.
+I'm currently trying to make a [living](https://www.patreon.com/eevee) on my own, working on things I enjoy.  I live in Las Vegas with my [ridiculous cat](http://lexyeevee.tumblr.com/post/68035288334/anise-up-to-no-good-taken-with-nexus-5-camera-if), my [partner](http://purplekecleon.tumblr.com/), their three cats, and their [husband](http://marlcabinet.tumblr.com/).
