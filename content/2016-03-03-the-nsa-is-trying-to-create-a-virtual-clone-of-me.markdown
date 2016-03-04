@@ -15,7 +15,7 @@ What a hilarious joke!  I liked it so much that it turns out I'd already made it
 
 <!-- more -->
 
-It seems there's a Twitter account that has been copying my tweets, along with the tweets of half a dozen other tech people who follow me.  I don't mean stealing our jokes; I mean _only_ tweeting paraphrases of our tweets, even fairly mundane ones.  It's a shame that I can't show you the account in full, because after an hour of our trying to figure out what was going on, I finally made a public tweet about this — and the account instantly vanished.  (The [profile pic](https://pbs.twimg.com/profile_images/561954159323119616/cBSAWibH_400x400.jpeg) still exists, so it's possible the account just renamed and then locked itself to hide from search.)
+It seems there's a Twitter account that has been copying my tweets, along with the tweets of half a dozen other tech people who follow me.  I don't mean stealing our jokes; I mean _only_ tweeting paraphrases of our tweets, even fairly mundane ones.  It's a shame that I can't show you the account in full, because after an hour of our trying to figure out what was going on, I finally made a public tweet about this — and the account instantly vanished.  A couple people verified by user id that the account was actually deleted, not just renamed.
 
 archive.org has two snapshots, both from 2013, but [this one](https://web.archive.org/web/20131217160207/https://twitter.com/tilapya_) is fairly telling — it reads as perfectly normal, _but the bio is mine!_  There's also a [recent copy](https://archive.is/bxnPe) on archive.is, from Feb 28, where you can see a rewording of a tweet I made about a page down:
 
