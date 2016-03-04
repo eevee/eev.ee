@@ -17,7 +17,16 @@ What a hilarious joke!  I liked it so much that it turns out I'd already made it
 
 It seems there's a Twitter account that has been copying my tweets, along with the tweets of half a dozen other tech people who follow me.  I don't mean stealing our jokes; I mean _only_ tweeting paraphrases of our tweets, even fairly mundane ones.  It's a shame that I can't show you the account in full, because after an hour of our trying to figure out what was going on, I finally made a public tweet about this — and the account instantly vanished.  (The [profile pic](https://pbs.twimg.com/profile_images/561954159323119616/cBSAWibH_400x400.jpeg) still exists, so it's possible the account just renamed and then locked itself to hide from search.)
 
-There _is_ a [recent copy](https://archive.is/bxnPe) on archive.is, from Feb 28, where you can see a rewording of [a tweet I made about getting cheesecake ingredients](https://twitter.com/eevee/status/702656586519425024) about a page down.  archive.org has two snapshots, both from 2013, but [this one](https://web.archive.org/web/20131217160207/https://twitter.com/tilapya_) is fairly telling — it reads as perfectly normal, _but the bio is mine!_
+archive.org has two snapshots, both from 2013, but [this one](https://web.archive.org/web/20131217160207/https://twitter.com/tilapya_) is fairly telling — it reads as perfectly normal, _but the bio is mine!_  There's also a [recent copy](https://archive.is/bxnPe) on archive.is, from Feb 28, where you can see a rewording of a tweet I made about a page down:
+
+> i have acquired ingredients for the cheesecake i'm contractually obligated to make. i didn't know how much chocolate i'd need so i got: lots
+>
+> — [@eevee](https://twitter.com/eevee/status/702656586519425024), Feb 24 at 4:49pm
+
+<!-- -->
+> I have acquired ingredients for the cheesecake I’m contractually obligated to make. I didn’t know how much stuff I’d need so I got: LOTS
+>
+> — [@tilapya\_](https://twitter.com/tilapya_/status/703051652694040576), Feb 25 at 6:59pm (timezone unclear)
 
 So please believe me when I stress, very very strongly, just how bizarre this is.  I'm plenty familiar with bot accounts on Twitter that try to look normal so they can be sold as fake followers.  I hate them with such a burning passion that I obsessively check on everyone who follows me so I can block/report any junk.  I've seen quite a few of them by now.
 
