@@ -98,7 +98,7 @@ This is extraordinarily bizarre and I am at a loss to explain it.  I can only th
 
 1. An actual human being, who has enough general tech knowledge to ensure nerdy tweets still make sense, is spending an awful lot of time manually copying tweets from a small circle of tech friends.  And has been doing so for years.  And doesn't seem to be gaining anything from it.
 
-    Granted, this _could_ just be a fake follower account, but why would someone put so much apparent _manual_ effort into it?  Those fake follower places sell _a thousand_ junk followers for ten bucks; it can't possibly be worth trying so hard just to make one of them vaguely resemble an actual person.
+    Granted, this _could_ just be a fake follower account, but why would someone put so much apparent _manual_ effort into it?  Those fake follower places sell _a thousand_ junk followers for ten bucks; it can't possibly be worth trying so hard just to make one of them vaguely resemble an actual person.  They even hid themselves once they were discovered; what kind of bot herder bothers to do that?
 
 2. Alternatively, the NSA has a secret program to build an AI to simulate the perfect nerd, and it's already so good that it independently thinks of the same tweets I do, right around the same time.  Soon it will replace me, and no one will know the difference.
 
