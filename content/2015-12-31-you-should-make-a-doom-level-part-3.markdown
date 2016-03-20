@@ -1,5 +1,6 @@
 title: You should make a Doom level, part 3: cheating
 date: 2015-12-31 23:20
+modified: 2016-03-19 19:10
 category: blog
 tags: gamedev, tech, making things, doom
 
@@ -163,7 +164,7 @@ You can always [read the docs](http://zdoom.org/wiki/Sector_Set3dFloor), but her
 
 However, as with any other sector-based geometry, 3D floors cannot move sideways, only up and down.  Alas.
 
-Wait.  I qualified that with "sector-based".  Does that mean...?
+Ah, but I qualified that with "sector-based".  Does that mean...?
 
 
 ## Polyobjects
@@ -177,7 +178,7 @@ I need to draw a big open empty space somewhere in the void, well away from the 
 {% photo /media/2015-12/doom3/slade06-polyobj1.png Drawing polyobjs in the void %}
 {% photo /media/2015-12/doom3/slade07-polyobj2.png Texturing polyobjs %}
 
-Now I'll turn these into [_polyobjects_](http://zdoom.org/wiki/PolyObjects).  Polyobjects (or, usually, just "polyobjs") are kind of like chunks of geometry that get overlaid onto the map in a different place.  They consist only of lines, not sectors — they'll never have ceilings or floors.  These basic ones consist only of one-sided lines, so they're actually infinitely tall.
+Now I'll turn these into [_polyobjects_](http://zdoom.org/wiki/PolyObjects).  Polyobjects (or just "polyobjs") are chunks of geometry that get overlaid onto the map in a different place.  They consist only of lines, not sectors — they'll never have ceilings or floors.  These basic ones consist only of one-sided lines, so they're actually infinitely tall.
 
 Turning a void shape into a polyobject requires three things.
 
@@ -251,11 +252,11 @@ One last note of caution: ZDoom will exit _immediately_ if your polyobjs are bog
 
 Yes, even the flatness of Doom is no longer a given.
 
-I can finally admit that this is mostly why I wanted you to get the SLADE beta: it (almost) completely supports slopes in 3D mode, and it's super amazing, and I did most of the work and am very happy with it.  There's no dedicated slope editing yet, unfortunately, but that's partly because there are quite a few ways to create slopes in ZDoom.  Like...  ten, maybe?  It's actually convenient, because it gives us a nice spectrum of tradeoffs between flexible and convenient.
+I'd like to take a moment to stress how much effort I put into making SLADE 3.1.1 preview slopes in 3D mode, which is just so good, you have no idea.  There's no dedicated slope editing yet, unfortunately, but that's partly because there are quite a few ways to create slopes in ZDoom.  Like...  ten, maybe?  It's not all bad, because it gives us a nice spectrum of tradeoffs between flexible and convenient.
 
 ### `Plane_Align`
 
-This is the easiest, and also my favorite, and also the most limited.  It's a special (under "Sector") you can slap on a line, and it slopes the floor or ceiling of one side to meet the floor or ceiling of the other side.  So if you just carve out the corner of a cave, say, you can stick `Plane_Align` on its edge and get an instant nice slope.
+This is the easiest, and also my favorite, and also the most limited.  It's an init special (under "Sector") you can slap on a line, and it slopes the floor or ceiling of one side to meet the floor or ceiling of the other side.  So if you just carve out the corner of a cave, say, you can stick `Plane_Align` on its edge and get an instant nice slope.
 
 {% photo /media/2015-12/doom3/slade13-plane-align-before.png Before Plane_Align %}
 {% photo /media/2015-12/doom3/slade14-plane-align-after.png After Plane_Align %}
@@ -269,14 +270,14 @@ Note that the floor texture stays fixed to the 2D grid, even if the sector is sl
 {% photo /media/2015-12/doom3/slade15-plane-align-volcano.png Volcano with a smooth sloped ceiling %}
 {% photo /media/2015-12/doom3/slade16-plane-align-volcano2d.png Volcano slope geometry in 2D %}
 
-This is, uh, kind of complicated to explain, and [the wiki already has some diagrams](http://zdoom.org/wiki/Using_slopes#Cliff_and_basin_with_Plane_Align).  The key is that the sloped part is made out of alternating triangles all the way around, with both sets of triangles sloping to meet the others.  The idea is that each line is shared between two triangles: one sloping up, and one sloping down.  Since each vertex will end up with the same height, either because it's part of a `Plane_Align`ed line or because it's the corner that stays at its native height, there can't possibly be any seams.  Got it?  Hm.  I'm not even sure how to draw a diagram for this.  Maybe crack my map open and look at the sectors.
+This is, uh, kind of complicated to explain, and [the wiki already has some diagrams](http://zdoom.org/wiki/Using_slopes#Cliff_and_basin_with_Plane_Align).  The key is that the sloped part is made out of alternating triangles all the way around, with both sets of triangles sloping to meet the others.  Each inside line is thus shared between two triangles: one sloping up, and one sloping down.  Since both ends of each line will end up with the same height in both triangles, either because it's part of a `Plane_Align`ed line or because it's the corner that stays at its native height, there can't possibly be any seams.  Got it?  Hm.  I'm not even sure how to draw a diagram for this.  Maybe crack my map open and look at the sectors.
 
 Anyway, that's about the extent of tricks you can do with `Plane_Align`.  For more chaotic geometry, you need something else.
 
 
 ### Sector tilt things
 
-These aren't too hard to use, but expressing what you want is definitely more tricky than with `Plane_Align`.  Plop a "Floor Tilt Slope" or "Ceiling Tilt Slope" (Special Effects → Slopes) into a sector.  Its first argument is a "tilt" measured in degrees — `90` is no tilt, less is a downwards tilt, more is an upwards tilt.  The direction the thing faces determines the direction of the tilt.  The slope will, of course, pass through the thing.
+These aren't too hard to use, but expressing what you want is definitely more tricky than with `Plane_Align`.  Plop a "Floor Tilt Slope" or "Ceiling Tilt Slope" (Special Effects → Slopes) into a sector.  Its first argument is a "tilt" measured in degrees — `90` is no tilt, less is a downwards tilt, more is an upwards tilt.  The direction the thing faces determines the direction of the tilt.  The slope will pass through the thing.
 
 {% photo /media/2015-12/doom3/slade17-sector-tilt.png Using a sector tilt thing to make a one-off slope %}
 
@@ -302,9 +303,9 @@ You can do pretty much whatever you want with this.  Just draw a bunch of triang
 
 There are two caveats.
 
-1. SLADE has one teeny tiny little oversight here.  [It can't distinguish between a missing height and a height of 0.](https://github.com/sirjuddington/SLADE/issues/386)  See, if a triangular sector only has _one_ vertex with an explicit height (and it's just plain missing for the others), ZDoom will still slope the sector, but it'll use the sector's "native" height for the other vertices.  SLADE, unfortunately, treats all properties as though they have their default values, so it doesn't know if that's actually 0 (meaning "please put this vertex at absolute height 0") or a missing value (meaning "please put this vertex at the sector's height").  At the moment I think it assumes you meant an actual zero, but I think assuming the other way would be less disruptive.
+1. If a triangular sector only has _one_ vertex with an explicit height (and it's just plain missing for the others), ZDoom will still slope the sector, but it'll use the sector's "native" height for the other vertices.  SLADE, unfortunately, treats all properties as though they have their default values, so it doesn't clearly distinguish between 0 (meaning "please put this vertex at absolute height 0") or a missing value (meaning "please put this vertex at the sector's height").  For now, the safest thing is to fill in all three vertex heights.
 
-2. If you have very small triangles, even with subtle slopes, the player will seem to slide around on them.  I only half understand this problem but it's something to do with the player overlapping the sector without being in it, and the fact that the Doom engine has never ever factored vertical movement into momentum.  Basically don't try to get too fine-grained with floors you intend anyone to walk on.
+2. If you have very small triangles, even with subtle slopes, the player will seem to slide around on them.  It's arguably a ZDoom bug, and the cause is really obscure, but just don't try to get too fine-grained with floors you intend anyone to walk on.
 
 
 ### Other slope notes

@@ -1,5 +1,6 @@
 title: You should make a Doom level, part 2: design
 date: 2015-12-30 14:18
+modified: 2016-03-19 19:10
 category: blog
 tags: gamedev, tech, making things, doom
 
@@ -23,7 +24,7 @@ This post is more narrative than mechanical; it's a tour of my thought process a
 
 I have to say upfront: I'm far from being an expert on design.  I haven't even _released_ a Doom map, aside from the one attached to the previous post.  I have no qualifications whatsoever.  That means we can learn about it together!
 
-I admit also that my initial design instincts are terrible.  I want to make lots of flat rectangles, aligned to the grid.  It turns out that's not very interesting.  I wish I still had a copy of the very first map I made, some fifteen years ago now: every room was rectangular, every hallway was 64×64, every encounter had monsters packed in so neatly that they couldn't even move sometimes.
+I admit also that my initial design instincts are terrible.  I want to make lots of flat rectangles, aligned to the grid.  It turns out that's not very interesting.  I wish I still had a copy of the very first map I made, some fifteen years ago now: every room was rectangular, every hallway was 64×64, every encounter had monsters packed in so neatly that they couldn't even move sometimes.  Also the sectors were completely screwy because editors weren't very good back then and I didn't understand what was wrong or how to fix it.
 
 I guess tidiness, neatness, and regularity don't make for very interesting map.  So what _does_?  I went hunting for some answers.
 
@@ -48,7 +49,7 @@ But, hang on.  Romero only did episode 1 of the original Doom, and half a dozen 
 
 Yeah, him.
 
-[Sandy Petersen](http://doomwiki.org/wiki/Sandy_Petersen) is a Lovecraft-inspired madman who created the entire other two episodes of Doom in ten weeks.  He also did more than half of Doom II, which is of particular interest to me, since that's where my nostalgia lies.  A quick perusal of the levels he designed reveals that all the ones that stick out to me are Sandy's.
+[Sandy Petersen](http://doomwiki.org/wiki/Sandy_Petersen) is a Lovecraft-inspired madman who created the entire other two episodes of Doom in ten weeks.  He also did more than half of Doom II, which is of particular interest to me, since that's where my nostalgia lies.  A quick perusal of the level credits reveals that all the ones that stick out to me are Sandy's.
 
 And yet, according to Masters of Doom,
 
@@ -60,7 +61,7 @@ You might even argue that while Romero's levels were elegant and flowed around e
 
 I love this story.  Sandy just went and did something bizarre, and it was unique enough that it inspired everyone else.  Game culture tends to talk derisively about "gimmicks", but I think a well-done gimmick is a fabulous thing.
 
-Alas, I'm not sure this helps me — "do something bizarre" is not very concrete advice.
+Alas, I'm not sure this helps me _concretely_ — "do something bizarre" is still very open-ended.
 
 ### It's art, dummy
 
@@ -94,7 +95,7 @@ She often touches on narrative elements, which are something I realized I really
 
 In a way this is at odds with the Petersen approach to mapping — one of my complaints about the Doom II progression is that several of the early levels (supposedly uncorrupted regular Earth places) are _so_ abstract as to be meaningless.  What _is_ Dead Simple, this isolated courtyard where the only goal is to kill all the monsters?  What would it have been if Doomguy had never passed through?  That kind of disconnected feeling fits much better in the later Hell levels, but it's pretty jarring to see only two slots after The Waste Tunnels, which do a good job of suggesting...  waste tunnels.
 
-Through Doom Mixtape (possibly via YouTube's autoplay?) I also stumbled upon [Antroid's blind Let's Play of Doom II The Way Id Did](https://www.youtube.com/playlist?list=PLGrCiTVJvPsGGTwtJRmq6JjwpO1vq-UhQ), which is exactly what it sounds like.  Doom II The Way Id Did was a community project to create a whole new set of maps that drew inspiration specifically from the way the original level designers approached the levels, so it's pretty interesting to see someone who cares about design play through them all.  The leader of the project (I think) also chimes in.  Antroid cares about narrative too, which is great for me, though he and Liz are diametrically opposed on the hot topic of texture alignment.
+Through Doom Mixtape (possibly via YouTube's autoplay?) I also stumbled upon [Antroid's blind Let's Play of Doom II The Way Id Did](https://www.youtube.com/playlist?list=PLGrCiTVJvPsGGTwtJRmq6JjwpO1vq-UhQ), which is exactly what it sounds like.  Doom II The Way Id Did was a community project to create a whole new set of maps that drew inspiration specifically from the way the original level designers approached the levels, so it's pretty interesting to see someone who cares about design play through them all.  Someone involved with the project offers their own insights while Antroid plays.  Antroid cares about narrative too, which is great for me, though he and Liz are diametrically opposed on the hot topic of texture alignment.
 
 Antroid has also [LP'd Knee-Deep in Phobos](https://www.youtube.com/playlist?list=PL324D4442D48A6E21), another map set that he had some thoughtful criticism on, and [DTS-T](https://www.youtube.com/playlist?list=PLGrCiTVJvPsE-rz8i47Y8lRcsHDP4kv-u) which is a bit more goofy.
 
@@ -136,20 +137,20 @@ This is still a dead end, alas.  I do like that little nook in the southwest cor
 
 So I think I'm going to put an alcove in that nook.  I want to have a switch, too, for affecting this volcano in some way.  Otherwise there's no point to going there!
 
-Switches are a great thing.  They give the player something to do, and they give the feeling that the world reacts to the player's actions.  This switch will probably be for progression, but sometimes it's nice to have switches that aren't particularly important, just for a bit of contrast.  Doom II is full of doors and lifts that use switch textures right on the side, or rooms that open up once you press a readily-accessible switch.
+Switches are a great thing.  They give the player something to do, and they give the feeling that the world reacts to the player's actions.  Switches that are visible but not yet accessible act as a goal, a reason for moving forwards.  This switch will probably be for progression, but sometimes it's nice to have switches that aren't particularly important, just for a bit of contrast.  Doom II is full of doors and lifts that use switch textures right on the side, or rooms that open up once you press a readily-accessible switch.
 
 {% photo /media/2015-12/doom2/slade04-alcove.png Creating an alcove with a switch %}
 
 That's `SW1GARG`, if you're wondering.  I'm mostly using it for its rough metal background, which seems to fit this room.  I didn't want the switch to be a full 128 units high, so I made it about 72 high instead, and played with the switch texture's vertical offset to get it to a nice height.  I used `METAL`, a texture with two columns of rivets, for the sides and top.
 
-That switch is a little _too_ orthogonal, I think, so I'm going to switch to sector mode, select it, and use Edit Objects to rotate it 45°.  That'll give me a diagonal line 64 units long (the width of the switch texture), which would've been a huge pain to draw by hand.
+That switch is a little _too_ orthogonal, I think, so I'm going to switch to sector mode, select it, and use Edit Objects (<kbd>E</kbd>) to rotate it 45°.  That'll give me a diagonal line 64 units long (the width of the switch texture), which would've been a huge pain to draw by hand.
 
 {% photo /media/2015-12/doom2/slade05-edit-objects.png Using Edit Objects to rotate a sector %}
 {% photo /media/2015-12/doom2/slade06-rotated-floor.png Hm, this floor isn't quite right %}
 
 Oops, that looks a little funny, since floor and ceiling textures follow the map grid.  The player isn't likely to see it in play, but I'm going to fix it anyway, by setting the floor rotation to 45.  Rotating the floor actually rotates the _entire_ map grid around `(0, 0)`, so the texture was still a bit misaligned for me, and I had to play with the offsets a bit to make it look right.  By default, the offsets are changed with the numpad — in increments of 8 with numlock on, and increments of 1 with it off.  I have this rebound to the arrow keys for 8, or with <kbd>Shift</kbd> held down for 1.  Also I'd like SLADE to be able to [do this particular operation automatically](https://github.com/sirjuddington/SLADE/issues/397), which maybe it will sometime.
 
-Anyway!  I haven't made this switch actually do anything yet, but first, let's figure out how the player gets over here.  It seems reasonable that they might come through some tech stuff, but that's a long way to walk, so I'll put a little more cave too.  I don't know what's going here yet; I'm just drawing some shapes.
+Anyway!  I haven't made this switch do anything yet, but first, let's figure out how the player gets over here.  It seems reasonable that they might come through some tech stuff, but that's a long way to walk, so I'll put a little more cave too.  I don't know what's going here yet; I'm just drawing some shapes.  You can see my instinct for rectangles again, but at least I sanded off the corners of that lower-right room.
 
 {% photo /media/2015-12/doom2/slade07-connect-bottom.png Drawing some areas to connect around the bottom %}
 
@@ -157,13 +158,13 @@ I'm pretty tired of that gray brick floor texture.  I want to replace the hallwa
 
 {% photo /media/2015-12/doom2/slade08-change-floor.png Changing the floor texture %}
 
-I don't want _both_ rooms to have that floor, though.  I'm also a little tired of this tan wall.  So how about I make the other room `STARGR2`, the gray equivalent?  Then I can use `FLOOR0_6` for the floor.  (Around this point you might benefit from changing the sort order in the texture dialog to "Usage Count", which puts the textures you've used most frequently at the beginning of the list.)
+I don't want _both_ rooms to have that floor, though.  I'm also a little tired of this tan wall.  How about I make the other room `STARGR2`, the gray equivalent?  Then I can use `FLOOR0_6` for the floor.  (Around this point you might benefit from changing the sort order in the texture dialog to "Usage Count", which puts the textures you've used most frequently at the top of the list.)
 
-Ah, but wait.  One of Romero's rules is that a change in floor texture means a change in floor height.  I can get behind that.  I need a change in floor height anyway, because I made my alcove a little higher than the starting floor.  So I'll add a few steps between the two rooms, and throw in a big door as well.  I'll even make the door bronze on one side and gray on the other, to match the room you enter into.
+Ah, but wait.  One of Romero's rules is that a change in floor texture means a change in floor height.  I can get behind that.  I need a change in floor height anyway, because I made my alcove a little higher than the starting floor.  I'll add a few steps between the two rooms, and throw in a big door as well.  I'll even make the door bronze on one side and gray on the other, to match the room you enter into and keep the door from blending in too much with the walls.
 
-(You may notice I don't ever say anything about ceilings.  I'm half-convinced that the ceiling texture just doesn't really matter.  What ceiling does any area anywhere in Doom or Doom II have?  Yeah, that's what I thought.  Valve has a rule of _players don't look up_ for good reason.)
+(You may notice I don't ever say anything about ceilings.  I'm half-convinced that the ceiling texture just doesn't really matter.  What ceiling does any area anywhere in Doom or Doom II have?  Yeah, that's what I thought.  I believe in the Valve Rule: _players don't look up_.)
 
-I'll also add the door on the other side, leading into the cave.  The floor texture changes here, which means I need a change in floor height!  I made the cave floor a little lower, so you step down out of the "building".  (Hint: you can draw lines to carve up an area however you want, then hop into sector mode and <kbd>Delete</kbd> some of the pieces.  You'll be left with a void surrounded by one-sided walls.  If you carve too much, you can always rejoin sectors with <kbd>J</kbd>.)
+I'll also add the door on the other side, leading into the cave.  The floor texture changes here, which means I need a change in floor height!  I made the cave floor a little lower, so you step down out of the "building".  (Hint: you can draw lines to carve up an area however you want, then hop into sector mode and <kbd>delete</kbd> some of the pieces.  You'll be left with a void surrounded by one-sided walls.  If you carve too much, you can always rejoin sectors with <kbd>J</kbd>.)
 
 {% photo /media/2015-12/doom2/slade09-steps.png Making some steps %}
 {% photo /media/2015-12/doom2/slade10-corner.png The outer corner, where base meets cave %}
@@ -204,9 +205,9 @@ Wow!  That looks like some hot garbage.
 
 You can't just rely on the engine to do it for you, either, because the engine...  doesn't.  There is no casting of shadows in Doom, whatsoever.  No dynamic lighting, no light _sources_ at all.  (This isn't true in GZDoom, which actually makes several stock Doom objects cast their own light, but the effect is fairly minor so as to not ruin the deliberate lighting of Doom maps.)  The only lighting you get is the light level of sectors.  Even the light level of a wall is just the light level of the sector it faces.
 
-So if you want to have a large outdoor area with some buildings casting shadows, you have to actually _draw the shadows_ as separate sectors on the ground and make them darker.  Even ZDoom's fanciest lighting tricks can only give you slightly better tools for doing manual lighting, like separate floor and ceiling lighting.  (In vanilla Doom, you might fake the lava trick by drawing a very thin outer lava sector that's dark, so the walls are also dark, and then just making the inner area bright.  The ceiling would also be bright, but oh well!)  If you want a smooth lighting transition, well, you just have to draw a lot of thin sectors and give them all slightly different light levels.
+If you want to have a large outdoor area with some buildings casting shadows, you have to actually _draw the shadows_ as separate sectors on the ground and make them darker.  Even ZDoom's fanciest lighting tricks can only give you slightly better tools for doing manual lighting, like separate floor and ceiling lighting.  (In vanilla Doom, you might fake the lava trick by drawing a very thin outer lava sector that's dark, so the walls are also dark, and then just making the inner area bright.  The ceiling would also be bright, but oh well!)  If you want a smooth lighting transition, well, you just have to draw a lot of thin sectors and give them all slightly different light levels.
 
-I don't have a lot else to say about lighting.  Like everything else design-related, it's just something you have to learn, and I'm still doing that.  Look at maps you like, play around, see what works and what doesn't.
+I don't have a lot else to say about lighting.  Like everything else design-related, it's just something you have to learn, and I'm still doing that.  Look at maps you like, play around, see what works and what doesn't.  When in doubt, add contrast.
 
 
 ## Sky hack
@@ -217,16 +218,16 @@ Abrupt transition!  The entrance of this map doesn't make a lot of sense as I ha
 
 Well, that's easy enough.  I can just stick the player at the north end of the hallway, facing downwards.
 
-Or...  I could do something a little more interesting.  I do like starting areas that give the impression I actually _got here_ somehow.  All that narrative stuff, remember.  A dead-end hallway is not too great at establishing that feeling.  Lots of Doom II levels just stick an unopenable `DOOR2` behind you (which is weird since you don't go _out_ through that door at the end of any levels), but I can do better.  Also I want to show you the sky hack.
+Or...  I could do something a little more interesting.  I do like starting areas that give the impression I actually _got here_ somehow.  All that narrative stuff, remember.  A dead-end hallway is not too great at establishing that feeling.  Lots of Doom II levels just stick an unopenable `DOOR2` behind you (which is weird since you don't go _out_ through that door at the end of any levels), but I can do better.  Plus I need an excuse to show you the sky hack.
 
 This is a volcano, so I assume it has a _side_ somewhere out there.  I'll say you climbed up the side and are facing the entrance of this weird volcano base.  I guess I'll start by drawing a squiggly area and sticking some textures on it.  Then I'll put a little building in one corner.
 
 {% photo /media/2015-12/doom2/slade17-new-spawn.png A new spawn area %}
 {% photo /media/2015-12/doom2/slade18-new-spawn2.png Creating an entrance %}
 
-Hmm.  This looks pretty goofy.  Having all the walls of a _room_ be the same height is certainly reasonably, but this is outside.  What can I do about this?
+Hmm.  This looks clumsy.  Having all the walls of a _room_ be the same height is certainly reasonable, but this is outside, and is meant to be a rocky slope besides.  What can I do about this?
 
-Enter the sky hack, arguably the Doom engine's only special effect.  The sky hack is that when two neighboring sectors both use `F_SKY1`, _the upper wall between them isn't drawn_.
+Enter the sky hack, arguably the Doom engine's only deliberate special effect.  The sky hack is that when two neighboring sectors both have `F_SKY1` ceilings, _the upper wall between them isn't drawn_.
 
 {% photo /media/2015-12/doom2/doom-sky-hack.png Rough illustration of the sky hack %}
 
@@ -238,29 +239,29 @@ This is kind of weird, so let me just do it and show you what happens.  I'm goin
 
 The last screenshot is exactly the same geometry, but with a different ceiling so you can see what the sky hack actually does.  Those "missing" textures are the upper parts of the lines between the two rings, where the ceiling height changes.  When both rings use the sky texture, the sky hack kicks in, and Doom doesn't even try to draw those upper parts.  It just lets the sky show through.  Using this, we can create the illusion of a tall building surrounded by lower walls.
 
-It's not strictly necessary to even have two rings, but there are two advantages.  One, if the player happens to catch a glance over the top of the shorter wall, they'll see the floor of the inner ring, rather than an abrupt cut to sky.  Two, it lets me extend the wall of the building beyond the wall of the "courtyard", so it looks like it has some depth.
+It's not strictly necessary to even have two rings, but there are two advantages.  One, if the player happens to catch a glance over the top of the shorter wall, they'll see the floor of the inner ring, rather than an abrupt cut to sky.  Two, it lets me extend the wall of the building back behind the wall of the "courtyard", so it looks like it has some depth.
 
-You may notice I just made the far outer wall a square, because it doesn't actually matter — it'll never appear to the player.  I also marked those lines "Not On Map", meaning they'll never appear on the automap.
+You may notice I just made the far outer wall a square, because it doesn't actually matter — it'll never appear to the player.  I also marked those lines "Not On Map", so they'll never appear on the automap either.
 
-The sky hack has plenty of limitations, of course.  If you need multiple buildings made of one-sided lines (because, say, they have doors in them), they'll all generally have to be the same height: the true height of the outdoor area.  And if you want a building _shorter_ than the outer walls, you're gonna have a bad time.  Remember, the sky hack doesn't actually make a wall "invisible", it just draws the sky instead.  So if you put a sector with a low sky inside a sector with a higher one...  well, that doesn't work out so well.
+The sky hack has plenty of limitations, of course.  If you need multiple buildings made of one-sided lines (because, say, they have doors in them), they'll all generally have to be the same height: the true height of the outdoor area.  If you want a building _shorter_ than the outer walls, you're gonna have a bad time.  Remember, the sky hack doesn't actually make a wall "invisible", it just draws the sky instead.  So if you put a sector with a low sky inside a sector with a higher one...  well, that doesn't work out so well.
 
-{% photo /media/2015-12/doom2/slade22-sky-hack-oops.png Sky hack doesn't work with short structures%}
+{% photo /media/2015-12/doom2/slade22-sky-hack-oops.png Sky hack doesn't work with short structures %}
 
-You might also think it would be nice to show the _sides_ of the volcano behind the building, but I can't do that, for the same reason — you can't make them visible "above" the building, because you're not actually looking above the building, you're looking at the ceiling in _front_ of it.
+You might also think it would be nice to show the _sides_ of the volcano behind the building, but I can't do that, for the same reason — you can't make them visible "above" the building, because you're not actually seeing above the building, you're seeing the sky-textured ceiling in _front_ of it.
 
-This will do for now, though.  I'm moving the player start to the outdoor area, and we are good to go.  Er, almost.  I made the outdoor area much higher than the indoor area, to flimsily simulate being on the outside of the volcano, so we need a way down.  I'm going to make a _lift_.
+This will do for now, though.  I'll move the player start to the outdoor area, and we are good to go.  Er, almost.  I made the outdoor area much higher than the indoor area, to flimsily simulate being on the outside of the volcano, so we need a way down.  I'm going to make a _lift_.
 
-It's pretty typical to use `STEP1` or `STEP2` as the base of a lift, so the player knows what it is.  Similarly, the side of a lift (especially one you can "use" to lower) is often `PLAT1`, though anything obviously different from its surroundings works.  I'm also going to have to make that one wall upper unpegged, since it's an upper part of a wall with a hole (far below!) punched in it, surrounded by one-sided walls.
+It's pretty typical to use `STEP1` or `STEP2` as the floor of a lift, so the player knows what it is.  Similarly, the side of a lift (especially one you can "use" to lower) is often `PLAT1`, though anything obviously different from its surroundings works.  I also need to make that left wall upper unpegged, since it's the upper part of a wall with a hole (far below!) punched in it, surrounded by one-sided walls.
 
 {% photo /media/2015-12/doom2/slade23-lift1.png Making a lift sector%}
 
-You can make lifts that lower when you step on them, but I find that kind of jarring.  Instead, I want to have a switch that lowers this lift.  I have a couple one-sided walls available, so I'm going to carve a little hole in one and make an inset switch.
+You can make lifts that lower when you step on them, but I find that kind of jarring.  Instead, I want to have a switch that lowers this lift.  I have a couple one-sided walls available, so I can carve a little hole in one and make a recessed switch.
 
 {% photo /media/2015-12/doom2/slade24-lift2.png Creating a recessed switch %}
 
 To hook this up, we finally need to use a _sector tag_.  Just give the lift sector a tag of 1, and then be sure to use that tag when wiring the switch.  (You can use the "New Tag" button in the properties dialog, or the "..." button in the prop panel, to get a new tag you haven't used before.)
 
-I'm using `Plat_DownWaitUpStay`, which is the generic Doom-style lift.  (The default Doom delay is 105 tics, or three seconds.  I would love if SLADE told you this.)  I'll use the same special directly on the south side of the lift itself, so you can summon it down again.  You can use either 0 or 1 for the sector tag here; just like doors, a sector tag of 0 means the sector on the other side of the line.
+I'm using `Plat_DownWaitUpStay`, which is the generic Doom-style lift.  (The Doom delay is 105 tics, or three seconds.  I would love if SLADE told you this.)  I'll use the same special directly on the south side of the lift itself, so you can summon it down again.  You can use either 0 or 1 for the sector tag here; just like doors, a sector tag of 0 means the sector on the other side of the line.
 
 {% photo /media/2015-12/doom2/slade25-lift3.png Adding a sector tag %}
 {% photo /media/2015-12/doom2/slade26-lift4.png Setting up the switch %}
@@ -269,16 +270,16 @@ Now I can play the level and ride down my li—
 
 {% photo /media/2015-12/doom2/zdoom3-lift-oops.png Lift with hall of mirrors %}
 
-Whoops!  That's the hall of mirrors effect, which you get when you forget a texture.  I never gave this dividing line a lower texture, and SLADE didn't warn me, because _in the map's initial state_ that part of the wall isn't visible.  (I would like SLADE to be cleverer about this, too!)  I can fix this even in 3D mode if I want, by temporarily moving the lift down a bit.  Lower unpegging keeps the texture aligned with the other walls, and now I have a lift!
+Whoops!  That's the hall of mirrors effect, which you get when you forget a texture.  I never gave this dividing line a lower texture, and SLADE didn't warn me, because _in the map's initial state_ that part of the wall isn't visible.  (I would like SLADE to be cleverer about this, too!)  I can fix this in 3D mode if I want, by temporarily moving the lift down a bit.  Lower unpegging keeps the texture aligned with the other walls — the rest of the building is effectively a hole "punched" in the lift shaft.  Now I have a lift!
 
 
 ## Monsters
 
-Let's recap.  I now have several distinct areas (okay, _two_) with monster encounters in them, and this map doesn't actually have any ammo.  That might be nice to consider, but to know _how much_ ammo to sprinkle around, we need to know a bit more about Doom's monsters, and how much ammo it takes to kill them.  Or we could just play the map and put more ammo in places where we run out, but this way has more numbers, and I do like numbers.
+Let's recap.  I have several distinct areas (okay, _two_) with monster encounters in them, and this map doesn't actually have any ammo.  That might be nice to consider, but to know _how much_ ammo to sprinkle around, we need to know a bit more about Doom's monsters, and how much ammo it takes to kill them.  Or you could just play the map and put more ammo in places where we run out, but this way has more numbers, and I do like numbers.
 
 Doom II has nine weapons: fist (and berserk fist), chainsaw, pistol, shotgun, super shotgun, chaingun, rocket launcher, plasma gun, and BFG 9000.  An interesting quirk of Doom's loadout is that damage is randomized — every shot of every weapon has its damage multiplied by a random factor, which varies from 1d3 to 1d10.  A more interesting quirk is that the shotguns actually fire multiple pellets, and _each pellet_ has its damage randomized.  So the super shotgun, with its impressive 20 pellets per shot, actually has the most consistent damage output (thanks to the law of large numbers).
 
-With that as our baseline, you can _very roughly_ describe all the weapons in terms of the super shotgun.  All of the following do roughly the same amount of damage (200) on average, to within 10%, assuming you actually score a direct hit:
+With that as the baseline, I can _very roughly_ describe all the weapons in terms of the super shotgun.  All of the following do roughly the same amount of damage (200) on average, to within 10%, assuming you actually score a direct hit:
 
 * 18 punches
 * 2 berserk punches
@@ -312,8 +313,6 @@ Incidentally, that makes map sets kind of hard to balance!  Almost any map will 
 
 For now, I'm just going to stick a box of shells in the room with the magma chamber, and sprinkle a few shells (4 each) around the other areas.  I'll put a shotgun guy in the spawn area, too, facing away from the player, as a way to get a shotgun.
 
-I don't know yet how I'll balance this per skill level, but I can treat this as medium difficulty (Hurt Me Plenty) and scale it up and down later.
-
 ### Encounters
 
 What about health?  I can't ballpark that as easily, since the amount of damage the _player_ takes is entirely dependent on their skill level.  Or, well, not entirely.  It also depends on how the encounters are designed.
@@ -322,13 +321,13 @@ Doom's combat is very very much about _movement_.  Taking advantage of the terra
 
 A curious feature of Doom's combat is that most monsters are just not particularly difficult to kill without taking much damage, especially for experienced players.  If you want an especially challenging encounter, you have to resort to some mild trickery.  Ambushing the player is a classic move, though you'll have to be clever nowadays, since everyone has seen monsters appear when they grab a key.  Opening monster closets back the way the player came is certainly surprising, and can give the feel that somehow reinforcements appeared from nowhere.  You can also force the player to fight in very close quarters, have monsters appear on both sides of them, or cut off their escape route.  A few imps are much more dangerous in a cramped, dark room than in an open arena.
 
-Spawning monsters is also an option.  Typically that's done by having a big closed-off room somewhere, filling it with monsters, and putting some "monster cross" lines that teleport to various places.  Add a teeny tiny channel to connect that room to the rest of the level, so the monsters can hear the player.  When they do, they'll wake up, start milling around, and bumble over the teleport lines.  (You can also literally spawn monsters with ZDoom's scripting, but I don't like to do that, since it means the "monsters remaining" count in the alt HUD is inaccurate.)
+Spawning monsters is also an option.  Typically that's done by having a big closed-off room somewhere, filling it with monsters, and putting some "monster cross" lines that teleport to various places.  Add a teeny tiny channel to connect that room to the rest of the level, so the monsters can hear the player.  When they do, they'll wake up, try to move towards the player, and bumble over the teleport lines.  (You can also literally spawn monsters with ZDoom's scripting, but I don't like to do that, since it means the "monsters remaining" count in the alt HUD is inaccurate.)
 
-What?  I never explained sound?  There's not much to it, really; if a monster hears the player use a weapon, it'll wake up and start looking for the player.  Sound travels between sectors freely, but _does not_ pass through closed doors, which is why firing a shot on most maps doesn't immediately wake up the whole world.  That's also why there are some teeny tunnels sprinkled throughout the stock maps — there's one in MAP01 of Doom II, to let sound reach the secret room with the imps in it, so they'll hear you and open the door to come out.  You can fine-tune how sound spreads by marking lines as "blocks sound", though keep in mind sound only stops after passing _two_ such lines.
+What?  I never explained sound?  There's not much to it, really; if a monster hears the player use a weapon, it'll wake up and start looking for the player.  Sound travels between sectors freely, but _does not_ pass through zero-height sectors like closed doors, which is why firing a shot on most maps doesn't immediately wake up the whole world.  That's also why there are some teeny tunnels sprinkled throughout the stock maps — there's one in MAP01 of Doom II, to let sound reach the secret room with the imps in it, so they'll hear you and open the door to come out.  You can fine-tune how sound spreads by marking lines as "blocks sound", though keep in mind sound only stops after passing _two_ such lines.
 
-Okay, so, how much health?  It's up to you!  I'm not sure there's even such a thing as _too_ much health; the player can only take so many hits from the stronger monsters anyway, and extra medikits don't help once you're dead.  Doom II's MAP21: Nirvana starts you out in a room with 20 medikits, every one that exists in the level.  And that's a map that consists mainly of imps and shotgun guys.
+Okay, so, how much health?  It's up to you!  Maybe there's not even such a thing as too much health; the player can only take so many hits from the stronger monsters anyway, and extra medikits don't help once you're dead.  Doom II's MAP21: Nirvana starts you out in a room with 20 medikits, every one that exists in the level.  And that's a map that consists mainly of imps and shotgun guys.
 
-Feel free to be liberal with health and armor bonuses, especially.  I love those.  Everyone loves those.
+Feel free to be liberal with health and armor bonuses, especially.  Everyone loves picking up a string of 20 items.
 
 
 ## Back to the map progression
@@ -396,7 +395,7 @@ I'm carving out room for a big ol' ledge around the outside of my volcano, which
 
 Finally I'll wire up that switch I made back in the beginning.  Unfortunately, my volcano is really deep, and I need to raise it 320 units.  SLADE currently won't let you give arguments greater than 255, because it's illegal in Hexen-format maps...  even though it's fine in UDMF maps.  Oops.
 
-Lucky for me, this is ZDoom, where there are at least two ways to do _anything_!  So I'm going to use `Generic_Floor` instead, which will let me say the floor should raise to meet the next-highest neighboring floor.  In my map, that's the outdoor area you start in.  (For now you have to check its arguments [on the ZDoom wiki](http://zdoom.org/wiki/Generic_Floor), but I'm gonna go make SLADE aware of them right after this.)  So my _target_ is 3, and my _flags_ are 1 (copy texture, set type to 0) + 4 (copy from neighboring sector) + 8 (raise) = 15.
+Lucky for me, this is ZDoom, where there are at least two ways to do _anything_!  So I'm going to use `Generic_Floor` instead, which will let me say the floor should raise to meet the next-highest neighboring floor.  In my map, that's the outdoor area you start in.  So my _target_ is 3, and my _flags_ are 1 (copy texture, set type to 0) + 4 (copy from neighboring sector) + 8 (raise) = 15.
 
 {% photo /media/2015-12/doom2/slade33-volcano.png Adding a path around the volcano %}
 {% photo /media/2015-12/doom2/zdoom6-volcano.png View from the spire, after raising the path %}
@@ -422,17 +421,17 @@ Hmm.  I was saving the really good ZDoom trickery for the next part, but I'll wh
 
 {% photo /media/2015-12/doom2/zdoom4-fuckit1.png Teleporter alcove off the lava chasm %}
 
-The lava is very bright, but the walls are very dark.  That goes for other places that have lava as well, but it's particularly striking here.
+The lava is very bright, but the walls are extremely dark.  That goes for other places that have lava as well, but it's particularly striking here — surely, the light from the lava should affect the walls.
 
 It turns out there's actually something we can do about this.
 
-Draw a little sector out in the void, not connected to anything.  It's a good idea to keep it close to the cave, and mark its walls "Not On Map".  This is a _control sector_.  It's a junk throwaway sector, not really a part of the world.  Control sectors exist so that specials can transfer some of their properties to other sectors.
+Draw a little sector out in the void, not connected to anything.  It's a good idea to keep it close to the cave, and mark its walls "Not On Map".  This is a _control sector_.  It's a junk throwaway sector, not really a part of the world.  Certain specials can copy properties from control sectors to other sectors.
 
 I'm going to make this sector the same height as the cave (<kbd>ctrl</kbd><kbd>shift</kbd><kbd>C</kbd> and <kbd>ctrl</kbd><kbd>shift</kbd><kbd>V</kbd> to copy/paste properties are very useful here), but its ceiling will be somewhat lower than the actual cave's ceiling.  You can even do this in 3D mode, since you can walk through walls and fly around all you want.
 
 The lava's light level is 192; the cave's light level is 128.  I'll make my sector's light level 160, right in the middle.  I also need to give the cave itself a sector tag.
 
-Now the magic happens!  Pick one of the walls of the control sector, and give it the [`ExtraFloor_LightOnly`](http://zdoom.org/wiki/ExtraFloor_LightOnly) special (under "Renderer").  Give it the sector tag of the cave, and don't worry about the "type".  And that's it.  You don't need any triggers.
+Now the magic happens!  Pick one of the walls of the control sector, and give it the [`ExtraFloor_LightOnly`](http://zdoom.org/wiki/ExtraFloor_LightOnly) special (under "Renderer").  Give it the sector tag of the cave, and don't worry about the "type".  And that's it.  You don't need any triggers, because this is an "init" special, meaning it takes effect when the map loads and is ignored after that.
 
 {% photo /media/2015-12/doom2/zdoom7-partial-light.png Teleporter alcove, with partially lit walls %}
 
@@ -458,16 +457,16 @@ Look at the _side_ of that alcove.  That's just our old friend `STARTAN2`.  But 
 
 {% photo /media/2015-12/doom2/slade25-lift3.png Map showing the side lines split in half %}
 
-The secret is that I cut the wall in half!  You're actually seeing the left edge and right edge of a "round part", mashed together in the middle.  Doom is paletted, so a lot of textures can be spliced together like this without leaving an obvious seam.  You can use the same trick to stretch `METAL2` across a diagonal wall:
+I cut the wall in half!  You're actually seeing the left edge and right edge of a "round part", mashed together in the middle.  A lot of Doom's gritty textures can be spliced together like this without leaving an obvious seam.  The same trick can stretch `METAL2` across a diagonal wall:
 
 {% photo /media/2015-12/doom2/slade37-diagonal-metal.png Line-splitting trick used to make neat diagonal walls %}
 
-Here I split the wall into _three_ segments.  If you look very closely at the rivets, you can see where I did it, but the effect at a glance is still pretty nice.  Of course, if you do this, you never want to use auto-align near those walls, and you'll have to redo it if you change the geometry later.  So probably best left for last.
+Here I cut the wall into _three_ segments.  If you look very closely, the gaps between the rivets are a little inconsistent, but the effect at a glance is still pretty nice.  Of course, if you do this, you never want to use auto-align near those walls, and you'll have to redo it if you change the geometry later.  Probably best left for last.
 
 
 ### Detailing
 
-You can also use textures to break up the monotony of a long wall.  Most textures in Doom have some kind of variant you can use for this.  Take my lava chasm room, which has `STARGR2` all the way around.  I can make that more interesting just by plopping in a few vertices and changing parts of the wall to the sister texture `STARGR1`.
+You can also use textures to break up the monotony of a long wall.  Most of Doom's textures have one or two variants that you can use for this.  Take my lava chasm room, which has `STARGR2` all the way around.  I can make that more interesting just by plopping in a few vertices and changing parts of the wall to the sister texture `STARGR1`.
 
 {% photo /media/2015-12/doom2/slade38-texture-variation1.png Really monotonous wall %}
 {% photo /media/2015-12/doom2/slade39-texture-variation2.png Slightly less monotonous wall %}
@@ -476,7 +475,7 @@ Check out the first hallway of Doom II's MAP01, and you'll find that every 64 un
 
 You can also add "struts", like I did around the switch alcove in the above screenshots.  A long platform might want _physical_ struts in the form of tiny square "voids" with a support texture.  Just something to break up the monotony.  Remember: contrast!
 
-I'm under the impression that detailing is a teeny bit controversial in the Doom community at the moment, since a lot of mappers are kind of going overboard and making extremely detailed maps where every room needs five layers of trim and inset lights every three feet and all this weird nonsense.  I, for one, don't think you need all that much.  I mentioned MAP21: Nirvana earlier; do you have any memories of it?  Did it seem weird and complicated and confusing, or really give you any kind of feelings at all?  Maybe you should check out [its automap](http://doomwiki.org/wiki/File:MAP21_map.png).  I'm pretty sure my map already has more lines than half of Doom II's maps.
+I'm under the impression that detailing is a teeny bit controversial in the Doom community at the moment, since a lot of mappers are kind of going overboard and making extremely detailed maps where every room needs five layers of trim and inset lights every three feet and all this weird nonsense.  I, for one, don't think you need all that much.  I mentioned MAP21: Nirvana earlier; do you have any memories of it?  Did it seem weird and complicated and confusing, or really give you any kind of feelings at all?  Maybe you should check out [its automap](http://doomwiki.org/wiki/File:MAP21_map.png) and see just how complex and detailed it really is.  I'm pretty sure my map already has more lines than half of Doom II's maps.
 
 And of course, I stress yet again: any kind of detailing is a pain in the ass to change once you've done it.
 
@@ -503,7 +502,7 @@ There's one other place I have my eye on — those raised platforms dividing the
 
 ### Secrets
 
-I _love_ secrets.  A lot of what I love in Doom II is its really bizarre secrets, many of them designed by Sandy Petersen.  Even MAP01 has a secret involving a jump onto a seemingly irrelevant decoration.
+I _love_ secrets.  A lot of what I love in Doom II is its really bizarre secrets.  Even MAP01 has a secret involving a jump onto a seemingly irrelevant decoration.
 
 I'm not feeling quite that cruel right now, but I do want to put a secret atop one of those lifts.  I'll use a very old Doom trope and hint at it by using a different texture.  Making it an actual secret is pretty easy: just pop open the sector properties and check the "Secret" box on the "Special" tab.
 
