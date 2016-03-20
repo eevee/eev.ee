@@ -1,7 +1,12 @@
 title: The NSA is trying to create a virtual clone of me
 date: 2016-03-03 18:47
+modified: 2016-03-19 19:11
 category: blog
 tags: tech
+
+**update:** I believe the account described below _is_ run by a real human being, but for the sake of their privacy I'm not going to tell you why.  I'm leaving this post up, though, because this was a seriously creepy thing to do.
+
+----
 
 [@softfennec](https://twitter.com/softfennec) and [@orezpraw](https://twitter.com/orezpraw) brought to my attention the following tweet, which I have to reconstruct from memory for reasons that will be clear in a moment:
 
