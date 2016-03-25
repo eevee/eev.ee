@@ -1,6 +1,6 @@
 title: Twitter's missing manual
 date: 2016-02-20 04:57
-modified: 2016-03-02 19:41
+modified: 2016-03-25 15:43
 category: blog
 tags: tech, ui
 
