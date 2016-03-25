@@ -49,31 +49,43 @@ Here, then, is a list of all the non-obvious things about Twitter that I know.  
 
 A tweet can "mention" other users, which just means including their `@handle` somewhere in the tweet.  This will notify every mentioned user of the tweet.
 
+You can reply to tweets, which threads them together.  A tweet can only have one parent (or no parent), but any number of replies.  Everything on Twitter is thus arranged into a number of trees, where the root of the tree is a new tweet not responding to anything, and replies branch out from there.
+
 * A tweet that _begins_ with a mention — that is, the very first character is `@` and it's immediately followed by an extant username — won't appear on your profile on Web Twitter.  It'll still appear on the "with replies" page.  It'll also appear on your profile on Android Twitter, which doesn't separate replies from not.
+
+* A "mention" can only be an existing username.  If "foo" is not the name of a user, then `@foo` is not a mention, and none of the rules for mentions apply.
 
 * A tweet that begins with a mention won't appear on the timelines of anyone who follows you, _unless_ they also follow the first person you mention.  That is, if you tweet `@foo @bar heya`, it'll only appear on the timelines of people who follow both you and `@foo`.
 
 * If you put some other character before the first `@`, the previous rule no longer applies, and your tweet will appear to all your followers.  So `.@foo @bar heya` will be visible to everyone (and show on your Web profile).  This is called "dot-replying".  The dot isn't actually special; it's just an easy-to-type and unobtrusive character.  I like to use `→` or `\`.  Some people prefer to put the mentions at the end instead, producing `heya @foo @bar`.
 
-    Dot-replying in the middle of a tweet is not strictly necessary, but sometimes it's useful for disambiguation.  If you're replying to `@foo`, and want to say something _about_ `@bar`, it would come out as `@foo @bar is pretty great`, which is a little difficult to read.  Adding a dot to make `.@bar` doesn't do anything as far as Twitter is concerned, but can make it clear that `@bar` is the subject of a sentence rather than a person being talked to.
+    Dot-replying in the middle of a tweet is not strictly necessary, but sometimes it's useful for disambiguation.  If you're replying to `@foo`, and want to say something _about_ `@bar`, it would come out as `@foo @bar is pretty great`, which is a little difficult to read.  Adding a dot to make `@foo .@bar` doesn't do anything as far as Twitter is concerned, but can make it clear that `@bar` is the subject of a sentence rather than a person being talked to.
 
-You can reply to tweets, which threads them together.  A tweet can only have one parent (or no parent), but any number of replies.  Everything on Twitter is thus arranged into a number of trees, where the root of the tree is a new tweet not responding to anything, and replies branch out from there.
+* One last visibility wrinkle: if a tweet appears in your timeline because it begins with a mention of someone you follow, the tweet it replies to will also appear, even if it wouldn't have on its own.
 
-* A reply _must_, somewhere, mention the author of the tweet it's replying to.  If you reply to a tweet and delete the author's `@handle`, it'll become a new top-level tweet rather than a reply.
+    Consider three users: A, B, and C.  You follow B and C, but not A.  User A makes a tweet, and B replies to it (`@A cool!`).  Neither tweet will appear on your timeline — A's won't because you don't follow A, and B's won't because it begins with a mention of someone you don't follow.  Then C replies to B's tweet, which puts the mention of B first (see below).  _Both_ B's and C's tweets will now appear on your timeline — C's appears because it begins with a mention of someone you do follow, and B's appears _for context_.
 
-* There is one exception to the previous rule: if you're replying to _yourself_, you don't have to include your own `@handle`, even though clients include it by default.  So if you want to say something that spans multiple tweets, you can just keep replying to yourself and deleting the `@handle`.
+    In other words, even if a tweet doesn't appear on your timeline initially, it may show up _later_ due to the actions of a third party.
+
+* A reply _must_, somewhere, mention the author of the tweet it's replying to.  If you reply to a tweet and delete the author's `@handle`, it'll become a new top-level tweet rather than a reply.  You can see this in some clients, like Android Twitter: there's "replying to (display name)" text indicating it's a reply, and that text disappears if you delete the `@handle`.
+
+* There is one exception to the previous rule: if you're replying to _yourself_, you don't have to include your own `@handle`, even though clients include it by default.  So if you want to say something that spans multiple tweets, you can just keep replying to yourself and deleting the `@handle`.  (This is sometimes called a "tweetstorm".)
 
     It's a really good idea to do this whenever you're making multiple tweets about something.  Otherwise, someone who stumbles upon one of the tweets later will have no idea what the context was, and won't be able to find it without scrolling back however long on your profile.
 
-    If you reply to yourself but leave your `@handle` at the beginning, the first tweet will appear on your profile, but the others won't, because they start with a mention.
+    If you reply to yourself but leave your `@handle` at the beginning, the first tweet will appear on your profile, but the others won't, because they start with a mention.  On the other hand, letting the entire tweetstorm appear on your profile can be slightly confusing — the individual tweets will appear in reverse order, because tweets don't appear threaded on profiles.  On Web Twitter, at least, the followups will have a "view conversation" link that hints that they're replies.
+
+    Either way, the replies will still appear on your followers' timelines.  Even if the replies begin with your `@handle`, they still begin with a mention of someone your followers all follow: you!
 
     I'm told that many third-party clients don't support replying to yourself without your handle included, and the API documentation doesn't mention that it's a feature.  But I'm _also_ told that _only_ first-party clients require you to mention someone in a reply in order to thread, and that third-party clients will merrily thread anything to anything.  (I remember when Web Twitter allowed that, so I totally believe the API still does.)  If you don't use the official clients, I guess give it a whirl and see what happens.
 
 * The previous rule also applies when making longer replies to someone else.  Reply to them once, then reply to _yourself_ with the next tweet (and remove your own `@handle`).  You'll end up with three tweets all threaded together.
 
-    This is even more important, because Twitter shows the replies to a tweet in a somewhat arbitrary order, bubbling "important" ones to the top.  If you write a very long response and break it across three tweets, all replying to the same original tweet, they'll probably show as an incoherent jumble to anyone reading the thread.  If you make each tweet a reply to the previous one, they're guaranteed to stay in order.
+    This is even more important, because Twitter shows the replies to a single tweet in a somewhat arbitrary order, bubbling "important" ones to the top.  If you write a very long response and break it across three tweets, all replying to the same original tweet, they'll probably show as an incoherent jumble to anyone reading the thread.  If you make each tweet a reply to the previous one, they're guaranteed to stay in order.
 
-* Replying to a tweet will also prefill the `@handle` of anyone mentioned in the tweet.  Replying to a retweet will additionally prefill the `@handle` of the person who retweeted it.  In some cases, it may be polite to remove some of these; you only need the original author's `@handle` to make a reply.  (It's not uncommon to accumulate multiple mentions, then end up in an extended conversation with only one other person, while constantly notifying several third parties.)
+* Replying to a tweet will also prefill the `@handle` of anyone mentioned in the tweet.  Replying to a retweet will additionally prefill the `@handle` of the person who retweeted it.  The original author's `@handle` always appears first.  In some cases, it's polite to remove some of these; you only need the original author's `@handle` to make a reply.  (It's not uncommon to accumulate multiple mentions, then end up in an extended conversation with only one other person, while constantly notifying several third parties.  Or you may want to remove the `@handle` of a locked account that retweeted a public account, to protect their privacy.)
+
+* Prefilling `@handle`s is done client-side, so some clients have slightly different behavior.  In particular, I've seen a few people who reply to their own reply to someone else (in order to thread a longer thought), and end up with _their own_ `@handle` at the beginning of the second reply!  You probably don't want that, because now the second reply begins with a mention of someone all of your followers follow — yourself! — and so both tweets will appear on your followers' timelines.
 
 * In official clients (Web and Android, at least), long threads of tweets are collapsed on your timeline.  Only the first tweet and the last _two_ tweets are visible.  If you have a lot to say about something, it's a good idea to put the important bits in one of those three tweets where your followers will actually see them.  This is another reason it's polite to thread your tweets together — it saves people from having their timelines flooded by your tweetstorm.
 
@@ -81,7 +93,9 @@ You can reply to tweets, which threads them together.  A tweet can only have one
 
 * Because official clients treat a thread as a single unit, you can effectively "bump" your own tweet by replying to it.  Your reply is new, so it'll appear on your followers' timelines; but the client will also include the first tweet in the thread as context, regardless of its age.
 
-* When viewing a single tweet, official clients may not show the replies in chronological order.  Usually the "best" replies are bumped to the top.  "Best" is entirely determined by Twitter, but it seems to work fairly well.  If you reply to yourself, your own replies will almost certainly appear first.
+* When viewing a single tweet, official clients may not show the replies in chronological order.  Usually the "best" replies are bumped to the top.  "Best" is entirely determined by Twitter, but it seems to work fairly well.
+
+    If you reply to yourself, your own replies will _generally_ appear first, but this is not guaranteed.  If you want to link to someone else's long chain of tweets, it's safest to link to the _last_ tweet in the thread, since there can only be one unambiguous trail of parent tweets leading back to the beginning.  This also saves readers from digging through terrible replies by third parties.
 
 * If reply to a tweet with `@foo heya`, and `@foo` later renames their account to `@quux`, the tweet will retain its threading even though it no longer mentions the author of the parent tweet.  However, your reply will now appear on your profile, because it doesn't begin with the handle of an existing user.  Note that this means it's fairly easy for a non-follower to figure out what you renamed your account to, by searching for replies to your old name.
 
@@ -97,11 +111,14 @@ You can reply to tweets, which threads them together.  A tweet can only have one
 
 * It's generally considered rude to barge into the middle of a conversation between two other people, especially if they seem to know each other much better than you know them, and especially if you're being antagonistic.  There are myriad cases where this may be more or less appropriate, and no hard and fast rules.  You're a passerby overhearing two people talking on the street; act accordingly.
 
+* Someone unrecognized who replies to you — especially someone who doesn't follow you, or who is replying to the middle of a conversation, or who is notably arrogant or obnoxious — is often referred to as a "rando".
+
 * When you quote or publicly mention someone for the sake of criticizing them, be aware that you're exposing them to all of your followers, some of whom may be eager for an argument.  If you have a lot of followers, you might inadvertently invite a dogpile.
+
 
 ## Hashtags
 
-Hashtags are a `#` character followed by some number of non-whitespace characters.
+Hashtags are a `#` character followed by some number of non-whitespace characters.  Anecdotally, they seem to be limited server-side to 100 characters, but I haven't found any documentation on this.
 
 * Exactly _which_ characters may appear in a hashtag is somewhat inconsistent, and has quietly changed at least once.
 
@@ -109,7 +126,7 @@ Hashtags are a `#` character followed by some number of non-whitespace character
 
 * Hashtags can appear in the "trending" widget, but so can any other regular text.
 
-* There is no reason to tag a bunch of random words in your tweets.  No one is searching Twitter for `#funny`.  Doing this makes you look like an extremely out-of-touch marketer.
+* There is no reason to tag a bunch of random words in your tweets.  No one is searching Twitter for `#funny`.  Doing this makes you look like an out-of-touch marketer who's trying much too hard.
 
 * People do sometimes use hashtags as "asides" or "moods", but in this case the tag isn't intended to be searched for, and the real point of using a hashtag is that the link color offsets it from the main text.
 
@@ -143,6 +160,8 @@ A tweet may have _one_ embedded attachment.
 * The API supports marking individual tweets as containing sensitive media, but official clients _do not_ — instead, there's an account setting that applies to everything you upload from that point forward.  Media may also be flagged by other users as sensitive.  Twitter also has some sort of auto-detection for sensitive media, which I only know about because it sometimes thinks photos of my hairless cats are pornographic.
 
 * If _your own_ tweets have "sensitive" media attached, _you_ will have to click through the warning, even if you have the warning disabled.  A Twitter employee tells me this is so you're aware when your own tweets are flagged, but the message still tells you to disable the warning in account settings, so this is mostly just confusing.
+
+    Curiously, if you see your own tweet via a retweet, the warning doesn't appear.
 
 
 ## Blocking and muting
@@ -182,11 +201,13 @@ A tweet may have _one_ embedded attachment.
 
 * Search applies to _unshortened_ links, so you can find links to a website just by searching for its URL.  However, because Twitter displays links without a protocol (`http://`), you have to leave it off when searching.  Be aware that people who mention your work without mentioning _you_ might be saying unkind things about it.
 
+    That said, I've also run into cases where searching for a partial URL doesn't find tweets that I already _know_ exist, and I'm not sure why.
+
 * As a side effect, you can search for _quotes_ of a given user's tweets by searching for `twitter.com/username/status`, because all tweet URLs begin with that prefix.  This will also include any tweets from that user that have photos or video attached, because attaching media appends a photo URL, but you can fix that by adding `-from:username`.
 
 * Searching for `to:foo` will only find tweets that _begin with_ `@foo`; dot-replies and other mentions are not included.  Searching for `@foo` will find mentions as well as tweets from that person.  To find only someone's mentions, you can search for `@foo -from:foo`.  You can combine this with the above trick to find quotes as well.
 
-* I've been told that `from:` only applies to the handle a user had _when the tweet was made_, but this doesn't match my own experience.  It's possible the behavior is different depending on whether the old handle has been reclaimed by someone else.
+* I've been told that `from:` only applies to the handle a user had _when the tweet was made_ (i.e. doesn't take renames into account), but this doesn't match my own experience.  It's possible the behavior is different depending on whether the old handle has been reclaimed by someone else.
 
 * Some clients, such as TweetDeck, support showing live feeds of search results right alongside your timeline and notifications.  It's therefore possible for people to keep an eye on a live stream of everyone who's talking about them, even when their `@handle` isn't mentioned.  Bear this in mind when grumbling, especially about people whose attention you'd prefer to avoid.
 
@@ -213,13 +234,17 @@ A tweet may have _one_ embedded attachment.
 
 * No one can retweet a locked account, not even followers.
 
-* Quoting doesn't work with locked account; the quoted tweet will only show the "unavailable" message, even if a locked account quotes itself.  Clicking the tweet link will still work, of course.
+* Quoting doesn't work with locked account; the quoted tweet will only show the "unavailable" message, even if a locked account quotes itself.  Clicking the tweet link will still work, of course, as long as you follow the quoted account.
 
 * Locked accounts never create notifications for people who aren't following them.  A locked account can like, retweet, quote, follow, etc. as usual, and the various numbers will go up, but only their followers will be notified.
 
-* If a locked account likes a bunch of your tweets (or retweets, etc.), and then you follow them, the notifications will not be created retroactively.
+* A locked account can reply to another account that doesn't follow them, but that account won't have any way to tell.  However, an unlocked third party that follows both accounts could then make another reply, which would prefill both `@handle`s, and (if left unchanged) alert the other account to the locked account's presence.
 
-* Locked accounts do not appear in the lists of who liked or retweeted a tweet (except, of course, when viewed by someone following them).
+* Similarly, if a locked account retweets a public account, anyone who tries to reply to the retweet will get the locked account's `@handle` prefilled.
+
+* If a locked account likes some of your tweets (or retweets you, or replies, etc.), and then you follow them, you won't see retroactive notifications for that activity.  Notifications from accounts you can't see are never created in the first place, not merely hidden from your view.  Of course, you're free to look through their tweets and likes manually once you follow them.
+
+* Locked accounts do not appear in the lists of who liked or retweeted a tweet (except, of course, when viewed by someone following them).  Web Twitter will hint at this by saying something akin to "X users have asked not to be shown in this view." at the bottom of such a list.
 
 * While a locked account's own follows and followers are hidden, a locked account **will still appear publicly** in the following/follower lists of other unlocked accounts.  There is no blessed way to automatically cross-reference this, but be aware that the _existence_ of a locked account is still public.  In particular, if you follow someone who keeps an eye on their follower count, they can just look at their own list of followers to find you.
 
