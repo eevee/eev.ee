@@ -1,29 +1,19 @@
-{% extends '_base.html' %}
+{% extends 'base.html' %}
 {% import '_lib.html' as lib with context %}
 
 {% block title %}{{ page.title | striptags }} / {{ SITENAME }}{% endblock %}
 
-{# This is based on base.html, but without the sidebar; it's entirely blog stuff and that doesn't make sense for a non-blog page #}
+{% block content %}
+    <article class="single" role="article">
+        <header>
+            {# <p class="meta">{{ lib.article_time(page) }}</p> #}
+            <h1>
+                <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title | striptags }}</a>
+            </h1>
+        </header>
 
-{% block entirebody %}
-    <header role="banner">
-        <h1><a href="{{ SITEURL }}.">{{ SITENAME }}</a></h1>
-        <nav role="navigation">{% include '_navigation.html' %}</nav>
-    </header>
-    <div id="main">
-        <div id="content">
-            <article class="single" role="article">
-                <header>
-                    {# <p class="meta">{{ lib.article_time(page) }}</p> #}
-                    <h1>
-                        <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title | striptags }}</a>
-                    </h1>
-                </header>
+        <div class="entry-content">{{ page.content }}</div>
+    </article>
 
-                <div class="entry-content">{{ page.content }}</div>
-            </article>
-
-            {{ lib.article_disqus_comments(page) }}
-        </div>
-    </div>
+    {{ lib.article_disqus_comments(page) }}
 {% endblock %}
