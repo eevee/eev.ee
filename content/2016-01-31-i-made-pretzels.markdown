@@ -13,7 +13,7 @@ Don't worry, I do know what "cook" means!  It includes baking, right?  I'm going
 
 I should mention that I'm not a _complete_ stranger to cooking.  I've converted a few things from cold to hot.  I wouldn't claim to be particularly good at it, but I can at least fumble my way through a kitchen.  Plus I've watched a bunch of Food Network while out of town and trapped in a hotel room by myself.
 
-I also have a secret weapon in the form of Mel's husband, Jayson, who actually knows how to cook.  Conveniently, that means we also have a moderately well-stocked kitchen.
+I also have a secret weapon in the form of Mel's husband, Marl, who actually knows how to cook.  Conveniently, that means we also have a moderately well-stocked kitchen.
 
 ## Picking a thing
 
@@ -36,7 +36,7 @@ Per the recipe:
 
 The butter needs melting first.  I threw a measuring cup with the 1½ cups of water and a smaller measuring cup with half a stick of butter in the microwave, and nuked them for a minute on high, a time I completely pulled out of my ass.
 
-Jayson informed me that putting yeast on top of warm water and waiting for it to foam is called "[proofing](https://en.wikipedia.org/wiki/Proofing_%28baking_technique%29)", and that I could skip that step, because we have magical _instant yeast_ that doesn't need to be proofed.  Nice.  I'm kind of sad that I had to ruin this amazing vacuum-sealed brick of yeast, though.
+Marl informed me that putting yeast on top of warm water and waiting for it to foam is called "[proofing](https://en.wikipedia.org/wiki/Proofing_%28baking_technique%29)", and that I could skip that step, because we have magical _instant yeast_ that doesn't need to be proofed.  Nice.  I'm kind of sad that I had to ruin this amazing vacuum-sealed brick of yeast, though.
 
 {% photo /media/2016-01-31-pretzel/pretzel-01-yeast-brick.jpg We've had this for ages, and I destroyed it. %}
 
@@ -70,7 +70,7 @@ Cool!  Let's see what's up next.
 
 > Change to medium speed and knead until the dough is smooth and pulls away from the side of the bowl, approximately 4 to 5 minutes.
 
-Ah, fuck.  Guess I have to knead by hand as well.  Jayson tells me manual kneading works as follows:
+Ah, fuck.  Guess I have to knead by hand as well.  Marl tells me manual kneading works as follows:
 
 1. Get a big lump of dough.
 2. Flatten it out.
@@ -85,9 +85,9 @@ Ah, fuck.  Guess I have to knead by hand as well.  Jayson tells me manual kneadi
 
 The object of this exercise is, I believe, something like a taffy pull: you break some of the bonds in the dough to make it softer and stretchier.
 
-This was so hard.  Jayson estimated it would take ten to fifteen minutes; I ended up spending _twenty_.  At five minutes I was feeling a bit warm; at fifteen minutes I was starting to sweat; at twenty minutes I just had to stop, and found out my wrists were incredibly sore.
+This was so hard.  Marl estimated it would take ten to fifteen minutes; I ended up spending _twenty_.  At five minutes I was feeling a bit warm; at fifteen minutes I was starting to sweat; at twenty minutes I just had to stop, and found out my wrists were incredibly sore.
 
-I'm still not even sure if I did it for long enough; it's hard to gauge how smooth the dough is when the texture is changing so gradually over that stretch of time.  Around twelve minutes, Jayson pointed out that it was still breaking when bent, so I guess that's a thing to watch out for.  Or, you know, just go until you physically can't go any more.
+I'm still not even sure if I did it for long enough; it's hard to gauge how smooth the dough is when the texture is changing so gradually over that stretch of time.  Around twelve minutes, Marl pointed out that it was still breaking when bent, so I guess that's a thing to watch out for.  Or, you know, just go until you physically can't go any more.
 
 Also, Anise came to help.
 

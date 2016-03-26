@@ -139,7 +139,7 @@ I guess there's only one obvious course of action here.
 
 Something very strange has added here.  The volume of the batter seems to have increased _dramatically_, by far more than the volume of the melted chocolate.
 
-It's also distinctly lumpy, but I don't think this is related to the chocolate; Jayson says they're lumps of cream cheese, caused by adding the cream cheese while it was still fridge-cold.
+It's also distinctly lumpy, but I don't think this is related to the chocolate; Marl says they're lumps of cream cheese, caused by adding the cream cheese while it was still fridge-cold.
 
 Despite these curiosities, the batter is now _absolutely delicious_.  Extremely chocolatey, but still with some tangy cheesecake undertones.  It's not exactly the Cheesecake Factory, but it's pretty damn good.
 
