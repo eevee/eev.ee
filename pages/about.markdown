@@ -7,14 +7,20 @@ home-color: #a5634a
 home-image: logo-eevee.png
 home-desc: fascinating but true facts about yours truly
 
-Hello!  I'm Eevee.  I do also have a legal name, but it doesn't see much use outside of forms and bills.  I respond to any pronoun; pick your favorite.
+Hello!  I'm Eevee.  I dabble in miscellaneous things.
 
-I like to fuss with computers until they sort of do something neat if I squint a bit, then get distracted and go try something else.  I've left a trail of [freely-available](https://github.com/eevee) [code](/projects/) in my wake.  Patches welcome!
+I wrote [veekun](http://veekun.com/), a Pokémon database (with [considerable help](http://veekun.com/props)).
 
-I wear a lot of hats and have a lot of interests; I have some strong opinions on usability and interface design, Unicode, Web development and deployment, Linux, programming architecture, Python, why my database is less bad than yours, infosec, programming language design, and probably something else by this time next week.  Sometimes I draw, write fiction, or take photos.
+I sort of generally do [computers](https://github.com/eevee).  I'm not great at finishing my own endeavors, but I've contributed work to a number of open source projects.
 
-I like to write about these things sometimes, and I'm told people like to read it sometimes.  I love thoughtful argument; finding out I'm wrong means I get to be more right in the future.  Just [don't be a dick](/blog/2014/04/05/comment-policy/).
+I [write about various things](/blog/) — [programming languages](/blog/2012/04/09/php-a-fractal-of-bad-design/), [usability](/blog/2016/02/10/we-have-always-been-at-war-with-ui/), [game development](/blog/2015/12/19/you-should-make-a-doom-level-part-1/), [electrical engineering](/blog/2015/02/13/starbound-airlock/), [scaling social interactions up to platforms of millions](/blog/2016/02/15/everyones-offended-these-days/), and who knows what else.
 
-I eject far too many thoughts in overly compact form into [Twitter](https://twitter.com/eevee).  I also have a [tumblr](http://lexyeevee.tumblr.com/), which is mostly garbage, but has a lot of old cat photos on it.
+I'm learning to draw.  Most of my work only ends up on my [Twitter](https://twitter.com/eevee), which is also full of bad jokes and cat photos.  Eventually I'll get around to collecting some of it into a little art gallery, but I'm not _that_ good yet.
 
-I'm currently trying to make a [living](https://www.patreon.com/eevee) on my own, working on things I enjoy.  I live in Las Vegas with my [ridiculous cat](http://lexyeevee.tumblr.com/post/68035288334/anise-up-to-no-good-taken-with-nexus-5-camera-if), my [partner](http://purplekecleon.tumblr.com/), their three cats, and their [husband](http://marlcabinet.tumblr.com/).
+I [dabble in making games](/everything/tags/mario-maker/).
+
+I help my partner with the technical side of their [webcomic](http://floraverse.com/).
+
+I'm currently supported by [Patreon](https://www.patreon.com/eevee), a service that lets you give me a few bucks a month so I can keep doing what I'm doing.  There are milestones that compel me to write more things every month, if you'd like to see that happen.
+
+I live in Las Vegas with my [ridiculous cat](http://lexyeevee.tumblr.com/post/68035288334/anise-up-to-no-good-taken-with-nexus-5-camera-if), my [partner](http://glitchedpuppet.com/), their three cats, and their [husband](http://marlcabinet.tumblr.com/).
