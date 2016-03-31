@@ -120,7 +120,7 @@ EXTRA_HEADER = """
 TYPOGRIFY = True
 # Stop putting &nbsp; in the fucking article titles
 TYPOGRIFY_IGNORE_TAGS = [
-    'pre', 'code', 'h1', 'h2', 'h3', 'aside',
+    'pre', 'code', 'header', 'h1', 'h2', 'h3', 'aside',
 ]
 
 MD_EXTENSIONS = [
@@ -135,7 +135,7 @@ MD_EXTENSIONS = [
 
 PATH = 'content/'
 PAGE_PATHS = ['../pages/']
-STATIC_PATHS = ['favicon.png', 'media', 'dev/media']
+STATIC_PATHS = ['favicon.png', 'media/', 'dev/media/']
 
 # For the landing page
 TEMPLATE_PAGES = {
@@ -184,6 +184,7 @@ PLUGINS = [
     'summary',
     'custom_article_urls',
     'photos',
+    'thumbnailer',
     'optimize_images',
 ]
 
@@ -208,3 +209,10 @@ PHOTO_LIBRARY = 'content/galleries/'
 PHOTO_GALLERY = (1280, 1280, 95)
 PHOTO_ARTICLE = (320, 320, 95)
 PHOTO_THUMB = (224, 224, 95)
+
+# Plugin config for thumbnailer
+IMAGE_PATH = 'media'
+THUMBNAIL_DIR = 'media'
+THUMBNAIL_SIZES = dict(m='224x?')
+THUMBNAIL_KEEP_NAME = False
+THUMBNAIL_KEEP_TREE = True
