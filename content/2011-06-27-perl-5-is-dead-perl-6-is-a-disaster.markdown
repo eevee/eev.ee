@@ -5,15 +5,6 @@ category: blog
 tags: perl, tech, popular
 
 
-_(This article has been translated into_
-
-* _[Bulgarian](http://www.fatcow.com/edu/perl-disaster-bl/)_
-* _[Kazakh](http://13motors.com/myblog/perl5isdeadperl6isadisaster/)_
-
-_Thanks!)_
-
----
-
 **ADDENDUM Jul 3**: I don't know how, but this got a bit of attention.  chromatic has compared me to Barbie, szabgab wondered if I'm a troll, and several people suggested that I'm trying to justify leaving Perl for Python.
 
 Remember, I'm a long-time Perl developer.  I'm the ideal target audience: someone who already uses your product.  In recent years I've become disillusioned with Perl, having watched several similar languages eclipse it.  I'm surely not unique in feeling this way.

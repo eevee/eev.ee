@@ -5,12 +5,7 @@ category: blog
 tags: popular, tech, php, plt, reference, yelling
 
 
-_(This article has been translated into_
-
-* _[Spanish](http://blog.alphasmanifesto.com/2013/04/15/php-un-fractal-de-un-mal-diseno/) by [Alpha](http://blog.alphasmanifesto.com/)_
-* _[Spanish again](/media/2012-04/PHP Anatomía del mal diseño.pdf) (PDF, with some additions) by Jorge Amado Soria Ramirez_
-
-_Thanks!)_
+_(This article has been translated into [Spanish](/media/2012-04/PHP Anatomía del mal diseño.pdf) (PDF, with some additions) by Jorge Amado Soria Ramirez — thanks!)_
 
 ## Preface
 

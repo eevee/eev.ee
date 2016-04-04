@@ -3,8 +3,6 @@ date: 2015-06-09 21:45
 category: blog
 tags: personal, tech
 
-_(This article has been translated into [Chinese](http://www.labazhou.net/2015/06/i-quit-the-tech-industry/)—thanks!)_
-
 This Friday, June 12, will be my last day at Yelp.
 
 I don't intend to look for another tech job.
