@@ -13,13 +13,13 @@ This month — March, okay, today is March 36th — Vladimir Costescu is [sponso
 
 I could swear I've written about this before, but I can't find it, so it must've never escaped Twitter.
 
-My _very very first_ computer was this bad boy, which I had when I was 9 or 10:
+My _very very first_ computer was this bad boy, which I had when I was...  geez, I'm not even sure.  7, maybe?
 
 {% photo /media/2016-04-05-precomputer/precomputer-1000.jpg %}
 
 The VTech PreComputer 1000, from back in the days when "1000" still sounded futuristic.  It had a screen with one entire row of pixellated LCD characters, a qwerty keyboard complete with Caps Lock (?!), and a wide variety of trivia games.  Ran on _six_ C batteries.
 
-I seem to recall that the behavior of Caps Lock was to _reverse_ the usual capitalization, by which I mean holding Shift while Caps Lock was on would produce lowercase characters.  Wild.
+I seem to recall that the behavior of Caps Lock was to _reverse_ the usual capitalization, by which I mean holding Shift while Caps Lock was on would produce lowercase characters.  Wild.  (**edit**: A _great many_ people have informed me that this is in fact how Windows always worked, which surprises me a lot, because I very distinctly remember being surprised by a real computer's behavior!  It seems that at least some combination of MS-DOS 6.22 and a particular keyboard model would ignore Shift when Caps Lock is on, so maybe that's what I remember.)
 
 In a kind of precursor to DLC, there were also several extra cartridges you could buy.  They were about the size of a thick wallet and came with different sets of...  more trivia games.
 
@@ -27,7 +27,7 @@ Then there was the part that changed my life forever: a built-in BASIC interpret
 
 It was a huge, huge pain in the ass.  I could only see or edit one line at a time, of course.  There was also no writable internal storage — this machine was released in 1988, when the idea of a video game that could save your progress was still novel! — so any program I wrote was lost as soon as I turned the thing off.
 
-It did come with a book full of documentation and sample programs.  The documentation was helpful enough to get me to make some things, but perhaps not particularly well aimed at the target audience of 9-year-olds, as I remember there being several constructs I didn't understand in the slightest.  The sample programs weren't described particularly well, had no comments at all (did the interpreter even support comments?), and sometimes ran beyond 30 lines.  30 lines doesn't sound like a lot to me _now_, but it was much more daunting when I had to type them on a single-line display.  I'm not sure why the sample programs weren't built into the ROM, come to think of it.
+It did come with a book full of documentation and sample programs.  The documentation was helpful enough to get me to make some things, but perhaps not particularly well aimed at the target audience of 9-year-olds, as I remember there being several constructs I didn't understand in the slightest.  The sample programs weren't described particularly well, had no comments at all, and at the longest ran beyond 30 lines.  30 lines doesn't sound like a lot to me _now_, but it was the biggest program I'd ever seen at the time, and typing it all in on a one-line display was daunting.  (There were nine "canonical" sample programs baked into the ROM, but the programming tutorial had several lengthy examples that had to be typed in.)
 
 I really wish I could find a copy of the book online, but it predates the web, alas!  This was all so long ago that I can't really remember any of the sample programs.  I want to say there was the usual "guess a number" game, a temperature converter, and maybe hangman?  Haven't the foggiest idea what kind of little programs I wrote from scratch, unfortunately.
 
@@ -35,12 +35,40 @@ I'm tempted to go find and buy one of these, partly for the nostalgia and partly
 
 While I resist the urge to scour ebay, let's move on a year or two.
 
+### Addended interlude: the manual
+
+Aha, a commenter has found [a post with a scan of the BASIC part of the manual](http://www.vintagecomputing.com/index.php/archives/324) (at the bottom)!  There are a lot of gems in here I'd forgotten about, like how switching to BASIC mode would _automatically_ turn Caps Lock on (something I remember hating, even as a kid).  I also fondly remember the goofy proportional font they used, even for code, that used a ∅-like glyph for zero.  I even spotted a missing semicolon in some example code that I could swear I'd noticed before.
+
+I'm surprised to learn that there is some semblance of debugging available, though I doubt I understood it at the time — you could add a `STOP` statement to a program and it will halt there, returning you to the default REPL, where you could presumably print out variables or change lines of the running program.
+
+Something that particularly fascinates me now is the error reporting.  A syntax error would be reported as `?SN ERROR`, and you would have to look at the list of error codes in the manual to find out that `SN` meant `SYNTAX ERROR`.  Why not just say `SYNTAX ERROR`, then?  This had me thinking that they adapted an existing BASIC interpreter rather than writing their own, and indeed, the errors have the same names as [MSX-BASIC's errors](https://www.msx.org/wiki/Category:MSX-BASIC_ERRORS).  Not sure where the two-letter codes came from, though.
+
+I've copied [all the example programs into a gist](https://gist.github.com/eevee/3aee241c401314cc7fad9afd3a0efb29) for easier perusal.  Looking at them with a more seasoned programmer's eye, a few things stand out to me.
+
+- There were clearly several different authors here!  Programs 6 and 9 are the only ones to start numbering from 100, to have `999 END` as their last line, to ask if the player wants to play again, and to only accept `YES` as an affirmative answer.  3 and 4 are the only two to use the `SOUND` statement, and both omit the space between the word `SOUND` and its first argument.  1 and 8 are the only programs to finish with an `END` that _doesn't_ use 999 as its line number.  6 and 7 are both just simple math tricks, bracketed by a lot of text.
+
+- The `PRINT` statement accepted multiple arguments, separated by either semicolons _or_ commas, though the manual doesn't explain the difference (if any).  Program 1 stands out as the only program to manually insert a space at the end of a literal string followed by a variable.  The tutorial part of the manual implies that `PRINT` inserted spaces between its arguments automatically, which makes me wonder why this one program felt the need to add its own.  Program 8, seemingly by the same author, never prints two things on the same line.
+
+- Program 4 appears to simulate a one-second delay with a 630-iteration empty loop.  There is, of course, nothing explaining why this is the case.  630 might have been my very first magic number.
+
+- Program 8 is an implementation of [selection sort](https://en.wikipedia.org/wiki/Selection_sort)!  This is the only use of `DIM` — the statement for declaring an array — in the example programs.  I remember being very confused as to what `DIM` even did, let alone realizing the point of the program.  None of them have any kind of explanation or comments, except for a couple comments dividing up the rather long program 9.
+
+- The only built-in functions used in any of these programs are `INT()` in program 9 and `RND()` in program 5.  None of the example programs demonstrate use of `FOR ... STEP`, `ABS()`, `SGN()`, `SQR()`, `LOG()`, `EXP()`, `SIN()`, `COS()`, `TAN()`, `ATN()`, `LEN()`, `STR$()`, `VAL()`, `LEFT$()`, `RIGHT$()`, `MID$()`, `ASC()`, `CHR$()`, `GOSUB ... RETURN`, `AND`, `NOT`, `READ`, `DATA`, or `RESTORE`.
+
+- Program 9 implements the perfect single-pile Nim strategy.  If the player doesn't correctly decide whether to go first or second, or doesn't play perfectly, the computer will always win.
+
 
 ## My first actual computer
 
-We got it in the mid-90s — a 486 DX running Windows 95.  It screamed along at 25 MHz, and if that wasn't enough for you, it had a _turbo button_ that would boost it all the way to 100 MHz!  It came with a huge CRT monitor with an incredible high-def resolution of 1024×768.  (The full-size photo of the PreComputer above is 1024×801.)  It had a keyboard lock, too, which I eventually learned how to pick using a paperclip.
+We got it in the mid-90s — a 486 DX running MS-DOS 6.22 and Windows 3.11 for Workgroups.  It screamed along at <s>25 MHz</s> 33 MHz, and if that wasn't enough for you, it had a _turbo button_ that would boost it all the way to 100 MHz!  I had to turn turbo off when I won at sol.exe, or else the card waterfall animation would play nearly instantly, but otherwise turning turbo off resulted in a hard lock and a loud angry endless beep.  Thanks to an upgrade, it also had 40MB of RAM.  _Nice._
 
-I distinctly remember its price tag of $1999.  I didn't know what many things cost when I was 10, nor did I have any sense of how much money people with jobs actually made, so that might as well have been "infinity dollars".  Twenty years later, you can buy a _phone_ that's orders of magnitude better than that computer for a third of the price.
+It came with a huge CRT monitor with an incredible high-def resolution of 1280x1024.  (The full-size photo of the PreComputer above is 1024×801.)  It had a keyboard lock, too, which I eventually learned how to pick using a paperclip.  For reasons.
+
+I distinctly remember its price tag of <s>$1999</s> $1995.  I didn't know what many things cost yet, nor did I have any sense of how much money people with jobs actually made, so that might as well have been "infinity dollars".  Twenty years later, you can buy a _phone_ that's orders of magnitude better than that computer for a third of the price.
+
+Thanks to the power of the Internet, I actually managed to track down one of the original ads!  This is from [page 331 of the May 30, 1995 issue of PC Mag](https://books.google.com/books?id=elneMPYGaagC&pg=RA1-PA331&hl=en&sa=X&ved=0ahUKEwie1Oysz_rLAhVB_GMKHQo_BmsQ6AEIMTAF), courtesy of Google Books, which incredibly has a searchable index of quite a few old PC Mag issues.  That pins down the date we bought this to the summer of 1995, when I was 8 years old.  Damn, I remember those little speakers and that joystick too.
+
+{% photo /media/2016-04-05-precomputer/fushigidane-ad.jpg %}
 
 I graduated naturally from toy-computer-BASIC to a _real_ programming language: QBasic.  I first encountered it on school computers, and mostly enjoyed it for the fascinating sample programs, `nibbles.bas` ([Snake](https://en.wikipedia.org/wiki/Snake_%28video_game%29)) and `gorillas.bas` (a game where two large gorillas standing on skyscrapers try to throw exploding bananas at each other).  I remember scrolling through their source code numerous times, having absolutely no idea how any of it worked.  I didn't really understand the feeling at the time, but I'm sure I was amazed and confused at how the same tools I'd used to make guess-a-number could also make these graphical, uh, masterpieces.
 
@@ -60,9 +88,11 @@ Alas, the teacher wouldn't accept a printout for some reason.
 
 The 486 was the family computer for a while, what with its being our only one, but after a few years my parents bought a better one (a _Pentium!_) and I inherited the 486.  The glorious beast.  I must've been 11 or 12.
 
+Somewhere along the way it also got an upgrade to Windows 95, which I _hated_ initially.  It was just a blank screen!  Where was Program Manager?!  Where was Cardfile?
+
 This was just before the turn of the millenium, right when digital music was getting popular.  By "digital music", of course, I mean "Napster", as the music industry was still a few years away from hearing that the Internet exists.  You could download a massive 4 MB MP3 of your favorite song in only ten minutes!
 
-_You_ could, anyway.  _I_ could not.  My 486 couldn't decode MP3s in real time, even with the turbo button.  In other words, it took more than one second to understand one second of music.  I think I had a single WAV, but 40MB was a huge chunk of my 851MB hard drive (later improved to 1.2GB thanks to [DoubleSpace](https://en.wikipedia.org/wiki/DriveSpace)), so I mostly listened to MIDIs.
+_You_ could, anyway.  _I_ could not.  My 486 couldn't decode MP3s in real time, even with the turbo button.  In other words, it took more than one second to understand one second of music.  I think I had a single WAV, but 40MB was a huge chunk of my 851MB hard drive (later improved to 1.2GB thanks to [DoubleSpace](https://en.wikipedia.org/wiki/DriveSpace), and partly mitigated by a 100MB Zip drive), so I mostly listened to MIDIs.
 
 The timeline is a bit fuzzy, but at some point I graduated from QBasic to a few different things.  I think the earliest was some proprietary shareware scripting language I'd read about in PC Magazine or whatever; it was clumsy, but it could be triggered by hotkeys and manipulate existing programs, which let me do more interesting tinkering than the confines of a command prompt would allow.  I want to say it was "Wilson WindowWare" or something similarly alliterative; that finds me a extant company with a product called "[WinBatch](http://www.winbatch.com/winbatch.html)".  The name doesn't ring a bell, but it fits the description, so maybe that was it.
 
@@ -75,7 +105,7 @@ I was still using a 486 in 2000 or 2001, at which point it was comically obsolet
 
 I couldn't tell you much about the process of building it, but I imagine it went much the same as my experience with building computers now: get a bunch of parts, wiggle them together because everything only fits one way, spend all day trying to figure out why it doesn't boot only to find that a stick of RAM is sticking out one millimeter too far.
 
-It was a Pentium tower, which was quite a change.  I named it `kabigon`, the Japanese name for Snorlax, beginning a theme that I've continued ever since.
+It was a Pentium something in a tower case, which was quite a change.  I named it `kabigon`, the Japanese name for Snorlax, beginning a theme that I've continued ever since.
 
 I also put Gentoo on it for reasons I cannot fathom.  This was back in the day when the "real" way to install Gentoo was from stage1, which means you don't get an installer; you just get a massive, massive list of instructions on how to manually bootstrap everything from scratch.  It took _days_ to get a working system, including a day or two to compile X and KDE, but I sure did learn a lot about Linux and how a desktop environment is put together.
 
@@ -106,7 +136,7 @@ That's all of interest I can remember.  A couple years later, I was in college, 
 
 If you're curious!  Primary, in order:
 
-- `fushigidane` (Bulbasaur, named retroactively for being the first): the 486, running Windows 95 — current location unknown
+- `fushigidane` (Bulbasaur, named retroactively for being the first): the 486, running Windows 3.11 and later Windows 95 — current location unknown, possibly parents' attic?
 - `kabigon` (Snorlax, named for being gigantic): the Pentium I built, running Gentoo — left behind at a friend's house many years ago and not seen since
 - `rapurasu` (Lapras, named for portability): a lumbering brick of a Dell laptop I had in college, running XP and then eventually Kubuntu — still in my possession
 - `myuutsuu` (Mewtwo, named for its nebulous origins): a Frankenstein('s monster) assembled from my roommate's spare parts after I left home, running XP — eventually returned to its component parts
