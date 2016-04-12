@@ -1,6 +1,6 @@
 title: Twitter's missing manual
 date: 2016-02-20 04:57
-modified: 2016-03-25 15:43
+modified: 2016-04-12 16:13
 category: blog
 tags: tech, ui
 
@@ -271,7 +271,7 @@ I've mentioned issues with non-primary clients throughout, but a couple more thi
 
 * By default, Twitter allows people to find your account by searching for your email address or phone number.  You may wish to turn this off.
 
-* Twitter has a "collections" feature, which lets you put any public tweets you like (even other people's) in a group for other people to look over.  However, no official client lets you _create_ one; you have to do it via the API or TweetDeck.  Collections aren't listed anywhere (you have to link to them directly), and you can't control the order of the tweets (they're always reverse chronological).
+* Twitter has a "collections" feature, which lets you put any public tweets you like (even other people's) in a group for other people to look over.  However, no primary client lets you _create_ one; you have to do it via the API, the second-party client [TweetDeck](https://tweetdeck.twitter.com/), the somewhat convoluted [Curator](https://curator.twitter.com/) that seems more aimed at news media and business, or a third-party client.  Collections aren't listed anywhere public (you have to link to them directly) — the only place to see even a list of your own collections via primary means is the "Collection" tab when [creating a new widget on the web](https://twitter.com/settings/widgets/new).  Tweets in a collection are by default shown in the order you _added_ them, newest first; the API allows reordering them, and Curator supports dragging to reorder, but TweetDeck doesn't support reordering at all.
 
 * Lists are a thing.  I've never really used them.  They don't support a lot of the features the regular timeline does; for example, threaded tweets aren't shown together, and lists don't provide access to locked accounts.  You can create a private list and add people to it to follow them without their knowledge, though.
 
