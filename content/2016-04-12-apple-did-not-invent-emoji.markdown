@@ -267,7 +267,7 @@ But no one can do any of this, so long as there's no single extension that works
 
 Some miscellaneous thoughts:
 
-* I'm really glad that emoji have forced more developers to _actually_ handle Unicode correctly.  Having to deal with commonly-used characters outside of ASCII is a pretty big kick in the pants already, but most emoji are also in Plane 1, which means they don't fit in a single [JavaScript "character"](/blog/2015/09/12/dark-corners-of-unicode/#javascript-has-no-string-type) — an issue that would otherwise be really easy to overlook.  💩 is 
+* I'm really glad that emoji have forced more developers to _actually_ handle Unicode correctly.  Having to deal with commonly-used characters outside of ASCII is a pretty big kick in the pants already, but most emoji are also in Plane 1, which means they don't fit in a single [JavaScript "character"](/blog/2015/09/12/dark-corners-of-unicode/#javascript-has-no-string-type) — an issue that would otherwise be really easy to overlook.
 
 * On the other hand, it's a shame that the rise of emoji keyboards hasn't necessarily made the rest of Unicode accessible.  There are still plenty of common symbols, like ♫, that I can only type on my phone using the _Japanese_ keyboard.  I do finally have an input method on my desktop that lets me [enter characters by name](https://github.com/lalomartins/ibus-uniemoji/), which is nice.  We've certainly improved since the olden days, when you just had to memorize that <kbd>Alt</kbd><kbd>0233</kbd> produced an é...  or, wait, maybe English Windows users still have to do that.
 
