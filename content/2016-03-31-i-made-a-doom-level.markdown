@@ -9,7 +9,7 @@ I've been...  orbiting? the ZDoom community for over a decade, but only really c
 
 More recently I've actually made a few maps that got as far as _having an exit_ (!), but I never really finished them, and I haven't published them anywhere.
 
-So when the [Doom Upstart Mapping Project](http://forum.zdoom.org/viewtopic.php?f=19&t=51072) was announced, with the goal of just _getting something done_ with the short time limit of a week, I figured I should give it a shot.  And I did.  I spent **six straight days** doing virtually nothing but working on this Doom map.
+So when the [Doom Upstart Mapping Project 2](http://forum.zdoom.org/viewtopic.php?f=19&t=51072) was announced, with the goal of just _getting something done_ with the short time limit of a week, I figured I should give it a shot.  And I did.  I spent **six straight days** doing virtually nothing but working on this Doom map.
 
 Results: pretty good!  I'm pretty happy with it, and a few people have played it and enjoyed it.  I put a lot of thought into it — or tried, anyway — and have a lot to say about it, so this is my developer commentary.
 
@@ -37,7 +37,7 @@ Per the project requirements, anything based on ZDoom 2.5+ should work, includin
 
 Also you will need [my map]({filename}/media/2016-03-31-throughfare/throughfare-v4.pk3), of course.  You can just drag it onto ZDoom to play it.  Feel free to poke at it in SLADE, too.
 
-The mapping project is still mired in testing as of this writing, but you might want to give it a try when it comes out, if first-timers' maps are of interest to you.
+You can also play the [full mapping project](http://forum.zdoom.org/viewtopic.php?f=19&t=51072), which was finally released on April 22, 2016.  My map is MAP32, Throughfare, which you are welcome to try finding in the overworld hub map.  (It's in an alcove all by itself.)
 
 
 ## The city
