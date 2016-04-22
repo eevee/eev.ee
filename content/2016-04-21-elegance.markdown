@@ -1,0 +1,329 @@
+title: Elegance
+date: 2016-04-21 18:06
+category: blog
+tags: tech, tools
+
+Programmers sometimes like to compliment code as _elegant_, yet I can't recall ever seeing a satisfying explanation of what "elegant code" is.  Perhaps it's telling that I see "elegant" used much less often by more experienced programmers, who opt for more concrete commentary.
+
+Surely elegance is a quality to strive for, but how are we to strive for something we can't define?  "[I know it when we see it](https://en.wikipedia.org/wiki/I_know_it_when_I_see_it)" isn't good enough.
+
+I think about this from time to time.  Here's what I've come up with.
+
+<!-- more -->
+
+
+## Some definitions
+
+I get a gut feeling when something is elegant, and a different gut feeling altogether when something is hacky; I suspect most programmers experience the same.  The strongest pattern I've found is this:
+
+Elegance is about expressing _exactly what you mean_ — no more, no less.
+
+Conversely, I could define a _hack_ as something that doesn't remotely express what you mean, but happens to have a close-enough effect.
+
+That's not to say all code lies on a linear spectrum between two extremes.  There's some complexity here, because "what you mean" is less concrete than the shape of your code or what happens when it executes.
+
+Consider my [recent example of links recreated in JavaScript](/blog/2016/03/06/maybe-we-could-tone-down-the-javascript/#reinventing-the-square-wheel).  You might implement such a faux link with some jQuery.
+
+```javascript
+$('#link').click(function() {
+    window.location = 'http://www.google.com/';
+});
+```
+
+Isn't that elegant?  It's short, it's sweet, and it does exactly as it says: when the `link` element is clicked, navigate to Google.
+
+No, of course not.  jQuery is elegant, perhaps, for some set of simple operations.  This code is a hack, but in a way that only a human could reckon.  What the author actually _meant_ was a link — not "an element that navigates when clicked upon", but a _link_, the fundamental concept that makes the Web what it is.  The concrete impact of this is that a bunch of stuff humans expect from links, like the ability to middle click, is conspicuously missing.
+
+Okay, what if you could reproduce all of that extra functionality?  What if you painstakingly researched how links behave on every operating system and in every browser, and recreated that with JavaScript?  No one would look at the resulting pile of special cases and call it elegant.  And yet it wouldn't really be a hack, either.  The code would express "simulate everything a link does", and while that's not the same as having a link, it's at least fairly close.  It'd fall into a third unnamed category where a problem is solved fairly rigorously, but the outcome isn't pretty.
+
+The trick here is, again, all about _meaning_.  We like to pretend that programming is a purely abstract thing, and perhaps some of the ideas are, but the languages and tools are all ultimately designed for humans.  They're designed to make sense to humans (as much as possible within given constraints, anyway), and they're designed to solve problems humans have.
+
+Elegance is what happens when we find a way to express what we mean with the units of meaning that our tools provide.
+
+Sometimes that's not possible, so the rest of this post — spoilers! — will be some concrete examples that have crossed my path recently.  Maybe they'll give you a better idea of when and why I frown at computers.
+
+
+## ZDoom and PickActor
+
+Every live object in ZDoom — monsters, weapons, pickups, etc. — is called an "actor" (or sometimes a "thing").  ZDoom's scripting language has a [`PickActor`](http://zdoom.org/wiki/PickActor) function for, essentially, finding what actor another actor is looking at.  You might use this to find what monster is under the player's crosshair and show a health bar over it, say.
+
+There's a catch.  ZDoom's scripting language can _not_ manipulate actors directly; there is no `actor` type.  Instead, an actor can have a "TID" ("thing ID").  Most actor-related functions thus accept a TID and affect every actor with that TID simultaneously.  Appropriately, `PickActor` doesn't (can't!) return the actor it finds, but assigns that actor a TID so you can manipulate it indirectly.
+
+By default, `PickActor` will refuse to overwrite an existing TID, and returns `1` to indicate it found a target or `0` to indicate it didn't.  It has two flags that can change its behavior: one to force overwriting an existing TID, and one to change the return value to the found actor's TID.
+
+This is everything you need to know to understand the problem, which is: how do you use `PickActor` to pick an actor?
+
+The actor might already have a TID, intended for some other purpose.  If you use no flags, the function will return `1` to indicate success, but the target won't have your chosen TID, so any attempts to manipulate the target will silently do nothing.  If you use the flag that forces changing a TID, you'll almost certainly break some other effect that needed to be able to identify that actor.  If you use the flag that returns an existing TID, you might end up manipulating multiple actors, because actors can share a TID.
+
+It seems that there's no way at all to use this function correctly!
+
+In truth, there is, but it relies on a little outside knowledge: scripts block the entire simulation.  Unless you explicitly sleep (or run for far too long and get forcibly killed), the game state cannot change out from under you.
+
+With that in mind, the solution is:
+
+```c
+    // Get the existing TID, if there is one.
+    // A TID of 0 is the same as not having a TID, so "setting" it to 0 will not
+    // change anything's TID.
+    int old_tid = PickActor(..., tid=0, flags=PICKAF_RETURNTID);
+
+    // Find a TID that's not currently in use.
+    int new_tid = UniqueTID();
+
+    // Do the "real" call, which both forcibly sets the TID and returns true if
+    // something was actually found.
+    if (PickActor(..., tid=new_tid, flags=PICKAF_FORCETID)) {
+        do_some_stuff_with(new_tid);
+        do_some_other_stuff_with(new_tid);
+
+        // Restore the actor's TID to its original value.
+        Thing_ChangeTID(new_tid, old_tid);
+    }
+```
+
+This relies on calling `PickActor` _twice_: once to get the target's old TID, and once to change it.  As long as both calls have the same arguments, the result _must_ be the same, because the game state is frozen for the duration of this code.  If you need to operate on the target for more than one frame, well...  you have some more work to do.
+
+The workaround is certainly not elegant.  "Look for an actor in this direction, _twice_" is not what I wanted to express.  And yet it's not a hack, either.  The code above demonstrably does the correct thing in all cases, and is suitable as a permanent solution.  It occupies that nebulous third category of "complete, but not pretty".
+
+`PickActor`, on the other hand, is a shambles.  I don't know if you can really call an API a "hack", but if you can, I would definitely like to do so right here.  The function alone does the wrong thing, the "force" flag does the wrong thing, and the correct solution of calling it twice is not remotely obvious.
+
+----
+
+I care about this because modding an ancient game is largely a hobbyist affair, and there are plenty of people in the Doom community for whom tinkering with ZDoom is their first exposure to programming.  They aren't going to realize the caveats of this function, let alone know how to fix them.
+
+I don't want to rag on anyone in particular who's just trying to make a fun game mod, but there is a whole lot of bad ZDoom code floating around.  People try stuff until it _looks like it works_, and then they leave it be.  I don't blame non-professionals for that.  I blame _tools_ that don't offer the right building blocks for modders to express what they mean.
+
+Tool design is important!  It's why I pick on programming languages.  If the fundamental pieces at your disposal are awkwardly-shaped, you'll have a much harder time expressing what you actually intended.
+
+
+## Inform 7
+
+More spoilers: these are all going to be from video games.
+
+Video games are surprisingly difficult to express.  Programming languages are _languages_, so they usually inherit some of the properties of human languages: code is read (executed) in sequence, and large amounts of code can be broken into a hierarchy for easier understanding.  For a great many applications, that works great.
+
+For simulations (a superset of video games), that all goes to hell.  You have a great many things all acting independently and _simultaneously_, each with slightly different concerns and behavior.  Expressing that elegantly in a linear, hierarchical language is a lost cause right from the start.  Operating systems could be described in much the same way, and I've never heard anyone call OS code particularly elegant either.  We've barely even figured out how to expose threads in a language, without the associated mountain of gotchas and pitfalls.
+
+Inform 7 is interesting because it's explicitly designed for games, and even a particular kind of game.  (Contrast with the more popular style of "something like C, but made to fit my engine".)  I should do a full post on it sometime, but here's the tl;dr.
+
+Inform 7 is intended for writing interactive fiction games (like [Zork](https://en.wikipedia.org/wiki/Zork)).  The syntax resembles written English, roughly mirroring how the resulting game is played.  For example:
+
+    The mysterious cavern is a room.
+    "Numerous stalagtites cast eerie shadows on the walls."
+
+    A golden crown is a wearable thing in the mysterious cavern.
+    "A golden glint pierces the darkness."
+    The description is "It's a golden crown."
+    Understand "glint" as the golden crown.
+
+    After wearing the golden crown:
+        end the story finally saying "All hail the new queen!"
+
+This is a full and complete game, which you can win by wearing the crown.  There's a lot of stuff crammed in here, and hopefully you get the general idea: objects are defined with English statements of fact, not by fenced-off blocks.
+
+Inform 7 is particularly interesting because it attempts to address an ancient question of game design: how do you define the interaction between two mechanics?
+
+This game's win condition is wearing the crown — i.e., wearing the crown triggers the effect of winning the game.  That code has to go somewhere, but does it go in the implementation of wearing or the implementation of the crown?  Probably in the crown, since it's a oneoff effect.
+
+Consider, then, if I had a whole set of armor items with different defense ratings.  Is that the concern of the action or the individual objects?  It depends.  If the vast majority of wearable objects are armor, then surely the act of wearing is concerned with handling armor.  If there are only a few wearables that act as armor, they're outliers, and should implement their own handling.  Between these two extremes lies an ambiguous middle ground where it may not be clear who should really be responsible.
+
+Every interaction in a simulated world has at least three possible "parents": the action, who's doing the action, and what the action is being done to.  Expressing this in a language designed around hierarchy can feel clumsy when the "parent" is ambiguous, because a hierarchy necessarily requires that code only have one parent.  (I'm not talking just about inheritance hierarchies, either; your actual source code can only exist in one place, nested inside one class, which is nested inside a namespace, which is nested inside a file, and so on.)
+
+Inform 7 mostly throws the problem out the window.  We can't escape hierarchy entirely, because it's how we as humans tend to make sense of the world.  But instead of forcing the design of your game into a series of nested blocks, Inform 7 more or less lets you define anything anywhere.  You can write "After" _rules_ that apply to particular actions with particular objects, and you can put those rules anywhere in your source code: alongside the definition of wearing (well, not in this case, because that's in the standard library), alongside the definition of the crown, or even somewhere else entirely that deals with all the ways to end the game.  It's completely up to you, and the compiler largely doesn't care.  You can even put the rule _before_ you announce that the golden crown is an object at all, and the compiler will do a pretty good job of figuring it out.
+
+You can still have a hierarchy, but it's imposed entirely by you.  Inform 7 lets you split your source text into a tree of volumes, books, parts, chapters, and sections, named and arranged however you like.  You can see this in the source text for the example game, [Bronze by Emily Short](http://inform7.com/learn/eg/bronze/source.html).
+
+----
+
+I tell you all this so I can compare it to the other extreme: NetHack.  NetHack, written in C, is what you might call "data-oriented".  Consider for example [`peffects()`](https://github.com/Vanilla-NetHack/NetHack/blob/master/src/potion.c#L411), a 500-line function that single-handedly implements every possible effect a potion can have.  [`polymon()`](https://github.com/Vanilla-NetHack/NetHack/blob/master/src/polyself.c#L329), the function responsible for polymorphing the player into a monster, contains all manner of little details like halting the process of stoning if you polymorph into a stoning-resistant monster.
+
+I once tried writing a roguelike that used [entity component](https://en.wikipedia.org/wiki/Entity_component_system) to avoid this kind of mess — no small feat, since it involves a whole lot of fighting back against the language design.  Having beaten on that for a while, I can safely say I _vastly_ prefer the Inform 7 model.  It's flexible enough for most purposes, and it has multiple layers of overriding, so you can make an object that prevents the golden crown from winning the game without having to touch the existing rule!
+
+Given the constraints of how we read and write text (and code), and given that the intended usage is still fairly broad, I daresay Inform 7's approach is _fairly_ elegant.  It allows me to clearly say _what I mean_ in most cases, and that's often enough.
+
+Of course, I wouldn't have brought it up without some more specific anecdotes.
+
+
+### Locksmith by Emily Short
+
+That's the name of an extension bundled with Inform 7.  Extension names always include the name of the author, which is charming.
+
+Locks and keys are a staple of interactive fiction, and Inform 7 has some built-in support for them.  However, it requires you to explicitly name which key you're using to unlock something.  If this is part of a puzzle, it might be appropriate; in the common case of "iron key" unlocking "iron door", it's a little tedious.
+
+Locksmith by Emily Short addresses this problem by splitting the "LOCK" and "UNLOCK" actions into two parts.  If you say "UNLOCK DOOR WITH KEY", that's regular old unlocking.  If you only say "UNLOCK DOOR", that's a new action called unlocking _keylessly_, and it tries to find a matching key in your inventory.  "LOCK" works similarly.
+
+Now, I want to make a padlock.  You don't need a key to _close_ a padlock, so I want to hijack "locking keylessly" to work without needing a key at all.  Both "CLOSE PADLOCK" and "LOCK PADLOCK" should do the same thing, so I use an _instead_ rule to redirect both actions.  I also want to make the padlock support the standard "open" property, but I define it in terms of whether it's currently locked, since that's how a padlock works.
+
+    Definition: the padlock is open rather than closed when it is not locked.
+    Instead of closing the padlock:
+        try locking keylessly the padlock.
+    Instead of locking keylessly the padlock:
+        now the padlock is locked;
+        say "You snap the padlock shut.  It makes a chunky, satisfying click."
+
+I compile this and type "CLOSE PADLOCK" and...  the game freezes, trapped forever in an infinite loop.  Or maybe the stack would overflow eventually.
+
+What's the problem?  It's not quite in my code; it's an interaction with the extension, which has some convenience features.  If you try to keylessly lock something that's open (usually a door!), a _before_ rule kicks in and makes you automatically close it first.  _Before_ rules happen before _instead_ rules, so we have the following sequence of events.
+
+1. The player tries to close the (open) padlock.
+2. My code redirects this into having the player lock the padlock instead.
+3. The extension sees that the player is trying to lock something that's open, and has the player try to close it first.
+4. GOTO 1
+
+This is the downside of having a lot of override mechanisms.  Arguably, the extension's convenience behavior shouldn't be in the actual implementation of "locking keylessly" rather than in _before_ rules, but there are decent arguments to be made both ways.
+
+The solution is remarkably simple: just swap the actions.
+
+    Definition: the padlock is open rather than closed when it is not locked.
+    Instead of locking keylessly the padlock:
+        try closing the padlock.
+    Instead of closing the padlock:
+        now the padlock is locked;
+        say "You snap the padlock shut.  It makes a chunky, satisfying click."
+
+And now I get exactly what I want:
+
+> \> close padlock
+>
+> You snap the padlock shut.  It makes a chunky, satisfying click.
+
+Simple, but perhaps not obvious.  Something here is inelegant, yet everyone involved was pretty clearly expressing what they meant.  I wonder what the lesson is.
+
+
+### Doors
+
+Ah, good, more Inform 7 stuff, and more door stuff as well!
+
+Doors are pretty straightforward in Inform 7: they have two sides, and each side goes in a room.  The player can go through the door to get from one side to the other.  Easy.
+
+I want to have a door that can lead to several different places.  In other words, the front side is fixed in place, but the back side can move around.
+
+Inform 7 won't let you do this, full stop.  That means it's time for an _adventure_.
+
+----
+
+The obvious solution is to fake it.
+
+1. Make a bunch of identical fake-door objects (which aren't actually doors) and put one in each place the door can appear.
+2. Hide them from everywhere the door isn't supposed to be.
+3. Override all the actions that could conceivably take the player through the door to just teleport them instead.
+
+This is pretty clearly a hack.  What I mean is a _door_, and this is as far away from a door as is possible to get.  As is common with hacks, there are also thorny downsides to every step.
+
+1. Identical objects can be slightly awkward.  In particular, if you try to use a custom command that works on objects you have seen but can't currently see (like "remember", perhaps), you may get a rather awful disambiguation prompt like: "Which do you mean?  The green door, the green door, the green door, or the green door?"
+
+    Also, since they aren't doors, no door-specific behavior will work on them.  Pathfinding won't work, because the spaces aren't actually connected.  I want to implement looking through a door, and that won't work.  Built-in mechanisms like "Instead of going through the green door" won't work.
+
+    You might have slightly more luck if you used real doors that all lead nowhere, and very carefully hooked only the handling for where a door leads.  But that has problems with part 2.
+
+2. Hiding objects is more complicated than you'd think!  The most common suggestion I've seen is to do this:
+
+        Instead of doing something with the hidden item:
+            say "You can't see any such thing."
+
+    That is, of course, the default response when you try to refer to an object that doesn't exist.  And this is a terrible hack!  If you change that default response, this hack will get out of sync.  If you use one of the available extensions to improve the error handling, this will stick out like a sore thumb.  And just like with the padlock, a _before_ rule will still trigger first.
+
+    An easier option is to actually move the dummy objects around.  Of course, if you decide to use real single-sided doors, you're back to the original problem: you can't move a door.
+
+3. Inform 7's movement is remarkably complex.  You can push objects from room to room and ride in vehicles.  Merely teleporting the player would break these; you would need to reimplement them in some fashion.
+
+None of these problems are insurmountable, but certainly this approach is difficult to implement correctly.
+
+----
+
+The solution I went for was to _make it work by force_.
+
+You see, Inform 7 actually compiles to a very different language called Inform 6, which is more traditional and C-like (though with some pretty funky syntax in places).  Parts of the standard library are implemented in Inform 6, and the detailed comments in those files reveal some interesting details.
+
+One, Inform 6 models the entire world as...  a hierarchy.  Everything is one big tree.  The room contains the player, and the player contains their inventory — the only thing distinguishing an inventory is that the parent is a person.  Even worn objects are children like any other, except that they have an invisible "worn" flag.
+
+This model presents a problem with doors, which exist in two places at once.  The secret is...  they actually don't.  The physical door object moves to follow the player!  There's some special consideration for doors in places to make them appear to be in both places from other characters' points of view, so you'd never notice the difference.
+
+Two, Inform 6 actually had an entire feature for objects that faked being in more than one room, called "floating".  These were apparently such a huge and buggy pain in the ass that Inform 7 drastically limited floating objects to only two specific categories: doors, and a certain kind of non-interactive decorations.
+
+Three, every Inform 7 door ends up with a `found_in` property in Inform 6, which is an array of the two places the door should exist.
+
+Well, hey, that sounds easy.  You can embed chunks of Inform 6 code in Inform 7, so I wrote some code that would edit that array directly.
+
+Foiled!  It didn't work.  The problem is that going through a door takes you to the "other side".  "Other side" is a real physical property — an Inform 6 function that picks a side based on where the player currently is.  Alas, rather than consulting the array, this function has the two sides _hardcoded_.  It looks like this:
+
+    with door_to [ 
+        loc ! room of actor
+        ;
+        loc = location;
+        if (loc == thedark) loc = real_location;
+        if (loc == I483_red_room) return I384_green_room; return I483_red_room;],
+
+`door_to` is just the Inform 6 name of the "other side" property.  `loc` is an argument to the function bounded by square brackets.  Like I said, funky syntax.
+
+I did try changing "the other side of the green door" from Inform 7 land, but it seems the compiler special-cases this one particular property name and intercepts any attempt to change it dynamically.  Foiled again!
+
+The solution I settled on was to rewrite the "other side" function for this particular door entirely.  I ended up with:
+
+    Include (-
+    [ HackedOtherSide loc;
+        loc = location;
+        if (loc == thedark) loc = real_location;
+        if (loc == (+ the green door +).&found_in-->0) return (+ the green door +).&found_in-->1; return (+ the green door +).&found_in-->0;
+    ];
+    [ HackedDirection loc;
+        loc = location;
+        if (loc == thedark) loc = real_location;
+        if (loc == (+ the green door +).&found_in-->0) return (+ southwest +); return (+ northeast +);
+    ];
+    -).
+
+    To hackily override the door props:
+        (-
+        (+ the green door +).door_dir = HackedDirection;
+        (+ the green door +).door_to = HackedOtherSide;
+        -).
+
+    When play begins:
+        hackily override the door_to.
+
+    To hackily force the back side of (portal - a door) to (where - an object):
+        (- ({portal}.&found_in)-->1 = {where}; -).
+
+`(- ... -)` denotes embedded Inform 6 code; `(+ ... +)` denotes embedded Inform 7 object names; `foo-->0` is an array subscript.  `door_to` is another property that tells you what direction the door is in, based on what room you're in.
+
+Right.  So.
+
+This is definitely...  uglier, at a glance, than faking the door.  On the other hand, it's pretty much transparent to the rest of the language and standard library.  The door is a real door that genuinely moves from place to place.  Anything that operates on a door goes through the code I've overridden here, so it's fairly bulletproof.
+
+The one issue not addressed here is route-finding — the standard library can cache information about connections between rooms to make route-finding faster, and after moving the door, that cache is no longer valid.  A quick read of the comments reveals a trivial fix: call `SignalMapChange()` after moving the door around.
+
+So.  Is this elegant?
+
+It sure doesn't look pretty, and it requires meddling with guts that I'm not even supposed to know about.  That's not particularly elegant.
+
+And yet!  I only did this in the first place because it lets all the rest of my code express exactly what I want.  I don't have to keep remembering that my doors are fake and sticking special cases everywhere.  This code is self-contained, robust, and _forgettable_.  It sacrifices elegance so that other code doesn't have to.
+
+I think that's something to value.
+
+
+## Starbound versus Aseprite
+
+My door hack is not so much about code elegance, but _interface_ elegance.  It does some strange things in order to preserve all the guarantees and semantics of a fundamental existing interface: the door.
+
+I'd like to close with a more literal example of that.
+
+Hardware-accelerated programs generally don't use native GUI controls.  This generally means: video games implement their own buttons, textboxes, etc.  I've heard rumors that it's _possible_ to mash native GUI controls into an accelerated canvas, but I can't recall ever having seen it done.
+
+I got into [Starbound](http://playstarbound.com/) for a while last year.  I even ran a little private server for some friends.  And one constant aggravation I had was that <kbd>Tab</kbd> doesn't move the focus between textboxes in dialogs.  The "connect to server" dialog is just three boxes: hostname, username, password.  It seems so obvious that you should be able to tab between these, but you cannot.  Whoever built the GUI didn't implement tabbing.
+
+Some other common keyboard shortcuts are wrong, which trips me up from time to time.  <kbd>Ctrl</kbd><kbd>arrow</kbd> moves the cursor only one character at a time, rather than one word at a time.  <kbd>Shift</kbd><kbd>arrow</kbd> moves one word at a time, rather than selecting a character.  <kbd>Ctrl</kbd><kbd>Backspace</kbd> appears to clear an entire textbox, rather than deleting the previous word.
+
+It's not surprising that a few things would slip through the cracks.  Game GUI libraries have to be reimplemented _from scratch_, and that's an awful lot of work just to get the buttons and textboxes that other developers get to take for granted.
+
+A few days ago, I tried [Aseprite](http://www.aseprite.org/), a pixel art editor.  The entire interface is custom-drawn (in a pixellated style, no less), which had me worried that I'd encounter the same problems as in Starbound.
+
+To my great surprise, I didn't!  All the keys I'm used to work just fine.  I can even double-click a word to select it.  I don't know if this is a third-party library or something the Aseprite developer built themselves, but someone put _a lot_ of work into making this feel natural.
+
+I don't usually like custom UIs at all.  Between the very appropriate design and the attention to detail, I'm pretty sold on Aseprite's.
+
+I might even call it...  elegant.
+
+It doesn't matter that I haven't seen the code.  Maybe the code is a mess.  In fact it almost certainly is.  The end result is what's elegant here, because it completely disappears.  I can forget I'm not using native controls.
+
+Maybe that's a better definition of elegance, then: elegance is transparent.  It's so natural that it disappears entirely.  A hack stands out because it's unusual and jarring; an elegant solution (or interface, or whatever) fits together so smoothly that you forget the problem ever existed.
