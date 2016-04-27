@@ -159,7 +159,7 @@ However, the new tricks are often much easier.  I went ahead and figured some ou
 
 - **8**: If the last _two_ digits are divisible by eight (0, 8, 14, 20, 28, 34, ...), the number is divisible by eight.
 
-    Alternatively, but more of a mouthful, you can see a pattern in the numbers above.  If the last digit is 0 or 8 and the dozens digit is even, OR the last digit is 4 and the dozens digit is even, the number is divisible by eight.
+    Alternatively, but more of a mouthful, you can see a pattern in the numbers above.  If the last digit is 0 or 8 and the dozens digit is even, OR the last digit is 4 and the dozens digit is odd, the number is divisible by eight.
 
 - **9**: If the last two digits are divisible by nine (0, 9, 16, 23, 30, ...), the number is divisible by nine.
 
