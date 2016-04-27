@@ -50,7 +50,7 @@ Got it?  Super.
 
 ## Twelve in daily life
 
-We're already surrounded by twelves.  This year is 1200 is dozenal!
+We're already surrounded by twelves.  This year is 1200 in dozenal!
 
 There are twelve months in a year.  (Leap years are every four years, so in dozenal, a leap year would always be a year ending in 0, 4, or 8.)
 
