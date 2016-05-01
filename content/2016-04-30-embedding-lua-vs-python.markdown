@@ -311,13 +311,17 @@ I don't want to get into a huge language fight here.  Lua is pretty good for wha
 
 - There's only one numeric type (`number`, double-precision floating point) and only one data structure (`table`).  Ehh.  You _can_ return multiple values from a function or iterator, but there's no real tuple type, and misusing a faux tuple will silently discard the unconsumed values.
 
-- Reading a nonexistent variable is not an error; it produces `nil`.  Likewise (actually for the same reason), reading a nonexistent table entry silently produces `nil`.
+- Reading a nonexistent variable is not an error; it produces `nil`.  Likewise (actually for the same reason), reading a nonexistent table entry silently produces `nil`.  Writing to a variable that's not declared `local` will silently create a new global.
 
 - If a function receives too many arguments, the extras are silently ignored.  If too few, the missing ones default to `nil`.
 
 - There's nothing like Python's `repr` built in, let alone `pprint`.  A table prints as `table: 0xa6c300`, without even delimiters around it.  This is _terrible_ — half the appeal of a dynamic runtime is the ability to inspect the state of your program from within itself, but the only data structure the language even has is opaque.
 
-- `break` and `return` have to be the last statement in a block.  There's a trivial workaround (wrap it in a dummy `do ... end`) but it's still kind of annoying.
+- `break` and `return` have to be the last statement in a block.  There's a trivial workaround (wrap it in a dummy `do ... end`) but it's still kind of annoying.  Also there's no `continue`.
+
+- You need the built-in `debug` library to do a lot of useful things, like print Lua tracebacks, but the Lua book advises disabling it in production builds because it allows Lua code to do naughty things.  Indeed, Starbound doesn't have `debug`.  Trouble is, a production build of Starbound is the development environment for a mod.
+
+These issues are compounded when Lua is embedded in a larger engine with a poorly-documented API, ahem.  Mistakes like `nil`s and typoed variable names can persist for several lines or several _functions_ before causing any obvious errors, at which point you have to reload the entity (or as is oftne the case with Starbound, reload _all the game assets_) for every attempted diagnosis or fix.
 
 Contrast with Python, which is perfect in every way.
 
