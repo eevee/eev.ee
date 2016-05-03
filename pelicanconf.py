@@ -135,6 +135,7 @@ MD_EXTENSIONS = [
 
 PATH = 'content/'
 PAGE_PATHS = ['../pages/']
+PATH_METADATA = '../pages/(?P<fullpath>.+)[.].+'
 STATIC_PATHS = ['favicon.png', 'media/', 'dev/media/']
 
 # For the landing page
@@ -156,8 +157,8 @@ CATEGORY_SAVE_AS = '{slug}/index.html'
 # This is the /blog/ index specifically
 INDEX_SAVE_AS = 'everything/index.html'
 INDEX_URL = 'everything/'
-PAGE_URL = '{slug}/'
-PAGE_SAVE_AS = '{slug}/index.html'
+PAGE_URL = '{fullpath}/'
+PAGE_SAVE_AS = '{fullpath}/index.html'
 TAG_URL = 'everything/tags/{slug}/'
 TAG_SAVE_AS = 'everything/tags/{slug}/index.html'
 TAGS_URL = 'everything/tags/'
