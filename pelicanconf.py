@@ -34,16 +34,16 @@ LINKS_EX = ((
     '#ee7300', 'category-dev.png',
     "updates on cool things i make",
 ), (
-    'art',
-    '/art/',
-    '#41c518', 'category-art.png',
-    "i'm learning to draw, here are the results",
-), (
-    'cats',
-    'http://lexyeevee.tumblr.com/tagged/sphynx',
-    '#deb46a', 'category-cat-photos.png',
-    "our house is overrun with them and they are the best",
-), (
+#    'art',
+#    '/art/',
+#    '#41c518', 'category-art.png',
+#    "i'm learning to draw, here are the results",
+#), (
+#    'cats',
+#    'http://lexyeevee.tumblr.com/tagged/sphynx',
+#    '#deb46a', 'category-cat-photos.png',
+#    "our house is overrun with them and they are the best",
+#), (
     'everything',
     '/everything/',
     '#c57be6', 'category-everything.png',
