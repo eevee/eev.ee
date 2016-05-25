@@ -11,7 +11,7 @@ The result: [Under Construction](https://c.eev.ee/under-construction/)!
 
 [![pico-8 cartridge](https://c.eev.ee/under-construction/under-construction.p8.png)](https://c.eev.ee/under-construction/)
 
-You can play in your very own web browser, assuming you have a keyboard.  Also, that image is the _actual cartridge_, which you can save and play directly if you happen to have PICO-8.
+You can play in your very own web browser, assuming you have a keyboard.  Also, that image is the _actual cartridge_, which you can save and play directly if you happen to have PICO-8.  It's also [in the PICO-8 BBS](http://www.lexaloffle.com/bbs/?tid=3448).
 
 (A couple people using Chrome on OS X have reported a very early crash, which seems to be a bug outside of my control.  Safari works, and merely restarting Chrome has fixed it for at least one person.)
 
