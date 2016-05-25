@@ -11,6 +11,8 @@ Nova Dasterin asks, [with money](https://www.patreon.com/eevee?ty=h):
 
 There are a couple ways I can interpret this, so I'll go with: _all of them_.
 
+_(edit: you may be interested in a subsequent post about [the game I actually made for the PICO-8](/blog/2016/05/25/under-construction-our-pico-8-game/)!)_
+
 <!-- more -->
 
 ## Writing an entire game in Lua or Python
@@ -321,7 +323,7 @@ I don't want to get into a huge language fight here.  Lua is pretty good for wha
 
 - You need the built-in `debug` library to do a lot of useful things, like print Lua tracebacks, but the Lua book advises disabling it in production builds because it allows Lua code to do naughty things.  Indeed, Starbound doesn't have `debug`.  Trouble is, a production build of Starbound is the development environment for a mod.
 
-These issues are compounded when Lua is embedded in a larger engine with a poorly-documented API, ahem.  Mistakes like `nil`s and typoed variable names can persist for several lines or several _functions_ before causing any obvious errors, at which point you have to reload the entity (or as is oftne the case with Starbound, reload _all the game assets_) for every attempted diagnosis or fix.
+These issues are compounded when Lua is embedded in a larger engine with a poorly-documented API, ahem.  Mistakes like `nil`s and typoed variable names can persist for several lines or several _functions_ before causing any obvious errors, at which point you have to reload the entity (or as is often the case with Starbound, reload _all the game assets_) for every attempted diagnosis or fix.
 
 Contrast with Python, which is perfect in every way.
 

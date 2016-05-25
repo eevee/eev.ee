@@ -27,6 +27,10 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 
 ## Games
 
+* [**Under Construction**](https://c.eev.ee/under-construction/): A little platformer for the PICO-8, made with [Mel](http://glitchedpuppet.com/) for [Flora](http://floraverse.com/).
+
+    [blog post](/blog/2016/05/25/under-construction-our-pico-8-game/)
+
 * [**Don't Eat the Cactus**](https://c.eev.ee/dont-eat-cactus/): A microscopic text adventure, based on true events.  Made with [Inform](http://inform7.com/); web player and source text included.
 
 * **Throughfare**: The first Doom map I ever published, after some fourteen years of hanging around the Doom modding community.
