@@ -1,0 +1,293 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="1040" height="440" viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
+    <style type="text/css"><![CDATA[
+        .gradient {
+            stroke: hsl(215, 80%, 80%);
+            stroke-width: 1;
+        }
+        .summed-gradient {
+            stroke: hsl(215, 80%, 50%);
+            stroke-width: 1;
+        }
+        .initial-curve {
+            fill: none;
+            stroke: hsl(0, 80%, 50%);
+            stroke-width: 1;
+        }
+        .handle {
+            fill: hsl(215, 80%, 50%);
+        }
+        .point {
+            fill: black;
+        }
+        .example {
+            stroke: orange;
+            stroke-width: 1;
+            stroke-dasharray: 1, 2;
+        }
+        .example-point {
+            fill: orange;
+        }
+        .example-lerp {
+            fill: hsl(0, 80%, 50%);
+        }
+        .perlin-approx-curve {
+            fill: none;
+            stroke: #808080;
+            stroke-width: 1;
+        }
+        .active {
+            stroke: hsl(215, 100%, 50%);
+            stroke-width: 2;
+        }
+    ]]></style>
+    <defs>
+        <marker id="arrowhead" viewBox="0 0 5 5" refX="0.5" refY="2.5" markerWidth="3" markerHeight="3" orient="auto">
+            <path d="M 0 0 L 5 2.5 L 0 5 z" />
+        </marker>
+    </defs>
+    <!-- background -->
+    <rect fill="white" x="0" y="0" width="520" height="220"/>
+    <!-- tick marks (could be generated, eh) -->
+    <polyline stroke="black" points="10.0,110.0 510.0,110.0"/>
+    <polyline stroke="black" points="10.0,210.0 10.0,10.0"/>
+    <polyline stroke="black" points="10.0,115.0 10.0,105.0"/>
+    <polyline stroke="black" points="110.0,115.0 110.0,105.0"/>
+    <polyline stroke="black" points="210.0,115.0 210.0,105.0"/>
+    <polyline stroke="black" points="310.0,115.0 310.0,105.0"/>
+    <polyline stroke="black" points="410.0,115.0 410.0,105.0"/>
+    <polyline stroke="black" points="510.0,115.0 510.0,105.0"/>
+
+
+
+    <script type="text/javascript"><![CDATA[
+        var svg = document.documentElement;
+        var pt = svg.createSVGPoint();
+        var ns = svg.namespaceURI;
+        function cursor_point(evt) {
+            pt.x = evt.clientX;
+            pt.y = evt.clientY;
+            return pt.matrixTransform(svg.getScreenCTM().inverse());
+        }
+        function new_el(name, cls) {
+            var el = document.createElementNS(ns, name);
+            if (cls) {
+                el.setAttribute('class', cls);
+            }
+            document.documentElement.appendChild(el);
+            return el;
+        }
+        function new_point_at(x, y, cls) {
+            var el = new_el('circle', cls);
+            el.setAttribute('r', '1');
+            el.setAttribute('cx', x);
+            el.setAttribute('cy', y);
+            return el;
+        }
+
+        function s_curve(t) {
+            return t * t * (3. - 2. * t);
+        }
+        function lerp(t, a, b) {
+            return a + t * (b - a);
+        }
+
+        function noise1(x) {
+            var bx0 = Math.floor(x);
+            var bx1 = bx0 + 1;
+            var rx0 = x - Math.floor(x);
+            var rx1 = rx0 - 1;
+
+            var sx = s_curve(rx0);
+            var u = rx0 * gradient[bx0];
+            var v = rx1 * gradient[bx1];
+
+            return lerp(sx, u, v);
+        }
+
+
+        var X_SCALE = 100;
+        var Y_SCALE = 100;
+        var MARGIN = 10;
+        var RESOLUTION = 16;
+        // TODO scale document appropriately for above values
+        function x_to_svg(x) {
+            return x * X_SCALE + MARGIN;
+        }
+        function y_to_svg(y) {
+            return (1 - y) * Y_SCALE + MARGIN;
+        }
+        function pt_to_svg(x, y) {
+            return String(x_to_svg(x)) + "," + String(y_to_svg(y));
+        }
+
+        var X_RANGE = 6;
+        // same gradient I used for generating the static images
+        var gradient = [
+            0.5390625,
+            -0.1875,
+            0.90234375,
+            -0.5390625,
+            -0.0546875,
+            0.68359375,
+        ];
+        var elements = [];
+
+        function init() {
+            for (var x = 0; x < X_RANGE; x++) {
+                elements[x] = {};
+                elements[x].gradient_el = new_el('polyline', 'gradient');
+                if (x == X_RANGE - 1)
+                    continue;
+                elements[x].rough_curve_el = new_el('path', 'initial-curve');
+                elements[x].perlin_curve_el1 = new_el('path', 'perlin-approx-curve');
+                elements[x].perlin_curve_el2 = new_el('path', 'perlin-approx-curve');
+
+                elements[x].point_els = [];
+                for (var f = 0; f < RESOLUTION; f++) {
+                    var pointbag = {};
+                    elements[x].point_els.push(pointbag);
+                    var cx = x_to_svg(x + f / RESOLUTION);
+                    var cy = y_to_svg(0);
+
+                    // Extrapolated points
+                    pointbag.exline0 = new_el('line', 'example');
+                    pointbag.exline0.setAttribute('x1', cx);
+                    pointbag.exline0.setAttribute('y1', cy);
+                    pointbag.exline0.setAttribute('x2', cx);
+                    pointbag.exline0.setAttribute('y2', cy);
+                    pointbag.exline1 = new_el('line', 'example');
+                    pointbag.exline1.setAttribute('x1', cx);
+                    pointbag.exline1.setAttribute('y1', cy);
+                    pointbag.exline1.setAttribute('x2', cx);
+                    pointbag.exline1.setAttribute('y2', cy);
+                    pointbag.expoint0 = new_point_at(cx, cy, 'example-point');
+                    pointbag.expoint1 = new_point_at(cx, cy, 'example-point');
+                    pointbag.exlerp = new_point_at(cx, cy, 'example-lerp');
+
+                    // Real noise
+                    pointbag.noise = new_point_at(cx, cy, 'point');
+                }
+            }
+
+            for (var x = 0; x < X_RANGE; x++) {
+                refresh_segment(x);
+            }
+        }
+
+        function refresh_segment(x) {
+            var g0 = gradient[x];
+            var g1 = gradient[x + 1];
+
+            // Illustrate gradient
+            elements[x].gradient_el.setAttribute('points',
+                pt_to_svg(x - 0.25, -g0/4) + " " +
+                pt_to_svg(x + 0.25, g0/4));
+
+            if (x == X_RANGE - 1)
+                return;
+
+            // Draw curve for smoothstep-less Perlin noise, which is exact
+            elements[x].rough_curve_el.setAttribute('d',
+                "M" + pt_to_svg(x, 0) + " " + 
+                "Q" + pt_to_svg(x + 0.5, (g0 - g1) / 2) + " " +
+                pt_to_svg(x + 1, 0));
+            // TODO handle point
+            //print(svg_point(i + 1/2, (g - gg)/2, 'handle'))
+
+            // Draw approximate curve for real Perlin noise.
+            // It's quartic, but we get a decent approximation by splitting it
+            // at the midpoint and using two cubic curves
+            var midp_slope = -0.25 * (g0 + g1);
+            var midp_y = (g0 - g1) / 4;
+            elements[x].perlin_curve_el1.setAttribute('d',
+                "M" + pt_to_svg(x, 0) + " " +
+                "C" + pt_to_svg(x + 1/6, 1/6 * g0) + " " +
+                pt_to_svg(x + 1/3, midp_y - 1/6 * midp_slope) + " " +
+                pt_to_svg(x + 1/2, midp_y));
+            elements[x].perlin_curve_el2.setAttribute('d',
+                "M" + pt_to_svg(x + 1/2, midp_y) + " " +
+                "C" + pt_to_svg(x + 2/3, midp_y + 1/6 * midp_slope) + " " +
+                pt_to_svg(x + 5/6, -1/6 * g1) + " " +
+                pt_to_svg(x + 1, 0));
+
+            for (var f = 0; f < RESOLUTION; f++) {
+                var els = elements[x].point_els[f];
+                var t = f / RESOLUTION;
+
+                // Draw initial pairs of points and their lerp
+                var u = y_to_svg(t * g0);
+                els.expoint0.setAttribute('cy', u);
+                els.exline0.setAttribute('y2', u);
+                var v = y_to_svg((t - 1) * g1);
+                els.expoint1.setAttribute('cy', v);
+                els.exline1.setAttribute('y2', v);
+                els.exlerp.setAttribute('cy', lerp(t, u, v));
+
+                // Actual genuine output
+                els.noise.setAttribute('cy', y_to_svg(noise1(x + f / RESOLUTION)));
+            }
+        }
+
+
+        init();
+
+        var active_el, active_x;
+        var clear_active_el = function() {
+            if (active_el)
+                active_el.classList.remove('active');
+            active_el = active_x = null;
+        };
+        svg.addEventListener('mousedown', function(evt) {
+            var pt = cursor_point(evt);
+            // Find nearest x-coordinate (reverses x_to_svg)
+            var x = Math.floor((pt.x - MARGIN) / X_SCALE + 0.5);
+            if (x >= X_RANGE)
+                return;
+            active_x = x;
+            active_el = elements[x].gradient_el;
+            active_el.classList.add('active');
+        });
+        svg.addEventListener('mouseup', clear_active_el);
+
+        svg.addEventListener('mousemove', function(evt) {
+            if (!active_el)
+                return;
+            if (!(evt.buttons & 1)) {
+                clear_active_el();
+                return;
+            }
+
+            var pt = cursor_point(evt);
+            var x = (pt.x - MARGIN) / X_SCALE;
+            var y = 1 - (pt.y - MARGIN) / Y_SCALE;
+            var dx = x - active_x;
+            var dy = y - 0;
+            var l = Math.sqrt(dx*dx + dy*dy);
+            if (l < 0.01)
+                return;
+            dx /= l;
+            dy /= l;
+
+            // dragging on the left side, flip everything
+            if (dx < 0) {
+                dx *= -1;
+                dy *= -1;
+            }
+
+            if (Math.abs(dx) < 0.01)
+                return;
+
+            var slope = dy/dx;
+            if (slope < -1) slope = -1;
+            if (slope > 1) slope = 1;
+
+            gradient[active_x] = slope;
+            if (active_x > 0)
+                refresh_segment(active_x - 1);
+            refresh_segment(active_x);
+        });
+    ]]></script>
+</svg>

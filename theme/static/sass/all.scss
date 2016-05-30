@@ -536,6 +536,20 @@ article {
     }
 }
 
+%fancy-image {
+    padding: 0.5rem;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 2px 1px #eee;
+    transition: box-shadow linear 0.1s;
+
+    &:hover {
+        box-shadow: 0 1px 2px 1px #ddd;
+    }
+}
+
 .entry-content {
     h2 {
         margin-top: 1em;
@@ -558,18 +572,8 @@ article {
     }
 
     // TODO seriously need a "plain" image style for the emoji post oops
-    img {
-        padding: 0.5rem;
-        max-width: 100%;
-        box-sizing: border-box;
-        background: white;
-        border-radius: 0.25rem;
-        box-shadow: 0 1px 2px 1px #eee;
-        transition: box-shadow linear 0.1s;
-
-        &:hover {
-            box-shadow: 0 1px 2px 1px #ddd;
-        }
+    img, object {
+        @extend %fancy-image;
     }
 
     blockquote {
@@ -623,17 +627,7 @@ article {
 
     // TODO this is copied from .entry-content img
     img {
-        padding: 0.33rem;
-        max-width: 100%;
-        box-sizing: border-box;
-        background: white;
-        border-radius: 0.25rem;
-        box-shadow: 0 1px 2px 1px #eee;
-        transition: box-shadow linear 0.1s;
-
-        &:hover {
-            box-shadow: 0 1px 2px 1px #ddd;
-        }
+        @extend %fancy-image;
     }
 }
 
@@ -670,9 +664,9 @@ article {
     margin: 0 0 1em;
     text-align: center;
 
-    img {
+    img, object {
         // Don't let large images expand the main container's width
-        width: 100%;
+        max-width: 100%;
     }
 }
 

@@ -1,0 +1,285 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="1200" height="600" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+    <style type="text/css"><![CDATA[
+        .gradient {
+            stroke: hsl(215, 80%, 80%);
+            stroke-width: 1;
+        }
+        .summed-gradient {
+            stroke: hsl(215, 80%, 50%);
+            stroke-width: 1;
+        }
+        .initial-curve {
+            fill: none;
+            stroke: hsl(0, 80%, 50%);
+            stroke-width: 1;
+        }
+        .handle {
+            fill: hsl(215, 80%, 50%);
+        }
+        .point {
+            fill: black;
+        }
+        .example {
+            stroke: orange;
+            stroke-width: 1;
+            stroke-dasharray: 1, 2;
+        }
+        .example-point {
+            fill: orange;
+        }
+        .example-lerp {
+            fill: hsl(0, 80%, 50%);
+        }
+        .perlin-approx-curve {
+            fill: none;
+            stroke: #808080;
+            stroke-width: 1;
+        }
+        .gradient2d {
+            stroke: black;
+            stroke-width: 2;
+            marker-end: url(#arrowhead);
+        }
+        .active {
+            stroke: red;
+            stroke-width: 4;
+        }
+        .axis {
+            stroke: black;
+        }
+    ]]></style>
+    <defs>
+        <marker id="arrowhead" viewBox="0 0 5 5" refX="0.5" refY="2.5" markerWidth="3" markerHeight="3" orient="auto">
+            <path d="M 0 0 L 5 2.5 L 0 5 z" />
+        </marker>
+    </defs>
+    <script type="text/javascript"><![CDATA[
+        var svg = document.documentElement;
+        var pt = svg.createSVGPoint();
+        var ns = svg.namespaceURI;
+        function cursor_point(evt) {
+            pt.x = evt.clientX;
+            pt.y = evt.clientY;
+            return pt.matrixTransform(svg.getScreenCTM().inverse());
+        }
+        function new_el(name, cls) {
+            var el = document.createElementNS(ns, name);
+            if (cls) {
+                el.setAttribute('class', cls);
+            }
+            svg.appendChild(el);
+            return el;
+        }
+        function new_point_at(x, y, cls) {
+            var el = new_el('circle', cls);
+            el.setAttribute('r', '1');
+            el.setAttribute('cx', x);
+            el.setAttribute('cy', y);
+            return el;
+        }
+
+        function s_curve(t) {
+            return t * t * (3. - 2. * t);
+        }
+        function lerp(t, a, b) {
+            return a + t * (b - a);
+        }
+
+        function noise2(x, y) {
+            var bx0 = Math.floor(x);
+            var bx1 = bx0 + 1;
+            var rx0 = x - Math.floor(x);
+            var rx1 = rx0 - 1;
+
+            var by0 = Math.floor(y);
+            var by1 = by0 + 1;
+            var ry0 = y - Math.floor(y);
+            var ry1 = ry0 - 1;
+
+            var sx = s_curve(rx0);
+            var sy = s_curve(ry0);
+
+            var u = rx0 * gradient[bx0][by0][0] + ry0 * gradient[bx0][by0][1];
+            var v = rx1 * gradient[bx1][by0][0] + ry0 * gradient[bx1][by0][1];
+            var a = lerp(sx, u, v);
+
+            var u = rx0 * gradient[bx0][by1][0] + ry1 * gradient[bx0][by1][1];
+            var v = rx1 * gradient[bx1][by1][0] + ry1 * gradient[bx1][by1][1];
+            var b = lerp(sx, u, v);
+
+            return lerp(sy, a, b);
+        }
+
+
+        var X_SCALE = 100;
+        var Y_SCALE = 100;
+        var MARGIN = 50;
+        var RESOLUTION = 16;
+        var X_RANGE = 8;
+        var Y_RANGE = 5;
+        var scale_factor = 1 / Math.sqrt(2);
+        // TODO scale document appropriately for above values
+        // TODO generate grid lines as well
+        function x_to_svg(x) {
+            return x * X_SCALE + MARGIN;
+        }
+        function y_to_svg(y) {
+            return (Y_RANGE - 1 - y) * Y_SCALE + MARGIN;
+        }
+        function pt_to_svg(x, y) {
+            return String(x_to_svg(x)) + "," + String(y_to_svg(y));
+        }
+
+        // random gradient since I didn't make a big deal of the 2D one
+        var gradient = [];
+        var elements = [];
+
+        function init() {
+            var svgw = (X_RANGE - 1) * X_SCALE + MARGIN * 2;
+            var svgh = (Y_RANGE - 1) * Y_SCALE + MARGIN * 2;
+            svg.setAttribute('width', svgw);
+            svg.setAttribute('height', svgh);
+            svg.setAttribute('viewBox', '0 0 ' + String(svgw) + ' ' + String(svgh));
+            var bg_el = new_el('rect');
+            bg_el.setAttribute('x', 0);
+            bg_el.setAttribute('y', 0);
+            bg_el.setAttribute('width', svgw);
+            bg_el.setAttribute('height', svgh);
+            bg_el.setAttribute('fill', 'white');
+
+            // Make sure the noise is bottom-most
+            var noise_container = new_el('g');
+
+            // Draw axes
+            
+            for (var x = 0; x < X_RANGE; x++) {
+                var el = new_el('polyline', 'axis');
+                el.setAttribute('points', pt_to_svg(x, 0) + " " + pt_to_svg(x, Y_RANGE - 1));
+            }
+            for (var y = 0; y < Y_RANGE; y++) {
+                var el = new_el('polyline', 'axis');
+                el.setAttribute('points', pt_to_svg(0, y) + " " + pt_to_svg(X_RANGE - 1, y));
+            }
+
+            for (var x = 0; x < X_RANGE; x++) {
+                gradient[x] = [];
+                elements[x] = [];
+                for (var y = 0; y < Y_RANGE; y++) {
+                    var gx = Math.random() * 2 - 1;
+                    var gy = Math.random() * 2 - 1;
+                    var gl = Math.sqrt(gx*gx + gy*gy);
+                    gradient[x][y] = [gx/gl, gy/gl];
+
+                    elements[x][y] = {};
+                    elements[x][y].gradient_el = new_el('polyline', 'gradient2d');
+                    if (x == X_RANGE - 1 || y == Y_RANGE - 1)
+                        continue;
+
+                    elements[x][y].point_els = [];
+                    for (var fx = 0; fx < RESOLUTION; fx++) {
+                        elements[x][y].point_els[fx] = [];
+                        for (var fy = 0; fy < RESOLUTION; fy++) {
+                            var cx = x_to_svg(x + fx / RESOLUTION);
+                            var cy = y_to_svg(y + fx / RESOLUTION);
+
+                            var el = document.createElementNS(ns, 'rect');
+                            noise_container.appendChild(el);
+                            el.setAttribute('x', x_to_svg(x + fx / RESOLUTION));
+                            el.setAttribute('y', y_to_svg(y + (fy + 1) / RESOLUTION));
+                            el.setAttribute('width', X_SCALE / RESOLUTION + 1);
+                            el.setAttribute('height', Y_SCALE / RESOLUTION + 1);
+                            elements[x][y].point_els[fx][fy] = el;
+                        }
+                    }
+                }
+            }
+
+            for (var x = 0; x < X_RANGE; x++) {
+                for (var y = 0; y < Y_RANGE; y++) {
+                    refresh_segment(x, y);
+                }
+            }
+        }
+
+        function refresh_segment(x, y) {
+            var g = gradient[x][y];
+
+            // Illustrate gradient
+            elements[x][y].gradient_el.setAttribute('points',
+                pt_to_svg(x, y) + " " +
+                pt_to_svg(x + g[0]/2, y + g[1]/2));
+
+            if (x == X_RANGE - 1 || y == Y_RANGE - 1)
+                return;
+
+            for (var fx = 0; fx < RESOLUTION; fx++) {
+                for (var fy = 0; fy < RESOLUTION; fy++) {
+                    var n = noise2(x + fx / RESOLUTION, y + fy / RESOLUTION);
+                    var el = elements[x][y].point_els[fx][fy];
+                    var rgb = String(Math.floor((n * scale_factor + 0.5) * 255 + 0.5));
+                    el.setAttribute('fill', 'rgb(' + rgb + ', ' + rgb + ', ' + rgb + ')');
+                }
+            }
+        }
+
+
+        init();
+
+        var active_el, active_pt;
+        var clear_active_el = function() {
+            if (active_el)
+                active_el.classList.remove('active');
+            active_el = active_pt = null;
+        };
+        svg.addEventListener('mousedown', function(evt) {
+            var pt = cursor_point(evt);
+            // Find nearest coordinates (reverses *_to_svg)
+            var x = Math.floor((pt.x - MARGIN) / X_SCALE + 0.5);
+            if (x >= X_RANGE)
+                return;
+            // Subtract 0.5 here because reversed axes
+            var y = Math.floor(Y_RANGE - (pt.y - MARGIN) / Y_SCALE - 0.5);
+            if (y >= Y_RANGE)
+                return;
+            active_pt = [x, y];
+            active_el = elements[x][y].gradient_el;
+            active_el.classList.add('active');
+        });
+        svg.addEventListener('mouseup', clear_active_el);
+
+        svg.addEventListener('mousemove', function(evt) {
+            if (!active_el)
+                return;
+            if (!(evt.buttons & 1)) {
+                clear_active_el();
+                return;
+            }
+
+            var px = active_pt[0];
+            var py = active_pt[1];
+
+            var pt = cursor_point(evt);
+            var x = (pt.x - MARGIN) / X_SCALE;
+            var y = Y_RANGE - 1 - (pt.y - MARGIN) / Y_SCALE;
+            var dx = x - px;
+            var dy = y - py;
+            var l = Math.sqrt(dx*dx + dy*dy);
+            if (l < 0.01)
+                return;
+            dx /= l;
+            dy /= l;
+
+            gradient[px][py] = [dx, dy];
+            refresh_segment(px, py);
+            if (px > 0)
+                refresh_segment(px - 1, py);
+            if (py > 0)
+                refresh_segment(px, py - 1);
+            if (px > 0 && py > 0)
+                refresh_segment(px - 1, py - 1);
+        });
+    ]]></script>
+</svg>
