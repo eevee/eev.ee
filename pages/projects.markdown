@@ -27,15 +27,42 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 
 ## Games
 
-* [**Under Construction**](https://c.eev.ee/under-construction/): A little platformer for the PICO-8, made with [Mel](http://glitchedpuppet.com/) for [Flora](http://floraverse.com/).
+<div class="projects-game" markdown="1">
+<div class="projects-game-pic">
+{% photo /media/pages/under-construction.png %}
+</div>
+<div class="projects-game-desc">
 
-    [blog post](/blog/2016/05/25/under-construction-our-pico-8-game/)
+[**Under Construction**](https://c.eev.ee/under-construction/): A little platformer for the PICO-8, made with [Mel](http://glitchedpuppet.com/) for [Flora](http://floraverse.com/).
 
-* [**Don't Eat the Cactus**](https://c.eev.ee/dont-eat-cactus/): A microscopic text adventure, based on true events.  Made with [Inform](http://inform7.com/); web player and source text included.
+▸ [blog post](/blog/2016/05/25/under-construction-our-pico-8-game/)
 
-* **Throughfare**: The first Doom map I ever published, after some fourteen years of hanging around the Doom modding community.
+</div>
+</div>
+    
+<div class="projects-game" markdown="1">
+<div class="projects-game-pic">
+{% photo /media/pages/dont-eat-cactus.png %}
+</div>
+<div class="projects-game-desc">
 
-    [blog post](/blog/2016/03/31/i-made-a-doom-level/) · MAP32 of [DUMP 2](http://forum.zdoom.org/viewtopic.php?f=19&t=51072)
+[**Don't Eat the Cactus**](https://c.eev.ee/dont-eat-cactus/): A microscopic text adventure, based on true events.  Made with [Inform](http://inform7.com/); web player and source text included.
+
+</div>
+</div>
+
+<div class="projects-game" markdown="1">
+<div class="projects-game-pic">
+{% photo /media/pages/throughfare.png %}
+</div>
+<div class="projects-game-desc">
+
+**Throughfare**: The first Doom map I ever published, after some fourteen years of hanging around the Doom modding community.
+
+▸ [blog post and separate download](/blog/2016/03/31/i-made-a-doom-level/) · canonically MAP32 of [DUMP 2](http://forum.zdoom.org/viewtopic.php?f=19&t=51072)
+
+</div>
+</div>
 
 
 ## Twitter bots

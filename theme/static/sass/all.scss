@@ -882,6 +882,20 @@ section.archives {
     }
 }
 
+// -----------------------------------------------------------------------------
+// PROJECTS
+
+.projects-game {
+    @include flexbox;
+}
+.projects-game-pic img {
+    max-width: 100px;
+}
+.projects-game-desc {
+    @include flex(1);
+    margin-left: 1em;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // PYGMENTS (solarized)
