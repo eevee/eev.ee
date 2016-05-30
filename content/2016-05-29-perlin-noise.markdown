@@ -278,7 +278,7 @@ Make the grid of gradients tile, and the resulting noise will tile.  Super easy.
 
 ### Simplex noise
 
-In higher dimensions, even finding the noise for a single point requires a _lot_ of math.  Even in 3-D, there are eight surrounding points: eight dot products, seven linear interpolations, three _smoothstep_s.
+In higher dimensions, even finding the noise for a single point requires a _lot_ of math.  Even in 3-D, there are eight surrounding points: eight dot products, seven linear interpolations, three rounds of _smoothstep_.
 
 [Simplex noise](https://en.wikipedia.org/wiki/Simplex_noise) is a variation that uses triangles rather than squares.  In 3-D, that's a tetrahedron, which is only four points rather than eight.  In 4-D it's five points rather than sixteen.
 
