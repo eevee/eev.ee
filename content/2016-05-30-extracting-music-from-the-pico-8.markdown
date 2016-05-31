@@ -68,7 +68,7 @@ The obvious thing to try was `ffmpeg`, a command-line tool that's ridiculously g
 
 `amix` is the filter for mixing together some number of audio streams; `concat` places them one after the other.  The idea here was thus: mix two sounds together (to make one track), mix three sounds together (to make another track), then concatenate the results.
 
-Alas, this doesn't work.  Filters default to reading the first unused input file, and won't read from other filters unless you explicitly chain them together.  (I think.  Feel free to read the documentation yourself and figure this out.)  Explicit chaining turned out to be extremely verbose and error-pronse, so I tried a simpler approach: doing it in two stages.  First create all the tracks as separate files, then concatenate them together in a second pass.
+Alas, this doesn't work.  Filters default to reading the first unused input file, and won't read from other filters unless you explicitly chain them together.  (I think.  Feel free to read the documentation yourself and figure this out.)  Explicit chaining turned out to be extremely verbose and error-prone, so I tried a simpler approach: doing it in two stages.  First create all the tracks as separate files, then concatenate them together in a second pass.
 
 And, success!  I ran a script, waited a few seconds, and had a bunch of reconstructed music.  I gave it to Mel, who immediately found two major problems.
 
