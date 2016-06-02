@@ -64,6 +64,17 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 </div>
 </div>
 
+<div class="projects-game" markdown="1">
+<div class="projects-game-pic">
+{% photo /media/pages/mario-maker.jpg %}
+</div>
+<div class="projects-game-desc">
+
+[**Mario Maker**](/everything/tags/mario-maker/): A variety of Mario levels made with/for the Wii U game Mario Maker.
+
+</div>
+</div>
+
 
 ## Twitter bots
 
