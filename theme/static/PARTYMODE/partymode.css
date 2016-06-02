@@ -1,4 +1,4 @@
-.--partymode-container {
+.partymode--container {
     position: fixed;
     z-index: 10000;
     left: 0;
@@ -12,17 +12,17 @@
     -webkit-transform: translateZ(0);
 }
 
-.--partymode-flake {
+.partymode--flake {
     position: absolute;
     top: 0;
     left: 0;
-    animation-name: --partymode-flake1;
+    animation-name: partymode--flake1;
     animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in;
 }
 
-@keyframes --partymode-flake1 {
+@keyframes partymode--flake1 {
     from {
         transform: translate(-10vw, -20vh);
     }
@@ -32,13 +32,13 @@
 }
 
 /* ~ugh~ */
-.--partymode-flake {
-    -webkit-animation-name: --partymode-flake1;
+.partymode--flake {
+    -webkit-animation-name: partymode--flake1;
     -webkit-animation-duration: 5s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: ease-in;
 }
-@-webkit-keyframes --partymode-flake1 {
+@-webkit-keyframes partymode--flake1 {
     from {
         -webkit-transform: translate(-10vw, -20vh);
     }

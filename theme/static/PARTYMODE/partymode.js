@@ -27,7 +27,7 @@
 
     // Create the container and fill it with some elements
     var container = document.createElement('div');
-    container.className = '--partymode-container';
+    container.className = 'partymode--container';
 
     var num_flakes = (
         document.documentElement.clientWidth
@@ -38,7 +38,7 @@
     for (var i = 0; i < num_flakes; i++) {
         var flake = document.createElement('img');
         flake.src = path + IMAGES[Math.floor(Math.random() * IMAGES.length)];
-        flake.className = '--partymode-flake';
+        flake.className = 'partymode--flake';
         // Randomize a bit
         flake.style.animationDelay = "-" + String(Math.random() * 4) + "s";
         flake.style.animationDuration = String(Math.random() * 3 + 4) + "s";
