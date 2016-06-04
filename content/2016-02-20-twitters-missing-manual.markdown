@@ -38,7 +38,7 @@ Here, then, is a list of all the non-obvious things about Twitter that I know.  
 
     Note that Twitter's knowledge of domains is not exhaustive — it will link "google.com" but not "eev.ee".
 
-* For the sake of its SMS-based roots, Twitter supports performing several commands by typing them _in a tweet_.  In particular, if you start a tweet with the word `d` or `m` or `dm`, the second word will be treated as a username, and the rest of the tweet will be DM'd to that user.
+* For the sake of its SMS-based roots, Twitter supports performing several commands by typing them _in a tweet_.  In particular, if you start a tweet with the word `d` or `m` or `dm`, the second word will be treated as a username, and the rest of the tweet will be DM'd to that user.  Tweeting "dm me if you..." will instead DM `if you...` to user `@me`.
 
 * Accounts managed by multiple people, such as support accounts or politicians' accounts, sometimes sign tweets with a `^` followed by the author's initials.  This has no special significance to Twitter.
 
@@ -69,7 +69,7 @@ You can reply to tweets, which threads them together.  A tweet can only have one
 
 * A reply _must_, somewhere, mention the author of the tweet it's replying to.  If you reply to a tweet and delete the author's `@handle`, it'll become a new top-level tweet rather than a reply.  You can see this in some clients, like Android Twitter: there's "replying to (display name)" text indicating it's a reply, and that text disappears if you delete the `@handle`.
 
-* There is one exception to the previous rule: if you're replying to _yourself_, you don't have to include your own `@handle`, even though clients include it by default.  So if you want to say something that spans multiple tweets, you can just keep replying to yourself and deleting the `@handle`.  (This is sometimes called a "tweetstorm".)
+* There is one exception to the previous rule: if you're replying to _yourself_, you don't have to include your own `@handle`, even though clients include it by default.  (If you're replying to a tweet of your own that already begins with some mentions, those will be prepopulated, rather than your own `@handle`.)  So if you want to say something that spans multiple tweets, you can just keep replying to yourself and deleting the `@handle`.  (This is sometimes called a "tweetstorm".)
 
     It's a really good idea to do this whenever you're making multiple tweets about something.  Otherwise, someone who stumbles upon one of the tweets later will have no idea what the context was, and won't be able to find it without scrolling back however long on your profile.
 
@@ -103,9 +103,15 @@ You can reply to tweets, which threads them together.  A tweet can only have one
 
 * If a tweet in the _middle_ of a thread is deleted (or the author's account is deleted), the thread will break at that point.  Replies to the deleted tweet won't be visible when looking at the parent, and the parent won't be visible when looking at the replies.
 
-* You can _quote_ tweets by including a link to them in your tweet, which will cause the quoted tweet to appear in a small box below yours.  This _does not_ create a reply and will not be part of the quoted tweet's thread.  If you want to do that, you can't use the retweet/quote button.  You have to reply to the tweet, manually include a link to it, _and_ be sure to mention the author.
+* You can _quote_ tweets by including a link to them in your tweet, which will cause the quoted tweet to appear in a small box below yours.  This is what the retweet button does when you add a comment: it tweets what you typed as normal, but with the first tweet's URL added to the end.
+
+    This _does not_ create a reply and will not be part of the quoted tweet's thread.  If you want to do that, you can't use the retweet/quote button.  You have to reply to the tweet, manually include a link to it, _and_ be sure to mention the author.
 
 * When you quote a tweet, the author is notified; however, unlike a retweet, they won't be notified when people like or retweet your quote (unless you also mention them).  If you don't want to notify the author, you can take a screenshot (though this doesn't let them delete the tweet) or use a URL shortener (though this doesn't let them obviously disable a quote by blocking you).
+
+* Liking or retweeting someone else's retweet will generally notify the retweeter.  Replying to a retweet will prefill the `@handle` of the retweeter as well as the original author.  However, if you click on the tweet on Web Twitter, the retweeter is "forgotten" and neither rule applies.  This isn't the case on Android Twitter, though!
+
+    You can tell what will happen by looking at the top of the tweet: if there's small "Retweeted by ..." text, it's treated as a retweet, and the named retweeter will be notified or included.
 
 * Due to the nature of Twitter, it's common for a tweet to end up on many people's timelines simultaneously and attract many similar replies within a short span of time.  It's polite to check the existing replies to a popular tweet, or a tweet from a popular person, before giving your two cents.
 
@@ -140,6 +146,14 @@ A tweet may have _one_ embedded attachment.
 * You may explicitly include a set of up to four images _or_ a video _or_ a poll.  You cannot combine this within a single tweet.  Brands™ have access to a handful of other embedded gizmos.
 
 * If you include images or a video, you will lose 24 characters of writing space, because a direct link to the images/video will be silently added to the end of your tweet.  This is for the sake of text-only clients, e.g. people using Twitter over SMS, so they can see that there's an attachment and possibly view it in a browser.
+
+* Images will generally be made lossy.  An animated GIF will be re-encoded to an h.264 video, even in cases — such as small animated pixel art — where this destroys the image and produces a video bigger than the original file.  (In these cases, scaling the original GIF up to a larger size can somewhat curb the loss in quality.)
+
+    A static GIF, JPEG, or opaque PNG will be re-encoded as a fairly low-quality JPEG.  This makes Twitter fairly unsuitable for sharing digital art or screenshots.  It also leads to extremely noisy images of text as they get re-uploaded many times over and re-encoded each time.
+
+    A PNG with an alpha channel will be left intact, making it a common trick for non-photographic images.  The exact heuristic is unclear; I've added an all-opaque alpha channel and also tried making a single pixel 99% opaque, to no avail.  I'm told that having at least one fully transparent pixel is enough to avoid being put through the JPEG wringer.
+
+* Attached have three different sizes.  The view shown inline in a tweet is `https://pbs.twimg.com/media/something.jpg`.  The larger view shown when clicking or tapping an individual image is `something.jpg:large`.  A third view, not actually used anywhere to my knowledge, is `something.jpg:orig`.  Despite the name, this is not necessarily the original uploaded image, but it can be larger than the `large` size.
 
 * Including a poll will not append a link, but curiously, you'll still lose 24 characters.  It's possible this is a client bug, but it happens in both Web and Android Twitter.
 
