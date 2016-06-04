@@ -9,7 +9,7 @@ from fabric.api import *
 import fabric.contrib.project as project
 
 # Local path configuration (can be absolute or relative to fabfile)
-env.deploy_path = 'output'
+env.deploy_path = 'output-publish'
 DEPLOY_PATH = env.deploy_path
 
 # Remote server configuration
