@@ -72,6 +72,8 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 
 [**Mario Maker**](/everything/tags/mario-maker/): A variety of Mario levels made with/for the Wii U game Mario Maker.
 
+▸ [my levels on Nintendo's Mario Maker site](https://supermariomakerbookmark.nintendo.net/profile/lexyeevee)
+
 </div>
 </div>
 
@@ -79,6 +81,8 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 ## Twitter bots
 
 Haven't gotten around to publishing code for these, yet.
+
+* [**@perlin\_noise**](https://twitter.com/perlin_noise): Tweets Perlin noise in a variety of forms.  Currently it's text-only, but who knows what the future will bring?
 
 * [**@unicodeveryword**](https://twitter.com/unicodeveryword): Tweets English words with some Unicode shenanigans applied.
 
