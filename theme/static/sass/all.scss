@@ -6,15 +6,26 @@ $font-prose: Merriweather, serif;
 $font-sans: Ubuntu, sans-serif;
 $font-mono: 'Source Code Pro', 'Inconsolata', 'DejaVu Sans Mono', monospace;
 
-// colors
-$link-normal: hsl(215, 50%, 50%);
-$link-visited: hsl(250, 50%, 50%);
-$link-hover: hsl(215, 50%, 40%);
-// used for very light text on a dark background...  just the header honestly, could be header-fg
-$offwhite: hsl(215, 30%, 90%);
-$main-bg: hsl(36, 30%, 98%);
-$sidebar-bg: hsl(36, 30%, 93%);
-$main-accent: hsl(36, 30%, 70%);
+// colors, plucked from the header image
+$eevee-blue: #4078CF;
+$eevee-brown: #F2D07F;
+$eevee-beige: #FAEF98;
+$eevee-socks: #DAAA6C;
+$eevee-border: #6B5337;
+$body-bg: scale-color($eevee-blue, $saturation: -25%, $lightness: -75%);
+// used for text directly on the background
+$offwhite: scale-color($eevee-blue, $lightness: +75%);
+$main-bg: scale-color($eevee-beige, $saturation: -50%, $lightness: +90%);
+$sidebar-bg: scale-color($eevee-brown, $saturation: -20%, $lightness: +70%);
+$main-accent: scale-color($eevee-border, $lightness: +30%);
+
+$link-normal: $eevee-blue;
+$link-visited: adjust-hue($eevee-blue, 60);
+$link-hover: adjust-hue($eevee-blue, -240);
+
+$block-bg: scale-color($eevee-brown, $saturation: -50%, $lightness: +70%);
+$block-fg: scale-color($eevee-socks, $saturation: -40%, $lightness: -40%);
+$block-border: scale-color($eevee-socks, $saturation: -40%, $lightness: +10%);
 
 @mixin block-link() {
     padding: 0.5em 0.75em;
@@ -22,11 +33,11 @@ $main-accent: hsl(36, 30%, 70%);
     border: 1px solid transparent;
 
     text-decoration: none;
-    background: scale-color($main-bg, $lightness: -10%);
-    color: scale-color($main-bg, $lightness: -67%);
+    background: $block-bg;
+    color: $block-fg;
 
     &:hover {
-        border-color: scale-color($main-bg, $lightness: -40%);
+        border-color: $block-border;
     }
 }
 
@@ -101,14 +112,12 @@ html {
     // This has to be on the root element for rem to work
     font-size: 14px;
 
-    background: url(/theme/images/concrete_seamless.png) hsl(240, 30%, 10%);
+    background: url(/theme/images/concrete_seamless.png) $body-bg;
 }
 body {
     width: 100%;
     max-width: 1120px;
     margin: 0 auto;
-
-    //border: 2px solid hsl(215, 30%, 30%);
 
     font-family: $font-sans;
     color: #202020;
@@ -117,7 +126,7 @@ body {
 body > header {
     position: relative;
     margin: 1em 0;
-    min-height: 159px;  // background height
+    min-height: 138px;  // background height
     background: url(/theme/images/home-eevee.png) top left no-repeat;
 
     @include phone-size {
@@ -131,8 +140,11 @@ body > header {
         position: absolute;
         font-size: 4em;
         margin: 0 2rem;
+        // wedge it into the space in the logo
+        //top: 0;
+        //left: 100px;
         bottom: 0;
-        left: 237px;  // background width
+        right: 0;
         padding: 0;
         font-family: 'Love Ya Like A Sister', cursive;
         font-weight: normal;  // bold doesn't work well with that font
@@ -199,7 +211,7 @@ body > header {
 
 body > #main {
     @include flexbox;
-    //border: 2px solid hsl(215, 30%, 30%);
+    border: 1px solid $eevee-border;
 
     #content {
         @include flex(1);
@@ -329,7 +341,7 @@ body > footer {
 // SIDEBAR
 
 #sidebar {
-    $sidebar-border: scale-color($sidebar-bg, $lightness: -10%);
+    $sidebar-border: mix($main-accent, $sidebar-bg);
     font-size: 0.9rem;
     font-family: $font-sans;
     border-left: 1px solid $sidebar-border;
@@ -581,8 +593,8 @@ article {
         // 1.17em on the left makes 1.5em total on the left; 1px top/bottom
         // just stops the paragraphs' margins from collapsing
         padding: 1px 1em 1px 1.17em;
-        border-left: 0.33em solid scale-color($main-bg, $lightness: -20%);
-        background: scale-color($main-bg, $lightness: -5%);
+        border-left: 0.33em solid $block-border;
+        background: $block-bg;
     }
 
     hr {
@@ -601,9 +613,9 @@ article {
         font-size: 0.83em;
         padding: 0 0.2em;
         border-radius: 0.33em;
-        border: 1px double scale-color($main-accent, $lightness: 33%);
+        border: 1px double $block-border;
         border-width: 1px 3px 3px 1px;
-        background: scale-color($main-bg, $lightness: -8%);
+        background: $block-bg;
     }
     kbd + kbd {
         margin-left: 0.25em;
@@ -1047,7 +1059,7 @@ h6 + table.hilighttable {
 code {
     padding: 0.1em 0.25em;
     border-radius: 0.25em;
-    background: scale-color($main-bg, $lightness: -8%);
+    background: $block-bg;
 }
 
 
