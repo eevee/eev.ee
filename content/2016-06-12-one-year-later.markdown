@@ -91,7 +91,7 @@ I don't know why I feel the need to delve so deeply into this.  The original pos
 
 If you think I'm an asshole because I've acted like an asshole, well, that's okay.  I try not to, and I'll try to be better next time, but sometimes I fuck up.
 
-If you think I'm an asshole because I pitched a whiny article to Vox about how one of the diamond lightbulbs in my Scrooge McDuck vault went out, damn.  It bugs me a little to be judged as a carciature with little relation to what I've actually done.
+If you think I'm an asshole because I pitched a whiny article to Vox about how one of the diamond lightbulbs in my Scrooge McDuck vault went out, damn.  It bugs me a little to be judged as a caricature with little relation to what I've actually done.
 
 
 ## To the people who ask me for advice
