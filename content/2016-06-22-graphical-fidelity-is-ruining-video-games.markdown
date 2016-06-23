@@ -62,7 +62,7 @@ That's fine, though, right?  It's just an aesthetic thing.  It doesn't really af
 
 ### Everything looks the same
 
-"Realism" generally means "ludicrous amounts of detail" — even moreso if the environments are already partially-destroyed, which is a fairly common trope I'll be touching on a lot here.
+"Realism" generally means "ludicrous amounts of detail" — even moreso if the environments are already partially-destroyed, which is a fairly common trope I'll touch on again.
 
 When _everything_ is highly-detailed, screenshots may look very good, but gameplay suffers because _the player can no longer tell what's important_.  The tendency for everything to have a thick coating of sepia certainly doesn't help.
 
@@ -102,7 +102,11 @@ I think Left 4 Dead may have also avoided this problem by forcing the players to
 
 ### Progression feels linear and prescripted
 
-Ah, but the main draw of Portal is one of my favorite properties of games: you could manipulate the environment itself.  It's the whole point of the game, even.  And it seems to be conspicuously missing from many modern "realistic" games, partly because real environments _are_ just static, but also in large part because...  of the graphics!
+Portal dodged a huge bullet by not trying to emulate real-world environments, instead setting the player in deliberately-constructed test chambers.  Games like Half-Life 2, which takes place in a realistic city, have a problem on their hands: realistic manmade spaces are designed for efficiency and utility, not interesting exploration.  A very common trick is to just have the world be partially-destroyed.  Apartment buildings are not terribly exciting to explore, so let's jam half the doors and put a few upturned cars in the street.
+
+This sucks.  The design serves the realistic aesthetic, not the player's experience, and has to be awkwardly contorted to fit into the game.  The thing I love about Doom's "abstract" design is that it can serve the gameplay _first_ and be fit to aesthetics second.  Metroid Prime did an excellent job of this as well, and I'd even call its design abstract — it has a lot more detail than Doom, sure, but the rooms are more like handwaved concepts than slices of a space that would reasonably exist.  (Who would fill a cave with powered doors, anyway?  Who cares?)
+
+But returning to Portal, its main draw is one of my favorite properties of games: you could manipulate the environment itself.  It's the whole point of the game, even.  And it seems to be conspicuously missing from many modern "realistic" games, partly because real environments _are_ just static, but also in large part because...  of the graphics!
 
 Rendering a very complex scene _is hard_, so modern map formats do a whole lot of computing stuff ahead of time.  (For similar reasons, albeit more primitive ones, vanilla Doom can't move walls sideways.)  Having any of the environment actually move or change is thus _harder_, so it tends to be reserved for fancy cutscenes when you press the button that lets you progress.  And because grandiose environmental changes aren't very realistic, that button often just opens a door or blows something up.
 
@@ -144,13 +148,13 @@ We wind up with a world where players are trained to look for whatever glows, an
 
 ### There are no surprises
 
-"Realistic" graphics mean a "realistic" world, and let's face it, the real world can be a little dull.  That's why we invented video games, right?
+"Realistic" graphics tend to come along with a "realistic" world, and let's face it, the real world can be a little dull.  That's why we invented video games, right?
 
 Doom has a very clear design vocabulary.  Here are some demons.  They throw stuff at you; don't get hit by it.  Here are some guns, which you can all hold at once, because those are the rules.  Also here's a glowing floating sphere that gives you a lot of health.
 
 What _is_ a megasphere, anyway?  Does it matter?  It's a thing in the game with very clearly-defined rules.  It's good; pick it up.
 
-You can't do that in a "realistic" game.  (Or maybe you can, but we seem to be trying to avoid it.)  You can't just pick up a pair of stereoscopic glasses to inexplicably get night vision for 30 seconds; you need to have some night-vision goggles with batteries and it's a whole thing.  You can't pick up health kits that heal you; you have to be wearing regenerative power armor and pick up energy cells.  Even Doom 4 seems to be uncomfortable leaving brightly flashing keycards lying around — instead you retrieve them from the corpses of people wearing correspondingly-colored armor.
+You can't do that in a "realistic" game.  (Or maybe you can, but we seem to be trying to avoid it.)  You can't just pick up a pair of stereoscopic glasses to inexplicably get night vision for 30 seconds; you need to have some night-vision goggles with batteries and it's a whole thing.  You can't pick up health kits that heal you; you have to be wearing regenerative power armor and pick up energy cells.  You can't carry eight different weapons; you have to constantly switch between two.  Even Doom 4 seems to be uncomfortable leaving brightly flashing keycards lying around — instead you retrieve them from the corpses of people wearing correspondingly-colored armor.
 
 Everything needs an explanation, which vastly reduces the chances of finding anything too surprising or new.
 
