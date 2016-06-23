@@ -47,7 +47,7 @@ What _is_ this room?  This is supposed to be a base of some kind, but who would 
 
 But nobody thinks like that, and even the people who do, don't really care too much.  It's a room with a clear design idea and a clear gameplay purpose: to house the green armor.  It doesn't matter that this would never be a _real_ part of a base.  The game exists in its own universe, and it establishes early on that these are the rules of that universe.  Sometimes a fancy room exists just to give the player a thing.
 
-At the same time, the room still _resembles_ a base.  I can take for granted, in the back of my head, that someone deliberately placed this armor here for storage.  It's off the critical path, too, so it doesn't quit feel like it was left specifically for me to pick up.  The world is designed for the player, but it doesn't _feel_ that way — the environment implies, however vaguely, that other stuff is going on here.
+At the same time, the room still _resembles_ a base.  I can take for granted, in the back of my head, that someone deliberately placed this armor here for storage.  It's off the critical path, too, so it doesn't quite feel like it was left specifically for me to pick up.  The world is designed for the player, but it doesn't _feel_ that way — the environment implies, however vaguely, that other stuff is going on here.
 
 ----
 
