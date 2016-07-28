@@ -40,7 +40,7 @@ Meanwhile, in Python, `list` is the fundamental sequence type, but it has simila
 
 JavaScript has an `Array` type, but it's (semantically) built on top of the only data structure in JavaScript, which is a hash table with string (!) keys.  There's also a family of `ArrayBuffer` types for storing numbers in C arrays, much like Python's `array` module.
 
-PHP's sole data structure is called `array`, but it's really an ordered hash table where you are free to use integers for the keys if you want.  It also has a thing called `list`, but it's not a type, just quirky syntax for doing deconstructing assignment.  People coming from PHP to other languages are occasionally frustrated that hash tables lose their order.
+PHP's sole data structure is called `array`, but it's really an ordered hash table with string (!) keys.  It also has a thing called `list`, but it's not a type, just quirky syntax for doing deconstructing assignment.  People coming from PHP to other languages are occasionally frustrated that hash tables lose their order.
 
 Lua likewise has only a single data structure, but is more upfront in calling its structure a "table"; there's nothing in the language called "array", "vector", _or_ "list".
 
@@ -49,7 +49,7 @@ While I'm at it, the names for mapping types are all over the place:
 - C++: `map` (actually a binary tree; C++11's `unordered_map` is a hash table)
 - JavaScript: object (!)  (though it's not a generic mapping, since the keys must be strings; there's now a `Map` type)
 - Lua: table
-- PHP: array (!)
+- PHP: array (!)  (string keys only)
 - Perl: hash (another "shape", somewhat misleading since a "hash" is also a different thing, and again string keys only), though the documentation likes to say "associative array" a lot
 - Python: dict
 - Rust: map, though it exists as two separate types, `BTreeMap` and `HashMap`
