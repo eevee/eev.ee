@@ -221,7 +221,7 @@ raise RuntimeError, "an error happened at runtime!!"
 There's not really any good reason to do this, since you can just as well do:
 
 ```python
-raise RuntimeError("an error happened at runtime!!"
+raise RuntimeError("an error happened at runtime!!")
 ```
 
 `futurize --stage1` will rewrite the two-arg form to a regular object creation via the `libfuturize.fixes.fix_raise` fixer.  It'll also fix this alternative way of specifying an exception type, which is so bizarre and obscure that I did not know about it until I read the fixer's source code:
@@ -448,7 +448,7 @@ A whole bunch of modules were deleted, merged, or removed.  A full list is in [P
 
 - `cStringIO` and `StringIO` are gone; instead, use `StringIO` or `BytesIO` from the `io` module.  Note that these also exist in Python 2, but are pure-Python rather than the C versions in current Python 3.
 
-- `cPickle` is gone.  Importing `picklein Python 3 now gives you the C implementation automatically.
+- `cPickle` is gone.  Importing `pickle` in Python 3 now gives you the C implementation automatically.
 
 - `cProfile` is gone.  Importing `profile` in Python 3 gives you the C implementation automatically.
 
