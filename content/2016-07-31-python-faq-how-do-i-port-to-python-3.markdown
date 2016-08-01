@@ -855,7 +855,7 @@ This was one of the reasons Thrift's Python 3 port [took almost 3 years](https:/
 
 ## Some troublesome libraries
 
-[MySQLdb](http://mysql-python.sourceforge.net/) is some ancient, clunky, noncompliant, underdocumented trash, much like the database it connects to.  It's nigh abandoned, though it still promises Python 3 support in the MySQLdb 2.0 vaporware.  I would suggest not using MySQL, but barring that, try [pymysql](https://github.com/PyMySQL/PyMySQL), which strives to be a drop-in replacement for MySQLdb.  It's not perfect, especially if you have your fingers in MySQLdb's innards, but it'll get you most of the way there.
+[MySQLdb](http://mysql-python.sourceforge.net/) is some ancient, clunky, noncompliant, underdocumented trash, much like the database it connects to.  It's nigh abandoned, though it still promises Python 3 support in the MySQLdb 2.0 vaporware.  I would suggest not using MySQL, but barring that, try [mysqlclient](https://github.com/PyMySQL/mysqlclient-python), a fork of MySQLdb that continues development and adds Python 3 support.  (The same people also maintain an earlier project, [pymysql](https://github.com/PyMySQL/PyMySQL), which strives to be a pure-Python drop-in replacement for MySQLdb — it's not quite perfect, but its existence is interesting and it's sure easier to read than MySQLdb.)
 
 At a glance, [Thrift](https://github.com/apache/thrift) still hasn't had a release since it merged Python 3 support, eight months ago.  It's some enterprise nightmare, anyway, and bizarrely does code generation for a bunch of dynamic languages.  Might I suggest just using the pure-Python [thriftpy](https://github.com/eleme/thriftpy), which parses Thrift definitions on the fly?
 
