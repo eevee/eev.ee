@@ -18,7 +18,7 @@ And once you're convinced, you may enjoy the companion article, [_how_ to port t
 
 If you aren't neck-deep in Python, you might be wondering what the fuss is all about, or why people keep telling you that Python 3 will set your computer on fire.  (It won't.)
 
-Python 2 is a good language, but it comes with some considerable baggage.  It has two integer types; it may or may not be built in a way that completely mangles 1/17 of the Unicode space; it has a confusing mix of lazy and eager functional tools; it has a standard library that takes "batteries included" to [lengths beyond your wildest imagination](https://docs.python.org/2/library/sgi.html); it boasts strong typing, then casually insists that `None < 3 < "2"`; overall, it's just full of little dark corners containing weird throwbacks to the days of Python 1.
+Python 2 is a good language, but it comes with some considerable baggage.  It has two integer types; it may or may not be built in a way that completely mangles 16/17 of the Unicode space; it has a confusing mix of lazy and eager functional tools; it has a standard library that takes "batteries included" to [lengths beyond your wildest imagination](https://docs.python.org/2/library/sgi.html); it boasts strong typing, then casually insists that `None < 3 < "2"`; overall, it's just full of little dark corners containing weird throwbacks to the days of Python 1.
 
 (If you're really interested, Nick Coghlan has written an exhaustive treatment of the slightly different question of [why Python 3 was created](http://python-notes.curiousefficiency.org/en/latest/python3/questions_and_answers.html).  This post is about why Python 3 is _great_, so let's focus on that.)
 
