@@ -765,7 +765,9 @@ Refs: [docs](https://docs.python.org/3/library/tracemalloc.html); [Python 3.4 re
 
 `typing` offers a standard way to declare _type hints_ — the expected types of arguments and return values.  Type hints are given using the function annotation syntax.
 
-Python itself doesn't do anything with the annotations, though they're accessible and inspectable at runtime.  An external tool like [mypy](http://mypy-lang.org/) can perform static type checking ahead of time, using these standard types.
+Python itself doesn't do anything with the annotations, though they're accessible and inspectable at runtime.  An external tool like [mypy](http://mypy-lang.org/) can perform static type checking ahead of time, using these standard types.  mypy is an existing project that predates `typing` (and works with Python 2), but the previous syntax relied on magic comments; `typing` formalizes the constructs and puts them in the standard library.
+
+I haven't actually used either the type hints or mypy myself, so I can't comment on how helpful or intrusive they are.  Give them a shot if they sound useful to you.
 
 Refs: [docs](https://docs.python.org/3/library/typing.html); [Python 3.5 release notes](https://docs.python.org/3/whatsnew/3.5.html#whatsnew-pep-484); [PEP 484](https://www.python.org/dev/peps/pep-0484)
 
