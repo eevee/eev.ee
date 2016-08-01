@@ -14,6 +14,17 @@ I have good news!  You're already reading one.
 <!-- more -->
 
 
+## Don't be intimidated
+
+This article _is_ quite long, but don't take that as a sign that this is necessarily a Herculean task.  I'm trying to cover every issue I can ever recall running across, which means a lot of small gotchas.
+
+I've ported several codebases from Python 2 to Python 2+3, and most of them have gone pretty smoothly.  If you have modern Python 2 code that handles Unicode responsibly, you're already halfway there.
+
+However...  if you still haven't ported by now, almost _eight years_ after Python 3.0 was first released, chances are you have either a lumbering giant of an app or ancient and weird 2.2-era code.  Or, perish the thought, a lumbering giant consisting largely of weird 2.2-era code.  In that case, you'll want to clean up the more obvious issues one at a time, then go back and start worrying about actually running parts of your code on Python 3.
+
+On the other hand, if your Python 2 code is pretty small and you've just never gotten around to porting, good news!  It's not that bad, and much of the work can be done automatically.  Python 3 is ultimately the same language as Python 2, just with some sharp bits filed off.
+
+
 ## Making some tough decisions
 
 We say "porting from 2 to 3", but what we usually mean is "porting code from 2 to both 2 and 3".  That ends up being more difficult (and ugly), since rather than writing either 2 or 3, you have to write the common subset of 2 and 3.  As nifty as some of the features in 3 are, you can't actually use any of them if you have to remain compatible with Python 2.
@@ -77,7 +88,7 @@ The nice thing about python-future is that it explicitly takes the stance of wri
 
 Another advantage of this approach is that you can tackle the porting piecemeal, which is great for very large projects.  Run one fixer at a time, starting with the very simple ones like updating to `except ... as ...` syntax, and convince yourself that everything is fine before you do the next one.  You can make some serious strides towards 3 compatibility just by eliminating behavior that already has cromulent alternatives in Python 2.
 
-If you expect your Python 3 port to take a _very long time_ — say, if you have a large project with numerous developers — then you might want to prevent older syntax from creeping in with a tool like [autopep8](https://pypi.python.org/pypi/autopep8), which can automatically fix some deprecated features with a much lighter touch.  If you'd like to automatically enforce that, say, `from __future__ import absolute_import` is at the top of every Python file, that's a bit beyond the scope of this article, but I've had [pre-commit](http://pre-commit.com/) + [`reorder_python_imports`](https://libraries.io/github/asottile/reorder_python_imports) thrust upon me in the past to fairly good effect.
+If you expect your Python 3 port to take a _very long time_ — say, if you have a large project with numerous developers and a frantic release schedule — then you might want to prevent older syntax from creeping in with a tool like [autopep8](https://pypi.python.org/pypi/autopep8), which can automatically fix some deprecated features with a much lighter touch.  If you'd like to automatically enforce that, say, `from __future__ import absolute_import` is at the top of every Python file, that's a bit beyond the scope of this article, but I've had [pre-commit](http://pre-commit.com/) + [`reorder_python_imports`](https://libraries.io/github/asottile/reorder_python_imports) thrust upon me in the past to fairly good effect.
 
 Anyway!  For each of the issues below, I'll mention whether `futurize` can fix it, the name of the responsible fixer, and whether `six` has anything relevant.  If the name of the fixer begins with `lib2to3`, that means it's part of the standard library, and you can use it with `2to3` without installing python-future.
 
