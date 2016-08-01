@@ -7,6 +7,11 @@ I lurk in [#python][].  It gets a lot of questions that are, shall we say, _freq
 
 <!-- more -->
 
+## The elephant in the room
+
+* [Should I use/learn Python 2 or Python 3?  Why should I use Python 3?]({filename}2016-07-31-python-faq-why-should-i-use-python-3.markdown)
+* [I have a bunch of Python 2 code.  How do I port it to Python 3?]({filename}2016-07-31-python-faq-how-do-i-port-to-python-3.markdown)
+
 ## Variables, operators, and functions
 
 * [How do I pass by reference?  Does Python pass by reference or pass by value?][passing]
