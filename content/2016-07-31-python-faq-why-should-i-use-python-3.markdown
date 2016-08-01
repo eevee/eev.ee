@@ -518,7 +518,7 @@ For a nice practical example, consider the new [`enum` module](https://docs.pyth
 
 ```python
 # XXX: Should prefer MutableMapping here, but the ultimate call to type()
-# raises a TypeError if you pass a namespace object that's not doesn't inherit
+# raises a TypeError if you pass a namespace object that doesn't inherit
 # from dict!  Boo.
 class EnumLocals(dict):
     def __init__(self):
