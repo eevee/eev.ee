@@ -341,7 +341,7 @@ Of course, this will have the rather bizarre result that `08` is a `SyntaxError`
 
 This is a holdover from C, and it's fairly surprising, since there's virtually no reason to ever use octal.  The only time I can _ever_ remember using it is for passing file modes to `chmod`.
 
-Python 3.0 requires octal literals to be prefixed with `0o`, in line with `0x` for hex and `0b` for binary.  Python 2.6 supports both forms.
+Python 3.0 requires octal literals to be prefixed with `0o`, in line with `0x` for hex and `0b` for binary; literal integers starting with only a `0` are a syntax error.  Python 2.6 supports both forms.
 
 `futurize --stage1` will fix this with the `lib2to3.fixes.fix_numliterals` fixer.
 
@@ -379,7 +379,7 @@ You might not even _recognize_ the `>>` bit, but it lets you print to a file oth
 print(b, c, end='', file=a)
 ```
 
-It's slightly more verbose, but it's also easier to tell what's going on, and that teeny little comma at the end is now more obvious.
+It's slightly more verbose, but it's also easier to tell what's going on, and that teeny little comma at the end is now a more obvious keyword argument.
 
 `from __future__ import print_function` will forget about the `print` statement for the rest of the file, and make the builtin `print` function available instead.  `futurize --stage1` will fix all uses of `print` and add the `__future__` import, with the `libfuturize.fixes.fix_print_with_import` fixer.  (There's also a `2to3` fixer, but it doesn't add the `__future__` import, since it's unnecessary in Python 3.)
 
@@ -494,7 +494,7 @@ Or as a last resort, you can just sprinkle `try ... except ImportError` around.
 
 ### Built-in iterators are now lazy
 
-`filter`, `map`, `range`, and `zip` are all lazy in Python 3.  You can still iterate over their return values (once), but if you have code that expects to be able to index them or traverse them more than once, it'll break in Python 3.  The lazy equivalents — `xrange` and the functions in `itertools` — are of course gone in Python 3.
+`filter`, `map`, `range`, and `zip` are all lazy in Python 3.  You can still iterate over their return values (once), but if you have code that expects to be able to index them or traverse them more than once, it'll break in Python 3.  (Well, not `range`, that's fine.)  The lazy equivalents — `xrange` and the functions in `itertools` — are of course gone in Python 3.
 
 In either case, the easiest thing to do is force eager evaluation by wrapping the call in `list()` or `tuple()`, which you'll occasionally need to do in Python 3 regardless.
 
@@ -522,11 +522,11 @@ The `buffer` type has been replaced by `memoryview` (also in Python 2.7), which 
 
 Where Python 2 has `__str__` and `__unicode__`, Python 3 has `__bytes__` and `__str__`.  The trick is that `__str__` should return the native `str` type for each version: a bytestring for Python 2, but a Unicode string for Python 3.  Also, you almost certainly don't want a `__bytes__` method in Python 3, where `bytes` is no longer used for text.
 
-python-future has a `future.utils.python_2_unicode_compatible` class decorator that tries to do the right thing.  You write only a single `__str__` method that returns a _Unicode_ string.  In Python 3, that's all you need; in Python 2, the decorator will rename your method to `__unicode__` and add a `__str__` that returns the same value encoded as UTF-8.  If you need different behavior, you'll have to roll it yourself with `if not PY2`.
+Both six and python-future have a `python_2_unicode_compatible` class decorator that tries to do the right thing.  You write only a single `__str__` method that returns a _Unicode_ string.  In Python 3, that's all you need, so the decorator does nothing; in Python 2, the decorator will rename your method to `__unicode__` and add a `__str__` that returns the same value encoded as UTF-8.  If you need different behavior, you'll have to roll it yourself with `if PY2`.
 
 ----
 
-Python 2's `next` method is more appropriately `__next__` in Python 3.  The easy way to address this is to call your method `__next__`, then alias it with `next = __next__`.  _Be sure_ you never call it directly as a method, only with the built-in `next()` method.
+Python 2's `next` method is more appropriately `__next__` in Python 3.  The easy way to address this is to call your method `__next__`, then alias it with `next = __next__`.  _Be sure_ you never call it directly as a method, only with the built-in `next()` function.
 
 Alternatively, `future.builtins` contains an alternative `next` which always calls `__next__`, but on Python 2, it falls back to trying `next` if `__next__` doesn't exist.
 
@@ -629,7 +629,7 @@ except Exception as e:
     raise MyLibraryError, MyLibraryError("Failed to do a thing: " + str(e)), sys.exc_info()[2]
 ```
 
-`sys.exc_info()[2]` is, of course, the only way to get the current traceback in Python 2.  In fact, you may have noticed that the three arguments to `raise` are the same three things that `sys.exc_info()` returns: the type, the value, and the traceback.
+`sys.exc_info()[2]` is, of course, the only way to get the current traceback in Python 2.  You may have noticed that the three arguments to `raise` are the same three things that `sys.exc_info()` returns: the type, the value, and the traceback.
 
 Python 3 introduces exception _chaining_.  If something raises an exception from within an `except` block, Python will _remember_ the original exception, attach it to the new one, and show _both_ exceptions when printing a traceback — including both exceptions' types, messages, and where they happened.  So to wrap and rethrow an exception, you don't need to do anything special at all.
 
