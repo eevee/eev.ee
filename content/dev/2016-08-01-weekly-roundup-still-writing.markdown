@@ -9,7 +9,7 @@ July is **themeless**, though in practice it's been mostly **blogging**.
 
 - **art**: [Daily Pokémon](https://lexyeevee.tumblr.com/tagged/daily-pok%C3%A9mon), of course.  I've now done [30 of these speedpaints](https://lexyeevee.tumblr.com/post/148082697972/just-hit-30-so-heres-a-celebratory-montage-i) (only 75% of daily, oh well), and there's some visible progress in there, which is pretty cool to see.  I also drew [an Eevee](https://lexyeevee.tumblr.com/post/148125683487/tried-to-take-some-inspiration-from-huiro) that attempted to take some inspiration from [huiro](http://huiro.tumblr.com/), a Japanese artist with a really simple style that I like.
 
-- **blog**: I wrote about [naming]({filename}2016-07-26-the-hardest-problem-in-computer-science.markdown).  I also spent _multiple days_ working on a pair of Python 3 posts.  I sure hope they get finished soon, but I guess you'll have to wait until the next weekly roundup to find out!
+- **blog**: I wrote about [naming]({filename}/2016-07-26-the-hardest-problem-in-computer-science.markdown).  I also spent _multiple days_ working on a pair of Python 3 posts.  I sure hope they get finished soon, but I guess you'll have to wait until the next weekly roundup to find out!
 
 Oh boy that doesn't sound like a lot, but really, I spent so much time writing.  And playing Starbound.  But mostly, writing.  The Python 3 posts total about twenty thousand words!
 
