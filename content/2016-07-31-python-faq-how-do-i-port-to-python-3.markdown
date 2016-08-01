@@ -268,6 +268,8 @@ These aren't necessarily ancient, but they have an alternative you can just as w
 
 `intern()` has been moved into the `sys` module, though I have no earthly idea why you'd be using it.
 
+`raw_input()` has been renamed to `input()`, and the old ludicrous `input()` is gone.  If you really need `input()`, please stop.
+
 `reduce()` has been moved into the `functools` module, but it's there in Python 2.6 as well.
 
 `reload()` has been moved into the `imp` module.  It's unreliable garbage and you shouldn't be using it anyway.
@@ -279,6 +281,8 @@ These aren't necessarily ancient, but they have an alternative you can just as w
 - `reduce`, via `lib2to3.fixes.fix_reduce`
 
 `futurize --stage2` can also fix `execfile` via the `libfuturize.fixes.fix_execfile` fixer, which imports `past.builtins.execfile`.  The 2to3 fixer uses an `open()` call, but the true correct fix is to use a `with` block.
+
+`futurize --stage2` has a couple of fixers for `raw_input`, but you can just as well import `future.builtins.input` or `six.moves.input`.
 
 Nothing can fix `coerce`, which has no equivalent.  Curiously, I don't see a fixer for `file`, which is trivially fixed by replacing it with `open`.  Nothing for `reload`, either.
 
@@ -705,7 +709,7 @@ The right thing to do is just explicitly mark every single string with either a 
 
 As mentioned above, bytestrings are sequences of integers, which may affect code trying to work with explicitly binary data.
 
-Python 3 has both `.decode()` and `.encode()` on both bytes and text; if you try to encode bytes or decode text, Python will try to implicitly convert to the right type first.  In Python 3, only text has an `.encode()` and only bytes have a `.decode()`.
+Python 2 has both `.decode()` and `.encode()` on both bytes and text; if you try to encode bytes or decode text, Python will try to implicitly convert to the right type first.  In Python 3, only text has an `.encode()` and only bytes have a `.decode()`.
 
 Relatedly, Python 2 allows you to do some cute tricks with "encodings" that aren't really encodings; for example, `"hi".encode('hex')` produces `'6869'`.  In Python 3, encoding _must_ produce bytes, and decoding _must_ produce text, so these sorts of text-to-text or bytes-to-bytes translations aren't allowed.  You can still do them explicitly with the `codecs` module, e.g. `codecs.encode(b'hi', 'hex')`, which also works in Python 2, despite being undocumented.  (Note that Python 3 specifically requires bytes for the hex codec, alas.  If it's any consolation, there's a `bytes.hex()` method to do this directly, which you can't use anyway if you're targeting Python 2.)
 

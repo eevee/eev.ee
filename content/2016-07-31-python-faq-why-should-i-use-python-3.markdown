@@ -838,6 +838,8 @@ Comparing objects of incompatible types now produces a `TypeError`, rather than 
 
 Accessing a method as a class attribute now gives you a regular function, not an "unbound method" object.  ([Python 3.0 release notes](https://docs.python.org/3/whatsnew/3.0.html#operators-and-special-methods))
 
+The `input` builtin no longer performs an `eval` (!), removing a huge point of confusion for beginners.  This is the behavior of `raw_input` in Python 2.  ([docs](https://docs.python.org/3/library/functions.html#input); [Python 3.0 release notes](https://docs.python.org/3/whatsnew/3.0.html#builtins); [PEP 3111](https://www.python.org/dev/peps/pep-3111))
+
 
 ## Fast and furious
 
