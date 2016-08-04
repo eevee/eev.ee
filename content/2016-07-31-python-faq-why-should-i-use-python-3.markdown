@@ -28,7 +28,7 @@ Nothing like this has really happened with a mainstream programming language bef
 
 The porting effort also had a dependency problem: if your library or app depends on library A, which depends on library B, which depends on C, which depends on D...  then none of those projects can even _think_ about porting until D's porting effort is _finished_.  Early days were very slow going.
 
-Now, though, things are looking brighter.  [Most popular libraries work with Python 3](http://python3wos.appspot.com/), and those that don't are working on it.  Python 3's Unicode handling, one of its most contentious changes, has had many of its wrinkles ironed out.  Python 2.7 consists largely of backported Python 3 features, making it much simpler to target 2 and 3 with the same code — and both 2.5 and 2.6 are no longer supported.
+Now, though, things are looking brighter.  [Most popular libraries work with Python 3](http://py3readiness.org/), and those that don't are working on it.  Python 3's Unicode handling, one of its most contentious changes, has had many of its wrinkles ironed out.  Python 2.7 consists largely of backported Python 3 features, making it much simpler to target 2 and 3 with the same code — and both 2.5 and 2.6 are no longer supported.
 
 Don't get me wrong, Python 2 will still be around for a while.  A lot of large applications have been written for Python 2 — think websites like Yelp, YouTube, Reddit, Dropbox — and porting them will take some considerable effort.  I happen to know that at least one of those websites was still running 2.6 last year, years after 2.6 had been discontinued, if that tells you anything about the speed of upgrades for big lumbering software.
 
@@ -92,7 +92,7 @@ Python 3.0 was released shortly after Python 2.6, and a number of features were 
 - Dict and set comprehensions:
 
         {word.lower() for word in words}
-        {value: key for (key, value) in dict_to_invert}
+        {value: key for (key, value) in dict_to_invert.items()}
 
 - Multi-`with`:
 
@@ -105,7 +105,7 @@ Python 3.0 was released shortly after Python 2.6, and a number of features were 
 
 - `collections.OrderedDict` is a dict-like type that remembers the order of its keys.
 
-    Note that you _cannot_ do `OrderedDict(a=1, b=2)`, because the constructor still receives its keyword arguments in a regular dict, losing the order.
+    Note that you _cannot_ do `OrderedDict(a=1, b=2)`, because the constructor still receives its keyword arguments in a regular dict, losing the order.  You have to pass in a sequence of 2-tuples or assign keys one at a time.
 
 - `collections.Counter` is a dict-like type for counting a set of things.  It has some pretty handy operations that allow it to be used like a multiset.
 
@@ -716,7 +716,7 @@ These are less exciting, since they have backports on PyPI that work in Python 2
 
 `enum` finally provides an enumeration type, something which has long been desired in Python and solved in myriad ad-hoc ways.  The variants become instances of a class, can be compared by identity, can be converted between names and values (but only explicitly), can have custom methods, and can implement special methods as usual.  There's even an `IntEnum` base class whose values end up as subclasses of `int` (!), making them perfectly compatible with code expecting integer constants.  Enums have a surprising amount of power, far more than any approach I've seen before; I heartily recommend that you skim the examples in the documentation.  Backported as [`enum34`](https://pypi.python.org/pypi/enum34) for 2.4+.  ([docs](https://docs.python.org/3/library/enum.html); [Python 3.4 release notes](https://docs.python.org/3/whatsnew/3.4.html#enum); [PEP 435](https://www.python.org/dev/peps/pep-0435))
 
-`ipaddress` offers types for representing IPv4 and IPv6 addresses and subnets.  They can convert between several representations, perform a few set-like operations on subnets, identify special addresses, and so on.  Backported to 2.6+ as _both_ [`ipaddress`](https://pypi.python.org/pypi/ipaddress) and [`py2-ipaddress`](https://pypi.python.org/pypi/py2-ipaddress); it's not clear what the difference is, if any. ([docs](https://docs.python.org/3/library/ipaddress.html); [Python 3.3 release notes](https://docs.python.org/3/whatsnew/3.3.html#ipaddress); [PEP 3144](https://www.python.org/dev/peps/pep-3144))
+`ipaddress` offers types for representing IPv4 and IPv6 addresses and subnets.  They can convert between several representations, perform a few set-like operations on subnets, identify special addresses, and so on.  Backported as [`ipaddress`](https://pypi.python.org/pypi/ipaddress) for 2.6+.  (There's also a [`py2-ipaddress`](https://pypi.python.org/pypi/py2-ipaddress), but its handling of bytestrings differs from Python 3's built-in module, which is likely to cause confusing compatibility problems.) ([docs](https://docs.python.org/3/library/ipaddress.html); [Python 3.3 release notes](https://docs.python.org/3/whatsnew/3.3.html#ipaddress); [PEP 3144](https://www.python.org/dev/peps/pep-3144))
 
 `pathlib` provides the `Path` type, representing a filesystem path that you can manipulate with methods rather than the mountain of functions in `os.path`.  It also overloads `/` so you can do `path / 'file.txt'`, which is kind of cool.  [PEP 519](https://www.python.org/dev/peps/pep-0519/) intends to further improve interoperability of `Path`s with classic functions for the not-yet-released Python 3.6.  Backported as [`pathlib2`](https://pypi.python.org/pypi/pathlib2/) for 2.6+; there's also a [`pathlib`](https://pypi.python.org/pypi/pathlib/), but it's no longer maintained, and I don't know what happened there.  ([docs](https://docs.python.org/3/library/pathlib.html); [Python 3.4 release notes](https://docs.python.org/3/whatsnew/3.4.html#pathlib); [PEP 428](https://www.python.org/dev/peps/pep-0428))
 
@@ -802,7 +802,7 @@ There were a lot of improvements to language semantics that don't fit anywhere e
 
 The interactive interpreter does tab-completion by default.  I say "by default" because I've been told that it was supported before, but you had to do some kind of goat blood sacrifice to get it to work.  Also, command history persists between runs.  ([docs](https://docs.python.org/3/library/site.html#rlcompleter-config); [Python 3.4 release notes](https://docs.python.org/3/whatsnew/3.4.html#other-improvements))
 
-The `-b` command-line option produces a warning when calling `str()` on a `bytes` or `bytearray`, or when comparing text to bytes.  `-bb` produces an error.  ([docs](https://docs.python.org/3.5/using/cmdline.html#cmdoption-b))
+The `-b` command-line option produces a warning when calling `str()` on a `bytes` or `bytearray`, or when comparing text to bytes.  `-bb` produces an error.  ([docs](https://docs.python.org/3/using/cmdline.html#cmdoption-b))
 
 The `-I` command-like option runs Python in "isolated mode": it ignores all `PYTHON*` environment variables and leaves the current directory and user `site-packages` directories off of `sys.path`.  The idea is to use this when running a system script (or in the shebang line of a system script) to insulate it from any weird user-specific stuff.  ([docs](https://docs.python.org/3/using/cmdline.html#cmdoption-I); [Python 3.4 release notes](https://docs.python.org/3/whatsnew/3.4.html#other-improvements))
 
@@ -814,7 +814,7 @@ Implicit namespace packages allow a package to span multiple directories.  The m
 
 Object finalization behaves in less quirky ways when destroying an isolated reference cycle.  Also, modules no longer have their contents changed to `None` during shutdown, which fixes a long-running type of error when a `__del__` method tries to call, say, `os.path.join()` — if you were unlucky, `os.path` would have already have had its contents replaced with `None`s, and you'd get an extremely confusing `TypeError` from trying to call a standard library function.  ([Python 3.4 release notes](https://docs.python.org/3/whatsnew/3.4.html#pep-442-safe-object-finalization); [PEP 442](https://www.python.org/dev/peps/pep-0442))
 
-`str.format_map` is like `str.format`, but it accepts a mapping object directly (instead of having to flatten it with `**kwargs`).  This allows some fancy things that weren't previously possible, like passing a fake map that creates values on the fly based on the keys looked up in it.  ([docs](https://docs.python.org/3.5/library/stdtypes.html#str.format_map); [Python 3.2 release notes](https://docs.python.org/3.5/whatsnew/3.2.html#other-language-changes))
+`str.format_map` is like `str.format`, but it accepts a mapping object directly (instead of having to flatten it with `**kwargs`).  This allows some fancy things that weren't previously possible, like passing a fake map that creates values on the fly based on the keys looked up in it.  ([docs](https://docs.python.org/3/library/stdtypes.html#str.format_map); [Python 3.2 release notes](https://docs.python.org/3/whatsnew/3.2.html#other-language-changes))
 
 When a blocking system call is interrupted by a signal, it returns `EINTR`, indicating that the calling code should try the same system call again.  In Python, this becomes `OSError` or `InterruptedError`.  I have never in my life seen any C or Python code that actually deals with this correctly.  Now, Python will do it for you: all the built-in and standard library functions that make use of system calls will automatically retry themselves when interrupted.  ([Python 3.5 release notes](https://docs.python.org/3/whatsnew/3.5.html#pep-475-retry-system-calls-failing-with-eintr); [PEP 475](https://www.python.org/dev/peps/pep-0475))
 
@@ -851,7 +851,7 @@ Objects' `__dict__`s can now share their key storage internally.  Instances of t
 
 `OrderedDict` is now implemented in C, making it "4 to 100" (!) times faster.  Note that the backport in the 2.7 standard library is pure Python.  So, there's a carrot.  ([Python 3.5 release notes](https://docs.python.org/3/whatsnew/3.5.html#whatsnew-ordereddict))
 
-The GIL was made more predictable.  My understanding is that the old behavior was to yield after some number of Python bytecode operations, which could take wildly varying amounts of time; the new behavior yields after a given duration, by default 5ms.  ([Python 3.2 release notes](https://docs.python.org/3.5/whatsnew/3.2.html#multi-threading))
+The GIL was made more predictable.  My understanding is that the old behavior was to yield after some number of Python bytecode operations, which could take wildly varying amounts of time; the new behavior yields after a given duration, by default 5ms.  ([Python 3.2 release notes](https://docs.python.org/3/whatsnew/3.2.html#multi-threading))
 
 The `io` library was rewritten in C, making it more fast.  Again, the Python 2.7 implementation is pure Python.  ([Python 3.1 release notes](https://docs.python.org/3/whatsnew/3.1.html#optimizations))
 

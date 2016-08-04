@@ -761,6 +761,28 @@ Well, it's not.  It's not gone; it's not deprecated; it still works just fine.  
 
 ## Things that are preposterously obscure but that I have seen cause problems nonetheless
 
+### Tuple unpacking
+
+A little-used feature of Python 2 is tuple unpacking in function arguments:
+
+```python
+def foo(a, (b, c)):
+    print a, b, c
+
+x = (2, 3)
+foo(1, x)
+```
+
+This syntax is gone in Python 3.  I've rarely seen anyone use it, except in two cases.  One was a parsing library that relied pretty critically on using it in every parsing function you wrote; whoops.
+
+The other is when sorting a dict's items:
+
+```python
+sorted(d.items(), key=lambda (k, v): k + v)
+```
+
+In Python 3, you have to write that as `lambda kv: kv[0] + kv[1]`.  Boo.
+
 ### `long` is gone
 
 Python 3 merged its `long` type with `int`, so now there's only one integral type, called `int`.
@@ -870,7 +892,9 @@ This was one of the reasons Thrift's Python 3 port [took almost 3 years](https:/
 
 At a glance, [Thrift](https://github.com/apache/thrift) still hasn't had a release since it merged Python 3 support, eight months ago.  It's some enterprise nightmare, anyway, and bizarrely does code generation for a bunch of dynamic languages.  Might I suggest just using the pure-Python [thriftpy](https://github.com/eleme/thriftpy), which parses Thrift definitions on the fly?
 
-[Twisted](https://twistedmatrix.com/) is, ah, large and complex.  Parts of it now support Python 3; parts of it do not.  If you need the parts that don't, well, maybe you could [give them a hand](http://twistedmatrix.com/trac/wiki/ContributingToTwistedLabs)?  (There are actually two pages on [how to contribute](https://twistedmatrix.com/trac/wiki/BasicGuideToContributingCode) and I have no idea which one is canonical, which seems like a great summary of the state of Twisted's documentation.  Sorry, Glyph.)
+[Twisted](https://twistedmatrix.com/) is, ah, large and complex.  Parts of it now support Python 3; parts of it do not.  If you need the parts that don't, well, maybe you could [give them a hand](http://twistedmatrix.com/trac/wiki/ContributingToTwistedLabs)?
+
+[M2Crypto](https://pypi.python.org/pypi/M2Crypto) is [working on it](https://gitlab.com/m2crypto/m2crypto/issues/114), though I'm pretty sure most Python crypto nerds would advise you to use [`cryptography`](https://pypi.python.org/pypi/cryptography) instead.
 
 
 ## And so on
