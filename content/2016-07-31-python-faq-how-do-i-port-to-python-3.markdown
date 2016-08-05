@@ -345,13 +345,21 @@ Python 3.0 requires octal literals to be prefixed with `0o`, in line with `0x` f
 
 `futurize --stage1` will fix this with the `lib2to3.fixes.fix_numliterals` fixer.
 
-### `pickle` versioning
+### `pickle`
 
 If you're using the `pickle` module (which you [shouldn't be](/blog/2015/10/15/dont-use-pickle-use-camel/)), and you intend to pass pickles back and forth between Python 2 and Python 3, there's a small issue to be aware of.  `pickle` has several different ["protocol" versions](https://docs.python.org/3/library/pickle.html#pickle-protocols), and the default version used in Python 3 is protocol 3, which Python 2 _cannot read_.
 
 The fix is simple: just find where you're calling `pickle.dump()` or `pickle.dumps()`, and pass a `protocol` argument of 2.  Protocol 2 is the highest version supported by Python 2, and you probably want to be using it anyway, since it's much more compact and faster to read/write than Python 2's default, protocol 0.
 
 You may be already using `HIGHEST_PROTOCOL`, but you'll have the same problem: the highest protocol supported in any version of Python 3 is unreadable by Python 2.
+
+----
+
+A somewhat bigger problem is that if you pickle an instance of a user-defined class on Python 2, the pickle will record all its attributes as bytestrings, because that's what they are in Python 2.  Python 3 will then dutifully load the pickle and populate your object's `__dict__` with keys like `b'foo'`.  `obj.foo` will then not actually exist, because `obj.foo` looks for the string `'foo'`, and `'foo' != b'foo'` in Python 3.
+
+Don't use pickle, kids.
+
+It's possible to fix this, but also a huge pain in the ass.  If you don't know how, you _definitely_ shouldn't be using pickle.
 
 
 ## Things that have a `__future__` import

@@ -680,6 +680,8 @@ A number of file format modules, like [`bz2`](https://docs.python.org/3/library/
 
 The `logging` module can, _finally_, use `str.format`-style string formatting by passing `style='{'` to `Formatter`.  ([docs](https://docs.python.org/3/library/logging.html#logging.Formatter); [Python 3.2 release notes](https://docs.python.org/3/whatsnew/3.2.html#logging))
 
+The `logging` module spits warnings and higher to `stderr` if logging hasn't been otherwise configured.  This means that if your app doesn't use `logging`, but it uses a library that _does_, you'll get actual output rather than the completely useless "No handlers could be found for logger 'foo'".  ([docs](https://docs.python.org/3/library/logging.html#logging.lastResort); [Python 3.2 release notes](https://docs.python.org/3/whatsnew/3.2.html#logging))
+
 `os.scandir` lists the contents of a directory while avoiding `stat` calls as much as possible, making it significantly faster.  ([docs](https://docs.python.org/3/library/os.html#os.scandir); [Python 3.5 release notes](https://docs.python.org/3/whatsnew/3.5.html#pep-471-os-scandir-function-a-better-and-faster-directory-iterator); [PEP 471](https://www.python.org/dev/peps/pep-0471))
 
 `re.fullmatch` checks for a match against the entire input string, not just a substring.  ([docs](https://docs.python.org/3/library/re.html#re.fullmatch); [Python 3.4 release notes](https://docs.python.org/3/whatsnew/3.4.html#re))
@@ -707,6 +709,8 @@ The `logging` module can, _finally_, use `str.format`-style string formatting by
 `types.MappingProxyType` offers a read-only proxy to a dict.  Since it holds a reference to the dict in C, you can return `MappingProxyType(some_dict)` to effectively create a read-only dict, as the original dict will be inaccessible from Python code.  This is the same type used for the `__dict__` of an immutable object.  Note that this has existed in various forms for a while, but wasn't publicly exposed or documented; see my module [`dictproxyhack`](https://pypi.python.org/pypi/dictproxyhack) for something that does its best to work on every Python version.  ([docs](https://docs.python.org/3/library/types.html#types.MappingProxyType); [Python 3.3 release notes](https://docs.python.org/3/whatsnew/3.3.html#types))
 
 `types.SimpleNamespace` is a blank type for sticking arbitrary unstructed attributes to.  Previously, you would have to make a dummy subclass of `object` to do this.  ([docs](https://docs.python.org/3/library/types.html#types.SimpleNamespace); [Python 3.3 release notes](https://docs.python.org/3/whatsnew/3.3.html#simplenamespace))
+
+`weakref.finalize` allows you to add a finalizer function to an arbitrary (weakrefable) object from the "outside", without needing to add a `__del__`.  The `finalize` object will keep itself alive, so there's no need to hold onto it.  ([docs](https://docs.python.org/3/library/weakref.html#weakref.finalize); [Python 3.4 release notes](https://docs.python.org/3/whatsnew/3.4.html#weakref))
 
 ### New modules with backports
 
