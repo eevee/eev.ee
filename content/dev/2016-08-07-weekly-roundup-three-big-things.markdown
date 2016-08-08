@@ -22,7 +22,7 @@ Yeah, we'll see how all that goes.  I also have some vague secondary goals like 
 
 Anyway, this week:
 
-- **blog**: Finished and published posts on [why to use Python 3]({filename}2016-07-31-python-faq-why-should-i-use-python-3.markdown) and [how to port to it]({filename}2016-07-31-python-faq-how-do-i-port-to-python-3.markdown), plus made numerous suggested edits.  Wrote a brief thing about [my frustrations with Pokémon Go]({filename}2016-07-31-i-wish-i-enjoyed-pokémon-go.markdown).  _And_ wrote about [veekun's schema woes]({filename}2016-08-05-storing-pokémon-without-sql.markdown), which helped me reason through a few lingering thorny problems.
+- **blog**: Finished and published posts on [why to use Python 3]({filename}/2016-07-31-python-faq-why-should-i-use-python-3.markdown) and [how to port to it]({filename}/2016-07-31-python-faq-how-do-i-port-to-python-3.markdown), plus made numerous suggested edits.  Wrote a brief thing about [my frustrations with Pokémon Go]({filename}/2016-07-31-i-wish-i-enjoyed-pokémon-go.markdown).  _And_ wrote about [veekun's schema woes]({filename}/2016-08-05-storing-pokémon-without-sql.markdown), which helped me reason through a few lingering thorny problems.
 
     That might be a record for most things I've published within a calendar week.
 
