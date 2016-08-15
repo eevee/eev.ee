@@ -1,7 +1,7 @@
 title: Weekly roundup: three big things
 date: 2016-08-07 17:35
 category: dev
-tags: status
+tags: status, runed awakening, veekun
 
 August is about **video games**.  Actually, the next three months are about video games.  Primary goals and their rough stages:
 
