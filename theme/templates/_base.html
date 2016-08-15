@@ -49,7 +49,7 @@
     {% endif %}
     <meta name="twitter:site" content="@eevee">
     <meta name="twitter:title" content="{{ article.title | striptags }}">
-    <meta name="twitter:description" content="I don't have anything meaningful to put in this field yet so I guess you'd better just click the link!">
+    <meta name="twitter:description" content="{{ article.summary | striptags }}">
     {% endif %}
 </head>
 
