@@ -108,7 +108,7 @@ When you're working on a big feature or bugfix, you develop a little ritual for 
 
 You may have similar rituals just before a big release: run the thing, poke around a bit, try common stuff, be confident that at least the basics work.
 
-These are the _best_ things to test, because you're already testing them!  You can save yourself a lot of anguish if you convert these rituals into code.  As an added benefit, other people can then repeat your rituals without having to understand yours or invent your own, and your test suite will serve as a rough description of what you find most important.
+These are the _best_ things to test, because you're already testing them!  You can save yourself a lot of anguish if you convert these rituals into code.  As an added benefit, other people can then repeat your rituals without having to understand yours or invent their own, and your test suite will serve as a rough description of what you find most important.
 
 Sometimes, this is hard.  Give it a try anyway, even if (especially if) you don't have a test suite at all.
 
