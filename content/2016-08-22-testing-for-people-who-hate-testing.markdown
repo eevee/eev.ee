@@ -273,7 +273,7 @@ You can also write some more specific tests if you give your thing-generator as 
 
 This is kind of an interesting problem.  HTML is more readily inspected than an image; you can parse it, drill down with XPath or CSS selectors or what have you, and check that the right text is in the right places.
 
-But!  You may also want to know that it _looks right_, and that's much more difficult.  The obvious thing is to automate a browser, take a screenshot, and compare it to a known good rendering — all of which will come crumbling down the moment someone adds makes a border one pixel wider.  I don't know if we can do any better, unless we can somehow explain to a computer what "looks right" means.
+But!  You may also want to know that it _looks right_, and that's much more difficult.  The obvious thing is to automate a browser, take a screenshot, and compare it to a known good rendering — all of which will come crumbling down the moment someone makes a border one pixel wider.  I don't know if we can do any better, unless we can somehow explain to a computer what "looks right" means.
 
 Something I'd like to see is an automated sanity check for HTML + CSS.  Lay out the page _without rendering it_ and check for any obvious screwups, like overlapping text or unwanted overflow.  I don't know how much practical use this would be (or whether it already exists), but it seems like a nice easy way to check that you didn't do something catastrophic.  You wouldn't even necessarily need it in your test suite — just plug it into a crawler and throw it at your site.
 
