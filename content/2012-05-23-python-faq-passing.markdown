@@ -92,9 +92,9 @@ def increment(n):
     n = n + 1
 
 i = 1
-print i
+print(i)
 increment(i)
-print i
+print(i)
 ```
 
 Nope; this will just print `1` twice.  Inside the function, assigning to `n` doesn't do anything to the _value_ `n` refers to; it just makes the name, `n`, refer to something else now.  So `n` will be `2`, sure, but then the function ends and `n` goes away and `i` is left unchanged because you never did anything to `i`.
@@ -106,9 +106,9 @@ def lengthen(n):
     n.append(2)
 
 i = [1]
-print i  # [1]
+print(i)  # [1]
 lengthen(i)
-print i  # [1, 2]
+print(i)  # [1, 2]
 ```
 
 In this case, `n` was never reassigned; instead, a method call altered the `value` directly.  It's still the _same list_, and both `n` and `i` refer to it, but the list's contents changed.
@@ -152,9 +152,9 @@ class Incrementer(object):
         self.count += 1
 
 i = Incrementer(1)
-print i.count  # 1
+print(i.count)  # 1
 i.increment()
-print i.count  # 2
+print(i.count)  # 2
 ```
 
 ### Use a mutable object.
