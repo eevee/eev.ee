@@ -45,7 +45,7 @@ These are minor gripes, but minor gripes make a big difference when they apply t
 ```python
 from mymodule import whatever
 
-def test_whatever(self):
+def test_whatever():
     assert whatever() in {1, 2, 3}
 ```
 
