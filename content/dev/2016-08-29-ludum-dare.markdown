@@ -15,7 +15,7 @@ August is loosely about **video games**, but really it's about [three big things
 
 - **hax**: I was still in a mood to dink around with Game Boy stuff, so I added Python 3 support to some relevant tooling and wrote a proof of concept for storing Pokémon maps in Tiled format.
 
-- **blog**: I wrote a thing about [writing tests]({filename}/content/2016-08-22-testing-for-people-who-hate-testing.markdown).
+- **blog**: I wrote a thing about [writing tests]({filename}/2016-08-22-testing-for-people-who-hate-testing.markdown).
 
 - **twitter**: I taught [@perlin\_noise](https://twitter.com/perlin_noise) a few new tricks.
 
@@ -23,7 +23,7 @@ August is loosely about **video games**, but really it's about [three big things
 
 - **gamedev**: I participated in Ludum Dare 36, a 48-hour game jam.  I'd never done LD before, and naturally I picked the only one that has no ratings round (for administrative shuffling reasons).  Oh, well.
 
-    The result was Isaac's Descent, a short puzzle-platformer for the PICO-8.  You can [play it via the web](https://c.eev.ee/isaacs-descent/) (source code included), and I also wrote [a post about it]({filename}/content/2016-08-29-i-entered-ludum-dare-36.markdown).
+    The result was Isaac's Descent, a short puzzle-platformer for the PICO-8.  You can [play it via the web](https://c.eev.ee/isaacs-descent/) (source code included), and I also wrote [a post about it]({filename}/2016-08-29-i-entered-ludum-dare-36.markdown).
 
 ----
 
