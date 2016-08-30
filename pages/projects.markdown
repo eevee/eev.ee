@@ -29,11 +29,24 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 
 <div class="projects-game" markdown="1">
 <div class="projects-game-pic">
+{% photo /media/pages/isaacs-descent.png %}
+</div>
+<div class="projects-game-desc">
+
+[**Isaac's Descent**](https://c.eev.ee/isaacs-descent/): A short puzzle-platformer for the PICO-8, made in 48 hours for [Ludum Dare 36](http://ludumdare.com/compo/).  Source code included.
+
+▸ [blog post]({filename}/content/2016-08-29-i-entered-ludum-dare-36.markdown)
+
+</div>
+</div>
+    
+<div class="projects-game" markdown="1">
+<div class="projects-game-pic">
 {% photo /media/pages/under-construction.png %}
 </div>
 <div class="projects-game-desc">
 
-[**Under Construction**](https://c.eev.ee/under-construction/): A little platformer for the PICO-8, made with [Mel](http://glitchedpuppet.com/) for [Flora](http://floraverse.com/).
+[**Under Construction**](https://c.eev.ee/under-construction/): A little platformer for the PICO-8, made with [Mel](http://glitchedpuppet.com/) for [Flora](http://floraverse.com/).  Source code included.
 
 ▸ [blog post](/blog/2016/05/25/under-construction-our-pico-8-game/)
 
@@ -57,7 +70,7 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 </div>
 <div class="projects-game-desc">
 
-**Throughfare**: The first Doom map I ever published, after some fourteen years of hanging around the Doom modding community.
+**Throughfare**: The first Doom map I ever published, after some fourteen years of hanging around the Doom modding community.  Contains some interesting spatial mechanics.  For Doom II and ZDoom.
 
 ▸ [blog post and separate download](/blog/2016/03/31/i-made-a-doom-level/) · canonically MAP32 of [DUMP 2](http://forum.zdoom.org/viewtopic.php?f=19&t=51072)
 
@@ -82,7 +95,7 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 
 Haven't gotten around to publishing code for these, yet.
 
-* [**@perlin\_noise**](https://twitter.com/perlin_noise): Tweets Perlin noise in a variety of forms.  Currently it's text-only, but who knows what the future will bring?
+* [**@perlin\_noise**](https://twitter.com/perlin_noise): Tweets Perlin noise in a variety of forms: plain text, block drawing text, emoji, and the occasional image or animated GIF.
 
 * [**@unicodeveryword**](https://twitter.com/unicodeveryword): Tweets English words with some Unicode shenanigans applied.
 
