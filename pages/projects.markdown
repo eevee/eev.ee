@@ -35,7 +35,7 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 
 [**Isaac's Descent**](https://c.eev.ee/isaacs-descent/): A short puzzle-platformer for the PICO-8, made in 48 hours for [Ludum Dare 36](http://ludumdare.com/compo/).  Source code included.
 
-▸ [blog post]({filename}/content/2016-08-29-i-entered-ludum-dare-36.markdown)
+▸ [blog post]({filename}/2016-08-29-i-entered-ludum-dare-36.markdown)
 
 </div>
 </div>
