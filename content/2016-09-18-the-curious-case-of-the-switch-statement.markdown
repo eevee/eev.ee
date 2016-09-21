@@ -125,7 +125,7 @@ Curiously, BCPL _also_ had label-type variables, so it seems that `switchon` was
 
 ### 1969: B
 
-K & R came on the scene, and by now we're nearing the history that most computer people are familiar with.  K confused the next three generations' worth of budding programmers by changing assignment from `:=` to `=`, but made up for it by inventing compound assignment operators, but then ruined it again by inventing post/pre-increment/decrement.
+Now we're nearing the history that most computer people are familiar with.  B confused the next three generations' worth of budding programmers by changing assignment from `:=` to `=`, but made up for it by introducing compound assignment operators, but then ruined it again by inventing post/pre-increment/decrement.
 
 The [B manual](https://www.bell-labs.com/usr/dmr/www/kbman.pdf) describes the `switch` statement as "the most complicated statement in B".  The general syntax is `switch EXPR STATEMENT` — the statement doesn't even have to be a block, but _may_ be.  I believe it would look like this:
 
@@ -151,14 +151,12 @@ Oh, and B used `*` for escape characters in strings.  Imagine what might've been
 
 ### 1972: C
 
-And then we had C and that's the end of the story.
-
-(I don't actually own a copy of TCPL, so for all I know, pre-ANSI C might've had a slightly different `switch` statement.  Let me know if so!  Perhaps ANSI C introduced the `break` overload?)
+And then we had C and that's the end of the story.  I don't own a copy of The C Programming Language First Edition (gasp!), but several people have confirmed to me that even the original version of C had the modern `switch` statement, complete with the `break` overload.
 
 
 ## The modern switch statement
 
-As we've seen, the `switch` statement has had basically the same form for 49 years.  The special `case` labels are based on syntax derived directly from fixed-layout FORTRAN on punchcards in 1957, several months before my father was born.
+As we've seen, the canonical `switch` statement has had basically the same form for 49 years.  The special `case` labels are based on syntax derived directly from fixed-layout FORTRAN on punchcards in 1957, several months before my father was born.
 
 ```c
 switch (EXPR) {
@@ -321,7 +319,7 @@ Here's another question: what order is the comparison done in?  That is, given `
 
 ## Alternatives
 
-A few languages have put interesting spins on `switch`.  Here are some I happen to know about.
+A few languages have put interesting spins on `switch`, and they probably have better ideas than I do.  Here are some I happen to know about.
 
 I note that not a single one of these alternatives has default fallthrough.
 
@@ -495,6 +493,8 @@ My least favorite thing is the sprinkle of commas down the right side, which is 
 ### And others
 
 A lot of languages have `switch` statements, but most of them are fairly similar and I'm not going to go through them all!  I'm sure plenty of commenters will mention their favorites.
+
+In particular, the functional programming sphere makes very heavy use of pattern matching, often much more powerfully than Rust.  I believe Ruby's `case` came from Pascal, the Betamax to C's VHS, so it's a glimpse at what we could've had.
 
 
 ## Duff's device
