@@ -224,6 +224,8 @@ If you want to put any of the other notes in, you keep them on the _same line_, 
 {% photo /media/2016-09-15-music/sheet-music-2-d-major.png D major, written without a key signature %}
 {% photo /media/2016-09-15-music/sheet-music-3-d-major-key-signature.png D major, written with a key signature %}
 
+(The notes may not actually be arranged this way, depending on the particular squiggle on the left and its vertical position.)
+
 I...  guess...  that's convenient?  If your music _mostly_ relies on the seven notes from a particular scale, then it's more compact to only have room for seven notes in your sheet music, and adjust the meaning of those notes when necessary...  right?
 
 It completely obscures the relationship between the pitches, though.  You can't even easily tell which scale some sheet music is in, short of memorization.  In the example above, there are ♯s for C and F; what about that is supposed to tell you "D"?
@@ -240,35 +242,53 @@ To fix this, several scales fudge it a bit.  C is one semitone above B, so you c
 
 Now all seven letters are used exactly once.
 
-I don't think I entirely understand this, because it still seems so convoluted to me.  You have to mentally translate that C to a C♯, and _then_ translate the C♯ to however that particular note is actually played on your instrument.What does this accomplish?
+I don't think I entirely understand this, because it still seems so convoluted to me.  You have to mentally translate that C to a C♯, and _then_ translate the C♯ to however that particular note is actually played on your instrument.  What does this accomplish?  It keeps sheet music more compact — seven notes to express per octave rather than twelve — but I can't think of any better reason.
 
-I suppose it's possible to change the sound of an entire piece of music just by changing the key signature, but does anyone actually do that?  How would that work for music that also uses notes outside the scale?  These seem more like questions of composition, which I definitely don't know anything about.
+I suppose it's possible to change the sound of an entire piece of music just by changing the key signature, sometimes without otherwise altering the sheet music at all.  How would that work for music that also uses notes outside the scale, I wonder?  These seem more like questions of composition, which I definitely don't know anything about.
 
 
-## Something, something
+## Something, something, chords
 
-I'm a bit out in the weeds from here on.  C major is identical to A minor, and I don't understand why we need both.
+I'm getting out in the weeds a bit here.
 
-You can construct the major and minor chords by taking the first, third, and fifth note of the major and minor scales.  C major is thus C, E, and G.  Seems like a slightly strange naming convention.
+As I said, major and minor scales come in pairs; every major scale has a relative minor scale with exactly the same set of notes, and vice versa.  So C major is identical to A minor.  Why do we need both?  More importantly, since they both use the same key signature, how can you even say that a piece of music is definitively one or the other?
 
-The "circle of fifths" is a thing, showing all the major and minor scales in a circle — it turns out that if you name and arrange them the right way, each scale has a different number of sharp or flat notes in it, and no scale has both sharps and flats.  Why do some have sharps and some have flats, rather than using the same scheme consistently?  I have no idea.
+A lot of people have tried to explain this to me as being about mood and different sound and whatnot, but that moves the question rather than answering it.  From what I can gather, the real answer is twofold.
 
-Oh, something slightly interesting happens when you compare the major and minor scale based on the same note.
+**One:** music is written against a _key_, which includes both the scale and common _chords_ and maybe some other stuff.  A chord is multiple notes played together, or almost together.  You can construct plenty of different chords, but some really big players are the _major chords_ and _minor chords_, which are the first, third, and fifth notes in a scale.  The C major chord (confusingly written "C") is thus comprised of C, E, and G, whereas the A minor chord (written "Am") is A, C, and E.
+
+Major chords are notes 0, 4, and 7 out of the twelve notes in an octave.  Minor chords are 0, 3, and 7.  The first and last notes in both chords are seven semitones apart — a perfect fifth, that nice 3:2 ratio.  They sound somewhat similar, but because the middle note is slightly lower in a minor chord, it often sounds a little more dramatic or moody.
+
+Speaking of which, something slightly interesting happens when you compare the major and minor scales starting with the same note.  They're very similar, except that three notes are a semitone higher in the major scale.
 
     C major:    C       D       E   F       G       A       B   C
     C minor:    C       D   D#      F       G   G#      A#      C
 
-They're very nearly identical, except that three notes are a semitone higher in the major scale.  Someone linked me an example of [Für Elise being played in A major](https://www.youtube.com/watch?v=Y-rZD2AsHbI), rather than the A minor it was written in.  (But then, if you played it in C major...  it would be the same.  Right?  Christ.)
+Every major and minor scale has seven chords of this form, depending on where you start; the second chord in the C major scale, for instance, is D-F-A, which is D minor.  Yes, minor; it's the same arrangement of notes as the first chord you'll find in the D minor scale.
 
-Also, note with the "same name" might not actually be the same note, depending on how the instrument is tuned; there are various schemes that make certain notes _exact_ integer ratios, not just approximate ones.  And that's the extent of my knowledge there.
+Sometimes you'll see chords written using Roman numerals, with capital letters for major chords and lowercase for minor chords.  The chords of a major scale are I, ii, iii, IV, V, vi, and vii; the chords of a minor scale are i, ii, III, iv, v, VI, and VII.  "I" just means the chord built from the first note, and so on.  This lets you talk about, say, [chord progressions](https://en.wikipedia.org/wiki/I%E2%80%93V%E2%80%93vi%E2%80%93IV_progression) without worrying about any particular key.
 
-Oh, incidentally, integer ratios probably appeal to the human ear because they make waves line up every so often.  Here's what a perfect fifth looks like — the top two tones are A4 and E5, using the not-quite-perfect twelfth root of two.
+Anyway, getting back to why we have both A minor and C major, this brings me to...
+
+**Two:** it's just custom.  Western music tends to be written according to certain conventions, and people versed in those conventions can identify which one was being used.  Music written in C major will often begin and/or end with C or even a C major chord; music written in A minor will often begin and/or end in A or an A minor chord.  As far as I can tell, the two sets of notes aren't fundamentally different in any way, and there's no hard requirement to follow these conventions.
+
+I suppose the advantage is the same as with any convention: your work will be more accessible to others in the same field.  Transposing music between keys, for example, only really makes sense if you can confidently say what the original key is.  Incidentally, someone linked me an example of [Für Elise being played in A major](https://www.youtube.com/watch?v=Y-rZD2AsHbI), rather than the A minor it was written in.  (And if you played it in C major, it would sound like...  uh...  wait, I confused myself.)
+
+It should come as no surprise that all of these conventions have myriad variants.  A _harmonic minor scale_ is a minor scale with its seventh note raised by a semitone.  A _melodic minor scale_ adjusts several notes, but only when "going up", not down.  There are _augmented_ chords (and intervals) whose highest notes are raised by a semitone, and _diminished_ chords (and intervals) whose highest notes are lowered by a semitone.  And on it goes.  All of these things messily overlap and create multiple conflicting names for the same things, because they're attempts to describe human intention rather than an objective waveform.
+
+----
+
+The ["circle of fifths"](https://en.wikipedia.org/wiki/Circle_of_fifths) is a thing, showing all the major and minor scales in a circle — it turns out that if you name and arrange them the right way, each scale has a different number of sharp or flat notes in it, and no scale has both sharps and flats.  The "right way" is to iterate the notes seven semitones at a time (hence "circle of _fifths_"), leading you from C to G to D and so on.  A scale uses sharps or flats depending on which symbol will allow all the notes to be assigned to different letters and thus work nicely on sheet music.  I'm sure there's a modular arithmetic explanation for why this all works out as nicely as it does, but I don't know it offhand.
+
+Oh, and integer ratios probably appeal to the human ear because they make the combined waves line up every so often.  Here's what a perfect fifth looks like — the top two tones are A4 and E5, using the not-quite-perfect twelfth root of two.  Because they're in a nice ratio of 3:2, adding them together creates a repeating set of six waves, which itself resembles a wave.
 
 <div class="prose-full-illustration" markdown="1">
 ![Two waveforms add together to make a regular, repeating pattern]({filename}/media/2016-09-15-music/perfect-fifth.png)
 </div>
 
 (A4 is the A note within octave 4.  Octave 4 starts at middle C, and both are named based on the layout of a piano.  A common reference point for tuning is to set A4 to 440 Hz.)
+
+Finally, notes with the "same name" might not actually be the same note, depending on how the instrument is tuned; various schemes make certain chords have _exact_ integer ratios, not just approximations.  More "fake" notes exist than E♯, too; I hear rumor of such nonsense as G𝄪, "G double sharp", which I would rather call "A".  I suspect these two trivia are related, but I don't quite know how.
 
 These are all the things that I know.  I don't know any more things.
 
@@ -277,9 +297,13 @@ These are all the things that I know.  I don't know any more things.
 
 This has got to be some of the worst jargon and notation for anything, ever.
 
-I only looked into this because I want to compose some music, and I feel completely blocked when I just don't understand a subject at all.  I'm not sure any of this _helped_ in any way, but at least now I'm not left wondering.  Mission accomplished.  I'm going to forget all of this, throw notes around at random, and see what sounds good.  Consensus seems to be that music is largely about handling contrast, just like anything else.
+I only looked into this because I want to compose some music, and I feel completely blocked when I just don't understand a subject at all.  I'm not sure any of this _helped_ in any way, but at least now I'm not left wondering.
 
-If you aren't quite as ready to give up, here's some stuff people linked to me while I was figuring this out in real time on Twitter.
+It seems that everything not expressible purely as math and waves is pretty much arbitrary.  You can pick whatever set of the twelve notes you want and make music with those.  Someone pointed out to me that if you just use the black keys of a piano (i.e. the non-natural notes), you get a [pentatonic scale](https://en.wikipedia.org/wiki/Pentatonic_scale) where nothing can possibly sound bad, because no two notes are closer together than a whole tone.  You can also use pitches outside these twelve notes, as a lot of jazz and non-Western and other not-classically-inspired music does.
+
+I get the feeling that treating the whole chord/key ecosystem as a set of rules is like studying Renaissance paintings and deciding that's how art _is_.  It's not.  Do what you want, if it sounds good.  I'm gonna go try that.  Consensus seems to be that the real heart of music is managing contrast — like every other form of art.
+
+If you aren't quite as ready to abandon the entire Western musical tradition, here's some stuff people linked to me while I was figuring this out in real time on Twitter.
 
 - ["This Week's Finds in Mathematical Physics"](https://web.archive.org/web/20160722080401/http://math.ucr.edu/home/baez/week234.html), some stuff based in group theory
 - ["Music"](http://tobyfox.net/Tutorials/musicdef.html), by Toby Fox, best known for creating the soundtrack to Undertale, and also the rest of Undertale; short and mostly lists the considerations
