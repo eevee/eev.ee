@@ -678,7 +678,7 @@ A number of file format modules, like [`bz2`](https://docs.python.org/3/library/
 
 `inspect.signature` fetches the signature of a function as the new and more featureful `Signature` object.  It also knows to follow the `__wrapped__` attribute set by `functools.wraps` since Python 3.2, so it can see through well-behaved wrapper functions to the "original" signature.  ([docs](https://docs.python.org/3/library/inspect.html#inspect.signature); [Python 3.3 release notes](https://docs.python.org/3/whatsnew/3.3.html#pep-362-function-signature-object); [PEP 362](https://www.python.org/dev/peps/pep-0362))
 
-The `logging` module can, _finally_, use `str.format`-style string formatting by passing `style='{'` to `Formatter`.  ([docs](https://docs.python.org/3/library/logging.html#logging.Formatter); [Python 3.2 release notes](https://docs.python.org/3/whatsnew/3.2.html#logging))
+The `logging` module can use `str.format`-style string formatting in log formats by passing `style='{'` to `Formatter`.  Alas, this is only for assembling the final output; log messages themselves must still use `%` style.  ([docs](https://docs.python.org/3/library/logging.html#logging.Formatter); [Python 3.2 release notes](https://docs.python.org/3/whatsnew/3.2.html#logging))
 
 The `logging` module spits warnings and higher to `stderr` if logging hasn't been otherwise configured.  This means that if your app doesn't use `logging`, but it uses a library that _does_, you'll get actual output rather than the completely useless "No handlers could be found for logger 'foo'".  ([docs](https://docs.python.org/3/library/logging.html#logging.lastResort); [Python 3.2 release notes](https://docs.python.org/3/whatsnew/3.2.html#logging))
 
