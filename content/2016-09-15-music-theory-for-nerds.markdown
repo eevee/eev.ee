@@ -258,7 +258,7 @@ A lot of people have tried to explain this to me as being about mood and differe
 
 **One:** music is written against a _key_, which includes both the scale and common _chords_ and maybe some other stuff.  A chord is multiple notes played together, or almost together.  You can construct plenty of different chords, but some really big players are the _major chords_ and _minor chords_, which are the first, third, and fifth notes in a scale.  The C major chord (confusingly written "C") is thus comprised of C, E, and G, whereas the A minor chord (written "Am") is A, C, and E.
 
-Major chords are notes 0, 4, and 7 out of the twelve notes in an octave.  Minor chords are 0, 3, and 7.  The first and last notes in both chords are seven semitones apart — a perfect fifth, that nice 3:2 ratio.  They sound somewhat similar, but because the middle note is slightly lower in a minor chord, it often sounds a little more dramatic or moody.
+Major chords consist of some _root_ note, the note 4 semitones up from the root, and the note 7 semitones up from the root — less clumsily, {0, 4, 7}.  Minor chords are {0, 3, 7}.  The first and last notes in both chords are seven semitones apart, which is a perfect fifth, that nice 3:2 (ish) ratio.  A major and minor chord with the same root note sound somewhat similar, but because the middle note is slightly lower in a minor chord, it often sounds a little more dramatic or moody.
 
 Speaking of which, something slightly interesting happens when you compare the major and minor scales starting with the same note.  They're very similar, except that three notes are a semitone higher in the major scale.
 
@@ -311,3 +311,6 @@ If you aren't quite as ready to abandon the entire Western musical tradition, he
 - ["Musimathics: The Mathematical Foundations of Music"](https://www.amazon.com/Musimathics-Mathematical-Foundations-Music-Press/dp/0262516551), a $33 book that several people recommended but that I have not yet bought
 - ["How Music Really Works"](http://howmusicreallyworks.com/), a book that brags from the outset that it has no music notation, and offers the first six chapters free; reviews suggest it is particularly helpful for composing, so maybe I should read it sometime
 - ["Combinatorial Music Theory"](http://andrewduncan.net/cmt/), some music theory that appears to have been written by a mathematician who's forgotten how to explain anything without heavy math notation
+- ["The Geometry of Musical Rhythm: What Makes a 'Good' Rhythm Good?"](https://www.amazon.com/Geometry-Musical-Rhythm-What-Makes/dp/1466512024), a book whose title pretty much gives it away
+- [an answer from the music Stack Exchange](http://music.stackexchange.com/questions/43095/tonality-and-rules/43108#43108), which touches on attempts to understand _why_ music theory is the way it is
+- [A Geometry of Music](https://www.amazon.com/dp/0195336674/?tag=stackoverfl08-20), recommended as the best place to start by the above SE answer
