@@ -39,7 +39,7 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 
 </div>
 </div>
-    
+
 <div class="projects-game" markdown="1">
 <div class="projects-game-pic">
 {% photo /media/pages/under-construction.png %}
@@ -52,7 +52,7 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 
 </div>
 </div>
-    
+
 <div class="projects-game" markdown="1">
 <div class="projects-game-pic">
 {% photo /media/pages/dont-eat-cactus.png %}
@@ -93,7 +93,11 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 
 ## Twitter bots
 
-Haven't gotten around to publishing code for these, yet.
+Haven't gotten around to publishing code for most of these, yet.
+
+* [**@calloutbot**](https://twitter.com/calloutbot): Warns you about the dangers of that person you kind of know, based on evidence that is definitely real and exists.
+
+    Hosted on [Cheap Bots Done Quick](http://cheapbotsdonequick.com/).  The [Tracery source](http://cheapbotsdonequick.com/source/calloutbot) is available, but don't look — it'll spoil the magic.
 
 * [**@perlin\_noise**](https://twitter.com/perlin_noise): Tweets Perlin noise in a variety of forms: plain text, block drawing text, emoji, and the occasional image or animated GIF.
 
