@@ -33,9 +33,9 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 </div>
 <div class="projects-game-desc">
 
-[**Isaac's Descent**](https://c.eev.ee/isaacs-descent/): A short puzzle-platformer for the PICO-8, made in 48 hours for [Ludum Dare 36](http://ludumdare.com/compo/).  Source code included.
+[**Isaac's Descent**](https://c.eev.ee/isaacs-descent/): A short puzzle-platformer for the PICO-8, made in 48 hours for [Ludum Dare 36](http://ludumdare.com/compo/).
 
-▸ [blog post]({filename}/2016-08-29-i-entered-ludum-dare-36.markdown)
+▸ [blog post]({filename}/2016-08-29-i-entered-ludum-dare-36.markdown) · [source code](https://c.eev.ee/isaacs-descent/isaac.p8)
 
 </div>
 </div>
@@ -46,9 +46,9 @@ I wrote this iteration of veekun when I was still very new at Python, and the we
 </div>
 <div class="projects-game-desc">
 
-[**Under Construction**](https://c.eev.ee/under-construction/): A little platformer for the PICO-8, made with [Mel](http://glitchedpuppet.com/) for [Flora](http://floraverse.com/).  Source code included.
+[**Under Construction**](https://c.eev.ee/under-construction/): A little platformer for the PICO-8, made along with [Mel](http://glitchedpuppet.com/) for [Flora](http://floraverse.com/).
 
-▸ [blog post](/blog/2016/05/25/under-construction-our-pico-8-game/)
+▸ [blog post](/blog/2016/05/25/under-construction-our-pico-8-game/) · [source code](https://c.eev.ee/under-construction/under-construction.p8)
 
 </div>
 </div>
