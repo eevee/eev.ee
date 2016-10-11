@@ -1,5 +1,5 @@
 title: Weekly roundup: Inktober
-date: 2016-10-09-16:15
+date: 2016-10-09 16:15
 category: dev
 tags: status
 
