@@ -25,12 +25,12 @@ TRANSLATION_FEED_ATOM = None
 # the default theme to be 2-tuples, but I need more info.
 LINKS_EX = ((
     'blog',
-    '/blog/',
+    'blog/',
     '#f6b441', 'category-blog.png',
     "detailed, thoughtful prose about why computers are the worst",
 ), (
     'dev',
-    '/dev/',
+    'dev/',
     '#ee7300', 'category-dev.png',
     "updates on cool things i make",
 ), (
@@ -45,7 +45,7 @@ LINKS_EX = ((
 #    "our house is overrun with them and they are the best",
 #), (
     'everything',
-    '/everything/',
+    'everything/',
     '#c57be6', 'category-everything.png',
     "why limit yourself when you can have it all",
 ))
