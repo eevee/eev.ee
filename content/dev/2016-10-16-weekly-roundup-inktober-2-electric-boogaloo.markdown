@@ -9,9 +9,9 @@ The death march of Inktober continued.
 
     I painted a couple things, which came out surprisingly less bad than I thought; [one to cheer up some pals](https://lexyeevee.tumblr.com/post/151627609627/some-egg-friends-who-may-need-a-little-cheering-up) and [one emulating](https://lexyeevee.tumblr.com/post/151720344217/i-tried-to-reproduce-some-fine-glip-artwork-from) some [old art of Mel's](https://twitter.com/eevee/status/786065394683547652).
 
-  I also drew some [ridiculous](https://twitter.com/eevee/status/785303292834263041) [nonsense](https://twitter.com/eevee/status/785906757335855104).
+    I also drew some [ridiculous](https://twitter.com/eevee/status/785303292834263041) [nonsense](https://twitter.com/eevee/status/785906757335855104).
 
-  I went through my collection of sketchbooks, many of which were impulse purchases from before I was even trying to draw (just because I like fresh paper) and are completely blank.  I found a couple with very old art in them, which was interesting and embarrassing.  I found out I can [doodle on paper much better than I thought](https://twitter.com/eevee/status/787851843313410048), so I'll probably be doing that more.
+    I went through my collection of sketchbooks, many of which were impulse purchases from before I was even trying to draw (just because I like fresh paper) and are completely blank.  I found a couple with very old art in them, which was interesting and embarrassing.  I found out I can [doodle on paper much better than I thought](https://twitter.com/eevee/status/787851843313410048), so I'll probably be doing that more.
 
 - **blog**: I finished and published [a post about Doom's weird sense of scale]({filename}/2016-10-10-doom-scale.markdown).  Halfway through the month and I'm caught up, so now I only have to do the normal amount of work in half the time, while also drawing a lot.  Er, whoops.
 
