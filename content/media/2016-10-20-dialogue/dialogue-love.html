@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf8">
+        <style type="text/css">
+            html, body {
+                width: 100%;
+                height: 100%;
+                min-height: 100%;
+                margin: auto;
+            }
+            html {
+                background: #404040;
+                color: white;
+            }
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                font-family: monospace;
+            }
+            #target {
+                padding: 0.25em 0.5em;
+                height: 6em;
+                width: 20em;
+                background: #202020;
+                border: 1px solid black;
+                box-shadow: 2px black;
+                color: white;
+
+                /* Important for making hard breaks work */
+                white-space: pre-wrap;
+            }
+        </style>
+        <script>
+            (function() {
+                "use strict";
+                var TEXT = "Demonstrating inadequate word-wrapping functionality necessitates conspicuously verbose representative scripture.";
+                var SPEED = 8;  // characters per second
+
+                function init() {
+                    // This is hard in JavaScript, so just pretend there's
+                    // an API to do it for us
+                    //var lines = magical_word_wrap_api(TEXT);
+                    var lines = [
+                        "Demonstrating inadequate",
+                        "word-wrapping functionality",
+                        "necessitates conspicuously verbose",
+                        "representative scripture."
+                    ];
+                    TEXT = lines.join('\n');
+                }
+
+                // Number of characters currently visible
+                var cursor = 0;
+                // Elapsed time * SPEED, so every time this value increases by
+                // 1, one more character should be displayed
+                var timer = 0;
+                function update(dt) {
+                    timer += dt * SPEED;
+                    while (timer >= 1 && cursor < TEXT.length) {
+                        // Don't count spaces as characters
+                        if (TEXT.charAt(cursor).match(/\S/)) {
+                            timer -= 1;
+                        }
+
+                        cursor += 1;
+                    }
+
+                    var el = document.getElementById('target');
+                    el.textContent = TEXT.substr(0, cursor);
+
+                    // Stop updating once we run out of text
+                    if (cursor >= TEXT.length) {
+                        return false;
+                    }
+                }
+
+                // This is just a little wrapper for writing a more traditional
+                // game-loop update() function, instead of the slightly goofy
+                // JavaScript API that (a) gives you a time instead of a delta
+                // and (b) requires you to explicitly ask to be called again
+                // next frame.
+                var _requestAnimationFrame = (
+                    window.requestAnimationFrame ||
+                    window.mozRequestAnimationFrame ||
+                    window.webkitRequestAnimationFrame);
+                function run_in_update_loop(func) {
+                    var last_time = window.performance.now();
+                    function wrapper(ts) {
+                        var dt = (ts - last_time) / 1000;
+                        var ret = func(dt);
+                        if (ret === false) {
+                            return;
+                        }
+                        last_time = ts;
+                        _requestAnimationFrame(wrapper);
+                    }
+                    return _requestAnimationFrame(wrapper);
+                }
+
+                // Once we're loaded, start calling update()
+                window.addEventListener('load', function() {
+                    init();
+                    run_in_update_loop(update);
+                });
+                // Quick reload by double-clicking
+                window.addEventListener('dblclick', function() {
+                    window.location.reload();
+                });
+            })();
+        </script>
+    </head>
+    <body>
+        <div id="target"></div>
+    </body>
+</html>

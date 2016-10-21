@@ -138,6 +138,9 @@ PAGE_PATHS = ['../pages/']
 PATH_METADATA = '../pages/(?P<fullpath>.+)[.].+'
 STATIC_PATHS = ['favicon.png', 'media/', 'dev/media/']
 
+# Leave .html alone; I only use it for static attachments, not posts
+READERS = dict(html=None)
+
 # For the landing page
 TEMPLATE_PAGES = {
     '../theme/templates/home.html': 'index.html',

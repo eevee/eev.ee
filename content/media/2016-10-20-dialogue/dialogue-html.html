@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf8">
+        <style type="text/css">
+            html, body {
+                width: 100%;
+                height: 100%;
+                min-height: 100%;
+                margin: auto;
+            }
+            html {
+                background: #404040;
+                color: white;
+            }
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                font-family: monospace;
+            }
+            #target {
+                padding: 0.25em 0.5em;
+                height: 6em;
+                width: 20em;
+                background: #202020;
+                border: 1px solid black;
+                box-shadow: 2px black;
+                color: white;
+            }
+
+            /* Used for scrolling text that isn't yet visible */
+            /* DO NOT use display: none; here! */
+            .js-invisible {
+                visibility: hidden;
+            }
+        </style>
+        <script>
+            (function() {
+                "use strict";
+                var TEXT = "Demonstrating inadequate word-wrapping functionality necessitates conspicuously verbose representative scripture.";
+                var SPEED = 8;  // characters per second
+
+                // The first invisible letter <span>
+                var next_letter = null;
+
+                function init() {
+                    var el = document.getElementById('target');
+
+                    // Setup: populate the element with the entire phrase,
+                    // split into characters, each wrapped in a <span>
+                    var i = 0;
+                    while (i < TEXT.length) {
+                        var span = document.createElement('span');
+                        span.classList.add('js-invisible');
+                        span.textContent = TEXT.charAt(i);
+                        el.appendChild(span);
+                        i += 1;
+
+                        // Also include any following whitespace
+                        var ch;
+                        while ((ch = TEXT.charAt(i)) == " ") {
+                            span.textContent += ch;
+                            i += 1;
+                        }
+                    }
+
+                    next_letter = el.firstChild;
+                }
+
+                // Elapsed time * SPEED, so every time this value increases by
+                // 1, one more character should be displayed
+                var timer = 0;
+                function update(dt) {
+                    timer += dt * SPEED;
+                    while (timer >= 1) {
+                        timer -= 1;
+                        next_letter.classList.remove('js-invisible');
+                        next_letter = next_letter.nextSibling;
+
+                        // Stop updating once we run out of text
+                        if (next_letter == null) {
+                            return false;
+                        }
+                    }
+                }
+
+                // This is just a little wrapper for writing a more traditional
+                // game-loop update() function, instead of the slightly goofy
+                // JavaScript API that (a) gives you a time instead of a delta
+                // and (b) requires you to explicitly ask to be called again
+                // next frame.
+                var _requestAnimationFrame = (
+                    window.requestAnimationFrame ||
+                    window.mozRequestAnimationFrame ||
+                    window.webkitRequestAnimationFrame);
+                function run_in_update_loop(func) {
+                    var last_time = window.performance.now();
+                    function wrapper(ts) {
+                        var dt = (ts - last_time) / 1000;
+                        var ret = func(dt);
+                        if (ret === false) {
+                            return;
+                        }
+                        last_time = ts;
+                        _requestAnimationFrame(wrapper);
+                    }
+                    return _requestAnimationFrame(wrapper);
+                }
+
+                // Once we're loaded, start calling update()
+                window.addEventListener('load', function() {
+                    init();
+                    run_in_update_loop(update);
+                });
+                // Quick reload by double-clicking
+                window.addEventListener('dblclick', function() {
+                    window.location.reload();
+                });
+            })();
+        </script>
+    </head>
+    <body>
+        <div id="target"></div>
+    </body>
+</html>
