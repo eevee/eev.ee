@@ -23,7 +23,7 @@
         {% for page in PAGES %}
             {{ _render_link(
                 title=page.metadata.get('home-title', page.title),
-                url=SITEURL + "/" + page.url,
+                url=page.url,
                 color=page.metadata.get('home-color'),
                 image=page.metadata.get('home-image'),
                 desc=page.metadata.get('home-desc', ''),
