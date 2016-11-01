@@ -13,7 +13,7 @@ Inktober is _over_!  Oh my god.
 
 - **doom**: I made a few [speedmaps](https://twitter.com/eevee/status/791040513197559808) — maps based on [random themes](http://www.jmickle.com/genrerator/maptheme.html) and made in an hour (or so).  It was a fun and enlightening experience, and I'll definitely do some more of it.
 
-- **blog**: I wrote about [game accessibility](2016-10-29-accessible-games.markdown), which touched on those speedmaps.
+- **blog**: I wrote about [game accessibility]({filename}/2016-10-29-accessible-games.markdown), which touched on those speedmaps.
 
 - **mario maker**: One of the level themes I got was "The Wreckage", and I didn't know how to speedmap that in Doom in only an hour, but it sounded like an interesting concept for [a Mario level]({filename}/dev/2016-11-01-mario-maker-the-wreck.markdown).
 
