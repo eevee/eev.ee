@@ -31,7 +31,7 @@ With one week down, so far I'm at **+8077** words.  I got off to a pretty slow (
 
     I posted a little "what type am I" meme on Twitter and [drew some of the interesting responses](https://twitter.com/eevee/status/794346667159891969).  I intended to draw a couple more, but then I got knocked on my ass and my brain stopped working.  I still might get back to them later.
 
-- **blog**: I posted an [extremely thorough teardown of JavaScript]({filename}/content/2016-10-31-javascript-a-horror-story.markdown).  That might be cheating, but it's okay, because I love cheating.
+- **blog**: I posted an [extremely thorough teardown of JavaScript]({filename}/2016-10-31-javascript-a-horror-story.markdown).  That might be cheating, but it's okay, because I love cheating.
 
     Wrote a whole lot about Java.
 
@@ -43,6 +43,6 @@ With one week down, so far I'm at **+8077** words.  I got off to a pretty slow (
 
 - **book**: I'm working on the PICO-8 chapter, since I've actually finished the games it describes.  I'm having to speedily reconstruct the story of how I wrote Under Construction, which is interesting.  I hope it still comes out like a story and not a tutorial.
 
-As for the [three big things]({filename}/content/dev/2016-08-07-weekly-roundup-three-big-things.markdown), well, they sort of went down the drain.  I thought they might; I don't tend to be very good at sticking with the same thing for a long and contiguous block of time.  I'm still making steady progress on all of them, though, and I did some other interesting stuff in the last three months, so I'm satisfied regardless.
+As for the [three big things]({filename}/dev/2016-08-07-weekly-roundup-three-big-things.markdown), well, they sort of went down the drain.  I thought they might; I don't tend to be very good at sticking with the same thing for a long and contiguous block of time.  I'm still making steady progress on all of them, though, and I did some other interesting stuff in the last three months, so I'm satisfied regardless.
 
 With November devoted almost exclusively to writing, I'm really hoping I can finally have a draft chapter of the book ready for Patreon by the end of the month.  That $4 tier has kinda been languishing, sorry.
