@@ -19,9 +19,9 @@ Explaining the discrepancy to people who want to use Perl 6 is technically corre
 
 I feel the need to respond to [this][article 1] [series][article 2] of [blog][article 3] [posts][article 4] [about][article 5] [Perl 6][article 6], whether it should be renamed, and what the implications are for Perl 5.
 
-I'm a Perl guy.  I've been using Perl since I was _eleven_.  I got paid to write Perl for the past four-and-a-bit years.  Let's pretend I'm qualified to say anything here.
+I'm a Perl person.  I've been using Perl since I was _eleven_.  I got paid to write Perl for the past four-and-a-bit years.  Let's pretend I'm qualified to say anything here.
 
-A confession: I wince when I call myself a "Perl guy".  I think it makes me sound crusty and obsolete.  Because Perl 5 is crusty and obsolete.
+A confession: I wince when I call myself a "Perl person".  I think it makes me sound crusty and obsolete.  Because Perl 5 is crusty and obsolete.
 
 Who is using Perl for new software?  Besides a couple grumpy nerds I know personally, I haven't the slightest clue—and I sort of pay attention to Perl.  I have zero interest in Java or .NET, but I'm still dimly aware that things are _built_ with them.  I can't tell you what Perl is actually being used for besides all the cool new modules on CPAN designed to make Perl suck less.
 
