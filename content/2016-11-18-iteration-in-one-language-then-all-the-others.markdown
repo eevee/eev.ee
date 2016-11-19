@@ -1126,6 +1126,6 @@ Handily, it turns out that the above languages pretty much cover the basic ways 
 
 - Rust has an entire (extremely well-documented) [`iter` module](https://doc.rust-lang.org/stable/std/iter/index.html) with numerous iterators and examples of how to create your own.  The core of the [`Iterator` trait](https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html) is just a `next` method which returns `None` when exhausted.  It also has a lot of handy Ruby-like chainable methods, so working directly with iterators is more common in Rust than in Python.
 
-- Swift also has (well-documented) [simple `next`-based iterators](https://developer.apple.com/reference/swift/iteratorprotocol), though these return `nil` when exhausted, which means (like Lua) that an iterator cannot produce `nil` as a value.  (This isn't the case with Rust, where `next` returns an `Option<T>` — a valid `None` would be returned as `Some(None)`.)
+- Swift also has (well-documented) [simple `next`-based iterators](https://developer.apple.com/reference/swift/iteratorprotocol), which return `nil` when exhausted, effectively the same API as Rust.
 
-I could probably keep finding more languages indefinitely, so I'm gonna take a break from this now.
+I could probably keep finding more subsequent languages indefinitely, so I'm gonna take a break from this now.
