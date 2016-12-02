@@ -3,17 +3,17 @@ date: 2016-12-01 03:51
 category: blog
 tags: tech, plt
 
-Ah, C.  The best _lingua franca_ language we have...  because we have no other lingua franca languages.
+Ah, C.  The best _lingua franca_ we have...  because we have no other lingua francas.  Linguae franca.  Surgeons general?
 
 C is fairly old — 44 years, now! — and comes from a time when there were possibly more architectures than programming languages.  It works well for what it is, and what it is is a relatively simple layer of indirection atop assembly.
 
-Alas, the popularity of C has led to a number of programming languages' taking significant cues from its design, and parts of its design are...  slightly questionable.  I've gone through some common features that probably should've stayed in C and my justification for saying so.  The features are listed in rough order from (I hope) least to most controversial.  The idea is that C fans will give up when I complain about argument order and not even get to the part where I rag on braces.  Wait, crap, I gave it away.
+Alas, the popularity of C has led to a number of programming languages' taking significant cues from its design, and parts of its design are...  slightly questionable.  I've gone through some common features that probably should've stayed in C and my justification for saying so.  The features are listed in rough order from (I hope) least to most controversial.  The idea is that C fans will give up when I call it "weakly typed" and not even get to the part where I rag on braces.  Wait, crap, I gave it away.
 
 <!-- more -->
 
 I've listed some languages that do or don't take the same approach as C.  Plenty of the listed languages have no relation to C, and some even predate it — this is meant as a cross-reference of the landscape (and perhaps a list of prior art), not a genealogy.  The language selections are arbitrary and based on what I could cobble together from documentation, experiments, Wikipedia, and attempts to make sense of [Rosetta Code](https://rosettacode.org/).  I don't know everything about all of them, so I might be missing some interesting quirks.  Things are especially complicated for very old languages like COBOL or Fortran, which by now have numerous different versions and variants and de facto standard extensions.
 
-"Bash" generally means zsh and ksh and other derivatives as well, and when referring to expressions, means the `$(( ... ))` syntax; "Unix shells" means Bourne and thus almost certainly everything else as well.  I didn't look too closely into, say, fish.  Unqualified "Python" means both 2 and 3; likewise, unqualified "Perl" means both 5 and 6.  Also some of the puns are perhaps a little too obtuse, but the first group listed is always C-like.
+"Unix shells" means some handwaved combination that probably includes bash and its descendants; for expressions, it means the `(( ... ))` syntax.  I didn't look too closely into, say, fish.  Unqualified "Python" means both 2 and 3; likewise, unqualified "Perl" means both 5 and 6.  Also some of the puns are perhaps a little too obtuse, but the first group listed is always C-like.
 
 
 ## Textual inclusion
@@ -94,11 +94,11 @@ Honestly, if your language is any higher-level than C, I'm not sure bit operator
 
 Quick test: `1 & 2 == 2` evaluates to 1 with C precedence, false otherwise.  Or just look at a precedence table: if equality appears _between_ bitwise ops and other math ops, that's C style.
 
-**A bit wrong:** C#, D, expr, JavaScript, Perl 5, PHP.
+**A bit wrong:** D, expr, JavaScript, Perl 5, PHP.
 
-**Wisened up:** Bash, F# (ops are `&&&` `|||` `^^^`), Go, Julia, Lua (bitwise ops are new in 5.3), Perl 6 (ops are `?&` `?|` `?^`), Python, Ruby, SQL, Swift.
+**Wisened up:** F# (ops are `&&&` `|||` `^^^`), Go, Julia, Lua (bitwise ops are new in 5.3), Perl 6 (ops are `+&` `+|` `+^`), Python, Ruby, Rust, SQL, Swift, Unix shells.
 
-**Special mention:** Java has C's precedence, but forbids using bitwise operators on booleans, so the quick test is a compile-time error.  Lisp-likes have no operator precedence.
+**Special mention:** C# and Java have C's precedence, but forbid using bitwise operators on booleans, so the quick test is a compile-time error.  Lisp-likes have no operator precedence.
 
 
 ## Negative modulo
@@ -109,7 +109,7 @@ The modulo operator, `%`, finds the remainder after division.  Thus you might th
 0 <= a % b < abs(b)
 ```
 
-But no — if `a` is negative, C will produce a negative value.  This is so `a / b * b + a % b` is always equal to `a`.  Truncating integer division rounds _towards zero_, so the sign of `a % b` always needs to be away from zero.
+But no — if `a` is negative, C will produce a negative value.  (Well, since C99; before that it was unspecified, which is probably worse.)  This is so `a / b * b + a % b` is always equal to `a`.  Truncating integer division rounds _towards zero_, so the sign of `a % b` always needs to be away from zero.
 
 I've never found this behavior (or the above equivalence) useful.  An easy example is that checking for odd numbers with `x % 2 == 1` will fail for negative numbers, which produce -1.  But the opposite behavior can be pretty handy.
 
@@ -130,7 +130,7 @@ Positive `%` effectively lets you _choose_ whether to round up or down.  It does
 
 Quick test: `-5 % 3` is -2 with C semantics, 1 with "positive" semantics.
 
-**Leftovers:** Bash, C#, D, expr, Go, Java, JavaScript, OCaml, PowerShell, PHP, Rust, Scala, SQL, Swift, VimL, Visual Basic.  Notably, some of these languages don't even _have_ integer division.
+**Leftovers:** C#, D, expr, Go, Java, JavaScript, OCaml, PowerShell, PHP, Rust, Scala, SQL, Swift, Unix shells, VimL, Visual Basic.  Notably, some of these languages don't even _have_ integer division.
 
 **Paying dividends:** Dart, MUMPS (`#`), Perl, Python, R (`%%`), Ruby, Smalltalk (`\\\\`), Standard ML, Tcl.
 
@@ -149,13 +149,13 @@ Three: to confuse people when they write `018` and get a syntax error.
 
 If you absolutely must have octal (?!) in your language, it's fine to use `0o777`.  Really.  No one will mind.  Or you can go the whole distance and allow literals written in _any_ base, as several languages do.
 
-**Gets a zero:** awk (gawk only), Bash, Clojure, Go, Groovy, Java, JavaScript, m4, Perl 5, PHP, Python 2, Scala.
+**Gets a zero:** awk (gawk only), Clojure, Go, Groovy, Java, JavaScript, m4, Perl 5, PHP, Python 2, Unix shells.
 
-**G0od:** ECMAScript 6, Eiffel (`0c` — cute!), F#, Haskell, Julia, Nemerle, Nim, OCaml, Perl 6, Python 3, Racket (`#o`), Ruby, Scheme (`#o`), Swift, Tcl.
+**G0od:** ECMAScript 6, Eiffel (`0c` — cute!), F#, Haskell, Julia, Nemerle, Nim, OCaml, Perl 6, Python 3, Ruby, Rust, Scheme (`#o`), Swift, Tcl.
 
 **Based literals:** Ada (`8#777#`), Bash (`8#777`), Erlang (`8#777`), Icon (`8r777`), J (`8b777`), Perl 6 (`:8<777>`), PostScript (`8#777`), Smalltalk (`8r777`).
 
-**Special mention:** BASIC uses `&O` and `&H` prefixes for octal and hex.  bc and Forth allow the base used to interpret literals to be changed on the fly, via `ibase` and `BASE` respectively.  C#, D, expr, Lua, and Standard ML have no octal literals at all.  Some COBOL extensions use `O#` and `H#`/`X#` prefixes for octal and hex.  Fortran uses the slightly odd `O'777'` syntax.  
+**Special mention:** BASIC uses `&O` and `&H` prefixes for octal and hex.  bc and Forth allow the base used to interpret literals to be changed on the fly, via `ibase` and `BASE` respectively.  C#, D, expr, Lua, Scala, and Standard ML have no octal literals at all.  Some COBOL extensions use `O#` and `H#`/`X#` prefixes for octal and hex.  Fortran uses the slightly odd `O'777'` syntax.  
 
 
 ## No power operator
@@ -166,7 +166,7 @@ If you're willing to ditch the bitwise operators (or lessen their importance a b
 
 **Powerless:** ACS, C#, Eiffel, Erlang, expr, Forth, Go.
 
-**Two out of two stars:** Ada, ALGOL (`↑` works too), Bash, COBOL, CoffeeScript, Fortran, F#, Groovy, OCaml, Perl, PHP, Python, Ruby.
+**Two out of two stars:** Ada, ALGOL (`↑` works too), COBOL, CoffeeScript, ECMAScript 7, Fortran, F#, Groovy, OCaml, Perl, PHP, Python, Ruby, Unix shells.
 
 **I tip my hat:** awk, BASIC, bc, COBOL, fish, Lua.
 
@@ -183,20 +183,20 @@ I said in my [previous post about iteration]({filename}/2016-11-18-iteration-in-
 
 **Loopy:** ACS, bc, Fortran.
 
-**Cool and collected:** C#, Clojure, D, Delphi (recent), Eiffel (recent), Go, Groovy, Icon, Inform 7, Java, Julia, Logo, Lua, Nemerle, Nim, Objective-C, Perl, PHP, PostScript, Prolog, Python, R, Rust, Scala, Smalltalk, Swift, Tcl, Unix shells, Visual Basic.
+**Cool and collected:** C#, Clojure, D, Delphi (recent), ECMAScript 6, Eiffel (recent), Go, Groovy, Icon, Inform 7, Java, Julia, Logo, Lua, Nemerle, Nim, Objective-C, Perl, PHP, PostScript, Prolog, Python, R, Rust, Scala, Smalltalk, Swift, Tcl, Unix shells, Visual Basic.
 
-**Special mention:** Functional languages and Lisps are laughing at the rest of us here.  awk has `for...in`, but it doesn't iterate arrays in order which makes it rather less useful.  JavaScript has _both_ `for...in` and `for...of`, but both are differently broken, so you usually end up using C-style `for` or external iteration.  BASIC has an ergonomic numeric loop, but no iteration loop.  Ruby mostly uses external iteration, and its `for` block is actually expressed in those terms.
+**Special mention:** Functional languages and Lisps are laughing at the rest of us here.  awk has `for...in`, but it doesn't iterate arrays in order which makes it rather less useful.  JavaScript (pre ES6) has _both_ `for...in` and `for each...in`, but both are differently broken, so you usually end up using C-style `for` or external iteration.  BASIC has an ergonomic numeric loop, but no iteration loop.  Ruby mostly uses external iteration, and its `for` block is actually expressed in those terms.
 
 
 ## Switch with default fallthrough
 
 We've [been through this before]({filename}/2016-09-18-the-curious-case-of-the-switch-statement.markdown#some-objections).  Wanting completely separate code per `case` is, by far, the most common thing to want to do.  It makes no sense to have to explicitly opt _out_ of the more obvious behavior.
 
-**Breaks my heart:** C#, Java, JavaScript.
+**Breaks my heart:** Java, JavaScript.
 
 **Follows through:** Ada, BASIC, CoffeeScript, Go (has a `fallthrough` statement), Lisps, Swift (has a `fallthrough` statement), Unix shells.
 
-**Special mention:** D requires `break`, but requires _something_ one way or the other — implicit fallthrough is disallowed except for empty `case`s.  Perl 5 historically had no `switch` block built in, but it comes with a [Switch](http://perldoc.perl.org/5.8.8/Switch.html) module, and the last seven releases have had an [experimental `given` block](http://perldoc.perl.org/perlsyn.html#Switch-Statements) which I stress is _still_ experimental.  Python has no `switch` block.  Erlang, Haskell, and Rust have pattern-matching instead (which doesn't allow fallthrough at all).
+**Special mention:** C# and D require `break`, but require _something_ one way or the other — implicit fallthrough is disallowed except for empty `case`s.  Perl 5 historically had no `switch` block built in, but it comes with a [Switch](http://perldoc.perl.org/5.8.8/Switch.html) module, and the last seven releases have had an [experimental `given` block](http://perldoc.perl.org/perlsyn.html#Switch-Statements) which I stress is _still_ experimental.  Python has no `switch` block.  Erlang, Haskell, and Rust have pattern-matching instead (which doesn't allow fallthrough at all).
 
 
 ## Type first
@@ -243,9 +243,11 @@ This is easy to parse, both for a human and a computer.  The thing before the co
 
 Of course, languages with no type declarations whatsoever are immune to this problem.
 
-**Most vexing:** Java, Perl 6
+**Most vexing:** ACS, ALGOL, C#, D (though `[]` goes on the type), Fortran, Java, Perl 6.
 
-**Looks Lovely:** Python 3 (annotation syntax and the `typing` module), Rust, Swift, TypeScript
+**Looks Lovely:** Ada, Boo, F#, Go, Python 3 (via annotation syntax and the `typing` module), Rust, Swift, TypeScript.
+
+**Special mention:** BASIC uses trailing type sigils to indicate scalar types.
 
 
 ## Weak typing
@@ -258,11 +260,11 @@ This one is pretty clearly a spectrum, and I don't have a clear line.  For examp
 
 I _do_ count a combined addition/concatenation operator that accepts different types of arguments as a form of weak typing.
 
-**Weak:** JavaScript (`+`), Unix shells (everything's a string, but even arrays/scalars are somewhat interchangeable)
+**Weak:** JavaScript (`+`), PHP, Unix shells (almost everything's a string, but even arrays/scalars are somewhat interchangeable).
 
-**Strong:** Rust (even numeric upcasts must be explicit).
+**Strong:** F#, Go (explicit numeric casts), Haskell, Python, Rust (explicit numeric casts).
 
-**Special mention:** Perl 5 is weak, _but_ it avoids most of the ambiguity by having entirely separate sets of operators for string vs numeric operations.  Python 2 is mostly strong, but that whole interchangeable bytes/text thing sure caused some ruckus.
+**Special mention:** ACS only has integers; even fixed-point values are stored in integers, and the compiler has no notion of a fixed-point type, making it the weakest language imaginable.  Perl 5 is weak, _but_ it avoids most of the ambiguity by having entirely separate sets of operators for string vs numeric operations.  Python 2 is mostly strong, but that whole interchangeable bytes/text thing sure caused some ruckus.  Tcl only has strings.
 
 
 ## Integer division
@@ -277,11 +279,11 @@ To be fair, C is pretty consistent about making math operations always produce a
 
 Quick test: `7 / 2` is 3½, not 3.
 
-**Integrous:** Bash, bc, C#, D, expr, F#, Fortran, Go, OCaml, Python 2, Ruby, Rust (hard to avoid).
+**Integrous:** bc, C#, D, expr, F#, Fortran, Go, OCaml, Python 2, Ruby, Rust (hard to avoid), Unix shells.
 
 **Afloat:** awk (no integers), Clojure (produces a rational!), Groovy, JavaScript (no integers), Lua (no integers until 5.3), Nim, Perl 5 (no integers), Perl 6, PHP, Python 3.
 
-**Special mention:** Haskell disallows `/` on integers.  Nim, Perl 6, Python, and probably others have separate integral division operators: `div`, `div`, and `//`, respectively.
+**Special mention:** Haskell disallows `/` on integers.  Nim, Haskell, Perl 6, Python, and probably others have separate integral division operators: `div`, `div`, `div`, and `//`, respectively.
 
 
 ## Bytestrings
@@ -298,25 +300,27 @@ Also, it doesn't matter _how_ you solve this problem, as long as it appears to b
 
 Quick test: what's the length of "💩"?  If 1, you have real unencoded strings.  If 2, you have UTF-16 strings.  If 4, you have UTF-8 strings.  If something else, I don't know what the heck is going on.
 
-**Totally bytes:** Lua, Python 2 (separate `unicode` type).
+**Totally bytes:** Go, Lua, Python 2 (separate `unicode` type).
 
 **Comes up short:** Java, JavaScript.
 
-**One hundred emoji:** Python 3, Ruby, Rust.
+**One hundred emoji:** Python 3, Ruby, Rust, Swift (even gets combining characters right!).
 
 **Special mention:** Perl 5 gets the quick test right if you put `use utf8;` at the top of the file, but Perl 5's Unicode support is such a [confusing clusterfuck](http://perldoc.perl.org/perlunicode.html) that I can't really give it a 💯.
 
+Hmm.  This one is kind of hard to track down for sure without either knowing a lot about internals or installing fifty different interpreters/compilers.
 
 
-## Autoincrement and autodecrement
+
+## Increment and decrement
 
 I don't think there are too many compelling reasons to have `++`.  It means the same as `+= 1`, which is still nice and short.  The only difference is that people can do stupid unreadable tricks with `++`.
 
 One exception: it _is_ possible to overload `++` in ways that don't make sense as `+= 1` — for example, C++ uses `++` to advance iterators, which may do any arbitrary work under the hood.
 
-**Double plus ungood:**
+**Double plus ungood:** ACS, awk, C#, D, Go, Java, JavaScript, Perl, Unix shells, Vala.
 
-**Double plus good:** Python
+**Double plus good:** Lua (which doesn't have `+=` either), Python, Ruby, Rust, Swift (removed in v3).
 
 **Special mention:** Perl 5 and PHP both allow `++` on strings, in which case it increments letters or something, but I don't know if much real code has ever used this.
 
@@ -352,7 +356,7 @@ Interestingly enough, C95 specifies `and`, `or`, `not`, and [some others](http:/
 
 **Spelled out:** Ada, ALGOL, BASIC, COBOL, Erlang, F#, Fortran, Haskell, Lisps, Lua, Nim, OCaml, Pascal, PostScript, Python, Smalltalk, Standard ML.
 
-**Special mention:** APL and Julia both use `~`, which is at least easier to pick out, which is more than I can say for most of APL.  bc and expr, which are really calculators, have no concept of Boolean operations.  Forth and Icon, which are not calculators, don't seem to either.  Perl and Ruby have _both_ symbolic and named Boolean operators (Perl 6 has even more), with _different precedence_ (which inside `if` won't matter), but I believe the named forms are preferred.
+**Special mention:** APL and Julia both use `~`, which is at least easier to pick out, which is more than I can say for most of APL.  bc and expr, which are really calculators, have no concept of Boolean operations.  Forth and Icon, which are not calculators, don't seem to either.  Perl and Ruby have _both_ symbolic and named Boolean operators (Perl 6 has even more), with _different precedence_ (which inside `if` won't matter); I believe Perl 5 prefers the words and Ruby prefers the symbols.
 
 
 ## Single return and out parameters
@@ -417,9 +421,9 @@ This is still better than either out parameters or returning an explicit struct 
 
 **Half-assed multiple return:** C++11, D, ECMAScript 6, Erlang, PHP.
 
-**Multiple return via tuples:** F#, Go, Haskell, Julia, Nemerle, Nim, OCaml, Perl (just lists really), Python, Ruby, Rust, Scala, Standard ML, Swift, Tcl.
+**Multiple return via tuples:** F#, Haskell, Julia, Nemerle, Nim, OCaml, Perl (just lists really), Python, Ruby, Rust, Scala, Standard ML, Swift, Tcl.
 
-**Native multiple return:** Common Lisp, Lua.
+**Native multiple return:** Common Lisp, Go, Lua.
 
 **Special mention:** Forth is stack-based, and all return values are simply placed on the stack, so multiple return isn't a special case.  Unix shell functions don't return values.  Visual Basic sets a return value by assigning to the function's name (?!), so good luck fitting multiple return in there.
 
@@ -432,13 +436,13 @@ Returning an error code kinda sucks.  Those tend to be important, but nothing in
 
 There are several alternatives here: exceptions, statically forcing the developer to check for an error code, or using something monad-like to statically force the developer to distinguish between an error and a valid return value.  Probably some others.  In the end I was surprised by how many languages went the exception route.
 
-**Quietly wrong:** Unix shells.  Wow, yeah, I'm having a hard time naming anything else.  Good job, us!
+**Quietly wrong:** Unix shells.  Wow, yeah, I'm having a hard time naming anything else.  Good job, us!  And even Unix shells have `set -e`; it's just opt-in.
 
 **Exceptional:** Ada, C++, C#, D, Erlang, Forth, Java (exceptions are even part of function signature), JavaScript, Nemerle, Nim, Objective-C, OCaml, Perl 6, Python, Ruby, Smalltalk, Standard ML, Visual Basic.
 
 **Monadic:** Haskell (`Either`), Rust (`Result`).
 
-**Special mention:** ACS doesn't really have many operations that can error, and those that do simply halt the script.  ALGOL apparently has something called "mending" that I don't understand.  Go tends to use _secondary_ return values, which calling code has to unpack, making them slightly harder to forget about.  Lisps have _conditions_ and `call/cc`, which are different things entirely.  Lua and Perl 5 handle errors by taking down the whole program, but offer a construct that can catch that further up the stack, which is clumsy but enough to emulate `try..catch`.  PHP has exceptions, _and_ errors (which are totally different), _and_ a lot of builtin functions that return error codes.  Swift has something that looks like exceptions, but it doesn't involve stack unwinding and does require some light annotation, so I think it's all sugar for a monadic return value.  Visual Basic, and I believe some other BASICs, decided C wasn't bad enough and introduced the bizarre `On Error Resume Next` construct which does exactly what it sounds like.
+**Special mention:** ACS doesn't really have many operations that can error, and those that do simply halt the script.  ALGOL apparently has something called "mending" that I don't understand.  Go tends to use _secondary_ return values, which calling code has to unpack, making them slightly harder to forget about.  Lisps have _conditions_ and `call/cc`, which are different things entirely.  Lua and Perl 5 handle errors by taking down the whole program, but offer a construct that can catch that further up the stack, which is clumsy but enough to emulate `try..catch`.  PHP has exceptions, _and_ errors (which are totally different), _and_ a lot of builtin functions that return error codes.  Swift has something that looks like exceptions, but it doesn't involve stack unwinding and does require some light annotation — apparently sugar for an "out" parameter holding an error.  Visual Basic, and I believe some other BASICs, decided C wasn't bad enough and introduced the bizarre `On Error Resume Next` construct which does exactly what it sounds like.
 
 
 ## Nulls
@@ -499,15 +503,11 @@ if m:
 
 `re` treats failure as an acceptable possibility and returns `None`, rather than raising an exception.  I'm not sure whether this was the right thing to do or not, but off the top of my head I can't think of too many other Python interfaces that _sometimes_ return `None`.
 
-Some languages go entirely the opposite direction and make _everything_ an expression, including block constructs like `if`.  In those languages, it makes sense for assignment to be an expression, for consistency with everything else.
+**Freedom of expression:** ACS, C#, Go, Java, JavaScript, Perl, PHP, Swift.
 
-**Assignment's an expression:** ACS, C#, D, Java, JavaScript, Perl, PHP, Swift.
+**Makes a statement:** Inform 7, Lua, Python, Unix shells.
 
-**Everything's an expression:** Ruby, Rust.
-
-**Assignment's a statement:** Inform 7, Lua, Python, Unix shells.
-
-**Special mention:** BASIC uses `=` for both assignment _and_ equality testing — the meaning is determined from context.  Functional languages generally don't have an assignment operator.  Rust has a special `if let` block that explicitly combines assignment with pattern matching, which is way nicer than the C approach.
+**Special mention:** BASIC uses `=` for both assignment _and_ equality testing — the meaning is determined from context.  D allows variable _declaration_ as an expression, so `if (int x = 3)` is allowed, but regular assignment is not.  Functional languages generally don't have an assignment operator.  Ruby makes everything an expression, so assignment might as well be too.  Rust makes everything an expression, but assignment evaluates to the useless `()` value (due to ownership rules), so it's not actually useful.  Rust and Swift both have a special `if let` block that explicitly combines assignment with pattern matching, which is way nicer than the C approach.
 
 
 ## No hyphens in identifiers
@@ -518,9 +518,9 @@ Why not just allow hyphens in identifiers, so we can avoid this argument and use
 
 Ah, but then it's ambiguous whether you mean an identifier or the subtraction operator.  No problem: require spaces for subtraction.  I don't think a tiny way you're allowed to make your code harder to read is really worth this clear advantage.
 
-**Low score:** ACS, C#, D, Java, JavaScript, OCaml, Pascal, Perl 5, PHP, Python, Ruby, Rust, Swift, Unix shells.
+**Low scoring:** ACS, C#, D, Java, JavaScript, OCaml, Pascal, Perl 5, PHP, Python, Ruby, Rust, Swift, Unix shells.
 
-**Nicely-named:** COBOL, CSS (and thus Sass), Forth, Inform 7, Lisps, Perl 6, XML.
+**Nicely-designed:** COBOL, CSS (and thus Sass), Forth, Inform 7, Lisps, Perl 6, XML.
 
 **Special mention:** Perl has a built-in variable called `$-`, and Ruby has a few called `$-n` for various values of "n", but these are very special cases.
 
@@ -555,7 +555,7 @@ Some languages use keywords instead of braces, but the effect is the same.  I'm 
 
 **Bracing myself:** C#, D, Erlang, Java, Perl, Rust.
 
-**Braces, but no semicolons:** JavaScript (kinda — see below), Lua, Ruby, Swift.
+**Braces, but no semicolons:** Go (ASI), JavaScript (ASI — see below), Lua, Ruby, Swift.
 
 **Free and clear:** CoffeeScript, Haskell, Python.
 
@@ -563,7 +563,7 @@ Some languages use keywords instead of braces, but the effect is the same.  I'm 
 
 Here's some interesting trivia.  JavaScript, Lua, and Python all optionally allow semicolons at the end of a statement, but the way each language determines line continuation is very different.
 
-JavaScript takes an "opt-out" approach: it continues reading lines until it hits a semicolon, _or_ until reading the next line would cause a syntax error.  That leaves a few corner cases like starting a new line with a `(`, which could look like the last thing on the previous line is a function you're trying to call.  Or you could have `-foo` on its own line, and it would parse as subtraction rather than unary negation.  You might wonder why anyone would do that, but using unary `+` is one way to make `function` parse as an expression rather than a statement!  I'm not so opposed to semicolons that I want to be debugging where the language _thinks_ my lines end, so I just always use semicolons in JavaScript.
+JavaScript takes an "opt-out" approach: it continues reading lines until it hits a semicolon, _or_ until reading the next line would cause a syntax error.  (This approach is called _automatic semicolon insertion_.)  That leaves a few corner cases like starting a new line with a `(`, which could look like the last thing on the previous line is a function you're trying to call.  Or you could have `-foo` on its own line, and it would parse as subtraction rather than unary negation.  You might wonder why anyone would do that, but using unary `+` is one way to make `function` parse as an expression rather than a statement!  I'm not so opposed to semicolons that I want to be debugging where the language _thinks_ my lines end, so I just always use semicolons in JavaScript.
 
 Python takes an "opt-in" approach: it assumes, by default, that a statement ends at the end of a line.  However, newlines inside parentheses or brackets are ignored, which takes care of 99% of cases — long lines are most frequently caused by function calls (which have parentheses!) with a lot of arguments.  If you _really_ need it, you can explicitly escape a newline with `\\`, but this is widely regarded as incredibly ugly.
 
