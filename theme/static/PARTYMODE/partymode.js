@@ -2,7 +2,7 @@
     // Number of kilopixels dedicated to each snowflake
     var FLAKE_SPARSITY = 15;
     // Images
-    var IMAGES = Array.apply(null, {length: 12}).map(function(_, index) { return String(index) + ".png"; });
+    var IMAGES = Array.apply(null, {length: 15}).map(function(_, index) { return String(index) + ".png"; });
 
     // Get the path to ourselves
     var cur = document.currentScript;
