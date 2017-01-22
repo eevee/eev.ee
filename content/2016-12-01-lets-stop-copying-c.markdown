@@ -26,11 +26,11 @@ This tends to go hand-in-hand with how much the language relies on a global name
 
 Quick test: if you create a new namespace and import another file within that namespace, do its contents end up in that namespace?
 
-**Included:** ACS, awk, COBOL, Erlang, Forth, Fortran, most older Lisps, Perl 5 (despite that required files must return true), PHP, Ruby, Unix shells.
+**Included:** ACS, awk, COBOL, Erlang, Forth, Fortran, most older Lisps, Perl 5 (despite that required files must return true), PHP, Unix shells.
 
 **Excluded:** Ada, Clojure, D, Haskell, Julia, Lua (the file's return value is returned from `require`), Nim, Node (similar to Lua), Perl 6, Python, Rust.
 
-**Special mention:** ALGOL appears to have been designed with the assumption that you could include other code by adding its punch cards to your stack.  C#, Java, OCaml, and Swift all have some concept of "all possible code that will be in this program", sort of like C with inferred headers, so imports are largely unnecessary; Java's `import` really just does aliasing.  Inform 7 has no namespacing, but does have a first-class concept of external libraries, but doesn't have a way to split a single project up between multiple files.
+**Special mention:** ALGOL appears to have been designed with the assumption that you could include other code by adding its punch cards to your stack.  C#, Java, OCaml, and Swift all have some concept of "all possible code that will be in this program", sort of like C with inferred headers, so imports are largely unnecessary; Java's `import` really just does aliasing.  Inform 7 has no namespacing, but does have a first-class concept of external libraries, but doesn't have a way to split a single project up between multiple files.  Ruby doesn't automatically give `require`d files their own namespace, but doesn't evaluate them in the caller's namespace either.
 
 
 ## Optional block delimiters
@@ -194,7 +194,7 @@ We've [been through this before]({filename}/2016-09-18-the-curious-case-of-the-s
 
 **Breaks my heart:** Java, JavaScript.
 
-**Follows through:** Ada, BASIC, CoffeeScript, Go (has a `fallthrough` statement), Lisps, Swift (has a `fallthrough` statement), Unix shells.
+**Follows through:** Ada, BASIC, CoffeeScript, Go (has a `fallthrough` statement), Lisps, Ruby, Swift (has a `fallthrough` statement), Unix shells.
 
 **Special mention:** C# and D require `break`, but require _something_ one way or the other — implicit fallthrough is disallowed except for empty `case`s.  Perl 5 historically had no `switch` block built in, but it comes with a [Switch](http://perldoc.perl.org/5.8.8/Switch.html) module, and the last seven releases have had an [experimental `given` block](http://perldoc.perl.org/perlsyn.html#Switch-Statements) which I stress is _still_ experimental.  Python has no `switch` block.  Erlang, Haskell, and Rust have pattern-matching instead (which doesn't allow fallthrough at all).
 
@@ -264,7 +264,7 @@ I _do_ count a combined addition/concatenation operator that accepts different t
 
 **Strong:** F#, Go (explicit numeric casts), Haskell, Python, Rust (explicit numeric casts).
 
-**Special mention:** ACS only has integers; even fixed-point values are stored in integers, and the compiler has no notion of a fixed-point type, making it the weakest language imaginable.  Perl 5 is weak, _but_ it avoids most of the ambiguity by having entirely separate sets of operators for string vs numeric operations.  Python 2 is mostly strong, but that whole interchangeable bytes/text thing sure caused some ruckus.  Tcl only has strings.
+**Special mention:** ACS only has integers; even fixed-point values are stored in integers, and the compiler has no notion of a fixed-point type, making it the weakest language imaginable.  C++ and Scala both allow defining implicit conversions, for better or worse.  Perl 5 is weak, _but_ it avoids most of the ambiguity by having entirely separate sets of operators for string vs numeric operations.  Python 2 is mostly strong, but that whole interchangeable bytes/text thing sure caused some ruckus.  Tcl only has strings.
 
 
 ## Integer division
@@ -306,7 +306,7 @@ Quick test: what's the length of "💩"?  If 1, you have real unencoded strings.
 
 **One hundred emoji:** Python 3, Ruby, Rust, Swift (even gets combining characters right!).
 
-**Special mention:** Perl 5 gets the quick test right if you put `use utf8;` at the top of the file, but Perl 5's Unicode support is such a [confusing clusterfuck](http://perldoc.perl.org/perlunicode.html) that I can't really give it a 💯.
+**Special mention:** Go's strings are explicitly arbitrary byte sequences, but iterating over a string with `for..range` decodes UTF-8 code points.  Perl 5 gets the quick test right if you put `use utf8;` at the top of the file, but Perl 5's Unicode support is such a [confusing clusterfuck](http://perldoc.perl.org/perlunicode.html) that I can't really give it a 💯.
 
 Hmm.  This one is kind of hard to track down for sure without either knowing a lot about internals or installing fifty different interpreters/compilers.
 
@@ -354,9 +354,9 @@ Interestingly enough, C95 specifies `and`, `or`, `not`, and [some others](http:/
 
 **Not right:** ACS, awk, C#, D, Go, Groovy, Java, JavaScript, Nemerle, PHP, R, Rust, Scala, Swift, Tcl, Vala.
 
-**Spelled out:** Ada, ALGOL, BASIC, COBOL, Erlang, F#, Fortran, Haskell, Lisps, Lua, Nim, OCaml, Pascal, PostScript, Python, Smalltalk, Standard ML.
+**Spelled out:** Ada, ALGOL, BASIC, COBOL, Erlang, F#, Fortran, Haskell, Inform 7, Lisps, Lua, Nim, OCaml, Pascal, PostScript, Python, Smalltalk, Standard ML.
 
-**Special mention:** APL and Julia both use `~`, which is at least easier to pick out, which is more than I can say for most of APL.  bc and expr, which are really calculators, have no concept of Boolean operations.  Forth and Icon, which are not calculators, don't seem to either.  Perl and Ruby have _both_ symbolic and named Boolean operators (Perl 6 has even more), with _different precedence_ (which inside `if` won't matter); I believe Perl 5 prefers the words and Ruby prefers the symbols.
+**Special mention:** APL and Julia both use `~`, which is at least easier to pick out, which is more than I can say for most of APL.  bc and expr, which are really calculators, have no concept of Boolean operations.  Forth and Icon, which are not calculators, don't seem to either.  Inform 7 often blends the negation into the verb, e.g. `if the player does not have...`.  Perl and Ruby have _both_ symbolic and named Boolean operators (Perl 6 has even more), with _different precedence_ (which inside `if` won't matter); I believe Perl 5 prefers the words and Ruby prefers the symbols.  Perl and Ruby also both have a separate `unless` block, with the opposite meaning to `if`.  Python has `is not` and `not in` operators.
 
 
 ## Single return and out parameters
@@ -425,7 +425,7 @@ This is still better than either out parameters or returning an explicit struct 
 
 **Native multiple return:** Common Lisp, Go, Lua.
 
-**Special mention:** Forth is stack-based, and all return values are simply placed on the stack, so multiple return isn't a special case.  Unix shell functions don't return values.  Visual Basic sets a return value by assigning to the function's name (?!), so good luck fitting multiple return in there.
+**Special mention:** C# has explicit syntax for `out` parameters, but it's a compile-time error to not assign to all of them, which is slightly better than C.  Forth is stack-based, and all return values are simply placed on the stack, so multiple return isn't a special case.  Unix shell functions don't return values.  Visual Basic sets a return value by assigning to the function's name (?!), so good luck fitting multiple return in there.
 
 
 ## Silent errors
@@ -442,7 +442,7 @@ There are several alternatives here: exceptions, statically forcing the develope
 
 **Monadic:** Haskell (`Either`), Rust (`Result`).
 
-**Special mention:** ACS doesn't really have many operations that can error, and those that do simply halt the script.  ALGOL apparently has something called "mending" that I don't understand.  Go tends to use _secondary_ return values, which calling code has to unpack, making them slightly harder to forget about.  Lisps have _conditions_ and `call/cc`, which are different things entirely.  Lua and Perl 5 handle errors by taking down the whole program, but offer a construct that can catch that further up the stack, which is clumsy but enough to emulate `try..catch`.  PHP has exceptions, _and_ errors (which are totally different), _and_ a lot of builtin functions that return error codes.  Swift has something that looks like exceptions, but it doesn't involve stack unwinding and does require some light annotation — apparently sugar for an "out" parameter holding an error.  Visual Basic, and I believe some other BASICs, decided C wasn't bad enough and introduced the bizarre `On Error Resume Next` construct which does exactly what it sounds like.
+**Special mention:** ACS doesn't really have many operations that can error, and those that do simply halt the script.  ALGOL apparently has something called "mending" that I don't understand.  Go tends to use _secondary_ return values, which calling code has to unpack, making them slightly harder to forget about; it also allows both the assignment and the error check together in the header of an `if`.  Lisps have _conditions_ and `call/cc`, which are different things entirely.  Lua and Perl 5 handle errors by taking down the whole program, but offer a construct that can catch that further up the stack, which is clumsy but enough to emulate `try..catch`.  PHP has exceptions, _and_ errors (which are totally different), _and_ a lot of builtin functions that return error codes.  Swift has something that looks like exceptions, but it doesn't involve stack unwinding and does require some light annotation — apparently sugar for an "out" parameter holding an error.  Visual Basic, and I believe some other BASICs, decided C wasn't bad enough and introduced the bizarre `On Error Resume Next` construct which does exactly what it sounds like.
 
 
 ## Nulls
@@ -455,13 +455,13 @@ The alternatives tend to be either opt-in nullability or an "optional" generic t
 
 On the other hand, while it's annoying to get a `None` where I didn't expect one in Python, it's not like I'm surprised.  I occasionally get a string where I expected a number, too.  The language explicitly leaves type concerns in my hands.  My real objection is to having a static type system that _lies_.  So I'm not going to list every single dynamic language here, because not only is it consistent with the rest of the type system, but they don't really have any machinery to prevent this anyway.
 
-**Nothing doing:** C#, D, Go, Java, Nim (non-nullable types are opt _in_), R.
+**Nothing doing:** C#, D, Go, Java, Nim (non-nullable types are opt _in_).
 
-**Nullable types:** Swift.
+**Nullable types:** Swift (sugar for a monad).
 
 **Monads:** F# (`Option` — though technically F# also inherits `null` from .NET), Haskell (`Maybe`), Rust (`Option`), Swift (`Optional`).
 
-**Special mention:** awk, Tcl, and Unix shells only have strings, so in a surprising twist, they have no concept of null whatsoever.  Java recently introduced an `Optional<T>` type which explicitly may or may not contain a value, but since it's still a non-primitive, it could _also_ be `null`.  C++17 doesn't quite have the same problem with `std::optional<T>`, since non-reference values can't be null.  Inform 7's `nothing` value is an `object` (the root of half of its type system), which means any `object` variable might be `nothing`, but any value of a more specific type cannot be `nothing`.  JavaScript has _two_ null values, `null` and `undefined`.  Perl 6 is really big on static types, but claims its `Nil` object doesn't exist, and I don't know how to even begin to unpack that.
+**Special mention:** awk, Tcl, and Unix shells only have strings, so in a surprising twist, they have no concept of null whatsoever.  Java recently introduced an `Optional<T>` type which explicitly may or may not contain a value, but since it's still a non-primitive, it could _also_ be `null`.  C++17 doesn't quite have the same problem with `std::optional<T>`, since non-reference values can't be null.  Inform 7's `nothing` value is an `object` (the root of half of its type system), which means any `object` variable might be `nothing`, but any value of a more specific type cannot be `nothing`.  JavaScript has _two_ null values, `null` and `undefined`.  Perl 6 is really big on static types, but claims its `Nil` object doesn't exist, and I don't know how to even begin to unpack that.  R and SQL have a more mathematical kind of `NULL`, which tends to e.g. vanish from lists.
 
 
 ## Assignment as expression
@@ -503,11 +503,11 @@ if m:
 
 `re` treats failure as an acceptable possibility and returns `None`, rather than raising an exception.  I'm not sure whether this was the right thing to do or not, but off the top of my head I can't think of too many other Python interfaces that _sometimes_ return `None`.
 
-**Freedom of expression:** ACS, C#, Go, Java, JavaScript, Perl, PHP, Swift.
+**Freedom of expression:** ACS, C#, Java, JavaScript, Perl, PHP, Swift.
 
 **Makes a statement:** Inform 7, Lua, Python, Unix shells.
 
-**Special mention:** BASIC uses `=` for both assignment _and_ equality testing — the meaning is determined from context.  D allows variable _declaration_ as an expression, so `if (int x = 3)` is allowed, but regular assignment is not.  Functional languages generally don't have an assignment operator.  Ruby makes everything an expression, so assignment might as well be too.  Rust makes everything an expression, but assignment evaluates to the useless `()` value (due to ownership rules), so it's not actually useful.  Rust and Swift both have a special `if let` block that explicitly combines assignment with pattern matching, which is way nicer than the C approach.
+**Special mention:** BASIC uses `=` for both assignment _and_ equality testing — the meaning is determined from context.  D allows variable _declaration_ as an expression, so `if (int x = 3)` is allowed, but regular assignment is not.  Functional languages generally don't have an assignment operator.  Go disallows assignment as an expression, but assignment _and_ a test can appear together in an `if` condition, and this is an idiomatic way to check success.  Ruby makes everything an expression, so assignment might as well be too.  Rust makes everything an expression, but assignment evaluates to the useless `()` value (due to ownership rules), so it's not actually useful.  Rust and Swift both have a special `if let` block that explicitly combines assignment with pattern matching, which is way nicer than the C approach.
 
 
 ## No hyphens in identifiers
@@ -559,7 +559,7 @@ Some languages use keywords instead of braces, but the effect is the same.  I'm 
 
 **Free and clear:** CoffeeScript, Haskell, Python.
 
-**Special mention:** Lisp, just, in general.  Inform 7 has an indented style, but it still requires semicolons.
+**Special mention:** Lisp, just, in general.  Inform 7 has an indented style, but it still requires semicolons.  MUMPS doesn't support nesting at all, but I believe there are extensions that use dots to indicate it.
 
 Here's some interesting trivia.  JavaScript, Lua, and Python all optionally allow semicolons at the end of a statement, but the way each language determines line continuation is very different.
 
