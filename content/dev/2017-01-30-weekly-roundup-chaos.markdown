@@ -9,11 +9,11 @@ I feel a little bit like life is disintegrating into chaos, but I'm plowing ahea
 
 - **games**: I finally finished playing through all the games submitted to GAMES MADE QUICK??, which took an incredibly long time, oh no.  I dumped thoughts on the games in a [Twitter thread](https://twitter.com/eevee/status/822711806460207104), or you can [browse through them](https://itch.io/jam/games-made-quick/entries) yourself.  There's some pretty cool stuff in there, and I'm still amazed that much of it exists just because I said "hey let's make some video games".
 
-It was such a smashing success that I also put together [Strawberry Jam](https://itch.io/jam/strawberry-jam), a month-long game jam for making _horny games_, whatever that means.  (The concept is NSFW, but the landing page is not.)  I have two separate ideas I want to pursue, _plus_ Mel is doing their own game and will need my help to put it together, so I have a very busy month ahead.  We've both already started on the art for our respective games, and we've been doing some planning as well.
+    It was such a smashing success that I also put together [Strawberry Jam](https://itch.io/jam/strawberry-jam), a month-long game jam for making _horny games_, whatever that means.  (The concept is NSFW, but the landing page is not.)  I have two separate ideas I want to pursue, _plus_ Mel is doing their own game and will need my help to put it together, so I have a very busy month ahead.  We've both already started on the art for our respective games, and we've been doing some planning as well.
 
 - **neon**: I fixed a bunch of bugs but didn't cut a new release yet, oops.  One or two are still lingering, and I don't want to make a ton of releases just for bugfixes.
 
-  I wrote down "fixed %"?  What does that even mean?
+    I wrote down "fixed %"?  What does that even mean?
 
 - **art**: I tried drawing some things and they did not come out as well as I wanted.
 
