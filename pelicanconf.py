@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-from functools import partial
-
 AUTHOR = u'Eevee'
 SITENAME = u'fuzzy notepad'
 SITEURL = ''
@@ -90,12 +88,11 @@ PAGINATION_PATTERNS = (
 
 THEME = 'theme'
 
+def sort_by_article_count(tags):
+    return sorted(tags, key=lambda pairs: len(pairs[1]), reverse=True)
+
 JINJA_FILTERS = dict(
-    sort_by_article_count=partial(
-        sorted,
-        key=lambda pairs: len(pairs[1]),
-        reverse=True,
-    ),
+    sort_by_article_count=sort_by_article_count,
 )
 
 EXTRA_HEADER = """
@@ -218,6 +215,12 @@ PHOTO_LIBRARY = 'content/galleries/'
 PHOTO_GALLERY = (1280, 1280, 95)
 PHOTO_ARTICLE = (320, 320, 95)
 PHOTO_THUMB = (224, 224, 95)
+# The dumb fucking thing uses multiprocessing and passes along the ENTIRE
+# SETTINGS DICT, which includes everything in this file, which includes
+# PLUGINS, which (necessarily) includes a module reference, which is
+# unpickleable, which causes the who dang thing to silently fail.  This puts it
+# in "debug" mode and does the processing in-process.
+PHOTO_RESIZE_JOBS = -1
 
 # Plugin config for thumbnailer
 IMAGE_PATH = 'media'
