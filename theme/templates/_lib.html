@@ -20,11 +20,13 @@
 
 {% macro article_gallery(article) %}
 {% if article.photo_gallery %}
+{% for location, gallery in article.photo_gallery %}
 <div class="gallery">
-    {% for name, photo, thumb, exif, caption in article.photo_gallery %}
+    {% for name, photo, thumb, exif, caption in gallery %}
     <a href="{{ SITEURL }}/{{ photo }}" title="{{ caption }}" class="photo cboxElement"><img src="{{ SITEURL }}/{{ thumb }}"></a>
     {% endfor %}
 </div>
+{% endfor %}
 {% endif %}
 {% endmacro %}
 

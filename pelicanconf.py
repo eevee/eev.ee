@@ -123,15 +123,20 @@ TYPOGRIFY_IGNORE_TAGS = [
     'pre', 'code', 'header', 'h1', 'h2', 'h3', 'aside',
 ]
 
-MD_EXTENSIONS = [
-    'codehilite(css_class=highlight,linenums=True)',
-    'extra',
-    # GitHub-style fenced code blocks
-    'fenced_code',
-    # I don't actually care about a table of contents, but this turns headers
-    # into self-links
-    'toc(anchorlink=True)',
-]
+MARKDOWN = dict(
+    extension_configs={
+        'markdown.extensions.codehilite': dict(
+            css_class='highlight',
+            linenums=True,
+        ),
+        'markdown.extensions.extra': {},
+        # GitHub-style fenced code blocks
+        'markdown.extensions.fenced_code': {},
+        # I don't actually care about a table of contents, but this turns headers
+        # into self-links
+        'markdown.extensions.toc': dict(anchorlink=True),
+    },
+)
 
 PATH = 'content/'
 PAGE_PATHS = ['../pages/']
