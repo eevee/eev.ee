@@ -20,7 +20,7 @@
             {{ _render_link(*linkdef) }}
         {% endfor %}
         <li class="-empty"></li>
-        {% for page in PAGES %}
+        {% for page in pages %}
             {{ _render_link(
                 title=page.metadata.get('home-title', page.title),
                 url=SITEURL + "/" + page.url,
