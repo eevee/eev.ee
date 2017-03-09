@@ -1,0 +1,155 @@
+title: Utopia
+date: 2017-03-08 19:40
+category: blog
+tags: culture, making things, patreon
+
+It's been a while, but someone's back on the [Patreon](https://www.patreon.com/eevee) blog topic tier!  [IndustrialRobot](https://www.patreon.com/user/creators?u=199476) asks:
+
+> What does your personal utopia look like? Do you think we (as mankind) can achieve it? Why/why not?
+
+Hm.
+
+<!-- more -->
+
+I spent the month up to my eyeballs in a jam game, but this question was in the back of my mind a lot.  I could use it as a springboard to opine about _anything_, especially in the current climate: politics, religion, nationalism, war, economics, etc., etc.  But all of that has been done to death by people who actually know what they're talking about.
+
+The question does say "personal".  So in a less abstract sense...  what do I want the world to look like?
+
+Mostly, I want everyone to have the freedom to _make things_.
+
+I've been having a surprisingly hard time writing the rest of this without veering directly into the ravines of "basic income is good" and "maybe capitalism is suboptimal".  Those are true, but not really the tone I want here, and anyway they've been done to death by better writers than I.  I've talked this out with Mel a few times, and it sounds much better aloud, so I'm going to try to drop my Blog Voice and just...  talk.
+
+\*ahem\*
+
+
+## Art versus business
+
+So, art.  Art is good.
+
+I'm construing "art" very broadly here.  More broadly than "media", too.  I'm including [shitty robots](https://www.patreon.com/simonegiertz), [weird Twitter almost-bots](https://twitter.com/gamecolorwheel), [weird Twitter non-bots](https://twitter.com/ApprovedNews6), even a great deal of open source software.  Anything that even remotely resembles creative work — driven perhaps by curiosity, perhaps by practicality, but always by a soul bursting with ideas and a palpable _need_ to get them out.
+
+Western culture thrives on art.  Most culture thrives on art.  I'm not remotely qualified to defend this, but I suspect you could _define_ culture in terms of art.  It's pretty important.
+
+You'd think this would be reflected in how we discuss art, but often...  it's not.  Tell me how often you've heard some of these gems.
+
+* "I could do that."
+* "My eight-year-old kid could do that."
+* Jokes about the worthlessness of liberal arts degrees.
+* Jokes about people trying to write novels in their spare time, the subtext being that only dreamy losers try to write novels, or something.
+* The caricature of a hippie working on a screenplay at Starbucks.
+
+Oh, and then there was the guy who made a bot to scrape tons of art from artists who were using Patreon as a paywall — and a primary source of income.  The justification was that artists shouldn't expect to make a living off of, er, _doing art_, and should instead get "real jobs".
+
+I do wonder.  How many of the people repeating these sentiments listen to music, or go to movies, or bought an iPhone because it's prettier?  Are those things not art that took real work to create?  Is creating those things not a "real job"?
+
+Perhaps a "real job" has to be one that's not enjoyable, not a passion?  And yet I can't recall ever hearing anyone say that Taylor Swift should get a "real job".  Or that, say, pro football players should get "real jobs".  What do pro football players even _do_?  They play a game a few times a year, and somehow this drives the flow of unimaginable amounts of money.  We dress it up in the more serious-sounding "sport", but it's a game in the same general genre as hopscotch.  There's nothing wrong with that, but somehow it gets virtually none of the scorn that art does.
+
+Another possible explanation is America's partly-Christian, partly-capitalist attitude that you deserve exactly whatever you happen to have at the moment.  (Whereas _I_ deserve much more and will be getting it any day now.)  Rich people are rich because they earned it, and we don't question that further.  Poor people are poor because they failed to earn it, and we don't question that further, either.  To do so would suggest that the system is somehow unfair, and hard work does not perfectly correlate with any particular measure of success.
+
+I'm sure that factors in, but it's not _quite_ satisfying: I've also seen a good deal of spite aimed at people who are making a fairly decent chunk through Patreon or similar.  Something is missing.
+
+I thought, at first, that the key might be the American worship of _work_.  Work is an inherent virtue.  Politicians run entire campaigns based on how many jobs they're going to create.  Notably, no one seems too bothered about whether the work is _useful_, as long as someone decided to pay you for it.
+
+Finally I stumbled upon the key.  America doesn't actually worship work.  **America worships _business_.**  Business means a _company_ is deciding to pay you.  Business means legitimacy.  Business is what separates a hobby from a career.
+
+And this presents a problem for art.
+
+If you want to provide a service or sell a product, that'll be hard, but America will at least try to look like it supports you.  People are impressed that you're an entrepreneur, a small business owner.  Politicians will brag about policies made in your favor, whether or not they're stabbing you in the back.
+
+Small businesses have a particular structure they can develop into.  You can divide work up.  You can have someone in sales, someone in accounting.  You can provide specifications and pay a factory to make your product.  You can defer all of the non-creative work to someone else, whether that means experts in a particular field or unskilled labor.
+
+But if your work _is_ inherently creative, you can't do that.  The very thing you're making is _your_ idea in _your_ style, driven by _your_ experience.  This is not work that's readily parallelizable.  Even if you sell physical merchandise and register as an LLC and have a dedicated workspace and do various other formal business-y things, the basic structure will still _look_ the same: a single person doing the thing they enjoy.  A hobbyist.
+
+Consider the bulleted list from above.  Those are all _individual_ painters or artists or authors or screenwriters.  The kinds of artists who earn respect without question are generally those managed by a _business_, those with _branding_: musical artists signed to labels, actors working for a studio.  Even football players are part of a tangle of business.
+
+(This doesn't mean that business _automatically_ confers respect, of course; tech in particular is full of anecdotes about nerds' disdain for people whose _jobs_ are design or UI or documentation or whathaveyou.  But a businessy look seems to be a significant advantage.)
+
+It seems that although art is a large part of what informs culture, we have a culture that defines "serious" endeavors in such a way that independent art cannot possibly be "serious".
+
+
+## Art versus money
+
+Which wouldn't really matter at all, except that we also have a culture that expects you to pay for food and whatnot.
+
+The reasoning isn't too outlandish.  Food is produced from a combination of work and resources.  In exchange for getting the food, you should give back some of your own work and resources.
+
+Obviously this is riddled with subtle flaws, but let's roll with it for now and look at a case study.  Like, uh, me!
+
+Mel and I built and released two games together in the six weeks between mid-January and the end of February.  Together, those games have made $1,000 in sales.  The sales trail off fairly quickly within a few days of release, so we'll call that the total gross for our effort.
+
+I, dumb, having never actually sold anything before, thought this was phenomenal.  Then I had the misfortune of doing some math.
+
+Itch takes at least 10%, so we're down to $900 net.  Divided over six weeks, that's $150 per week, before taxes — or $3.75 per hour if we'd been working full time.
+
+Ah, but wait!  There are _two_ of us.  And we _hadn't_ been working full time — we'd been working nearly _every waking hour_, which is _at least_ twice "full time" hours.  So we really made less than a dollar an hour.  Even less than that, if you assume overtime pay.
+
+From the perspective of capitalism, what is our incentive to do this?  Between us, we easily have over _thirty years_ of experience doing the things we do, and we spent weeks in crunch mode working on something, all to earn a small fraction of minimum wage.  Did we not contribute back our own work and resources?  Was our work worth so much less than waiting tables?
+
+Waiting tables is a perfectly respectable way to earn a living, mind you.  Ah, but wait!  I've accidentally done something clever here.  It is _generally expected_ that you tip your waiter, because waiters are underpaid by the business, because the business assumes they'll be tipped.  Not tipping is actually, almost impressively, one of the rudest things you can do.  And yet it's not expected that you tip an _artist_ whose work you enjoy, even though many such artists aren't being paid _at all_.
+
+Now, to be perfectly fair, both games were released for free.  Even a dollar an hour is infinitely more than the zero dollars I was expecting — and I'm amazed and thankful we got as much as we did!  Thank you so much.  I bring it up not as a complaint, but as an armchair analysis of our systems of incentives.
+
+People can take art for granted and whatever, yes, but there are several other factors at play here that hamper the ability for art to make money.
+
+For one, **I don't want to sell my work.**  I suspect a great deal of independent artists and writers and open source developers (!) feel the same way.  I create things because I want to, because _I have to_, because I feel so compelled to create that having a non-creative full-time job was making me miserable.  I create things for the sake of expressing an idea.  Attaching a price tag to something reduces the number of people who'll experience it.  In other words, selling my work would make it _less valuable_ in my eyes, in much the same way that adding banner ads to my writing would make it less valuable.
+
+And yet, I'm _forced_ to sell something in some way, or else I'll have to find someone who wants me to do bland mechanical work on _their_ ideas in exchange for money...  at the cost of producing sharply less work of my own.  Thank goodness for [Patreon](https://patreon.com/eevee), at least.
+
+There's also the reverse problem, in that **people often don't want to buy creative work.**  Everyone does sometimes, but only sometimes.  It's kind of a weird situation, and the internet has exacerbated it considerably.
+
+Consider that if I write a book and print it on paper, that costs something.  I have to pay for the paper and the ink and the use of someone else's printer.  If I want one more book, I have to pay a little more.  I can cut those costs pretty considerable by printing a lot of books at once, but each copy still has a price, a _marginal cost_.  If I then gave those books away, I would be actively _losing_ money.  So I can pretty well justify charging for a book.
+
+Along comes the internet.  Suddenly, copying costs nothing.  Not only does it cost nothing, but it's the _fundamental operation_.  When you download a file or receive an email or visit a web site, you're really getting a _copy_!  Even the process which ultimately shows it on your screen involves a number of copies.  This is so natural that we don't even call it copying, don't even _think_ of it as copying.
+
+True, bandwidth does cost something, but the rate is virtually nothing until you start looking at very big numbers indeed.  I pay $60/mo for hosting this blog and a half dozen other sites — even that's way more than I need, honestly, but downgrading would be a hassle — and I get **6TB** of bandwidth.  Even the longest of my posts haven't exceeded 100KB.  A post could be read by _64 million people_ before I'd start having a problem.  If that were the population of a country, it'd be the 23rd largest in the world, between Italy and the UK.
+
+How, then, do I justify charging for my writing?  (Yes, I realize the irony in using my blog as an example in a post I'm being paid $88 to write.)
+
+Well, I do pour effort and expertise and a fraction of my finite lifetime into it.  But it doesn't _cost_ me anything tangible — I already had this hosting for something else! — and it's _easier_ all around to just put it online.
+
+The same idea applies to a vast bulk of what's online, and now suddenly we have a bit of a problem.  Not only are we used to getting everything for free online, but we never bothered to build any sensible payment infrastructure.  You still have to pay for everything by typing in a cryptic sequence of numbers from a little physical plastic card, which will then give you a small loan and charge the seller 30¢ plus 2.9% for the "convenience".
+
+If a website could say "pay 5¢ to read this" and you clicked a button in your browser and that was that, we might be onto something.  But with our current setup, it costs far more than 5¢ to transfer 5¢, even though it's just a number in a computer somewhere.  The only people with the power and resources to fix this don't _want_ to fix it — they'd rather be the ones charging you the 30¢ plus 2.9%.
+
+That leads to another factor of **platforms and publishers**, which are more than happy to eat a chunk of your earnings even when you do sell stuff.  Google Play, the App Store, Steam, and anecdotally many other big-name comparative platforms all take 30% of your sales.  A third!  And that's _good_!  It seems common among book publishers to take **85% to 90%**.  For ebook sales — i.e., ones that don't actually cost anything — they may generously lower that to a mere 75% to 85%.
+
+Bless Patreon for only taking 5%.  Itch.io is even better: it defaults to 10%, but _gives you a slider_, which you can set to anything from 0% to 100%.
+
+I've mentioned all this before, so here's a more novel thought: **finite disposable income**.  Your audience only has so much money to spend on media right now.  You can try to be more compelling to encourage them to spend _more_ of it, rather than saving it, but ultimately everyone has a limit before they just plain run out of money.
+
+Now, popularity is heavily influenced by social and network effects, so it tends to create a power law distribution: a few things are ridiculously hyperpopular, and then there's a steep drop to a [long tail](https://en.wikipedia.org/wiki/Long_tail) of more modestly popular things.
+
+If a new hyperpopular thing comes out, everyone is likely to want to buy it...  but then that eats away a significant chunk of that finite pool of money that could've gone to less popular things.
+
+This isn't _bad_, and buying a popular thing doesn't make you a bad person; it's just what happens.  I don't think there's any satisfying alternative that doesn't involve radically changing the way we think about our economy.
+
+Taylor Swift, who I'm only picking on because her infosec account follows me on Twitter, has sold tens of millions of albums and is worth something like a quarter of a billion dollars.  Does she _need_ more?  If not, should she make all her albums free from now on?
+
+Maybe she does, and maybe she shouldn't.  The alternative is for someone to somehow _prevent_ her from making more money, which doesn't sit well.  Yet it feels almost heretical to even _ask_ if someone "needs" more money, because we take for granted that she's earned it — in part by being invested in by a record label and heavily advertised.  The virtue is work, right?  Don't a lot of people work just as hard?  ("But you have to be talented too!"  Then please explain how wildly incompetent CEOs still make millions, and leave burning businesses only to be immediately hired by new ones?  Anyway, are we really willing to bet there is _no one_ equally talented but not as popular by sheer happenstance?)
+
+It's kind of a moot question anyway, since she's probably under contract with billionaires and it's not up to her.
+
+Where the hell was I going with this.
+
+----
+
+Right, so.  Money.  Everyone needs some.  But making it off art can be tricky, unless you're one of the lucky handful who strike gold.
+
+And I'm still _pretty goddamn lucky_ to be able to even try this!  I doubt I would've even gotten into game development by now if I were still working for an SF tech company — it just drained so much of my creative energy, and it's enough of an uphill battle for me to get stuff done in the first place.
+
+How many people do I know who are bursting with ideas, but have to work a tedious job to keep the lights on, and are too tired at the end of the day to get those ideas out?  Make no mistake, making stuff takes _work_ — a lot of it.  And that's if you're already pretty good at the artform.  If you want to _learn_ to draw or paint or write or code, you have to do just as much work _first_, with much more frustration, and not as much to show for it.
+
+
+## Utopia
+
+So there's my utopia.  I want to see a world where people have the breathing room to create the things they dream about and share them with the rest of us.
+
+Can it happen?  Maybe.  I think the cultural issues are a fairly big blocker; we'd be much better off if we treated independent art with the same reverence as, say, people who play with a ball for twelve hours a year.  Or if we treated liberal arts degrees as just as good as computer science degrees.  ("But STEM can change the world!"  Okay.  How many people with computer science degrees would you estimate are changing the world, and how many are making a website 1% faster or keeping a lumbering COBOL beast running or trying to trick 1% more people into clicking on ads?)
+
+I don't really mean stuff like piracy, either.  Piracy is a thing, but it's...  complicated.  In my experience it's not even artists who care the most about piracy; it's massive publishers, the sort who see artists as a sponge to squeeze money out of.  You know, the same people who make everything difficult to actually buy, infest it with DRM so it doesn't work on half the stuff you own, and don't even sell it in half the world.
+
+I mean treating art as a free-floating commodity, detached from anyone who created it.  I mean neo-Nazis adopting a comic book character as their mascot, against the creator's wishes.  I mean politicians and even media conglomerates using someone else's music in well-funded videos and ads without even asking.  I mean assuming Google Image Search, wonder that it is, is some kind of magical free art machine.  I mean the snotty Reddit post I found while looking up Patreon's fee structure, where some doofus was insisting that Patreon couldn't possibly pay for a full-time YouTuber's _time_, because not having a job meant they had lots of time to spare.
+
+Maybe I should go one step further: everyone _should create_ at least once or twice.  Everyone should know what it's like to have crafted something out of _nothing_, to be a fucking **god** within the microcosm of a computer screen or a sewing machine or a pottery table.  Everyone should know that spark of inspiration that we don't seem to know how to teach in math or science classes, even though it's the entire basis of those as well.  Everyone should know that there's a good goddamn reason I listed open source software as a kind of art at the beginning of this post.
+
+Basic income and more arts funding for public schools.  If Uber can get billions of dollars for putting little car icons on top of Google Maps and not actually doing any of their own goddamn service themselves, I think we can afford to pump more cash into webcomics and indie games and, yes, even underwater basket weaving.
