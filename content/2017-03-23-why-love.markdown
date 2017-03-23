@@ -1,0 +1,122 @@
+title: Why LÖVE?
+date: 2017-03-23 00:23
+category: blog
+tags: tech, gamedev, patreon
+
+This month, [IndustrialRobot](https://www.patreon.com/user/creators?u=199476) asked my opinion of FOSS game engines — or, more specifically, why I chose LÖVE.
+
+The short version is that it sort of landed in my lap, I tried it, I liked it, and I don't know of anything I might like better.  The long version is...
+
+<!-- more -->
+
+## LÖVE
+
+I'd already made a couple of games ([Under Construction](https://eevee.itch.io/under-construction), [Isaac's Descent](https://eevee.itch.io/isaacs-descent)) for the [PICO-8](http://www.lexaloffle.com/pico-8.php), a fantasy 8-bit-ish console powered by Lua.  I've got a few strong criticisms of Lua, but we've formed an uneasy truce.  It makes a better JavaScript than JavaScript, at least.
+
+Coming off of those, I was pretty familiar with Lua, so I was already naturally gravitating towards LÖVE.  I also knew one or two people who'd used it before, which helped.  And it had the faint ring of familiarity, which I've since realized is only because I'd once seen a trailer for [Love](http://www.quelsolaar.com/love/), the procedurally-generated adventure MMO with zero relationship to the LÖVE engine.
+
+Hmm.  Perhaps not the most compelling criteria.
+
+I _stayed_ with LÖVE because it hits a very nice sweet spot for me.  It's not a framework or anything, just an engine.  Its API has tidy coverage of use cases at every tier of complexity, if that makes sense?  It can do the obvious basics, like drawing immediate-mode-style circles or sprites, but it can _also_ batch together those sprite draws for a ridiculous speedup.  Without having to know or care or see any details of OpenGL.  If you _do_ care about OpenGL, that's cool: you can write your own shaders, too.  But you don't have to.
+
+LÖVE also has some nice touches like using a virtual filesystem that overlays the game itself with the player's save directory (which is created for you).  That means games are automatically moddable!  You can create whatever new assets you want and drop them in your save directory; they'll replace existing assets of the same name and be picked up by a directory scan.  It's a simple idea that eliminates a whole class of dumb problem I don't want to think about — where _do_ I put save data? — and at the same time opens the door to some really interesting applications.
+
+Distribution takes a similar approach.  You can just concatenate a zipped up project to a LÖVE binary and distribute that.  Nothing to build, and games automatically make their source and assets available.  (That's a perk for _me_; it may not be for you.)  You can also point LÖVE at a separate zip file, or even a directory; the latter effectively gives you development mode.
+
+Overall, it's pretty well thought-out and simple to get into without being opinionated, but with a lot of hidden depth.  I dig that kind of approach.  My one major criticism is that the API is neither forwards- nor backwards-compatible.  My games work on 0.10.2, not 0.9.x (or even 0.10.1), and I can tell from the dev log that they won't work on 0.11.0 either.  It's unfortunate, but willingness to churn is probably how LÖVE ended up with as nice an API as it has.  Maybe things will calm down whenever it hits 1.0.
+
+Bearing all this in mind, let's look at the competition.
+
+
+## pygame
+
+I'm a huge Python dweeb, so pygame seems like an obvious choice.
+
+I've never actually tried it.  One of the biggest turn-offs for me is [the website](https://www.pygame.org/docs/), which is admittedly frivolous to care about, but prominent use of lime green sets off alarm bells in my head.
+
+Every time I've looked into pygame, it's felt almost abandoned.  I think part of this is that the website has always been using a very generic CMS, where everything is "nodes" and there are tons of superfluous features that don't seem to belong.  Those setups always feel big and empty and vaguely abstract to me.  I see there's now a site revamp in progress, but it's basically made out of stock Bootstrap, which gives exactly the same impression.  I feel like any link I click has a 50–50 chance of being broken or leading to a page that's been outdated for ten years.
+
+None of this has anything to do with the quality of pygame itself, nor with any concrete facts.  The way pygame presents itself just inspires irrational feelings of "if you use this, your project is already obsolete".
+
+It doesn't help that I've been up to my eyeballs in Python for years, and I've seen plenty of people _suggest_ using pygame for game development, yet I've never known anyone who has actually _used_ pygame.  I can't name a single game made with pygame.  At least I have an acquaintance who's made a bunch of Ludum Dare games with LÖVE; that's infinitely more.
+
+I'm also wary of distributing Python software — I know there are lots of tools for doing this, and I've seen it done, and many moons ago I even used Python software on a Windows machine without Python installed.  But I still expect it to be a pain in the ass in some surprising way.
+
+I know I'm being massively unfair here, and I should really give it a chance sometime.  I just, um, don't want to.
+
+
+## cocos2d
+
+No, not the iPhone one.
+
+That's actually one of the biggest problems with cocos2d: it's the name of both a Python library _and_ a vastly more popular iOS library.  Have fun Googling for solutions to problems!  Oh, and the APIs are almost completely different.  And the Python version is much skimpier.  And very nearly abandoned, having received only two point releases since the last minor release three years ago.
+
+I _have_ used cocos2d before, on a stub of a game that was abandoned ages ago.  I enjoyed it enough, but something about it always felt...  clumsy, like everything I tried to do took more effort than necessary.  I don't know if it's because I was still figuring out game development, because I had to learn cocos's little framework (versus writing my own scaffolding in LÖVE), because the game I was working on was a bit nebulous, or because something about the design of cocos itself is wrong.  I _do_ remember that I had to just about dip into bare vertex-buffer-style OpenGL just to draw lines on the screen for debugging purposes, which I found incredibly annoying.  (Don't tell me it's faster.  I know.  If I thought performance were a grave concern, I probably wouldn't be writing the thing in Python in the first place.)
+
+I did borrow some of cocos2d's ideas for Under Construction and later games, so I don't regret using it or anything.  It has some good ideas, and it has some handy touches like built-in vector and AABB types.  I just wasn't charmed enough to try using it again.  (Yet?)
+
+
+## GameMaker
+
+Closed-source.  Windows only.  Eh.
+
+Their website says "no barriers to entry" and "making games is for everyone".  Uh huh.
+
+
+## Unity
+
+Ah, yeah, that thing everyone uses.
+
+I don't have strong opinions of Unity.  It's closed-source, but it has _some_ open source parts, so at least they care a bit and engage with the wider development community.
+
+It's based on Mono, which gives me pause.  Obviously Mono is open source, and I think large chunks of .NET itself are now too, but I'm still very wary of the .NET ecosystem.  I don't have any concrete reason for this; I think living through the IE6 era left me deeply skeptical of anything developer-oriented that has Microsoft fingerprints on it.  I'm sure their tools are very nice — plenty of people swear by Visual Studio — but I don't trust them to actually give a damn about not-Windows.  Homebrew software that can't work on Mono just because it makes a bunch of DirectX calls has not left me particularly impressed with the cross-platform support, either.
+
+But more importantly: Unity for Linux is still experimental, or beta, or something?  I think?  The actual download page still claims you need Windows 7 or OS X 10.8, and the Linux builds are only available via a _forum thread_, which doesn't scream "stable" to me.  The thread claims it's supported, but...  it's still only in a thread, two and a half years after it was first released.  I don't really want to start getting into a huge platform for the first time when the maintainers aren't confident enough of their Linux port to actually mention it anywhere.
+
+
+## Various web things
+
+There are plenty of these nowadays, like Pixi and...  um...  others.  The distribution story is obviously pretty nice, too: just have a web browser.  I've been meaning to try one out.
+
+I only haven't because, well, JavaScript.  I don't particularly enjoy JavaScript.  It doesn't even have a module story yet, unless you tack a bunch of third-party stuff onto it, and I don't want the first step of writing a game to be "fix the language I'm writing it in".  Also I've written more than enough JavaScript in my life already and would like to do something _not_ web-based for a change.
+
+There's also something about JavaScript that _feels_ clumsy to debug, even though that obviously makes no sense, since every web browser now has gobs of interactive debugging tools baked right in.  Maybe it's that everything is built out of async and promises and event handlers, and those are all still a bit painful to inspect.  Or maybe my soul is weary from trying to use debuggers on production sites with minified libraries.
+
+
+## Writing from scratch
+
+Ugh.
+
+I know of SFML, and Allegro, and SDL, and various other libraries somewhere between "game engine" and "generic media handling".  I could definitely make something happen with one of them.  I could bind to them from Python if I wanted.  Or Rust.  Or, hell, Lua.
+
+But I don't want to?  That sounds like I'd spend a bunch of time writing plumbing and not so much time writing game.  I mean, yes, okay, I wrote my own physics system even though LÖVE has box2d bindings built in.  But I _chose_ to do that because I thought the result would be better, not because I had to invent the universe just to get off the ground.
+
+This is also the approach that would make me care the most about distribution, possibly even in the form of _compiling stuff_, which I do not enjoy.
+
+
+## In conclusion
+
+My reasoning is probably not as, er, directly rational as readers may have hoped.
+
+In my defense: there were a lot of _possible_ choices here.  There are dozens of hyperpopular game engines alone, and far greater numbers of less popular one-offs.
+
+Now, there are two situations I want to avoid more than anything else here.
+
+1. Spending all of my time looking at game engines and none of my time actually making a game.
+2. Getting halfway through a game only to run into a brick wall, because the chosen engine simply cannot do some very straightforward thing I want.
+
+So I don't want to get stuck with a dud of an engine, but I also don't want to spend inordinate amounts of time evaluating dozens of candidates in excruciating detail.  (I have enough trouble just deciding what brand of RAM to buy.)  The solution is to prune _extremely aggressively_, discarding anything that has even a _whiff_ of possible inconvenience later.  Worst case, I run out of engines and just start again, being less picky on the second round.
+
+pygame?  Unclear how much it's still maintained.  Pass.
+
+cocos2d?  Not confident about distribution.  Pass.
+
+Unity?  In beta.  Pass.
+
+XNA?  Eh on Microsoft.  Also apparently discontinued four years ago.  Pass.
+
+GameMaker?  Don't want to rely on Wine.  Pass.
+
+When all was said and done, not too many contenders remained!  So I gave LÖVE a whirl and I liked it well enough.  It's entirely possible I've been unfair to one of the things I listed above, or that there's some amazing game thing I've never even heard of.  I definitely don't claim that LÖVE is the best possible tool for all problems, or that everyone should use it — but _I'm_ enjoying it and have successfully made things with it.
+
+I might write a followup to this sometime that comes from the other direction, listing game engines and why you might _want_ to use them, rather than why I weeded them out.
