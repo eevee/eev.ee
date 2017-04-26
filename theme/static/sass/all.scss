@@ -125,9 +125,13 @@ body {
 
 body > header {
     position: relative;
-    margin: 1em 0;
-    min-height: 138px;  // background height
-    background: url(/theme/images/home-eevee.png) top left no-repeat;
+    margin: 1em 0 0;
+    min-height: 128px;  // background height
+    background: url(/theme/images/home-eevee2.png) no-repeat left bottom / 96px;
+    /* lol css */
+    image-rendering: -moz-crisp-edges;  /* fx */
+    image-rendering: pixelated;  /* chrome, and the thing i actually mean */
+    -ms-interpolation-mode: nearest-neighbor; /* ie */
 
     @include phone-size {
         margin-top: 1em;
@@ -140,9 +144,6 @@ body > header {
         position: absolute;
         font-size: 4em;
         margin: 0 2rem;
-        // wedge it into the space in the logo
-        //top: 0;
-        //left: 100px;
         bottom: 0;
         right: 0;
         padding: 0;
