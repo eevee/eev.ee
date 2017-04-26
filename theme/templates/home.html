@@ -2,39 +2,627 @@
 {% import '_lib.html' as lib with context %}
 
 {% block entirebody %}
-<img src="{{ SITEURL }}/theme/images/home-eevee.png" alt="drawing of an eevee" class="home-eevee">
+<main class="homepage">
+    <div class="intro">
+        <p>Hey!  I'm Eevee.  I make stuff.  Here's some stuff I made.</p>
+        <p>You can keep up with what I'm doing by following my very active <a href="https://twitter.com/eevee">Twitter</a> (hint: you can turn retweets off per-user), or by following the feed for my <a href="/dev/">dev log</a>.</p>
+        <p>If you like my work, you can <a href="https://www.patreon.com/eevee">help pay my salary</a>!</p>
+    </div>
 
-    <section class="home-words">
-        <p>I'm Eevee, an 11× programmer and <a href="http://www.theverge.com/2016/2/27/11116786/best-pokemon-20th-anniversary-eevee-squirtle-gyarados-nintendo-day">best Pokémon of all time</a>, and this is my amazing personal website.</p>
-        <p>I like to make things: code, words, art, games.  I hope you'll enjoy some of them!</p>
+    <div class="account-buttons">
+    <a href="mailto:eevee.fuzzynotepad@veekun.com" class="button" style="background-color: #9966cc;">
+        <img src="/theme/images/logo-email.png" alt="">
+        <label>email</label>
+    </a>
+    <a href="https://twitter.com/eevee" class="button" style="background-color: #55acee;">
+        <img src="/theme/images/logo-twitter.png" alt="">
+        <label>twitter</label>
+    </a>
+    <a href="https://www.patreon.com/eevee" class="button" style="background-color: #ff5900;">
+        <img src="/theme/images/logo-patreon.png" alt="">
+        <label>patreon</label>
+    </a>
+    <a href="https://cash.me/$eevee" class="button" style="background-color: #29c501;">
+        <img src="/theme/images/logo-square-cash.png" alt="">
+        <label>square</label>
+    </a>
+    <a href="https://www.paypal.me/lexyeevee" class="button" style="background-color: #009cde;">
+        <img src="/theme/images/logo-paypal.png" alt="">
+        <label>paypal</label>
+    </a>
+    </div>
+
+    <div class="account-buttons">
+    <a href="https://github.com/eevee" class="button" style="background-color: #4183c4;">
+        <img src="/theme/images/logo-github.png" alt="">
+        <label>github</label>
+    </a>
+    <a href="https://lexyeevee.tumblr.com/" class="button" style="background-color: #35465c;">
+        <img src="/theme/images/logo-tumblr.png" alt="">
+        <label>art tumblr</label>
+    </a>
+    <a href="https://eevee.itch.io/" class="button" style="background-color: #fa5c5c;">
+        <img src="/theme/images/logo-itch.png" alt="">
+        <label>itch.io</label>
+    </a>
+    <a href="https://twitch.tv/lexyeevee" class="button" style="background-color: #6441a4;">
+        <img src="/theme/images/logo-twitch.png" alt="">
+        <label>twitch</label>
+    </a>
+    <a href="https://www.youtube.com/user/lexyeevee" class="button" style="background-color: #cc181e;">
+        <img src="/theme/images/logo-youtube.png" alt="">
+        <label>youtube</label>
+    </a>
+    </div>
+
+    <h1>Writing</h1>
+    <section class="tile-container">
+        <section class="tile">
+            <header>
+                <a href="https://eev.ee/blog/" class="cool-button" style="background-color: #f6b441;">
+                    <h2>blog</h2>
+                </a>
+            </header>
+            <p>I write about game development, learning to draw, and miscellaneous technical stuff.  I like to explore a single topic in depth, so my writing can be a bit long-winded.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://eev.ee/dev/" class="cool-button" style="background-color: #ee7300;">
+                    <h2>dev log</h2>
+                </a>
+            </header>
+            <p>Every week, I write up what I've been working on.  It helps me see how much I'm getting done, and it's lower-volume than Twitter if you're looking for stuff I've released recently.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://www.patreon.com/eevee" class="cool-button" style="background-color: #ff5900;">
+                    <h2>patreon</h2>
+                </a>
+            </header>
+            <p>You can chip in a few bucks a month if you think my work is a good use of my time!  I also write much more in-depth recaps of what I've been doing every month and what I plan to do in the future.</p>
+        </section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
     </section>
 
-    {% macro _render_link(title, url, color, image, desc) %}
-        <a href="{{ url }}" style="background-color: {{ color }}; background-image: url({{ SITEURL }}/theme/images/{{ image }});">
-            <h1>{{ title }}</h1>
-            <p>{{ desc }}</p>
-        </a>
-    {% endmacro %}
-
-    <section class="home-links">
-        {% for linkdef in LINKS_EX %}
-            {{ _render_link(*linkdef) }}
-        {% endfor %}
-
-        <hr>
-
-        {% for page in pages %}
-        <a href="{{ SITEURL }}/{{ page.url }}" style="background-color: {{ page.metadata.get('home-color') }}; background-image: url({{ SITEURL }}/theme/images/{{ page.metadata.get('home-image') }});">
-            <h1>{{ page.metadata.get('home-title', page.title) }}</h1>
-            <p>{{ page.metadata.get('home-desc', '') }}</p>
-        </a>
-        {% endfor %}
-
-        <hr>
-
-        {% for linkdef in SOCIAL_EX %}
-            {{ _render_link(*linkdef) }}
-        {% endfor %}
+    <h1>Games</h1>
+    <section class="tile-container">
+        <section class="tile">
+            <header>
+                <a href="https://eevee.itch.io/lunar-depot-38">
+                    <img src="/theme/images/work/lunar-depot-38.png" alt="" class="tile-illus">
+                </a>
+                <a href="https://eevee.itch.io/lunar-depot-38" class="cool-button" style="background-color: #4d948c;">
+                    <time datetime="2017-04-24">2017-04-24</time>
+                    <h2>Lunar Depot 38</h2>
+                </a>
+            </header>
+            <p>A short, shooty, tower defense-ish platformer made with glip in 72 hours for <a href="https://ldjam.com/events/ludum-dare/38">Ludum Dare 38</a>.</p>
+            <ul class="see-also">
+                <li><a href="https://ldjam.com/events/ludum-dare/38/lunar-depot-38">ludum dare entry</a></li>
+                <li><a href="https://github.com/eevee/lunar-depot-38">source code</a></li>
+                <li><a href="https://floraverse.bandcamp.com/album/lunar-depot-38-ost">soundtrack</a></li>
+            </ul>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://eevee.itch.io/fox-flux">
+                    <img src="/theme/images/work/fox-flux.png" alt="" class="tile-illus">
+                </a>
+                <a href="https://eevee.itch.io/fox-flux" class="cool-button" style="background-color: #ff82ce;">
+                    <time datetime="2017-02-28">2017-02-28</time>
+                    <h2>fox flux</h2>
+                </a>
+            </header>
+            <p>A <strong>mildly NSFW</strong> puzzle platformer I made for my own month-long <a href="https://itch.io/jam/strawberry-jam">game jam</a>.</p>
+            <p>Music, title screen, and a couple sprites were provided by glip, but the rest of the artwork was all mine, which makes this a cool accomplishment.</p>
+            <ul class="see-also">
+                <li><a href="https://github.com/eevee/fox-flux">source code</a></li>
+                <li><a href="https://floraverse.bandcamp.com/album/fox-flux-demo-ost">soundtrack</a></li>
+            </ul>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://eevee.itch.io/neon-phase">
+                    <img src="/theme/images/work/neon-phase.png" alt="" class="tile-illus">
+                </a>
+                <a href="https://eevee.itch.io/neon-phase" class="cool-button" style="background-color: #e34a7b;">
+                    <time datetime="2017-01-19">2017-01-19</time>
+                    <h2>NEON PHASE</h2>
+                </a>
+            </header>
+            <p>My partner <a href="http://glitchedpuppet.com/">glip</a> and I made this exploratory platformer together for a week-long <a href="https://itch.io/jam/games-made-quick">game jam</a> I was running.</p>
+            <p>It's pretty chill, and is maybe our first "serious" game?  Big game?  Game not for the PICO-8.</p>
+            <ul class="see-also">
+                <li><a href="https://github.com/eevee/neon-phase">source code</a></li>
+                <li><a href="https://floraverse.bandcamp.com/album/neon-phase-ost">soundtrack</a></li>
+            </ul>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://eevee.itch.io/isaacs-descent">
+                    <img src="/theme/images/work/isaacs-descent.png" alt="" class="tile-illus">
+                </a>
+                <a href="https://eevee.itch.io/isaacs-descent" class="cool-button" style="background-color: #008751;">
+                    <time datetime="2016-08-29">2016-08-29</time>
+                    <h2>Isaac's Descent</h2>
+                </a>
+            </header>
+            <p>
+                I made this short PICO-8 puzzle-platformer in 48 hours for <a href="http://ludumdare.com/compo/ludum-dare-36/?action=preview&uid=111773">Ludum Dare 36</a>.
+            </p>
+            <p>
+                It's the first standalone game I created 100% by myself, and I'm pretty happy with it!
+                Interesting mechanic, decent difficulty curve, and music that isn't entirely terrible.
+            </p>
+            <ul class="see-also">
+                <li><a href="https://eev.ee/blog/2016/08/29/i-entered-ludum-dare-36/">blog post</a></li>
+                <li><a href="http://ludumdare.com/compo/ludum-dare-36/?action=preview&uid=111773">ludum dare entry</a></li>
+                <li><a href="https://c.eev.ee/isaacs-descent/isaac.p8">source code</a></li>
+            </ul>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://eevee.itch.io/under-construction">
+                    <img src="/theme/images/work/under-construction.png" alt="" class="tile-illus">
+                </a>
+                <a href="https://eevee.itch.io/under-construction" class="cool-button" style="background-color: #5f574f;">
+                    <time datetime="2016-05-25">2016-05-25</time>
+                    <h2>Under Construction</h2>
+                </a>
+            </header>
+            <p>This surreal explorational <a href="http://www.lexaloffle.com/pico-8.php">PICO-8</a> platformer is the first game glip and I made together, and the first standalone game either of us really released.</p>
+            <ul class="see-also">
+                <li><a href="https://eev.ee/blog/2016/05/25/under-construction-our-pico-8-game/">blog post</a></li>
+                <li><a href="https://c.eev.ee/under-construction/under-construction.p8">source code</a></li>
+                <li><a href="https://floraverse.bandcamp.com/album/under-construction">soundtrack</a></li>
+            </ul>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="">
+                    <img src="/theme/images/work/thoroughfare.png" alt="" class="tile-illus">
+                </a>
+                <a href="" class="cool-button" style="background-color: #720000;">
+                    <time datetime="2016-03-16">2016-03-16</time>
+                    <h2>Throughfare</h2>
+                </a>
+            </header>
+            <p>After many years orbiting the <a href="https://zdoom.org/">ZDoom</a> community, I finally released a map for <a href="https://forum.zdoom.org/viewtopic.php?t=51072">DUMP 2</a>, a week-long newbie speedmapping project.</p>
+            <ul class="see-also">
+                <li><a href="https://eev.ee/blog/2016/03/31/i-made-a-doom-level/">blog post</a></li>
+            </ul>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="">
+                    <img src="/theme/images/work/dont-eat-cactus.png" alt="" class="tile-illus">
+                </a>
+                <a href="" class="cool-button" style="background-color: #999;">
+                    <time datetime="2016-02-23">2016-02-23</time>
+                    <h2>Don't Eat the Cactus</h2>
+                </a>
+            </header>
+            <p>This very short and silly text adventure is extremely based on true events.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://eev.ee/everything/tags/mario-maker/">
+                    <img src="/theme/images/work/mario-maker.png" alt="" class="tile-illus">
+                </a>
+                <a href="https://eev.ee/everything/tags/mario-maker/" class="cool-button" style="background-color: #00c500;">
+                    <time datetime="2015-09-18">2015-09-18</time>
+                    <h2>Mario Maker</h2>
+                </a>
+            </header>
+            <p>I used Mario Maker to dip my toes more seriously into level design.  In theory, these levels get more interesting over time.</p>
+            <p>You can find a less long-winded list on <a href="https://supermariomakerbookmark.nintendo.net/profile/lexyeevee?type=posted">the Mario Maker bookmark site</a>, assuming that still exists.</p>
+        </section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
     </section>
 
+    <h1>Twitter bots</h1>
+    <section class="tile-container">
+        <section class="tile">
+            <header>
+                <a href="https://twitter.com/calloutbot" class="cool-button" style="background-color: #becc38;">
+                    <time datetime="2016-09-28">2016-09-28</time>
+                    <h2>@calloutbot</h2>
+                    <p>this is really an injoke</p>
+                </a>
+            </header>
+            <p>
+                This is a very complicated...  in-joke?
+                If it doesn't make any sense to you, count yourself lucky.
+            </p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://twitter.com/perlin_noise" class="cool-button" style="background-color: #b9c4cd;">
+                    <time datetime="2016-06-06">2016-06-06</time>
+                    <h2>@perlin_noise</h2>
+                    <p>beautiful, chaotic patterns built from perlin noise</p>
+                </a>
+            </header>
+            <p>
+                Inspired by my <a href="https://eev.ee/blog/2016/05/29/perlin-noise/">post explaining how Perlin noise works</a>, this bot tweets out Perlin noise in various ways:
+                ASCII, obscure Unicode, emoji, generated images, and even the occasional GIF.
+            </p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://twitter.com/unicodeveryword" class="cool-button" style="background-color: #f9c44a;">
+                    <time datetime="2016-04-14">2016-04-14</time>
+                    <h2>@unicodeveryword</h2>
+                    <p>every word in my dictionary, scrambled by unicode</p>
+                </a>
+            </header>
+            <p>
+                A bot in the <a href="https://twitter.com/everyword">every word</a> genre, with the added twist that each word is mangled somewhat by Unicode shenanigans.
+            </p>
+        </section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+    </section>
+
+    <h1>Web stuff</h1>
+    <section class="tile-container">
+        <section class="tile">
+            <header>
+                <a href="https://c.eev.ee/PARTYMODE/" class="cool-button" style="background-color: #ef7bc5;">
+                    <time datetime="2016-01-12">2016-01-12</time>
+                    <h2>PARTYMODE</h2>
+                    <p>an incredibly stupid effect i use on my birthday</p>
+                </a>
+            </header>
+            <p>Every year on my birthday, I add this incredibly stupid snow effect to my website.</p>
+            <p>Used to be a decades-old "DHTML" thing from DynamicDrive (!).  I eventually rewrote it from scratch using CSS animations, which allowed for putting much more crap on the screen.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://c.eev.ee/pure-css-unown/" class="cool-button" style="background-color: #505050;">
+                    <time datetime="2014-12-24">2014-12-24</time>
+                    <h2>pure css unown</h2>
+                    <p>a datamined pokémon resource</p>
+                </a>
+            </header>
+            <p>Most of an <a href="https://veekun.com/dex/pokemon/unown">Unown</a> alphabet, implemented entirely with CSS — no images, no JavaScript.</p>
+            <p>Written on a whim one Christmas, inspired by a friend's...  Christmas NES cartridge.  Not sure how that leap happened.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://github.com/eevee/spline" class="cool-button" style="background-color: #f98131;">
+                    <time datetime="2013-08-01">2013-08-01</time>
+                    <h2>spline</h2>
+                    <p>a datamined pokémon resource</p>
+                </a>
+            </header>
+            <p>I started writing this as extensions to <a href="http://pyramid.readthedocs.io/en/latest/">Pyramid</a> to eliminate all the boring tedious parts of web development.</p>
+            <p>I didn't really finish it — turns out an easier solution was to stop doing web development — but it does power glip's webcomic site, <a href="http://floraverse.com/">Floraverse</a>.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="http://apps.veekun.com/flora-cutscenes/" class="cool-button" style="background-color: #5e3f5e;">
+                    <time datetime="2012-12-14">2012-12-14</time>
+                    <h2>flora cutscenes</h2>
+                    <p>a datamined pokémon resource</p>
+                </a>
+            </header>
+            <p>Several <a href="http://floraverse.com/">Flora</a> updates have taken the form of visual novels, using a little engine I wrote and have haphazardly enhanced as necessary.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://c.eev.ee/kouyou/" class="cool-button" style="background-color: #d98947;">
+                    <time datetime="2009-06-22">2009-06-22</time>
+                    <h2>kouyou</h2>
+                    <p>a color picker</p>
+                </a>
+            </header>
+            <p>Simple color picker I made because I was frustrated with the lack of HSL support in everything.  Don't really use it any more, now that CSS has HSL support built in.</p>
+            <ul class="see-also">
+                <li><a href="https://github.com/eevee/kouyou">source code</a></li>
+            </ul>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://veekun.com/" class="cool-button" style="background-color: #cbab81;">
+                    <time datetime="1999-11-19">1999-11-19</time>
+                    <h2>veekun</h2>
+                    <p>a datamined pokémon resource</p>
+                </a>
+            </header>
+            <p>A data-mined Pokémon reference that I've been working on, on and off, since I was 12.</p>
+        </section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+    </section>
+
+    <h1>Libraries</h1>
+    <section class="tile-container">
+        <section class="tile">
+            <header>
+                <a href="https://pypi.python.org/pypi/camel" class="cool-button" style="background-color: #adc16f;">
+                    <time datetime="2015-09-10">2015-09-10</time>
+                    <h2>camel</h2>
+                </a>
+            </header>
+            <p>Simple Python library that makes it relatively easy to serialize objects to YAML in a more explicit, less magical, less dangerous way.</p>
+            <ul class="see-also">
+                <li><a href="https://eev.ee/blog/2015/10/15/dont-use-pickle-use-camel/">blog post</a></li>
+                <li><a href="http://camel.readthedocs.io/en/latest/">docs</a></li>
+                <li><a href="https://github.com/eevee/camel">source code</a></li>
+            </ul>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://pypi.python.org/pypi/classtools" class="cool-button" style="background-color: #3a5eba;">
+                    <time datetime="2015-01-08">2015-01-08</time>
+                    <h2>classtools</h2>
+                </a>
+            </header>
+            <p>Small Python library with a few handy class-related utilities, in the vein of <code>functools</code> and <code>itertools</code>.</p>
+            <ul class="see-also">
+                <li><a href="http://classtools.readthedocs.io/en/latest/">docs</a></li>
+                <li><a href="https://github.com/eevee/classtools">source code</a></li>
+            </ul>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://pypi.python.org/pypi/dictproxyhack" class="cool-button" style="background-color: #eda61e;">
+                    <time datetime="2013-08-05">2013-08-05</time>
+                    <h2>dictproxyhack</h2>
+                </a>
+            </header>
+            <p>Microscopic Python library that exposes a <code>dictproxy</code> type for creating read-only dicts.</p>
+            <ul class="see-also">
+                <li><a href="http://classtools.readthedocs.io/en/latest/">docs</a></li>
+                <li><a href="https://eev.ee/blog/2013/08/05/dictproxyhack-or-activestate-code-considered-harmful/">blog post</a></li>
+                <li><a href="https://github.com/eevee/dictproxyhack">source code</a></li>
+            </ul>
+        </section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+    </section>
+
+    <h1>Miscellany</h1>
+    <section class="tile-container">
+        <section class="tile">
+            <header>
+                <a href="https://github.com/eevee/rc" class="cool-button" style="background-color: #9b1a20;">
+                    <time datetime="2009-05-22">2009-05-22</time>
+                    <h2>rc</h2>
+                </a>
+            </header>
+            <p>My dotfiles.  Pretty simple, but they contain a couple gems.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://github.com/eevee/project-euler/tree/master/heteroglot" class="cool-button" style="background-color: #ff9933;">
+                    <time datetime="2008-12-02">2008-12-02</time>
+                    <h2>heteroglot</h2>
+                </a>
+            </header>
+            <p>A (slow) ongoing quest to solve every Project Euler problem — in a different programming language.</p>
+            <ul class="see-also">
+                <li><a href="https://eev.ee/everything/tags/project-euler/">blog series</a></li>
+            </ul>
+        </section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+    </section>
+
+    <h1>Selected Abandonware</h1>
+    <section class="tile-container">
+        <section class="tile">
+            <header>
+                <a href="http://starbindery.veekun.com/" class="cool-button" style="background-color: #2d425d;">
+                    <time datetime="2015-05-14">2015-05-14</time>
+                    <h2>starbindery</h2>
+                </a>
+            </header>
+            <p>I started working on this autogenerated Starbound database and did a few cool things with it.  I lost interest in Starbound before it got very far, and it no longer works against their data layout.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://github.com/eevee/flax" class="cool-button" style="background-color: #ede781;">
+                    <time datetime="2014-05-11">2014-05-11</time>
+                    <h2>flax</h2>
+                </a>
+            </header>
+            <p>I started writing a console roguelike in Python, mostly to play with randomness and entity-component and ways of expressing object interactions.  Then I lost interest.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://github.com/eevee/dywypi" class="cool-button" style="background-color: #c9427b;">
+                    <time datetime="2013-11-14">2013-11-14</time>
+                    <h2>dywypi</h2>
+                </a>
+            </header>
+            <p>I started writing a pluggable IRC bot atop Python's asyncio library.  Then I stopped doing that.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://github.com/eevee/sanpera" class="cool-button" style="background-color: #d4bb91;">
+                    <time datetime="2011-08-14">2011-08-14</time>
+                    <h2>sanpera</h2>
+                </a>
+            </header>
+            <p>Unfinished Python wrapper around ImageMagick that sought to hide the awfulness of the ImageMagick API.  Alas, that turned out to be much more tedious than expected.</p>
+        </section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+    </section>
+
+    <h1>Open source</h1>
+    <section class="tile-container">
+        <section class="tile">
+            <header>
+                <a href="http://zdoom.org/" class="cool-button" style="background-color: #980011;">
+                    <time datetime="2015-06-06">2015-06-06</time>
+                    <h2>ZDoom</h2>
+                </a>
+            </header>
+            <p>A modern continuation of the Doom engine.  I added support for <code>TERRAIN</code>-based damage and friction to 3D floors; fixed texture scaling on 3D floors; and disabled using switches embedded in the floor when <code>checkswitchrange</code> is active.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="http://eblong.com/zarf/glulx/quixe/" class="cool-button" style="background-color: #ffd0a0;">
+                    <time datetime="2015-05-28">2015-05-28</time>
+                    <h2>Quixe / Glkote</h2>
+                </a>
+            </header>
+            <p>A web implementation of the glulx interactive fiction engine.  I sketched an initial implementation of graphics and audio support; fixed loading large games on some browsers; and found an overall 2× speedup in the VM.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="http://playstarbound.com/" class="cool-button" style="background-color: #2d425d;">
+                    <time datetime="2015-05-06">2015-05-06</time>
+                    <h2>Starbound</h2>
+                </a>
+            </header>
+            <p>A procedurally generated adventure game.  Not actually open source, but I sent one of their devs patches to fix some bugs in their data files, plus an initial implementation of a wiring object that later appeared in the game.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://github.com/Yelp/Testify" class="cool-button" style="background-color: #8a3030;">
+                    <time datetime="2015-02-05">2015-02-05</time>
+                    <h2>Testify</h2>
+                </a>
+            </header>
+            <p>A (deprecated?) Python test framework.  I sped up a few specific operations, which shaved entire minutes off a former employer's (very large) test runs.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="http://urwid.org/" class="cool-button" style="background-color: #6d96e8;">
+                    <time datetime="2014-05-11">2014-05-11</time>
+                    <h2>urwid</h2>
+                </a>
+            </header>
+            <p>A Python console UI toolkit.  I added support for using asyncio as the event loop.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="http://plumbum.readthedocs.io/en/latest/" class="cool-button" style="background-color: #58b383;">
+                    <time datetime="2014-04-08">2014-04-08</time>
+                    <h2>plumbum</h2>
+                </a>
+            </header>
+            <p>A Python library for expressing shell pipelines.  I added a <code>TEE</code> modifier for both capturing and piping a process's stdout.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="http://slade.mancubus.net/" class="cool-button" style="background-color: #7d91ba;">
+                    <time datetime="2014-02-10">2014-02-10</time>
+                    <h2>SLADE</h2>
+                </a>
+            </header>
+            <p>A Doom resource and map editor.  I fixed a lot of crashes, geometry bugs, and UI papercuts; and wrote most of the implementation of slopes and 3D floors in the map editor.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="http://parsley.readthedocs.io/en/latest/" class="cool-button" style="background-color: #44c621;">
+                    <time datetime="2013-07-19">2013-07-19</time>
+                    <h2>Parsley</h2>
+                </a>
+            </header>
+            <p>A Python PEG-based parser generator.  I made it more fast.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="http://www.sqlalchemy.org/" class="cool-button" style="background-color: #d71f00;">
+                    <time datetime="2013-06-10">2013-06-10</time>
+                    <h2>SQLAlchemy</h2>
+                </a>
+            </header>
+            <p>A Python database library and ORM.  I fixed an obscure bug with pooled connections.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="http://www.aaronsw.com/2002/html2text/" class="cool-button" style="background-color: #ffffdd;">
+                    <time datetime="2012-09-11">2012-09-11</time>
+                    <h2>html2text</h2>
+                </a>
+            </header>
+            <p>A Python library for converting HTML to Markdown.  I fixed the translation of <code>&lt;br&gt;</code>.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://github.com/Kronuz/pyScss" class="cool-button" style="background-color: #82cd17;">
+                    <time datetime="2012-08-16">2012-08-16</time>
+                    <h2>pyScss</h2>
+                </a>
+            </header>
+            <p>A Python implementation of Sass.  I did a ton of work porting it from immediate evaluation to an AST; fixed myriad bugs and Sass mismatches; and added support for a lot of newer Sass features.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="http://www.makotemplates.org/" class="cool-button" style="background-color: #d3deed;">
+                    <time datetime="2012-02-02">2012-02-02</time>
+                    <h2>Mako</h2>
+                </a>
+            </header>
+            <p>A Python templating language.  I fixed parsing of dict literals inside <code>${}</code>; fixed parsing of escaped quotes inside Python blocks; and added support for keyword-only arguments in <code>&lt;%def&gt;</code> blocks.</p>
+        </section>
+        <section class="tile">
+            <header>
+                <a href="https://www.mozilla.org/en-US/firefox/products/" class="cool-button" style="background-color: #d66a28;">
+                    <time datetime="2011-01-25">2011-01-25</time>
+                    <h2>Firefox</h2>
+                </a>
+            </header>
+            <p>A web browser.  I made a microscopic CSS patch to a feature that has since been removed.  My name ended up on their <a href="https://wiki.mozilla.org/Monument">obelisk</a>, so it still counts.</p>
+        </section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+        <section class="tile flex-padding"></section>
+    </section>
+</main>
 {% endblock %}
