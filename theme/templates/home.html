@@ -1,6 +1,14 @@
 {% extends '_base.html' %}
 {% import '_lib.html' as lib with context %}
 
+{% block twitter_card %}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@eevee">
+<meta name="twitter:title" content="{{ SITENAME }}">
+<meta name="twitter:description" content="hello!  i'm eevee and this is my website.  i hope you enjoy it!">
+<meta name="twitter:image" content="{{ SITEURL }}/theme/images/home-eevee2.png">
+{% endblock %}
+
 {% block entirebody %}
 <main class="homepage">
     <div class="intro">
@@ -186,10 +194,10 @@
         </section>
         <section class="tile">
             <header>
-                <a href="">
+                <a href="https://eev.ee/blog/2016/03/31/i-made-a-doom-level/">
                     <img src="/theme/images/work/thoroughfare.png" alt="" class="tile-illus">
                 </a>
-                <a href="" class="cool-button" style="background-color: #720000;">
+                <a href="https://eev.ee/blog/2016/03/31/i-made-a-doom-level/" class="cool-button" style="background-color: #720000;">
                     <time datetime="2016-03-16">2016-03-16</time>
                     <h2>Throughfare</h2>
                 </a>
@@ -201,10 +209,10 @@
         </section>
         <section class="tile">
             <header>
-                <a href="">
+                <a href="https://c.eev.ee/dont-eat-cactus/">
                     <img src="/theme/images/work/dont-eat-cactus.png" alt="" class="tile-illus">
                 </a>
-                <a href="" class="cool-button" style="background-color: #999;">
+                <a href="https://c.eev.ee/dont-eat-cactus/" class="cool-button" style="background-color: #999;">
                     <time datetime="2016-02-23">2016-02-23</time>
                     <h2>Don't Eat the Cactus</h2>
                 </a>

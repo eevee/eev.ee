@@ -36,6 +36,7 @@
     {% endif %}
 
     {# twitter card stuff #}
+    {% block twitter_card %}
     {% if article %}
     {% if article.photo_image %}
     <meta name="twitter:card" content="summary_large_image">
@@ -51,6 +52,7 @@
     <meta name="twitter:title" content="{{ article.title | striptags }}">
     <meta name="twitter:description" content="{{ article.summary | striptags }}">
     {% endif %}
+    {% endblock %}
 </head>
 
 <body>
