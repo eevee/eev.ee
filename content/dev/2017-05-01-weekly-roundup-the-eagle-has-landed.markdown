@@ -7,6 +7,6 @@ tags: status
 
 - **fox flux**: I still want to extend this into a more finished game, so I've been working on that, mostly in the form of sprite work.  I spent at least half a month on the art for the jam version, and I suspect it's going to take even longer to get all the art done for the final.  Should be really good practice, at least?
 
-- **blog**: I finally finished redoing [https://eev.ee/](this site's landing page)!  It's much easier on the eye than the old projects page, I think, and spreads focus around more sensibly.
+- **blog**: I finally finished redoing [this site's landing page](https://eev.ee/)!  It's much easier on the eye than the old projects page, I think, and spreads focus around more sensibly.
 
 - **etc**: The Internet was down for a day, and then I spent two days on a weekend trip with glip, so not much happened there.
