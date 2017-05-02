@@ -7,15 +7,13 @@
 <section class="archives">
     <h1>Archive</h1>
 
-    {% set last_year = None %}
     {% for article in articles %}
-        {% if last_year != article.date.year %}
-        {% if last_year %}
+        {% if loop.index0 == 0 or articles[loop.index0 - 1].date.year != article.date.year %}
+        {% if loop.index0 > 0 %}
         <hr>
         {% endif %}
         <h2>{{ article.date.year }}</h2>
         {% endif %}
-        {% set last_year = article.date.year %}
 
     <article>
         <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.date | strftime("%b %d") }}</time>

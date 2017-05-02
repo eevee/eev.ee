@@ -1001,7 +1001,7 @@ section.archives {
         @include flexbox;
 
         // override default padding; just want breathing room
-        padding: 0 0 1.5rem;
+        padding: 0 0 0.5rem;
         margin-left: $year-width;
 
         @include phone-size {
@@ -1039,14 +1039,22 @@ section.archives {
             vertical-align: baseline;
             font-weight: normal;
 
+            // Make the weekly roundups less overt
+            &.category-dev {
+                font-size: 1rem;
+                color: #606060;
+            }
+
             @include phone-size {
                 @include flex(0 0 100%);
                 @include order(-1);
             }
         }
 
+        // Tags
         > footer {
             @include flex(1 1 auto);
+            font-size: 0.85em;
 
             // override default article footer margin
             margin: 0;
