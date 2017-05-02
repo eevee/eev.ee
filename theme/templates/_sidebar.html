@@ -19,7 +19,9 @@
         {% for linkdef in LINKS_EX %}
             {{ _render_link(*linkdef) }}
         {% endfor %}
+        {% if pages %}
         <li class="-empty"></li>
+        {% endif %}
         {% for page in pages %}
             {{ _render_link(
                 title=page.metadata.get('home-title', page.title),

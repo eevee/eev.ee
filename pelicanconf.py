@@ -46,32 +46,63 @@ LINKS_EX = ((
     '/everything/',
     '#c57be6', 'category-everything.png',
     "why limit yourself when you can have it all",
+), (
+    'archives',
+    '/everything/archives/',
+    '#399ccd', 'category-archives.png',
+    "turn the clock back to æons past",
 ))
+# FIXME this is duplicated from home.html; maybe consolidate
 SOCIAL_EX = ((
     'email',
     'mailto:eevee.fuzzynotepad@veekun.com',
     '#9966cc', 'logo-email.png',
-    "i get so much spam because of this link; make it worth my while",
+    "do people still use this",
 ), (
     'twitter',
     'https://twitter.com/eevee',
     '#55acee', 'logo-twitter.png',
-    "follow me for bad nerd jokes and yelling about computers",
-), (
-    'github',
-    'https://github.com/eevee/',
-    '#4183c4', 'logo-github.png',
-    "a mausoleum for all the code i've ever written, then abandoned",
+    "firehose of bad jokes",
 ), (
     'patreon',
     'https://www.patreon.com/eevee',
     '#ff5900', 'logo-patreon.png',
-    "force me to blog more often, with dollars",
+    "help pay my salary",
 ), (
-    'square cash',
+    'square',
     'https://cash.me/$eevee',
     '#29c501', 'logo-square-cash.png',
-    "just plain give me money.  i don't know why you would do this",
+    "just give me money?",
+), (
+    'paypal',
+    'https://www.paypal.me/lexyeevee',
+    '#009cde', 'logo-paypal.png',
+    "just give me money, again?",
+), (
+    'github',
+    'https://github.com/eevee',
+    '#4183c4', 'logo-github.png',
+    "lots of abandoned code",
+), (
+    'art tumblr',
+    'https://lexyeevee.tumblr.com/',
+    '#35465c', 'logo-tumblr.png',
+    "just art",
+), (
+    'itch.io',
+    'https://eevee.itch.io/',
+    '#fa5c5c', 'logo-itch.png',
+    "indie games",
+), (
+    'twitch',
+    'https://twitch.tv/lexyeevee',
+    '#6441a4', 'logo-twitch.png',
+    "occasional old game streams",
+), (
+    'youtube',
+    'https://www.youtube.com/user/lexyeevee',
+    '#cc181e', 'logo-youtube.png',
+    "mostly cat videos",
 ))
 TWITTER_USERNAME = 'eevee'
 GITHUB_URL = 'https://github.com/eevee'

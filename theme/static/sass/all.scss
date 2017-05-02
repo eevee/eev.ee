@@ -380,8 +380,8 @@ body > footer {
     }
 
     .eevee-navigation {
-        $size: 2rem;
-        $padding: 0.5rem;
+        $size: 1.5rem;
+        $padding: 0.25rem;
         $total-size: $size + $padding * 2;
 
         position: relative;
@@ -404,18 +404,20 @@ body > footer {
 
             > a {
                 @include flexbox;
+                @include align-items(center);
 
-                padding: $padding;
+                padding: $padding 1.5em;
                 border: 1px solid transparent;
 
                 .-glyph {
                     @include flex(0 0 $size);
                     margin-right: 0.5em;
-                    text-align: center;
 
                     > img {
+                        display: block;
                         max-height: $size;
                         max-width: $size;
+                        margin: 0 auto;
                         opacity: 0.9;
                         filter: grayscale(100%) contrast(60%) brightness(1.25);
                         -webkit-filter: grayscale(100%) contrast(60%) brightness(1.25);
@@ -425,6 +427,8 @@ body > footer {
                 .-label {
                     h2 {
                         font-size: 1.2em;
+                        font-weight: normal;
+                        font-family: $font-sans;
                     }
                     p {
                         font-size: 0.9em;
@@ -433,6 +437,9 @@ body > footer {
                     h2, p {
                         margin: 0;
                         line-height: 1.1;
+                    }
+                    .-details {
+                        display: none;
                     }
                 }
             }
