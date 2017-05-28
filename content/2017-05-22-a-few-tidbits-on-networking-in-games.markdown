@@ -1,7 +1,7 @@
 title: A few tidbits on networking in games
 date: 2017-05-22 08:06
 category: blog
-tags: tech, gamedev
+tags: tech, gamedev, patreon
 
 [Nova Dasterin](https://www.patreon.com/user?u=2491881) asks, [via Patreon](https://www.patreon.com/eevee):
 
