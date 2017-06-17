@@ -3,7 +3,7 @@ date: 2017-06-10 15:16
 category: blog
 tags: tech, patreon
 
-A [sponsored post](https://www.patreon.com/eevee) from [Manishearth](https://www.patreon.com/user/creators?u=4520892):
+A [sponsored post](https://www.patreon.com/eevee) from an anonymous patron:
 
 > I would kinda like to hear about any thoughts you have on technical teaching or technical writing. Pedagogy is something I care about. But I don't know how much you do, so feel free to ignore this suggestion :)
 
