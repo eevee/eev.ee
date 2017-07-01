@@ -30,7 +30,7 @@ I haven't had time to take a deeper look at pixel art this way, so I'll try it r
 
 *screenshots mine — map via [doom wiki](https://doomwiki.org/wiki/MAP10:_Refueling_Base_%28Doom_II%29) — see also [textured perspective map](http://ian-albert.com/games/doom_2_maps/MAP10.jpg) (warning: large!) via [ian albert](http://ian-albert.com/games/doom_2_maps/) — [pistol start playthrough](https://www.youtube.com/watch?v=yU_yBamWeSo)*
 
-I'm surprising myself by picking Refueling Base.  I would've expected myself to pick MAP08, Tricks and Traps, for its collection of uniquely bizarre puzzles and mechanisms.  Or MAP13, Downtown, the map that had me convinced (erroneously) that Doom levels supported multi-story structured.  Or at least MAP08, The Pit, which stands out for the unique way it _feels_ like a plunge into enemy territory.
+I'm surprising myself by picking Refueling Base.  I would've expected myself to pick MAP08, Tricks and Traps, for its collection of uniquely bizarre puzzles and mechanisms.  Or MAP13, Downtown, the map that had me convinced (erroneously) that Doom levels supported multi-story structures.  Or at least MAP08, The Pit, which stands out for the unique way it _feels_ like a plunge into enemy territory.
 
 (Curiously, those other three maps are all Sandy Petersen's sole work.  Refueling Base was started by Tom Hall in the original Doom days, then finished by Sandy for Doom II.)
 
