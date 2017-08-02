@@ -1,0 +1,14 @@
+title: Weekly roundup: Downtime
+date: 2017-08-01 17:29
+category: dev
+tags: status
+
+I had a few inexplicably rough days, which I mostly spent playing Splatoon, but I'm good now!
+
+- **blog**: I got a preposterous amount of work done on a blog post, but unfortunately it's turning out to be fairly ambitious, so it's taking a while to finish.  Now it's August and I didn't post anything at all in July.  Oops.
+
+- **vidya**: I streamed three hours of playing randomly-chosen fan maps from the entire history of Doom.  And for once I turned on VODs, so you can still watch it on [Twitch](https://www.twitch.tv/lexyeevee) until it's automatically deleted in a few days.
+
+    I also played, uh, _one_ of the [GAMES MADE QUICK??? 1½ entries](https://itch.io/jam/games-made-quick-one-and-a-half/entries), which is very shameful.  I'll make an effort to play a few more, soon, I guess?
+
+- **fox flux**: I significantly improved and finished grassy slopes, hooray.  Drew some more player sprites; only like, uh, 120 to go.  Played with particle effects, to (imo) great success.
