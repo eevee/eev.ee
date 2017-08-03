@@ -216,6 +216,11 @@ body > #main {
 
     #content {
         @include flex(1);
+        // The default is 'auto', which for a flexbox makes it expand to its
+        // contents' intrinsic width, i.e. a very long word somewhere will make
+        // the entire page expand.  This overrides that and allows overflow
+        // mechanisms on children to work
+        min-width: 0;
         background: url(/theme/images/textured_paper.png) $main-bg;
     }
     #sidebar {
@@ -1125,6 +1130,7 @@ $solarized-cyan:      #2aa198;
 $solarized-green:     #859900;
 
 table.highlighttable {
+    table-layout: fixed;  // allows overflow to work; auto prefers to stretch cells
     width: 100%;
     margin: 1em 0;
     border-collapse: collapse;
@@ -1134,7 +1140,6 @@ table.highlighttable {
 
     pre {
         margin: 0;
-        white-space: pre-wrap;
     }
 
     td {
@@ -1142,12 +1147,19 @@ table.highlighttable {
         border: 1px solid $solarized-base2;
     }
     td.linenos {
-        width: 0;
+        width: 2em;
+        width: -moz-min-content;
+        width: -webkit-min-content;
+        width: min-content;
         padding-left: 1em;
         text-align: right;
         color: $solarized-base1;
         background: url(/theme/images/textured_paper.png) $solarized-base2;
         vertical-align: top;
+    }
+
+    .highlight {
+        overflow-x: auto;
     }
 }
 
