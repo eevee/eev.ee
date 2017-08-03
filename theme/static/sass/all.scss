@@ -1149,8 +1149,9 @@ table.highlighttable {
     td.linenos {
         width: 2em;
         width: -moz-min-content;
-        width: -webkit-min-content;
-        width: min-content;
+        // FIXME this doesn't work right in chrome (the column gets zero width) and i'm not sure who's wrong  :(
+        //width: -webkit-min-content;
+        //width: min-content;
         padding-left: 1em;
         text-align: right;
         color: $solarized-base1;
