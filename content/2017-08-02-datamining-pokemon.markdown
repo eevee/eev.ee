@@ -219,7 +219,7 @@ Now we can start looking at data and figuring it out.  _Finally_.
 
 This was _fantastic_.  All the game data, nearly arranged into files, and even named sensibly for us.  A goldmine.  It didn't used to be so easy, as we will see later.
 
-Other people had already noticed the file `/poketool/personal/personal.narc` contains much of the base data about Pokémon.  You'll notice it has a "501" in brackets next to it, indicating that it's actually a NARC file — a "Nitro archive", though I'm not sure what "Nitro" refers to.  This is a generic uncompressed container that just holds some number of sub-files — in this case, 501.  The subfiles can have names, but the ones in this game generally don't, so the only way to refer to them is by number.
+Other people had already noticed the file `/poketool/personal/personal.narc` contains much of the base data about Pokémon.  You'll notice it has a "501" in brackets next to it, indicating that it's actually a NARC file — a "Nitro archive", Nitro being the original codename for the DS.  This is a generic uncompressed container that just holds some number of sub-files — in this case, 501.  The subfiles can have names, but the ones in this game generally don't, so the only way to refer to them is by number.
 
 You may also notice that `evo.narc` and `wotbl.narc`, in the same directory, are also NARCs with 501 records.  It's a pretty safe bet that they all have one record per Pokémon.  That's a little odd, since Pokémon Diamond only has 493 Pokémon, but we'll figure that out later.
 
@@ -427,13 +427,75 @@ What does any of this have to do with the encryption?  Well!  The entire sprite 
 
 The seed technically overlaps with the last four pixels, but it happens to work since no Pokémon sprites touched the bottom-right corner in Diamond and Pearl.  In Platinum a couple very large sprites broke that rule, so they ended up switching this around and starting from the beginning.  Same idea, though.
 
-Of course, porigon-z [knows how to handle this](https://github.com/eevee/porigon-z/blob/master/porigonz/nds/util/sprites.py)...  though it's currently hardcoded to use the Platinum approach.  Funny story: the algorithm was originally thought to go from the _beginning_, not the end, and it used an LCG with different constants.  Turns out someone had just accidentally (?) discovered the _reverse_ of the Pokémon LCG, which would produce exactly the same sequence, backwards.  Super cool.
+Of course, porigon-z [knows how to handle this](https://github.com/eevee/porigon-z/blob/master/porigonz/nds/util/sprites.py)...  though it's currently hardcoded to use the Platinum approach.  Funny story: the algorithm was originally thought to go from the _beginning_, not the end, and it used an LCG with different constants.  Turns out someone had just discovered the _reverse_ of the Pokémon LCG, which would produce exactly the same sequence, backwards.  Super cool.
 
-Why did that thing with subtracting the two rows kinda-sorta work, then?  _Well!_  It's because...  when you...  and...  uh...  wow, I still have no goddamn idea.  That makes no sense at all.  I'd sure love for someone to explain that to me.  I'm sure I could explain it if I sat down and thought about it for a while, but I suspect it's something subtle and I'm not _that_ interested.
+I _am_ a little curious: why were the sprites encrypted in the first place?  What possible point is there?  They _must_ have known we cracked the encryption, but then they used it again for Platinum, and again Heart Gold and Soul Silver.  Maybe it was only intended to be enough to delay us, during the gap between the Japanese and worldwide releases...?  Hm.
 
-I'd also like to know: why were the sprites encrypted in the first place?  What possible point is there?  They _must_ have known we cracked the encryption, but then they used it again for Platinum, and Heart Gold and Soul Silver.  Maybe it was only intended to be enough to delay us, during the gap between the Japanese and worldwide releases...?  Hm.
+Incidentially, the entire game text is also encrypted in much the same way.  Without the encryption, it's just UTF-16 — a common character encoding that uses two bytes for every character.  I have no idea what the encryption is for, or why it's _still_ used in Sun and Moon.
 
-Incidentially, the entire game text is also encrypted in much the same way.  Without the encryption, it's just UTF-16 — a common character encoding that uses two bytes for every character.  I have no idea why.
+Oh hey, so.  Why did that thing with subtracting the two rows kinda-sorta work?  _Well!_  That's a very good question that I only just recently bothered looking into.
+
+### SOME MATH
+
+I think it's because of one of the [rules for choosing good factors for an LCG](https://en.wikipedia.org/wiki/Linear_congruential_generator#Period_length) — in particular, `a - 1` should be divisible by 4, or the LCG won't run through all possible values.  That means `a` can be written as `4m + 1`, for some integer `m`.  I'll come back to this in a moment.
+
+First, consider what happens when you start with a value `x` and run it through the LCG a few times.  At this point I apologize for not having MathJax or something on this blog, but oh well.
+
+```
+step 0: x
+step 1: ax + b
+step 2: a(ax + b) + b = a²x + ab + b
+step 3: a(a²x + ab + b) + b = a³x + a²b + ab + b
+...
+step n: aⁿ x + (aⁿ⁻¹ + aⁿ⁻² + ... + a² + a + 1) b
+      = aⁿ x + (aⁿ - 1) / (a - 1) b
+```
+
+(That last step is a pretty common trick; you can do the multiplication yourself if you don't believe me.)
+
+I'm going to restrict the cases we care about to when `n` is a power of two, because powers of two are interesting.  Let's say it's, I dunno, 8.  So we have some `a⁸` terms in there.  That's equivalent to squaring `a` three times.  We know `a` is `4m + 1`, so let's try squaring that repeatedly.
+
+```
+a² = (4m + 1)² = 16m² + 8m + 1
+a⁴ = (16m² + 8m + 1)² = 256m⁴ + 256m³ + 96m² + 16m + 1
+a⁸ = ?!
+```
+
+An interesting pattern emerges!  `a² - 1` is divisible by 8, and `a⁴ - 1` is divisible by 16.  It wouldn't be outrageous to assume that `a⁸ - 1` is divisible by 32.
+
+But we can do one better: `a² - 1` is actually divisible by `8m`, and `a⁴ - 1` is divisible by `16m`, and of course `a⁸ - 1` is divisible by `32m`.  In other words, we can write `a⁸` as `32mj + 1`, where `j` is a bunch of junk we don't care about.
+
+Now let's look at the formula for step 8 and replace some of those `a`s.
+
+```
+a⁸ x + (a⁸ - 1) / (a - 1) b
+= (32mj + 1) x + (32mj) / (4m) b
+= 32mjx + x + 8jb
+= 8(4mjx + jb) + x
+```
+
+Aha!  All of these variables are integers, so this is 8, times _a bunch of garbage_, plus the original number `x`.  Or in other words, by feeding `x` through the LCG eight times, we know it increases by a multiple of eight.
+
+And that explains almost everything.  This particular LCG operates two bytes at a time, so when you look down columns in `xxd`'s sixteen byte wide output, you're seeing values that are eight steps apart.  Repeatedly adding eight (or an odd multiple of eight) to a number in hex will cause the last digit to alternate between two values, just like repeatedly adding five to a number in decimal.  (But why did the digits alternate down the second column?  Because these are _little-endian_ two-byte numbers, so the "last" or smallest digit appears at the end of the first byte.)
+
+Similarly, comparing bytes that are 512 apart is the same as comparing two-byte numbers that are 256 steps apart.  You can repeat the same logic to find that after 256 steps, you get 256 times a bunch of garbage, plus `x`.  So the last byte will always be unchanged.  256 is `0x100` in hex, so in hex it has the same "shifting to the left" powers as 100 has in decimal.
+
+I did gloss over two minor things.  One, why does the value specifically increase by an _odd_ multiple of eight every eight steps?  That's because `4mjx + jb` happens to be odd: `4mjx` is obviously even, `j` is always odd (if you look at what it must be for `a²` and `a⁴`, you'll see it's a lot of even terms plus one at the end), and _for this particular LCG_, `b` is also odd.  If `b` were even, you'd have _sixteen_ times some garbage plus `x`, and so the smallest hex digit would remain the same after eight steps.
+
+And two, why can I take the same garbage and keep adding it repeatedly to skip ahead 256 steps at a time, when the garbage _depends on_ the previous value `x`?  Well, let's see what happens when you take step 256 and plug it back into itself:
+
+```
+step 0: x
+step 256: 256(4mjx + jb) + x
+step 512: 256(4mj(256(4mjx + jb) + x) + jb) + (256(4mjx + jb) + x)
+        = 256(256(4mj)(4mjx + jb) + 4mjx + jb) + 256(4mjx + jb) + x
+	= 65536(4mj)(4mjx + jb) + 256(4mjx + jb) + 256(4mjx + jb) + x
+	= 65536(4mj)(4mjx + jb) + 512(4mjx + jb) + x
+```
+
+That huge term on the left is divisible by 65536, which is `0x10000` in hex — in other words, no matter what it is, adding it on can't change the last four hex digits.  The LCG only _spits out_ four hex digits, so no matter what all of that stuff is, it won't make any difference.  And once you throw that away, what's left is...  the same expression for step 256, except that the garbage term has been doubled!  We can find the garbage term by subtracting step 0 from step 256 to cancel out the lone `x`, and then we can add it to step 256 to get step 512.  By the same reasoning, we can add it again to get step 768, then step 1024, and so on.
+
+I hope that clears that up.
 
 
 ## The dark days
