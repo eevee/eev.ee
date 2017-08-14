@@ -1,7 +1,7 @@
 title: Nazis, are bad
 date: 2017-08-13 19:58
 category: blog
-tags: culture
+tags: culture, patreon
 
 Anonymous asks:
 
@@ -9,7 +9,7 @@ Anonymous asks:
 >
 > I think you've tweeted about this stuff in the past so I suspect you have thoughts on this, but if not, again, feel free to just blog about ... anything :)
 
-Oh, I think I have some stuff to say about community management, in light of recent events.  None of it hasn't already been said elsewhere, but I have to get this out.
+Oh, I think I have some stuff to say about community management, in light of recent events.  None of it hasn't already been said elsewhere, and I wouldn't say it's really about "online" or has a strong "point", but I have to get this out.
 
 Hopefully the content warning is implicit in the title.
 
@@ -45,7 +45,7 @@ I'm reminded of a group of furries — the _alt-furries_ — who have been espou
 
 So, what to do about this?
 
-"[Ignore them](https://twitter.com/splcenter/status/896370696158400512)" is a popular option, often espoused to bullied children by parents who have never been bullied, shortly before they resume complaining about passive-aggressive office politics.  The trouble with ignoring them is that, just like in smaller communitiest, they have a tendency to _fester_.  They take over large chunks of influential Internet surface area like 4chan and Reddit; they help get an inept buffoon elected; and then they start to have torch-bearing rallies and run people over with cars.
+"[Ignore them](https://twitter.com/splcenter/status/896370696158400512)" is a popular option, often espoused to bullied children by parents who have never been bullied, shortly before they resume complaining about passive-aggressive office politics.  The trouble with ignoring them is that, just like in smaller communities, they have a tendency to _fester_.  They take over large chunks of influential Internet surface area like 4chan and Reddit; they help get an inept buffoon elected; and then they start to have torch-bearing rallies and run people over with cars.
 
 4chan illustrates a kind of corollary here.  Anyone who's steeped in Internet Culture™ is surely familiar with 4chan; I was never a regular visitor, but it had enough influence that I was still _aware_ of it and some of its culture.  It was always thick with irony, which grew into a sort of ironic detachment — perhaps one of the major sources of the recurring online trope that having feelings is bad — which proceeded into ironic racism.
 
@@ -89,7 +89,7 @@ America's relationship to violence is so bizarre and two-faced as to be almost i
 
 But...  violence is bad.
 
-That's about as far as the other side of the coin gets.  It's bad.  We condemn it in the strongest possible terms.  Also, guess who we bombed today?
+That's about as far as the other side of the coin gets.  It's bad.  We condemn it in the strongest possible terms.  Also, we probably bombed someone today.
 
 I observe that the one time Nazis _were_ a serious threat, America was happy to let them try to take over the world until their allies finally showed up on our back porch.
 
@@ -143,4 +143,4 @@ Free speech is great for a _government_, to prevent quashing politics that threa
 
 At the very least, it seems clear that the goal of white supremacists is some form of _destabilization_, of disruption to the fabric of a community for purely selfish purposes.  And _those_ are the kinds of people you want to get rid of as quickly as possible.
 
-Usually this is hard, because they act just nicely enough to create some plausible deniability.  But damn, if someone is outright _telling_ you they love Hitler, maybe skip the principled hand-wringing and eject them.
+Usually this is hard, because they act just nicely enough to create some plausible deniability.  But damn, if someone is outright _telling_ you they love Hitler, maybe skip the principled hand-wringing and focus on ejecting them.
