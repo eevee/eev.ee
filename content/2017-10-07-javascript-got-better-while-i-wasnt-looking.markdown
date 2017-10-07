@@ -98,7 +98,7 @@ But wait, hang on.
 
 The semantics of a C-style `for` are that the first expression is only evaluated _once_, at the very beginning.  So there's only one `let i`.  In fact, it makes no sense for each run through the loop to have a distinct `i`, because the whole idea of the loop is to _modify_ `i` each time with `i++`.
 
-I assume this is simply a special case, since it's what everyone expects.  We expect it _so_ much that I can't find anyone pointing out that the usual explanation for why it works makes no sense.  It has the interesting side effect that `for` no longer de-sugars perfectly to a `while`, since this will print all `4`s:
+I assume this is simply a special case, since it's what everyone expects.  We expect it _so_ much that I can't find anyone pointing out that the usual explanation for why it works makes no sense.  It has the interesting side effect that `for` no longer de-sugars to a `while` the same way as in C, since this will print all `4`s:
 
 ```javascript
 closures = [];
@@ -112,7 +112,7 @@ for (let j = 0; j < closures.length; j++) {
 }
 ```
 
-This isn't a problem — I'm _glad_ `let` works this way! — it just stands out to me as interesting.  Lua doesn't need a special case here, since it uses an iterator protocol that produces values rather than mutating a visible state variable, so there's no problem with having the loop variable be truly distinct on each run through the loop.
+You'd need to introduce an anonymous temporary state variable to recreate the same effect.  This isn't a problem — I'm _glad_ `let` works this way! — it just stands out to me as interesting.  Lua doesn't need a special case here, since it uses an iterator protocol that produces values rather than mutating a visible state variable, so there's no problem with having the loop variable be truly distinct on each run through the loop.
 
 
 ## Classes
@@ -187,6 +187,17 @@ Nice to have, though.  And luckily, it turns out the same syntax as in `class` a
 Vector.prototype = {
     get magnitude() {
         return Math.sqrt(this.x * this.x + this.y * this.y);
+    },
+    ...
+};
+```
+
+In fact, the syntax in `class` works in _all_ object literals, by which I mean you can define functions like so:
+
+```javascript
+Vector.prototype = {
+    dot(other) {
+        return this.x * other.x + this.y * other.y;
     },
     ...
 };
@@ -397,16 +408,12 @@ That's right, JavaScript has goddamn generators now.  It's basically just copyin
 Also, generators are themselves iterable, so I'm going to cut to the chase and rewrite my `enumerate()` with a generator.
 
 ```javascript
-function enumerate(iterable) {
-    return {
-        [Symbol.iterator]: function*() {
-            let i = 0;
-            for (let value of iterable) {
-                yield [i, value];
-                i++;
-            }
-        },
-    };
+function* enumerate(iterable) {
+    let i = 0;
+    for (let value of iterable) {
+        yield [i, value];
+        i++;
+    }
 }
 for (let [i, value] of enumerate(['one', 'two', 'three'])) {
     console.log(i, value);
@@ -416,7 +423,9 @@ for (let [i, value] of enumerate(['one', 'two', 'three'])) {
 // 2 three
 ```
 
-Amazing.  `function*` is a pretty strange choice of syntax, but whatever?  I guess it also lets them make `yield` only act as a keyword inside a generator, for ultimate backwards compatibility.
+Amazing.  You can also use generators to implement `Symbol.iterator`, much like using a generator for `__iter__` in Python.
+
+`function*` is a pretty strange choice of syntax, but whatever?  I guess it also lets them make `yield` only act as a keyword inside a generator, for ultimate backwards compatibility.
 
 JavaScript generators support everything Python generators do: `yield*` yields every item from a subsequence, like Python's `yield from`; generators can return final values; you can pass values back into the generator if you iterate it by hand.  No, really, I wasn't kidding, _it's basically just copying Python_.  It's great.  You could now built `asyncio` in JavaScript!
 
@@ -429,7 +438,7 @@ In fact, [they did that](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 I did _not_ save the best for last.  This is much less exciting than generators.  But still exciting.
 
-The only data structure in JavaScript is the object, a map where the strings are keys.  (Or now, also symbols, I guess.)  That means you can't readily use custom values as keys, nor simulate a set of arbitrary objects.  And you have to worry about people mucking with `Object.prototype`, yikes.
+The only data structure in JavaScript is the object, a map where the keys are strings.  (Or now, also symbols, I guess.)  That means you can't readily use custom values as keys, nor simulate a set of arbitrary objects.  And you have to worry about people mucking with `Object.prototype`, yikes.
 
 But now, there's `Map` and `Set`!  Wow.
 
