@@ -302,7 +302,7 @@ The only point of a symbol is as a unique _key_.  You see, symbols have one very
 
 Also, like other objects, two symbols don't compare equal to each other: `Symbol('foo') != Symbol('foo')`.
 
-The result is that symbols solve one of the problems that plauges most object systems, something I've talked about before: _interfaces_.  Since an interface might be implemented by any arbitrary type, and any arbitrary type might want to implement any number of arbitrary interfaces, all the method names on an interface are effectively part of a single **global** namespace.
+The result is that symbols solve one of the problems that plagues most object systems, something I've talked about before: _interfaces_.  Since an interface might be implemented by any arbitrary type, and any arbitrary type might want to implement any number of arbitrary interfaces, all the method names on an interface are effectively part of a single **global** namespace.
 
 I think I need to take a moment to justify that.  If you have `IFoo` and `IBar`, both with a method called `method`, and you want to implement both on the same type...  you have a problem.  Because most object systems consider "interface" to mean "I have a method called `method`", with no way to say _which interface's_ `method` you mean.  This is a hard problem to avoid, because `IFoo` and `IBar` might not even come from the same library.  Occasionally languages offer a clumsy way to "rename" one method or the other, but the most common approach seems to be for interface designers to avoid names that sound "too common".  You end up with redundant mouthfuls like `IFoo.foo_method`.
 
