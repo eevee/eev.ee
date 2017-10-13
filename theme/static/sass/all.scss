@@ -519,18 +519,18 @@ article {
         border-top: 1px dotted $main-accent;
     }
     > header {
-        position: relative;
+        @include flexbox;
+        @include flex-direction(row-reverse);
+        @include flex-wrap(wrap);
+
         .meta {
-            float: right;
+            @include flex(1 1 auto);
             margin: 0;
+            text-align: right;
             color: $main-accent;
         }
-
-        @include phone-size {
-            // Title and date collide frequently on a small screen
-            h1 {
-                clear: right;
-            }
+        h1 {
+            @include flex(1 0 auto);
         }
     }
 
