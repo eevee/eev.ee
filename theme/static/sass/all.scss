@@ -530,7 +530,7 @@ article {
             color: $main-accent;
         }
         h1 {
-            @include flex(1 0 auto);
+            @include flex(1 1 auto);
         }
     }
 
