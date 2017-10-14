@@ -427,7 +427,7 @@ Amazing.  You can also use generators to implement `Symbol.iterator`, much like 
 
 `function*` is a pretty strange choice of syntax, but whatever?  I guess it also lets them make `yield` only act as a keyword inside a generator, for ultimate backwards compatibility.
 
-JavaScript generators support everything Python generators do: `yield*` yields every item from a subsequence, like Python's `yield from`; generators can return final values; you can pass values back into the generator if you iterate it by hand.  No, really, I wasn't kidding, _it's basically just copying Python_.  It's great.  You could now built `asyncio` in JavaScript!
+JavaScript generators support everything Python generators do: `yield*` yields every item from a subsequence, like Python's `yield from`; generators can return final values; you can pass values back into the generator if you iterate it by hand.  No, really, I wasn't kidding, _it's basically just copying Python_.  It's great.  You could now build `asyncio` in JavaScript!
 
 In fact, [they did that](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)!  JavaScript now has `async` and `await`.  An `async function` returns a [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), which is also a built-in type now.  Amazing.
 
