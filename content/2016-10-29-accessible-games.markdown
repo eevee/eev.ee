@@ -38,7 +38,7 @@ But there are some Expert-ranked levels that seem pretty reasonable...  until _t
 
 That's the kind of hurdle I think about when I see conspicuous clusters of death markers in my own levels.  How many people died there and gave up?  I make levels intending for people to _play_ them, to see them through, but how many players have I turned off with some needlessly tricky part?
 
-One of my levels is a [Boo house]({filename}/dev/2015-09-18-mario-maker-spoopy-manor.markdown) with a few cute tricks in it.  Unfortunately, I also put a ring of Boos right at the beginning that's tricky to jump through, so it's very easy for a player to die several times right there and never see anything else.
+One of my levels is a [Boo house]({filename}/release/2015-09-18-mario-maker-spoopy-manor.markdown) with a few cute tricks in it.  Unfortunately, I also put a ring of Boos right at the beginning that's tricky to jump through, so it's very easy for a player to die several times right there and never see anything else.
 
 I wanted my Boo house to be _interesting_ rather than difficult, but I let difficulty creep in accidentally, and so I've reduced the number of people who can appreciate the interestingness.  Every level I've made since then, I've struggled to keep the difficulty down, and still sometimes failed.  It's easy to make a level that's very hard; it's surprisingly hard to make a level that's fairly easy.  All it takes is a single unintended hurdle — a tricky jump, an awkwardly-placed enemy — to start losing players.
 
@@ -59,7 +59,7 @@ What Mario Maker has really taught me is what a hurdle _looks like_.  The game k
 
 Doom is an interesting contrast to Mario Maker.  A great many Doom maps have been produced over the past two decades, but nowhere near as many levels as Mario Maker has produced in a couple years.  On the other hand, many people who still play Doom have been playing Doom this entire time, so a greater chunk of the community is _really good_ at the game and enjoys a serious challenge.
 
-I've only released a couple Doom maps of my own: [Throughfare]({filename}/2016-03-31-i-made-a-doom-level.markdown) (the one I contributed to DUMP 2 earlier this year) and a few [one-hour speedmaps](https://twitter.com/eevee/status/791048165919043584) I made earlier this week.  I like building in Doom, with its interesting balance of restrictions — it's a fairly accessible way to build an interesting 3D world, and nothing else is quite like it.
+I've only released a couple Doom maps of my own: [Throughfare]({filename}/release/2016-03-31-i-made-a-doom-level.markdown) (the one I contributed to DUMP 2 earlier this year) and a few [one-hour speedmaps](https://twitter.com/eevee/status/791048165919043584) I made earlier this week.  I like building in Doom, with its interesting balance of restrictions — it's a fairly accessible way to build an interesting 3D world, and nothing else is quite like it.
 
 I've had the privilege of watching a few people play through my maps live, and I have learned some things.
 
@@ -118,7 +118,7 @@ This isn't the author's fault, anyway; it's baked into the design of Doom.  If y
 
 ## Isaac's Descent
 
-[Isaac's Descent]({filename}/2016-08-29-i-entered-ludum-dare-36.markdown) is the little PICO-8 puzzle platformer I made for Ludum Dare 36 a couple months ago.  It worked out surprisingly well; pretty much everyone who played it (and commented on it to me) got it, finished it, and enjoyed it.  The PICO-8 exports to an HTML player, too, so anyone with a keyboard can play it with no further effort required.
+[Isaac's Descent]({filename}/release/2016-08-29-i-entered-ludum-dare-36.markdown) is the little PICO-8 puzzle platformer I made for Ludum Dare 36 a couple months ago.  It worked out surprisingly well; pretty much everyone who played it (and commented on it to me) got it, finished it, and enjoyed it.  The PICO-8 exports to an HTML player, too, so anyone with a keyboard can play it with no further effort required.
 
 I was really happy with the puzzle design, especially considering I hadn't really made a puzzle game before and was rushing to make some rooms in a very short span of time.  Only two were perhaps unfair.  One was the penultimate room, which involved a tricky timing puzzle, so I'm not too bothered about that.  The other was this room:
 
@@ -151,7 +151,7 @@ I'm reminded of [Counterfeit Monkey](http://emshort.com/counterfeit_monkey/), a 
 
 ## Under Construction
 
-[Under Construction]({filename}/2016-05-25-under-construction-our-pico-8-game.markdown) is the PICO-8 game that Mel and I made early this year.  It's a simple, slightly surreal, slightly obtuse platformer.
+[Under Construction]({filename}/release/2016-05-25-under-construction-our-pico-8-game.markdown) is the PICO-8 game that Mel and I made early this year.  It's a simple, slightly surreal, slightly obtuse platformer.
 
 Traditional wisdom has it that you don't want games to be obtuse.  That acts as a hurdle, and loses you players.  Here, though, it's part of the experience, so the question becomes how to strike a good balance without losing the impact.  
 

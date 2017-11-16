@@ -1,6 +1,6 @@
 title: Mario Maker: Pipe Dream
 date: 2015-11-29 23:36
-category: dev
+category: release
 tags: mario maker
 
 <div class="prose-full-illustration">

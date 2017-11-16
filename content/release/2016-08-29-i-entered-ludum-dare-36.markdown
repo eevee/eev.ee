@@ -1,6 +1,6 @@
 title: I entered Ludum Dare 36
 date: 2016-08-29 18:01
-category: blog
+category: release
 tags: tech, gamedev, making things
 
 Short story: I made a video game again!  This time it was for [Ludum Dare](http://ludumdare.com/compo/about-ludum-dare/), a game jam with some tight [rules](http://ludumdare.com/compo/rules/): solo only, 48 hours to make the game and all its (non-code) assets.
@@ -17,7 +17,7 @@ But wait!  Read on a bit first.
 
 ## Foreword
 
-I've never entered a game jam before, and I slightly regretted that I missed a PICO-8 jam that was happening while I was making [Under Construction]({filename}/2016-05-25-under-construction-our-pico-8-game.markdown).  I've _certainly_ never made a game in 48 hours, so that seemed exciting.
+I've never entered a game jam before, and I slightly regretted that I missed a PICO-8 jam that was happening while I was making [Under Construction]({filename}/release/2016-05-25-under-construction-our-pico-8-game.markdown).  I've _certainly_ never made a game in 48 hours, so that seemed exciting.
 
 More specifically, I have some trouble with shaking ideas loose.  I don't know a more specific word than "idea" for this, but I mean creative, narrative ideas: worldbuilding, characters, events, gameplay mechanics, and the like.  They have a different texture from "how could I solve this technical problem" ideas or "what should I work on today" ideas.
 

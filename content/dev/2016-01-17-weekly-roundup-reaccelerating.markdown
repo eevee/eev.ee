@@ -13,8 +13,8 @@ Getting momentum back after completely blowing it all on AGDQ was surprisingly d
 
 - **flora**: Yet another cutscene.
 
-- **blog**: I dug up and finished an old [heteroglot post about Pascal](/blog/2016/01/12/heteroglot-number-16-in-pascal-number-17-in-inform7/), and threw in an Inform 7 problem I'd done in the meantime.  It was also 🎂 my birthday 🎂 this week, which called for the age-old tradition of putting confetti all over [veekun](http://veekun.com/).  I'd always used some ancient snowflake "DHTML" script because I'm lazy, but this year I rewrote it from scratch to use CSS animations and [only the slightest iavascript](https://github.com/eevee/eev.ee/blob/master/theme/static/PARTYMODE/partymode.js) to generate the markup.  Now it animates much more smoothly and is much less of a resource hog.  For a joke that appears one day a year.  Oh well.
+- **blog**: I dug up and finished an old [heteroglot post about Pascal]({filename}/2016-01-12-heteroglot-number-16-in-pascal-number-17-in-inform7.markdown), and threw in an Inform 7 problem I'd done in the meantime.  It was also 🎂 my birthday 🎂 this week, which called for the age-old tradition of putting confetti all over [veekun](http://veekun.com/).  I'd always used some ancient snowflake "DHTML" script because I'm lazy, but this year I rewrote it from scratch to use CSS animations and [only the slightest iavascript](https://github.com/eevee/eev.ee/blob/master/theme/static/PARTYMODE/partymode.js) to generate the markup.  Now it animates much more smoothly and is much less of a resource hog.  For a joke that appears one day a year.  Oh well.
 
 - **spline**: Less than I would have hoped for halfway through the month, but I did clean up the (minimal) docs a little bit and replace a bunch of code with a third-party module.
 
-- **Mario Maker**: Made [Purgatory](/dev/2016/01/15/mario-maker-purgatory/).
+- **Mario Maker**: Made [Purgatory]({filename}/release/2016-01-15-mario-maker-purgatory.markdown).

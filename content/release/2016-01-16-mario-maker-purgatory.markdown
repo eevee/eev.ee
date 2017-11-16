@@ -1,6 +1,6 @@
 title: Mario Maker: Purgatory
 date: 2016-01-15 23:19
-category: dev
+category: release
 tags: mario maker
 
 <div class="prose-full-illustration">

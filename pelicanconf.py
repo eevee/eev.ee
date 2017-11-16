@@ -30,7 +30,12 @@ LINKS_EX = ((
     'dev',
     '/dev/',
     '#ee7300', 'category-dev.png',
-    "updates on cool things i make",
+    "updates on what i'm doing lately",
+), (
+    'release',
+    '/release/',
+    '#4a83c5', 'category-release.png',
+    "things i've released into the wild, and maybe my thoughts on them",
 ), (
 #    'art',
 #    '/art/',

@@ -1,6 +1,6 @@
 title: NEON PHASE
 date: 2017-01-21 20:02
-category: blog
+category: release
 tags: gamedev, making things
 
 It all started after last year's [AGDQ](https://gamesdonequick.com/), when I lamented having spent the entire week just watching speedruns instead of doing anything, and thus having lost my rhythm for days afterwards.

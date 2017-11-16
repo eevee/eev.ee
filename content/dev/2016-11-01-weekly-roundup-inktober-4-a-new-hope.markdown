@@ -15,6 +15,6 @@ Inktober is _over_!  Oh my god.
 
 - **blog**: I wrote about [game accessibility]({filename}/2016-10-29-accessible-games.markdown), which touched on those speedmaps.
 
-- **mario maker**: One of the level themes I got was "The Wreckage", and I didn't know how to speedmap that in Doom in only an hour, but it sounded like an interesting concept for [a Mario level]({filename}/dev/2016-11-01-mario-maker-the-wreck.markdown).
+- **mario maker**: One of the level themes I got was "The Wreckage", and I didn't know how to speedmap that in Doom in only an hour, but it sounded like an interesting concept for [a Mario level]({filename}/release/2016-11-01-mario-maker-the-wreck.markdown).
 
 I managed to catch up on writing by the end of the month (by cheating slightly), so I'm starting fresh in November.  The "three big things" obviously went out the window in favor of Inktober, but I'm okay with that.  I've got something planned for this next month that should make up for it, anyway.

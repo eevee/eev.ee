@@ -1,6 +1,6 @@
 title: Mario Maker: Tiny–Huge Island
 date: 2015-09-19 23:43
-category: dev
+category: release
 tags: mario maker
 
 <div class="prose-full-illustration">

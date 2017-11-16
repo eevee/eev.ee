@@ -1,6 +1,6 @@
 title: Under Construction, our PICO-8 game
 date: 2016-05-25 00:00
-category: blog
+category: release
 tags: tech, gamedev, making things
 
 [Mel](http://glitchedpuppet.com/) and I made a game!

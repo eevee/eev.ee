@@ -1,6 +1,6 @@
 title: Inktober
 date: 2016-10-23 23:37
-category: blog
+category: release
 tags: making things
 
 Inktober is an ancient and hallowed art tradition, dating all the way back to sometime, when it was started by someone.  The idea is simple: draw something in ink every day.  Real ink.  You know.  On paper.

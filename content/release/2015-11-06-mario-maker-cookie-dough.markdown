@@ -1,6 +1,6 @@
 title: Mario Maker: Cookie Dough
 date: 2015-11-06 21:55
-category: dev
+category: release
 tags: mario maker
 
 <div class="prose-full-illustration">

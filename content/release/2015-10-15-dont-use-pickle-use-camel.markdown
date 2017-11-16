@@ -1,6 +1,6 @@
 title: Don't use pickle — use Camel
 date: 2015-10-15 10:44
-category: blog
+category: release
 tags: tech, python, making things
 
 Don't use `pickle`.  Don't use `pickle`.  _Don't use `pickle`._

@@ -1,6 +1,6 @@
 title: I made a Doom level
 date: 2016-03-31 02:23
-category: blog
+category: release
 tags: doom, gamedev, tech
 
 Yes, dear readers, I have a confession to make.  Despite spending 29,000 words explaining why and how [you should make a Doom level](/blog/2015/12/19/you-should-make-a-doom-level-part-1/), I've yet to actually publish one myself.

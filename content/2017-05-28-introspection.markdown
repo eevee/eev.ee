@@ -33,9 +33,9 @@ Meanwhile, I'd vaguely intended to do some game development, but for some reason
 
 A big part of it might have been the same reason I took so long to even give art a serious try.  I thought of myself as a _technical person_, and art is a thing for _creative people_, so I'm simply disqualified, right?  Maybe the same thing applies to games.
 
-Lord knows I had enough trouble when I tried.  I'd orbited the Doom community for _years_ but never released a single finished level.  I did finally give it a shot again, now that I had the time.  Six months into my funemployment, I wrote a three-part guide on [making Doom levels]({filename}/2015-12-19-you-should-make-a-doom-level-part-1.markdown).  Three months after that, I finally [released one of my own]({filename}/2016-03-31-i-made-a-doom-level.markdown).
+Lord knows I had enough trouble when I tried.  I'd orbited the Doom community for _years_ but never released a single finished level.  I did finally give it a shot again, now that I had the time.  Six months into my funemployment, I wrote a three-part guide on [making Doom levels]({filename}/2015-12-19-you-should-make-a-doom-level-part-1.markdown).  Three months after that, I finally [released one of my own]({filename}/release/2016-03-31-i-made-a-doom-level.markdown).
 
-I suppose that opened the floodgates; a couple weeks later, glip and I decided to try making something for the [PICO-8](http://www.lexaloffle.com/pico-8.php), and then we [did that]({filename}/2016-05-25-under-construction-our-pico-8-game.markdown) (almost exactly a year ago!).  Then [kept doing it](https://eevee.itch.io/).
+I suppose that opened the floodgates; a couple weeks later, glip and I decided to try making something for the [PICO-8](http://www.lexaloffle.com/pico-8.php), and then we [did that]({filename}/release/2016-05-25-under-construction-our-pico-8-game.markdown) (almost exactly a year ago!).  Then [kept doing it](https://eevee.itch.io/).
 
 It's been incredibly rewarding — far moreso than any "pure" tooling problem I've ever approached.  Moreso than even something like [veekun](https://veekun.com/), which is a useful _thing_.  People have _thoughts_ and _opinions_ on games.  Games give people _feelings_, which they then tell you about.  Most of the commentary on a reference website is that something is missing or incorrect.
 

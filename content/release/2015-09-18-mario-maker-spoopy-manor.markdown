@@ -1,6 +1,6 @@
 title: Mario Maker: Spoopy Manor
 date: 2015-09-18 14:44
-category: dev
+category: release
 tags: mario maker
 
 <div class="prose-full-illustration">

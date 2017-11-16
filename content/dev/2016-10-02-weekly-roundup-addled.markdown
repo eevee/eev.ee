@@ -27,7 +27,7 @@ Meanwhile, about those, um, three things.  I slipped a bit.  A lot.
 
     But!  I decided that Isaac's Descent HD would make a _really good_ final chapter, since it's an entire real game written completely from scratch.  That means it's also going to be a whopper.  I spent like a third of the month distracted by _building_ Isaac's Descent HD, which is a prerequisite for writing about how I built it, so that's some really good progress nonetheless.
     
-    The game isn't too far along from a player perspective, but I did a lot of engine work and took a lot of notes about it.  And of course I took all those [notes during Ludum Dare]({filename}/2016-08-29-i-entered-ludum-dare-36.markdown), which I can reverse-engineer into a PICO-8 chapter.  So while there's less _visible_ progress than I wanted, I have a ton more stuff to work with now.
+    The game isn't too far along from a player perspective, but I did a lot of engine work and took a lot of notes about it.  And of course I took all those [notes during Ludum Dare]({filename}/release/2016-08-29-i-entered-ludum-dare-36.markdown), which I can reverse-engineer into a PICO-8 chapter.  So while there's less _visible_ progress than I wanted, I have a ton more stuff to work with now.
 
 - _Get veekun beta-worthy, September: most games dumped; lookup; core pages working; new site in publicly-available beta_
 

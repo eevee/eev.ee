@@ -96,7 +96,7 @@ We've papered over some of this with SQLAlchemy's excellent ORM, but you have to
 
 So.  How about YAML?
 
-See, despite our hesitation to duplicate everything, the dataset really isn't that big.  All of the data combined are a paltry 17MB, which could fit in RAM without much trouble; then we could search and wrangle it with regular Python operations.  I could still have a schema, remember, because [I wrote a thing for that]({filename}2015-10-15-dont-use-pickle-use-camel.markdown).  And other people could probably make more sense of some YAML files than CSV dumps (!) of a tangled relational database.
+See, despite our hesitation to duplicate everything, the dataset really isn't that big.  All of the data combined are a paltry 17MB, which could fit in RAM without much trouble; then we could search and wrangle it with regular Python operations.  I could still have a schema, remember, because [I wrote a thing for that]({filename}/release/2015-10-15-dont-use-pickle-use-camel.markdown).  And other people could probably make more sense of some YAML files than CSV dumps (!) of a tangled relational database.
 
 The idea is to re-dump every game into its own set of YAML files, describing just the raw data in a form generic enough that it can handle every (main series) game.  I did a [proof of concept of this](https://gist.github.com/eevee/b53b4babd7a0fc8aead7) for Pokémon earlier this year, and it looks like:
 

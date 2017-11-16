@@ -5,7 +5,7 @@ tags: tech, gamedev
 
 _Update 2016-07-27: PICO-8 0.1.8 supports music export — `export "foo%d.wav"` while the music tab is selected in the editor!_
 
-[Our PICO-8 game, Under Construction](/blog/2016/05/25/under-construction-our-pico-8-game/), contains some music that Mel composed.
+[Our PICO-8 game, Under Construction]({filename}/release/2016-05-25-under-construction-our-pico-8-game.markdown), contains some music that Mel composed.
 
 The PICO-8 can only play music that you compose _with_ the PICO-8, and it doesn't have a music export.  This posed a slight problem.
 

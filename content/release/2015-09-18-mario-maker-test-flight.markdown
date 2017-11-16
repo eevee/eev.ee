@@ -1,6 +1,6 @@
 title: Mario Maker: Test Flight
 date: 2015-09-18 00:06
-category: dev
+category: release
 tags: mario maker
 
 <div class="prose-full-illustration">

@@ -23,7 +23,7 @@ August is loosely about **video games**, but really it's about [three big things
 
 - **gamedev**: I participated in Ludum Dare 36, a 48-hour game jam.  I'd never done LD before, and naturally I picked the only one that has no ratings round (for administrative shuffling reasons).  Oh, well.
 
-    The result was Isaac's Descent, a short puzzle-platformer for the PICO-8.  You can [play it via the web](https://c.eev.ee/isaacs-descent/) (source code included), and I also wrote [a post about it]({filename}/2016-08-29-i-entered-ludum-dare-36.markdown).
+    The result was Isaac's Descent, a short puzzle-platformer for the PICO-8.  You can [play it via the web](https://c.eev.ee/isaacs-descent/) (source code included), and I also wrote [a post about it]({filename}/release/2016-08-29-i-entered-ludum-dare-36.markdown).
 
 ----
 

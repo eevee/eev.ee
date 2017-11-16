@@ -347,7 +347,7 @@ Python 3.0 requires octal literals to be prefixed with `0o`, in line with `0x` f
 
 ### `pickle`
 
-If you're using the `pickle` module (which you [shouldn't be](/blog/2015/10/15/dont-use-pickle-use-camel/)), and you intend to pass pickles back and forth between Python 2 and Python 3, there's a small issue to be aware of.  `pickle` has several different ["protocol" versions](https://docs.python.org/3/library/pickle.html#pickle-protocols), and the default version used in Python 3 is protocol 3, which Python 2 _cannot read_.
+If you're using the `pickle` module (which you [shouldn't be]({filename}/release/2015-10-15-dont-use-pickle-use-camel.markdown)), and you intend to pass pickles back and forth between Python 2 and Python 3, there's a small issue to be aware of.  `pickle` has several different ["protocol" versions](https://docs.python.org/3/library/pickle.html#pickle-protocols), and the default version used in Python 3 is protocol 3, which Python 2 _cannot read_.
 
 The fix is simple: just find where you're calling `pickle.dump()` or `pickle.dumps()`, and pass a `protocol` argument of 2.  Protocol 2 is the highest version supported by Python 2, and you probably want to be using it anyway, since it's much more compact and faster to read/write than Python 2's default, protocol 0.
 
