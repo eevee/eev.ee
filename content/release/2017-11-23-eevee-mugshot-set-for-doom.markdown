@@ -9,14 +9,7 @@ tags: making things, doom
 
 A full replacement of Doomguy's vast array of 42 expressions.
 
-You can [get it yourself](https://c.eev.ee/_doom/eeveemug.wad) if you want to play Doom as me, for some reason?  It does nothing but replace a few sprites, so it works with any Doom flavor (including vanilla) on 1, 2, or Final.  Just run Doom with `-file eeveemug.wad`.
-
-With GZDoom, you can [load it automatically](https://zdoom.org/wiki/How_to_autoload_files) by adding something like this to `gzdoom.ini`:
-
-```
-[Doom.Autoload]
-Path=/foo/bar/eeveemug.wad
-```
+You can [get it yourself](https://c.eev.ee/_doom/eeveemug.wad) if you want to play Doom as me, for some reason?  It does nothing but replace a few sprites, so it works with any Doom flavor (including vanilla) on 1, 2, or Final.  Just run Doom with `-file eeveemug.wad`.  With GZDoom, you can [load it automatically](https://zdoom.org/wiki/How_to_autoload_files).
 
 <!-- more -->
 
