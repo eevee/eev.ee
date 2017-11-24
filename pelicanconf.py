@@ -227,7 +227,6 @@ PLUGINS = [
     'custom_article_urls',
     'photos',
     'thumbnailer',
-    'optimize_images',
 ]
 
 # Plugin config for summary
