@@ -370,7 +370,7 @@ obj2:bar()  -- our score is 25
 
 And that's all you need.  Much like Python, methods and data live in the same namespace, and Lua doesn't care whether `obj:method()` finds a function on `obj` or gets one from the metatable's `__index`.  _Unlike_ Python, the function will be passed `self` either way, because `self` comes from the use of `:` rather than from the lookup behavior.
 
-(Aside: strictly speaking, _any_ Lua value can have a metatable — and if you try to index a non-table, Lua will _always_ consult the metatable's `__index`.  Strings all have the `string` library as a metatable, so you can call methods on them: try `("%s %s"):format(1, 2)`.  I don't think Lua lets user code set the metatable for non-tables, so this isn't that interesting, but if you're writing Lua bindings from C then you can wrap your pointers in metatables to give them methods implemented in C.)
+(Aside: strictly speaking, _any_ Lua value can have a metatable — and if you try to index a non-table, Lua will _always_ consult the metatable's `__index`.  Strings all have the `string` library as a metatable, so you can call methods on them: try `("%s %s"):format(1, 2)`.  Numbers, strings, functions, and nil each share a type-specific metatable, and you can only change it with the `debug` library which is often unavailable, so this is of limited use.  But if you're writing Lua bindings from C, you can give your pointers metatables directly to give them methods implemented in C.)
 
 ### Bringing it all together
 
@@ -386,7 +386,6 @@ local function make_object(body)
     return obj
 end
 
--- you can leave off parens if you're only passing in 
 local Dog = {
     -- this acts as a "default" value; if obj.barks is missing, __index will
     -- kick in and find this value on the class.  but if obj.barks is assigned
@@ -593,7 +592,7 @@ One is `Object.defineProperty`, seen above.  For common cases, there's also the 
 
 If you want to intercept _arbitrary_ attribute access (and some kinds of operators), there's a _completely different_ primitive: the [`Proxy`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) type.  It doesn't let you intercept attribute access or operators; instead, it produces a wrapper object that supports interception and defers to the wrapped object by default.
 
-It's cool to see composition used in this way, but also, extremely weird.  If you want to make your own type that overloads `in` or calling, you _have_ to return a `Proxy` that wraps your own type, rather than actually returning your own type.  And (unlike the other three languages in this post) you can't return a different type from a constructor, so you have to throw that away and produce objects only from a factory.  And `instanceof` would be broken, _but_ you can at least fix that with `Symbol.hasInstance` — which is really operator overloading, implement yet another completely different way.
+It's cool to see composition used in this way, but also, extremely weird.  If you want to make your own type that overloads `in` or calling, you _have_ to return a `Proxy` that wraps your own type, rather than actually returning your own type.  It's workable, though — constructors can return whatever object they want, and proxies are transparent enough that `instanceof` already behaves correctly.  (If it didn't, you could customize `instanceof` with `Symbol.hasInstance` — which is really operator overloading, implement yet another completely different way.)
 
 I know the design here is a result of legacy and speed — if any object could intercept _all_ attribute access, then _all_ attribute access would be slowed down everywhere.  Fair enough.  It still leaves the surface area of the language a bit…  bumpy?
 
