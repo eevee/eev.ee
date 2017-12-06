@@ -115,6 +115,8 @@ And then there are the gangs, the various spins on sex clubs, the forceful drug 
 
 I don't usually like post-apocalypses, because they try to have these very hopeful stories, but then at the end the world is still a blighted hellscape so what was the point of any of that?  I like this game much better for being a blighted hellscape throughout.  The story is worth following to see where it goes, not just because you expect everything wrapped up neatly at the end.
 
+…I realize I've made this game sound monumentally depressing throughout, but it manages to pack in a lot of funny moments as well, from the subtle to the overt.  In retrospect, it's actually _really good_ at balancing the mood so it doesn't get _too_ depressing.  If nothing else, it's hilarious to watch this gruff, solemn, battle-scarred, middle-aged man pedal around on a kid's bike he found.
+
 ----
 
 An obvious theme of the game is _despair_, but the more I think about it, the more I wonder if _ambiguity_ is a theme as well.  It certainly fits the confusing geography.
