@@ -31,6 +31,8 @@ I had a lot of fun faking it, though, and it worked well enough to fool at least
 
 - Monsters you "defeat" are actually just items you pick up.  They're both drawn in the same color, and you can't see your inventory, so you can't tell the difference.
 
+Probably the best part was writing the text, which is all completely ridiculous.  I really enjoy writing a lot of quips — which I guess is why I like Twitter — and I'm happy to see they've made people laugh!
+
 ----
 
 I think this has been a success!  It's definitely made me more confident about making smaller things — and about taking the first idea I have and just running with it.  I'm going to keep an eye out for other micro game engines to play with, too.
