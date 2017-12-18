@@ -172,7 +172,7 @@ Alas, I've seen this done before, and it does have a teeny bit of overhead, whic
 
 So I think what I'm going to do is load everything into objects, resolve duplicate strings, and then...  store it all in a pickle!  Then the next time the app goes to load the data, if the pickle is newer than any of the files, just load the pickle instead.  Pickle is a well-specified binary format (much faster to parse) and should be able to remember that strings have already been de-duplicated.
 
-I know, I know: I said [don't use pickle]({filename}2015-10-15-dont-use-pickle-use-camel.markdown).  This is the _one_ case where pickle is actually useful: as a disposable cache.  It doesn't leave the machine, so there are no security concerns; it's not shared between multiple copies of the app at the same time; and if it fails to load for any reason at all, the app can silently trash it and load the data directly.
+I know, I know: I said [don't use pickle]({filename}/release/2015-10-15-dont-use-pickle-use-camel.markdown).  This is the _one_ case where pickle is actually useful: as a disposable cache.  It doesn't leave the machine, so there are no security concerns; it's not shared between multiple copies of the app at the same time; and if it fails to load for any reason at all, the app can silently trash it and load the data directly.
 
 I just hope that pickle will be quick enough, or this whole idea falls apart.  Trouble is, I can't know for _sure_ until I'm halfway done.
 
