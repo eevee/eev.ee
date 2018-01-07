@@ -188,7 +188,7 @@ As friction approaches 1, stable velocity grows without bound.  This makes sense
 
 All of this is why I'm wary of using multipliers.
 
-Anyway, this leaves me with one last question about the effects of Doom's friction: _how long_ does it take to reach stable velocity?  Barring precision errors, , we'll never truly _reach_ stable velocity, but let's say within 5%.  First we need a closed formula for the velocity after some number of tics.  This is a simple recurrence relation, and you can write a few terms out yourself if you want to be sure this is right.
+Anyway, this leaves me with one last question about the effects of Doom's friction: _how long_ does it take to reach stable velocity?  Barring precision errors, we'll never truly _reach_ stable velocity, but let's say within 5%.  First we need a closed formula for the velocity after some number of tics.  This is a simple recurrence relation, and you can write a few terms out yourself if you want to be sure this is right.
 
 $$
 v(n) = v_0 \times friction^n + speed \times move factor \times \frac{friction^n - 1}{friction - 1}
