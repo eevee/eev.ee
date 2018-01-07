@@ -226,6 +226,7 @@ PLUGINS = [
     'summary',
     'custom_article_urls',
     'photos',
+    'render_math',
     'thumbnailer',
 ]
 
