@@ -64,7 +64,7 @@ But of course this is about convenience of controls: when jumping is your primar
 
 (And then there's double jumping?  Come _on_.)
 
-Air control is a similar phenomenon: usually you'd jump in a particular direction by controlling how you push off the ground with your feet, but in a video game, you don't have feet!  You only have the box.  The compromise is to let you control your horizontal movement to a limit degree in midair, even though that doesn't make any sense.  (It's way more fun, though, and overall gives you more movement options, which are good to have in an interactive medium.)
+Air control is a similar phenomenon: usually you'd jump in a particular direction by controlling how you push off the ground with your feet, but in a video game, you don't have feet!  You only have the box.  The compromise is to let you control your horizontal movement to a limited degree in midair, even though that doesn't make any sense.  (It's way more fun, though, and overall gives you more movement options, which are good to have in an interactive medium.)
 
 Air control also exposes an obvious place that game physics collide with the realistic model of serious physics engines.  I've mentioned this before, but: if you use Real Physics™ and air control yourself into a wall, you might find that you'll simply _stick to the wall_ until you let go of the movement buttons.  Why?  Remember, player movement acts as though an external force were pushing you around (and from the perspective of a Real™ physics engine, this is exactly how you'd implement it) — so air-controlling into a wall is equivalent to pushing a book against a wall with your hand, and the friction with the wall holds you in place.  Oops.
 
