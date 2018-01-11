@@ -9,6 +9,6 @@ tags: status
 
 - **art**: I tried drawing a picture and this time I [liked it](https://twitter.com/eevee/status/948334012925329408).  I also drew the [header art](https://itch.io/jam/games-made-quick-2) for the aforementioned game jam, though I didn't have time to finish it, but I think I pulled off a deliberate-looking scratchy sketchy style that's appropriate for a game jam?  Sure we'll go with that.
 
-- **blog**: I finished a post about [picking random numbers]({filename}/content/2018-01-02-random-with-care.markdown) _and_ a post about [how game physics cheat]({filename}/content/2018-01-06-physics-cheats.markdown).  Which, ah, catches me up for December!  Heck!  I think I've found a slightly more casual style that feels easier to get down, though?
+- **blog**: I finished a post about [picking random numbers]({filename}/2018-01-02-random-with-care.markdown) _and_ a post about [how game physics cheat]({filename}/2018-01-06-physics-cheats.markdown).  Which, ah, catches me up for December!  Heck!  I think I've found a slightly more casual style that feels easier to get down, though?
 
 - **writing**: I finally wrangled a sensible outline for a Twine I've been dragging my feet on, so now I don't have any excuses!  Oh no!
