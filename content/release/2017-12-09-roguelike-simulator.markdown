@@ -7,7 +7,7 @@ tags: making things
 <img src="{filename}/media/2017-12-09-roguelike-simulator/roguelike-simulator.png" alt="Screenshot of a monochromatic pixel-art game designed to look mostly like ASCII text">
 </div>
 
-On a recent [game night](content/2017-12-05-game-night-1-lisa-lisa-moop.markdown), glip and I stumbled upon [bitsy](https://ledoux.itch.io/bitsy) — a tiny game maker for "games where you can walk around and talk to people and be somewhere."  It's enough of a genre to have become a [top tag](https://itch.io/games/tag-bitsy) on itch, so we flicked through a couple games.
+On a recent [game night]({filename}/2017-12-05-game-night-1-lisa-lisa-moop.markdown), glip and I stumbled upon [bitsy](https://ledoux.itch.io/bitsy) — a tiny game maker for "games where you can walk around and talk to people and be somewhere."  It's enough of a genre to have become a [top tag](https://itch.io/games/tag-bitsy) on itch, so we flicked through a couple games.
 
 What we found were tiny windows into numerous little worlds, ill-defined yet crisply rendered in chunky two-colored pixels.  Indeed, _all_ you can do is walk around and talk to people and be somewhere, but the _somewheres_ are strangely captivating.  My favorite was [the last days of our castle](https://candle.itch.io/castle), with [a day on the town](https://seansleblanc.itch.io/a-day-on-the-town) in a close second (though it cheated and extended the engine a bit), but there are several hundred of these tiny windows available.  Just single, short, minimal, interactive glimpses of an idea.
 
