@@ -47,9 +47,9 @@ I expressed this to Twitter, and not only did I get several people asking what f
 
 **swf**: Unless this is a vim swap file, get the fuck out.  If it's a vim swap file, you direly need to delete/recover some old files, and _then_ get the fuck out.
 
-**iso**: I'm aware of precisely one [psychopath](https://twitter.com/kevinlange) who has created a disk image that boots into the OS he wrote and displays his PDF résumé.  No other form of `.iso` submission is acceptable.
+**iso**: I'm aware of precisely one [psychopath](https://twitter.com/_klange) who has created a disk image that boots into the OS they wrote and displays their PDF résumé.  No other form of `.iso` submission is acceptable.
 
-**c**: [goddammit kevin](https://gist.github.com/4042963)
+**c**: [goddammit klange](https://gist.github.com/4042963)
 
 **jpg**: Now you're just fucking with me.  A text-heavy image should be a PNG.
 
