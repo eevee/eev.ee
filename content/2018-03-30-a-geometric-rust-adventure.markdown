@@ -309,7 +309,7 @@ fn run(&mut self) {
 
 Aaand...  _this_ doesn't work.  Rust "cannot infer an appropriate lifetime for autoref due to conflicting requirements".  The trouble is that `self.arena.back()` takes a reference to `self.arena`, and then I put that reference in the event queue.  But I promised that everything in the event queue has lifetime `'a`, and I don't actually know how long _`self`_ lives here; I only know that it can't _outlive_ `'a`, because that would invalidate the references it holds.
 
-A little random guessing let me to change `&amp;mut self` to `&'a mut self` — which is fine because the entire `impl` block this lives in is already parameterized by `'a` — and that makes this compile!  Hooray!  I think that's because I'm saying `self` itself has exactly the same lifetime as the references it holds onto, which is true, since it's referring to itself.
+A little random guessing let me to change `&mut self` to `&'a mut self` — which is fine because the entire `impl` block this lives in is already parameterized by `'a` — and that makes this compile!  Hooray!  I think that's because I'm saying `self` itself has exactly the same lifetime as the references it holds onto, which is true, since it's referring to itself.
 
 Let's get a little more ambitious and try having _two_ segments.
 
