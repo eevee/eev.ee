@@ -267,7 +267,7 @@ enum SegmentEnd {
 struct SweepEndpoint<'a>(&'a SweepSegment, SegmentEnd);
 ```
 
-This makes `SweepEndpoint` essentially a tuple with a name.  The `'a` is a _lifetime_ and says, more or less, that a `SweepEndpoint` must live at least as long as the `SweepSegment` it references.  Makes sense.
+This makes `SweepEndpoint` essentially a tuple with a name.  The `'a` is a _lifetime_ and says, more or less, that a `SweepEndpoint` cannot outlive the `SweepSegment` it references.  Makes sense.
 
 Problem solved!  I no longer have mutually referential pointers.  But I do still have pointers (well, references), and they have to point _to_ something.
 
