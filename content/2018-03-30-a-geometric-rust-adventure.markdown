@@ -41,9 +41,9 @@ And so I fell down the rabbit hole.
 
 ## The basic algorithm
 
-Since this is a paid paper, it and its sample code are not publicly available, which leaves me attempting to write a post about porting code when you can't see the original in full.  Urgh.
+Thankfully, the author has published the sample code [on his own website](http://www4.ujaen.es/~fmartin/bool_op.html), if you want to follow along.  (It's the _bottom_ link; the same author has, confusingly, published two papers on the same topic with similar titles, four years apart.)
 
-Let me describe the algorithm and how the code is generally laid out.  The algorithm itself is based on a [sweep line](https://en.wikipedia.org/wiki/Sweep_line_algorithm), where a vertical line passes across the plane and ✨ _does stuff_ ✨ as it encounters various objects.  This implementation has no physical line; instead, it keeps track of which segments from the original polygon _would be_ intersecting the sweep line, which is all we really care about.
+If not, let me describe the algorithm and how the code is generally laid out.  The algorithm itself is based on a [sweep line](https://en.wikipedia.org/wiki/Sweep_line_algorithm), where a vertical line passes across the plane and ✨ _does stuff_ ✨ as it encounters various objects.  This implementation has no physical line; instead, it keeps track of which segments from the original polygon _would be_ intersecting the sweep line, which is all we really care about.
 
 <div class="prose-full-illustration">
 <img src="{filename}/media/2018-03-30-rust-adventure/sweep-line.png" alt="A vertical line is passing rightwards over a couple intersecting shapes.  The line current intersects two of the shapes' sides, and these two sides are the &quot;sweep list&quot;">
