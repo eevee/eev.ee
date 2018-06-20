@@ -220,6 +220,16 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 import eeveeblog.liquid_photo
 
+# Add a Pygments lexer, which seems to require hacking Pygments guts?
+from eeveeblog.rgbasm_lexer import RGBASMLexer
+import pygments.lexers._mapping
+pygments.lexers._mapping.LEXERS['RGBASMLexer'] = (
+    'eeveeblog.rgbasm_lexer',
+    RGBASMLexer.name,
+    tuple(RGBASMLexer.aliases),
+    tuple(RGBASMLexer.filenames),
+    tuple(RGBASMLexer.mimetypes))
+
 PLUGIN_PATHS = ["pelican-plugins.git"]
 PLUGINS = [
     eeveeblog.liquid_photo,

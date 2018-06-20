@@ -94,7 +94,7 @@ Drawing objects is complicated, and all I want to do right now is get _something
 
 Tiles are 8×8 and two bits per pixel, which means each row takes two bytes, and the whole tile is 16 bytes.  Tiles are defined in one big contiguous block starting at $8000 — or, maybe $8800, sometimes — so all I need to do is:
 
-```
+```rgbasm
 SECTION "main", ROM0[$0150]
     ld hl, $8000
     ld a, %00011011
@@ -125,9 +125,7 @@ Also!  Not every address is actually RAM; the address space ($0000 through $ffff
 
 With that in mind, here's the above code with explanatory comments:
 
-
-TODO need to change this to write a single byte
-```
+```rgbasm
 ; This is a directive for the assembler to put the following
 ; code at $0150 in the final ROM.
 SECTION "main", ROM0[$0150]
@@ -196,13 +194,13 @@ Hmm.
 
 ## Problem solving
 
-Maybe it's time to look at one of those skeleton projects after all.  I crack open the smallest one, [gb-template](https://github.com/exezin/gb-template), and it _seems_ to be doing the same thing: its code i[starts at $0150](https://github.com/exezin/gb-template/blob/1d05f41126289d5970e9fe6993aed6cea8503c7c/src/bank0.asm#L16).
+Maybe it's time to look at one of those skeleton projects after all.  I crack open the smallest one, [gb-template](https://github.com/exezin/gb-template), and it _seems_ to be doing the same thing: its code [starts at $0150](https://github.com/exezin/gb-template/blob/1d05f41126289d5970e9fe6993aed6cea8503c7c/src/bank0.asm#L16).
 
 It takes me a bit to realize my mistake here.  Practically every Game Boy game starts its code at $0150, but that's not what the actual hardware specifies.  The real start point is $0100, which is immediately _before_ the header!  There are only four bytes before the header, just enough for…  a jump instruction.
 
 Okay!  No problem.
 
-```
+```rgbasm
 SECTION "entry point", ROM0[$0100]
     nop
     jp $0150
@@ -222,7 +220,7 @@ I'll save you my head-scratching.  I made _two_ mistakes here.  Arguably, three!
 
 First: believe it or not, I have to specify the _palette_.  Even in original uncolored Game Boy mode!  I can see how that's nice for doing simple fade effects or flashing colors, but I didn't suspect it would be necessary.  The monochrome palette lives at $ff47 (one of those special high addresses), so I do this before anything else:
 
-```
+```rgbasm
     ld a, %11100100         ; 3 2 1 0
     ld [$ff47], a
 ```
@@ -233,7 +231,7 @@ Second: I specified the colors wrong.  I assumed that eight pixels would fit int
 
 Handily, rgbds has syntax for writing out pixel values directly: a backtick followed by eight of 0, 1, 2, and 3.  I just have to change my code a bit to write two bytes, eight times each.  By putting a 16-bit value in a register pair like `bc`, I can read its high and low bytes out individually via the `b` and `c` registers.
 
-```
+```rgbasm
     ld hl, $8000
     ld bc, `00112233
     REPT 8
@@ -265,7 +263,7 @@ First I update my Makefile to pass the `-C` flag to `rgbfix`.  That tells it to 
 
 Oh, and I'll change the file extension from `.gb` to `.gbc`.  And while I'm in here, I might as well repeat myself _slightly_ less in this bad, bad Makefile.
 
-```
+```make
 TARGET := gamegirl.gbc
 
 all: $(TARGET)
@@ -286,7 +284,7 @@ This part is a bit weird.  Unlike tiles, there's not a block of addresses somewh
 
 Two registers are involved here.  The first, $ff68, specifies _which_ palette I'm writing to.  It has a bunch of parts, but since I'm writing to the first color of palette zero, I can leave it all zeroes.  The one exception is the high bit, which I'll explain in just a moment.
 
-```
+```rgbasm
     ld a, %10000000
     ld [$ff68], a
 ```
@@ -299,7 +297,7 @@ But first I need some colors!  Game Boy Color colors are RGB555, which means eac
 
 Thus, I present, palette loading by hand.  Like before, I put the 16-bit color in `bc` and then write out the contents of `b` and `c`.  (Before, the backtick syntax put the bytes in the right order; colors are little-endian, hence why I write `c` before `b`.)
 
-```
+```rgbasm
     ld bc, %0111110000000000  ; blue
     ld a, c
     ld [$ff69], a
