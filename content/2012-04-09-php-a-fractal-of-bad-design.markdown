@@ -292,7 +292,7 @@ Okay, back to facts.
 
 ### Standard library
 
-Perl is "some assembly required".  Python is "batteries included".  PHP is "kitchen sink, but it's from Canada and [both faucets are labeled C](http://mcguirehimself.com/?p=4146)".
+Perl is "some assembly required".  Python is "batteries included".  PHP is "kitchen sink, but it's from Canada and [both faucets are labeled C](http://www.mcguirehimself.com/?p=117)".
 
 #### General
 
