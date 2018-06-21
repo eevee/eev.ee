@@ -35,7 +35,7 @@ Now, if you remember, I can define _tiles_ by just writing to video RAM, and I d
 
 Objects are defined in their own little chunk of RAM called OAM, for _object attribute memory_.  They're also made up of tiles, but each tile can be positioned at an arbitrary point on the screen.
 
-OAM starts at $fe00 and each object takes four bytes — the y-coordinate, the x-coordinate, the tile number, and some flags — for a total of 160 bytes.  There are some _curiosities_, like how the top left of the screen is (8, 10) rather than (0, 0), but I'll figure out what's up with that later.  (I suppose if zeroes meant the upper left corner, there'd be a whole stack of tile 0 there all the time.)
+OAM starts at $fe00 and each object takes four bytes — the y-coordinate, the x-coordinate, the tile number, and some flags — for a total of 160 bytes.  The coordinates are offset such that (8, 16) is the top-left of the screen, which both allows all zeroes to mean "no object" and allows for objects to be drawn partially offscreen.
 
 Here's the fun part: I can't write directly to OAM?  I guess???  Come to think of it, I don't think the manual explicitly says I can't, but it's _strongly implied_.  Hmm.  I'll look into that.  But I didn't at the time, so I'll continue under the assumption that the following nonsense is necessary.
 
