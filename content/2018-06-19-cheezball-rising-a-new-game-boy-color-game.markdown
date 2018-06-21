@@ -1,13 +1,15 @@
 title: Cheezball Rising: A new Game Boy Color game
 date: 2018-06-19 18:49
 category: blog
-tags: tech, gamedev, cheezball-rising
+tags: tech, gamedev, cheezball rising
 
 This is a series about **Star Anise Chronicles: Cheezball Rising**, an expansive adventure game about my cat for the Game Boy Color.  Follow along as I struggle to make something with this bleeding-edge console!
 
 <center markdown="1">[source code](https://github.com/eevee/anise-cheezball-rising) • [prebuilt ROMs](https://www.patreon.com/eevee/posts?tag=cheezball%20rising) (a week early for $4) • works best with [mGBA](https://mgba.io/)</center>
 
 In this issue, I figure out how to put literally anything on the goddamn screen, then add a splash of color.
+
+Next: [drawing a sprite]({filename}/2018-06-21-cheezball-rising-drawing-a-sprite.markdown).
 
 <!-- more -->
 
@@ -333,4 +335,4 @@ What a glorious eyesore!
 
 That brings us up to [commit `212344`](https://github.com/eevee/anise-cheezball-rising/commit/21234431b39fa466d839861d3e6513de841673eb) and works as a good stopping point.
 
-Next time: _sprites_!  Maybe even some real art?
+Next time: [drawing a sprite]({filename}/2018-06-21-cheezball-rising-drawing-a-sprite.markdown)!
