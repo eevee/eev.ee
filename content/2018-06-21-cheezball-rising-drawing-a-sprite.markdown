@@ -294,7 +294,7 @@ main:
 
 This is very similar to what I just had, except that the code is left as _code_, and its length is computed by having another label at the end — so I'm free to edit it later if I want to.  It all ends up as bytes in the ROM, so the code ends up exactly the same as writing out the bytes with `db`.  Come to think of it, I don't even need to hardcode the `$c1` there; I could replace it with `oam_buffer >> 8` and avoid repeating myself.
 
-(I put the code at $0150 because rgbasm is _very_ picky about subtracting labels, and will only do it if they both have fixed positions.  These two labels would be the same distance apart no matter where I put the section, but I guess rgbasm isn't smart enough to realize that.)
+(I put the code at $0150 because rgbasm can't subtract labels that appear later in the same source file — I presume because this is done by the single-pass assembler, not the linker — and it just seemed weird to have a floating section lexically _before_ the entry point.)
 
 I'm actually surprised that the author of the above post didn't think to do this?  Maybe it's dirty even by assembly standards.
 
