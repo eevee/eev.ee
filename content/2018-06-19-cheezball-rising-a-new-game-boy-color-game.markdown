@@ -3,9 +3,11 @@ date: 2018-06-19 18:49
 category: blog
 tags: tech, gamedev, cheezball rising
 
-This is a series about **Star Anise Chronicles: Cheezball Rising**, an expansive adventure game about my cat for the Game Boy Color.  Follow along as I struggle to make something with this bleeding-edge console!
+This is a series about [**Star Anise Chronicles: Cheezball Rising**](https://github.com/eevee/anise-cheezball-rising), an expansive adventure game about my cat for the Game Boy Color.  Follow along as I struggle to make something with this bleeding-edge console!
+ 
+GitHub has [intermittent prebuilt ROMs](https://github.com/eevee/anise-cheezball-rising/releases), or you can get them a week early [on Patreon](https://www.patreon.com/eevee/posts?tag=cheezball%20rising) if you pledge $4.  More details in the [README](https://github.com/eevee/anise-cheezball-rising)!
 
-<center markdown="1">[source code](https://github.com/eevee/anise-cheezball-rising) • [prebuilt ROMs](https://www.patreon.com/eevee/posts?tag=cheezball%20rising) (a week early for $4) • works best with [mGBA](https://mgba.io/)</center>
+----
 
 In this issue, I figure out how to put literally anything on the goddamn screen, then add a splash of color.
 
@@ -189,7 +191,7 @@ Now, let's see what this does!
 
 Wow!  It's…  still nothing.  Hang on.
 
-If I open the debugger and hit Break, I find out that the CPU is at address $0120 — _before_ my code — and is on an instruction `DD`.  What's `DD`?  Well, according to this convenient chart, it's…  nothing.  That's not an instruction.
+If I open the debugger and hit Break, I find out that the CPU is at address $0120 — _before_ my code — and is on an instruction `DD`.  What's `DD`?  Well, according to [this convenient chart](http://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html), it's…  nothing.  That's not an instruction.
 
 Hmm.
 
