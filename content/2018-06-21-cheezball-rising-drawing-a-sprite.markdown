@@ -12,7 +12,7 @@ GitHub has [intermittent prebuilt ROMs](https://github.com/eevee/anise-cheezball
 In this issue, I figure out how to draw a sprite.  _This part was hard._
 
 Previously: [figuring out how to put literally anything on the goddamn screen]({filename}/2018-06-19-cheezball-rising-a-new-game-boy-color-game.markdown).  
-Next: [the remaining bits necessary to have something game-like]({filename}/2018-07-04-cheezball-rising-main-loop-input-and-a-game.markdown).
+Next: [the remaining bits necessary to have something game-like]({filename}/2018-07-05-cheezball-rising-main-loop-input-and-a-game.markdown).
 
 <!-- more -->
 
@@ -385,4 +385,4 @@ It doesn't look like much, but it took a _lot_ of flailing to get here, and I wa
 
 That doesn't even get us all the way through [commit `1b17c7`](https://github.com/eevee/anise-cheezball-rising/commit/1b17c709f44718983015539ceb8709fb5ed8edbd), but this is already more than enough.
 
-Next time: [input, and moderately less eye-searing art]({filename}/2018-07-04-cheezball-rising-main-loop-input-and-a-game.markdown)!
+Next time: [input, and moderately less eye-searing art]({filename}/2018-07-05-cheezball-rising-main-loop-input-and-a-game.markdown)!
