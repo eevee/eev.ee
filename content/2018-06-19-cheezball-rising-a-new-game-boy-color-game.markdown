@@ -78,7 +78,7 @@ All I need now is a source file, `main.rgbasm`, which I populate with:
 Nothing!  I don't know what I expect from this, but I'm curious to see what comes out.  And what comes out is a working ROM!
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/000-nothing.png" alt="A completely blank screen">
+<img src="{filename}/media/cheezball/00a-nothing.png" alt="A completely blank screen">
 </div>
 
 Maybe "working" is a strong choice of word, given that it doesn't actually _do_ anything.
@@ -186,7 +186,7 @@ Now, let's see what this does!
 ----
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/000-nothing.png" alt="A completely blank screen, still">
+<img src="{filename}/media/cheezball/00a-nothing.png" alt="A completely blank screen, still">
 </div>
 
 Wow!  It's…  still nothing.  Hang on.
@@ -213,7 +213,7 @@ SECTION "entry point", ROM0[$0100]
 Why the `nop`?  I have no idea, but _all_ of these boilerplate projects do it.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/001-weird-stripes.png" alt="Black screen with repeating columns of white">
+<img src="{filename}/media/cheezball/00b-weird-stripes.png" alt="Black screen with repeating columns of white">
 </div>
 
 Uhh.
@@ -253,7 +253,7 @@ This is one of those places where the manual is oddly vague.  It dedicates two w
 Well, whatever.  It works on _my_ machine.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/002-mono-gradient.png" alt="Stripes of varying shades of gray">
+<img src="{filename}/media/cheezball/00c-mono-gradient.png" alt="Stripes of varying shades of gray">
 </div>
 
 Success!  I made a thing for the Game Boy.
@@ -327,7 +327,7 @@ Thus, I present, palette loading by hand.  Like before, I put the 16-bit color i
 Rebuild, and:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/003-color-gradient.png" alt="Same as before, but now the stripes are colored">
+<img src="{filename}/media/cheezball/00d-color-gradient.png" alt="Same as before, but now the stripes are colored">
 </div>
 
 What a glorious eyesore!

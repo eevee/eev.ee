@@ -21,7 +21,7 @@ Previously: [drawing a sprite]({filename}/2018-06-21-cheezball-rising-drawing-a-
 So far, I have this.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/102-first-object.png" alt="A very gaudy striped background with half a cat on top">
+<img src="{filename}/media/cheezball/01d-first-object.png" alt="A very gaudy striped background with half a cat on top">
 </div>
 
 It took unfathomable amounts of effort, but it's something!  Now to improve this from a static image to something a bit more game-like.

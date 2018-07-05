@@ -24,7 +24,7 @@ Welcome back!  I've started cobbling together a Pygments lexer for RGBDS's assem
 When I left off last time, I had...  um...  this.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/003-color-gradient.png" alt="Vertical stripes of red, green, blue, and white">
+<img src="{filename}/media/cheezball/00d-color-gradient.png" alt="Vertical stripes of red, green, blue, and white">
 </div>
 
 This is all on the _background_ layer, which I mentioned before is a fixed grid of 8×8 tiles.
@@ -47,7 +47,7 @@ Because I "can't" write directly, I need to use some _shenanigans_.  First, I ne
 I'm on my laptop at this point without access to the source code for the LÖVE Anise game I started, so I have to rustle up a screenshot I took.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/hi-def-star-anise.png" alt="Cropped screenshot of Star Anise and some critters, all pixel art">
+<img src="{filename}/media/cheezball/01a-hi-def-star-anise.png" alt="Cropped screenshot of Star Anise and some critters, all pixel art">
 </div>
 
 Wait a second.
@@ -57,7 +57,7 @@ Even on the Game Boy Color, tiles are defined with two bits per pixel.  That mea
 Let's check out that Anise in more detail.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/hi-def-star-anise-zoom.png" alt="Star Anise at 8×">
+<img src="{filename}/media/cheezball/01b-hi-def-star-anise-zoom.png" alt="Star Anise at 8×">
 </div>
 
 Hm yes okay that's more than three colors.  I guess I'm going to need to draw some new sprites from scratch, somehow.
@@ -325,7 +325,7 @@ So I _probably shouldn't_ be writing to tiles and palettes willy-nilly.  I _susp
 _In fact..._
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/101-first-frame.png" alt="Same screenshot as above, but the first row of pixels is corrupt">
+<img src="{filename}/media/cheezball/01c-first-frame.png" alt="Same screenshot as above, but the first row of pixels is corrupt">
 </div>
 
 I took this screenshot by loading the ROM I have so far, pausing it, resetting it, and then advancing a single frame.  This is the very first frame my game shows.  If you look closely at the first row of pixels, you can see they're actually corrupt — they're being drawn before I've set up the palette!  You can even see _each palette entry_ taking effect along the row.
@@ -373,7 +373,7 @@ Whoops!  Remember that LCD controller register, and how it defaults to $91?  Wel
 ```
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/102-first-object.png" alt="The same gaudy background, but now with a partial Anise sprite on top">
+<img src="{filename}/media/cheezball/01d-first-object.png" alt="The same gaudy background, but now with a partial Anise sprite on top">
 </div>
 
 ***SUCCESS!***
