@@ -229,11 +229,13 @@ The code, which is very similar to an example in the official manual, thus looks
 
 ```rgbasm
     ; Poll input
-    ; The direct hardware access is nonsense and unreliable, so
-    ; just read once per frame and stick all the button states
-    ; in a byte
+    ; It takes a moment to get a reliable read after requesting
+    ; a particular set of buttons, so we need to wait a moment;
+    ; this is based on the code from the manual, which stalls
+    ; simply by reading multiple times
 
-    ; Bit 6 means to read the dpad
+    ; Bit 5 means to read the dpad
+    ; (Well, Actually: bit 4 being OFF means to read the d-pad)
     ld a, $20
     ldh [rP1], a
     ; But it's unreliable, so do it twice
@@ -246,11 +248,12 @@ The code, which is very similar to an example in the official manual, thus looks
     and a, $0f
     ld b, a
 
-    ; Bit 5 means to read the buttons
+    ; Bit 4 means to read the buttons
+    ; (Same caveat; it's really that bit 5 is off)
     ld a, $10
     ldh [rP1], a
-    ; Apparently this is even more unreliable??  No, really, the
-    ; manual does this: two reads, then six reads
+    ; Not sure why this needs more stalling?  Someone speculated
+    ; that this circuitry might just be further away
     ld a, [rP1]
     ld a, [rP1]
     ld a, [rP1]
