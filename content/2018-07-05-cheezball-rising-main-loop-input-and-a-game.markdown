@@ -11,7 +11,8 @@ GitHub has [intermittent prebuilt ROMs](https://github.com/eevee/anise-cheezball
 
 In this issue, I fill in the remaining bits necessary to have something that _looks_ like a game.
 
-Previously: [drawing a sprite]({filename}/2018-06-21-cheezball-rising-drawing-a-sprite.markdown).
+Previously: [drawing a sprite]({filename}/2018-06-21-cheezball-rising-drawing-a-sprite.markdown).  
+Next: [a little spring cleaning]({filename}/2018-07-13-cheezball-rising-spring-cleaning.markdown).
 
 <!-- more -->
 
@@ -564,4 +565,4 @@ Hey hey hey!  That finally looks like something!
 
 It was a surprisingly long journey, but this brings us more or less up to [commit `313a3e`](https://github.com/eevee/anise-cheezball-rising/commit/313a3e1aee596270530cc1bf40db3df2a1e69535), which happens to be the first commit I made a release of!  It's been more than a week, so you can grab it on [Patreon](https://www.patreon.com/posts/cheezball-rising-19556867) or [GitHub](https://github.com/eevee/anise-cheezball-rising/releases/tag/v20180619pre).  I strongly recommend playing it with a release of mGBA prior to 0.7, for…  reasons that will become clear next time.
 
-Next time: I'll take a breather and clean up a few things.
+Next time: [I'll take a breather and clean up a few things]({filename}/2018-07-13-cheezball-rising-spring-cleaning.markdown).
