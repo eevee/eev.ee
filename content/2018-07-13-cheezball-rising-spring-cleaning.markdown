@@ -148,7 +148,9 @@ But wait!  We're not quite done yet; the comments have pointed out another overs
 
 The flag will already have been set, but then we'll halt anyway and wait for the _next_ interrupt.  If that next interrupt is another vblank, all is fine.  If it's something else — like the timer, say — then the following code will see the flag is set and return immediately, even though it's been some amount of time and we might actually be in the middle of a frame!
 
-This precise set of circumstances is fairly unlikely, but that's not good enough for me.  Let's fix it:
+The same problem occurs within the loop: if we get an unrelated interrupt, `ld` the flag while it's cleared, and then a vblank interrupt sets it before we test it, we'll jump back up and wait for another interrupt which we'll then misidentify as a vblank.
+
+These very precise circumstances are fairly unlikely, but that's not good enough for me.  Let's fix it:
 
 ```rgbasm
 ; idle until next vblank
@@ -156,18 +158,22 @@ wait_for_vblank:
     xor a                       ; clear the vblank flag
     di                          ; avoid irq race after this ld
     ld [vblank_flag], a
-    ei
 .vblank_loop:
+    ei
     halt                        ; wait for interrupt
+    di
     ld a, [vblank_flag]         ; was it a vblank interrupt?
     and a
     jr z, .vblank_loop          ; if not, keep waiting
+    ei
     ret
 ```
 
+Now interrupts are disabled before we read the flag, and only enabled again immediately before the `halt`.  (An interrupt request sent while interrupts are disabled won't be thrown on the floor; it's merely delayed until interrupts are enabled again.)
+
 "Hang on," I hear you cry.  "Haven't you just moved the goalposts?  Can't an interrupt now happen between `ei` and `halt`, just like before?"
 
-I have one final piece of arcane trivia up my sleeve: `ei` has a built-in _delay_ and doesn't take effect until after the next instruction.  Possibly for this exact reason!  This should, fingers crossed, be completely bulletproof.
+Ah, but I have one final piece of arcane trivia up my sleeve: `ei` has a built-in _delay_ and doesn't take effect until after the next instruction.  Possibly for this exact reason!  This should, fingers crossed, be completely bulletproof.
 
 ## Copy function
 
