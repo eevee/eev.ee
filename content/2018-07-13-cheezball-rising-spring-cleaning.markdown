@@ -137,6 +137,37 @@ wait_for_vblank:
     ret
 ```
 
+But wait!  We're not quite done yet; the comments have pointed out another oversight.  What happens if a vblank interrupt occurs _between_ the first `ld` and the `halt`?
+
+```rgbasm
+    xor a
+    ld [vblank_flag], a
+    ; vblank interrupt occurs HERE, setting the flag to 1
+    halt
+```
+
+The flag will already have been set, but then we'll halt anyway and wait for the _next_ interrupt.  If that next interrupt is another vblank, all is fine.  If it's something else — like the timer, say — then the following code will see the flag is set and return immediately, even though it's been some amount of time and we might actually be in the middle of a frame!
+
+This precise set of circumstances is fairly unlikely, but that's not good enough for me.  Let's fix it:
+
+```rgbasm
+; idle until next vblank
+wait_for_vblank:
+    xor a                       ; clear the vblank flag
+    di                          ; avoid irq race after this ld
+    ld [vblank_flag], a
+    ei
+.vblank_loop:
+    halt                        ; wait for interrupt
+    ld a, [vblank_flag]         ; was it a vblank interrupt?
+    and a
+    jr z, .vblank_loop          ; if not, keep waiting
+    ret
+```
+
+"Hang on," I hear you cry.  "Haven't you just moved the goalposts?  Can't an interrupt now happen between `ei` and `halt`, just like before?"
+
+I have one final piece of arcane trivia up my sleeve: `ei` has a built-in _delay_ and doesn't take effect until after the next instruction.  Possibly for this exact reason!  This should, fingers crossed, be completely bulletproof.
 
 ## Copy function
 
@@ -237,6 +268,8 @@ The set of instructions is a little scattershot as far as arguments go.  Several
 But I overlooked that there are instructions for both `ld [hl], n8` and `ld [n16], a`, so the above can be reduced to two lines.  There's no such thing as `ld [n16], n8`, though.
 
 A surprising number of instructions can use `[hl]` directly as an operand — even `inc` and `dec`, combining fetch/mutate/store into a single instruction.
+
+As I mentioned before, due to a bug, every `halt` should be followed by a `nop` — but `rgbasm` already does this by default, so I removed all the extraneous `nop`s.
 
 `xor a` is twice as short and twice as fast as `ld a, 0`.  I mean, we're talking about a single byte and single cycle here, but no reason _not_ to.
 
