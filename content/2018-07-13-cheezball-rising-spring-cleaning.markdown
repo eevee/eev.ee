@@ -12,7 +12,7 @@ GitHub has [intermittent prebuilt ROMs](https://github.com/eevee/anise-cheezball
 In this issue, I tidy up some of the gigantic mess I've made thusfar.
 
 Previously: [writing a main loop, and finally getting something game-like]({filename}/2018-07-05-cheezball-rising-main-loop-input-and-a-game.markdown).  
-Next: sprite and map loading.
+Next: [sprite and map loading]({filename}/2018-07-15-cheezball-rising-maps-and-sprites.markdown).
 
 <!-- more -->
 
@@ -311,4 +311,4 @@ I may or may not use the "gba-colors" shader, and may or may not fiddle with mGB
 
 This post doesn't really correspond to a particular commit very well, since it's all little stuff I did here and there.  I hope you've enjoyed the breather, because it's all downhill from here.  In a good way, I mean.  Like a rollercoaster.
 
-Next time: map and sprite loading, which will explain how I got from grass to the moon texture in the screenshots above!
+Next time: [map and sprite loading]({filename}/2018-07-15-cheezball-rising-maps-and-sprites.markdown), which will explain how I got from grass to the moon texture in the screenshots above!
