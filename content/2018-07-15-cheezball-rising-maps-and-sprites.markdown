@@ -544,6 +544,16 @@ I _did_ try doing this with one of the Game Boy Color's new features, [_general-
 
 General-purpose DMA can copy 16 bytes every 8 cycles, or ½ cycle per byte.  The fastest possible manual copy would be an unrolled series of `ld a, [hl+]; ld [bc], a; inc bc` which takes a whopping 6 cycles per byte — twelve times slower!  This is a neat feature.
 
+The only gotcha is that the source address has to be 16-byte aligned, so I need the `SECTION` header to look like:
+
+```rgbasm
+SECTION "Anise sprites", ROM0, ALIGN[4]
+```
+
+Each character is 16 bytes, so now I can copy starting from any one of them.
+
+I edited my local copy of the built file to have this annotation, but of course, the script doesn't know about it yet.  Whoops, again!  I should really fix the build, _ahem_.
+
 FYI, it's also possible to have a copy done piecemeal during hblanks, though that sounds a bit fragile to me.
 
 
