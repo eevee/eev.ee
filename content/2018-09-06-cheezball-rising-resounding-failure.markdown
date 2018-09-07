@@ -537,7 +537,33 @@ I changed it to this:
     return sample;
 ```
 
-And the spikes went away!  As an added bonus, waveforms are no longer upside-down!  The result is so, so beautiful, _and_ virtually identical in every emulator:
+And the spikes went away!  As an added bonus, waveforms are no longer upside-down!  Now all I need is to follow the steps above:
+
+```rgbasm
+    ; Re-enable the channel
+    ld a, $80
+    ldh [rAUD3ENA], a
+    ; Unplug it
+    ld a, [rAUDTERM]
+    ld d, a
+    and a, %10111011
+    ldh [rAUDTERM], a
+    ; Set to a high frequency and start playing
+    ld a, LOW(2032)
+    ldh [rAUD3LOW], a
+    ld a, $80 | HIGH(2032)
+    ldh [rAUD3HIGH], a
+    ; Correct the frequency and restart
+    ld a, LOW(CH3_FREQUENCY)
+    ldh [rAUD3LOW], a
+    ld a, $80 | HIGH(CH3_FREQUENCY)
+    ldh [rAUD3HIGH], a
+    ; Plug back in
+    ld a, d
+    ld [rAUDTERM], a
+```
+
+The result is so, so beautiful, _and_ virtually identical in every emulator:
 
 <audio controls src="{filename}/media/cheezball/05k-aowr-success.wav"></audio>
 
