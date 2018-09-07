@@ -12,7 +12,7 @@ GitHub has [intermittent prebuilt ROMs](https://github.com/eevee/anise-cheezball
 In this issue, I get a little asset pipeline working and finally have a real map.
 
 Previously: [spring cleaning]({filename}/2018-07-13-cheezball-rising-spring-cleaning.markdown).  
-Next: [resounding failure]({filename}/2018-09-06-cheezball-rising-resounding-failure.markdown).
+Next: [resounding <s>failure</s> success?]({filename}/2018-09-06-cheezball-rising-resounding-failure.markdown).
 
 <!-- more -->
 
@@ -570,4 +570,4 @@ And I still haven't fixed the build system!  Maybe you can understand why I'm he
 
 That brings us to [commit 59ff18](https://github.com/eevee/anise-cheezball-rising/commit/59ff18f391ac6f9627c6b6b863796caf3d4df16d).  Except for a commit about the build that I skipped.  Whatever.  This post has been a little more draining to write, perhaps because it forced me to confront and explain a bunch of hokey decisions.
 
-Next time: [_resounding failure_]({filename}/2018-09-06-cheezball-rising-resounding-failure.markdown)!
+Next time: [_resounding <s>failure</s> success_]({filename}/2018-09-06-cheezball-rising-resounding-failure.markdown)!

@@ -9,7 +9,7 @@ GitHub has [intermittent prebuilt ROMs](https://github.com/eevee/anise-cheezball
 
 ----
 
-In this issue, I cannot get a goddamn Game Boy to meow at me.
+In this issue, I <s>cannot</s> get a goddamn Game Boy to meow at me!!
 
 Previously: [maps and sprites]({filename}/2018-07-15-cheezball-rising-maps-and-sprites.markdown).  
 Next: text!
@@ -466,8 +466,90 @@ After days of effort trying to get this to work, I had to shelve it.
 The title of this post is a sort of _pun_, you see, a play on words—
 
 
+## UPDATE: DRAMATIC TURNAROUND
+
+HOT DAMN
+
+With the problem laid bare, the homebrew community came through with a brilliant suggestion.
+
+1. Re-enable channel 3, _but mute it_.
+2. Start playing at a very high frequency, to get through the first sample as quickly as possible.
+3. Change the frequency back to normal and _restart the channel_, via the high bit in `AUD3HIGH`.  Since the first byte is now in the buffer, the first sample should play correctly!
+4. Don't forget to unmute the channel!
+
+There are some tricky bits here.
+
+The first is how to mute the channel.  The manual _claims_ that using zero in `AUD3LEVEL` will mute the sound, but both mGBA and SameBoy seem to agree that it actually plays _all zeroes_ — maximum negative amplitude.  That'll just recreate the spikes again, so that's out.  There's also the master volume knob `AUDVOL`, but that won't work if I ever try to play a sound at the same time as I'm playing music or something.  That basically just leaves `AUDTERM`, which lets me unplug the wave channel entirely — and luckily, the hardware is still generating output even if it's not going anywhere.
+
+The second is _what_ frequency to use, exactly.  The obvious thing to try is the maximum possible frequency, which turns out to be 2 MHz…  but the Game Boy CPU only runs at 1 MHz, and it takes a couple instructions to change the frequency a second time, so a whole bunch of samples will have played in the meantime.
+
+Instead, I worked backwards.  If I want a sample to last $n$ cycles, then the entire waveform lasts $32 n$ cycles, for a frequency of $\frac{2^20}{32 n} = \frac{2^15}{n}$ Hz (obtained by dividing into the CPU speed).  The frequency value I need is thus $2048 - \frac{65536}{\frac{2^15}{n}} = 2048 - 2 n$.  Counting the actual work I need to do: `ld a, CONSTANT` takes 2 cycles, and `ldh [CONSTANT], a` takes 3, so changing the frequency takes 10 cycles.  I need to be _between_ the first and second samples at this point, so let's say one sample takes 8 cycles to play, and the value I want is 2032.  Cool.
+
+I tried this all out, and…  it totally didn't work!  _In mGBA._  But it _did_ work in SameBoy (which I am told has very very good audio emulation), so this still gave me a(nother) ray of hope.
+
+I sprinkled mGBA with debug code and finally discovered something suspicious.  Its "mixer" looks like this (simplified):
+
+```c
+    int dcOffset = 8;
+    int sample = dcOffset;
+
+	if (audio->playingCh1) {
+        sample -= audio->ch1.sample;
+	}
+	if (audio->playingCh2) {
+        sample -= audio->ch2.sample;
+	}
+	if (audio->playingCh3) {
+        sample -= audio->ch3.sample;
+	}
+	if (audio->playingCh4) {
+        sample -= audio->ch4.sample;
+	}
+
+    return sample;
+```
+
+As we've seen, channel 3 uses unsigned values for its samples, so to convert them to virtually any modern audio format, you do need to subtract a midpoint to get a signed value.  That's what a DC offset is.
+
+But this code isn't _quite_ doing that.  It applies the DC offset _once_ for the entire mixer, even though all four channels are unsigned.
+
+This explains why I was still spiking in mGBA, though!  Once I'd unplugged channel 3, the audio system was still enabled _but zero channels were playing_, so the above code would produce `8`, which is interpreted as a signed value, which is… maximum amplitude!  Aha!  Spikes!
+
+I changed it to this:
+
+```c
+    int dcOffset = 8;
+    int sample = 0;
+
+	if (audio->playingCh1) {
+        sample += audio->ch1.sample - dcOffset;
+	}
+	if (audio->playingCh2) {
+        sample += audio->ch2.sample - dcOffset;
+	}
+	if (audio->playingCh3) {
+        sample += audio->ch3.sample - dcOffset;
+	}
+	if (audio->playingCh4) {
+        sample += audio->ch4.sample - dcOffset;
+	}
+
+    return sample;
+```
+
+And the spikes went away!  As an added bonus, waveforms are no longer upside-down!  The result is so, so beautiful, _and_ virtually identical in every emulator:
+
+<audio controls src="{filename}/media/cheezball/05k-aowr-success.wav"></audio>
+
+***YES!!!***
+
+I _think_ this problem was never noticeable on most games because it only ever adds a constant bias (based on the number of active channels, which would usually change infrequently), and a constant shift up or down sounds almost the same.  I've sent a PR to mGBA, and hopefully I'll have understood this correctly.  If not, well, back to despair.
+
+Wow!  I did it.  Cool.  It took a mighty long time to get this working, and now I feel a bit silly since I don't have an inventory or even an audio engine to really plug this into yet.  I also want to capture a much more pestful meow from Anise, which is a little difficult since he only does his loudest meowing when we're not around.  This is fantastic progress, though!
+
+
 ## To be continued
 
-This work doesn't correspond to a commit at all; it exists only as a local stash.
+This work doesn't correspond to a commit at all; it exists only as a local stash.  I'll clean it up later, once I figure out what to actually do with it.
 
-Next time: _dialogue_!  And this time it works!
+Next time: _dialogue_!  With moderately less suffering along the way!
