@@ -69,6 +69,11 @@ SOCIAL_EX = ((
     '#55acee', 'logo-twitter.png',
     "firehose of bad jokes",
 ), (
+    'mastodon',
+    'https://mastodon.social/eevee',
+    '#3088d4', 'logo-mastodon.png',
+    "trickle of bad jokes",
+), (
     'patreon',
     'https://www.patreon.com/eevee',
     '#ff5900', 'logo-patreon.png',
