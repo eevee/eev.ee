@@ -117,7 +117,7 @@ Note that when I say "frequency" here, I'm referring to the 11-bit "frequency" v
 
 The above code sets this register to &#x24;1e, so $t = 1$, $n = 6$, and the frequency is decreasing; thus every $\frac{1}{128}$ seconds, the "frequency" drops by $\frac{1}{64}$.
 
-Next is AUD1LEN (NR11), so named because its lower six bits set how long the sound will play.  Again we have inverse time: given a value $t$ in the low six bits, the sound will play for $\frac{64-t}{256}$ seconds.  Here those six bits are &x#24;10 or 16, so the sound lasts for $\frac{48}{256} = \frac{3}{16} = 0.1875$ seconds.  _Except_…  as mentioned above, this only applies if bit 6 of AUD1HIGH is set, which it isn't, so this doesn't apply at all and there's no point in setting any of these bits.  Hm.
+Next is AUD1LEN (NR11), so named because its lower six bits set how long the sound will play.  Again we have inverse time: given a value $t$ in the low six bits, the sound will play for $\frac{64-t}{256}$ seconds.  Here those six bits are &#x24;10 or 16, so the sound lasts for $\frac{48}{256} = \frac{3}{16} = 0.1875$ seconds.  _Except_…  as mentioned above, this only applies if bit 6 of AUD1HIGH is set, which it isn't, so this doesn't apply at all and there's no point in setting any of these bits.  Hm.
 
 The two high bits of AUD1LEN select the duty cycle, which is how long the square wave is high versus low.  (A "normal" square wave thus has a duty of 50%.)  Our value of 0 selects 12.5% high; the other values are 25% for 1, 50% for 2, or 75% for 3.  I do wonder if the author of this code meant to use 50% duty and put the bit in the wrong place?  If so, AUD1LEN should be $80, not $10.
 
