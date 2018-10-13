@@ -583,6 +583,10 @@ The time and code savings aren't huge, exactly, and nothing else is going on whi
 
 The use of the stack is a _little_ confusing (and don't worry, it only gets worse in later posts).  Note for example that `c` is used as the loop counter, but since I don't actually need its value _within_ the body of the loop, I can `push` it right at the beginning and use `c` to hold the mask, then `pop` the loop counter back into place at the end.
 
+(**UPDATE**: A reader points out that I don't really need the mask at all.  The `rrca` instruction puts the lost bit in the carry flag, so I can instead follow it with `rr c`, which puts the carry flag into bit 7 of `c`.  Then I'll end up with the right bits in `c`, no masking required.  If I also used `rra` instead of `rrca`, then `a` would end up with just the left bits, and nothing needs masking at all!)
+
+(Also, it occurs to me that I could avoid the loop entirely with a Duff's device...  but that might be a little over the top.)
+
 This is where I first started to feel register pressure, especially when addresses eat up _two_ of them.  My options are pretty limited: I can store stuff on the stack, or store stuff in RAM.  The stack is arguably harder to follow (and easier to fuck up, which I've done several times), but either way there's the register ambiguity.
 
 Which is shorter/faster?  Well:

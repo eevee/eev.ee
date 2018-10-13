@@ -573,6 +573,14 @@ I _think_ this problem was never noticeable on most games because it only ever a
 
 Wow!  I did it.  Cool.  It took a mighty long time to get this working, and now I feel a bit silly since I don't have an inventory or even an audio engine to really plug this into yet.  I also want to capture a much more pestful meow from Anise, which is a little difficult since he only does his loudest meowing when we're not around.  This is fantastic progress, though!
 
+## UPDATE II: DRAMATIC UN-TURNAROUND
+
+In the days since the above "discovery" I finally got ahold of a flash cart, which lets me test on real hardware.  I have unfortunate news: _I was totally wrong_.  The weird thing mGBA does is in fact correct, and "fixing" it breaks a few other games that play custom sounds by _changing the master volume while nothing is playing_.  So, of course, my "successful" attempt _still_ spikes on real hardware.
+
+After all that, I'm _still_ at square one.  I do have a couple leads: there's the master volume trick, which I don't quite understand yet, and there's also Duke Nukem for GBC, which uses my _original_ approach but quantizes the sounds more harshly which helps to disguise the spiking.  I also have a list of other games that use custom samples, and when I revisit this, I might just run through as many of them as possible and try to figure out exactly what they're doing.
+
+But for now, this is shelved.  Again.
+
 
 ## To be continued
 
