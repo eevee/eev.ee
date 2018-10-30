@@ -70,7 +70,7 @@ SOCIAL_EX = ((
     "firehose of bad jokes",
 ), (
     'mastodon',
-    'https://mastodon.social/eevee',
+    'https://mastodon.social/@eevee',
     '#3088d4', 'logo-mastodon.png',
     "trickle of bad jokes",
 ), (
