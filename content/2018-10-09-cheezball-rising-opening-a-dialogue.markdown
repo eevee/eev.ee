@@ -12,7 +12,7 @@ GitHub has [intermittent prebuilt ROMs](https://github.com/eevee/anise-cheezball
 In this issue, I draw some text!
 
 Previously: [I get a Game Boy to meow]({filename}/2018-09-06-cheezball-rising-resounding-failure.markdown).  
-Next: collision detection, _ohh nooo_…
+Next: [collision detection]({filename}/2018-11-28-cheezball-rising-collision-detection-part-1.markdown), _ohh nooo_…
 
 <!-- more -->
 
@@ -975,6 +975,6 @@ After all _that_, I can start worrying about other frills like colored text and 
 
 ## To be continued
 
-That brings us up to [commit a173db](https://github.com/eevee/anise-cheezball-rising/commit/a173dbb506b8eb56dd2d027f98d75e558a66bb2d), which is _slightly_ beyond the [second release](https://github.com/eevee/anise-cheezball-rising/releases/tag/v20180707pre) (which includes a one-line textbox)!  Also that was _three months ago_ oh dear.  I think I'll be putting out a new release soon, stay tuned!
+That brings us up to [commit a173dbb](https://github.com/eevee/anise-cheezball-rising/commit/a173dbb506b8eb56dd2d027f98d75e558a66bb2d), which is _slightly_ beyond the [second release](https://github.com/eevee/anise-cheezball-rising/releases/tag/v20180707pre) (which includes a one-line textbox)!  Also that was _three months ago_ oh dear.  I think I'll be putting out a new release soon, stay tuned!
 
-Next time: _collision detection_!  I am doomed.
+Next time: [_collision detection_]({filename}/2018-11-28-cheezball-rising-collision-detection-part-1.markdown)!  I am doomed.
