@@ -9,7 +9,7 @@ GitHub has [intermittent prebuilt ROMs](https://github.com/eevee/anise-cheezball
 
 ----
 
-In this issue, I draw some text!
+In this issue, I bash my head against a rock.  Sorry, I mean I bash Star Anise against a rock.  It's about collision detection.
 
 Previously: [I draw some text to the screen]({filename}/2018-10-09-cheezball-rising-opening-a-dialogue.markdown).  
 Next: _more_ collision detection, and fixed-point arithmetic.
