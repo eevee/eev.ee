@@ -29,9 +29,15 @@ He also eventually admitted that the logs were _not_ entirely bogus, although he
 
 We subsequently evicted him from our lives, leaving him with his parents when we moved to a new place.
 
-I've explained a lot of this in gratuitous detail on Twitter, and it's been relatively quiet for a while now, but this can never be undone.  Gossip cannot be retracted, and no one cares what we have to say if they've already decided we're monsters.  To this day, we still get folks trying to "warn" people away from us, based primarily on what Marl did behind our backs.  People have even accused Ash of "throwing Marl under the bus" — by blaming him for things _he did_.
+----
 
-Oh, well.  Can't please everyone, right?  Does that actually apply here?  Whatever.  It drives me nuts to be misinterpreted, but on the other hand, I'm not _too_ broken up about people who take gossip at face value self-selecting themselves out of my internet experience.
+I'm told the teenager dropped off the forum (which she'd been posting on anonymously), and no one but Marl knows her identity, so she's effectively vanished.  We haven't had contact with Marl in months.  That just leaves us.
+
+I've explained a lot of this in gratuitous detail on Twitter, and it's been relatively quiet for a while now, but the initial confused mess can't be undone.  Gossip cannot be un-spread.  To this day, we still get folks trying to warn people away from us, based primarily on what Marl did behind our backs.
+
+Oh, well.  Can't please everyone, right?  Does that actually apply here?
+
+It drives me nuts to be misrepresented, but on the other hand, maybe it's okay that people who take gossip at face value are self-selecting themselves out of my internet experience.
 
 Anyway, that's why my output was a bit low last year: I was chased from my home and thought I would be leaving the internet forever!  Then I had to spend a few months getting settled.  Plus I've been on and off ADHD meds since May, which has kind of thrown me for a loop, but I finally got that all sorted out just a few days ago.  Now I can finally get back to, um, whatever it is that I do.
 
