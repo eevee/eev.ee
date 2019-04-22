@@ -9,7 +9,7 @@ As I said before, I was occupied for a bit, but now I should finally be able to 
   
     That's Anise.  Anise is the April fool, and also he's happy.
 
-- **blog**: I wrote about [how the particle wipe generator works]({filename}/content/release/2019-04-20-particle-wipe-generator.markdown), in lurid detail!  I think it's an interesting little read, even if you have no use for the tool itself.
+- **blog**: I wrote about [how the particle wipe generator works]({filename}/release/2019-04-20-particle-wipe-generator.markdown), in lurid detail!  I think it's an interesting little read, even if you have no use for the tool itself.
 
     I also spent a lot of time backfilling old art on my (clean) art gallery.  It's not updated quite yet; there's a _lot_ to go to, shockingly so, and I haven't even made it through year one yet.  Honestly, I'm kind of embarrassed by how much my output declined over time.
 
