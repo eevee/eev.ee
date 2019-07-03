@@ -19,4 +19,6 @@ Anyway, that gives us _three_ weeks to catch up on:
 
 - **alice's day off**: Wrote some stuff!  It's a miracle.
 
+- **gamedev**: I ran [GAMES MADE QUICK??? III-2](https://itch.io/jam/games-made-quick-iii-2), and 28 fine folks managed to produce something game-like within a week!  Please give some of them a try!
+
 Currently attempting to get my ass back in gear, with moderate success.
