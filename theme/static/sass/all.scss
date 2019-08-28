@@ -852,21 +852,15 @@ article {
     }
 
     .tile-container {
-        @include flexbox;
-        @include flex-wrap(wrap);
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, auto));
+        row-gap: 1em;
+        column-gap: 1em;
     }
     .tile {
         box-sizing: border-box;
         position: relative;
-        @include flex(30% 1 0);
-        @include tablet-size {
-            @include flex-basis(40%);
-        }
-        @include phone-size {
-            @include flex-basis(100%);
-        }
 
-        padding: 0.5em 0.5em;
         color: #cfddf3;
 
         header {
@@ -947,13 +941,6 @@ article {
         li + li::before {
             content: '\a0 • \a0';
         }
-    }
-
-    .flex-padding {
-        padding-top: 0;
-        padding-bottom: 0;
-        margin-top: 0;
-        margin-bottom: 0;
     }
 
     /* tablet sizes */
