@@ -1,5 +1,5 @@
 title: Weekly roundup: Chugging
-date: 2019-08-19
+date: 2019-08-19 20:43
 category: dev
 tags: status
 
