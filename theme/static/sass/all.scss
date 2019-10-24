@@ -1,5 +1,3 @@
-@import "flex";
-
 // fonts
 $font-header: Lusitana, serif;
 $font-prose: Merriweather, serif;
@@ -175,10 +173,10 @@ body > header {
         text-align: right;
 
         .site-search {
-            @include order(2);
+            order: 2;
         }
         .subscription {
-            @include order(3);
+            order: 3;
         }
 
         form {
@@ -211,11 +209,11 @@ body > header {
 }
 
 body > #main {
-    @include flexbox;
+    display: flex;
     border: 1px solid $eevee-border;
 
     #content {
-        @include flex(1);
+        flex: 1;
         // The default is 'auto', which for a flexbox makes it expand to its
         // contents' intrinsic width, i.e. a very long word somewhere will make
         // the entire page expand.  This overrides that and allows overflow
@@ -229,7 +227,7 @@ body > #main {
     }
 
     @include tablet-size {
-        @include flex-direction(column);
+        flex-direction: column;
 
         #sidebar {
             width: auto;
@@ -242,8 +240,8 @@ body > footer {
     color: $offwhite;
     text-transform: lowercase;
 
-    @include flexbox;
-    @include justify-content(space-between);
+    display: flex;
+    justify-content: space-between;
 
     @include tablet-size {
         // no flexbox; just stack em
@@ -301,12 +299,12 @@ body > footer {
     border-top: 1px dotted $main-accent;
 
     &.pagination {
-        @include flexbox;
+        display: flex;
 
         > a,
         > span {
             display: block;
-            @include flex(1);
+            flex: 1;
 
             text-align: center;
             &.next {
@@ -408,14 +406,14 @@ body > footer {
             }
 
             > a {
-                @include flexbox;
-                @include align-items(center);
+                display: flex;
+                align-items: center;
 
                 padding: $padding 1.5em;
                 border: 1px solid transparent;
 
                 .-glyph {
-                    @include flex(0 0 $size);
+                    flex: 0 0 $size;
                     margin-right: 0.5em;
 
                     > img {
@@ -519,18 +517,18 @@ article {
         border-top: 1px dotted $main-accent;
     }
     > header {
-        @include flexbox;
-        @include flex-direction(row-reverse);
-        @include flex-wrap(wrap);
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
 
         .meta {
-            @include flex(1 1 auto);
+            flex: 1 1 auto;
             margin: 0;
             text-align: right;
             color: $main-accent;
         }
         h1 {
-            @include flex(1 1 auto);
+            flex: 1 1 auto;
         }
     }
 
@@ -562,16 +560,12 @@ article {
 }
 
 %fancy-image {
-    padding: 0.5rem;
     max-width: 100%;
-    box-sizing: border-box;
-    background: white;
-    border-radius: 0.25rem;
-    box-shadow: 0 1px 2px 1px #eee;
+    box-shadow: 0 1px 2px 1px unquote("#0006");
     transition: box-shadow linear 0.1s;
 
     &:hover {
-        box-shadow: 0 1px 2px 1px #ddd;
+        box-shadow: 0 1px 2px 1px unquote("#000c");
     }
 }
 
@@ -636,17 +630,17 @@ article {
 }
 
 .gallery {
-    @include flexbox;
-    @include flex-wrap(wrap);
-    @include justify-content(space-around);
-    @include align-items(center);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 
     margin: 1em 0;
     padding: 0.5em 0 0.5em 1em;
     border-left: 0.33em solid scale-color($main-bg, $lightness: -20%);
 
     a {
-        @include flex(1 0 240px);
+        flex: 0 auto;
         text-align: center;
     }
 
@@ -787,14 +781,14 @@ article {
         top: 0;
         left: 0;
         right: 0;
-        @include flexbox;
-        @include align-items(start);
+        display: flex;
+        align-items: start;
     }
     a.button {
         color: white;
     }
     .button {
-        @include flex(1 0);
+        flex: 1 0;
         display: inline-block;
         margin: 0.25em 1%;
         padding: 0.33em 0.5em;
@@ -997,14 +991,14 @@ section.archives {
 
     // Each <article> is a listing; float the date to the right
     article {
-        @include flexbox;
+        display: flex;
 
         // override default padding; just want breathing room
         padding: 0 0 0.5rem;
         margin-left: $year-width;
 
         @include phone-size {
-            @include flex-wrap(wrap);
+            flex-wrap: wrap;
             margin-left: 0;
         }
 
@@ -1015,20 +1009,20 @@ section.archives {
 
         // Month and date
         > time[pubdate] {
-            @include flex(0 0 $date-width);
+            flex: 0 0 $date-width;
 
             line-height: $row-height;
             vertical-align: baseline;
             color: $main-accent;
 
             @include phone-size {
-                @include flex(0 0 auto);
+                flex: 0 0 auto;
             }
         }
 
         // Article title
         h1 {
-            @include flex(4 4 auto);
+            flex: 4 4 auto;
 
             font-size: 1.33rem;
             margin: 0;
@@ -1045,14 +1039,14 @@ section.archives {
             }
 
             @include phone-size {
-                @include flex(0 0 100%);
-                @include order(-1);
+                flex: 0 0 100%;
+                order: -1;
             }
         }
 
         // Tags
         > footer {
-            @include flex(1 1 auto);
+            flex: 1 1 auto;
             font-size: 0.85em;
 
             // override default article footer margin
@@ -1065,7 +1059,7 @@ section.archives {
             @include phone-size {
                 // try to keep this on the same line as the date even with
                 // flex-wrap
-                @include flex(1 1 0px);
+                flex: 1 1 0px;
             }
 
             .meta a {
@@ -1085,13 +1079,13 @@ section.archives {
 // PROJECTS
 
 .projects-game {
-    @include flexbox;
+    display: flex;
 }
 .projects-game-pic img {
     max-width: 100px;
 }
 .projects-game-desc {
-    @include flex(1);
+    flex: 1;
     margin-left: 1em;
 }
 
