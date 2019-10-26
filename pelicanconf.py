@@ -226,6 +226,8 @@ FILENAME_METADATA = '(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)'
 import os.path
 import sys
 sys.path.insert(0, os.path.dirname(__file__))
+import eeveeblog.liquid_gallery
+import eeveeblog.liquid_illus
 import eeveeblog.liquid_photo
 
 # Add a Pygments lexer, which seems to require hacking Pygments guts?
@@ -240,6 +242,8 @@ pygments.lexers._mapping.LEXERS['RGBASMLexer'] = (
 
 PLUGIN_PATHS = ["pelican-plugins.git"]
 PLUGINS = [
+    eeveeblog.liquid_gallery,
+    eeveeblog.liquid_illus,
     eeveeblog.liquid_photo,
     'summary',
     'custom_article_urls',

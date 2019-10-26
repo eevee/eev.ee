@@ -21,71 +21,87 @@ Here's Styx as a kitten.  You can only really get a Sphynx from a breeder, so we
 
 Since you're here, let me tell you my cute kitten story: when we arrived, all of the kittens went to hide under the far corner of the breeder's bed.  She was several minutes into a vain attempt at coaxing them out when I turned to look around the rest of the room and saw a lone kitten sitting out in the middle of the floor, staring at us.  I went over and knelt down, said hi to him, and reached out to pet him—and he tilted his head and batted in the general direction of my hand several times, rapid-fire, with this ridiculous clumsy defiance.  I knew I had to have this kitten.
 
-{% photo /media/2013-01/styx-kitten-1.jpg So, so tiny.  Still at the breeder, in Mel's hand. %}
-{% photo /media/2013-01/styx-kitten-2.jpg Look at this ridiculous face. %}
-{% photo /media/2013-01/styx-kitten-3-parents.jpg One of these is Styx's dad; I think it's the one with the gigantic balls. %}
-{% photo /media/2013-01/styx-kitten-4.jpg I kept him in my room for the first few days; here he is tumbling around on my floor. %}
-{% photo /media/2013-01/styx-kitten-5.jpg Wish the whole pillow were visible for better scale.  He could sit comfortable on one palm. %}
-{% photo /media/2013-01/styx-kitten-6.jpg Ugh my floor is so dirty %}
-{% photo /media/2013-01/styx-kitten-7.jpg Posed on our cat tree like a school portrait. %}
+{% gallery /media/2013-01
+    styx-kitten-1.jpg So, so tiny.  Still at the breeder, in Mel's hand.
+    styx-kitten-2.jpg Look at this ridiculous face.
+    styx-kitten-3-parents.jpg One of these is Styx's dad; I think it's the one with the gigantic balls.
+    styx-kitten-4.jpg I kept him in my room for the first few days; here he is tumbling around on my floor.
+    styx-kitten-5.jpg Wish the whole pillow were visible for better scale.  He could sit comfortable on one palm.
+    styx-kitten-6.jpg Ugh my floor is so dirty
+    styx-kitten-7.jpg Posed on our cat tree like a school portrait.
+%}
 
 Styx makes adorable sleepy-cat faces.
 
-{% photo /media/2013-01/styx-zzz-1.jpg Sphynxes like to snuggle up to people, though Styx only lies down on me if he feels like it. %}
-{% photo /media/2013-01/styx-zzz-2.jpg I frequently come into my room to find this, or a pair of ears poking out the far side. %}
-{% photo /media/2013-01/styx-zzz-3a.jpg He needs a little time to get going in the mornings. %}
-{% photo /media/2013-01/styx-zzz-3b.jpg More than that. %}
-{% photo /media/2013-01/styx-zzz-4.jpg This one is only a couple days old.  He sits very compactly when awake, but once he falls asleep his limbs go everywhere. %}
+{% gallery /media/2013-01
+    styx-zzz-1.jpg Sphynxes like to snuggle up to people, though Styx only lies down on me if he feels like it.
+    styx-zzz-2.jpg I frequently come into my room to find this, or a pair of ears poking out the far side.
+    styx-zzz-3a.jpg He needs a little time to get going in the mornings.
+    styx-zzz-3b.jpg More than that.
+    styx-zzz-4.jpg This one is only a couple days old.  He sits very compactly when awake, but once he falls asleep his limbs go everywhere.
+%}
 
 He also makes a very distinct little scowl.
 
-{% photo /media/2013-01/styx-frown-1.jpg %}
-{% photo /media/2013-01/styx-frown-2.jpg %}
-{% photo /media/2013-01/styx-frown-3.jpg %}
-{% photo /media/2013-01/styx-frown-4.jpg %}
-{% photo /media/2013-01/styx-frown-5.jpg %}
-{% photo /media/2013-01/styx-frown-6.jpg %}
+{% gallery /media/2013-01
+    styx-frown-1.jpg
+    styx-frown-2.jpg
+    styx-frown-3.jpg
+    styx-frown-4.jpg
+    styx-frown-5.jpg
+    styx-frown-6.jpg
+%}
 
 Styx and Twigs like to lie together when we're busy.  Well, okay, usually Styx lies down somewhere and then Twigs sits on him.
 
-{% photo /media/2013-01/styx-and-twigs-1.jpg %}
-{% photo /media/2013-01/styx-and-twigs-2.jpg %}
-{% photo /media/2013-01/styx-and-twigs-3.jpg %}
-{% photo /media/2013-01/styx-and-twigs-4.jpg %}
-{% photo /media/2013-01/styx-and-twigs-5.jpg This one's mostly included because Twigs is making such a cool face. %}
-{% photo /media/2013-01/styx-and-twigs-6a.jpg Twigs loves to groom everything; Styx is no exception. %}
-{% photo /media/2013-01/styx-and-twigs-6b.jpg Denied. %}
-{% photo /media/2013-01/styx-and-twigs-7.jpg We got them new matching sweaters recently.  This happened two days later. %}
+{% gallery /media/2013-01
+    styx-and-twigs-1.jpg
+    styx-and-twigs-2.jpg
+    styx-and-twigs-3.jpg
+    styx-and-twigs-4.jpg
+    styx-and-twigs-5.jpg This one's mostly included because Twigs is making such a cool face.
+    styx-and-twigs-6a.jpg Twigs loves to groom everything; Styx is no exception.
+    styx-and-twigs-6b.jpg Denied.
+    styx-and-twigs-7.jpg We got them new matching sweaters recently.  This happened two days later.
+%}
 
 They get into their fair share of cat battles, often after Styx refuses to be Twigs's beanbag.
 
-{% photo /media/2013-01/styx-battle-1.jpg %}
-{% photo /media/2013-01/styx-battle-2.jpg %}
-{% photo /media/2013-01/styx-battle-3.jpg %}
-{% photo /media/2013-01/styx-battle-4.jpg %}
-{% photo /media/2013-01/styx-battle-5.jpg %}
-{% photo /media/2013-01/styx-battle-6.jpg %}
+{% gallery /media/2013-01
+    styx-battle-1.jpg
+    styx-battle-2.jpg
+    styx-battle-3.jpg
+    styx-battle-4.jpg
+    styx-battle-5.jpg
+    styx-battle-6.jpg
+%}
 
 The fuzzy one there is Napoleon.  He does his own thing most of the time, though occasionally I catch him grooming Styx's ears (the only fuzzy parts?).
 
-{% photo /media/2013-01/styx-group-1.jpg %}
-{% photo /media/2013-01/styx-group-2.jpg %}
-{% photo /media/2013-01/styx-group-3.jpg %}
+{% gallery /media/2013-01
+    styx-group-1.jpg
+    styx-group-2.jpg
+    styx-group-3.jpg
+%}
 
 When not busy keeping a small section of our furniture warm, Styx is usually running around at breakneck speed, flipping the fuck out all over my bed, or knocking things off my desk and looking shocked when they fall to the floor.
 
-{% photo /media/2013-01/styx-pest-1.jpg He's so short! %}
-{% photo /media/2013-01/styx-pest-2.jpg Taken while he was battling my foot (look at his claws). %}
-{% photo /media/2013-01/styx-pest-3.jpg I don't know what this string is but I'm pretty sure it doesn't go there. %}
-{% photo /media/2013-01/styx-pest-4.jpg I'm not that good a photographer; he seriously hung here for several seconds. %}
-{% photo /media/2013-01/styx-pest-5.jpg I think there's a balloon string or something out of frame. %}
+{% gallery /media/2013-01
+    styx-pest-1.jpg He's so short!
+    styx-pest-2.jpg Taken while he was battling my foot (look at his claws).
+    styx-pest-3.jpg I don't know what this string is but I'm pretty sure it doesn't go there.
+    styx-pest-4.jpg I'm not that good a photographer; he seriously hung here for several seconds.
+    styx-pest-5.jpg I think there's a balloon string or something out of frame.
+%}
 
 I've also got this handful of photos of Twigs alone that are just too cool to resist including.
 
-{% photo /media/2013-01/twigs-cool-1.jpg %}
-{% photo /media/2013-01/twigs-cool-2a.jpg I love how he's posed like a lion in a tree out on the savannah. %}
-{% photo /media/2013-01/twigs-cool-2b.jpg %}
-{% photo /media/2013-01/twigs-cool-3.jpg Took me a minute to remember that this blanket has a hole in it. %}
+{% gallery /media/2013-01
+    twigs-cool-1.jpg
+    twigs-cool-2a.jpg I love how he's posed like a lion in a tree out on the savannah.
+    twigs-cool-2b.jpg
+    twigs-cool-3.jpg Took me a minute to remember that this blanket has a hole in it.
+%}
 
 And if you cannot get enough of Photos Of My Cat On The Internet, I have also advanced the sum total of human culture by putting some videos on YouTube.  Alas I don't have recordings of Styx's other trademark qualities, like his habit of [sitting on shoulders](http://purplekecleon.tumblr.com/post/34855102637/thanx-for-the-help-cats) or his strange ritual of _leaving my room_ to go out to the living room and meow sadly because no one is around.
 
