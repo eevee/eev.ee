@@ -138,16 +138,19 @@ JINJA_FILTERS = dict(
 
 EXTRA_HEADER = """
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.33/jquery.colorbox-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
 <script type="text/javascript">
     $(function() {
         $('article').each(function(index, article) {
-            console.log(index, article);
             $(article).find('a.photo').colorbox({
                 fixed: true,
                 maxWidth: '100%',
                 maxHeight: '100%',
-                rel: 'colorbox' + String(index + 1)
+                rel: 'colorbox' + String(index + 1),
+                // Text
+                previous: '←',
+                next: '→',
+                close: '×',
             });
         });
     });
@@ -276,6 +279,6 @@ PHOTO_RESIZE_JOBS = -1
 # Plugin config for thumbnailer
 IMAGE_PATH = 'media'
 THUMBNAIL_DIR = 'media'
-THUMBNAIL_SIZES = dict(m='224x?')
+THUMBNAIL_SIZES = dict(m='?x150')
 THUMBNAIL_KEEP_NAME = False
 THUMBNAIL_KEEP_TREE = True

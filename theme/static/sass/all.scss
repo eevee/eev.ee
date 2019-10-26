@@ -561,10 +561,11 @@ article {
 
 %fancy-image {
     max-width: 100%;
-    box-shadow: 0 1px 2px 1px unquote("#0006");
+    box-shadow: 0 1px 2px 1px unquote("#0009");
+    outline: 1px solid unquote("#0009");
     transition: box-shadow linear 0.1s;
 
-    &:hover {
+    a:hover & {
         box-shadow: 0 1px 2px 1px unquote("#000c");
     }
 }
@@ -629,18 +630,32 @@ article {
     }
 }
 
+// Remove descendant space from an image link
+// TODO this feels hacky, unsure if it covers all cases like prose-illus
+a.photo {
+    line-height: 1;
+}
+
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 
     margin: 1em 0;
-    padding: 0.5em 0 0.5em 1em;
-    border-left: 0.33em solid scale-color($main-bg, $lightness: -20%);
+    padding: 0.5em 0;
+    border: 1px dotted $main-accent;
+    border-width: 1px 0;
+
+    // If we're immediately followed by an <h2>, it has its own top border
+    .entry-content & + h2 {
+        border-top: none;
+    }
 
     a {
         flex: 0 auto;
+        margin: 0.25em;
         text-align: center;
     }
 
@@ -1261,7 +1276,7 @@ code {
 #cboxWrapper {max-width:none;}
 #cboxOverlay{position:fixed; width:100%; height:100%;}
 #cboxMiddleLeft, #cboxBottomLeft{clear:left;}
-#cboxContent{position:relative;}
+//#cboxContent{position:relative;}
 #cboxLoadedContent{overflow:auto; -webkit-overflow-scrolling: touch;}
 #cboxTitle{margin:0;}
 #cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
@@ -1274,94 +1289,131 @@ code {
     background: black;
 }
 #colorbox{outline:0;}
-    #cboxBottomCenter {
-        height: 36px;
-    }
-    #cboxContent {
-        border-radius: 0.5em;
-        overflow: visible;
+
+// Due to the goofy way colorbox determines the space available for the
+// image, I can't use padding on anything; instead I have to resize these
+// extra border elements
+// Enough space for the "image X of Y"
+$colorbox-top-margin: 1.5rem;
+// Enough space for two lines of caption at 1.5 lh
+$colorbox-bottom-margin: 4rem;
+#cboxTopCenter {
+    height: $colorbox-top-margin;
+}
+#cboxMiddleLeft,
+#cboxMiddleRight {
+    width: 0.5rem;
+}
+#cboxBottomCenter {
+    height: $colorbox-bottom-margin + 0.5rem;
+}
+#cboxContent {
+    overflow: visible;
+}
+
+.cboxIframe{background:#fff;}
+#cboxError{padding:50px; border:1px solid #ccc;}
+#cboxLoadedContent {
+    box-shadow: 0 1px 2px 1px unquote("#0009");
+    outline: 1px solid unquote("#0009");
+
+    .cboxPhoto {
         background: white;
     }
-        .cboxIframe{background:#fff;}
-        #cboxError{padding:50px; border:1px solid #ccc;}
-        #cboxLoadedContent {
-            border-radius: 0.5em;
-            padding: 1em;
-            border: 1px solid black;
-        }
-        #cboxLoadingOverlay {}
-        #cboxLoadingGraphic {}
-        #cboxTitle{position:absolute; bottom:-25px; left:0; text-align:center; width:100%; font-weight:bold; color:#ddd;}
+}
+#cboxLoadingOverlay {}
+#cboxLoadingGraphic {}
 
-        // "image X of Y"
-        #cboxCurrent {
-            font-size: 0.8em;
-            position: absolute;
-            bottom: 0;
-            left: 1.5rem;
-            line-height: 1rem;
-            color: #aaa;
-        }
+// All the interesting stuff is in the same positioned container, so a lot of
+// fixed positioning is needed to put things where I want them and in a
+// consistent position on screen
+#cboxTitle, #cboxPrevious, #cboxNext, #cboxCurrent, #cboxClose {
+    position: fixed;
+}
 
-        // these are all buttons, and need to be replaced with fancy-ass css nonsense
-        #cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {
-            position: absolute;
-            bottom: -32px;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            overflow: visible;
+// "image X of Y" goes at the top
+#cboxCurrent {
+    font-size: 0.8rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    line-height: $colorbox-top-margin;
+    text-align: center;
+    color: #aaa;
+}
 
-            // hide the existing button text
-            line-height: 0;
-            color: transparent;
-            font-size: 0;
-            background: transparent;
+// Close button goes in the top right
+#cboxClose {
+    font-size: 2rem;
+    top: 0;
+    right: 0;
+    padding: 0;
+    height: 3rem;
+    width: 3rem;
 
-            &::before {
-                content: '~';
-                display: block;
-                height: 24px;
-                width: 24px;
-                font-size: 24px;
-                font-weight: bold;
-                line-height: 21px;  // clumsy hack to compensate for baseline
-                text-align: center;
-                color: black;
-                background: white;
-                border-radius: 100%;
-                border: 2px solid black;
-                box-shadow: 0 0 2px #444;
-            }
-            &:hover::before {
-                border-color: white;
-                color: white;
-                background: black;
-            }
-        }
+    border: none;
+    background: unquote("#0004");
+    color: white;
+    border-bottom-left-radius: 1rem;
 
-        #cboxPrevious {
-            left: 0;
-            &::before { content: '‹'; }
-        }
-        #cboxNext {
-            right: 0;
-            &::before { content: '›'; }
-        }
-        #cboxSlideshow {
-            &::before { content: 'S'; }
-        }
-        #cboxClose {
-            top: 4px;
-            right: 4px;
-            bottom: auto;
-            &::before { content: '×'; }
-        }
+    &:hover {
+        background: unquote("#0008");
+    }
+}
 
-        /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
-        #cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {outline:0;}
+// Caption and the prev/next buttons go at the bottom
+// XXX this doesn't adjust to caption height, but i don't see how to do that with this layout
+#cboxTitle, #cboxPrevious, #cboxNext {
+    text-align: center;
+    background: #080808;
+    color: #ddd;
+    border: none;  // remove other button borders
+    border-top: 1px solid #181818;
+}
+#cboxTitle {
+    font-size: 1.25rem;
+    // leave room for buttons on either side
+    left: $colorbox-bottom-margin;
+    right: $colorbox-bottom-margin;
+    bottom: 0;
+    box-sizing: border-box;  // padding should NOT add to height
+    height: $colorbox-bottom-margin;
+    padding: 0.5rem;
+    overflow: auto;
+    line-height: 1.5rem;
 
-        .cboxSlideshow_on #cboxSlideshow{background-position:-125px 0px; right:27px;}
-        .cboxSlideshow_on #cboxSlideshow:hover{background-position:-150px 0px;}
-        .cboxSlideshow_off #cboxSlideshow{background-position:-150px -25px; right:27px;}
-        .cboxSlideshow_off #cboxSlideshow:hover{background-position:-125px 0px;}
+    text-shadow: 0 1px 1px black;
+
+    // Shrink the caption size to fit three lines on phones
+    @include phone-size {
+        font-size: 1rem;
+        padding: 0.5rem;
+        line-height: ($colorbox-bottom-margin - 1rem) / 3;
+    }
+}
+#cboxPrevious,
+#cboxNext {
+    font-size: 2rem;
+    bottom: 0;
+    height: $colorbox-bottom-margin;
+    width: $colorbox-bottom-margin;
+    padding: 0;
+
+    &:hover {
+        background: #101010;
+    }
+}
+#cboxPrevious {
+    left: 0;
+}
+#cboxNext {
+    right: 0;
+}
+
+/* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+#cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {outline:0;}
+
+.cboxSlideshow_on #cboxSlideshow{background-position:-125px 0px; right:27px;}
+.cboxSlideshow_on #cboxSlideshow:hover{background-position:-150px 0px;}
+.cboxSlideshow_off #cboxSlideshow{background-position:-150px -25px; right:27px;}
+.cboxSlideshow_off #cboxSlideshow:hover{background-position:-125px 0px;}
