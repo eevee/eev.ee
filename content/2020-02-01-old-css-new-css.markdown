@@ -13,13 +13,13 @@ But then, I suspect I also know a number of folks who only tried web design in t
 
 I'm here to tell _all_ of you to get off my lawn.  Here's a history of CSS and web design, as I remember it.
 
+<!-- more -->
+
 ----
 
 (Please bear in mind that this post is a fine blend of memory and research, so I can't guarantee any of it is actually correct, _especially_ the bits about casuality.  You may want to try the [W3C's history of CSS](https://www.w3.org/Style/CSS20/history.html), which is considerably shorter, has a better chance of matching reality, and contains significantly less swearing.)
 
 (Also, this would benefit greatly from more diagrams, but it took long enough just to _write_.)
-
-<!-- more -->
 
 ## The very early days
 
