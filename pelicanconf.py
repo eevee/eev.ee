@@ -2,21 +2,22 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'Eevee'
-SITENAME = u'fuzzy notepad'
+AUTHOR = 'Eevee'
+SITENAME = 'fuzzy notepad'
 SITEURL = ''
 #SITESUBTITLE = ...
 
 TIMEZONE = 'America/Los_Angeles'
-
-DEFAULT_LANG = u'en'
 DEFAULT_DATE_FORMAT = '%a %b %d, %Y'
 
+DEFAULT_LANG = u'en'
+
 # Feed generation is usually not desired when developing
-FEED_ATOM = None
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
 
 # Links and social cruft
 # NOTE: These aren't called just LINKS and SOCIAL because those are assumed by

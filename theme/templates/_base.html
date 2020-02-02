@@ -50,7 +50,7 @@
     {% endif %}
     <meta name="twitter:site" content="@eevee">
     <meta name="twitter:title" content="{{ article.title | striptags }}">
-    <meta name="twitter:description" content="{{ article.summary | striptags }}">
+    <meta name="twitter:description" content="{{ article.summary[:200] | striptags }}">
     {% endif %}
     {% endblock %}
 </head>
