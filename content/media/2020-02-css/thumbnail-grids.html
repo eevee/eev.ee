@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>Thumbnail grid examples</title>
+    <style>
+        body {
+            background: #d8d8d8;
+        }
+        main {
+            width: 75%;
+            margin: 2em auto;
+        }
+        section {
+            margin: 1em 0;
+            padding: 1em;
+            border: 1px solid #444;
+            background: white;
+            box-shadow: 0 1px 3px #000c;
+        }
+        section:target {
+            background: #fffff0;
+            border-color: #662;
+            box-shadow: 0 1px 3px #440c;
+        }
+
+        h1, h2 {
+            margin: 0 0 1em;
+            border-bottom: 1px dotted #444;
+        }
+
+        .pros-cons {
+            margin: 1em 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .pro::before, .con::before, .hmm::before {
+            content: '';
+            display: inline-block;
+            font-size: 0.833em;
+            width: 1em;
+            height: 1em;
+            margin-right: 0.33em;
+            line-height: 1em;
+            vertical-align: 0.1em;
+            border: 1px solid black;
+            background: gray;
+            border-radius: 1em;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+        }
+        .pro::before {
+            content: '+';
+            border-color: #060;
+            background-color: #4a4;
+        }
+        .hmm::before {
+            content: '?';
+            border-color: #406;
+            background-color: #a4d;
+        }
+        .con::before {
+            content: '−';
+            border-color: #600;
+            background-color: #d44;
+        }
+    </style>
+</head>
+<body>
+<main>
+<h1>Thumbnail grid examples</h1>
+<p>This is a list of examples for the state of the art in HTML thumbnail grids over time.  It's self-contained, using only a single external 100×100 image and some CSS.</p>
+<p>The goal is a grid of thumbnails that:</p>
+<ul>
+    <li>Is easy to author, deploy, reuse, understand, and modify</li>
+    <li>Is made of 200×200 cells, with 10px padding and 10px between rows/columns, containing (at least) a thumbnail and a caption on separate lines</li>
+    <li>Adjusts sensibly to viewports of arbitrary size</li>
+    <li>Does something reasonable when cells are taller than expected, with minimal disruption to the rest of the grid</li>
+    <li>Handles incomplete final rows</li>
+    <li>Handles leftover space in an aesthetically pleasing manner</li>
+    <li>Still looks fine when cells have backgrounds or borders (often the case on hover)</li>
+    <li>Ideally, can align cell contents such that the bottom of each thumbnail (and top of each caption) is aligned</li>
+</ul>
+<p>The final example is the desired behavior.</p>
+<p><!-- {filename} --><a href="/blog/2020/02/01/old-css-new-css/">Return to the accompanying blog post</a></p>
+
+<section id="tables">
+    <style>
+        /* It's 1996, baby; CSS doesn't exist yet! */
+    </style>
+    <h2>1996: Tables</h2>
+    <ul class="pros-cons">
+        <li class="pro">Worked in 1996.</li>
+        <li class="con">Number of columns is baked into the markup, so it doesn't adapt to screen size, either up or down.</li>
+        <li class="con">Need to give every cell an explicit width, or the table layout algorithm will make columns different sizes.</li>
+        <li class="con">Rather a lot of markup required, especially before CSS could eliminate the repeated <code>align</code> and <code>width</code> on every cell.  Very little is shared between multiple grids, and keeping them in sync is tedious.</li>
+        <li class="con">No way to align the tops of the captions, so thumbnails of varying heights look messy.</li>
+        <li class="con">Before CSS, border and padding options were limited; <code>border</code> adds a border to the entire table AND every cell, and <code>cellpadding</code> can't set separate horizontal and vertical spacing.</li>
+        <li class="con">Non-semantic use of tables risks confusing screenreaders and other tools that aren't human eyeballs.</li>
+    </ul>
+    <table class="thumbnail-grid-1" cellpadding="10" cellspacing="10" border="1" bordercolor="#e8e8e8" align="center">
+        <tr>
+            <td align="center" width="200" bgcolor="#f4f4f4"><img src="thumbnail.png"><br>Caption</td>
+            <td align="center" width="200" bgcolor="#f4f4f4"><img src="thumbnail.png"><br>Caption</td>
+            <td align="center" width="200" bgcolor="#f4f4f4"><img src="thumbnail.png"><br>An especially long and kind of obnoxious caption, used to check edge case behavior</td>
+            <td align="center" width="200" bgcolor="#f4f4f4"><img src="thumbnail.png"><br>Caption</td>
+        </tr>
+        <tr>
+            <td align="center" width="200" bgcolor="#f4f4f4"><img src="thumbnailt.png"><br>Caption</td>
+            <td align="center" width="200" bgcolor="#f4f4f4"><img src="thumbnail.png"><br>Caption</td>
+            <td align="center" width="200" bgcolor="#f4f4f4"><img src="thumbnail.png"><br>Caption</td>
+            <td align="center" width="200" bgcolor="#f4f4f4"><img src="thumbnail.png"><br>Caption</td>
+        </tr>
+        <tr>
+            <td align="center" width="200" bgcolor="#f4f4f4"><img src="thumbnailw.png"><br>Caption</td>
+            <td align="center" width="200" bgcolor="#f4f4f4"><img src="thumbnail.png"><br>Caption</td>
+            <td align="center" width="200" bgcolor="#f4f4f4"><img src="thumbnail.png"><br>Caption</td>
+        </tr>
+    </table>
+</section>
+
+<section id="floats">
+    <style>
+        .thumbnail-grid-2 {
+            /* Override some default browser styles */
+            margin: 1em 0;
+            padding: 0;
+            list-style: none;
+        }
+        .thumbnail-grid-2 li {
+            /* The key: float everything left so each thumbnail piles up
+             * against the left margin */
+            float: left;
+            /* Need an explicit width, since floats shrink-wrap by default */
+            width: 200px;
+            height: 200px;
+
+            /* Some general stylistic stuff */
+            margin: 5px;  /* Halved since they don't collapse */
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+            background: #f4f4f4;
+        }
+        .thumbnail-grid-2 img {
+            /* Prevent a big thumbnail from spilling out */
+            max-width: 100%;
+        }
+
+        /* Clearfix; before generated elements were well supported, this would
+         * be a physical tag placed after every thumbnail grid */
+        .thumbnail-grid-2::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+    <h2>1998: Floats</h2>
+    <ul class="pros-cons">
+        <li class="pro">Much less markup clutter; the entire "grid" is now a single flat (semantically correct) list.</li>
+        <li class="pro">Cells wrap into rows automatically to fill the viewport.</li>
+        <li class="pro">Incomplete final rows end neatly.</li>
+        <li class="con">Thumbnails must have a <em>fixed</em> height, or smaller thumbnails will "clump up" vertically when trying to float around bigger ones — but this risks overflow, and means rows can't stretch to accomodate an outlier.</li>
+        <li class="con">No easy way to distribute extra space; floats can't easily stretch, and centering a block of floats requires some wrapper elements and CSS hacks.  You could use percentage widths, but then you have a fixed number of columns again, and spacing becomes more complicated because padding/margin are added to the width.</li>
+        <li class="con">Floats don't move the "cursor", so by default they spill out of their container.  Need a semi-arcane "clearfix" to get around this.</li>
+        <li class="con">No real options for alignment; cells are top-aligned by default, and you're on your own if you want anything else.</li>
+        <li class="con">CSS doesn't quite map to what you're trying to do.  Margins must be halved, since the gap between cells is the sum of two margins, and they affect the outer edges as well.</li>
+        <li class="con">A deliberately-wider cell will simply misalign other cells later in the row, breaking the grid.  (Not visible here because images have <code>max-width: 100%</code>.)</li>
+    </ul>
+    <ul class="thumbnail-grid-2">
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>An especially long and kind of obnoxious caption, used to check edge case behavior</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnailt.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnailw.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+    </ul>
+</section>
+
+<section id="inline-block">
+    <style>
+        .thumbnail-grid-3 {
+            /* Override some default browser styles */
+            margin: 1em 0;
+            padding: 0;
+            list-style: none;
+
+            /* Center the "text" so extra space is distributed on either side */
+            text-align: center;
+        }
+        .thumbnail-grid-3 li {
+            /* The key: each thumbnail is a separate inline box */
+            display: inline-block;
+            /* Fixed width just to keep the grid neat */
+            width: 200px;
+            /* Set a min-height to keep cells /mostly/ the same height but allow for exceptions */
+            min-height: 200px;
+            /* Unfortunately, alignment is limited to vertical-align; this is
+             * the best we can do */
+            vertical-align: top;
+
+            /* Some general stylistic stuff */
+            margin: 5px;  /* Halved since they don't collapse */
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+            background: #f4f4f4;
+        }
+        .thumbnail-grid-3 img {
+            /* Prevent a big thumbnail from spilling out */
+            max-width: 100%;
+        }
+    </style>
+    <h2>2008: inline-block</h2>
+    <ul class="pros-cons">
+        <li class="pro">Finally a semi-intended use of a CSS property, so easier to understand and much less odd behavior to hack around.  Relatively simple to implement, understand, and modify.</li>
+        <li class="pro">Cells wrap into rows automatically to fill the viewport.</li>
+        <li class="hmm">Extra space can be distributed to the sides by centering the entire grid, though this will also center the final row, which might misalign columns.</li>
+        <li class="hmm">Individual "rows" can be taller; however, nothing makes the cells in a row have the same height, so you need a fixed height anyway if you have any backgrounds or borders.  A <code>min-height</code> could be a reasonable compromise.</li>
+        <li class="con">No way to align the bottom edges of thumbnails.  Only <code>vertical-align</code> is available.</li>
+        <li class="con">Margins still need to be halved and still affect the outer edges.</li>
+        <li class="con">A deliberately-wider cell will simply misalign other cells later in the row, breaking the grid.  (Not visible here because images have <code>max-width: 100%</code>.)</li>
+    </ul>
+    <ul class="thumbnail-grid-3">
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>An especially long and kind of obnoxious caption, used to check edge case behavior</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnailt.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnailw.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+    </ul>
+</section>
+
+<section id="flexbox">
+    <style>
+        .thumbnail-grid-4 {
+            /* Override some default browser styles */
+            margin: 1em 0;
+            padding: 0;
+            list-style: none;
+
+            /* The key: make the whole grid a flexbox */
+            display: flex;
+            flex-wrap: wrap;
+            /* This replaces the old margins */
+            gap: 10px;
+        }
+        .thumbnail-grid-4 li {
+            /* Every cell starts with a fixed flex basis (to simulate columns) and consumes an equal amount of leftover space */
+            flex: 1 1 200px;
+
+            /* Some general stylistic stuff */
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+            background: #f4f4f4;
+        }
+        .thumbnail-grid-4 img {
+            /* Prevent a big thumbnail from spilling out */
+            max-width: 100%;
+        }
+    </style>
+    <h2>2014: Flexbox</h2>
+    <ul class="pros-cons">
+        <li class="pro">Simple markup.  Simple CSS that (mostly) corresponds to the intended effect.</li>
+        <li class="pro">Cells wrap into rows automatically to fill the viewport.  Handling the perverse case of a very narrow viewport is also much easier.</li>
+        <li class="pro">Tall items will stretch the row, and other cells in the same row will stretch to match their height (by default; this can be changed).</li>
+        <li class="pro">Various alignment options are available, including <code>align-items: baseline</code>, which does align the bottoms of the thumbnails — though the boxes' edges then don't align.  (Not done here; see the grid example below, which does use baseline alignment with much the same effect.)</li>
+        <li class="pro">Several ways to handle extra space: the default is to share it evenly between cells, but it's also possible to keep the cells a fixed width and spread them out in various ways (not done here).</li>
+        <li class="pro">Spacing between cells can (as of very recently) be specified with <code>gap</code>, which doesn't affect the edges <em>and</em> doesn't require halving a margin.</li>
+        <li class="con">Rows are independent, not part of a grid, so cells of a short final row will be stretched to fill the available width.  This can be hacked around by adding a number of dummy zero-height elements to the end of the list (not done here, so the problem is visible).</li>
+        <li class="con">A deliberately-wider cell will steal space from other cells in the row, misaligning the faux "grid".  (Not visible here because images have <code>max-width: 100%</code>.)</li>
+    </ul>
+    <ul class="thumbnail-grid-4">
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>An especially long and kind of obnoxious caption, used to check edge case behavior</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnailt.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnailw.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+    </ul>
+</section>
+
+<section id="grid">
+    <style>
+        .thumbnail-grid-5 {
+            /* Override some default browser styles */
+            margin: 1em 0;
+            padding: 0;
+            list-style: none;
+
+            /* The key: make the whole thing a CSS grid */
+            display: grid;
+            grid: auto-flow / repeat(auto-fit, minmax(200px, 1fr));
+            align-items: baseline;
+            /* Spacing */
+            grid-gap: 10px;  /* old version of the property name */
+            gap: 10px;
+        }
+        .thumbnail-grid-5 li {
+            /* Some general stylistic stuff */
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+            background: #f4f4f4;
+        }
+        .thumbnail-grid-5 img {
+            /* Prevent a big thumbnail from spilling out */
+            max-width: 100%;
+        }
+    </style>
+    <h2>2017: Grid</h2>
+    <ul class="pros-cons">
+        <li class="pro">Simple markup.  Simple CSS that corresponds directly to the intended effect.  Even the columns are explicitly part of the layout, unlike every other approach thusfar.</li>
+        <li class="pro">Cells wrap into rows automatically to fill the viewport.  Or do any of a zillion other possible things; the layout is extremely flexible.</li>
+        <li class="pro">Space between cells can be specified with <code>gap</code>, doesn't affect the outer edges, and doesn't need to be halved.</li>
+        <li class="pro">Tall or wide cells will only affect the containing row and column, and can't misalign the grid.</li>
+        <li class="pro">An incomplete final row will stick to the grid, no matter how it's positioned.</li>
+        <li class="pro">Leftover space can be handled in all the same ways as flexbox: by widening the cells or spacing them out.</li>
+        <li class="pro">Can align to the bottom of each thumbnail, as seen here, at the cost of the boxes' edges not exactly matching.  Can also stretch the cells into a grid, as seen in the flexbox example above.</li>
+        <li class="pro">Basically perfect.  We did it, and it only took 20 years!</li>
+    </ul>
+    <ul class="thumbnail-grid-5">
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>An especially long and kind of obnoxious caption, used to check edge case behavior</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnailt.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnailw.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+        <li><img src="thumbnail.png"><br>Caption</li>
+    </ul>
+</section>
+</main>
+</body>
+</html>
