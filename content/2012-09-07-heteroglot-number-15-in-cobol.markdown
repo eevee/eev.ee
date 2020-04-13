@@ -20,7 +20,7 @@ I figure if this is interesting to me, it might be interesting to someone else. 
 ## The math
 
 <div class="prose-illustration" markdown="1">
-![Problem 15 illustrated: six paths from the top-left to bottom-right of a 2×2 grid.](http://projecteuler.net/project/images/p_015.gif)
+![Problem 15 illustrated: six paths from the top-left to bottom-right of a 2×2 grid.](https://projecteuler.net/project/images/p015.png)
 </div>
 
 [Problem 15][]:

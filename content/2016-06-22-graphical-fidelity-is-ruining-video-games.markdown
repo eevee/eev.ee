@@ -53,7 +53,7 @@ At the same time, the room still _resembles_ a base.  I can take for granted, in
 
 Fast forward twenty years.  Graphics and physics technology have vastly improved, to the point that we can now roughly approximate a realistic aesthetic in real-time.  A great many games thus strive to do exactly that.
 
-And that...  seems like a shame.  The better a game emulates reality, the less of a style it has.  I can't even tell [Call of Duty](http://static.giantbomb.com/uploads/original/16/167989/2565317-bf4+2013-10-29+21-57-55-49.jpg) and [Battlefield](http://www.dsogaming.com/wp-content/uploads/2013/11/call-of-duty-ghosts-pc-screenshot-1920x1080-003.jpg) apart.
+And that...  seems like a shame.  The better a game emulates reality, the less of a style it has.  I can't even tell [Call of Duty](https://giantbomb1.cbsistatic.com/uploads/original/16/167989/2565317-bf4%202013-10-29%2021-57-55-49.jpg) and [Battlefield](http://www.dsogaming.com/wp-content/uploads/2013/11/call-of-duty-ghosts-pc-screenshot-1920x1080-003.jpg) apart.
 
 That's fine, though, right?  It's just an aesthetic thing.  It doesn't really affect the game.
 

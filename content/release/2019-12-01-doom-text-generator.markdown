@@ -1,6 +1,7 @@
 title: Doom text generator
-date: 2019-12-01-19:48
+date: 2019-12-01 19:48
 category: release
+tags: doom
 
 <div class="prose-full-illustration">
 <img src="{filename}/media/release/doom-text-generator.png" alt="Screenshot of a generator with controls for the font, color, scale, and alignment">

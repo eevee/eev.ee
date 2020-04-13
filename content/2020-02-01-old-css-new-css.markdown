@@ -17,7 +17,7 @@ I'm here to tell _all_ of you to get off my lawn.  Here's a history of CSS and w
 
 ----
 
-(Please bear in mind that this post is a fine blend of memory and research, so I can't guarantee any of it is actually correct, _especially_ the bits about casuality.  You may want to try the [W3C's history of CSS](https://www.w3.org/Style/CSS20/history.html), which is considerably shorter, has a better chance of matching reality, and contains significantly less swearing.)
+(Please bear in mind that this post is a fine blend of memory and research, so I can't guarantee any of it is actually correct, _especially_ the bits about causality.  You may want to try the [W3C's history of CSS](https://www.w3.org/Style/CSS20/history.html), which is considerably shorter, has a better chance of matching reality, and contains significantly less swearing.)
 
 (Also, this would benefit greatly from more diagrams, but it took long enough just to _write_.)
 
@@ -98,7 +98,7 @@ So, let's look at the Space Jam website.
 
 Space Jam, if you're not aware, is the greatest movie of all time.  It documents Bugs Bunny's extremely short-lived basketball career, playing alongside a live action Michael Jordan to save the planet from aliens for some reason.  It was followed by a series of very successful and critically acclaimed [RPG spinoffs](https://www.talesofgames.com/related_game/barkley-shut-up-jam-gaiden/), which describe the fallout of the Space Jam and are extremely canon.
 
-And we are truly blessed, for 24 years after it came out, its website is [STILL UP](https://www.spacejam.com/archive/spacejam/movie/jam.htm).  We can explore the pinnacle of 1996 web design, right here, right now.
+And we are truly blessed, for 24 years after it came out, its website is [STILL UP](https://www.spacejam.com/).  We can explore the pinnacle of 1996 web design, right here, right now.
 
 First, notice that every page of this site is a static page.  Not only that, but it's a static page ending in `.htm` rather than `.html`, because people on Windows versions before 95 were still beholden to 8.3 filenames.  Not sure why that mattered in a URL, as if you were going to run Windows 3.11 on a Web server, but there you go.
 
@@ -175,7 +175,7 @@ Other fantastic artifacts to be found on this page include this header, which co
 </table>
 ```
 
-Okay, let's check out [jam central](https://www.spacejam.com/archive/spacejam/movie/cmp/jamcentral/jamcentralframes.html).  I've used my browser dev tools to reduce the viewport to 640×480 for the authentic experience (although I'd also have lost some vertical space to the title bar, taskbar, and five or six IE toolbars).
+Okay, let's check out [jam central](https://www.spacejam.com/cmp/jamcentral/jamcentralframes.html).  I've used my browser dev tools to reduce the viewport to 640×480 for the authentic experience (although I'd also have lost some vertical space to the title bar, taskbar, and five or six IE toolbars).
 
 Note the frames: the logo in the top left leads back to the landing page, cleverly saving screen space on repeating all that navigation, and the top right is a fucking ad banner which has been blocked like seven different ways.  All three parts are separate pages.
 
@@ -330,7 +330,7 @@ With IE 6's dominance, it was as if the entire Web was frozen in time.  Standard
 
 (One begins to suspect that monopolies are bad.  There oughta be a law!)
 
-In the meantime, Netscape had put themselves in an even worse position by deciding to do a massive rewrite of their browser engine, culimating in the vastly more standards-compliant Netscape 6 — at the cost of several years away from the market while IE was kicking their ass.  It never broke 10% market share, while IE's would peak at 96%.  On the other hand, the new engine was open sourced as the Mozilla Application Suite, which would be important in a few years.
+In the meantime, Netscape had put themselves in an even worse position by deciding to do a massive rewrite of their browser engine, culminating in the vastly more standards-compliant Netscape 6 — at the cost of several years away from the market while IE was kicking their ass.  It never broke 10% market share, while IE's would peak at 96%.  On the other hand, the new engine was open sourced as the Mozilla Application Suite, which would be important in a few years.
 
 Before we get to that, some other things were also happening.
 
@@ -370,7 +370,7 @@ But getting back to the past: while this was certainly a win for standards (and 
 
 Meanwhile, the W3C had lost interest in HTML in favor of developing XHTML, an attempt to redesign HTML with the syntax of XML rather than SGML.
 
-(What on Earth is SGML, you ask?  I don't know.  Nobody knows.  It's the grammer HTML was built on, and that's the only reason anyone has heard of it.)
+(What on Earth is SGML, you ask?  I don't know.  Nobody knows.  It's the grammar HTML was built on, and that's the only reason anyone has heard of it.)
 
 To their credit, there were some good reasons to do this at the time.  HTML was generally hand-written (as it still is now), and anything hand-written is likely to have the occasional bugs.  Browsers weren't in the habit of rejecting buggy HTML outright, so they had various error-correction techniques — and, as with everything else, different browsers handled errors differently.  Slightly malformed HTML might appear to work fine in IE 6 (where "work fine" means "does what you hoped for"), but turn into a horrible mess in anything else.
 
@@ -623,7 +623,7 @@ Oh, and do remember: Stack Overflow didn't exist yet.  This stuff was passed aro
 
 In fact, check out Meyer's [css/edge](https://meyerweb.com/eric/css/edge/index.html) site for some wild examples of stuff folks were doing, even with just CSS 1, as far back as 2002.  I still think [complexspiral](https://meyerweb.com/eric/css/edge/complexspiral/demo.html) is pure genius, even though you could do it nowadays with `opacity` and just one image.  The approach in [raggedfloat](https://meyerweb.com/eric/css/edge/raggedfloat/demo.html) wouldn't get native support in CSS until a few years ago, with [`shape-outside`](https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside)!  He also brought us [CSS reset](https://meyerweb.com/eric/tools/css/reset/), eliminating differences between browsers' default styles.
 
-(I cannot understand how much of a CSS _pioneer_ Eric Meyer is.  When his young daughter Rebecca died six years ago, she was uniquely immortalized with her own CSS color name, [`rebeccapurple`](https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/).  That's how highly the Web community thinks of him.  Also I have to go cry a bit over that story now.)
+(I cannot understate how much of a CSS _pioneer_ Eric Meyer is.  When his young daughter Rebecca died six years ago, she was uniquely immortalized with her own CSS color name, [`rebeccapurple`](https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/).  That's how highly the Web community thinks of him.  Also I have to go cry a bit over that story now.)
 
 
 ## The future arrives, gradually
@@ -632,7 +632,7 @@ Designers and developers were pushing the bounds of what browsers were capable o
 
 Clearly, browsers needed some new functionality.  But just slopping something in wouldn't help; Microsoft had done plenty of that, and it had mostly made a mess.
 
-Several struggling attempts began.  With the W3C's head still squarely up its own ass — even explicitly rejecting proposed enhancements to HTML, in favor of snorting XML — some folks from (active) browser vendors Apple, Mozilla, and Opera decided to make their own clubhouse.  WHATWG came into existed in June 2004, and they began work on HTML5.  (It would end up defining error-handling very explicitly, which completely obviated the need for XHTML and eliminated a number of security concerns when working with arbitrary HTML.  Also it gave us some new goodies, like native audio, video, and form controls for dates and colors and other stuff that had been clumsily handled by JavaScript-powered custom controls.  And, um, still often are.)
+Several struggling attempts began.  With the W3C's head still squarely up its own ass — even explicitly rejecting proposed enhancements to HTML, in favor of snorting XML — some folks from (active) browser vendors Apple, Mozilla, and Opera decided to make their own clubhouse.  WHATWG came into existence in June 2004, and they began work on HTML5.  (It would end up defining error-handling very explicitly, which completely obviated the need for XHTML and eliminated a number of security concerns when working with arbitrary HTML.  Also it gave us some new goodies, like native audio, video, and form controls for dates and colors and other stuff that had been clumsily handled by JavaScript-powered custom controls.  And, um, still often are.)
 
 Then there was CSS 3.  I'm not sure when it started to exist.  It emerged slowly, struggling, like a chick hatching from an egg and taking its damn sweet fucking time to actually get implemented anywhere.
 
@@ -817,7 +817,7 @@ The [`::marker`](https://developer.mozilla.org/en-US/docs/Web/CSS/::marker) pseu
 
 [`@supports`](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) lets you explicitly write different CSS depending on what the browser supports, though it's nowhere near as useful nowadays as it would've been in 2004.
 
-`A > B` selects immediate children.  `A + B` selects siblings.  `A ~ B` selects immediate (element) siblings.  Square brackets can do a [bunch of stuff](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to select based on attributes; most obvious is `input[type=checkbox]`, though you can also do interesting things with matching parts of `<a href>`.
+`A > B` selects immediate children.  `A ~ B` selects siblings.  `A + B` selects immediate (element) siblings.  Square brackets can do a [bunch of stuff](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to select based on attributes; most obvious is `input[type=checkbox]`, though you can also do interesting things with matching parts of `<a href>`.
 
 There are a whole bunch of pseudo-classes now.  Many of them are for form elements: [`:enabled`](https://developer.mozilla.org/en-US/docs/Web/CSS/:enabled) and [`:disabled`](https://developer.mozilla.org/en-US/docs/Web/CSS/:disabled); [`:checked`](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked) and [`:indeterminate`](https://developer.mozilla.org/en-US/docs/Web/CSS/:indeterminate) (also apply to radio and `<option>`); [`:required`](https://developer.mozilla.org/en-US/docs/Web/CSS/:required) and [`:optional`](https://developer.mozilla.org/en-US/docs/Web/CSS/:optional); [`:read-write`](https://developer.mozilla.org/en-US/docs/Web/CSS/:read-write) and [`:read-only`](https://developer.mozilla.org/en-US/docs/Web/CSS/:read-only); [`:in-range`](https://developer.mozilla.org/en-US/docs/Web/CSS/:in-range)/[`:out-of-range`](https://developer.mozilla.org/en-US/docs/Web/CSS/:out-of-range) and [`:valid`](https://developer.mozilla.org/en-US/docs/Web/CSS/:valid)/[`:invalid`](https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid) (for use with HTML5 client-side form validation); [`:focus`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus) and [`:focus-within`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within); and [`:default`](https://developer.mozilla.org/en-US/docs/Web/CSS/:default) (which selects the default form button and any pre-selected checkboxes, radio buttons, and `<option>`s).
 
