@@ -45,11 +45,9 @@ But the way "gender critical" folks talk about this, you'd think it was the only
 
 > I mention all this only to explain that I knew perfectly well what was going to happen when I supported Maya. I must have been on my fourth or fifth cancellation by then.
 
-Oh.  So you didn't follow merely to be able to DM her, as the last paragraph implied; it really was a show of support, one you knew people would take issue with.  And you did it anyway, unapologetically.  One begins to suspect you don't care about anyone's opinion of the cruelty you endorse.
-
 > I expected the threats of violence, to be told I was literally killing trans people with my hate, to be called cunt and bitch and, of course, for my books to be burned, although one particularly abusive man told me he’d composted them.
 
-I am genuinely sorry that people are abusive on Twitter, but I don't know how to avoid it when you have more followers than the populations of NYC and LA combined.  It's a much broader problem, though definitely exacerbated when you support someone who openly calls an entire minority group perverts.
+I am genuinely sorry that people are abusive on Twitter, but I don't know how to avoid it when you have more followers than the populations of NYC and LA combined.  It's a much broader problem, though definitely exacerbated when you support someone who has been fighting for the right to be deliberately hostile.
 
 I'm not sure what to make of the last part.  Is composting a book worse than burning it?  And are you hinting a comparison between burning one's own personal property and the actions of Nazi Germany, or am I reading too much into this conspicuous phrasing?  I hope the latter, because the former would be _extremely_ tasteless, considering that part of what was burned was the research and library of [a sex research institute](https://en.wikipedia.org/wiki/Institut_f%C3%BCr_Sexualwissenschaft) which was _founded by_ the man who coined the term "transsexualism" and had trans people as both staff and clients.
 
