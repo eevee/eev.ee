@@ -16,7 +16,7 @@ I want to do pathfinding through a Doom map.  The ultimate goal is to be able to
 Doom maps are 2D planes cut into arbitrary shapes.  Everything outside a shape is ｔｈｅ　ｖｏｉｄ, which we don't care about.  Here are some shapes.
 
 <div class="prose-full-illustration">
-<object type="image/svg+xml" data="{filename}/media/2018-03-20-conundrum/map-01-original.svg"></object>
+<object type="image/svg+xml" data="{static}/media/2018-03-20-conundrum/map-01-original.svg"></object>
 </div>
 
 The shapes are defined implicitly by their edges.  All of the edges touching the red area, for example, say that they're red on one side.
@@ -34,7 +34,7 @@ The player is a 32×32 square and always axis-aligned (i.e., the hitbox doesn't 
 The plan, then, is to do this:
 
 <div class="prose-full-illustration">
-<object type="image/svg+xml" data="{filename}/media/2018-03-20-conundrum/map-02-dilated.svg"></object>
+<object type="image/svg+xml" data="{static}/media/2018-03-20-conundrum/map-02-dilated.svg"></object>
 </div>
 
 This creates a bit of an unholy mess.  (I could avoid some of the overlap by being clever at points where exactly two lines touch, but I have to deal with a ton of overlap anyway so I'm not sure if that buys anything.)
@@ -42,13 +42,13 @@ This creates a bit of an unholy mess.  (I could avoid some of the overlap by bei
 The gray outlines are dilations of _inner_ walls, where both sides touch a shape.  The black outlines are dilations of _outer_ walls, touching ｔｈｅ　ｖｏｉｄ on one side.  This map tells me that the player's _center_ can never go within 16 units of an outer wall, which checks out — their hitbox would get in the way!  So I can delete all that stuff completely.
 
 <div class="prose-full-illustration">
-<object type="image/svg+xml" data="{filename}/media/2018-03-20-conundrum/map-03-trimmed.svg"></object>
+<object type="image/svg+xml" data="{static}/media/2018-03-20-conundrum/map-03-trimmed.svg"></object>
 </div>
 
 Consider that bottom-left outline, where red and yellow touch horizontally.  If the player is in the red area, they can _only_ enter that outlined part if they're _also_ allowed to be in the yellow area.  Once they're inside it, though, they can move around freely.  I'll color that piece orange, and similarly blend colors for the other outlines.  (A small sliver at the top requires access to all three areas, so I colored it gray, because I can't be bothered to figure out how to do a stripe pattern in Inkscape.)
 
 <div class="prose-full-illustration">
-<object type="image/svg+xml" data="{filename}/media/2018-03-20-conundrum/map-04-final.svg"></object>
+<object type="image/svg+xml" data="{static}/media/2018-03-20-conundrum/map-04-final.svg"></object>
 </div>
 
 This is the final map, and it's easy to traverse because it works like a graph!  Each contiguous region is a node, and each border is an edge.  Some of the edges are one-way (falling off a ledge) or conditional (walking through a door), but the player can move freely within a region, so I don't need to care about world geometry any more.
@@ -73,7 +73,7 @@ Bear in mind, the input shapes _are not necessarily convex_, and quite frequentl
 Also, the map format _technically_ allows absolutely any arbitrary combination of lines, so all of these are possible:
 
 <div class="prose-full-illustration">
-<object type="image/svg+xml" data="{filename}/media/2018-03-20-conundrum/map-edge-cases.svg"></object>
+<object type="image/svg+xml" data="{static}/media/2018-03-20-conundrum/map-edge-cases.svg"></object>
 </div>
 
 It would be nice to handle these gracefully somehow, or at least not crash on them.  But they're usually total nonsense as far as the game is concerned.  But also that middle one _does_ show up in the original stock maps a couple times.
@@ -81,7 +81,7 @@ It would be nice to handle these gracefully somehow, or at least not crash on th
 Another common trick is that lines might be part of the same shape on _both sides_:
 
 <div class="prose-full-illustration">
-<object type="image/svg+xml" data="{filename}/media/2018-03-20-conundrum/map-self-references.svg"></object>
+<object type="image/svg+xml" data="{static}/media/2018-03-20-conundrum/map-self-references.svg"></object>
 </div>
 
 The left example suggests that such a line is redundant and can simply be ignored without changing anything.  The right example shows why this is a problem.

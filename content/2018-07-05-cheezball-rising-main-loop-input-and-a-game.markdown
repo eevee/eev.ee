@@ -22,7 +22,7 @@ Next: [a little spring cleaning]({filename}/2018-07-13-cheezball-rising-spring-c
 So far, I have this.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/01d-first-object.png" alt="A very gaudy striped background with half a cat on top">
+<img src="{static}/media/cheezball/01d-first-object.png" alt="A very gaudy striped background with half a cat on top">
 </div>
 
 It took unfathomable amounts of effort, but it's something!  Now to improve this from a static image to something a bit more game-like.
@@ -209,7 +209,7 @@ I don't actually track Anise's _position_ anywhere right now, except for in the 
 The second byte in each OAM entry is the x-coordinate, and indeed, this causes Anise's torso to glide rightwards across the screen at 60ish pixels per second.  Eventually the x-coordinate overflows, but that's fine; it wraps back to zero and moves the sprite back on-screen from the left.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/02a-anise-slide.gif" alt="The half-cat is now sliding across the screen">
+<img src="{static}/media/cheezball/02a-anise-slide.gif" alt="The half-cat is now sliding across the screen">
 </div>
 
 Excellent.  I mean, sorry, this is _extremely_ hard to look at, but bear with me a second.
@@ -338,7 +338,7 @@ Now to adjust the sprite position based on what directions are held down.  Delet
 Miraculously, Anise's torso now moves around on command!
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/02b-anise-slide-dpad.gif" alt="The half-cat is now moving according to button presses">
+<img src="{static}/media/cheezball/02b-anise-slide-dpad.gif" alt="The half-cat is now moving according to button presses">
 </div>
 
 Neat!  But this still looks really, really, incredibly bad.
@@ -478,7 +478,7 @@ You may notice I now have _two_ tiles, whereas before I was relying on filling t
 Sorry for all these big blocks of code, but _check out this payoff_!
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/02c-grass-background.png" alt="A very simple grassy background">
+<img src="{static}/media/cheezball/02c-grass-background.png" alt="A very simple grassy background">
 </div>
 
 POW!  Gorgeous.
@@ -555,7 +555,7 @@ Finally, extend the code that moves the sprite to also move the second half:
 Cross my fingers, and…
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/02d-anise-move-grass.gif" alt="A little cat sprite atop the grassy background">
+<img src="{static}/media/cheezball/02d-anise-move-grass.gif" alt="A little cat sprite atop the grassy background">
 </div>
 
 Hey hey hey!  That finally looks like something!

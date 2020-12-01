@@ -381,7 +381,7 @@ Promising!  We got a bunch of zeroes, as expected, though everything else is sti
 By now it had become clear that the small files were palettes of sixteen colors stored as RGB555 — that is, each color is packed into two bytes, with five bits each for the red, green, and blue channels.  Sixteen colors means two pixels can be crammed into a single byte, so the sprites are actually 160×80, not 80×80.  Combining this knowledge with the above partially-decrypted output, we get:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-08-02-datamining-pokemon/pikachu-partial.png" alt="A somewhat obscured Pikachu sprite; half of the columns are garbled">
+<img src="{static}/media/2017-08-02-datamining-pokemon/pikachu-partial.png" alt="A somewhat obscured Pikachu sprite; half of the columns are garbled">
 </div>
 
 _Success!_

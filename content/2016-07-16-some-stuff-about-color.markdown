@@ -17,7 +17,7 @@ Hues are what we usually think of as "colors", independent of how light or dim o
 Strictly speaking, a hue is a specific wavelength of light.  I think it's really weird to think about light as coming in a bunch of wavelengths, so I try not to think about the precise physical mechanism too much.  Instead, here's a rainbow.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-07-16-color/spectrum.png" alt="rainbow spectrum">
+<img src="{static}/media/2016-07-16-color/spectrum.png" alt="rainbow spectrum">
 </div>
 
 These are all the hues the human eye can see.  (Well, the ones this image and its colorspace and your screen can express, anyway.)  They form a nice spectrum, which wraps around so the two red ends touch.
@@ -37,11 +37,11 @@ Okay, you probably knew all that.  What confused me for the longest time was how
 I don't have a canonical answer for that, but it does make some sense.  Here's a comparison: the first spectrum is a full rainbow, just like the one above.  The second is the spectrum you get if you use red, blue, and yellow as primary colors.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-07-16-color/cmy-labeled.png" alt="a full spectrum of hues, labeled with color names that are roughly evenly distributed">
+<img src="{static}/media/2016-07-16-color/cmy-labeled.png" alt="a full spectrum of hues, labeled with color names that are roughly evenly distributed">
 </div>
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-07-16-color/rby-labeled.png" alt="a spectrum of hues made from red, blue, and yellow">
+<img src="{static}/media/2016-07-16-color/rby-labeled.png" alt="a spectrum of hues made from red, blue, and yellow">
 </div>
 
 The color names come from [xkcd's color survey](https://blog.xkcd.com/2010/05/03/color-survey-results/), which asked a massive number of visitors to give freeform names to a variety of colors.  One of the results was a [map of names for all the fully-saturated colors](http://imgs.xkcd.com/blag/satfaces_map_1024.png), providing a rough consensus for how English speakers refer to them.
@@ -88,7 +88,7 @@ I can't speak to [whether our vocabulary truly influences](https://en.wikipedia.
 Come to think of it, yellow is an interesting case as well.  A decent chunk of the spectrum was ultimately called "yellow" in the xkcd map; here's that chunk zoomed in a bit.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-07-16-color/yellows.png" alt="full range of xkcd yellows">
+<img src="{static}/media/2016-07-16-color/yellows.png" alt="full range of xkcd yellows">
 </div>
 
 How much of this range would you really call yellow, rather than green (or chartreuse!) or orange?  Yellow is a remarkably specific color: mixing it even slightly with one of its neighbors loses some of its yellowness, and darkening it moves it swiftly towards brown.
@@ -191,7 +191,7 @@ RGB has a couple of interesting problems.  Most notably, it's kind of difficult 
 It might be time for an illustration.  Consider the color (50%, 62.5%, 75%).  The brightness is "capped" at 75%, the largest channel; the desaturation is 50%, the smallest channel.  Here's what that looks like.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-07-16-color/rgb1.png" alt="illustration of the color (50%, 62.5%, 75%) split into three chunks of 50%, 25%, and 25%">
+<img src="{static}/media/2016-07-16-color/rgb1.png" alt="illustration of the color (50%, 62.5%, 75%) split into three chunks of 50%, 25%, and 25%">
 </div>
 
 Cutting out the grey and the darkness leaves a chunk in the middle of actual differences between the colors.  Note that I've normalized it to (0%, 50%, 100%), which is the percentage of that small middle range.  Removing the smallest and largest channels will always leave you with a middle chunk where at least one channel is 0% and at least one channel is 100%.  (Or it's grey, and there is no middle chunk.)
@@ -199,7 +199,7 @@ Cutting out the grey and the darkness leaves a chunk in the middle of actual dif
 The odd one out is green at 50%, so the hue of this color is halfway between cyan (green + blue) and blue.  That hue is...  azure!  So this color is a slightly darkened and fairly dull azure.  (The actual amount of "greyness" is the smallest relative to the largest, so in this case it's about ⅔ grey, or about ⅓ saturated.)  Here's that color.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-07-16-color/rgb2.png" alt="a slightly darkened, fairly dull azure">
+<img src="{static}/media/2016-07-16-color/rgb2.png" alt="a slightly darkened, fairly dull azure">
 </div>
 
 This is a bit of a pain to do in your head all the time, so why not do it directly?
@@ -211,7 +211,7 @@ It's that hand-waved value bit that gives me trouble.  I don't really know how t
 I prefer **HSL**, which uses hue, saturation, and _lightness_.  Lightness ranges from black to white, with the unperturbed color in the middle.  Here's lightness versus value for the azure color.  (Its lightness is ⅝, the average of the smallest and largest channels.)
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-07-16-color/value-lightness.png" alt="comparison of lightness and value for the azure color">
+<img src="{static}/media/2016-07-16-color/value-lightness.png" alt="comparison of lightness and value for the azure color">
 </div>
 
 The lightness just makes more sense to me.  I can understand shifting a color towards white or black, and the color in the middle of that bar feels related to the azure I started with.  Value looks almost arbitrary; I don't know where the color at the far end comes from, and it just doesn't seem to have anything to do with the original azure.
@@ -262,7 +262,7 @@ Now, sRGB has _gamma_ built in.  Gamma correction means slapping an exponent on 
 What this means is that halfway between black and white in sRGB isn't (50%, 50%, 50%), but around (73%, 73%, 73%).  Here's a great example, borrowed from [this post](http://filmicgames.com/archives/327) (with numbers out of 255):
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-07-16-color/gamma.png" alt="alternating black and white lines alongside gray squares of 128 and 187">
+<img src="{static}/media/2016-07-16-color/gamma.png" alt="alternating black and white lines alongside gray squares of 128 and 187">
 </div>
 
 Which one looks more like the alternating bands of black and white lines?  Surely the one you pick is the color that's actually halfway between black and white.
@@ -280,7 +280,7 @@ Something I genuinely can't answer is what effect this has on HSV and HSL, which
 There _is_ a good reason for this, at least: the human eye is better at distinguishing dark colors than light ones.  I was surprised to learn that, but of course, it's been hidden from me by sRGB, which is deliberately skewed to dedicate more space to darker colors.  In a linear colorspace, a gradient from white to black would have a lot of indistinguishable light colors, but appear to have severe banding among the darks.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-07-16-color/linear-vs-gamma-gradients.png" alt="several different black to white gradients">
+<img src="{static}/media/2016-07-16-color/linear-vs-gamma-gradients.png" alt="several different black to white gradients">
 </div>
 
 All three of these are regular black-to-white gradients drawn in 8-bit color (i.e., channels range from 0 to 255).  The top one is the naïve result if you draw such a gradient in sRGB: the midpoint is the too-dark 50% grey.  The middle one is that same gradient, but drawn in a linear colorspace.  Obviously, a lot of dark colors are "missing", in the sense that we could see them but there's no way to express them in linear color.  The bottom gradient makes this more clear: it's a gradient of all the greys expressible in linear sRGB.
@@ -303,7 +303,7 @@ Our eyes are _very_ good at stripping away ambient light effects to tell what co
 Or, here, I like this.  I'm sure there are more drastic examples floating around, but this is the best I could come up with.  Here are [some Pikachu I found via GIS](http://www.dualshockers.com/2013/12/09/pokemon-store-in-tokyo-opens-today-is-filled-with-adorable-pikachu-merchandise/).
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-07-16-color/pikachus.jpg" alt="photo of Pikachu plushes on a shelf">
+<img src="{static}/media/2016-07-16-color/pikachus.jpg" alt="photo of Pikachu plushes on a shelf">
 </div>
 
 My question for you is: what color is Pikachu?
@@ -311,7 +311,7 @@ My question for you is: what color is Pikachu?
 Would you believe...  orange?
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-07-16-color/pikachus2.png" alt="photo of Pikachu plushes on a shelf, overlaid with color swatches; the Pikachu in the background are orange">
+<img src="{static}/media/2016-07-16-color/pikachus2.png" alt="photo of Pikachu plushes on a shelf, overlaid with color swatches; the Pikachu in the background are orange">
 </div>
 
 In each box, the bottom color is what I color-dropped, and the top color is the _same hue_ with 100% saturation and 50% lightness.  It's the same spot, on the same plush, right next to each other — but the one in the background is orange, not yellow.  At best, it's brown.
@@ -362,7 +362,7 @@ If `A` and `B` themselves have alpha, the result is a little more complicated, a
     If you graphed the effect various values of `B` had on a color, you'd have a straight line from 0 up to 1 (at `B = 0.5`), and then it would abruptly change to a straight line back down to 0.  Soft Light just seeks to get rid of that crease.  Here's Hard Light compared with GIMP's Soft Light, where `A` is a black to white gradient from bottom to top, and `B` is a black to white gradient from left to right.
 
     <div class="prose-full-illustration">
-    <img src="{filename}/media/2016-07-16-color/hard-soft-light.png" alt="graphs of combinations of all grays with Hard Light versus Soft Light">
+    <img src="{static}/media/2016-07-16-color/hard-soft-light.png" alt="graphs of combinations of all grays with Hard Light versus Soft Light">
     </div>
 
     You can clearly see the crease in the middle of Hard Light, where `B = 0.5` and it transitions from Multiply to Screen.
@@ -384,7 +384,7 @@ If `A` and `B` themselves have alpha, the result is a little more complicated, a
 * **Linear Light**: `(2 × A + B) - 1`.  I _think_ this is the same as Sai's "Lumi and Shade" mode, which is very popular, at least in this house.  It works very well for simple lighting effects, and shares the Soft/Hard Light property that darker colors darken and lighter colors lighten, but I don't have a great grasp of it yet and don't know quite how to explain what it does.  So I made another graph:
 
     <div class="prose-full-illustration">
-    <img src="{filename}/media/2016-07-16-color/linear-light.png" alt="graph of Linear Light, with a diagonal band of shading going from upper left to bottom right">
+    <img src="{static}/media/2016-07-16-color/linear-light.png" alt="graph of Linear Light, with a diagonal band of shading going from upper left to bottom right">
     </div>
 
     Super weird!  Half the graph is solid black or white; you have to stay in that sweet zone in the middle to get reasonable results.

@@ -20,7 +20,7 @@ The hitbox is the biggest physics fudge by far, and it exists because of a singl
 That is: when you walk with your real-world meat shell, you perform a complex dance of putting one foot in front of the other, a motion you spent _years_ perfecting.  When you walk in a video game, you press a single "walk" button.  Your avatar may play an animation that moves its legs back and forth, but since you're not actually controlling the legs independently (and since simulating them is way harder), the game just treats you like a simple shape.  Fairly often, this is a box, or something very box-like.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2018-01-06-physics/1-hitbox.png" alt="An Eevee sprite standing on faux ground; the size of the underlying image and the hitbox are outlined">
+<img src="{static}/media/2018-01-06-physics/1-hitbox.png" alt="An Eevee sprite standing on faux ground; the size of the underlying image and the hitbox are outlined">
 </div>
 
 Since the player has no direct control over the exact placement of their limbs, it would be slightly frustrating to have them collide with the world.  This is especially true in cases like the above, where the tail and left ear protrude significantly out from the main body.  If that Eevee wanted to stand against a real-world wall, she would simply tilt her ear or tail out of the way, so there's no reason for the ear to block her from standing against a game wall.  To compensate for this, the ear and tail are left out of the collision box entirely and will simply jut into a wall if necessary — a goofy affordance that's so common it doesn't even register as unusual.  As a bonus (assuming this same box is used for combat), she won't take damage from projectiles that merely graze past an ear.
@@ -40,7 +40,7 @@ Of course, that introduces a new problem: now the player can't balance precariou
 If you're stuck with corners, then, you may want to use a _corner bump_, a term I just made up.  If the player _would_ collide with a corner, but the collision is only by a few pixels, just nudge them to the side a bit and carry on.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2018-01-06-physics/2-corners.png" alt="An Eevee sprite trying to move sideways into a shallow ledge; the game bumps her upwards slightly, so she steps onto it instead">
+<img src="{static}/media/2018-01-06-physics/2-corners.png" alt="An Eevee sprite trying to move sideways into a shallow ledge; the game bumps her upwards slightly, so she steps onto it instead">
 </div>
 
 When the corner is horizontal, this creates stairs!  This is, more or less kinda, how steps work in Doom: when the player tries to cross from one sector into another, if the height difference is 24 units or less, the game simply bumps them upwards to the height of the new floor and lets them continue on.
@@ -73,7 +73,7 @@ Air control also exposes an obvious place that game physics collide with the rea
 Another place game physics conflict with physics engines is with running to the top of a slope.  On a real hill, of course, you land on top of the slope and are probably glad of it; slopes are hard to climb!
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2018-01-06-physics/3-ground-sticking.png" alt="An Eevee moves to the top of a slope, and rather than step onto the flat top, she goes flying off into the air">
+<img src="{static}/media/2018-01-06-physics/3-ground-sticking.png" alt="An Eevee moves to the top of a slope, and rather than step onto the flat top, she goes flying off into the air">
 </div>
 
 In a video game, you go flying.  Because you're a box.  With momentum.  So you hit the peak and keep going in the same direction.  Which is diagonally upwards.
@@ -173,7 +173,7 @@ $$
 That's pretty weird?  Complicating things further is that low friction (which means muddy terrain, remember) has an extra multiplier on its move factor, depending on how fast you're already going — the idea is apparently that you have a hard time getting going, but it gets easier as you find your footing.  The extra multiplier maxes out at 8, which makes the two halves of that function meet at the vanilla Doom value.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2018-01-06-physics/boom-move-factor.png" alt="A graph of the relationship between friction and move factor">
+<img src="{static}/media/2018-01-06-physics/boom-move-factor.png" alt="A graph of the relationship between friction and move factor">
 </div>
 
 That very top point corresponds to the move factor from the original game.  So no matter what you do to friction, the move factor becomes _lower_.  At 0.85 and change, you can no longer move at all; below that, you move _backwards_.
@@ -181,7 +181,7 @@ That very top point corresponds to the move factor from the original game.  So n
 From the formula above, it's easy to see what changes to friction and move factor will do to Doomguy's stable velocity.  Move factor is in the numerator, so increasing it will increase stable velocity — but it can't increase, so stable velocity can only ever decrease.  Friction is in the denominator, but it's subtracted from 1, so increasing friction will make the denominator a smaller value less than 1, i.e. increase stable velocity.  Combined, we get this relationship between friction and stable velocity.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2018-01-06-physics/boom-stable-velocity.png" alt="A graph showing stable velocity shooting up dramatically as friction increases">
+<img src="{static}/media/2018-01-06-physics/boom-stable-velocity.png" alt="A graph showing stable velocity shooting up dramatically as friction increases">
 </div>
 
 As friction approaches 1, stable velocity grows without bound.  This makes sense, given the definition of $v(n)$ — if friction is 1, the velocity from the previous tic isn't reduced at all, so we just keep accelerating freely.
@@ -205,7 +205,7 @@ $$
 "Speed" and move factor disappear entirely, which makes sense, and this is purely a function of friction (and how close we want to get).  For vanilla Doom, that comes out to 30.4, which is a little less than a second.  For other values of friction:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2018-01-06-physics/boom-stable-time.png" alt="A graph of time to stability which leaps upwards dramatically towards the right">
+<img src="{static}/media/2018-01-06-physics/boom-stable-time.png" alt="A graph of time to stability which leaps upwards dramatically towards the right">
 </div>
 
 As friction increases (which in Doom terms means the surface is more slippery), it takes longer and longer to reach stable speed, which is in turn greater and greater.  For lesser friction (i.e. mud), stable speed is lower, but reached fairly quickly.  (Of course, the extra "getting going" multiplier while in mud adds some extra time here, but including that in the graph is a bit more complicated.)

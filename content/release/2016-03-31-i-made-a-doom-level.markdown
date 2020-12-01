@@ -35,7 +35,7 @@ Anyway, you will need ZDoom and Doom II.  I covered getting those in the [first 
 
 Per the project requirements, anything based on ZDoom 2.5+ should work, including Zandronum 2.1.2, if that's of interest to you.  If you don't know what that is, don't worry, just grab the latest ZDoom.
 
-Also you will need [my map]({filename}/media/2016-03-31-throughfare/throughfare-v4.pk3), of course.  You can just drag it onto ZDoom to play it.  Feel free to poke at it in SLADE, too.
+Also you will need [my map]({static}/media/2016-03-31-throughfare/throughfare-v4.pk3), of course.  You can just drag it onto ZDoom to play it.  Feel free to poke at it in SLADE, too.
 
 You can also play the [full mapping project](http://forum.zdoom.org/viewtopic.php?f=19&t=51072), which was finally released on April 22, 2016.  My map is MAP32, Throughfare, which you are welcome to try finding in the overworld hub map.  (It's in an alcove all by itself.)
 

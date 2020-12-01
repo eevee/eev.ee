@@ -22,7 +22,7 @@ Next: [resounding <s>failure</s> success?]({filename}/2018-09-06-cheezball-risin
 The last post only covered some minor problems (including, I grant you, being _totally broken_), so the current state of the game is basically unchanged from before.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/02d-anise-move-grass.gif" alt="A space cat roams around on a grassy background">
+<img src="{static}/media/cheezball/02d-anise-move-grass.gif" alt="A space cat roams around on a grassy background">
 </div>
 
 That grass pattern, the grass sprite itself, and the color scheme are all hardcoded — written directly into the source code, by hand.  If this game is going to get very far at all, I urgently need a better way to inject some art.
@@ -63,7 +63,7 @@ But how can it be dire, when I have enough sprite space to fill the screen and t
 Let's see here.  A pretty good chunk of the fox flux tileset is unused or outright blank.  Some of these tiles are art for moving objects that happened to fit in the grid, and those wouldn't be in the background tileset.  And while all of the tiles are distinct, a lot of the basic terrain has some significant overlap:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04a-fox-flux-duplicates.png" alt="A set of dirt tiles from fox flux, colored to indicate where different tiles have identical corners">
+<img src="{static}/media/cheezball/04a-fox-flux-duplicates.png" alt="A set of dirt tiles from fox flux, colored to indicate where different tiles have identical corners">
 </div>
 
 All of the regions of the same color are identical.  These 9 distinct tiles could fit into 20 chars if they shared the common parts, rather than the 36 required to naïvely cutting each one into four dedicated chars.
@@ -77,7 +77,7 @@ I'm feeling a little better about this, especially knowing I _do_ have enough sp
 That does get me wondering: what, exactly, _do_ the Oracle games do?  I haven't done any precise measurements, but I'm pretty sure they have more than sixty-four distinct map tiles throughout their large connected worlds.  Let's have a look!
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04b-oracle-of-ages-graveyard.png" alt="Oracle of Ages and its live tilemap, in the graveyard, showing the graveyard tileset">
+<img src="{static}/media/cheezball/04b-oracle-of-ages-graveyard.png" alt="Oracle of Ages and its live tilemap, in the graveyard, showing the graveyard tileset">
 </div>
 
 Here I am in the graveyard near the start of Oracle of Ages.  The "creepy tree" here is distinct and doesn't really appear anywhere else, so I found it in the tile viewer (lower right) and will be keeping an eye on it.  Note that only the left half of the face is visible; the right half is using the same tiles, flipped horizontally.  (The colors are different because the tile viewer shows the literal colors, whereas the game itself is being drawn with a shader.)
@@ -85,7 +85,7 @@ Here I am in the graveyard near the start of Oracle of Ages.  The "creepy tree" 
 Let's walk left one screen.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04c-oracle-of-ages-graveyard-entrance.png" alt="Oracle of Ages and its live tilemap, outside of the graveyard">
+<img src="{static}/media/cheezball/04c-oracle-of-ages-graveyard-entrance.png" alt="Oracle of Ages and its live tilemap, outside of the graveyard">
 </div>
 
 Now, this is interesting.  The creepy tree is still on the screen here, so its tiles are naturally still loaded.  But a bunch of tiles on the left — parts of the dungeon entrance and other graveyard things — have been replaced by _town_ tiles.  I'm several screens away from the town!
@@ -93,7 +93,7 @@ Now, this is interesting.  The creepy tree is still on the screen here, so its t
 The next screen up has no creepy trees, but its tiles remain.  Of course, they'd _have_ to, since the creepy tree is still visible during a transition.  I have to go left from there before the tree disappears:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04d-oracle-of-ages-shop-tiles-loaded.png" alt="Oracle of Ages and its live tilemap, with tiles spelling SHOP clearly visible">
+<img src="{static}/media/cheezball/04d-oracle-of-ages-shop-tiles-loaded.png" alt="Oracle of Ages and its live tilemap, with tiles spelling SHOP clearly visible">
 </div>
 
 Wow!  At a glance, this looks like enough tiles to draw the entire town.
@@ -118,13 +118,13 @@ I could instead dynamically infer the palettes based on what combinations of col
 After a quick jaunt into the pixel mines, here are some tiles.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04e-moon-tileset.png" alt="A small set of pastel yellow moon tiles">
+<img src="{static}/media/cheezball/04e-moon-tileset.png" alt="A small set of pastel yellow moon tiles">
 </div>
 
 Or, as viewed in Aseprite:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04f-moon-tileset-aseprite.png" alt="The same set of tiles, as seen in an editor, with the four-color palette visible">
+<img src="{static}/media/cheezball/04f-moon-tileset-aseprite.png" alt="The same set of tiles, as seen in an editor, with the four-color palette visible">
 </div>
 
 That's only one palette, but hopefully you can see what I'm going for here.  It's enough to get started.
@@ -202,13 +202,13 @@ copy16:
 Hm.  It's a little harder to justify the `bc = 0` case as a feature here, since that would try to overwrite every single byte in the entire address space.  Don't do that, then.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04g-moon-landing.png" alt="Anise, in-game, walking on the moon tiles">
+<img src="{static}/media/cheezball/04g-moon-landing.png" alt="Anise, in-game, walking on the moon tiles">
 </div>
 
 Now, at long long last, I have a background with some actual art!  It's starting to feel like something!  I've even got something resembling a workflow.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04h-mapping-workflow.png" alt="My desktop, showing the moon tiles in an image editor, the map put together in Tiled, and the game running in mGBA">
+<img src="{static}/media/cheezball/04h-mapping-workflow.png" alt="My desktop, showing the moon tiles in an image editor, the map put together in Tiled, and the game running in mGBA">
 </div>
 
 All in a day's work.  Good time to call it, right?
@@ -231,7 +231,7 @@ It gets worse!  Here's how.
 I have some Anise walking sprites, too, drawn in Aseprite.  They're pretty cute and I'd love to have them in the game, now that I have some Real Art™ for the background.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04i-anise-walk-4x.gif" alt="Star Anise, walking forwards">
+<img src="{static}/media/cheezball/04i-anise-walk-4x.gif" alt="Star Anise, walking forwards">
 </div>
 
 Why not throw these at the same script and hack them into animating?
@@ -245,7 +245,7 @@ You _may_ have noticed that the walking sprite above blows the color budget cons
 I could _maybe_ hack something together that would automatically pull the incompatible pixels into a separate sprite.  I might _need_ to, since — spoiler alert — there are an awful lot of Lunekos in this game.  For now, though, I did the dumbest thing that works and copied his frames to their own sheet by hand.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04j-anise-sheet.png" alt="Star Anise's walking frames laid out in a spritesheet">
+<img src="{static}/media/cheezball/04j-anise-sheet.png" alt="Star Anise's walking frames laid out in a spritesheet">
 </div>
 
 The background is actually cyan, _not_ transparent.  I had to do this because my setup expects multiple sets of four colors — the first color in an object palette is still there, even if it's ignored — and only one color in an indexed PNG can be transparent.  (Don't @ me about PNG pixel formats.)  I could've adjusted it to work with sets of three colors and put the transparent one at the end so the palette column trick still worked, but…  this was easier.
@@ -435,7 +435,7 @@ Now, let's think for a second.  I know what frame I want.  I have a label for th
 Hey, look at that!
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04k-go-anise-go.gif" alt="Star Anise walking around in-game, now animated">
+<img src="{static}/media/cheezball/04k-go-anise-go.gif" alt="Star Anise walking around in-game, now animated">
 </div>
 
 Only one small problem: I forgot about facing, so Anise will always face forwards no matter how he moves.  Whoops!
@@ -511,7 +511,7 @@ Hardcoding the number of frames here is…  unfortunate.  I should probably flip
 But who cares about that?  Look at Anise go!  Yeah!
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04l-go-anise-go-again.gif" alt="Star Anise walking around in-game, now animated in all four directions">
+<img src="{static}/media/cheezball/04l-go-anise-go-again.gif" alt="Star Anise walking around in-game, now animated in all four directions">
 </div>
 
 Well, yes, there is _one_ final problem, which is that the antenna is misaligned when walking left or right…  because its positioning is different than when walking up or down, and I don't have any easy way to encode that at the moment.  It's _still_ like that, in fact.  I'm sure I'll fix it eventually.

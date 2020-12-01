@@ -22,7 +22,7 @@ Next: _more_ collision detection, and fixed-point arithmetic.
 Last time I avoided doing collision detection by writing a little dialogue system instead.  It was cute, and definitely something that needed doing, but something much more crucial still looms.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/06k-quickbrownfox.gif" alt="Animation of the text box sliding up and scrolling out the text">
+<img src="{static}/media/cheezball/06k-quickbrownfox.gif" alt="Animation of the text box sliding up and scrolling out the text">
 </div>
 
 I've put it off as long as I can.  If I want to get anywhere with actual gameplay, I'm going to need some collision detection.
@@ -39,7 +39,7 @@ Someday I'll write an article about everything I've picked up about collision de
 **Discrete** collision observes that an object moves in steps — a little chunk of movement every frame — and simply _teleports_ the object to its new location, then checks whether it now overlaps anything.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/07a-discrete-collision.png" alt="Illustration of an object attempting to move into a wall">
+<img src="{static}/media/cheezball/07a-discrete-collision.png" alt="Illustration of an object attempting to move into a wall">
 </div>
 
 (Note that all of these diagrams show very exaggerated motion.  In most games, objects are slow and frames are short, so nothing moves more than a pixel or two at a time.  That's another reason collision detection is hard: the steps are so small that it can be difficult to see what's actually going on.)
@@ -57,7 +57,7 @@ Sorry.  I have very conflicting feelings about this thicket of drawbacks and pos
 Either way, discrete collision has one other big drawback: _tunnelling_.  Since the movement is done by teleporting, a very fast object might teleport right past a thin barrier.  Only the new position is checked for collisions, so the barrier is never noticed.  (This is how you travel to [parallel universes in Mario 64](https://www.youtube.com/watch?v=kpk2tdsPh0A) — by building up enough speed that Mario teleports through walls without ever momentarily overlapping them.)
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/07b-discrete-collision-drawbacks.png" alt="Illustration of an object passing through a wall or erroneously pushing into one">
+<img src="{static}/media/cheezball/07b-discrete-collision-drawbacks.png" alt="Illustration of an object passing through a wall or erroneously pushing into one">
 </div>
 
 There are some other potential gotchas, though they're rare enough that I've never seen anyone mention them.  One that stands out to me is that you don't know the _order_ that an object collided with obstacles, which might make a difference if the obstacles have special behavior when collided with and the order of that behavior matters.
@@ -67,7 +67,7 @@ There are some other potential gotchas, though they're rare enough that I've nev
 **Continuous** collision detection observes that game physics are trying to _simulate_ continuous motion, like happens in the real world, and tries to apply that to movement as well.  Instead of teleporting, objects _slide_ until they hit something.  Tunnelling is thus impossible, and there's no need to handle collisions since they're prevented in the first place.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/07c-continuous-collision.png" alt="Illustration of an object sliding towards a wall and stopping when it touches">
+<img src="{static}/media/cheezball/07c-continuous-collision.png" alt="Illustration of an object sliding towards a wall and stopping when it touches">
 </div>
 
 This has some clear advantages, in that it eliminates all the pitfalls of discrete collision!  It even functions as a superset — if you want some object to act discretely, you could simply teleport it and then attempt to "move" it along the zero vector.
@@ -348,7 +348,7 @@ My plan for moving rightwards, which I came up with after a lot of very careful 
 Here's a diagram.  In this case, step 3 checks two cells for each column, but it might check more or fewer depending on how the entity is positioned.  (It'll never need to check more than one cell more than the entity's height.)
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/07d-algorithm-overview.png" alt="Illustration of the above algorithm">
+<img src="{static}/media/cheezball/07d-algorithm-overview.png" alt="Illustration of the above algorithm">
 </div>
 
 Seems straightforward enough.  But wait!
@@ -364,7 +364,7 @@ The problem is all the way back in step 1.  Remember, I said that to figure out 
 _Well…_
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/07e-edge-case.png" alt="Diagram showing division by 8 for several possible positions; when the bottom of the entity touches a grid line, it appears to be jutting into the row below">
+<img src="{static}/media/cheezball/07e-edge-case.png" alt="Diagram showing division by 8 for several possible positions; when the bottom of the entity touches a grid line, it appears to be jutting into the row below">
 </div>
 
 Everything's fine until the entity's bottom edge is exactly flush with the grid line, as in the last example.  Then it seems to be jutting into the row below, even though no part of it is actually inside that row.  If the entity tried to move rightwards from here, it might get blocked on something in row 1!  Even worse, if row 1 were a solid wall that it had just run into, it wouldn't be able to move left or right at all!
@@ -613,7 +613,7 @@ You sure?  Really?
 No going back!
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/07f-anise-blocked.gif" alt="Star Anise walking around, but not through a rock!">
+<img src="{static}/media/cheezball/07f-anise-blocked.gif" alt="Star Anise walking around, but not through a rock!">
 </div>
 
 I admit, this was _pretty damn satisfying_ the first time it actually worked.  Collision detection is a pain in the ass, but it's the first step to making a game feel like a _game_.  Games are about working within limitations, after all!

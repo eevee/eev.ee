@@ -4,7 +4,7 @@ category: release
 tags: doom
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/doom-text-generator.png" alt="Screenshot of a generator with controls for the font, color, scale, and alignment">
+<img src="{static}/media/release/doom-text-generator.png" alt="Screenshot of a generator with controls for the font, color, scale, and alignment">
 </div>
 
 🔗 [**Doom text generator**, locally hosted](https://c.eev.ee/doom-text-generator/)

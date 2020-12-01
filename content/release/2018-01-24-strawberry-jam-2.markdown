@@ -4,7 +4,7 @@ category: release
 tags: nsfw
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/strawberryjam2.png" alt="">
+<img src="{static}/media/release/strawberryjam2.png" alt="">
 </div>
 
 🔗 [**Strawberry Jam 2 on itch**](https://itch.io/jam/strawberry-jam-2)  

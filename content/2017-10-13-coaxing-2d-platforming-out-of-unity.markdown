@@ -190,7 +190,7 @@ I haven't gotten to this yet!  Oh boy, can't wait.  I implemented it in LÖVE, b
 I ended up with a fairly pleasant-feeling system that supports slopes and one-way platforms and whatnot, with all the same pieces as I came up with for LÖVE.  The code somehow ended up as _less_ of a mess, too, but it probably helps that I've been down this rabbit hole once before and kinda knew what I was aiming for this time.
 
 <div class="prose-illustration-full">
-<img src="{filename}/media/2017-10-13-unity-platforming/ccboneride.gif" alt="Animation of a character running smoothly along the top of an irregular dinosaur skeleton">
+<img src="{static}/media/2017-10-13-unity-platforming/ccboneride.gif" alt="Animation of a character running smoothly along the top of an irregular dinosaur skeleton">
 </div>
 
 Sorry that I don't have a big block of code for you to copy-paste into your project.  I don't think there are nearly enough narrative discussions of these fundamentals, though, so hopefully this is useful to someone.  If not, well, look forward to ✨ my book, that I am writing ✨!

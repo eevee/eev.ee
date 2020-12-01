@@ -74,7 +74,7 @@ Not having mouselook is more of a problem than you'd think.  If you as the desig
 That's actually an interesting example for another reason.  Here's the room where he got stuck.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-29-accessible-games/throughfare-dead-end.png" alt="A small room with a raised platform at the end, a metal section in the floor, and a switch on the side wall">
+<img src="{static}/media/2016-10-29-accessible-games/throughfare-dead-end.png" alt="A small room with a raised platform at the end, a metal section in the floor, and a switch on the side wall">
 </div>
 
 When you press the switch, the metal plates on the ground rise up and become stairs, so you can get onto the platform.  He did that, saw nowhere obvious to go, and immediately turned around and backtracked quite a ways looking for some other route.
@@ -123,7 +123,7 @@ This isn't the author's fault, anyway; it's baked into the design of Doom.  If y
 I was really happy with the puzzle design, especially considering I hadn't really made a puzzle game before and was rushing to make some rooms in a very short span of time.  Only two were perhaps unfair.  One was the penultimate room, which involved a tricky timing puzzle, so I'm not too bothered about that.  The other was this room:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-29-accessible-games/isaac-two-doors.png" alt="A cavern with two stone slab doors, one much taller than the other, and a wooden wheel on the wall">
+<img src="{static}/media/2016-10-29-accessible-games/isaac-two-doors.png" alt="A cavern with two stone slab doors, one much taller than the other, and a wooden wheel on the wall">
 </div>
 
 Using the wheel raises all stone doors in the room.  Stone doors open at a constant rate, wait for a fixed time, and then close again.  The tricky part with this puzzle is that by the time the very tall door has opened, the short door has already closed again.  The solution is simply to use the wheel again right after the short door has closed, while the tall door is still opening.  The short door will reopen, while the tall door won't be affected since it's already busy.

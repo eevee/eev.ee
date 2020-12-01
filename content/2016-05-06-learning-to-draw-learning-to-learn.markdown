@@ -19,7 +19,7 @@ I don't claim to be great at art, or even necessarily great at learning, but her
 <!-- more -->
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-06-learn/20150101-completion.jpg" alt="Crude pencil comic from Jan 1, 2015">
+<img src="{static}/media/2016-05-06-learn/20150101-completion.jpg" alt="Crude pencil comic from Jan 1, 2015">
 </div>
 
 I started out doing daily comics, just because Mel was also doing them.  The first one was...  not terribly great.  It hadn't even occurred to me to bump the contrast on this photo.
@@ -43,7 +43,7 @@ If it starts to feel like too much of a drag, you can always drop it and try som
 
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-06-learn/mel-birthday-25.png" alt="Digital painting of a landscape from an interesting angle from March 26, 2015">
+<img src="{static}/media/2016-05-06-learn/mel-birthday-25.png" alt="Digital painting of a landscape from an interesting angle from March 26, 2015">
 </div>
 
 Mel's birthday is March 26.  On March 19, 2015, our roommate gave me his old drawing tablet.  I spent most of the ensuing week on the above digital painting.
@@ -62,7 +62,7 @@ And hey, this works for adults too.  I'm pretty sure being dropped in a country 
 
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-06-learn/avatars.png" alt="Series of eight roughly increasingly better avatars">
+<img src="{static}/media/2016-05-06-learn/avatars.png" alt="Series of eight roughly increasingly better avatars">
 </div>
 
 I figured another way to _do the thing_ and _dive in_ would be to finally draw my own avatar.
@@ -117,7 +117,7 @@ You know how some people are "naturally" talented at a thing?  It just "clicks" 
 
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-06-learn/pixels.png" alt="Several pixel art landscapes">
+<img src="{static}/media/2016-05-06-learn/pixels.png" alt="Several pixel art landscapes">
 </div>
 
 **Know what's possible.**  Every skill has its own toolbox, and part of learning the skill is learning what's in the toolbox.  Being familiar with image editing software has been hugely helpful for experimenting with art; for example, changing the color of your lines is trivial if you know how to use alpha lock.  If you _don't_ know, will you even suspect it exists?
@@ -144,7 +144,7 @@ A blank canvas can be overwhelming sometimes; infinite possibilities are a lot t
 
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-06-learn/piday.png" alt="Pi Day comic, in 2015 and 2016">
+<img src="{static}/media/2016-05-06-learn/piday.png" alt="Pi Day comic, in 2015 and 2016">
 </div>
 
 **Step back and acknowledge your progress.**
@@ -157,7 +157,7 @@ I drew these one year apart.  I'm still not _great_ — I immediately see half a
 
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-06-learn/rumwiktraderedux.png" alt="Illustration of a few critters at the circus">
+<img src="{static}/media/2016-05-06-learn/rumwiktraderedux.png" alt="Illustration of a few critters at the circus">
 </div>
 
 I think this is the most recent thing I've finished.  It's certainly a far cry from some pencil scribbles.

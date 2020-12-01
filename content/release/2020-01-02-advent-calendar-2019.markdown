@@ -4,7 +4,7 @@ category: release
 tags: tech
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/advent2019.png" alt="Calendar of things I made during December, with little screenshots">
+<img src="{static}/media/release/advent2019.png" alt="Calendar of things I made during December, with little screenshots">
 </div>
 
 🔗 [**Advent calendar**, with links to individual projects](https://c.eev.ee/advent-2019/)

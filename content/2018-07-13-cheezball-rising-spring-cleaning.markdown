@@ -22,7 +22,7 @@ Next: [sprite and map loading]({filename}/2018-07-15-cheezball-rising-maps-and-s
 After only a few long, winding posts' worth of effort, I finally have a game, if you define "game" loosely as a thing that reacts when you press buttons.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/02d-anise-move-grass.gif" alt="A space cat roams around on a grassy background">
+<img src="{static}/media/cheezball/02d-anise-move-grass.gif" alt="A space cat roams around on a grassy background">
 </div>
 
 Beautiful.  But to make an omelette, you need to break a few eggs, and if it's your first omelette then you might break some glassware too.  As tiny as this game is, a couple things could use improvement.
@@ -35,7 +35,7 @@ Also, for narrative purposes, it's much more interesting to put all these miscel
 Ah, the elephant in the room.  The end of the previous post aligned with the first [demo build](https://github.com/eevee/anise-cheezball-rising/releases/tag/v20180619pre), but if you downloaded it and tried to play it, you _may_ have seen something that looks more like this:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/03a-broken.png" alt="Similar to the previous image, but with obvious graphical corruption">
+<img src="{static}/media/cheezball/03a-broken.png" alt="Similar to the previous image, but with obvious graphical corruption">
 </div>
 
 I said [in the beginning]({filename}/2018-06-19-cheezball-rising-a-new-game-boy-color-game.markdown) that I liked mGBA and would be developing against it.  That's still true — it's open source (and I've actually read some of it), it's cross-platform, and it has some debug tools built in.
@@ -297,7 +297,7 @@ Compounding this problem is that Game Boy Color games can also run on the Game B
 It's interesting to see different emulators' opinions of how to render color:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/03b-emulator-colors.png" alt="The same screenshot, seen in several different emulators with different color schemes">
+<img src="{static}/media/cheezball/03b-emulator-colors.png" alt="The same screenshot, seen in several different emulators with different color schemes">
 </div>
 
 This is exactly the same ROM.  The top left is mGBA out of the box, which shows colors completely unaltered — usually fairly saturated.  The top right is mGBA with its "gba-colors" shader enabled, which is supposed to replicate how colors appear on a GBA screen, but seems passingly similar to a GBC too.  Then on the bottom are two emulators renowned for their accuracy, here wildly disagreeing with each other.

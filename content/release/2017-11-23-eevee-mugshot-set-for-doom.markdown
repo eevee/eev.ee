@@ -4,7 +4,7 @@ category: release
 tags: making things, doom
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-11-23-eeveemug/ingame-screenshot.png" alt="Screenshot of Industrial Zone from Doom II, with an Eevee face replacing the usual Doom marine in the status bar">
+<img src="{static}/media/2017-11-23-eeveemug/ingame-screenshot.png" alt="Screenshot of Industrial Zone from Doom II, with an Eevee face replacing the usual Doom marine in the status bar">
 </div>
 
 A full replacement of Doomguy's vast array of 42 expressions.
@@ -20,7 +20,7 @@ I don't _entirely_ know why I did this.  I drew the [first one](https://twitter.
 The funny thing is that I usually play Doom with ZDoom's "alternate" HUD.  It's a full-screen overlay rather than a huge bar, and — crucially — it _does not show_ the mugshot.  It can't even be configured to show the mugshot.  As far as I'm aware, it can't even be _modded_ to show the mugshot.  So I have to play with the OG status bar if I want to actually use the thing I made.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-11-23-eeveemug/montage.png" alt="Preview of the Eevee mugshot sprites arranged in a grid, where the Eevee becomes more beaten up in each subsequent column">
+<img src="{static}/media/2017-11-23-eeveemug/montage.png" alt="Preview of the Eevee mugshot sprites arranged in a grid, where the Eevee becomes more beaten up in each subsequent column">
 </div>
 
 I'm pretty happy with the results overall!  I think I did a decent job emulating the Doom "surreal grit" style.  I did the shading with [Aseprite](https://www.aseprite.org/)'s [shading mode](https://twitter.com/SoloSalsero/status/804084882074980360) — instead of laying down a solid color, it shifts pixels along a ramp of colors you select every time you draw over them.  Doom's palette has a _lot_ of browns, so I made a ramp out of all of them and kept going over furry areas, nudging pixels into being lighter or darker, until I liked the texture.  It was a lot like making a texture in a sketch with a lot of scratchy pencil strokes.
@@ -30,7 +30,7 @@ I also gleaned some interesting things about smoothness and how the eye interpre
 ----
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-11-23-eeveemug/doom-palette.png" alt="Doom's palette of 256 colors, many of which are very long gradients of reds and browns">
+<img src="{static}/media/2017-11-23-eeveemug/doom-palette.png" alt="Doom's palette of 256 colors, many of which are very long gradients of reds and browns">
 </div>
 
 Speaking of which, Doom's palette is _incredibly_ weird to work with.  Thank goodness Eevees are brown!  The game does have to draw arbitrary levels of darkness all with the same palette, which partly explains the number of dark colors and gradients — but I believe a number of the colors are exact duplicates, so close they might as well be duplicates, or completely unused in stock Doom assets.  I guess they had no reason to optimize for people trying to add arbitrary art to the game 25 years later, though.  (And nowadays, [GZDoom](https://zdoom.org/index) includes a truecolor software renderer, so the palette is becoming less and less important.)
@@ -40,7 +40,7 @@ I originally wanted the god mode sprite to be a Sylveon, but Sylveon is made of 
 The most significant change I made between the original sprite and the final set was the eye color:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-11-23-eeveemug/STFST20-comparison.png" alt="A comparison between an original Doom mugshot sprite, the first sprite I drew, and how it ended up">
+<img src="{static}/media/2017-11-23-eeveemug/STFST20-comparison.png" alt="A comparison between an original Doom mugshot sprite, the first sprite I drew, and how it ended up">
 </div>
 
 (This is `STFST20`, a frame from the default three-frame "glacing around" animation that plays when the player has between 40 and 59 health.  Doom Wiki has [a whole article on the mugshot](https://doomwiki.org/wiki/Status_bar_face) if you're interested.)
@@ -52,7 +52,7 @@ After I decided to make the full set, I started by making a neutral and complete
 I also notice that there are two columns of identical pixels in each eye!  I fixed that in the glance to the right, but must've forgotten about it here.  Oh, well; I didn't even notice until I zoomed in just now.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-11-23-eeveemug/general-comparison.png" alt="A general comparison between the Doom mugshots and my Eevee ones, showing each pose in its healthy state plus the neutral pose in every state of deterioration">
+<img src="{static}/media/2017-11-23-eeveemug/general-comparison.png" alt="A general comparison between the Doom mugshots and my Eevee ones, showing each pose in its healthy state plus the neutral pose in every state of deterioration">
 </div>
 
 The original sprites might not be _quite_ aligned correctly in the above image.  The available space in the status bar is 35×31, of which a couple pixels go to an inset border, leaving 33×30.  I drew all of my sprites at that size, but the originals are all cropped and have varying offsets (part of the Doom sprite format).  I extremely can't be assed to check all of those offsets for over a dozen sprites, so I just told ImageMagick to center them.  (I only notice _right now_ that some of the original sprites are even a full 31 pixels tall and draw over the top border that I was so careful to stay out of!)

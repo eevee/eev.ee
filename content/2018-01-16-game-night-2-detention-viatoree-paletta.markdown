@@ -16,7 +16,7 @@ tags: game night
 ## Detention
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/detention.jpg" alt="">
+<img src="{static}/media/game-night/detention.jpg" alt="">
 </div>
 
 <center>*longish · inventory horror · jan 2017 · lin/mac/win · $12 on [steam](http://store.steampowered.com/app/555220/Detention/) · [website](http://redcandlegames.com/detention/)*</center>
@@ -47,7 +47,7 @@ The whole game has a huge Silent Hill vibe, only without the combat and fog.  Fr
 ## Viatoree
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/viatoree.png" alt="">
+<img src="{static}/media/game-night/viatoree.png" alt="">
 </div>
 
 <center>*short · platformer · sep 2013 · win · free on [itch](https://karolbelina.itch.io/viatoree)*</center>
@@ -70,7 +70,7 @@ Unfortunately, we collected four of the five macguffins before hitting upon on a
 ## Paletta
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/paletta.png" alt="">
+<img src="{static}/media/game-night/paletta.png" alt="">
 </div>
 
 <center>*medium · puzzle story · nov 2017 · win · free on [itch](https://cosmic-latte-games.itch.io/paletta)*</center>

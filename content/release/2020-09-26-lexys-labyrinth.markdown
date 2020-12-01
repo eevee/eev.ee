@@ -4,7 +4,7 @@ category: release
 tags: gamedev
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/lexys-labyrinth/lexys-labyrinth.png" alt="Screenshot of a small tile-based puzzle with a number of different elements, taken from CCLP1">
+<img src="{static}/media/release/lexys-labyrinth/lexys-labyrinth.png" alt="Screenshot of a small tile-based puzzle with a number of different elements, taken from CCLP1">
 </div>
 
 🔗 [**Lexy's Labyrinth**](https://c.eev.ee/lexys-labyrinth/)  
@@ -28,7 +28,7 @@ The game found wider recognition with its inclusion in [Microsoft Entertainment 
 That in itself is a curious story — numerous features of the Atari Lynx version were lost in translation, most notably that the Lynx version has the player and monsters slide smoothly between grid cells, whereas the Microsoft port has everything instantly snap from one cell to the next.  Also conspicuous is the presence of several typos in level passwords, which are exactly consistent with [a set of notes a player took about the Lynx game](https://wiki.bitbusters.club/Jaime_Villacorte%27s_notes), but which would be impossible in a straight port — the Lynx level passwords weren't manually set, but were generated on the fly by a PRNG.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/lexys-labyrinth/mschips.png" alt="Screenshot of the Microsoft edition of Chip's Challenge, showing the first level, courtesy of the BBC wiki">
+<img src="{static}/media/release/lexys-labyrinth/mschips.png" alt="Screenshot of the Microsoft edition of Chip's Challenge, showing the first level, courtesy of the BBC wiki">
 </div>
 
 The most obvious explanation is that the developer responsible for the Microsoft port didn't have access to the Lynx source code, and in fact, _had never played the original game at all_.  That would explain nearly every major gameplay difference between the Lynx and Microsoft versions, which are all things you'd never notice if you only had static screenshots and maps to work from.  Given that restriction, hey, not a bad job.
@@ -62,7 +62,7 @@ Also I didn't really understand how to handle the passage of time, so the game w
 But, given all that, it wasn't _that_ bad.  I found the source code a few years ago and [put it on GitHub](https://gist.github.com/eevee/1b371c4b2470dd82cbcf) along with a sample level and a description of all the tiles you can use in the plaintext level format.  I've got a [prebuilt binary for DOS](https://c.eev.ee/CHIPS.EXE) (usable in DosBox) too, if you like — just have a `levels.txt` in the same directory, and be sure it uses DOS line endings.  I used to have one or two actual levels, but they have tragically been lost to the sands of time.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/lexys-labyrinth/qbchips.png" alt="Screenshot of my QBasic implementation of Chip's Challenge, using all character-based graphics">
+<img src="{static}/media/release/lexys-labyrinth/qbchips.png" alt="Screenshot of my QBasic implementation of Chip's Challenge, using all character-based graphics">
 </div>
 
 That would've been 2002.
@@ -74,8 +74,8 @@ Thirteen years later, in April 2015, a miracle occurred and defeated the Christi
 It was fine.  I don't know.  Over a decade of anticipation gets your hopes up, maybe.  It's a perfectly good puzzle game, and I don't want to dunk on it, but sometimes I interact with it and I feel all life drain from my body.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/lexys-labyrinth/cc2female1.png" alt="Screenshot of CC2, with an overlaid hint saying: &quot;This is Melinda.  Being female, she does some things differently than Chip.&quot;">
-<img src="{filename}/media/release/lexys-labyrinth/cc2female2.png" alt="Screenshot of CC2, with an overlaid hint saying: &quot;She doesn't slide when she steps on ice.  But she needs hiking boots to walk on dirt or gravel.&quot;">
+<img src="{static}/media/release/lexys-labyrinth/cc2female1.png" alt="Screenshot of CC2, with an overlaid hint saying: &quot;This is Melinda.  Being female, she does some things differently than Chip.&quot;">
+<img src="{static}/media/release/lexys-labyrinth/cc2female2.png" alt="Screenshot of CC2, with an overlaid hint saying: &quot;She doesn't slide when she steps on ice.  But she needs hiking boots to walk on dirt or gravel.&quot;">
 </div>
 
 I don't even know whether to talk about this completely unreadable way of showing hints or the utterly baffling justification of "being female" for these properties.
@@ -115,7 +115,7 @@ I've been ignoring pretty much everything else for a month to get this in a usab
 ...okay, I haven't been ignoring _everything_ else.  I also reused the tiles I drew for a fox flux minigame in a similar style, except that you place a limited set of tiles in empty spaces and then let the game run _by itself_.  Kind of like...  Chip's Challenge meets The Incredible Machine.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/lexys-labyrinth/fox-flux-minigame-demo.gif" alt="Recording of a minigame, showing a drone character interacting with moving floors and following instructions on the ground">
+<img src="{static}/media/release/lexys-labyrinth/fox-flux-minigame-demo.gif" alt="Recording of a minigame, showing a drone character interacting with moving floors and following instructions on the ground">
 </div>
 
 (That arrow tile has since been updated to be more clear, but it means "when you hit something, turn around instead of stopping and ending the game.")

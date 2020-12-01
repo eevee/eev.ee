@@ -3,7 +3,7 @@ date: 2019-04-20 09:08
 category: release
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/particle-wipe-generator.gif" alt="Animation of solid orange transitioning to green via a swirl of little fox face shapes">
+<img src="{static}/media/release/particle-wipe-generator.gif" alt="Animation of solid orange transitioning to green via a swirl of little fox face shapes">
 </div>
 
 🔗 [**Particle wipe generator on itch**](https://eevee.itch.io/particle-wipe-generator) or [hosted locally](https://c.eev.ee/particle-wipe-generator/)  
@@ -20,7 +20,7 @@ Most of my games have done screen transitions with simple fades, and I wanted to
 I was inspired by two things.  One is Cave Story's transitions.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/particle-wipe-generator/cave-story-transition.gif" alt="The end of Cave Story's intro cutscene, which transitions to gameplay with an animated pattern of diamonds">
+<img src="{static}/media/release/particle-wipe-generator/cave-story-transition.gif" alt="The end of Cave Story's intro cutscene, which transitions to gameplay with an animated pattern of diamonds">
 </div>
 
 That looks rad, right?  I think it does, anyway.  I wanted to do something similar myself.
@@ -30,7 +30,7 @@ At a glance, this effect looks pretty simple.  The screen is sliced into a grid.
 Here's a frame from the above capture, showing the grid.  You can see from the blocks near the middle that it's the same as the tile grid.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/particle-wipe-generator/cave-story-grid.png" alt="">
+<img src="{static}/media/release/particle-wipe-generator/cave-story-grid.png" alt="">
 </div>
 
 Notice that Cave Story transitions either from a scene to a solid color, or vice versa.  Offhand, I don't think the game ever transitions directly between two scenes.
@@ -48,7 +48,7 @@ One such transition is a generic one called [`ImageDissolve`](https://www.renpy.
 That's a bit of a mouthful to describe with text, so here's a basic example.  A linear gradient from black to white will play out as a straight wipe in the same direction.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/particle-wipe-generator/mask-example.gif" alt="">
+<img src="{static}/media/release/particle-wipe-generator/mask-example.gif" alt="">
 </div>
 
 This approach can capture any kind of transition where pixels are revealed in a given order, and if I implement it with a shader (which is very easy), I can emulate the Cave Story style without being limited to a solid color!  Neat!
@@ -63,7 +63,7 @@ Let me think about emulating Cave Story's effect using the mask approach, one st
 Forget about the wipe effect for now and concentrate on a single cell.  When the diamond is just starting to appear, it should be black.  When it completely fills the cell — i.e., when it's big enough that its edges just barely touch the cell corners — it should be white.  In the middle somewhere, it should be medium gray.  Imagining (or drawing) a few cases suggests a simple diamond gradient, which seems correct.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/particle-wipe-generator/diamond-cell.png" alt="">
+<img src="{static}/media/release/particle-wipe-generator/diamond-cell.png" alt="">
 </div>
 
 Now for the wipe effect.  All it really does is stagger _when the animation starts_.  The upwards wipe, for example, starts animating all the cells on the bottom row, waits some short amount of time, then starts animating all the cells on the next row up, and so on.  An ASCII diagram of this process (for a simplified, smaller screen) might look like:
@@ -113,7 +113,7 @@ The real problem there is that a heart is, presumably, a _bitmap_ rather than a 
 But the second problem is worse.  Hearts aren't vertically symmetrical, which means a _neighboring_ heart might poke into a cell and start covering pixels that the native heart hasn't covered yet.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/particle-wipe-generator/heart-cell-problem.png" alt="A 3×3 grid of hearts expanding out of their cells, showing that the top of a heart can grow into the cell above.">
+<img src="{static}/media/release/particle-wipe-generator/heart-cell-problem.png" alt="A 3×3 grid of hearts expanding out of their cells, showing that the top of a heart can grow into the cell above.">
 </div>
 
 This complicates things considerably.  If I took the naïve approach of gluing together a bunch of independent cells, then the top of each heart would reach the top of its cell and flatten out into a hard border!  Sounds ugly, especially since the grid isn't really supposed to be visible in the animation.  (Technically this could happen with diamonds too, if the delay were high enough, but their symmetry makes it much harder to notice.)
@@ -138,7 +138,7 @@ I already know in advance that a single cell doesn't need to scale from 0 to 1, 
 The first thing I want to do is change my coordinate system.  Consider: for a 10×10 cell, the center is at the point (5, 5), which neighbors pixels (4, 4) and (5, 5).  But that would mean the heart would touch the pixel at (5, 5) _immediately_, whereas it would need to cross a whole pixel to reach (4, 4), even though both pixels touch the center!
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/particle-wipe-generator/coord-problem.png" alt="Close zoom of the problem described above, with the top-left corners of pixels in red, and their centers in blue">
+<img src="{static}/media/release/particle-wipe-generator/coord-problem.png" alt="Close zoom of the problem described above, with the top-left corners of pixels in red, and their centers in blue">
 </div>
 
 Pixel coordinates refer to the _top left corners_ of the pixels, indicated in red above.  The center is a point, not a pixel, and it's clearly much closer to one pixel coordinate than the other.  The fix is to use the _centers_ of pixels, indicated in blue, which are the same distance from where the heart starts.  Phew!
@@ -156,7 +156,7 @@ You know, it sucks that the particle is a two-dimensional shape.  It would be sw
 And here I borrow a couple techniques from collision detection.  Scaling the particle _up_ is equivalent to scaling the entire cell _down_.  If I scaled the cell down towards the origin, the point would trace a straight line.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/particle-wipe-generator/inverse-scaling.gif" alt="Animation of a grid scaling down towards the origin, showing that a point traces a straight line">
+<img src="{static}/media/release/particle-wipe-generator/inverse-scaling.gif" alt="Animation of a grid scaling down towards the origin, showing that a point traces a straight line">
 </div>
 
 This is _very_ helpful.  It means I can solve this problem with a raycast: fire a straight ray into the particle, towards its center, and check each pixel it hits until I find an opaque one.  That'll give me a _perfect_ answer!
@@ -164,7 +164,7 @@ This is _very_ helpful.  It means I can solve this problem with a raycast: fire 
 But where does the ray start?  I have a point in the grid, but not a point on the particle.  So the first question is: if the particle scaled up just enough that the _edge of the particle image_ touched the point, where _on the particle_ would that contact be?
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/particle-wipe-generator/particle-touch.png" alt="The same point as before, but with the particle grown to barely touch it">
+<img src="{static}/media/release/particle-wipe-generator/particle-touch.png" alt="The same point as before, but with the particle grown to barely touch it">
 </div>
 
 Call the particle dimensions $p_w$ by $p_h$.  (My heart is contained within a square, but that isn't strictly necessary.)  In order to reach x-coordinate $d_x$, the particle would have to be twice as wide as the distance from the y-axis to that point — because it's centered! — which is $\left|2 d_x\right|$ pixels wide.  Its scale, relative to its original size, would thus be $\frac{\left|2 d_x\right|}{p_w}$.  The scale for touching the y-coordinate would be computed the same way.  To actually touch the _point_, the particle has to reach whichever coordinate is further away, so its scale must be:
@@ -182,7 +182,7 @@ And now I raycast from that point to the center of the particle and check every 
 When I find an opaque-ish pixel (alpha of 0.5 or greater), I compute its distance from the center, divide by the distance from the contact point to the center — that tells me how much bigger the particle has to grow for the opaque-ish pixel I found to actually touch the point.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/particle-wipe-generator/particle-final-scale.png" alt="">
+<img src="{static}/media/release/particle-wipe-generator/particle-final-scale.png" alt="">
 </div>
 
 Multiply that ratio by the $s$ I found earlier, and the result is exactly what I was looking for: the scale of the particle when it touches the point!
@@ -238,7 +238,7 @@ First, expand the stamp to the size of a 3×3 block of cells.  The maximum scale
 Then, when reading a pixel's stamp in step 3 above, read it from the central cell — _and also_ from the neighboring cells.  In those neighbors, I read from the stamp cell on the opposite side, in order to know how long it would take for the heart to grow _out_ of that cell and into this one.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/particle-wipe-generator/overlap-problem.png" alt="">
+<img src="{static}/media/release/particle-wipe-generator/overlap-problem.png" alt="">
 </div>
 
 (Diagonal neighbors aren't shown here, but you get the idea.)
@@ -248,13 +248,13 @@ Since different cells may have different start times, I may need to add/subtract
 And hey, presto, we're done!  Here's a (somewhat laggy) recording I took of the very first time I got this working for Cherry Kisses:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/particle-wipe-generator/cherry-kisses-initial.gif" alt="">
+<img src="{static}/media/release/particle-wipe-generator/cherry-kisses-initial.gif" alt="">
 </div>
 
 It ended up a little nicer-looking than that, of course.  (Feel free to play the game to see it in action?)  And if you're curious, here's the mask from the final game:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/particle-wipe-generator/cherry-kisses-mask.png" alt="">
+<img src="{static}/media/release/particle-wipe-generator/cherry-kisses-mask.png" alt="">
 </div>
 
 ### Caveats

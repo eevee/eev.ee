@@ -16,7 +16,7 @@ I can't very well run a game jam and not play any of the games, so here's some o
 ## Weather Quest, by timlmul
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/games-made-quick-2/weather-quest.png" alt="">
+<img src="{static}/media/game-night/games-made-quick-2/weather-quest.png" alt="">
 </div>
 
 <center>*short · rpg · jan 2017 · (lin)/mac/win · free on [itch](https://timlmul.itch.io/weather-quest) · [jam entry](https://itch.io/jam/games-made-quick-2/rate/214063)*</center>
@@ -33,7 +33,7 @@ Only Mac and Windows builds are on itch, but it's a LÖVE game, so Linux folks c
 ## Pancake Numbers Simulator, by AnorakThePrimordial
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/games-made-quick-2/pancake-numbers-simulator.png" alt="">
+<img src="{static}/media/game-night/games-made-quick-2/pancake-numbers-simulator.png" alt="">
 </div>
 
 <center>*short · sim · jan 2017 · lin/mac/win · free on [itch](https://anoraktheprimordial.itch.io/pancake-numbers-simulator) · [jam entry](https://itch.io/jam/games-made-quick-2/rate/213239)*</center>
@@ -50,7 +50,7 @@ This probably doesn't work too well as a simulator for solving the _general_ pro
 ## Framed Animals, by chridd
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/games-made-quick-2/framed-animals.png" alt="">
+<img src="{static}/media/game-night/games-made-quick-2/framed-animals.png" alt="">
 </div>
 
 <center>*short · metroidvania · jan 2017 · web/win · free on [itch](https://chridd.itch.io/framed-animals) · [jam entry](https://itch.io/jam/games-made-quick-2/rate/214158)*</center>
@@ -69,7 +69,7 @@ Gravity feels a little high given the size of the screen, and like most tile-les
 ## Battle 4 Glory, by Storyteller Games
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/games-made-quick-2/battle-4-glory.png" alt="">
+<img src="{static}/media/game-night/games-made-quick-2/battle-4-glory.png" alt="">
 </div>
 
 <center>*short · fighter · jan 2017 · win · free on [itch](https://storytellergames.itch.io/battle-4-glory) · [jam entry](https://itch.io/jam/games-made-quick-2/rate/214091)*</center>
@@ -84,7 +84,7 @@ Alas, that's about as far as it got — which is pretty far for a week of work! 
 ## Icnaluferu Guild, Year Sixteen, by CHz
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/games-made-quick-2/icnaluferu-guild-year-sixteen.png" alt="">
+<img src="{static}/media/game-night/games-made-quick-2/icnaluferu-guild-year-sixteen.png" alt="">
 </div>
 
 <center>*short · adventure · jan 2017 · web · free on [itch](https://chz.itch.io/icnaluferu-guild-year-sixteen) · [jam entry](https://itch.io/jam/games-made-quick-2/rate/213873)*</center>
@@ -101,7 +101,7 @@ It's pretty good.  The dialogue is entertaining (the rest of your party develops
 ## The Lonely Tapes, by JTHomeslice
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/games-made-quick-2/the-lonely-tapes.png" alt="">
+<img src="{static}/media/game-night/games-made-quick-2/the-lonely-tapes.png" alt="">
 </div>
 
 <center>*short · rpg · jan 2017 · web · free on [itch](https://jthomeslice.itch.io/the-lonely-tapes) · [jam entry](https://itch.io/jam/games-made-quick-2/rate/212755)*</center>
@@ -120,7 +120,7 @@ I have the sneaking suspicion that I missed out on some musical in-jokes, due to
 ## Pirate Kitty-Quest, by TheKoolestKid
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/games-made-quick-2/pirate-kitty-quest.png" alt="">
+<img src="{static}/media/game-night/games-made-quick-2/pirate-kitty-quest.png" alt="">
 </div>
 
 <center>*short · adventure · jan 2017 · win · free on [itch](https://finnrocket5.itch.io/pirate-kitty-quest) · [jam entry](https://itch.io/jam/games-made-quick-2/rate/213885)*</center>
@@ -141,7 +141,7 @@ This game wins the jam, hands down.  🏆
 ## CHIPS Mario, by NovaSquirrel
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/games-made-quick-2/chips-mario.png" alt="">
+<img src="{static}/media/game-night/games-made-quick-2/chips-mario.png" alt="">
 </div>
 
 <center>*short · platformer · jan 2017 · (lin/mac)/win · free on [itch](https://novasquirrel.itch.io/chips-mario) · [jam entry](https://itch.io/jam/games-made-quick-2/rate/214130)*</center>
@@ -162,7 +162,7 @@ The collision is a _little_ glitchy, which isn't surprising for a MegaZeux platf
 ## d!¢&lt; pic, by 573 Games
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/games-made-quick-2/dick-pic.png" alt="">
+<img src="{static}/media/game-night/games-made-quick-2/dick-pic.png" alt="">
 </div>
 
 <center>*short · story · jan 2017 · web · free on [itch](https://studio573games.itch.io/d-pic) · [jam entry](https://itch.io/jam/games-made-quick-2/rate/212800)*</center>
@@ -179,7 +179,7 @@ I'm also left wondering when it _is_ appropriate to send a dick pic.  Presumably
 ## Marble maze, by Shtille
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/games-made-quick-2/marble-maze.jpg" alt="">
+<img src="{static}/media/game-night/games-made-quick-2/marble-maze.jpg" alt="">
 </div>
 
 <center>*short · arcade · jan 2017 · win · free on [itch](https://shtille.itch.io/marble-maze) · [jam entry](https://itch.io/jam/games-made-quick-2/rate/214039)*</center>
@@ -198,7 +198,7 @@ Camera-relative movement is the kind of thing I take so much for granted that I 
 ## Refactor: flight, by fluffy
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/games-made-quick-2/refactor-flight.png" alt="">
+<img src="{static}/media/game-night/games-made-quick-2/refactor-flight.png" alt="">
 </div>
 
 <center>*short · arcade · jan 2017 · lin/mac/win · free on [itch](https://fluffy.itch.io/refactor) · [jam entry](https://itch.io/jam/games-made-quick-2/rate/155962)*</center>
@@ -217,7 +217,7 @@ The music is great too?  Really chill all around.
 ## The Adventures of Klyde
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/games-made-quick-2/the-adventures-of-klyde.png" alt="">
+<img src="{static}/media/game-night/games-made-quick-2/the-adventures-of-klyde.png" alt="">
 </div>
 
 <center>*short · adventure · jan 2017 · web · free on [itch](https://jazdaredbone.itch.io/the-adventures-of-klyde) · [jam entry](https://itch.io/jam/games-made-quick-2/rate/214132)*</center>

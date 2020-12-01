@@ -4,7 +4,7 @@ category: release
 tags: gamedev
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/gamesmadequick2.png" alt="">
+<img src="{static}/media/release/gamesmadequick2.png" alt="">
 </div>
 
 🔗 [**GAMES MADE QUICK??? 2.0 on itch**](https://itch.io/jam/games-made-quick-2)

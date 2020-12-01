@@ -136,7 +136,7 @@ With that, the music was perfect.  I ran the script, and after about half a minu
 All of the music was pop-free...  except for _one_ song.  I looked at that one in Audacity and did find a discontinuity again, but this time, it was smack dab in the middle of one of the original sounds!  I have no idea how this happened:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-30-pico8music/pico8-bogus-sound.png" alt="Waveform that jumps irregularly in several places">
+<img src="{static}/media/2016-05-30-pico8music/pico8-bogus-sound.png" alt="Waveform that jumps irregularly in several places">
 </div>
 
 I tried to fix this by delicately drawing over it, to no avail.  At least it was fairly minor.

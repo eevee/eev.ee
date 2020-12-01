@@ -17,7 +17,7 @@ Here's the post I wish I could've read in the first place.
 In a casual sense, "noise" is random garbage.  Here's some visual noise.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/white-noise.png" alt="white noise" title="visual white noise">
+<img src="{static}/media/2016-05-29-perlin/white-noise.png" alt="white noise" title="visual white noise">
 </div>
 
 This is _white_ noise, which roughly means that all the pixels are random and unrelated to each other.  The average of all these pixels should be #808080, a medium gray — it turns out to be #848484, which is pretty close.
@@ -29,7 +29,7 @@ However, most things aren't purely random.  Smoke and clouds and terrain may loo
 That noise is often Perlin noise, which looks like this.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/perlin-noise.png" alt="Perlin noise" title="Perlin noise">
+<img src="{static}/media/2016-05-29-perlin/perlin-noise.png" alt="Perlin noise" title="Perlin noise">
 </div>
 
 That hopefully looks familiar, even if only as a Photoshop filter you tried out once.  (I created it with GIMP's Filters → Render → Clouds → Solid Noise.)
@@ -37,7 +37,7 @@ That hopefully looks familiar, even if only as a Photoshop filter you tried out 
 The most obvious difference is that it looks cloudy.  More technically, it's _continuous_ — if you zoom in far enough, you'll always see a smooth gradient.  There are no jarring transitions from black to white.  That makes it work surprisingly well when you want something "random", but not, you know...  _too_ random.  Here's a quick sky, made from the exact same image.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/perlin-noise-sky.png" alt="Clouds derived from Perlin noise">
+<img src="{static}/media/2016-05-29-perlin/perlin-noise-sky.png" alt="Clouds derived from Perlin noise">
 </div>
 
 All I did was add a layer of solid blue underneath; use Levels to chop off the darkest parts of the noise; and use what was left as a transparent white on top.  It could be better, but it's not bad for about ten seconds of work.  It even tiles seamlessly!
@@ -50,7 +50,7 @@ You can make Perlin noise in any number of dimensions.  The above image is of co
 First, at every integer _x = 0, 1, 2, 3, …_, choose a random number between -1 and 1.  This will be the slope of a line at that point, which I've drawn in light blue.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/perlin1d1-random-slopes.png" alt="" title="Random slopes at each tick mark">
+<img src="{static}/media/2016-05-29-perlin/perlin1d1-random-slopes.png" alt="" title="Random slopes at each tick mark">
 </div>
 
 It doesn't really matter how many points you choose.  Each segment — the space between two tick marks — works pretty much the same way.  As long as you can remember all the slopes you picked, you can extend this line as far as you want in either direction.  These sloped lines are all you need to make Perlin noise.
@@ -62,7 +62,7 @@ Armed with this knowledge, it's easy to find out where those two sloped lines cr
 I've drawn a bunch of example points in orange.  You can see how they follow the two sloped lines on either side.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/perlin1d2-extrapolate.png" alt="" title="Values for various x along the two sloped lines">
+<img src="{static}/media/2016-05-29-perlin/perlin1d2-extrapolate.png" alt="" title="Values for various x along the two sloped lines">
 </div>
 
 The question now becomes: how can these pairs of points combine into a smooth curve?  The most obvious thing is to average them, but a quick look at the graph shows that that won't work.  The "average" of two lines is just a line drawn halfway between them, and the average line for each segment wouldn't even touch its neighbor.
@@ -74,7 +74,7 @@ Linear interpolation is pretty simple: if you're _t_ of the way between two extr
 Let's give that a try.  I've marked the interpolated points in red.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/perlin1d3-lerp.png" alt="" title="Values for various x along the two sloped lines">
+<img src="{static}/media/2016-05-29-perlin/perlin1d3-lerp.png" alt="" title="Values for various x along the two sloped lines">
 </div>
 
 Not a bad start.  It's not quite Perlin noise yet; there's one little problem, though it may not be immediately obvious from just these points.  I can make it more visible, if you'll forgive a brief tangent.
@@ -98,7 +98,7 @@ Pick a segment.  It has a "half"-line jutting into it from each end.  Mirror the
 I've illustrated this below.  The dotted lines are the mirrored images; the darker blue lines are the summed new lines; the darker blue points are their intersections (and the third handle for a quadratic Bézier curve); and the red arc is the exact curve following the red points.  If you know a little calculus, you can confirm that the slope on the left side is _a - b_ and the slope on the right side is _b - a_, which indeed makes them mirror images.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/perlin1d4-quadratic-curves.png" alt="" title="Linear interpolated points, fit to a curve, with a geometric explanation">
+<img src="{static}/media/2016-05-29-perlin/perlin1d4-quadratic-curves.png" alt="" title="Linear interpolated points, fit to a curve, with a geometric explanation">
 </div>
 
 Hopefully the problem is now more obvious: these curves don't transition smoothly into each other.  There's a distinct corner at each tick mark.  The one at the end, where both curves are pointing downwards, is particularly bad.
@@ -110,7 +110,7 @@ Thankfully, someone has already figured this out for us.  Before we do the linea
 The result is quartic — _t⁴_, which SVG's cubic Béziers can't exactly trace — so the gray line is a rough approximation.  I've compensated by adding many more points, which are in black.  Those points came out of [Ken Perlin's original `noise1` function](https://mrl.nyu.edu/~perlin/doc/oscar.html#noise), by the way; this is true Perlin noise.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/perlin1d5-smoothstep.png" alt="" title="Real Perlin noise, with smoothstep applied">
+<img src="{static}/media/2016-05-29-perlin/perlin1d5-smoothstep.png" alt="" title="Real Perlin noise, with smoothstep applied">
 </div>
 
 The new dots are _close_ to the red quadratic curves, but near the tick marks, they shift to follow the original light blue slopes.  The midpoints have exactly the same values, because _smoothstep_ doesn't change ½.
@@ -120,7 +120,7 @@ The new dots are _close_ to the red quadratic curves, but near the tick marks, t
 If you want to get a better handle on how this feels, here's that same graph, but live!  Click and drag to mess with the slopes.
 
 <div class="prose-full-illustration">
-<object type="image/svg+xml" data="{filename}/media/2016-05-29-perlin/perlin1d-interactive.svg"></object>
+<object type="image/svg+xml" data="{static}/media/2016-05-29-perlin/perlin1d-interactive.svg"></object>
 </div>
 
 
@@ -133,7 +133,7 @@ In a shocking twist, the cloudiness isn't actually part of Perlin noise.  It's a
 Create another Perlin curve (or reuse the same one), but double the resolution — so there's a randomly-chosen line at _x = 0, ½, 1, ..._.  Then halve the output value, and add it on top of the first curve.  You get something like this.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/perlin1d6-octaves.png" alt="" title="Perlin noise with two octaves">
+<img src="{static}/media/2016-05-29-perlin/perlin1d6-octaves.png" alt="" title="Perlin noise with two octaves">
 </div>
 
 The entire graph has been scaled down to half size, but extended to the full range of the first graph.
@@ -141,7 +141,7 @@ The entire graph has been scaled down to half size, but extended to the full ran
 You can repeat this however many times you want, making each graph half the size of the previous one.  Each separate graph is called an _octave_ (from music, where one octave has twice the frequency of the previous), and the results look nice and jittery after four or five octaves.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/perlin1d7-more-octaves.png" alt="" title="Perlin noise with five octaves">
+<img src="{static}/media/2016-05-29-perlin/perlin1d7-more-octaves.png" alt="" title="Perlin noise with five octaves">
 </div>
 
 
@@ -183,7 +183,7 @@ Cosine tells you how small an angle is — or in this case, how close together t
 To visualize what this _means_, I plotted only the dot product between a point and its nearest grid point.  This is the equivalent of the orange dots from the 1-D graph.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/perlin2d3-gradients.png" alt="" title="Gradients around each grid point">
+<img src="{static}/media/2016-05-29-perlin/perlin2d3-gradients.png" alt="" title="Gradients around each grid point">
 </div>
 
 That's pretty interesting.  Remember, this is a kind of top-down view of a 3-D graph.  The x- and y-coordinates are the input, the point of our choosing, and the _z_-coordinate is the output.  It's usually drawn with a shade of gray, as I've done here, but you can also picture it as a depth.  White points are coming out of the screen towards you, and black points are deeper into the screen.
@@ -195,7 +195,7 @@ You may not be surprised to learn at this point that the random vectors are usua
 Now, each point has _four_ dot products, which need to be combined together somehow.  Linear interpolation only works for exactly two values, so instead, we have to interpolate them in pairs.  One round of interpolation will get us down to two values, then another round will produce a single value, which is the output.
 
 <div class="prose-full-illustration">
-<object type="image/svg+xml" data="{filename}/media/2016-05-29-perlin/perlin2d-interactive.svg"></object>
+<object type="image/svg+xml" data="{static}/media/2016-05-29-perlin/perlin2d-interactive.svg"></object>
 </div>
 
 I tried to make a diagram showing an intermediate state, to help demonstrate how the multiple gradients combine, but I couldn't quite figure out how to make it work sensibly.
@@ -259,7 +259,7 @@ The choice of _smoothstep_ is somewhat arbitrary; you could use any function tha
 There's no reason you couldn't also adapt, say a sine curve: _½sin(π(x - ½)) + ½_.  Not necessarily practical, and almost certainly much slower than a few multiplications, but it's perfectly valid.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/perlin-smooth-curves.png" alt="Comparison of the three curves">
+<img src="{static}/media/2016-05-29-perlin/perlin-smooth-curves.png" alt="Comparison of the three curves">
 </div>
 
 Looks pretty similar to me.  _smootherstep_ has some harsher extremes, which is interesting.
@@ -298,7 +298,7 @@ Octaves will change the output range, of course.  One octave will increase the r
 The output of Perlin noise is not evenly distributed, not by a long shot.  Here's a histogram of some single-octave 2-D Perlin noise generated by GIMP:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/perlin-histogram.png" alt="" title="2-D Perlin noise histogram">
+<img src="{static}/media/2016-05-29-perlin/perlin-histogram.png" alt="" title="2-D Perlin noise histogram">
 </div>
 
 I have no idea what this distribution is; it's sure not a bell curve.  Notice in particular that the top and bottom ⅛ of values are virtually nonexistent.  If you play with the live 2-D demo, you can probably figure out why that happens: you only get a bright white if all four neighboring arrows are pointing towards the center of the square, and only get black if all four arrows are pointing away.  Both of those cases are relatively unlikely.
@@ -312,7 +312,7 @@ There are quite a lot of applications for Perlin noise.  I've seen wood grain fa
 Because it's continuous, you can use one axis as _time_, and get noise that also changes smoothly over time.  Here's a loop of some noise, where each frame is a 2-D slice of a (tiling) 3-D block of noise:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-05-29-perlin/perlin-noise-loop.gif" alt="" title="Looping Perlin noise">
+<img src="{static}/media/2016-05-29-perlin/perlin-noise-loop.gif" alt="" title="Looping Perlin noise">
 </div>
 
 

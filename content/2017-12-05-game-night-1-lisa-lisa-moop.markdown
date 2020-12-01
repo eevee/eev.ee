@@ -24,7 +24,7 @@ First up:
 ## Lisa: The Painful
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/lisa-the-painful.png" alt="">
+<img src="{static}/media/game-night/lisa-the-painful.png" alt="">
 </div>
 
 <center>*long · classic rpg · dec 2014 · lin/mac/win · $10 on [itch](https://dingalingboy.itch.io/lisathepainfulrpg) or [steam](http://store.steampowered.com/app/335670) · [website](http://www.lisatherpg.com/)*</center>
@@ -141,7 +141,7 @@ Should you play it?  I have absolutely no idea.
 ## Lisa: The Joyful
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/lisa-the-joyful.png" alt="">
+<img src="{static}/media/game-night/lisa-the-joyful.png" alt="">
 </div>
 
 <center>*fairly short · classic rpg · aug 2015 · lin/mac/win · $5 on [itch](https://dingalingboy.itch.io/lisa-the-joyful-ost) or [steam](http://store.steampowered.com/app/379310/LISA_the_Joyful/)*</center>
@@ -178,7 +178,7 @@ I think it's worth playing Joyful if you've played Painful.  It just didn't have
 ## MOOP
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/game-night/moop.png" alt="">
+<img src="{static}/media/game-night/moop.png" alt="">
 </div>
 
 <center>*fairly short · inventory game · nov 2017 · win · free on [itch](https://geoff-moore.itch.io/moop)*</center>

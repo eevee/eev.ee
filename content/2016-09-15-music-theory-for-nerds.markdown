@@ -32,7 +32,7 @@ I would love to provide an illustration of this, but the trouble is that it woul
 Instead, let's jump straight to the graphs.  Here's a sine wave.
 
 <div class="prose-full-illustration" markdown="1">
-![Graph of a sine wave.  Frequency is labeled as the horizontal distance between waves; amplitude is labeled as the vertical distance between the highest and lowest points.]({filename}/media/2016-09-15-music/sine-wave.png)
+![Graph of a sine wave.  Frequency is labeled as the horizontal distance between waves; amplitude is labeled as the vertical distance between the highest and lowest points.]({static}/media/2016-09-15-music/sine-wave.png)
 </div>
 
 It doesn't matter what a sine wave _is_; it just happens to be a common wave that's easy to make a graph of.
@@ -43,7 +43,7 @@ All sound you ever hear is a graph like this; nothing more.  If you open up a so
 
 Waves are defined by a couple of things: frequency, amplitude, and shape.  The particular sound you hear — the thing that distinguishes a guitar from a violin — is the shape of the wave, which musicians call _timbre_.
 
-A sine wave sounds something like this: <audio src="{filename}/media/2016-09-15-music/sine-wave.ogg" type="audio/ogg" controls><a href="{filename}/media/2016-09-15-music/sine-wave.ogg">(sine-wave.ogg, 11.7KiB)</a></audio>
+A sine wave sounds something like this: <audio src="{static}/media/2016-09-15-music/sine-wave.ogg" type="audio/ogg" controls><a href="{static}/media/2016-09-15-music/sine-wave.ogg">(sine-wave.ogg, 11.7KiB)</a></audio>
 
 Amplitude is the distance between the lowest and highest points of the wave.  Or, depending on who you ask, it might be half that — the distance between the highest point and zero.  For sound, amplitude determines the _volume_ of the sound you hear.  This seems pretty reasonable, since in physical terms, amplitude is the furthest distance the medium moves.  If you tap a drum lightly, it only moves very slightly, and the sound is quiet.  If you wail on a drum, it moves quite a bit, and the sound is much louder.
 
@@ -55,9 +55,9 @@ A critical property of the human ear, which informs all the rest of this, is tha
 
 Compare these three sine waves, if you like.  The first is the same as the sine wave from earlier; the second has 1.5× the frequency of the first; the third has 2× the frequency of the first.  The first and third sound much more related than the second sounds to either.
 
-- 440 Hz: <audio src="{filename}/media/2016-09-15-music/sine-wave.ogg" type="audio/ogg" controls><a href="{filename}/media/2016-09-15-music/sine-wave.ogg">(sine-wave.ogg, 11.7KiB)</a></audio>
-- 660 Hz: <audio src="{filename}/media/2016-09-15-music/sine-wave-1.5.ogg" type="audio/ogg" controls><a href="{filename}/media/2016-09-15-music/sine-wave-1.5.ogg">(sine-wave-1.5.ogg, 13.1KiB)</a></audio>
-- 880 Hz: <audio src="{filename}/media/2016-09-15-music/sine-wave-2.ogg" type="audio/ogg" controls><a href="{filename}/media/2016-09-15-music/sine-wave-2.ogg">(sine-wave-2.ogg, 13.7KiB)</a></audio>
+- 440 Hz: <audio src="{static}/media/2016-09-15-music/sine-wave.ogg" type="audio/ogg" controls><a href="{static}/media/2016-09-15-music/sine-wave.ogg">(sine-wave.ogg, 11.7KiB)</a></audio>
+- 660 Hz: <audio src="{static}/media/2016-09-15-music/sine-wave-1.5.ogg" type="audio/ogg" controls><a href="{static}/media/2016-09-15-music/sine-wave-1.5.ogg">(sine-wave-1.5.ogg, 13.1KiB)</a></audio>
+- 880 Hz: <audio src="{static}/media/2016-09-15-music/sine-wave-2.ogg" type="audio/ogg" controls><a href="{static}/media/2016-09-15-music/sine-wave-2.ogg">(sine-wave-2.ogg, 13.7KiB)</a></audio>
 
 
 ## Notes and octaves
@@ -284,7 +284,7 @@ The ["circle of fifths"](https://en.wikipedia.org/wiki/Circle_of_fifths) is a th
 Oh, and integer ratios probably appeal to the human ear because they make the combined waves line up every so often.  Here's what a perfect fifth looks like — the top two tones are A4 and E5, using the not-quite-perfect twelfth root of two.  Because they're in a nice ratio of 3:2, adding them together creates a repeating set of six waves, which itself resembles a wave.
 
 <div class="prose-full-illustration" markdown="1">
-![Two waveforms add together to make a regular, repeating pattern]({filename}/media/2016-09-15-music/perfect-fifth.png)
+![Two waveforms add together to make a regular, repeating pattern]({static}/media/2016-09-15-music/perfect-fifth.png)
 </div>
 
 (A4 is the A note within octave 4.  Octave 4 starts at middle C, and both are named based on the layout of a piano.  A common reference point for tuning is to set A4 to 440 Hz.)

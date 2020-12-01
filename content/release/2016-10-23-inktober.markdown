@@ -38,7 +38,7 @@ Let's see what exactly I've learned.
 ## Analog materials are very different
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-23-inktober/20161014-064-bergmite.jpg" alt="" title="Oct 14, 2016: Bergmite">
+<img src="{static}/media/2016-10-23-inktober/20161014-064-bergmite.jpg" alt="" title="Oct 14, 2016: Bergmite">
 </div>
 
 I've drawn plenty of pencil sketches on paper, and I've done a few watercolors, but I've never done this volume of "serious" art on paper before.
@@ -59,7 +59,7 @@ The drawing of bergmite above was done as the light marker started to run dry, w
 ## Ink is permanent
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-23-inktober/20161005-045-floatzel.jpg" alt="" title="Oct 5, 2016: Floatzel">
+<img src="{static}/media/2016-10-23-inktober/20161005-045-floatzel.jpg" alt="" title="Oct 5, 2016: Floatzel">
 </div>
 
 Well.  Obviously.
@@ -88,7 +88,7 @@ Since I can't fix mistakes, I've had to be a little creative about papering over
 ## Ink takes a while
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-23-inktober/20161002-040-gardevoir.jpg" alt="" title="Oct 2, 2016: Gardevoir">
+<img src="{static}/media/2016-10-23-inktober/20161002-040-gardevoir.jpg" alt="" title="Oct 2, 2016: Gardevoir">
 </div>
 
 Ink drawings feel like they've consumed my entire _month_.  Sketching and then lining means drawing everything twice.  Using physical ink means I have to _nail_ the sketch — but I'm used to digital, where I can sketch sloppily and then fixing up lines as I go.  I also can't rearrange the sketch, move it around on the paper if I started in the wrong place, or even erase precisely, so I've had to be much more careful and thoughtful even with pencil.  That's a _good_ thing — I don't put nearly enough conscious thought into what I'm drawing — but it definitely takes longer.  In a few thorny cases I've even resorted to doing a very loose digital sketch, then drawing the pencil sketch based off of that.
@@ -105,7 +105,7 @@ I'm feeling a bit exhausted with ink work at this point, which is not the best p
 ## Precision is difficult, and I am bad at planning
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-23-inktober/20161004-043-phantump.jpg" alt="" title="Oct 4, 2016: Phantump">
+<img src="{static}/media/2016-10-23-inktober/20161004-043-phantump.jpg" alt="" title="Oct 4, 2016: Phantump">
 </div>
 
 These turn out to be largely the same problem.
@@ -130,7 +130,7 @@ I have no idea how people make beautifully precise inkwork.  At the same time, I
 ## What even is pokémon anatomy
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-23-inktober/20161008-051-wigglytuff.jpg" alt="" title="Oct 8, 2016: Wigglytuff">
+<img src="{static}/media/2016-10-23-inktober/20161008-051-wigglytuff.jpg" alt="" title="Oct 8, 2016: Wigglytuff">
 </div>
 
 This is a wigglytuff.  Wigglytuffs are tall blobs with ears.
@@ -149,13 +149,13 @@ I don't know what precisely I've gotten out of this experience.  I can't measure
 The crowd favorite so far is this mega rayquaza, which is kinda funny to me because I don't feel like I did anything special here.  I just copied a bunch of fiddly details.  It looks cool, but it felt more like rote work than a struggle to do a new thing.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-23-inktober/20161011-057-mega-rayquaza.jpg" alt="" title="Oct 11, 2016: Mega Rayquaza">
+<img src="{static}/media/2016-10-23-inktober/20161011-057-mega-rayquaza.jpg" alt="" title="Oct 11, 2016: Mega Rayquaza">
 </div>
 
 My own favorite is this much simpler qwilfish.  It's the culmination of several attempts to draw water that I liked, and it came out the best by far.  The highlight is also definitely the best I've drawn this month.  Interesting how that works out.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-23-inktober/20161013-062-qwilfish.jpg" alt="" title="Oct 13, 2016: Qwilfish">
+<img src="{static}/media/2016-10-23-inktober/20161013-062-qwilfish.jpg" alt="" title="Oct 13, 2016: Qwilfish">
 </div>
 
 The rest are on [on Tumblr](https://lexyeevee.tumblr.com/tagged/daily-pok%C3%A9mon), or in [this single Twitter thread](https://twitter.com/eevee/status/790367777362026496).

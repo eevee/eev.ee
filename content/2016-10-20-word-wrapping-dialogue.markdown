@@ -6,7 +6,7 @@ tags: tech, gamedev
 I have a teeny tiny pet peeve with dialogue boxes.  Er, not _dialog_ boxes — dialogue boxes, the ones in video games with scrolling lines of dialogue.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-20-dialogue/dialogue-bad.gif" alt="A fake dialogue box, with scrolling text that jumps when it wraps">
+<img src="{static}/media/2016-10-20-dialogue/dialogue-bad.gif" alt="A fake dialogue box, with scrolling text that jumps when it wraps">
 </div>
 
 I recently wrote a dialogue box, and I saw a game that made this mistake, so here's a post about it.
@@ -19,7 +19,7 @@ I recently wrote a dialogue box, and I saw a game that made this mistake, so her
 Here's a live example of the above animation.  (You can double-click on any of these to restart them.)
 
 <div class="prose-full-illustration">
-<iframe src="{filename}/media/2016-10-20-dialogue/dialogue-bad.html" width="600" height="200"></iframe>
+<iframe src="{static}/media/2016-10-20-dialogue/dialogue-bad.html" width="600" height="200"></iframe>
 </div>
 
 And the code responsible.  I wrote this in the form of a fairly generic `update()` function, rather than in terms of `requestAnimationFrame`, to minimize the DOM-specific stuff.  All the JS in this post is vanilla DOM.
@@ -90,7 +90,7 @@ Also, if your text contains formatting — i.e., more HTML — then one `<span>`
 Here it is live:
 
 <div class="prose-full-illustration">
-<iframe src="{filename}/media/2016-10-20-dialogue/dialogue-html.html" width="600" height="200"></iframe>
+<iframe src="{static}/media/2016-10-20-dialogue/dialogue-html.html" width="600" height="200"></iframe>
 </div>
 
 ```javascript
@@ -171,7 +171,7 @@ Find something in your _graphics library_ to do this for you.  For example, LÖV
 Font-aware word-wrapping is surprisingly difficult in JavaScript, even though it's sitting on top of a glorified text renderer, so in the following example I've totally fudged it.  It may not work the same way on your screen that it does on mine, which is why you shouldn't be fudging it.
 
 <div class="prose-full-illustration">
-<iframe src="{filename}/media/2016-10-20-dialogue/dialogue-love.html" width="600" height="200"></iframe>
+<iframe src="{static}/media/2016-10-20-dialogue/dialogue-love.html" width="600" height="200"></iframe>
 </div>
 
 ```javascript

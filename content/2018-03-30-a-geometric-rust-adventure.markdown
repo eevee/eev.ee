@@ -21,7 +21,7 @@ Really, I want more than that: I want to drop them all on a canvas, intersect _e
 But intersection is a good start.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2018-03-30-rust-adventure/goal.png" alt="Example of the goal.  Given two squares that overlap at their corners, I want to find the small overlap piece, plus the two L-shaped pieces left over from each square">
+<img src="{static}/media/2018-03-30-rust-adventure/goal.png" alt="Example of the goal.  Given two squares that overlap at their corners, I want to find the small overlap piece, plus the two L-shaped pieces left over from each square">
 </div>
 
 I'm carefully referring to the input as _shapes_ rather than polygons, because each one could be a completely arbitrary collection of lines.  Obviously there's not much you can do with shapes that aren't even closed, but at the _very least_, I need to handle concavity and multiple disconnected polygons that together are considered a single input.
@@ -46,7 +46,7 @@ Thankfully, the author has published the sample code [on his own website](http:/
 If not, let me describe the algorithm and how the code is generally laid out.  The algorithm itself is based on a [sweep line](https://en.wikipedia.org/wiki/Sweep_line_algorithm), where a vertical line passes across the plane and ✨ _does stuff_ ✨ as it encounters various objects.  This implementation has no physical line; instead, it keeps track of which segments from the original polygon _would be_ intersecting the sweep line, which is all we really care about.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2018-03-30-rust-adventure/sweep-line.png" alt="A vertical line is passing rightwards over a couple intersecting shapes.  The line current intersects two of the shapes' sides, and these two sides are the &quot;sweep list&quot;">
+<img src="{static}/media/2018-03-30-rust-adventure/sweep-line.png" alt="A vertical line is passing rightwards over a couple intersecting shapes.  The line current intersects two of the shapes' sides, and these two sides are the &quot;sweep list&quot;">
 </div>
 
 The code is all bundled inside a class with only a single public method, `run`, because… that's… more object-oriented, I guess.  There are several helper methods, and state is stored in some attributes.  A rough outline of `run` is:
@@ -469,7 +469,7 @@ The worst was a precision error, where a vertical line could be split on a point
 All that done, I finally, _finally_, after a couple months of intermittent progress, got what I wanted!
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2018-03-30-rust-adventure/map01-reachability.png" alt="">
+<img src="{static}/media/2018-03-30-rust-adventure/map01-reachability.png" alt="">
 </div>
 
 This is Doom 2's MAP01.  The black area to the left of center is where the player starts.  Gray areas indicate where the player can walk from there, with lighter shades indicating more distant areas, where "distance" is measured by the minimum number of line crossings.  Red areas can't be reached at all.

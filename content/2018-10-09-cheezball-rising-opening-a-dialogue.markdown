@@ -22,7 +22,7 @@ Next: [collision detection]({filename}/2018-11-28-cheezball-rising-collision-det
 The previous episode was a diversion (and left an open problem that I only solved _after_ writing it), so the actual state of the game is unchanged.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04l-go-anise-go-again.gif" alt="Star Anise walking around a moon environment in-game, animated in all four directions">
+<img src="{static}/media/cheezball/04l-go-anise-go-again.gif" alt="Star Anise walking around a moon environment in-game, animated in all four directions">
 </div>
 
 Where should I _actually_ go from here?  Collision detection is an obvious place, but that's _hard_.  Let's start with something a little easier: displaying scrolling dialogue text.  This is likely to be a dialogue-heavy game, so I might as well get started on that now.
@@ -37,13 +37,13 @@ On the Game Boy, it's not quite that simple.  I can't just write text to the scr
 Let's look at how, say, Pokémon Yellow handles its menu.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/06a-pokemon-text-example.png" alt="Pokémon Yellow with several levels of menu open">
+<img src="{static}/media/cheezball/06a-pokemon-text-example.png" alt="Pokémon Yellow with several levels of menu open">
 </div>
 
 This looks — _feels_ — like it's being drawn on top of the map, and that sub-menus open on top of other menus.  But it's all an illusion!  There's no "on top" here.  This is a completely flat image made up of tiles, like anything else.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/06b-pokemon-text-grid.png" alt="The same screenshot, scaled up, with a grid showing the edges of tiles">
+<img src="{static}/media/cheezball/06b-pokemon-text-grid.png" alt="The same screenshot, scaled up, with a grid showing the edges of tiles">
 </div>
 
 This is why Pokémon has such a conspicuously blocky font: all the glyphs are drawn to fit in a single 8×8 char, so "drawing" text is as simple as mapping letters to char indexes and drawing them onto the background.  The map and the menu are all on the same layer, and the game simply redraws whatever was underneath when you close something.  Part of the illusion is that the game is clever enough to hide any sprites that _would_ overlap the menu — because sprites would draw on top!  (The Game Boy Color has some twiddles for controlling this layering, but Yellow was originally designed for the monochrome Game Boy.)
@@ -61,7 +61,7 @@ But I don't want to worry about any of this right now, before I even have text d
 Let's get back to the font itself.  I'm not in _love_ with the 8×8 aesthetic; what are my other options?  I do like the text in Oracle of Ages, so let's have a look at that:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/06c-oracle-of-ages-text-grid.png" alt="Oracle of Ages, also scaled up with a grid, showing its taller text">
+<img src="{static}/media/cheezball/06c-oracle-of-ages-text-grid.png" alt="Oracle of Ages, also scaled up with a grid, showing its taller text">
 </div>
 
 Ah, this is the same approach again, except that letters are now allowed to peek up into the char above.  So these are 8×16, but the letters all occupy a box that's more like 6×9, offering much more familiar proportions.  Oracle of Ages is designed for the Game Boy Color, which has twice as much char storage space, so it makes sense that they'd take advantage of it for text like this.
@@ -75,7 +75,7 @@ What other options do I have?  It seems like I'm limited to multiples of 8 here,
 The answer lies in the very last game released for the Game Boy Color: Harry Potter and the Chamber of Secrets.  Whatever deep secrets were learned during the Game Boy's lifetime will surely be encapsulated within this, er, movie tie-in game.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/06d-chamber-of-secrets-text-grid.png" alt="Harry Potter and the Chamber of Secrets, also scaled up with a grid, showing its text isn't fixed to the grid">
+<img src="{static}/media/cheezball/06d-chamber-of-secrets-text-grid.png" alt="Harry Potter and the Chamber of Secrets, also scaled up with a grid, showing its text isn't fixed to the grid">
 </div>
 
 _Hot damn._  That is a _ton_ of text in a relatively small amount of space!  And it doesn't fit the grid!  How did they do that?
@@ -83,13 +83,13 @@ _Hot damn._  That is a _ton_ of text in a relatively small amount of space!  And
 The answer is…  exactly how you'd think!
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/06e-chamber-of-secrets-tiles.png" alt="Tile display for the above screenshot, showing that the text is simply written across consecutive tiles">
+<img src="{static}/media/cheezball/06e-chamber-of-secrets-tiles.png" alt="Tile display for the above screenshot, showing that the text is simply written across consecutive tiles">
 </div>
 
 With a fixed-width font like in Pokémon and Zelda games, the entire character set is stored in VRAM, and text is drawn by drawing a string of characters.  With a variable-width font like in Harry Potter, a block of VRAM is reserved for text, and text is drawn _into those chars, in software_.  Essentially, some chars are used like a canvas and have text rendered to them on the fly.  The contents of the background layer might look like this in the two cases:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/06f-fixed-variable-font-comparison.png" alt="Illustration of fixed width versus variable width text">
+<img src="{static}/media/cheezball/06f-fixed-variable-font-comparison.png" alt="Illustration of fixed width versus variable width text">
 </div>
 
 Some pros of this approach:
@@ -468,7 +468,7 @@ There are a _lot_ of caveats in this first pass, including that there's nothing 
 As a proof of concept, though, it's a great start!
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/06g-text-attempt-1.png" alt="Screenshot of Anise, with a black dialogue box that says: A|">
+<img src="{static}/media/cheezball/06g-text-attempt-1.png" alt="Screenshot of Anise, with a black dialogue box that says: A|">
 </div>
 
 That's the letter `A`, followed by the first two pixels of the letter `B`.  I didn't implement the part where letters spill into the next column, yet.
@@ -723,7 +723,7 @@ The left column is completely full, so I don't need to buffer it any more.  The 
 And the test run:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/06h-text-attempt-2.png" alt="Screenshot of Anise, with a black dialogue box that says: ABABAAA">
+<img src="{static}/media/cheezball/06h-text-attempt-2.png" alt="Screenshot of Anise, with a black dialogue box that says: ABABAAA">
 </div>
 
 Hey hey, success!
@@ -736,7 +736,7 @@ I didn't mention it above because I didn't actually use it yet, but while doing 
 While testing out the dialogue, I notice a teeny tiny problem.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/06i-anise-corruption.png" alt="A screenshot similar to the above, but with some mild graphical corruption on Anise">
+<img src="{static}/media/cheezball/06i-anise-corruption.png" alt="A screenshot similar to the above, but with some mild graphical corruption on Anise">
 </div>
 
 Well, yes, obviously there's the problem of the textbox drawing _underneath_ the player.  Which is mostly a problem because the textbox doesn't go away, ever.  I'll worry about that later.
@@ -832,7 +832,7 @@ I then turned this into Game Boy tiles much the same way as with the sprite load
 The font itself is, well, a font?  I initially tried to give it [a little personality](https://github.com/eevee/anise-cheezball-rising/blob/5b2fc1218d50ccc03151bcaacd0feb607fe22908/data/font.png), but that made some of the characters weirdly wide and was a bit hard to read, so I revisited it and ended up with this:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/06j-font.png" alt="Pixel font covering all of ASCII">
+<img src="{static}/media/cheezball/06j-font.png" alt="Pixel font covering all of ASCII">
 </div>
 
 I like it, at least!  The characters all have shadows built right in, and you can see at the end that I was starting to play with some non-ASCII characters.  Because I can do that!
@@ -942,7 +942,7 @@ text:
 Now I just need to—  oh, hang on.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/06k-quickbrownfox.gif" alt="Animation of the text box sliding up and scrolling out the text">
+<img src="{static}/media/cheezball/06k-quickbrownfox.gif" alt="Animation of the text box sliding up and scrolling out the text">
 </div>
 
 Hey, it already works!  _Magic_.

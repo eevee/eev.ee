@@ -25,7 +25,7 @@ I haven't had time to take a deeper look at pixel art this way, so I'll try it r
 ## Doom II: MAP10, Refueling Base
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/doom2-refueling-base-1.png" alt="Opening view of Refueling Base, showing a descent down some stairs into a room not yet visible">
+<img src="{static}/media/2017-07-01-level-design/doom2-refueling-base-1.png" alt="Opening view of Refueling Base, showing a descent down some stairs into a room not yet visible">
 </div>
 
 *screenshots mine — map via [doom wiki](https://doomwiki.org/wiki/MAP10:_Refueling_Base_%28Doom_II%29) — see also [textured perspective map](http://ian-albert.com/games/doom_2_maps/MAP10.jpg) (warning: large!) via [ian albert](http://ian-albert.com/games/doom_2_maps/) — [pistol start playthrough](https://www.youtube.com/watch?v=yU_yBamWeSo)*
@@ -41,7 +41,7 @@ See, I got into Doom II through my dad, who played it on and off sometimes.  My 
 This may seem strange to bring up as a first example in a post about level design, but I don't think it would have impressed on me quite so much if the level weren't designed the way it is.  (It's just a video game, of course, and since then I've successfully beaten it from a pistol start myself.  But wow, little kid fears sure do linger.)
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/doom2-refueling-base-map.png" alt="Map of Refueling Base, showing multiple large rooms and numerous connections between them">
+<img src="{static}/media/2017-07-01-level-design/doom2-refueling-base-map.png" alt="Map of Refueling Base, showing multiple large rooms and numerous connections between them">
 </div>
 
 The one thing that most defines the map has to be its **interconnected layout**.  Almost every major area (of which there are at least half a dozen) has at least three exits.  Not only are you rarely faced with a dead end, but you'll almost always have a _choice_ of where to go next, and that choice will lead into more choices.
@@ -51,7 +51,7 @@ This hugely informs the early combat.  Many areas near the beginning are simply 
 The connections between rooms also yield numerous possible routes through the map, as well as several possible ways to approach any given room.  Some of the connections are secrets, which usually connect the "backs" of two rooms.  Clearing out one room thus rewards you with a sneaky way into another room that puts you behind all the monsters.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/doom2-refueling-base-3.png" alt="Outdoor area shown from the back; a large number of monsters are lying in wait">
+<img src="{static}/media/2017-07-01-level-design/doom2-refueling-base-3.png" alt="Outdoor area shown from the back; a large number of monsters are lying in wait">
 </div>
 
 In fact, the map **rewards you for exploring it** in general.
@@ -71,7 +71,7 @@ In fact, that single weird teleporter is exactly the kind of thing I'd like to b
 I think a big problem _I_ have is limiting myself to the expected and sensible, to the point that I don't even consider more outlandish ideas.  I can't shake that habit simply by bolding some text in a blog post, but maybe it would help to keep this in mind: **you can probably get away with anything, as long as you justify it somehow**.  Even "justify" here is too strong a word; it takes only the slightest nod to make an arbitrary behavior feel like part of a world.  Why does picking up a tiny glowing knight helmet give you 1% armor in Doom?  Does anyone care?  Have you even thought about it before?  It's green and looks like armor; the bigger armor pickup is also green; yep, checks out.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/doom2-refueling-base-5.png" alt="A dark and dingy concrete room full of monsters; a couple are standing under light fixtures">
+<img src="{static}/media/2017-07-01-level-design/doom2-refueling-base-5.png" alt="A dark and dingy concrete room full of monsters; a couple are standing under light fixtures">
 </div>
 
 On the other hand, the map as a whole ends up feeling very disorienting.  There's no shortage of landmarks, but every space is distinct in both texture and shape, so _everything_ feels like a landmark.  No one part of the map feels particularly central; there are a few candidates, but they neighbor other equally grand areas with just as many exits.  It's hard to get truly lost, but it's also hard to feel like you have a solid grasp of where everything is.  The space itself doesn't make much sense, even though small chunks of it do.  Of course, given that the Hellish parts of Doom were all just very weird overall, this is pretty fitting.
@@ -79,7 +79,7 @@ On the other hand, the map as a whole ends up feeling very disorienting.  There'
 This sort of design fascinates me, because the way it feels to play is so different from the way it _looks_ as a mapper with God Vision.  Looking at the overhead map, I can identify all the familiar places easily enough, but I don't know how to _feel_ the way the map feels to play; it just looks like some rooms with doors between them.  Yet I can see screenshots and have a sense of how "deep" in the level they are, how difficult they are to reach, whether I want to visit or avoid them.  The lesson here might be that most of the interesting flavor of the map isn't actually contained within the overhead view; it's in the use of height and texture and interaction.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/doom2-refueling-base-4.png" alt="Dark room with numerous alcoves in the walls, all of them containing a hitscan monster">
+<img src="{static}/media/2017-07-01-level-design/doom2-refueling-base-4.png" alt="Dark room with numerous alcoves in the walls, all of them containing a hitscan monster">
 </div>
 
 I realize as I describe all of this that I'm really just describing different kinds of **contrast**.  If I know one thing about creative work (and I do, I only know one thing), it's that effectively managing contrast is super duper important.
@@ -102,7 +102,7 @@ I do want to stick in one final comment about [MAP13, Downtown](https://doomwiki
 ## Braid: World 4-7, Fickle Companion
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/braid-fickle-companion-1.png" alt="Simple-looking platformer level with a few ladders, a switch, and a locked door">
+<img src="{static}/media/2017-07-01-level-design/braid-fickle-companion-1.png" alt="Simple-looking platformer level with a few ladders, a switch, and a locked door">
 </div>
 
 *screenshots via [StrategyWiki](https://strategywiki.org/wiki/Braid/World_4:_Time_and_Place) — [playthrough](https://www.youtube.com/watch?v=bfeDL4aCp-o) — [playthrough of secret area](https://www.youtube.com/watch?v=vvtnek-ezuM)*
@@ -124,7 +124,7 @@ You can see how this might be a problem in the screenshot above (where you get t
 The solution is in the cannon in the upper right, which spits out a Goomba-like critter.  It has the timeproof green glow, so the critters it spits out have the same green glow — making them immune to both your time reversal power _and_ to the effect your movement has on time.  What you have to do is get one of the critters to _pick up the key_ and carry it leftwards for you.  Once you have the puzzle piece, you have to rewind time and do it again elsewhere.  (Or, more likely, the other way around; this next section acts as a decent hint for how to do the earlier section.)
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/braid-fickle-companion-2.png" alt="A puzzle piece trapped behind two doors, in a level containing only one key">
+<img src="{static}/media/2017-07-01-level-design/braid-fickle-companion-2.png" alt="A puzzle piece trapped behind two doors, in a level containing only one key">
 </div>
 
 It's hard to convey how bizarre this is in just text.  If you haven't played Braid, it's absolutely worth it just for this one world, this one _level_.
@@ -149,7 +149,7 @@ I think that's all I've got for this one puzzle room.  I do want to say (again) 
 ## Portal: Testchamber 18 (advanced)
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/portal-testchamber-18-advanced.png" alt="View into a Portal test chamber; the ceiling and most of the walls are covered in metal">
+<img src="{static}/media/2017-07-01-level-design/portal-testchamber-18-advanced.png" alt="View into a Portal test chamber; the ceiling and most of the walls are covered in metal">
 </div>
 
 _screenshot mine — [playthrough of normal map](https://www.youtube.com/watch?v=ninRkHZ7WOg) — [playthrough of advanced map](https://www.youtube.com/watch?v=wNr9l8EZxz4)_
@@ -172,7 +172,7 @@ More of that.  Find the stuff that feels like it's going to burst out of your he
 ## Chip's Challenge: Level 122, Totally Fair and Level 131, Totally Unfair
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/chips-challenge-totally-fair-mechanism.png" alt="A small maze containing a couple monsters and ending at a brown button">
+<img src="{static}/media/2017-07-01-level-design/chips-challenge-totally-fair-mechanism.png" alt="A small maze containing a couple monsters and ending at a brown button">
 </div>
 
 *screenshots mine — [full maps of both levels](https://strategywiki.org/wiki/Chip%27s_Challenge/Levels_121-140) — [playthrough of Totally Fair](https://www.youtube.com/watch?v=ZOdjE8KhaXc) — [playthrough of Totally Unfair](https://www.youtube.com/watch?v=zn8wR53CxuA)*
@@ -186,7 +186,7 @@ The goal is to lure the teeth into standing on the brown button on the right sid
 The _reason_ you need the brown button pressed is to acquire the chips on the far right edge of the level.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/chips-challenge-totally-unfair-chips.png" alt="Several chips that cannot be obtained without stepping on a trap">
+<img src="{static}/media/2017-07-01-level-design/chips-challenge-totally-unfair-chips.png" alt="Several chips that cannot be obtained without stepping on a trap">
 </div>
 
 The gray recesses turn into walls after being stepped on, so once you grab a chip, the only way out is through the force floors and ice that will send you onto the trap.  If you haven't maneuvered the teeth onto the button beforehand, you'll be trapped there.
@@ -194,7 +194,7 @@ The gray recesses turn into walls after being stepped on, so once you grab a chi
 Doesn't seem like a huge deal, since you can go see exactly how the maze is shaped and move the teeth into position fairly easily.  But you see, here is the beginning of Totally Fair.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/chips-challenge-totally-fair-entrance.png" alt="A wall with a single recessed gray space in it">
+<img src="{static}/media/2017-07-01-level-design/chips-challenge-totally-fair-entrance.png" alt="A wall with a single recessed gray space in it">
 </div>
 
 The gray recess leads up into the maze area, so you can only enter it once.  A force floor in the upper right lets you exit it.
@@ -202,7 +202,7 @@ The gray recess leads up into the maze area, so you can only enter it once.  A f
 Totally Unfair is exactly identical, except the second teeth has been removed, and the entrance to the maze looks like this.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/chips-challenge-totally-unfair-entrance.png" alt="The same wall is now completely solid, and the recess has been replaced with a hint">
+<img src="{static}/media/2017-07-01-level-design/chips-challenge-totally-unfair-entrance.png" alt="The same wall is now completely solid, and the recess has been replaced with a hint">
 </div>
 
 You can't get into the maze area.  You can't even see the maze; it's too far away from the wall.  You have to position the teeth completely blind.  In fact, if you take a single step to the left from here, you'll have already dumped the teeth into the water and rendered the level impossible.
@@ -221,7 +221,7 @@ Anyway, enough puzzle games; let's get back to regular ol' level design.
 ## Link's Awakening: Level 7, Eagle's Tower
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/links-awakening-eagle-tower-before.png" alt="A 4×4 arrangement of rooms with a conspicuous void in the middle">
+<img src="{static}/media/2017-07-01-level-design/links-awakening-eagle-tower-before.png" alt="A 4×4 arrangement of rooms with a conspicuous void in the middle">
 </div>
 
 *maps via [vgmaps](http://www.vgmaps.com/Atlas/GB-GBC/index.htm#LegendOfZeldaLinksAwakeningDX) and [TCRF](https://tcrf.net/The_Legend_of_Zelda:_Link%27s_Awakening#Eagle.27s_Tower) — [playthrough with commentary](https://www.youtube.com/watch?v=ffJ5WGob0F8)*
@@ -241,7 +241,7 @@ That's something I like a lot about Doom, as well, but it's much more dramatic i
 The primary objective of the dungeon is to smash four support columns on 2F by throwing a huge iron ball at them, which causes 4F to _crash down_ into the middle of 3F.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-07-01-level-design/links-awakening-eagle-tower-after.png" alt="The same arrangement of rooms, but the four in the middle have changed">
+<img src="{static}/media/2017-07-01-level-design/links-awakening-eagle-tower-after.png" alt="The same arrangement of rooms, but the four in the middle have changed">
 </div>
 
 Even the map on the pause screen updates to reflect this.  In every meaningful sense, _you_, the player, have fundamentally reconfigured the shape of this dungeon.

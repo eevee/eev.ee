@@ -29,7 +29,7 @@ Stuck with JavaScript.
 ***Forever.***
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-31-javascript-bad/muahahaha.jpg" alt="" title="muahahahahaha...">
+<img src="{static}/media/2016-10-31-javascript-bad/muahahaha.jpg" alt="" title="muahahahahaha...">
 </div>
 
 _Happy Halloween..._

@@ -3,7 +3,7 @@ date: 2018-01-23 23:35
 category: release
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/release/gdq-schedule-dimmer.png" alt="">
+<img src="{static}/media/release/gdq-schedule-dimmer.png" alt="">
 </div>
 
 🔗 [**Source code on GitHub**](https://github.com/eevee/userscripts/blob/master/gdq-schedule-dimmer.user.js)  

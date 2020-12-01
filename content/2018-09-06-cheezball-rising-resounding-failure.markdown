@@ -22,7 +22,7 @@ Next: text!
 With the power of Aseprite, Tiled, and some Python I slopped together, the game has evolved beyond Test Art and into Regular Art.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/04l-go-anise-go-again.gif" alt="Star Anise walking around a moon environment in-game, animated in all four directions">
+<img src="{static}/media/cheezball/04l-go-anise-go-again.gif" alt="Star Anise walking around a moon environment in-game, animated in all four directions">
 </div>
 
 I've got so much work to do on this, so it's time to prioritize.  What is absolutely _crucial_ to this game?
@@ -95,7 +95,7 @@ That's C, written for the much-maligned GBDK, which for some reason uses regular
 
 It sounds like this.
 
-<audio controls src="{filename}/media/cheezball/05a-example-square-wave.wav"></audio>
+<audio controls src="{static}/media/cheezball/05a-example-square-wave.wav"></audio>
 
 Some explanation may be in order.  This is a big ol' mess and you could just as well read [the wiki's article on the sound controller](http://gbdev.gg8.se/wiki/articles/Sound_Controller), so feel free to skip ahead a bit.
 
@@ -126,7 +126,7 @@ Finally, AUD1ENV selects the volume envelope, which can increase or decrease ove
 And hey, that's all more or less what I see if I record mGBA's output in Audacity!
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/05b-demo-sound-audacity.png" alt="Waveform of the above sound">
+<img src="{static}/media/cheezball/05b-demo-sound-audacity.png" alt="Waveform of the above sound">
 </div>
 
 Boy!  What a horrible slog.  Don't worry; that's a good 75% of everything there is to know about the sound registers.  The second square wave is exactly the same except it can't do a frequency sweep.  The white noise channel is similar, except that instead of frequency, it has a few knobs for controlling how the noise is generated.  And the waveform channel is what the rest of this post is about—
@@ -155,7 +155,7 @@ Channel 3 plays a waveform from _waveform RAM_, which is a block of 16 bytes in 
 
 First things first: I need to take my sound and cram it into this format, somehow.  Here's the sound I'm starting with.
 
-<audio controls src="{filename}/media/cheezball/05c-aowr-original.wav"></audio>
+<audio controls src="{static}/media/cheezball/05c-aowr-original.wav"></audio>
 
 The original recording was a bit quiet, so I popped it open in Audacity and stretched it to max volume.  I only have 4-bit samples, remember, and trying to cram a quiet sound into a low bitrate will lose most of the detail.
 
@@ -217,12 +217,12 @@ I don't know why I started with 32768, either.  The resulting data is too big to
 
 The `aowrcrush.wav` file sounds a _little_ atrocious, fair warning.
 
-<audio controls src="{filename}/media/cheezball/05d-aowr-crushed.wav"></audio>
+<audio controls src="{static}/media/cheezball/05d-aowr-crushed.wav"></audio>
 
 But it seems to be correct, if I open it alongside the original:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/05e-audacity-crush-comparison.png" alt="Waveforms of the original sound and its bitcrushed form; the latter is very blocky">
+<img src="{static}/media/cheezball/05e-audacity-crush-comparison.png" alt="Waveforms of the original sound and its bitcrushed form; the latter is very blocky">
 </div>
 
 Crushing it to four bits caused the graph to stay fixed to only 16 possible values, which is why it's less smooth.  Reducing the sample rate made each sample last longer, which is why it's made up of short horizontal chunks.  (I resampled it back to 44100 for this comparison, so _really_ it's made of short horizontal chunks because each sample appears five times; Audacity wouldn't show an actual 8192 Hz file like this.)
@@ -276,7 +276,7 @@ Figuring out the frequency is a little more clumsy.  I used some rgbasm features
 
 The answer is that for the longest time I kept getting this absolutely horrible output, recorded directly from mGBA:
 
-<audio controls src="{filename}/media/cheezball/05f-aowr-horrible.wav"></audio>
+<audio controls src="{static}/media/cheezball/05f-aowr-horrible.wav"></audio>
 
 I had no idea what this was supposed to be.  Turns out it's, well, roughly what happens when you halve the Game Boy's idea of frequency.  I _finally_ found out this coefficient was different from [the gbdev wiki](http://gbdev.gg8.se/wiki/articles/Sound_Controller#FF1D_-_NR33_-_Channel_3_Frequency.27s_lower_data_.28W.29).  I'm guessing the factor of 2 has something to do with there being two nybbles per byte?
 
@@ -385,7 +385,7 @@ _addr = _addr + 1
 
 Perfect!  Let's give it a try.
 
-<audio controls src="{filename}/media/cheezball/05g-aowr-mgba.wav"></audio>
+<audio controls src="{static}/media/cheezball/05g-aowr-mgba.wav"></audio>
 
 Hey, that's not too bad!  I can see wiring that up to a button and pressing it relentlessly.  It's a bit rough, but it's not bad for this first attempt.
 
@@ -393,7 +393,7 @@ Hey, that's not too bad!  I can see wiring that up to a button and pressing it r
 
 That _was_ mGBA, though, and I've had surprising problems before because I was reading or writing when the actual hardware wouldn't let me.  I guess it wouldn't hurt to try in bgb.  (_warning: very bad_)
 
-<audio controls src="{filename}/media/cheezball/05h-disaster.wav"></audio>
+<audio controls src="{static}/media/cheezball/05h-disaster.wav"></audio>
 
 **OH NO**
 
@@ -423,7 +423,7 @@ Okay.  No problem.  I'll just turn it off, write to wave RAM, then turn it back 
 
 Okay!  Perfect!  I'm so ready for a meow!!!
 
-<audio controls src="{filename}/media/cheezball/05i-spiky.wav"></audio>
+<audio controls src="{static}/media/cheezball/05i-spiky.wav"></audio>
 
 _why god why_
 
@@ -442,7 +442,7 @@ Disabling the wave channel sets its internal buffer to all zeroes.
 I disable the wave channel every time it plays.  Effectively, every 32nd sample starting with the first is treated as zero, which is the most extreme negative value, which is why the playback looks like this (bearing in mind that mGBA's audio is currently upside-down):
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/cheezball/05j-spike-visualized.png" alt="The above sound's waveform, which resembles the original, but with regularly spaced spikes">
+<img src="{static}/media/cheezball/05j-spike-visualized.png" alt="The above sound's waveform, which resembles the original, but with regularly spaced spikes">
 </div>
 
 For whatever reason, bgb doesn't emulate this spiking, so it plays fine.  I'm told the spiking also happens on actual hardware, but the speakers are cheap so it's harder to notice.
@@ -565,7 +565,7 @@ And the spikes went away!  As an added bonus, waveforms are no longer upside-dow
 
 The result is so, so beautiful, _and_ virtually identical in every emulator:
 
-<audio controls src="{filename}/media/cheezball/05k-aowr-success.wav"></audio>
+<audio controls src="{static}/media/cheezball/05k-aowr-success.wav"></audio>
 
 ***YES!!!***
 

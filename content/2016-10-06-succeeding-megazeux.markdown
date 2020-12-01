@@ -104,13 +104,13 @@ How could you scale up the graphics but preserve the charm and approachability? 
 I think the palette restrictions might be important here, but merely bumping from 2 to 8 colors isn't quite right.  The palette-shifting in MegaZeux always makes me think of keys first, and multi-colored keys make me think of Chip's Challenge, where the key sprites were simple but lightly shaded.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-06-megazeux/cc2-keys.png" alt="All four Chips Challenge 2 keys">
+<img src="{static}/media/2016-10-06-megazeux/cc2-keys.png" alt="All four Chips Challenge 2 keys">
 </div>
 
 The game has to contain all four sprites separately.  If you wanted to have a single sprite and get all of those keys by drawing it in different colors, you'd have to specify _three_ colors per key: the base color, a lighter color, and a darker color.  In other words, a _ramp_ — a short gradient, chosen from a palette, that can represent the same color under different lighting.  [Here are some PICO-8 ramps, for example.](https://twitter.com/lexaloffle/status/548587394681675776)  What about a sprite system that drew sprites in terms of ramps rather than individual colors?
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-06-megazeux/paletted-door.png" alt="A pixel-art door in eight different color schemes">
+<img src="{static}/media/2016-10-06-megazeux/paletted-door.png" alt="A pixel-art door in eight different color schemes">
 </div>
 
 I whipped up this crappy example to illustrate.  All of the doors are fundamentally the same image, and all of them use only eight colors: black, transparent, and two ramps of three colors each.  The top-left door could be expressed as just "light gray" and "blue" — those colors would be expanded into ramps automatically, and black would remain black.
@@ -124,7 +124,7 @@ Now, MegaZeux has the problem that small sprites make it difficult to draw bigge
 I wonder what could be done here.  I know that the original Pokémon games have a concept of "metatiles": every map is defined in terms of 4×4 blocks of smaller tiles.  You can see it pretty clearly on this map of Pallet Town.  Each larger square is a metatile, and many of them repeat, even in areas that otherwise seem different.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-06-megazeux/pallet-town-metatiles.png" alt="Pallet Town from Pokémon Red, carved into blocks">
+<img src="{static}/media/2016-10-06-megazeux/pallet-town-metatiles.png" alt="Pallet Town from Pokémon Red, carved into blocks">
 </div>
 
 I left the NPCs in because they highlight one of the things I found most surprising about this scheme.  All the objects you interact with — NPCs, signs, doors, items, cuttable trees, even the player yourself — are 16×16 sprites.  The map _appears_ to be made out of 16×16 sprites, as well — but it's really built from 8×8 tiles arranged into bigger 32×32 tiles.
@@ -139,7 +139,7 @@ Text?  Oh, text can just be a font.
 MegaZeux has no HUD.  To know how much health you have, you need to press <kbd>Enter</kbd> to bring up the pause menu, where your health is listed in a stack of other numbers like "gems" and "coins".  I say "menu", but the pause menu is really a list of keyboard shortcuts, not something you can scroll through and choose items from.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-06-megazeux/mzx-menu.png" alt="MegaZeux's in-game menu, showing a list of keyboard shortcuts on the left and some stats on the right">
+<img src="{static}/media/2016-10-06-megazeux/mzx-menu.png" alt="MegaZeux's in-game menu, showing a list of keyboard shortcuts on the left and some stats on the right">
 </div>
 
 To be fair, ZZT does reserve the right side of the screen for your stats, and it puts health at the top.  I find myself scanning the MegaZeux pause menu for health every time, which seems a somewhat poor choice for the number that makes the game end when you run out of it.
@@ -216,7 +216,7 @@ die as an item
 ```
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-06-megazeux/mzx-robotic.png" alt="MegaZeux's Robotic editor">
+<img src="{static}/media/2016-10-06-megazeux/mzx-robotic.png" alt="MegaZeux's Robotic editor">
 </div>
 
 Robotic has no blocks, loops, locals, or functions — though recent versions can fake functions by using special jumps.  All you get is a fixed list of a few hundred commands.  It's effectively a form of bytecode assembly, with no manual assembling required.

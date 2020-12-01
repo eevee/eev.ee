@@ -4,7 +4,7 @@ category: release
 tags: making things
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2017-12-09-roguelike-simulator/roguelike-simulator.png" alt="Screenshot of a monochromatic pixel-art game designed to look mostly like ASCII text">
+<img src="{static}/media/2017-12-09-roguelike-simulator/roguelike-simulator.png" alt="Screenshot of a monochromatic pixel-art game designed to look mostly like ASCII text">
 </div>
 
 On a recent [game night]({filename}/2017-12-05-game-night-1-lisa-lisa-moop.markdown), glip and I stumbled upon [bitsy](https://ledoux.itch.io/bitsy) — a tiny game maker for "games where you can walk around and talk to people and be somewhere."  It's enough of a genre to have become a [top tag](https://itch.io/games/tag-bitsy) on itch, so we flicked through a couple games.

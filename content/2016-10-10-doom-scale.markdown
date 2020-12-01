@@ -58,7 +58,7 @@ The other problem with relating to real-world sizes is that it assumes there's a
 Consider Doomguy.  Here's his default forward-facing sprite, `PLAYA1`.  The pink area is his 32×56 collision box, the red dot is where he fires from, and the yellow dot is the location of the viewport.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-10-doom-metrics/doomguy.png" alt="Doomguy and some of his measurements">
+<img src="{static}/media/2016-10-10-doom-metrics/doomguy.png" alt="Doomguy and some of his measurements">
 </div>
 
 The collision box is the same height as the sprite itself, but it gets shifted upwards slightly because of the sprite offsets.  (Every sprite has an offset indicating where its bottom center is, since that's where the game tracks an object's position.  If Doomguy's sprite were just drawn from the bottom, he'd look like he were standing on his tiptoes.)
@@ -74,7 +74,7 @@ More importantly...  this weird ratio still doesn't jive with most _architecture
 Here are those measurements alongside the supposed sizes of Doomguy and a skinny door.  Something seems slightly off.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-10-doom-metrics/doors.png" alt="An illustration of how even Doom's smaller doors are twice the size they should be">
+<img src="{static}/media/2016-10-10-doom-metrics/doors.png" alt="An illustration of how even Doom's smaller doors are twice the size they should be">
 </div>
 
 The light blue boxes are the collision boxes; the dark blue boxes are Doomguy's apparent visible size.  I'm using his waist rather than his shoulders, because _most_ people's (or at least, my) shoulders are not too much wider than their hips — however Doomguy is a beefcake carved out of pure muscle and doors would not be designed for him.
@@ -82,13 +82,13 @@ The light blue boxes are the collision boxes; the dark blue boxes are Doomguy's 
 It seems as though all the architecture in Doom is about twice the size it _should_ be, for whatever reason.  Look what happens if I shrink the door, but not Doomguy:
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-10-doom-metrics/doors2.png" alt="The same illustration as above, but with the door scaled down by half">
+<img src="{static}/media/2016-10-10-doom-metrics/doors2.png" alt="The same illustration as above, but with the door scaled down by half">
 </div>
 
 If I use some ZDoom shenanigans to shrink a door within the game, it looks rather more like a real door.  (You'd have a hard time fitting through it without modifying the player's radius, though.)
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-10-doom-metrics/door-ingame.png" alt="A 32×64 door in Doom">
+<img src="{static}/media/2016-10-10-doom-metrics/door-ingame.png" alt="A 32×64 door in Doom">
 </div>
 
 It's not just architecture!  Keycard sprites are 14×16, which would be about a _foot and a half_ square.  The shotgun is 63 pixels long, a whopping 77".  A shotgun shell is 7 pixels long, almost 9".  The candelabra is 61 pixels tall — taller than Doomguy! — which is just over six feet.  This is ridiculous.  Halving all of these lengths makes them closer to something reasonable.
@@ -212,10 +212,10 @@ _However_, I've tried using a new kind of unit: Doom grid cells.  All of the num
 
 It might help to know that the player's maximum run speed is about 583 units per second...  or just over 9 grid cells per second.  With straferunning, it's about 11⅔ grid cells.
 
-I also ran all of these maps through a slightly modified [wad2svg](http://doombsp.sourceforge.net/wad2svg/) and combined them into a single image, depicting all of them at the same scale.  (If you like, I also have a _large_ [SVG version]({filename}/media/2016-10-10-doom-metrics/mapscale.svg.gz).)
+I also ran all of these maps through a slightly modified [wad2svg](http://doombsp.sourceforge.net/wad2svg/) and combined them into a single image, depicting all of them at the same scale.  (If you like, I also have a _large_ [SVG version]({static}/media/2016-10-10-doom-metrics/mapscale.svg.gz).)
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-10-doom-metrics/mapscale.png" alt="Several maps all drawn to the same scale">
+<img src="{static}/media/2016-10-10-doom-metrics/mapscale.png" alt="Several maps all drawn to the same scale">
 </div>
 
 One pixel is 16 Doom units; four pixels are 64 units or one grid cell; the grid lines mark 1024 units or 16 grid cells.  The player can run across one grid cell in 1.8 seconds, or 1.4 seconds when straferunning.
@@ -232,10 +232,10 @@ What if I fixed the player size?
 Assuming Tom Hall is correct that 1 real-world foot is equal to 16 Doom units, a six-foot-tall Marine should be 96 units tall.  With the magic of ZDoom, I can make that happen.  I can also fix the heights of the humanoid enemies.
 
 <div class="prose-full-illustration">
-<img src="{filename}/media/2016-10-10-doom-metrics/realprop.png" alt="The opening scene of Doom II, but with the player and visible enemies much larger">
+<img src="{static}/media/2016-10-10-doom-metrics/realprop.png" alt="The opening scene of Doom II, but with the player and visible enemies much larger">
 </div>
 
 The results are pretty hilarious.  Highly recommend running around for a bit with one of these.  Hint: you may want to bind a key to "crouch".
 
-- [Realistic proportions: player only]({filename}/media/2016-10-10-doom-metrics/realprop.pk3)
-- [Realistic proportions: player, imps, and the three human enemies]({filename}/media/2016-10-10-doom-metrics/realprop2.pk3)
+- [Realistic proportions: player only]({static}/media/2016-10-10-doom-metrics/realprop.pk3)
+- [Realistic proportions: player, imps, and the three human enemies]({static}/media/2016-10-10-doom-metrics/realprop2.pk3)

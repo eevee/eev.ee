@@ -4,7 +4,7 @@ category: blog
 tags: cats, styx, personal
 
 <div class="prose-illustration" markdown="1">
-{% photo /media/2013-04/styx-goodbye.jpg %}
+{% photo /media/2013-04/styx-goodbye.jpg Styx wrapped up snug in a robe on my bed %}
 </div>
 
 I can hardly believe I posted a [bunch of photos of Styx][blog: styx photodump] earlier this year.
