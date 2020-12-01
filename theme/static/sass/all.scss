@@ -619,14 +619,88 @@ article {
 
     kbd {
         font-size: 0.83em;
-        padding: 0 0.2em;
+        padding: 0 0.25em;
         border-radius: 0.33em;
-        border: 1px double $block-border;
-        border-width: 1px 3px 3px 1px;
+        border: 1px solid $block-border;
+        border-width: 1px 2px;
+        box-shadow: 0 2px $block-border;
         background: $block-bg;
     }
     kbd + kbd {
         margin-left: 0.25em;
+    }
+
+    // Asides, styled like in my book with room for an icon on the left
+    aside {
+        margin: 1em 0;
+        padding: 1em;
+        background: var(unquote(--bg-color));
+        border-left: 0.25em solid var(unquote(--fg-color));
+
+        --quip: "Note";
+        --fg-color: #d0d0d0;
+        --bg-color: unquote("#d0d0d020");
+        --image: url(/theme/images/asides/note.png);
+    }
+    aside p:last-child {
+        margin-bottom: 0;
+    }
+    aside::before {
+        // I can't believe I get away with this, but a flexbox allows me to
+        // align the image AND have it peek out below the border a bit
+        content: var(unquote(--image)) var(unquote(--quip));
+
+        font-size: 1.2em;
+        display: flex;
+        gap: 0.33rem;
+        align-items: center;
+
+        height: 1.25em;
+        margin-bottom: 0.5em;
+        border-bottom: 1px solid var(unquote(--fg-color));
+        color: var(unquote(--fg-color));
+    }
+    aside.aside--well-actually {
+        --quip: "Well, actually,";
+        --fg-color: #d77bba;
+        --bg-color: unquote("#d77bba20");
+        --image: url(/theme/images/asides/well-actually.png);
+    }
+    aside.aside--note-from-future {
+        --quip: "Note from the future";
+        --fg-color: #5b6ee1;
+        --bg-color: unquote("#5b6ee120");
+        --image: url(/theme/images/asides/note-from-the-future.png);
+    }
+    aside.aside--computers-are-bad {
+        --quip: "Computers are bad";
+        --fg-color: #ac3232;
+        --bg-color: unquote("#ac323220");
+        --image: url(/theme/images/asides/computers-are-bad.png);
+    }
+    aside.aside--fascinating-tangent {
+        --quip: "Fascinating tangent";
+        --fg-color: #3f3f74;
+        --bg-color: unquote("#3f3f7420");
+        --image: url(/theme/images/asides/fascinating-tangent.png);
+    }
+    aside.aside--matter-of-taste {
+        --quip: "A matter of taste";
+        --fg-color: #76428a;
+        --bg-color: unquote("#76428a20");
+        --image: url(/theme/images/asides/matter-of-taste.png);
+    }
+    aside.aside--look-out {
+        --quip: "Look out!";
+        --fg-color: #df7126;
+        --bg-color: unquote("#df712620");
+        --image: url(/theme/images/asides/look-out.png);
+    }
+    aside.aside--deceptively-difficult {
+        --quip: "Deceptively difficult";
+        --fg-color: #4b692f;
+        --bg-color: unquote("#4b692f20");
+        --image: url(/theme/images/asides/deceptively-difficult.png);
     }
 }
 
@@ -1264,6 +1338,11 @@ code {
     padding: 0.1em 0.25em;
     border-radius: 0.25em;
     background: $block-bg;
+}
+// But not for Pygments.
+.highlight code {
+    padding: 0;
+    background: none;
 }
 
 
