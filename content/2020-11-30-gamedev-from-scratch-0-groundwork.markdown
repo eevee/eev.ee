@@ -7,7 +7,7 @@ You may recall that I once had the ambitious idea to write a book on game develo
 
 That never quite materialized.  As it turns out, writing a book is a huge slog, publishers want almost all of the proceeds, and LaTeX is an endless rabbit hole of distractions that probably consumed more time than actually writing.  Also, a book about programming with no copy/paste or animations or hyperlinks kind of sucks.
 
-I thus present to you Plan B: a series of blog posts.  This is a narrative reconstruction of a small game I made recently, [Star Anise Chronicles: Oh No Wheres Twig??](content/release/2020-05-10-star-anise-chronicles-oh-no-wheres-twig.markdown).  It took me less than two weeks and I kept quite a few snapshots of the game's progress, so you'll get to see a somewhat realistic jaunt through the process of creating a small game from very nearly nothing.
+I thus present to you Plan B: a series of blog posts.  This is a narrative reconstruction of a small game I made recently, [Star Anise Chronicles: Oh No Wheres Twig??]({filename}/release/2020-05-10-star-anise-chronicles-oh-no-wheres-twig.markdown).  It took me less than two weeks and I kept quite a few snapshots of the game's progress, so you'll get to see a somewhat realistic jaunt through the process of creating a small game from very nearly nothing.
 
 And unlike your typical programming tutorial, I can _guarantee_ that this won't get you as far as a half-assed Mario clone and then abruptly end.  The game has original art and sound, a title screen, an ending, cutscenes, dialogue, UI, and more — so this series will necessarily cover how all of that came about.  I will tell you why I made particular decisions, mention planned features I cut, show you the tradeoffs I made, and confess when I made life harder for myself.  You know, all the stuff you _actually go through_ when doing game development (or, frankly, any kind of software development).
 
@@ -123,6 +123,10 @@ Something I just stated as though it were fact is really a matter of opinion (an
 
 <aside class="aside--look-out" markdown="1">
 Programming is full of pitfalls, and game development is practically overflowing with them.  Like that one you're falling into right now.
+</aside>
+
+<aside class="aside--tricky-tradeoff" markdown="1">
+You can't always get what you want.  But if you try sometimes, you might find, you can get half of each thing you wanted and it'll be good enough.
 </aside>
 
 <aside class="aside--deceptively-difficult" markdown="1">

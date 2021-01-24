@@ -696,6 +696,12 @@ article {
         --bg-color: unquote("#df712620");
         --image: url(/theme/images/asides/look-out.png);
     }
+    aside.aside--tricky-tradeoff {
+        --quip: "Tricky tradeoff";
+        --fg-color: #45283c;
+        --bg-color: unquote("#45283c20");
+        --image: url(/theme/images/asides/tricky-tradeoff.png);
+    }
     aside.aside--deceptively-difficult {
         --quip: "Deceptively difficult";
         --fg-color: #4b692f;
