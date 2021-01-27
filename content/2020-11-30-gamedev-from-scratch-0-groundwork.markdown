@@ -25,7 +25,8 @@ Here's what you have to look forward to (though it is of course a WIP until the 
 
 For reference, I started working on the game the morning of April 29, and I released it the night of May 10, for a total of twelve days.
 
-* **Part 0** (you are here): introduction, tour of PICO-8, putting something on the screen, moving around, measuring time, simple sprite animation
+* **Part 0: Groundwork** (you are here) — introduction, tour of PICO-8, putting something on the screen, moving around, measuring time, simple sprite animation
+* [Part 1: Scaffolding]({filename}/2021-01-26-gamedev-from-scratch-1-scaffolding.markdown) — structure, objects in Lua, a taste of collision detection
 
 <!--
 * Part 1: objects, basic architecture, collision [snapshot v1 — Apr 29, 7:31pm]
@@ -642,6 +643,8 @@ The results are basically magic.
 </div>
 
 And that's a good place to pause for now.  Yes, I know, we didn't get very far, but this _is_ part zero!  It's mostly a test of this series and its tone for me, and a test of fortitude for you.  I hope you could follow along with the minor mathematical hijinks above, because next time it gets _much_ worse — before I can do anything else at all, I have to write _collision detection_.  Oh boy!  Stay tuned!  And always feel free to ask questions, of me or anyone else!
+
+**[Part 1: Scaffolding →]({filename}/2021-01-26-gamedev-from-scratch-1-scaffolding.markdown)**
 
 
 ## Appendix: PICO-8 Lua extensions
