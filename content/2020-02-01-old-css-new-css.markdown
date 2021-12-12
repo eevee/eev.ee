@@ -98,7 +98,7 @@ So, let's look at the Space Jam website.
 
 Space Jam, if you're not aware, is the greatest movie of all time.  It documents Bugs Bunny's extremely short-lived basketball career, playing alongside a live action Michael Jordan to save the planet from aliens for some reason.  It was followed by a series of very successful and critically acclaimed [RPG spinoffs](https://www.talesofgames.com/related_game/barkley-shut-up-jam-gaiden/), which describe the fallout of the Space Jam and are extremely canon.
 
-And we are truly blessed, for 24 years after it came out, its website is [STILL UP](https://www.spacejam.com/).  We can explore the pinnacle of 1996 web design, right here, right now.
+And we are truly blessed, for 24 years after it came out, its website is [STILL UP](https://www.spacejam.com/1996/).  We can explore the pinnacle of 1996 web design, right here, right now.
 
 First, notice that every page of this site is a static page.  Not only that, but it's a static page ending in `.htm` rather than `.html`, because people on Windows versions before 95 were still beholden to 8.3 filenames.  Not sure why that mattered in a URL, as if you were going to run Windows 3.11 on a Web server, but there you go.
 
@@ -175,7 +175,7 @@ Other fantastic artifacts to be found on this page include this header, which co
 </table>
 ```
 
-Okay, let's check out [jam central](https://www.spacejam.com/cmp/jamcentral/jamcentralframes.html).  I've used my browser dev tools to reduce the viewport to 640×480 for the authentic experience (although I'd also have lost some vertical space to the title bar, taskbar, and five or six IE toolbars).
+Okay, let's check out [jam central](https://www.spacejam.com/1996/cmp/jamcentral/jamcentralframes.html).  I've used my browser dev tools to reduce the viewport to 640×480 for the authentic experience (although I'd also have lost some vertical space to the title bar, taskbar, and five or six IE toolbars).
 
 Note the frames: the logo in the top left leads back to the landing page, cleverly saving screen space on repeating all that navigation, and the top right is a fucking ad banner which has been blocked like seven different ways.  All three parts are separate pages.
 
@@ -361,6 +361,10 @@ So the IE team came up with a very strange compromise: they declared the old beh
 Everyone had to paste this damn mess of a line at the top of every single HTML document for years.  (HTML5 would later simplify it to `<!DOCTYPE html>`.)  In retrospect, it's a really strange way to opt into correct CSS behavior; doctypes had been part of the HTML spec since way back when it was an [RFC](https://tools.ietf.org/html/rfc1866).  I'm guessing the idea was that, since _nobody_ bothered actually including one, it was a convenient way to allow opting in without requiring proprietary extensions just to avoid behavior that had been wrong in the first place.  Good for the IE team!
 
 The funny thing is, quirks mode still exists _and is still the default_ in all browsers, twenty years later!  The exact quirks have varied over time, and in particular neither Chrome nor Firefox use the IE box model even in quirks mode, but there are still [quite a few other emulated bugs](https://developer.mozilla.org/en-US/docs/Mozilla/Mozilla_quirks_mode_behavior).
+
+<aside class="aside--note-from-future" markdown="1">
+Hello!  Eevee here, almost two years later.  You may notice the preceding link is broken.  Well, it seems Mozilla made the completely baffling decision to [nuke all Mozilla-specific information from MDN](https://groups.google.com/a/mozilla.org/g/dev-platform/c/HwRoRUOuyEw/m/ZfYG7oHZDQAJ?pli=1) on the grounds that it really belongs in Firefox documentation, then failed to add it to the Firefox documentation.  So some critical technical information that's also of deep historical interest, like exactly what quirks mode even _does_ in Firefox, is now lost, except for the unreadable [archived copy](https://github.com/mdn/archived-content/blob/main/files/en-us/mozilla/mozilla_quirks_mode_behavior/index.html).  This also reduces the only mention of quirks mode on MDN to [this lone article](https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode), which says very vaguely what it is but doesn't offer so much as a glimpse at what the differences actually are.  What a fucking circus.
+</aside>
 
 Modern browsers also have "almost standards" mode, which emulates only a single quirk, perhaps the second most infamous one: if a table cell contains only a single image, the space under the baseline is removed.  Under normal CSS rules, the image is sitting within a line of (otherwise empty) text, which requires some space reserved underneath for descenders — the tails on letters like y.  Early browsers didn't handle this correctly, and some otherwise strict-mode websites from circa 2000 rely on it — e.g., by cutting up a large image and arranging the chunks in table cells, expecting them to display flush against each other — hence the intermediate mode to keep them limping along.
 
