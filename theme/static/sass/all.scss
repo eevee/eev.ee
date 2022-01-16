@@ -46,7 +46,7 @@ $block-border: scale-color($eevee-socks, $saturation: -40%, $lightness: +10%);
 }
 
 @mixin phone-size {
-    @media (max-width: 400px) {
+    @media (max-width: 414px) { // on newest iPhone
         @content;
     }
 }
