@@ -34,7 +34,7 @@ I do not understand how anyone could argue with these.
 
 - **Fix the lighting.**
 
-    `Display options > Hardware renderer > Sector light mode: Doom`
+    `Display options > Hardware renderer > Sector light mode: Software`
 
     GZDoom has half a dozen different lighting models (for...  some reason), all of which are way off from how Doom actually looked, except for this one.
 
@@ -153,6 +153,14 @@ At the other end of the scale, there are those who want an experience as close a
 
     GZDoom's hardware renderer isn't bound by a palette, so it happily supports all 256 light levels.  If you can't stand this, well, it can simulate 16 for you.
 
+- **Disable truecolor.**
+
+    `Display options > Hardware renderer > Postprocessing > Tonemap mode: Palette`
+
+    Doom was a paletted game and only ever displayed the same 256 colors.  You can make the hardware renderer emulate this effect if you really want to.  I don't know why you would want to.
+
+    It won't be _exactly_ the same, of course; Doom's palette-mapping was handcrafted, whereas the renderer is doing it automatically.
+
 - **Disable the hardware renderer altogether.**
 
     `Set video mode > Render mode: True color SW renderer`
@@ -167,7 +175,7 @@ At the other end of the scale, there are those who want an experience as close a
 
     Doom didn't support looking up and down.  Why should you?
 
-    Despite the name, this still allows you to look around _horizontally_.  I guess technically that's turning, not looking.  Also, moving the mouse up and down will now move you (slowly) forwards or backwards.
+    Despite the name, this still allows you to look around _horizontally_.  I guess technically that's turning, not looking.  Also, moving the mouse up and down will now move you forwards or backwards, just as in vanilla Doom.
 
 - **Disable WASD.**
 
