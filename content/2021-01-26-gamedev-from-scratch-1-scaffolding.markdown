@@ -3,7 +3,7 @@ date: 2021-01-26 18:27
 category: blog
 tags: tech, gamedev
 
-Welcome to part 1 of this narrative series about writing a complete video game from scratch, using the PICO-8.  This is actually the second part, because in this house (unlike Lua) we index from 0, so if you're new here you may want to consult the introductory stuff and table of contents in [part zero]({filename}/content/2020-11-30-gamedev-from-scratch-0-groundwork.markdown).
+Welcome to part 1 of this narrative series about writing a complete video game from scratch, using the PICO-8.  This is actually the second part, because in this house (unlike Lua) we index from 0, so if you're new here you may want to consult the introductory stuff and table of contents in [part zero]({filename}/2020-11-30-gamedev-from-scratch-0-groundwork.markdown).
 
 If you've been following along, welcome back, and let's dive right in!
 
