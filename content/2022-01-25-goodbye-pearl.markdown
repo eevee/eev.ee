@@ -166,7 +166,7 @@ Cheeseball is the only cat we have who's younger than Pearl.  When he was a kitt
     pearl-lick-cheeseball.jpg This very large child is quite dirty. | Pearl licks kitten Cheeseball's head, though he's already bigger than her
 %}
 
-We moved in 2018, and spent the summer with an acquaintance's parents, as they had a finished and furnished basement that was practically an apartment all on its own.  Unfortunately, they had four cats of their own, for a total of _nine_ crammed into a relatively small space.  (One of the parents couldn't be around cat hair in the medium term, due to reasons.)
+We moved in 2018, and spent the summer with a former acquaintance's parents, as they had a finished and furnished basement that was practically an apartment all on its own.  Unfortunately, they had four cats of their own, for a total of _nine_ crammed into a relatively small space.  (One of the parents couldn't be around cat hair in the medium term, due to reasons.)
 
 One of the cats, Seamus, was a maine coon, and by all accounts kind of an asshole.  He made a habit out of chasing Napoleon around, which Napoleon did not like at all, and which would result in Pearl chasing _him_ to defend Napoleon, and then Anise chasing after Pearl because everyone is running around and he doesn't quite understand why but he doesn't want to be left out.  We kept the cats separated as best we could, but we didn't have much space to work with, and we were already trying to sequester Cheeseball, who we'd just adopted as a kitten.  Everything was just kind of a mess.
 
