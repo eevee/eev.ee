@@ -1,7 +1,7 @@
 title: Goodbye, Twigs
 date: 2019-10-26 20:12
 category: blog
-tags: cats, twigs, personal
+tags: cats, twigs, personal, eulogy
 
 {% illus /media/2019-10-goodbye-twigs/twigs-beautiful-sunbeam.jpg Twigs lounging in a cat tree, while a bright sunbeam illuminates him from behind %}
 

@@ -1,5 +1,6 @@
 """Liquid-style tag for inserting a gallery of images."""
 
+from html import escape
 import os.path
 import re
 import sys
@@ -47,9 +48,8 @@ def gallery(preprocessor, tag, markup):
         # Add _m to the filename for now
         thumbnail_path = '_m'.join(os.path.splitext(path))
 
-        # TODO escaping??
         # TODO doesn't use site root, but that happens to be / for us
-        items.append(f'<a href="{path}" class="photo" title="{caption}"><img src="{thumbnail_path}" alt="{alt}"></a>\n')
+        items.append(f'<a href="{path}" class="photo" title="{escape(caption, True)}"><img src="{thumbnail_path}" alt="{escape(alt, True)}"></a>\n')
 
     return '<div class="gallery">\n' + ''.join(items) + '</div>'
 
