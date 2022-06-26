@@ -1,7 +1,7 @@
 {% extends '_article_list.html' %}
 {% import '_lib.html' as lib with context %}
 
-{% block title %}{{ category.name }} / {{ SITENAME }}{% endblock %}
+{% block title %}{{ category.name }}{% if articles_page.number != 1 %} / page {{ articles_page.number }}{% endif %} / {{ SITENAME }}{% endblock %}
 
 {% block content %}
     <h1>

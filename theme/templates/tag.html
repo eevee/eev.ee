@@ -1,6 +1,6 @@
 {% extends '_article_list.html' %}
 
-{% block title %}🔖 {{ tag.name }} / {{ SITENAME }}{% endblock %}
+{% block title %}🔖 {{ tag.name }}{% if articles_page.number != 1 %} / page {{ articles_page.number }}{% endif %} / {{ SITENAME }}{% endblock %}
 
 {% block content %}
     <h1>Tagged: {{ tag.name }}</h1>

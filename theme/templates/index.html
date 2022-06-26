@@ -1,5 +1,5 @@
 {% extends '_article_list.html' %}
-{% block title %}{{ SITENAME }}{% endblock %}
+{% block title %}{{ SITENAME }}{% if articles_page.number != 1 %} / page {{ articles_page.number }}{% endif %}{% endblock %}
 
 {% block content %}
     <h1>
