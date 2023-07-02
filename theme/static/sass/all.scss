@@ -942,7 +942,7 @@ a.photo {
 
     .tile-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, auto));
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         row-gap: 1em;
         column-gap: 1em;
     }
