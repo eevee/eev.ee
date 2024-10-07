@@ -304,50 +304,60 @@ I think this is pretty intuitive.  Count up by twos: 2, 4, 6, 8, A, 10.  Every s
 
 Symbolically, you can write any natural number as:
 
-    n = 10x + y = (2 · 6x) + y
+$$
+n = 10x + y = (2 × 6x) + y
+$$
 
-where `y` is the ones digit and `x` is all the rest of the digits.  This is just the definition of how we write numbers; 984 is really `98 · 10 + 4`.
+where $y$ is the ones digit and $x$ is all the rest of the digits.  This is just the definition of how we write numbers; 984 is really $98 × 10 + 4$.
 
-`x` must be an integer, since it's just digits, so `2 · 6x` must be even.  Iff `y` is also even, the original number must be even.
+$x$ must be an integer, since it's just digits, so $2 × 6 x$ must be even.  Iff $y$ is also even, the original number must be even.
 
 You can easily do the same thing for any number that's a factor of the base.  For decimal, that's two, zero, and ten; for dozenal, it's two, three, four, six, and twelve.  Consider for a moment that that means if we used an _odd_ base, you couldn't easily tell whether a number were even!  It's only trivial in decimal because ten is a multiple of two.
 
 You can also extend this to work for any number that's a factor of a _power of_ the base.  Dozenal's divisibility rule for 9 is to look at the last two digits of the number.  That's because:
 
-    n = 100x + y = (9 · 14x) + y
+$$
+n = 100 x + y = (9 × 14 x) + y
+$$
 
-This time, `y` is the last _two_ digits, but otherwise it's the same idea.  There's a similar rule in decimal for divisibility by four (though you only need one digit to work that out in dozenal).
+This time, $y$ is the last _two_ digits, but otherwise it's the same idea.  There's a similar rule in decimal for divisibility by four (though you only need one digit to work that out in dozenal).
 
 
 ### Special cases
 
-Most shenanigans that involve looking at individual digits actually work just as well in dozenal, or _any_ base, but perhaps with different results.  Of particular interest: in base `b`, the same divisibility rules for `b - 1` and `b + 1` will always work.
+Most shenanigans that involve looking at individual digits actually work just as well in dozenal, or _any_ base, but perhaps with different results.  Of particular interest: in base $b$, the same divisibility rules for $b - 1$ and $b + 1$ will always work.
 
-Adding all the digits works for `b - 1`.  To prove this, consider a simpler case: instead of adding all the digits together, add the last digit (`y`) to the rest of the digits (`x`) to make a new number, `s`.  Then:
+Adding all the digits works for $b - 1$.  To prove this, consider a simpler case: instead of adding all the digits together, add the last digit ($y$) to the rest of the digits ($x$) to make a new number, $s$.  Then:
 
-    n = bx + y
-    s = x + y
+$$
+\begin{align}
+n & = b x + y \\
+s & = x + y \\
+n - s & = (b x + y) - (x + y) = b x - x = (b - 1) × x
+\end{align}
+$$
 
-    n - s = (bx + y) - (x + y) = bx - x = (b - 1) · x
-
-`n - s` is _always_ divisible by `b - 1`.  Thus, if `s` is also divisible by `b - 1`, the original number must be — because it's just the sum of these other two numbers.
+$n - s$ is _always_ divisible by $b - 1$.  Thus, if $s$ is also divisible by $b - 1$, the original number must be — because it's just the sum of these other two numbers.
 
 Summing all the digits is just a matter of repeating the above process.
 
-Incidentally, the decimal rule for 3 exists specifically because 3 is a factor of 9, one less than ten.  (Eleven is prime, so this doesn't come into play with dozenal.)  You can kind of see how it works above.  Hint: `n` and `s` have the same remainder when dividing by `b - 1`.
+Incidentally, the decimal rule for 3 exists specifically because 3 is a factor of 9, one less than ten.  (Eleven is prime, so this doesn't come into play with dozenal.)  You can kind of see how it works above.  Hint: $n$ and $s$ have the same remainder when dividing by $b - 1$.
 
-`b + 1` has several possible rules; I used the one I like the most, which is to alternate adding and subtracting.  Note that it doesn't matter whether you start out subtracting or adding; `x - y + z` is just the negation of `-x + y - z`.
+$b + 1$ has several possible rules; I used the one I like the most, which is to alternate adding and subtracting.  Note that it doesn't matter whether you start out subtracting or adding; $x - y + z$ is just the negation of $-x + y - z$.
 
 If we split off two digits _separately_ this time, we get:
 
-    n = b²x + by + z
-    s = x - y + z
+$$
+\begin{align}
+n & = b² x + b y + z \\
+s & = x - y + z \\
+n - s & = (b² x + b y + z) - (x - y + z) \\
+      & = (b² - 1) x + (b + 1) y \\
+      & = (b + 1)(b - 1) x + (b + 1) y
+\end{align}
+$$
 
-    n - s = (b²x + by + z) - (x - y + z)
-          = (b² - 1)x + (b + 1)y
-          = (b + 1)(b - 1)x + (b + 1)y
-
-Same thing happens here: `n - s` is always divisible by `b + 1`.
+Same thing happens here: $n - s$ is always divisible by $b + 1$.
 
 
 ### Hard cases
@@ -356,23 +366,29 @@ Decimal doesn't have a "hard" case until seven; dozenal has one as early as five
 
 Let's play with my rule for five (multiply the last digit by two, and subtract from the rest of the number) and see what happens.
 
-    n = 10x + y
-    s = x - 2y
+$$
+\begin{align}
+n & = 10 x + y \\
+s & = x - 2 y \\
+2 n + s = 2 (10 x + y) + (x - 2 y) = 21 x
+\end{align}
+$$
 
-    2n + s = 2(10x + y) + (x - 2y) = 21x
+Aha.  21 is twenty-five, which is divisible by the number we're interested in, five.  So $2n + s$ is always divisible by five.  If $s$ is also divisible by five, then $2n$ must be...  and the 2 isn't contributing to divisibility here, so the original number must also be divisible by five.
 
-Aha.  21 is twenty-five, which is divisible by the number we're interested in, five.  So `2n + s` is always divisible by five.  If `s` is also divisible by five, then `2n` must be...  and the 2 isn't contributing to divisibility here, so the original number must also be divisible by five.
+I came up with this by looking for a number $c$ that would work out nicely:
 
-I came up with this by looking for a number `c` that would work out nicely:
+$$
+\begin{align}
+n & = 10 x + y \\
+s & = x + c y \\
+c n - s & = (10 c - 1) x \\
+s - c n & = (-10 c + 1) x
+\end{align}
+$$
 
-    n = 10x + y
-    s = x + cy
+For either of those expressions to be divisible by five, I need a number ending in either 1 or B that's a multiple of five.  I listed out the multiples of five until I found one: 5, A, 13, 18, 21, aha!  That gives me $c = -2$.
 
-    cn - s = (10c - 1)x
-    s - cn = (-10c + 1)x
+This works for any (prime...ish...) number, though the values of $c$ start to get a little ridiculous if the number you want to test is very large.  I did come up with a divisibility rule for nineteen, for example, by counting multiples: 17, 32, 49, 64, 7B.  $c = 7$, and you just need to multiply the last digit by _seven_ and add it to the rest of the number, then repeat until you can tell whether it's a multiple of nineteen.  Yikes.
 
-For either of those expressions to be divisible by five, I need a number ending in either 1 or B that's a multiple of five.  I listed out the multiples of five until I found one: 5, A, 13, 18, 21, aha!  That gives me `c = -2`.
-
-This works for any (prime...ish...) number, though the values of `c` start to get a little ridiculous if the number you want to test is very large.  I did come up with a divisibility rule for nineteen, for example, by counting multiples: 17, 32, 49, 64, 7B.  `c = 7`, and you just need to multiply the last digit by _seven_ and add it to the rest of the number, then repeat until you can tell whether it's a multiple of nineteen.  Yikes.
-
-Also, note that the expressions above don't actually do any math with `10`, which is really `b`, the base you're working in.  Exactly the same approach would get you the decimal divisibility rule for seven — seven times three is twenty-one, so c is -2, and the rule is...  coincidentally, exactly the same as dozenal's rule for five.
+Also, note that the expressions above don't actually do any math with $10$, which is really $b$, the base you're working in.  Exactly the same approach would get you the decimal divisibility rule for seven — seven times three is twenty-one, so $c = -2$, and the rule is...  coincidentally, exactly the same as dozenal's rule for five.
