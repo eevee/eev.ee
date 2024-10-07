@@ -170,6 +170,9 @@ MARKDOWN = dict(
         'markdown.extensions.codehilite': dict(
             css_class='highlight',
             linenums=True,
+            guess_lang=False,
+            # Tell the PHP lexer not to require <?php, so snippets work
+            startinline=True,
         ),
         'markdown.extensions.extra': {},
         # GitHub-style fenced code blocks
