@@ -206,7 +206,7 @@ I imagine some new and interesting directions would make themselves obvious in a
 
 Robotic is MegaZeux's programming language for defining the behavior of robots, and it's one of the most interesting parts of the engine.  A robot that acts like an item giving you two keys might look like this:
 
-```robotic
+```text
 end
 : "touch"
 * "You found two keys!"

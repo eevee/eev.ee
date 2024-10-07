@@ -101,6 +101,7 @@ There's a catch to doing this effectively, which might as well be its own bolded
 
 Are you a programmer?  Spot the problems in this snippet of some C-like language:
 
+    :::text
     if (won = true)
         print("You did it!");
     else

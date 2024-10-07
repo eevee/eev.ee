@@ -51,7 +51,7 @@ def test_whatever():
 
 If the test fails, you still get useful output, including diffs of strings or sequences:
 
-```
+```text
     def test_whatever():
 >       assert whatever() in {1, 2, 3}
 E       assert 4 in set([1, 2, 3])
@@ -170,7 +170,7 @@ I'm being intentionally vague because I don't want to help anyone cheat, any mor
 
 A _significant_ proportion of solutions I graded had test suites like this.
 
-```
+```python
 board = """
     X--
     -X-
@@ -194,6 +194,7 @@ That's much harder to reason about, I grant you!  A tic tac toe board only has a
 
 When I took this test, I paid attention to the bugs I ran into while I was writing my code, and I thought about what could go wrong with my algorithm, and I made a few tests based on those educated guesses.  So perhaps I'd check that these boards have no winner:
 
+    :::text
     OO-     -O-     -X-
     O-X     -O-     --X
     -XX     -X-     X--

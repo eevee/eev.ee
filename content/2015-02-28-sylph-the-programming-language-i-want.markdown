@@ -223,6 +223,7 @@ fn add<T>(a: T, b: T) -> T {
 
 If you try to compile that, you'll get an error like this:
 
+    :::text
     <anon>:1:25: 1:30 error: binary operation `+` cannot be applied to type `T`
 
 What you actually have to write is something like this:
@@ -264,7 +265,7 @@ One thing I think about is how in Python, everything is already generic.  I can 
 
 This is kind of meandering a lot oops.  The ultimate idea was that there should be regular expression syntax for composing types, and those resulting types should be _runtime values_.  So if you want a list of strings you can say:
 
-```
+```text
 List<Str>
 ```
 
@@ -322,7 +323,7 @@ It's also a little silly that the keyword is `class`, but the thing I'm making i
 
 So what if we got rid of the `class` keyword entirely...  and you just used the metaclass?
 
-```
+```text
 Type Dog(Animal):
     ...
 
@@ -332,7 +333,7 @@ Enum Color:
 
 This would be pretty gnarly to parse so it probably wants to have a keyword in front:
 
-```
+```text
 def Type Dog(Animal):
     ...
 
@@ -342,7 +343,7 @@ def Enum Color:
 
 That's kind of wordy and even a bit C-like.  Function and class statements in Python are really just assignment, so maybe we want to shuffle this around a bit:
 
-```
+```text
 Dog = new Type(Animal):
     ...
 
@@ -352,7 +353,7 @@ Color = new Enum:
 
 Now this is getting kind of interesting.  Just by changing the syntax, it's obvious that metaclasses can be used for any kind of declaration where you want to _receive a scope as an argument_.  Consider how we might use this to replace `@property`:
 
-```
+```text
 Foo = new Type:
     bar = new Property:
         def get(self):
@@ -364,7 +365,7 @@ Foo = new Type:
 
 Or even make anonymous objects:
 
-```
+```text
 quux = new Value:
     cat = "meow"
     dog = "bark"
@@ -379,7 +380,7 @@ Downside: types would no longer actually know their own names, _unless_ the enti
 
 But there are some cool upsides.  For example, this solves a whole lot of the anonymous function problems in Python, _and_ removes a lot of the need for subclassing as an API.  Say you have a UI library that wants to register event handlers.  Instead of subclassing and defining `on_foo` methods, you could just do this:
 
-```
+```text
 foo = new EventHandler:
     on-keydown = def(self):
         ...
@@ -392,7 +393,7 @@ Done and done.  And without a `class` keyword glaring at you, you don't have to 
 
 You could also define C types like this:
 
-```
+```text
 CPoint = new StructType:
     x: int32
     y: int32
@@ -496,7 +497,7 @@ First, a minor diversion: it's sometimes asked why `len` in Python is a function
 
 Here's how I might fix this minor oddity, and implement `len`, in Sylph:
 
-```
+```text
 Container = new Type:
     def Iterable.len(self):
         return 5
@@ -585,7 +586,7 @@ Consider decorators, which often want to attach _some_ sort of extra information
 
 Imagine if you could use a proxy type instead.  I'm pulling this syntax out of my ass:
 
-```
+```text
 FunctionLabel = new ProxyType<Function>:
     label: text
 
@@ -903,6 +904,7 @@ I had a couple thoughts about this.
 
     But...  let me tell you about Inform 7.  One of its few container types is the _table_:
 
+        :::inform7
         Table of Selected Elements
         Element     Symbol  Atomic number   Atomic weight
         text        text    number          number
@@ -923,6 +925,7 @@ I had a couple thoughts about this.
 
     But sometimes, we write code like this anyway:
 
+        :::python
         x = [1, 2, 3]
         if 3 in x:
             ...
@@ -961,10 +964,9 @@ With all the stuff about types and semantics out of the way, here are some other
 
 - It strikes me that a great many uses of function overloading are just to do something like this:
 
-    ```
-    void draw_point(int x, int y);
-    void draw_point(Point p);
-    ```
+        :::c
+        void draw_point(int x, int y);
+        void draw_point(Point p);
 
     And then one of those functions would do nothing but convert argument types and defer to the other.
 
@@ -992,21 +994,21 @@ With all the stuff about types and semantics out of the way, here are some other
 
 I want operators to be first-class.  In Python, to do anything that looks like composition with operators, you have to import the `operator` module and pick the right name.  I would kinda like to be able to refer to operators as functions using, say, backslash:
 
-```
+```text
 reduce(\+, [1, 2, 3])  # -> 6
 \%(5, 2)  # -> 1
 ```
 
 Speaking of backslash, it's a horrible line continuation character.  Just way too easy to overlook.  I would of course keep Python's current semantics of continuing lines inside brackets automatically, but for those rare cases where that's not good enough, how about an ellipsis?
 
-```
+```text
 foo.bar.baz.quux ...
     .fred.wilma.method()
 ```
 
 Speaking of line continuation, what if block headers automatically continued until a colon?  You could think of a block header as a bracketing construct which opens with `if` and closes with `:`.  So you could do these:
 
-```
+```text
 if long-ass-condition and
         other-long-ass-condition:
     # ...
@@ -1032,11 +1034,10 @@ Wait, this has nothing to do with operators.  Let's back up.  Here are the Pytho
 
     Imagine being able to use `|` in the Unix shell sense, where it often means list operations:
 
-    ```
-    items = [1, 2, 3]
-    def double(n): return n * 2
-    print(items | double)  # [2, 4, 6]
-    ```
+        :::text
+        items = [1, 2, 3]
+        def double(n): return n * 2
+        print(items | double)  # [2, 4, 6]
 
     The bitwise ops could grow wordier names — Perl 6 calls them `+^` `+|` `+&` `+~` for, um, reasons.  Or they could just be functions or methods or something?
 
@@ -1054,7 +1055,7 @@ I'm cool with having `==` be defined by types.  Cool?  Cool.
 
 I don't know how this ought to work.  You could do it multiple dispatch style, but then you end up with:
 
-```
+```text
 def __add__(left: mytype, right: mytype):
     ...
 
@@ -1085,7 +1086,7 @@ It would also do very invasive things to parsing.  Precedence is a nightmare.  U
 
 The one interesting thing that occurs to me is that, if operators can be referred to like other terms, you could do:
 
-```
+```text
 from some-library import ↔
 ```
 
@@ -1097,7 +1098,7 @@ The idea of a range operator does appeal to me, even though in practice I don't 
 
 Perl 6's range operator allows you to stick a `^` on either end, to make that end of the range exclusive.
 
-```
+```raku
 1..4    # 1, 2, 3, 4
 1..^4   # 1, 2, 3
 1^..4   # 2, 3, 4

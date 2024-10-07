@@ -37,7 +37,7 @@ A byte is made of eight bits, which gives it 2⁸ or 256 possible values.  It's 
 
 The Unix program `xxd` will print out bytes in a somewhat readable way.  Here's its output for a short chunk of English text.
 
-```
+```text
 00000000: 5468 6520 7175 6963 6b20 6272 6f77 6e20  The quick brown
 00000010: 666f 7820 6a75 6d70 7320 6f76 6572 2074  fox jumps over t
 00000020: 6865 206c 617a 7920 646f 6727 7320 6261  he lazy dog's ba
@@ -75,7 +75,7 @@ But what _are_ those bytes?  That's the fundamental and pervasive question.  In 
 
 That is _fantastically_ useful, and I didn't even have to figure out how it works, because other people already had.  Let's have a look at it, because seeing binary formats is the best way to get an idea of how they might be designed.  Here's the beginning of the English version of Pokémon Diamond.
 
-```
+```hexdump
 00000000: 504f 4b45 4d4f 4e20 4400 0000 4144 4145  POKEMON D...ADAE
 00000010: 3031 0000 0900 0000 0000 0000 0000 0500  01..............
 00000020: 0040 0000 0008 0002 0000 0002 2477 1000  .@..........$w..
@@ -115,7 +115,7 @@ A `String` is text of a fixed length, either truncated or padded with NULs (char
 
 Alas, this is a terrible example, since most of this is goofy internal stuff we don't actually care about.  The interesting bit is the "file table".  A little ways down my description of the format is this block of `ULInt32`s, which start at position `0x40` in the file.
 
-```
+```text
 file_table_offset   00 64 33 00 = 0x00336400
 file_table_length   7f 15 00 00 = 0x0000157f (5503)
 fat_offset          00 7a 33 00 = 0x00337a00
@@ -124,7 +124,7 @@ fat_length          20 0b 00 00 = 0x00000b20 (2848)
 
 Excellent.  Now we know that if we start at 0x00336400 and read 5503 bytes, we'll have the entire filename table.
 
-```
+```hexdump
 003363f0: ffff ffff ffff ffff ffff ffff ffff ffff  ................
 00336400: 2802 0000 5700 4500 cd02 0000 5700 00f0  (...W.E.....W...
 00336410: f502 0000 5700 01f0 fd02 0000 5700 02f0  ....W.......W...
@@ -147,7 +147,7 @@ I included one previous line for context; starting right after a whole bunch of 
 
 The beginning part of this is a bunch of numbers that start out relatively low and gradually get bigger.  That's a pretty good indication of an offset table — a list of "where this thing starts" and "how long it is", just like the offset/length pairs that pointed us here in the first place.  The only difference here is that we have a whole bunch of them.  And `porigon-z` confirms that this is a list of:
 
-```
+```python
     ULInt32('offset'),
     ULInt16('top_file_id'),
     ULInt16('parent_directory_id'),
@@ -155,7 +155,7 @@ The beginning part of this is a bunch of numbers that start out relatively low a
 
 My code does a bit more than this, but I don't want this post to be about the intricacies of an old version of Construct.  The short version is that each entry is eight bytes long and corresponds to a _directory_; this list actually describes the directory tree.  Decoding the first few produces:
 
-```
+```text
 offset 00000228, top file id 0057, parent id 0045
 offset 000002cd, top file id 0057, parent id f000
 offset 000002f5, top file id 0057, parent id f001
@@ -167,7 +167,7 @@ Again, we encounter some mild weirdness.  The parent ids seem to count upwards, 
 
 So let's fully decode entry 3 (the fourth one, since we started at zero).  It has offset `0x000002fd`, which is relative to where the table starts, so we need to add that to `0x00336400` to get `0x003366fd`.  We don't have a length, but starting from there we see:
 
-```
+```text
 003366f0:                                 0c 6362               .cb
 00336700: 5f64 6174 612e 6e61 7263 000f 7769 6669  _data.narc..wifi
 00336710: 5f65 6172 7468 2e6e 6172 6315 7769 6669  _earth.narc.wifi
@@ -194,13 +194,13 @@ All we have to do is match up the filenames to those offset pairs.  This is wher
 
 Phew!  We haven't even gotten anywhere yet.  But this is important for figuring out where anything even _is_.  And you don't have to do it by hand, since I wrote a program to do it.  Run:
 
-```
+```zsh
 python2 -m porigonz pokemon-diamond.nds list
 ```
 
 To get output like this:
 
-```
+```text
 /application/custom_ball/data
    87 0x03810200 0x0381ef8c     60812 [  295] /application/custom_ball/data/cb_data.narc
 /application/wifi_earth
@@ -225,13 +225,13 @@ You may also notice that `evo.narc` and `wotbl.narc`, in the same directory, are
 
 NARC is, as far as I can tell, an invention of Nintendo.  I think it's in other DS games, though I haven't investigated any others very much, so I can't say how common it is.  It's a very simple format, and it uses basically the same structure as the entire DS filesystem: a list of start/end offsets and a list of filenames.  It doesn't have the same directory nesting, so it's much simpler, and also the filenames are usually missing, so it's simpler still.  But you don't have to care, because you can examine the contents of a file with:
 
-```
+```zsh
 python2 -m porigonz pokemon-diamond.nds cat -f hex /poketool/personal/personal.narc
 ```
 
 This will print every record as an unbroken string of hex, one record per line.  (I admit this is not the smartest format; it's hard to see where byte boundaries are.  Again, hopefully I'll fix this up a bit when I rerip gen 4.)  Here are the first six Pokémon records.
 
-```
+```text
 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 2d31312d41410c032d400001000000001f144603010741000003000020073584081e10022024669202000000
 3c3e3f3c50500c032d8d0005000000001f144603010741000003000020073584081e10022024669202000000
@@ -256,7 +256,7 @@ The games have a number of TMs which can teach particular moves, and each Pokém
 
 Thankfully, there's a pretty big giveaway for TMs in particular.  Here are Caterpie, Metapod, and Butterfree:
 
-```
+```text
 2d1e232d14140606ff350100000000007f0f4600030313000003000000000000000000000000000000000000
 3214371e1919060678482000000000007f0f460003033d000003000000000000000000000000000000000000
 3c2d3246505006022da000060000de007f0f460003030e000008000020463fb480be14222830560301000000
@@ -277,7 +277,7 @@ What we really really wanted were the _sprites_.  This was a new generation with
 
 Finding them was easy enough — there's a file named `/poketool/pokegra/pokegra.narc`, which is conspicuously large.  It's a NARC containing 2964 records.  A little factoring reveals that 2964 is 494 × 6 — aha!  There are 493 Pokémon, plus one dummy.
 
-```
+```zsh
 python2 -m porigonz pokemon-diamond.nds extract /poketool/pokegra/pokegra.narc
 ```
 
@@ -287,7 +287,7 @@ Some brief inspection reveals that they definitely come in groups of six: the fi
 
 Let's have a look at the first file!  Since it's a dummy sprite, it should be blank or perhaps a question mark, right?  Oh boy I'm so excited.
 
-```
+```hexdump
 00000000: 5247 434e fffe 0001 3019 0000 1000 0100  RGCN....0.......
 00000010: 5241 4843 2019 0000 0a00 1400 0300 0000  RAHC ...........
 00000020: 0000 0000 0100 0000 0019 0000 1800 0000  ................
@@ -319,7 +319,7 @@ What's the point of them then?  Further inspection reveals that _most_ Pokémon 
 
 Okay, then, let's look at Pikachu's first sprite, 150.  The key is often in the differences, remember.  If the dummy sprite is either blank or a question mark, then it should still have a lot of corner pixels in common with the relatively small Pikachu.
 
-```
+```hexdump
 00000030: b6bd 6f4c 6c6e 3d16 b226 db0b 0818 c934  ..oLln=..&.....4
 00000040: eeb7 876c e41f 9542 6a6d 73da 0022 a1cb  ...l...Bjms.."..
 00000050: 2683 9f01 5cfa ed9b 2275 0bce f8c4 79bf  &...\..."u....y.
@@ -333,7 +333,7 @@ Okay, then, let's look at Pikachu's first sprite, 150.  The key is often in the 
 Well.  Nope.  How does that compare to Pikachu's second sprite, 151 — which ought to be _extremely_ similar, seeing as the only gender difference is a notch in the tail?
 
 
-```
+```hexdump
 00000030: 2957 ce67 e76f c494 f5fe 4adf d367 e008  )W.g.o....J..g..
 00000040: 0182 0697 ff78 3c33 4dac 020b 6b8f d82f  .....x<3M...k../
 00000050: d989 3ef7 17d7 b45a a566 ba57 03bc d04f  ..>....Z.f.W...O
@@ -358,13 +358,13 @@ Are there other cases like this?  _Kinda_!  In the third column, the second digi
 
 This is extremely promising!  Let's try this.  Take the first two rows, which are bytes 0–15 and bytes 16–31.  Subtract the second row from the first row bytewise, making a sort of "delta row".  For the second Pikachu, that produces:
 
-```
+```text
 d82b 3830 1809 789f 58ae b82c 9828 f827
 ```
 
 As expected, the second digit in each column is an `8`.  Now just start with the first row and keep adding the delta to it to produce enough rows to cover the whole file, and xor that with the file itself.  Results:
 
-```
+```hexdump
 00000000: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 00000010: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 00000020: 0024 0030 0056 0088 003c 0060 000b 0019  .$.0.V...<.`....
@@ -392,7 +392,7 @@ Meanwhile another fansite found our code and put up a full set of these ugly-ass
 
 It took me a while to notice another pattern, which emerges if you break the sprite into blocks that are 512 bytes wide (rather than only 16).  You get this:
 
-```
+```text
 2957 ce67 e76f c494 f5fe 4adf d367 e008 ...
 29e2 ce3e e742 c4d3 f5d9 4a46 d30a e057 ...
 296d ce15 e715 c412 f5b4 4aad d3ad e0a6 ...
@@ -415,9 +415,9 @@ Hm?  What?  You want to know the _real_ answer?  Yeah, I bet you do.
 
 Okay, here you go.  So the games have a random number generator, for...  generating random numbers.  This being fairly simple hardware with fairly simple (non-crypto) requirements, the random number generator is also fairly simple.  It's an LCG, a [_linear congruential generator_](https://en.wikipedia.org/wiki/Linear_congruential_generator), which is a really bizarre name for a very simple idea:
 
-```
-ax + b
-```
+$$
+a x + b
+$$
 
 The generator is defined by the numbers `a` and `b`.  (You have to pick them carefully, or you'll get numbers that don't look particularly random.)  You pick a starting number (a _seed_) and call that `x`.  When you want a random number, you compute `ax + b`.  You then _take a modulus_, which really means "chop off the higher digits because you only have so much space to store the answer".  That's your new `x`, which you'll plug in to get the next random number, and so on.
 
@@ -441,7 +441,7 @@ I think it's because of one of the [rules for choosing good factors for an LCG](
 
 First, consider what happens when you start with a value `x` and run it through the LCG a few times.  At this point I apologize for not having MathJax or something on this blog, but oh well.
 
-```
+```text
 step 0: x
 step 1: ax + b
 step 2: a(ax + b) + b = a²x + ab + b
@@ -455,7 +455,7 @@ step n: aⁿ x + (aⁿ⁻¹ + aⁿ⁻² + ... + a² + a + 1) b
 
 I'm going to restrict the cases we care about to when `n` is a power of two, because powers of two are interesting.  Let's say it's, I dunno, 8.  So we have some `a⁸` terms in there.  That's equivalent to squaring `a` three times.  We know `a` is `4m + 1`, so let's try squaring that repeatedly.
 
-```
+```text
 a² = (4m + 1)² = 16m² + 8m + 1
 a⁴ = (16m² + 8m + 1)² = 256m⁴ + 256m³ + 96m² + 16m + 1
 a⁸ = ?!
@@ -467,7 +467,7 @@ But we can do one better: `a² - 1` is actually divisible by `8m`, and `a⁴ - 1
 
 Now let's look at the formula for step 8 and replace some of those `a`s.
 
-```
+```text
 a⁸ x + (a⁸ - 1) / (a - 1) b
 = (32mj + 1) x + (32mj) / (4m) b
 = 32mjx + x + 8jb
@@ -484,7 +484,7 @@ I did gloss over two minor things.  One, why does the value specifically increas
 
 And two, why can I take the same garbage and keep adding it repeatedly to skip ahead 256 steps at a time, when the garbage _depends on_ the previous value `x`?  Well, let's see what happens when you take step 256 and plug it back into itself:
 
-```
+```text
 step 0: x
 step 256: 256(4mjx + jb) + x
 step 512: 256(4mj(256(4mjx + jb) + x) + jb) + (256(4mjx + jb) + x)
@@ -520,13 +520,13 @@ Great!  All we need to do is put together a string of known moves both ways and 
 
 Except, ah, hm.  We don't actually know how the moves are numbered.  But we still know the levels, so maybe we can get somewhere.  Let's take Bulbasaur, which we know learns Leech Seed at level 7, Vine Whip at level 13, and Poison Powder at level 20.  (Or, I guess, that should be LEECH SEED, VINE WHIP, and POISONPOWDER.)  No matter whether the levels or moves come first, this will result in a string like:
 
-```
+```text
 07 ?? 0D ?? 14
 ```
 
 So we can do my favorite thing and slap together a regex for that.  (A _regex_ is a very compact way to search text — or bytes — for a particular pattern.  A lone `.` means any single character, so the regex below is a straightforward translation of the pattern above.)
 
-```python
+```python-console
 >>> for match in re.finditer(rb'\x07.\x0d.\x14', rom):
 ...     print(f"{match.start():08x} {match.group().hex()}")
 ... 
@@ -535,7 +535,7 @@ So we can do my favorite thing and slap together a regex for that.  (A _regex_ i
 
 Exactly one match!  Let's have a look at that position in the file.
 
-```
+```hexdump
 0003b840: 7700 0000 0110 0900 0749 0d16 144d 1b4b  w........I...M.K
 0003b850: 224a 294f 304c 0000 0749 0d16 164d 1e4b  "J)O0L...I...M.K
 0003b860: 2b4a 374f 414c 0000 0730 0d23 1228 1637  +J7OAL...0.#.(.7
@@ -548,14 +548,14 @@ By repeating this process with some other Pokémon, we can start to fill in a ma
 
 The text isn't encrypted, but also isn't ASCII, but it's possible to find it in much the same way by treating it as a cryptogram (or a substitution cipher).  I assume that there's _some_ consistent scheme, such that the letter "A" is always represented with the same byte.  So I pick some text that I know has a few repeated letters, like `BULBASAUR`, and I recognize that it could be substituted in some way to read as `123145426`.  I can turn that into a regex!
 
-```python
+```python-console
 >>> for match in re.finditer(rb'(.)(.)(.)\1(.)(.)\4\2(.)', rom, flags=re.DOTALL):
 ...     print(f"{match.start():08x} {match.group().hex()}")
 ```
 
 Unfortunately, this produces a zillion matches, most of them solid strings of `NUL` bytes.  The problem is that nothing in the regex requires that the different groups are, well, _different_.  You could write extra code to filter those cases out, or if you're masochistic enough, you could express it directly within the regex using `(?!...)` negative lookahead assertions:
 
-```python
+```python-console
 >>> for match in re.finditer(rb'(.)(?!\1)(.)(?!\1)(?!\2)(.)\1(?!\1)(?!\2)(?!\3)(.)(?!\1)(?!\2)(?!\3)(?!\4)(.)\4\2(?!\1)(?!\2)(?!\3)(?!\4)(?!\5)(.)', rom, flags=re.DOTALL):
 ...     print(f"{match.start():08x} {match.group().hex()}")
 ...
@@ -585,7 +585,7 @@ Game Boy games were written in _assembly code_, which is just about as simple an
 
 To give you a more concrete idea of what this is like to work with: the Game Boy's CPU doesn't have an instruction for multiplying, so you have to do it yourself by adding repeatedly.  I thought that would make a good example, but it turns out that Pokémon's multiply code is _sixty lines long_.  Division is even longer!  Here's something a bit simpler, which fills a span of memory:
 
-```
+```rgbasm
 FillMemory::
 ; Fill bc bytes at hl with a.
 	push de
@@ -622,7 +622,7 @@ Even this relatively simple example has to resort to a weird trick — ORing `b`
 
 CPUs don't execute assembly code directly.  It has to be _assembled_ into _machine code_, which is (surprise!) a sequence of bytes corresponding to CPU instructions.  When the above code is compiled, it produces these bytes, which you can verify for yourself appear in Pokémon Red and Blue in exactly one place:
 
-```
+```text
 d5 57 7a 22 0b 78 b1 20 f9 d1 c9
 ```
 
@@ -632,7 +632,7 @@ To finally answer your hypothetical question: _disassembly_ is the process of co
 
 Find `d5` in the table — it's in row `Dx`, column `x5`.  That's `push de`.  The first number in the box is `1`, meaning the instruction is only one byte long, so the next instruction is the very next byte.  That's `57`, which is `ld d, a`.  Keep on going.  Eventually we hit `20`, which is `jr nz, r8` and _two_ bytes long — the notes at the bottom explain that `r8` is 8-bit signed data.  That means the next byte is part of this instruction; it's `f9`, but it's signed, so really that's -7.  We end up with:
 
-```
+```rgbasm
 push de
 ld d, a
 ld a, d
@@ -667,7 +667,7 @@ Obviously, I just need to find that machine code.  See, that whole previous sect
 
 I set out to do that.  Remember the goofy regex from earlier, which searched for particular patterns of bytes?  I did something like that, except with machine code.  And by machine code, I mean assembly.  And by assembly, I mean—  okay just look at this.
 
-```
+```rgbasm
     ld a, [#wd11e]
     dec a
     ld hl, #TechnicalMachines
@@ -760,9 +760,9 @@ Okay, well, you might at least expect that a single value's keyframes are given 
 
 Not quite!  Such a set of keyframes has an initial "scale" and "offset", given as single-precision floating point numbers (which are fairly accurate).  Each keyframe then gives a "value" as an integer, which is actually the numerator of a fraction whose denominator is 65,535.  So the _actual_ value of each keyframe is:
 
-```
+$$
 offset + scale * value / 65535
-```
+$$
 
 Maybe this is a more common scheme than I suspect.  Animation _does_ take up an awful lot of space, and this isn't an entirely unreasonable way to squish it down.  The fraction thing is just _incredibly_ goofy at first blush.  I have no idea how anyone figured out what was going on there.  (It's used for texture animation, too.)
 

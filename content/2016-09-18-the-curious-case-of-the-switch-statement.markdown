@@ -21,7 +21,7 @@ I'm not _surprised_ by this, what with ALGOL's being originally conceived as a u
 
 ALGOL 58's version of switch is a little different from the one we've all come to know and love.  It's not a statement at all; it's a declaration.  Switches are their own _kind of thing_, in the same way that variables and labels are different kinds of thing.  (Though, curiously, it seems you can return a label — but not a switch! — from a procedure in ALGOL 58.)
 
-```algol
+```text
 switch I := (D₁, D₂, ..., Dₙ)
 ```
 
@@ -77,7 +77,7 @@ CPL also allowed referring to (and thus jumping to) a label in the middle of a d
 
 It also dropped the switch kind in favor of a new compound statement, `case`, which was sort of like the older `switch` without the labels.  `case` looked like this:
 
-```algol
+```text
 case X of begin
     WRITE("X is 1");
     WRITE("X is 2");
@@ -89,7 +89,7 @@ Yes, `case` was a regular block, and the expression indicated _which one of its 
 
 Similar to ALGOL 60's inline `if ... else ...`, ALGOL W had an inline `case ... of`:
 
-```algol
+```text
 case EXPR of (A, B, C, ...)
 ```
 
@@ -106,7 +106,7 @@ BCPL was the origin of a few interesting ideas we now take for granted: it was t
 
 As far as I can tell, BCPL was also the origin of the modern `switch` statement.  [The BCPL reference manual](https://www.bell-labs.com/usr/dmr/www/bcpl.pdf) describes the following block:
 
-```bcpl
+```text
 switchon EXPR into {
     ...
     ...
@@ -130,7 +130,7 @@ Now we're nearing the history that most computer people are familiar with.  B co
 
 The [B manual](https://www.bell-labs.com/usr/dmr/www/kbman.pdf) describes the `switch` statement as "the most complicated statement in B".  The general syntax is `switch EXPR STATEMENT` — the statement doesn't even have to be a block, but _may_ be.  I believe it would look like this:
 
-```b
+```text
 switch X {
     case 1;
     printf("X is 1*n");
@@ -354,7 +354,7 @@ I believe each case _must_ have a terminator, so there's no risk of accidental f
 
 This is .NET, but I believe it's been the same since before then.
 
-```vb
+```vb.net
 Select Case x
     Case 1
         Debug.WriteLine("x is 1")

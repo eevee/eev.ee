@@ -42,6 +42,7 @@ I hesitate to call them "outlines", since that conjures the strictly-structured 
 
 Uh, let me just show you.  I just write Markdown-formatted lists in vim.  The very early stages of the [first Doom post](/blog/2015/12/19/you-should-make-a-doom-level-part-1/) might have looked something like this:
 
+    :::markdown
     - installation
         - need doom first; steam (anywhere else?)
         - need zdoom (gzdoom?  nightlies?)
@@ -73,6 +74,7 @@ Or...  occasionally I go the complete opposite direction for this phase!  If an 
 
 That's even the process I used for this post:
 
+    :::text
     another process, which i'm using for this one and used for some of the doom posts, is to just write out sentences and fragments
     lowercase, no ending punctuation, like i'm tweeting, so it's obvious that it's not done
     kind of a halfway point between an outline and a post, and i can put headings and whatnot to make it more outlineish

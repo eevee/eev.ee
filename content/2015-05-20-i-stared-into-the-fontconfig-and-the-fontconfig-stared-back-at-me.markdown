@@ -30,6 +30,7 @@ The monospace font I was using at the time was [Source Code Pro](https://github.
 
 Here's a further hint.  If you use `fc-match -s <font>`, you get a sorted list of the fonts fontconfig will use for fallback.  Let's try it with Source Code Pro:
 
+    :::text
     ⚘ fc-match -s 'Source Code Pro'
     SourceCodePro-Regular.otf: "Source Code Pro" "Regular"
     PowerlineSymbols.otf: "PowerlineSymbols" "Medium"
@@ -136,6 +137,7 @@ fontconfig's XML-powered expression engine is a little weird, but this does pret
 
 With that, my ☺ rendering was fixed, and `fc-match` gave much more sensible output:
 
+    :::text
     SourceCodePro-Regular.otf: "Source Code Pro" "Regular"
     PowerlineSymbols.otf: "PowerlineSymbols" "Medium"
     SourceSansPro-Regular.otf: "Source Sans Pro" "Regular"
@@ -336,6 +338,7 @@ It is _really fucking difficult_ to figure out what font will be used _for a spe
 
 1. Do it in a browser.  Make a URL like this:
 
+        :::text
         data:text/html,<meta charset="utf8"><p style="font-family: monospace;">☺</p>
 
     Then pop open your dev tools, and look for where it tells you the fonts that are _actually_ being used.  Firefox's Inspector has a dedicated "fonts" tab in the panel on the right; Chromium's Elements lists fonts at the bottom of the "computed" tab.
@@ -346,6 +349,7 @@ It is _really fucking difficult_ to figure out what font will be used _for a spe
 
 2. You can also do this nonsense in a terminal:
 
+        :::zsh
         DISPLAY=:0 FC_DEBUG=4 pango-view --font=monospace -t ☺ | grep family:
 
     `pango-view` is a tiny program that just pops open a window containing some text in a particular font.  `FC_DEBUG` is an environment variable to make fontconfig spit out _mountains of fucking text_ on stdout.  The `grep` cuts it down to something a little more manageable.  Most likely the last family you see listed is the font actually being used to render your favorite glyph.

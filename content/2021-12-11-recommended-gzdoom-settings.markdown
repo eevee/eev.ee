@@ -131,10 +131,9 @@ These are also all correct.
 
     _Probably_.  See, for some reason, those checkboxes are only there on Windows — in fact, I didn't know they existed at all until two minutes ago.  Even though they set a config setting, they aren't accessible via the options menu.  So if that doesn't work for you for whatever reason, try popping open the console and doing:
 
-    ```
-    autoloadlights true
-    autoloadbrightmaps true
-    ```
+        :::text
+        autoloadlights true
+        autoloadbrightmaps true
 
     Then restart the game.  Glowing objects should now cast (fairly subtle!) light on nearby walls.  You can see this immediately in Doom II's first map — there should be a green glow on the floor underneath the armor bonus in the far right corner of the room.  Or for a more dramatic demonstration, `IDKFA` and fire a rocket.
 

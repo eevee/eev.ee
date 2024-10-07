@@ -167,7 +167,7 @@ An obvious question is: _which tiles_?  I think I said before that with 512 char
 
 I'm thinking of having characters be about the same proportions as in the Oracle games.  Those games use 5 rows of tiles, like this:
 
-```
+```text
 top of line 1
 bottom of line 1
 top of line 2
@@ -179,7 +179,7 @@ Since the font is aligned to the bottom and only peeks a little bit into the top
 
 I'm not fixed to the grid, so I can control line spacing a little more explicitly.  But I'll get to that later and do something really simple for now, where $ff is a blank tile:
 
-```
+```text
 +--+--+--+--+--+--+--+--+--+--+--+--+--+---+
 |ff|ff|ff|ff|ff|ff|ff|ff|ff|ff|ff|ff|ff|...|
 +--+--+--+--+--+--+--+--+--+--+--+--+--+---+
@@ -266,7 +266,7 @@ If you recall, each 8-pixel row of a char is stored in two bytes.  The two-bit p
 
 Now, a blank char is all zeroes.  To write a (left-aligned) glyph into a blank char, all I need to do is…  well, I could overwrite it, but I could just as well OR it.  To write a _second_ glyph into the unused space, all I need to do is _shift it right_ by the width of the space used so far, and OR it on top.  The unusual split layout of the palette data is actually handy here, because it means the size of the shift matches the number of pixels, _and_ I don't have to worry about overflow.
 
-```
+```text
 0 0 0 0 0 0 0 0  <- blank glyph
 
 1 1 1 1 0 0 0 0  <- some byte from the first glyph
@@ -525,7 +525,7 @@ There's another change here, too.  Previously, I shifted the glyph right, lettin
 
 Say I want to draw a glyph offset by 3 pixels.  Then I want to do this:
 
-```
+```text
 abcdefgh  <- original glyph bits
 fghabcde  <- rotate right 3
 00011111  <- mask, which is just $ff shifted right 3
@@ -605,7 +605,7 @@ Anyway!  Where were we.  I need to now copy the buffer into VRAM.
 
 You may have noticed that the buffer isn't quite populated in char format.  Instead, it's populated like one big 16-pixel char, with the first 16 bits corresponding to the 16 pixels spanning _both_ columns.  VRAM, of course, expects to get all the pixels from the first column, then all the pixels from the second column.  If that's not clear, here's what I have (where the bits are in order from left to right, top to bottom):
 
-```
+```text
 AAAAAAAA BBBBBBBB  <- high bits for first row of pixels
 aaaaaaaa bbbbbbbb  <- low bits for first row of pixels
 ... other rows ...
@@ -613,7 +613,7 @@ aaaaaaaa bbbbbbbb  <- low bits for first row of pixels
 
 And here's what I need to put in VRAM:
 
-```
+```text
 AAAAAAAA  <- high bits for first row of left column of pixels
 aaaaaaaa  <- low bits for first row of left column of pixels
 ... other rows of left column ...
@@ -664,7 +664,7 @@ I hope that makes sense!  To fix this, I use two loops (one for each column), an
 
 Just about done!  There's one last thing to do before looping to the next character.  If this character did in fact span both columns, then the buffer needs to be moved to the left by one column.  Here's a simplified diagram, pretending chars are 5×5 and I just drew a B:
 
-```
+```text
 +-----+-----+.....+
 | A  B|B    |     .
 |A A B| B   |     .
@@ -844,7 +844,7 @@ One major obstacle remains: I can only have one line of text right now, when the
 
 The obvious first thing I need to do is alter the dialogue box's char map.  It currently has a whole char's worth of padding on every side.  What a waste.  I want this instead:
 
-```
+```text
 +--+--+--+--+--+--+--+--+--+--+--+--+---+
 |80|82|84|86|88|8a|8c|8e|90|92|94|96|...|
 +--+--+--+--+--+--+--+--+--+--+--+--+---+

@@ -105,7 +105,7 @@ Quick test: `1 & 2 == 2` evaluates to 1 with C precedence, false otherwise.  Or 
 
 The modulo operator, `%`, finds the remainder after division.  Thus you might think that this always holds:
 
-```
+```c
 0 <= a % b < abs(b)
 ```
 
@@ -117,7 +117,7 @@ Consider the problem of having `n` items that you want to arrange into rows with
 
 Ah, but if we have positive `%`, the answer is simply...  `-n % c`!  Consider this number line for `n` = 5 and `c` = 3:
 
-```
+```text
 -6      -3       0       3       6
  | - x x | x x x | x x x | x x - |
 ```

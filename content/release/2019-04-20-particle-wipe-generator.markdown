@@ -68,7 +68,7 @@ Forget about the wipe effect for now and concentrate on a single cell.  When the
 
 Now for the wipe effect.  All it really does is stagger _when the animation starts_.  The upwards wipe, for example, starts animating all the cells on the bottom row, waits some short amount of time, then starts animating all the cells on the next row up, and so on.  An ASCII diagram of this process (for a simplified, smaller screen) might look like:
 
-```
+```text
    00 |                     XXXXXXXX
    01 |                  XXXXXXXX
 R  02 |               XXXXXXXX
@@ -200,7 +200,7 @@ But that's boring; I wanted a _wipe_, which requires a couple more twiddles.
 
 The wipe is essentially a second animation that controls when each cell's individual animation starts.  Above I considered a row-by-row wipe; for Cherry Kisses I ended up with a column-by-column wipe; Cave Story also has an "inwards" wipe.  All of these can be generalized as numbered steps in a grid:
 
-```
+```text
 By row      By column   Inwards
 77777777    76543210    01233210
 66666666    76543210    12344321

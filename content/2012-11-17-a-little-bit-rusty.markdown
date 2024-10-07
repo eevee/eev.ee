@@ -58,6 +58,7 @@ Rust has closures.  I don't know how they made this work with a systems language
 
 `do` is syntactic sugar for passing a closure as the last argument to a function:
 
+    :::rust
     do foo(a, b, c) |arg| {
         // ...
     }
@@ -66,6 +67,7 @@ Rust has closures.  I don't know how they made this work with a systems language
 
 So a foreach-style iteration is easy.
 
+    :::rust
     for [1, 2, 3].each |n| {
         io::println(fmt!("%d", n));
     }
@@ -95,6 +97,7 @@ Objects, fundamentally, are nothing more than _state_ and _behavior_.  (I don't 
 
 In Rust, the state and behavior are separate.  Here's some state:
 
+    :::rust
     struct Car {
         num_wheels: uint,
         gas: float,
@@ -102,12 +105,14 @@ In Rust, the state and behavior are separate.  Here's some state:
 
 Creating a car object is easy:
 
+    :::rust
     let car = Car { num_wheels: 4, gas: 9.0 };
 
 (This creates the entire struct on the stack.  You could also say `@Car...` for a boxed pointer, and so on.  Method and attribute access works the same way on structs and pointers to structs.)
 
 To give it some behavior, you can create a _trait_, which is like an "interface" if you must, except the method names are _scoped to the trait_.  The actual implementation is separate from both the struct and trait definitions.
 
+    :::rust
     trait Vehicle {
         fn drive();
     }
@@ -127,6 +132,7 @@ Now you can call `car.drive()`.  If there are two traits in scope that both defi
 
 For functionality unique to the class, you can create an anonymous trait, which is really just an implicit trait with the same name as the class.
 
+    :::rust
     impl Car {
         fn retract_sunroof() {
             // I can't think of many operations that only apply to cars
@@ -144,6 +150,7 @@ There are C-style enums, which result in a bunch of constants with increasing in
 
 The other kind of enum is like a tagged union.  Here's an enum from the standard library:
 
+    :::rust
     enum Option<T> {
         None,
         Some(T),
@@ -153,6 +160,7 @@ This means: you can have a variable of type `Option<T>` and you know that it is 
 
 So this is how Rust handles optional values.  To get at that stored data, you need to do a match:
 
+    :::rust
     let maybedata = Some(123);
     match maybedata {
         Some(data)  => io::print(fmt!("found %d\n", data)),
@@ -224,12 +232,14 @@ I started out the evening before the hackathon, and got as far as a symbol that 
 
 See, in Python-y style, I wanted to write a method for maps that would let me iterate over the entire grid with one loop.  Something like this:
 
+    :::rust
     for map.each_cell |x, y, cell| {
         // draw something, probably
     }
 
 Alas, no amount of contortion made this work.  Rust complained, every time, that I was borrowing a pointer to "mutable, aliasable" memory.  The problem was that the implementation looked like this:
 
+    :::rust
     fn each_cell(cb: &fn(x: uint, y: uint, cell: &Cell) -> bool) {
         for self.grid.eachi |x, col| {
             for col.eachi |y, cell| {
@@ -277,6 +287,7 @@ There are two rooms, connected by a hallway.  You can walk between them, beat up
 
 Here's the general approach I took.  The entry point looks like this:
 
+    :::rust
     world.run(interface);
 
 The game world runs its own main loop, and communicates to the display via an "interface", which is a trait that currently only has one implementation.  (For terminals.  Obviously.)

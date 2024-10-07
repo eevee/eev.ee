@@ -233,13 +233,13 @@ What you do is: manually include line breaks in your dialogue.  All of it.  Ever
 
 That is, instead of this:
 
-```javacript
+```javascript
 var TEXT = "Demonstrating inadequate word-wrapping functionality necessitates conspicuously verbose representative scripture.";
 ```
 
 You will need to literally have this:
 
-```javacript
+```javascript
 var TEXT = "Demonstrating inadequate\nword-wrapping functionality\nnecessitates conspicuously verbose\nrepresentative scripture.";
 ```
 

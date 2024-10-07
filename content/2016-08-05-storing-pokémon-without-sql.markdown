@@ -205,7 +205,7 @@ With X and Y, everything goes out the window.  There are effectively no separate
 
 One option is to put some flexibility in the directory structure.
 
-```
+```text
 /red
   /en
     pokemon.yaml
@@ -261,7 +261,7 @@ bulbasaur:
         fr: BULBIZARRE
         es: BULBASAUR
         ...
-    flavor-text: 
+    flavor-text:
         en: "A strange seed was\nplanted on its\nback at birth.\fThe plant sprouts\nand
           grows with\nthis POKéMON."
         ...

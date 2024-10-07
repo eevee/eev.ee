@@ -110,7 +110,7 @@ In my partial defense, looking at it now, I see the manual is _wrong_!  Bit 4 of
 
 That was quite a diversion.  Here's a chart of where the dang tiles live.  Note that the block at $8800 is always shared between objects and background tiles.  Oh, and on the Game Boy Color, all three blocks are twice as big thanks to the magic of banking.  I'll get to banking...  much later.
 
-```
+```text
                             bit 4 ON (default)  bit 4 OFF
                             ------------------  ---------
 $8000   obj tiles 0-127     bg tiles 0-127

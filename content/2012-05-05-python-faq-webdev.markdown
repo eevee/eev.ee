@@ -71,6 +71,7 @@ While PHP executes an entire file based on the URL, Python web applications tend
 
 Routes are URLs with optional placeholders, like these:
 
+    :::text
     /users/{name}
     /companies/{id}/products
     /blog/{year:\d\d\d\d}/{month:\d\d}/{day:\d\d}/{title}
@@ -145,6 +146,7 @@ The issue is complicated enough to deserve its own article (which I will totally
 
 Virtually everything nowadays has some form of automatic HTML escaping filter built in.  The idea is that a template like this:
 
+    :::html
     <p>Hello, ${name}!</p>
 
 will, when given `name = '<b>'`, safely print out `Hello, &lt;b&gt;!`.  This means that, for the most part, you don't have to worry about XSS.

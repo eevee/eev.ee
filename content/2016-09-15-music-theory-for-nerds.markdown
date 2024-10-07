@@ -94,6 +94,7 @@ Western music has twelve distinct pitches.  This is _somewhat_ arbitrary — twe
 
 The ratio between successive pitches in Western music is thus the twelfth root of two, ¹²√2 ≈ 1.0594631.  Starting at 440 Hz and repeatedly multiplying by this value produces twelve pitches before hitting 880 Hz.
 
+    :::text
     0    440 Hz
     1    466.16 Hz
     2    493.88 Hz
@@ -118,6 +119,7 @@ Now, remember, the human ear loves ratios.  It particularly loves ratios of smal
 
 The twelfth root of two may be irrational, but it turns out to _almost_ create several nice ratios.  (I don't know why twelve in particular has this effect, or if other roots do as well, but it's probably why Western music settled on twelve.)  Here are the pitches of all twelve notes, relative to the first.  Some of them are _very_ close to simple fractions.
 
+    :::text
     0    1.000          = 1:1   (unison)
     1    1.059                  (semitone; minor second)
     2    1.122  ≈ 1.125 = 9:8   (whole tone; major second)
@@ -141,6 +143,7 @@ Hmm.  _Seven_.  What a conspicuous number.
 
 Surprise!  Those nice fractions make up the _major scale_.  Starting with C produces the _C major scale_ — the "natural" notes.  Using ♯ to mean "one semitone up" and ♭ to mean "one semitone down", we can name all of these notes.
 
+    :::text
     0    1.000          = 1:1   C           (unison)
     1    1.059                  C♯ or D♭    (semitone; minor second)
     2    1.122  ≈ 1.125 = 9:8   D           (whole tone; major second)
@@ -161,6 +164,7 @@ You can now see where some of those interval names came from.  A _perfect fifth_
 
 The intervals between successive notes can be written as _wwhwwwh_, where _w_ is a whole tone and _h_ is a semitone or half tone.  Because octaves repeat, you can rotate this sequence to produce seven different variations, depending on where you start.  The resulting scales are all called _diatonic scales_, and the choice of starting point is called a _mode_.  Here are all seven, marked by Roman numerals indicating the start point.  I've also chosen different starting notes for each column, so that the resulting notes are all "natural".
 
+    :::text
                         I  II  III  IV  V  VI  VII
     0    1.000  = 1:1  |C|  D   E   F   G  |A|  B
     1    1.059         | |      F          | |  C
@@ -180,6 +184,7 @@ I've, er, highlighted two columns.  Column I produces the _major scales_, and co
 
 You can start anywhere you want to produce a major or minor scale, as long as you follow the same patterns of intervals.  With twelve notes, there are twenty-four major and minor scales altogether, which would make for a big boring diagram.  Here are a few of the major scales.
 
+    :::text
     A major:    A       B       C#  D       E       F#      G#  A
     A# major:   A#      C       D   D#      F       G       A   A#
     B major:    B       C#      D#  E       F#      G#      A#  B
@@ -190,6 +195,7 @@ You can start anywhere you want to produce a major or minor scale, as long as yo
 
 If you rotate those major scales to start from C, they look like this.
 
+    :::text
     A major:        C#  D       E       F#      G#  A       B       C#
     A# major:   C       D   D#      F       G       A   A#      C
     B major:        C#      D#  E       F#      G#      A#  B       C#
@@ -200,6 +206,7 @@ If you rotate those major scales to start from C, they look like this.
 
 Here are some minor scales, written the same way.
 
+    :::text
     F# minor:       C#  D       E       F#      G#  A       B       C#
     G minor:    C       D   D#      F       G       A   A#      C
     G# minor:       C#      D#  E       F#      G#      A#  B       C#
@@ -233,12 +240,14 @@ It completely obscures the relationship between the pitches, though.  You can't 
 
 Anyway, I really only brought this up to make a point about notation.  Look at C♯ major again.
 
+    :::text
     C# major:   C#      D#      F   F#      G#      A#      C   C#
 
 Two pairs of notes are using the same letter — C and C♯, F and F♯ — so they'd occupy the same position in sheet music.  That won't work with the scheme I just described.
 
 To fix this, several scales fudge it a bit.  C is one semitone above B, so you could also write it as B♯.  F is one semitone above E, so you could also write it as E♯.  Here's how C♯ is actually written.
 
+    :::text
     C# major:   C#      D#     (E#) F#      G#      A#     (B#) C#
 
 Now all seven letters are used exactly once.
@@ -262,6 +271,7 @@ Major chords consist of some _root_ note, the note 4 semitones up from the root,
 
 Speaking of which, something slightly interesting happens when you compare the major and minor scales starting with the same note.  They're very similar, except that three notes are a semitone higher in the major scale.
 
+    :::text
     C major:    C       D       E   F       G       A       B   C
     C minor:    C       D   D#      F       G   G#      A#      C
 

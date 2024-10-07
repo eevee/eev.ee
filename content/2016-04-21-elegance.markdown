@@ -108,6 +108,7 @@ Inform 7 is interesting because it's explicitly designed for games, and even a p
 
 Inform 7 is intended for writing interactive fiction games (like [Zork](https://en.wikipedia.org/wiki/Zork)).  The syntax resembles written English, roughly mirroring how the resulting game is played.  For example:
 
+    :::inform7
     The mysterious cavern is a room.
     "Numerous stalagtites cast eerie shadows on the walls."
 
@@ -154,6 +155,7 @@ Locksmith by Emily Short addresses this problem by splitting the "LOCK" and "UNL
 
 Now, I want to make a padlock.  You don't need a key to _close_ a padlock, so I want to hijack "locking keylessly" to work without needing a key at all.  Both "CLOSE PADLOCK" and "LOCK PADLOCK" should do the same thing, so I use an _instead_ rule to redirect both actions.  I also want to make the padlock support the standard "open" property, but I define it in terms of whether it's currently locked, since that's how a padlock works.
 
+    :::inform7
     Definition: the padlock is open rather than closed when it is not locked.
     Instead of closing the padlock:
         try locking keylessly the padlock.
@@ -174,6 +176,7 @@ This is the downside of having a lot of override mechanisms.  Arguably, the exte
 
 The solution is remarkably simple: just swap the actions.
 
+    :::inform7
     Definition: the padlock is open rather than closed when it is not locked.
     Instead of locking keylessly the padlock:
         try closing the padlock.
@@ -218,6 +221,7 @@ This is pretty clearly a hack.  What I mean is a _door_, and this is as far away
 
 2. Hiding objects is more complicated than you'd think!  The most common suggestion I've seen is to do this:
 
+        :::inform7
         Instead of doing something with the hidden item:
             say "You can't see any such thing."
 
@@ -247,6 +251,7 @@ Well, hey, that sounds easy.  You can embed chunks of Inform 6 code in Inform 7,
 
 Foiled!  It didn't work.  The problem is that going through a door takes you to the "other side".  "Other side" is a real physical property — an Inform 6 function that picks a side based on where the player currently is.  Alas, rather than consulting the array, this function has the two sides _hardcoded_.  It looks like this:
 
+    :::inform6
     with door_to [ 
         loc ! room of actor
         ;
@@ -260,6 +265,7 @@ I did try changing "the other side of the green door" from Inform 7 land, but it
 
 The solution I settled on was to rewrite the "other side" function for this particular door entirely.  I ended up with:
 
+    :::inform6
     Include (-
     [ HackedOtherSide loc;
         loc = location;

@@ -41,6 +41,7 @@ A really nice thing about the PICO-8 is that its cartridge format isn't some hor
 
 Here's some of the music from Under Construction.
 
+    :::text
     __music__
     01 4a480905
     01 4a080905
@@ -54,6 +55,7 @@ Here's some of the music from Under Construction.
 
 The tracks at the end are the tracks we never used, which make it fairly easy to figure out the format here:
 
+    :::text
     FF AABBCCDD
 
 `FF` is a byte representing the loop flags.  (Two hex digits makes 0–255, hence, one byte.)  A little experimentation makes it clear that 1 is _loop start_, 2 is _loop end_, and 4 is _stop_.  That's the same order the buttons appear in the UI, which is a nice confirmation.
@@ -66,6 +68,7 @@ The obvious thing to try was `ffmpeg`, a command-line tool that's ridiculously g
 
 `ffmpeg` does interesting editors using _filters_, which you can string together however you want.  I say "however you want", but, ah.  I tried doing this all in one step at first:
 
+    :::zsh
     ffmpeg -i sound9.wav -i sound5.wav -filter_complex 'amix=inputs=2,volume=2' -i sound8.wav -i sound9.wav -i sound5.wav -filter_complex 'amix=inputs=3,volume=3' -filter_complex 'concat=n=2:v=0:a=1' -ar 44100 -ac 2 out.wav
 
 `amix` is the filter for mixing together some number of audio streams; `concat` places them one after the other.  The idea here was thus: mix two sounds together (to make one track), mix three sounds together (to make another track), then concatenate the results.

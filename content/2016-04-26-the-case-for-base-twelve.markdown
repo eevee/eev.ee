@@ -85,7 +85,7 @@ Is exactly the same, but with two more digits.  Carrying and whatnot are the sam
 
 You can do long subtraction:
 
-```
+```text
   23
   3̸4̸2
 - 173
@@ -95,7 +95,7 @@ You can do long subtraction:
 
 Or long multiplication:
 
-```
+```text
   342
 × 173
 -----
@@ -196,7 +196,7 @@ A kilobyte (kibibyte, if you must) is 714 bytes...  but of course, we wouldn't d
 
 With two extra digits, ASCII would have two fewer slots available for punctuation.  I wonder which two wouldn't have made it?
 
-Unicode would have space for 458,8A7 characters.  
+Unicode would have space for 458,8A7 characters.
 
 
 ## Some familiar numbers

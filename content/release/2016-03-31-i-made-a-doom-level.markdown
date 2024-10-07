@@ -715,6 +715,7 @@ The first release candidate of this map had a hilarious bug.  See, the Doom engi
 
 Fixed-point isn't built into very many programming languages, so the Doom source code has to have its own functions for handling arithmetic correctly.  Unfortunately, the scripting language inherited this fault, and is possibly _worse_ about it — it only understands integers, and can't distinguish between real integers and fixed-point values.  All of this is to say that I did this to scale the proportion of secrets found to a score out of 40:
 
+    :::c
     int difficulty = FixedDiv(found * 1.0, total * 1.0) * 40;
 
 Seems reasonable enough.  I want to divide the number of secrets found by the total number of secrets, but if I do it directly, it'll just truncate to 0.  So I multiply both values by `1.0` to make them fixed-point (the scripting language does understand that literal numbers with decimal points are fixed-points), then I use the `FixedDiv` function to perform a fixed-point division.  Multiply by `40`, and you have a score out of 40, right?
@@ -725,6 +726,7 @@ I never noticed this because in my efforts to test the behavior of finding all s
 
 The fix was pretty easy.  I want an integer in the end, so I don't really need fixed-point numbers at all.  If I do the division last, there's no intermediate result less than 1 to be rounded into oblivion.
 
+    :::c
     int difficulty = 40 * found / total;
 
 Fixed.  Alas, this fix didn't make it into the first test release of DUMP 2, so a few people had a fun surprise.

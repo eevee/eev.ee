@@ -223,7 +223,7 @@ class type:
 
 Again, you can trivially confirm this by asking any type for its `__call__` method.  Assuming that type doesn't implement `__call__` itself, you'll get back a bound version of `type`'s implementation.
 
-```
+```python-console
 >>> list.__call__
 <method-wrapper '__call__' of type object at 0x7fafb831a400>
 ```
@@ -299,7 +299,7 @@ With this, it's easy to have several unrelated tables that act as a single table
 
 At this point things are a little confusing, since we have at least three tables going on, so here's a diagram.  Keep in mind that Lua doesn't actually have anything called an "object", "class", or "method" — those are just convenient nicknames for a particular structure we might build with Lua's primitives.
 
-```
+```text
                     ╔═══════════╗        ...
                     ║ metatable ║         ║
                     ╟───────────╢   ┌─────╨───────────────────────┐
@@ -761,7 +761,7 @@ Offhand, I'm not actually sure how `next::method` works, seeing as it was origin
 
 Operator overloading looks a little weird, though really it's pretty standard Perl.
 
-```
+```perl
 package MyClass;
 
 use overload '+' => \&_add;

@@ -302,6 +302,7 @@ Nothing can fix `coerce`, which has no equivalent.  Curiously, I don't see a fix
 
 Historically, the way to say "if there's a `ValueError`, store it in `e` and run some code" was:
 
+    :::python
     try:
         ...
     except ValueError, e:
@@ -309,6 +310,7 @@ Historically, the way to say "if there's a `ValueError`, store it in `e` and run
 
 Unfortunately, that's very easy to confuse with the syntax for catching two different types of exception:
 
+    :::python
     except (ValueError, TypeError):
         ...
 
@@ -316,6 +318,7 @@ If you forget the parentheses, you'll only catch `ValueError`, and the exception
 
 Python 3.0 introduced clearer syntax, which was also backported to Python 2.6:
 
+    :::python
     except ValueError as e:
         ...
 

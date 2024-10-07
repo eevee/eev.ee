@@ -27,6 +27,7 @@ If you're curious,​ the actual value of that number is 10,​715,​086,​071
 
 This one actually had me stumped for a while, looking for some kind of pattern so I could devise an "easy" way to solve it.  The powers of 2 _mod 9_ (which you get by summing digits repeatedly until only a single digit is left) have an obvious recurring pattern of 1 2 4 8 7 5, but only summing the digits _once_ produces a sequence with no obvious pattern:
 
+    :::text
     1   2   4   8   16   32   64   128   256   512   1024   2048
     1   2   4   8    7    5   10    11    13     8      7     14
 

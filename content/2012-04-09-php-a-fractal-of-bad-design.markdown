@@ -24,17 +24,17 @@ But I've got to get this out of my system.  So here goes, one last try.
 I just blurted this out to Mel to explain my frustration and she insisted that I reproduce it here.
 
 > I can't even say what's _wrong_ with PHP, because—  okay.  Imagine you have uh, a toolbox.  A set of tools.  Looks okay, standard stuff in there.
-> 
+>
 > You pull out a screwdriver, and you see it's one of those weird tri-headed things.  Okay, well, that's not very useful to you, but you guess it comes in handy sometimes.
-> 
+>
 > You pull out the hammer, but to your dismay, it has the claw part on _both_ sides.  Still serviceable though, I mean, you can hit nails with the middle of the head holding it sideways.
-> 
+>
 > You pull out the pliers, but they don't have those serrated surfaces; it's flat and smooth.  That's less useful, but it still turns bolts well enough, so whatever.
-> 
+>
 > And on you go.  Everything in the box is kind of weird and quirky, but maybe not enough to make it _completely_ worthless.  And there's no clear problem with the set as a whole; it still has all the tools.
-> 
+>
 > Now imagine you meet millions of carpenters using this toolbox who tell you "well hey what's the problem with these tools?  They're all I've ever used and they work fine!"  And the carpenters show you the houses they've built, where every room is a pentagon and the roof is upside-down.  And you knock on the front door and it just collapses inwards and they all yell at you for breaking their door.
-> 
+>
 > That's what's wrong with PHP.
 
 <!-- more -->
@@ -99,6 +99,7 @@ CPAN has been called the "standard library of Perl".  That doesn't say much abou
 * Some of the problems listed on this page do have first-party solutions—if you're willing to pay Zend for fixes to their open-source programming language.
 * There is a whole lot of action at a distance.  Consider this code, taken from the PHP docs somewhere.
 
+        :::php
         @fopen('http://example.com/not-existing-file', 'r');
 
     What will it do?
@@ -112,7 +113,7 @@ CPAN has been called the "standard library of Perl".  That doesn't say much abou
     * If it _is_ printed, exactly where it goes depends on `display_errors`, again in php.ini.  Or `ini_set`.
 
     I can't tell how this innocuous function call will behave without consulting compile-time flags, server-wide configuration, and configuration done in my program.  And this is all _built in_ behavior.
-    
+
 * The language is full of global and implicit state.  `mbstring` uses a global character set.  `func_get_arg` and friends look like regular functions, but operate on the currently-executing function.  Error/exception handling have global defaults.  `register_tick_function` sets a global function to run every tick—what?!
 * There is no threading support whatsoever.  (Not surprising, given the above.)  Combined with the lack of built-in `fork` (mentioned below), this makes parallel programming extremely difficult.
 * Parts of PHP are practically _designed_ to produce buggy code.
@@ -154,6 +155,7 @@ Okay, back to facts.
 * `foo()[0]` is a syntax error.  (Fixed in PHP 5.4.)
 * Unlike (literally!) every other language with a similar operator, `?:` is _left_ associative.  So this:
 
+        :::php
         $arg = 'T';
         $vehicle = ( ( $arg == 'B' ) ? 'bus' :
                      ( $arg == 'A' ) ? 'airplane' :
@@ -238,12 +240,14 @@ Okay, back to facts.
 
     * As a result, this:
 
+            :::php
             function foo(string $s) {}
 
             foo("hello world");
 
         produces the error:
 
+            :::text
             PHP Catchable fatal error:  Argument 1 passed to foo() must be an instance of string, string given, called in...
 
     * You may notice that the "type hint" given doesn't actually have to exist; there is no `string` class in this program.  If you try to use `ReflectionParameter::getClass()` to examine the type hint dynamically, _then_ it will balk that the class doesn't exist, making it impossible to actually retrieve the class name.
@@ -404,6 +408,7 @@ Oh, man.
 * The `=>` construct is based on Perl, which allows `foo => 1` without quoting.  (That is, in fact, why it exists in Perl; otherwise it's just a comma.)  In PHP, you can't do this without getting a warning; it's the only language in its niche that has no vetted way to create a hash without quoting string keys.
 * Array functions often have confusing or inconsistent behavior because they have to operate on lists, hashes, or maybe a combination of the two.  Consider `array_diff`, which "computers the difference of arrays".
 
+        :::php
         $first  = array("foo" => 123, "bar" => 456);
         $second = array("foo" => 456, "bar" => 123);
         echo var_dump(array_diff($first, $second));
@@ -415,6 +420,7 @@ Oh, man.
 * In a similar vein, `array_rand` has the strange behavior of selecting random _keys_, which is not that helpful for the most common case of needing to pick from a list of choices.
 * Despite how heavily PHP code relies on preserving key order:
 
+        :::php
         array("foo", "bar") != array("bar", "foo")
         array("foo" => 1, "bar" => 2) == array("bar" => 2, "foo" => 1)
 

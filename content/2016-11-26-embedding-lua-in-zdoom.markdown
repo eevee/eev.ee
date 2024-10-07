@@ -37,7 +37,7 @@ However, ZDoom doesn't actually understand the language itself; ACS is compiled 
 
 The other big feature is `DECORATE`, a mostly-declarative mostly-interpreted language for defining new kinds of objects.  It's a fairly direct reflection of how Doom actors are implemented, which is in terms of states.  In Doom and the other commercial games, actor behavior was built into the engine, but this language has allowed almost all actors to be extracted as text files instead.  For example, [the imp is implemented](http://zdoom.org/wiki/Classes:DoomImp) partly as follows:
 
-```
+```text
   States
   {
   Spawn:
@@ -236,7 +236,7 @@ I could consider making the interpreter global and doing black magic to replace 
 
 Er, anyway.  So, the problem with _syntax_ is that `DECORATE`'s own syntax is extremely compact and designed for its very specific goal of state tables.  Even ZScript appears to preserve the state table syntax, though it lets you write your own action functions or just provide a block of arbitrary code.  Here's a short chunk of the imp implementation again, for reference.
 
-```
+```text
   States
   {
   Spawn:

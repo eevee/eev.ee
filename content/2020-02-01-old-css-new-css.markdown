@@ -354,7 +354,7 @@ This conflict with the spec was not ideal, and IE 6 set out to fix it.  Unfortun
 
 So the IE team came up with a very strange compromise: they declared the old behavior (along with several other major bugs) as "quirks mode" and made it the _default_.  The new "strict mode" or "standards mode" had to be opted _into_, by placing a "doctype" at the beginning of your document, before the `<html>` tag.  It would look something like this:
 
-```
+```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 ```
 
@@ -416,7 +416,7 @@ Only one tool, really: `float`.
 
 I said that `float` was intended for magazine-style "pull" images, which is true, but CSS had defined it fairly generically.  In _principle_, it could be applied to any element.  If you wanted a sidebar, you could tell it to float to the left and be 20% the width of the page, and you'd get something like this:
 
-```
+```text
 +---------+
 | sidebar | Hello, and welcome to my website!
 |         |
@@ -426,7 +426,7 @@ I said that `float` was intended for magazine-style "pull" images, which is true
 Alas!  Floating has the secondary behavior that text wraps around it.  If your page text was ever longer than your sidebar, it would wrap around _underneath_ the sidebar, and the illusion would shatter.  But hey, no problem.  CSS specified that floats don't wrap around each other, so all you needed to do was float the body as well!
 
 
-```
+```text
 +---------+ +-----------------------------------+
 | sidebar | | Hello, and welcome to my website! |
 |         | |                                   |
@@ -551,7 +551,7 @@ Designers wanted a lot of things that CSS just could not offer.
     4. Fuck it, make your entire website one big Flash app lol
 
     Another problem was that IE 6 didn't understand PNGs with 8-bit alpha; it could only correctly display PNGs with 1-bit alpha, i.e. every pixel is either fully opaque or fully transparent, like GIFs.  You had to settle for jagged edges, bake a solid background color into the image, or apply various fixes that centered around this fucking garbage nonsense:
-    
+
         :::css
         filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='bite-my-ass.png');
 

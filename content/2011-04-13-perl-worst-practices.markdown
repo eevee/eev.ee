@@ -31,6 +31,7 @@ This is a command-line switch to `perl` for enabling warnings.  It's been deprec
 
 **DO NOT** do this:
 
+    :::perl
     open FILEHANDLE, ">filename";  # DO NOT DO THIS I MEAN IT
 
 There are several problems here:
@@ -42,6 +43,7 @@ There are several problems here:
 
 Instead, do this:
 
+    :::perl
     open my $fh, '>', "filename" or die "Couldn't open file: $!";
 
 `$fh` is a regular old scalar now, and will go away (thus closing the file) at the end of the block.  You can pass it around, store it, or whatever you want.  And the filename isn't parsed for any magic squiggles, so it's safe from injection.
@@ -86,6 +88,7 @@ You almost certainly meant `chomp()`.  If you didn't, use a regex; you can be mo
 
 That's a term I just invented to refer to the little blocks used by `map`, `grep`, much of `List::Util`, etc.  Using `$_` is virtually required for these, and any alternative would be far harder to read.  But they localize `$_` correctly, and they're short (or _should be_), so nothing else is likely to clobber `$_`.  But for the love of god don't do this:
 
+    :::perl
     for (@things) {
         tr/abc/xyz/;
         s/def/ghi/;
@@ -98,12 +101,14 @@ This looks like complete nonsense at a glance, until you remember, _oh yeah that
 
 I cannot stand seeing this:
 
+    :::perl
     map $_ * 2, @numbers;
 
 The way this works for _any other function_ is to pass it twice the value of `$_`, followed by the contents of `@numbers`.  The way this works _only for `map` and `grep`_ is to apply the expression `$_ * 2` to the contents of `@numbers`.
 
 The distinction is subtle and buried somewhere in the interpreter's guts.  Don't do this.  It makes no sense at all to write code in a procedural language with no delimiters at all but have it act as an anonymous function.  Just use the damn block syntax:
 
+    :::perl
     map { $_ * 2 } @numbers;
 
 There's a slight disadvantage in that Perl's parser will get confused if you accidentally include a comma after the block, but I think the clarity is worth the risk.  If nothing else, this syntax isn't special to Perl builtins; you can write your own functions that do it.
@@ -112,14 +117,17 @@ There's a slight disadvantage in that Perl's parser will get confused if you acc
 
 That's the "buffered I/O" variable, if you weren't aware.  Setting it to a true value disables buffering for the currently-selected filehandle.  Don't do this:
 
+    :::perl
     $| = 1;
 
 And if you do this then you should probably be stopping to wonder if there's any easier way:
 
+    :::perl
     select((select($fh), $| = 1)[0]);
 
 What you really want is:
 
+    :::perl
     use IO::Handle;
     $fh->autoflush(1);
 
@@ -131,6 +139,7 @@ And while I'm at it...
 
 This is a global operation that affects the entire program.  You will forget to reset it, or something will die and it won't get reset, or whatever.  That's bad.  I have seen it happen.  Instead of this:
 
+    :::perl
     my $orig_stdout = select $fh;
     print "this goes to my file";
     do_something_that_prints_to_stdout();
@@ -138,6 +147,7 @@ This is a global operation that affects the entire program.  You will forget to 
 
 Try this:
 
+    :::perl
     {
         local *STDOUT;
         open STDOUT, '>&', $fh;
@@ -153,12 +163,14 @@ In Perl, the last statement executed in a function is the return value, if `retu
 
 You might say that this is perfectly understandable:
 
+    :::perl
     sub foo {
         1;
     }
 
 And you are correct!  I do this for constant functions all the time.  But this is not so understandable:
 
+    :::perl
     sub foo {
         my $a = do_something();
         my $b = do_something_else();
@@ -167,6 +179,7 @@ And you are correct!  I do this for constant functions all the time.  But this i
 
 Wait, what?  Is this function supposed to return or not?  Is that a typo?  What's the documentation say?  Good grief.  And then there's this:
 
+    :::perl
     sub foo {
         if ($bar) {
             1;
@@ -184,6 +197,7 @@ By the way, don't `return undef` if that's not _exactly_ what you mean.  When ca
 
 This is called "indirect method syntax".  It's not because `new` is a magical operator in Perl, like in C++.  Oh, no, this is much more insidious.  You see, someone had the harebrained idea that these two call styles should be equivalent:
 
+    :::perl
     foo $bar @args;
     $bar->foo(@args);
 
@@ -201,10 +215,12 @@ The guts of Perl's OO are messy, bug-prone, and not much like any other language
 
 I can't count the number of times I've seen this at the end of a function:
 
+    :::perl
     return wantarray ? @things : \@things;
 
 Why are you doing this?  Just return the damn list.  If I want an arrayref, I'll make one.  The worst part is seeing such a function used in scalar context a lot, then trying to use it yourself in the wrong context:
 
+    :::perl
     my $var_a = list_of_things();
     my $var_b = list_of_things();
 
@@ -224,6 +240,7 @@ A note on returning lists: return values are _copied_.  So if your function can 
 
 I see this done sometimes to make walking the symbol table easier.  Ignoring for the moment that you rarely need to walk the symbol table, you're even more unlikely to need `strict refs` off to do it:
 
+    :::perl
     my $method = "whatever";
     *{"Foo::Bar::$method"} = sub { 1 };  # Violates 'strict refs'
 
@@ -234,6 +251,7 @@ If you have no idea what's going on here, don't ask.
 
 ### Assigning to `@_`
 
+    :::perl
     sub foo {
         $_[0] = 3;
     }

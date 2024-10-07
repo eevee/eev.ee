@@ -35,6 +35,7 @@ If the only written languge you're familiar with is English, that goes doubly so
 
 Perhaps you want to sort text.  A common enough problem.  Let's give this a try in Python.  To simplify things, we'll even stick to English text.
 
+    :::python-console
     >>> words = ['cafeteria', 'caffeine', 'café']
     >>> words.sort()
     >>> words
@@ -52,6 +53,7 @@ Ah, you say!  I've heard about this problem and know how to solve it.  I can jus
 
 Sure, let's give that a try.
 
+    :::python-console
     >>> import unicodedata
     >>> normalize = lambda s: ''.join(ch for ch in unicodedata.normalize('NFKD', s) if not unicodedata.combining(ch))
     >>> 
@@ -60,6 +62,7 @@ Sure, let's give that a try.
 
 Great, problem solved.
 
+    :::python-console
     >>> normalize('ı')
     'ı'
     >>> normalize('æ')
@@ -69,6 +72,7 @@ Great, problem solved.
 
 Hmm.
 
+    :::python-console
     >>> normalize('한글')
     '한글'
     >>> normalize('イーブイ')
@@ -99,6 +103,7 @@ To be fair, [that was already true anyway](http://www.sansbullshitsans.com/).  Y
 
 Let's return to the simpler world of _letters_ and revisit that Hangul example:
 
+    :::python-console
     >>> normalize('한글')
     '한글'
 
@@ -120,6 +125,7 @@ You can see how VTE has done the same thing as with Hangul: it thinks the emoji 
 
 All of these problems can be traced back to the same source: a POSIX function called `wcwidth`, which is intended to return the number of terminal columns needed to display a given character.  It exists in glibc, which sent me on a bit of a wild goose chase.  I originally thought that `wcwidth` must be reporting that the second and third Jamo characters are zero width, but this proved not to be the case:
 
+    :::python-console
     >>> libc.wcwidth(c_wchar('\u1100'))  # initial Jamo
     2
     >>> libc.wcwidth(c_wchar('\u1161'))  # second Jamo
@@ -148,9 +154,8 @@ While I'm at it: why are emoji left with a width of 1?  They tend to be drawn to
 
 Sometimes you care about whitespace.  Perhaps you're using it to separate words.  In, say, a programming language.  [Like JavaScript](http://stackoverflow.com/questions/31507143/why-does-2-40-equal-42).
 
-```javascript
-alert(2+ 40);
-```
+    :::javascript
+    alert(2+ 40);
 
 JavaScript's syntax defers the decision of what counts as whitespace to the Unicode database, which assigns a `WSpace` property to a handful of codepoints.  Seems like a good approach, except for this one unusual exception: " " is a space character, U+1680 OGHAM SPACE MARK.  [Ogham](https://en.wikipedia.org/wiki/Ogham) is an alphabet used in older forms of Irish, and its space character generally renders as a line.  Surprise!
 
@@ -165,17 +170,15 @@ As an added wrinkle, the lone oddball character "⠀" renders like a space in mo
 
 JavaScript's "String" type ([or "string" type?](http://stackoverflow.com/questions/2051833/difference-between-the-javascript-string-type-and-string-object)) is not actually a string type.  Observe:
 
-```javascript
-var bomb = "💣";
-console.log(bomb.length);  // 2
-```
+    :::javascript
+    var bomb = "💣";
+    console.log(bomb.length);  // 2
 
 That's a string containing a single character, U+1F4A3 BOMB.  Yet JavaScript thinks it contains two!  What on earth is going on here?  Let's see what JavaScript thinks those two characters are, using `charCodeAt`.
 
-```javascript
-console.log(bomb.charCodeAt(0).toString(16));  // d83d
-console.log(bomb.charCodeAt(1).toString(16));  // dca3
-```
+    :::javascript
+    console.log(bomb.charCodeAt(0).toString(16));  // d83d
+    console.log(bomb.charCodeAt(1).toString(16));  // dca3
 
 These aren't actually characters.  Everything from U+D800 through U+DFFF is permanently reserved as a non-character for the sake of encoding astral plane characters in UTF-16.  The short version is that all BMP characters are two bytes in UTF-16, and all astral plane characters are two of these non-characters (called a surrogate pair) for a total of four bytes.
 

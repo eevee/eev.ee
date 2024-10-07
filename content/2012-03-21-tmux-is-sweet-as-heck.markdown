@@ -19,6 +19,7 @@ I'm also assuming that `^A` is your multiplexer trigger key, although `tmux` def
 
 Here's my `.screenrc`, fiddled by hand over the course of many months after I started using `screen`.
 
+    :::text
     caption always "%{= kw}%?%-Lw%?%{Kw}%n*%f %t%?(%u)%?%{kw}%?%+Lw%? %=%{= dw} %H "
 
     # terminfo and termcap for nice 256 color terminal
@@ -51,6 +52,7 @@ Sure, you can just paste a line you find on the Web (like mine above, even!) int
 
 Here's an excerpt of the status bar configuration from [my `.tmux.conf`][tmux.conf]:
 
+    :::text
     # Status bar has a dim gray background
     set-option -g status-bg colour234
     set-option -g status-fg colour0
@@ -64,6 +66,7 @@ High xterm color names are not particularly friendly, and the actual contents of
 
 How do you customize the xterm title in `screen`?  According to [the FAQ][screen faq on xterm titles]:
 
+    :::text
     termcapinfo xterm*|rxvt*|kterm*|Eterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
     defhstatus "screen ^E (^Et) | $USER@^EH"
     hardstatus off
@@ -72,6 +75,7 @@ Ah! it's our old friend termcap, followed by line noise.  The FAQ entry indicate
 
 Let's compare to my take on this for `tmux`:
 
+    :::text
     set-option -g set-titles on
     set-option -g set-titles-string '[#S:#I #H] #W'
 
@@ -111,30 +115,36 @@ Some other stuff from [my `.tmux.conf`][tmux.conf] that you may find useful:
 
 Use `^A` as the magic keybinding:
 
+    :::text
     set-option -g prefix C-a
     unbind-key C-b
     bind-key a send-prefix
 
 Bind `^A space` to switch to the next window to the right, `^A ctrl-space` to switch to the next window to the left, and `^A ^A` to switch to the last-used window:
 
+    :::text
     bind-key C-a last-window
     bind-key Space next-window
     bind-key C-Space previous-window
 
 Set the esc/alt disambiguation timeout to 50ms.  The default is _half a second_, which makes vim kind of painful.
 
+    :::text
     set-option -sg escape-time 50
 
 Start numbering windows at 1, not 0.  I like the leftmost window to be the leftmost number on my keyboard.
 
+    :::text
     set-option -g base-index 1
 
 Set `TERM=screen-256color` in new windows.  (`tmux` doesn't have its own `$TERM`; it hijacks the `screen` family, so whatever recognizes `screen` should recognize `tmux`.)
 
+    :::text
     set-option -g default-terminal screen-256color
 
 Tell `tmux` to use xterm sequences for, e.g., ctrl-arrow.  I don't know why this isn't on by default.  If odd key combinations aren't working for you, this is probably why.
 
+    :::text
     set-window-option -g xterm-keys on # to make ctrl-arrow, etc. work
 
 Feel free to steal my color scheme, too.  It's simple, but a bit less glaring than the 70's black-on-green that you get by default.

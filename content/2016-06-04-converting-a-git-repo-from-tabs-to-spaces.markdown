@@ -22,6 +22,7 @@ First, **be absolutely sure you're never going to change your mind**.  If you as
 
 If you're using a whitespace-sensitive language, you _must_ fix any inconsistent indentation.  (You might want to do this anyway, or your code will look like nonsense.)  By "inconsistent", I mean any code that will change relative indentation levels if the width of a tab changes.  Consider:
 
+    :::text
     ....if foo:
     ------->print("true")
 
@@ -33,6 +34,7 @@ On the other hand, if you are some kind of monster and want to replace every tab
 
 You could just scan your codebase for leading spaces, but if you have a mix of tabbed files and spaced files, you'll get a ton of false positives and it'll be a huge pain in the ass.  A somewhat more robust approach for Python specifically is:
 
+    :::zsh
     python -tt -m compileall . | grep Sorry
 
 `-tt` tells the interpreter to treat inconsistent indentation as a `SyntaxError`.  The `compileall` module searches recursively for `.py` files and produces `.pyc` bytecode, which requires parsing each file, which will trigger the `SyntaxError`.  And any errors encountered while compiling modules produce a line starting with `Sorry`, along with the filename, line number, and column number.
@@ -45,6 +47,7 @@ The actual process uses a [Git filter](https://git-scm.com/book/en/v2/Customizin
 
 One way or another, you **must** get this block in your devs' Git configuration — anyone doing regular development who doesn't have the filter definition will be _utterly_ confused.  This is probably the hardest part of the process.  Thankfully, Yelp mostly does work on beefy shared dev machines, so I only had to bug an ops person to stick this incantation in `/etc/gitconfig` and wait for Puppet.  YMMV.
 
+    :::text
     [filter "spabs"]
         clean = expand --initial -t 4
         smudge = expand --initial -t 4
@@ -65,6 +68,7 @@ If at all possible, get all your collaborators to stop doing work for a day whil
 
 First, create or amend `.gitattributes` in the root of your repository with the following:
 
+    :::text
     *.py    filter=spabs
 
 You can add as many source-like filetypes as you want by adding more lines with different extensions.  I converted everything I could find that we'd used in any repository, including but not limited to: `.css`, `.scss`, `.js`, `.html`, `.xml`, `.xsl`, `.txt`, `.md`, `.sh`, etc.  (I left `.c` and `.h` alone.  It seemed somehow inappropriate to change tabbed C code.)
@@ -83,6 +87,7 @@ I'm paranoid, and Yelp's codebase was colossal, so I wrote a whole script that i
 
 The much faster way to do this is:
 
+    :::zsh
     git checkout HEAD -- "$(git rev-parse --show-toplevel)"
 
 This asks `git checkout` to re-checkout every single file in your whole repository.  As a side effect, the `smudge` command will be run, converting all your tabs to spaces.  You will end up with a whole lot of whitespace changes.
@@ -163,6 +168,7 @@ I only discovered this explanation after all the affected developers had given u
 
 If you find yourself with an index with a slow cache, you just need to do something that updates the index.  Read-only commands like `git status` or `git diff` won't do it, but `git add` will.  If you really don't have anything to add yet, you can force an update manually:
 
+    :::zsh
     git update-index somefile
 
 `somefile` can be any arbitrary file that's in the repository.  This command forces Git to examine it and write its modifiedness to the index—as a side effect, the index will now be updated.

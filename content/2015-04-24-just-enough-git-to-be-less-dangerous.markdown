@@ -60,6 +60,7 @@ So you start out with nothing.  Then you apply patch **A**, which gives you `one
 
 Git's documentation tends to draw history from left to right, so the above would be displayed as:
 
+    :::text
     A---B---C
 
 Same idea, just written differently.  It makes a little more sense if you imagine arrows: **A** → **B** → **C**.
@@ -122,6 +123,7 @@ But _Linus_ has: **A** → **B** → **D** → **E** → **F**
 
 Or, to draw it the way the Git docs would, where time flows from left to right:
 
+    :::text
           C            terrible-broadcom-driver
          /
     A---B---D---E---F  origin/master
@@ -132,6 +134,7 @@ If we were emailing patches around, we might just say screw it and apply **C** o
 
 Instead, Git can just _merge_ these two different views of history together, by creating a new commit with _two_ parents: **C** and **F**.
 
+    :::text
           C-----------.    terrible-broadcom-driver
          /             \
     A---B---D---E---F---G  origin/master
@@ -204,6 +207,7 @@ If you do a merge, or a pull, or (God forbid) a rebase, it's possible your chang
 
 Pop open a conflicting file and you'll find something like this:
 
+    :::text
     <<<<<<< HEAD
     something you changed
     =======
@@ -272,6 +276,7 @@ If you don't tell Git your name, _it will have to guess_, and it will guess badl
 
 So the first three lines of your `.gitconfig` should probably fix those:
 
+    :::text
     [user]
         name = Eevee (Lexy Munroe)
         email = eevee.git@veekun.com
@@ -286,6 +291,7 @@ Some brief investigation revealed that I have actually had the colors customized
 
 What I saw horrified and dismayed me.  Please just trust me when I say that you should absolutely blindly paste this block of color definitions into your `.gitconfig`.
 
+    :::text
     [color "branch"]
         current = yellow reverse
         local = yellow
@@ -304,11 +310,13 @@ What I saw horrified and dismayed me.  Please just trust me when I say that you 
 
 The only other real twiddle of note in my `.gitconfig` is this:
 
+    :::text
     [merge]
         conflictstyle = diff3
 
 Usually, a merge conflict appears like this:
 
+    :::text
     <<<<<<< HEAD
     what you changed it to
     =======
@@ -319,6 +327,7 @@ For simple cases, this is enough, and all is well.  For less simple cases, this 
 
 Enter `diff3`, which changes merge conflicts to appear like this:
 
+    :::text
     <<<<<<< HEAD
     what you changed it to
     |||||||
@@ -385,6 +394,7 @@ I don't care what _anyone_ says.  **Do not use anything that says "rebase" unles
 
 Say you have **A** → **B** → **C**, where **C** is your own commit, and **B** is the latest commit in `origin/master`.  You go to push, and, oh no!  There's already a new commit **D** on the server.  So you have this:
 
+    :::text
           .---C  master
          /
     A---B---D    origin/master
@@ -393,6 +403,7 @@ You could merge here...  _or_ you could do a rebase.  Fundamentally, "rebasing" 
 
 So now you have:
 
+    :::text
           .---C
          /
     A---B---D         origin/master

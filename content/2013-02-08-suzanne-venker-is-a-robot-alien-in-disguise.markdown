@@ -55,10 +55,12 @@ There were only 425 women on board in the first place, on a ship with over 2,000
 
 Here's a little ASCII [chart](http://en.wikipedia.org/wiki/RMS_Titanic#Survivors_and_victims):
 
-                saved       lost        total
-    women        316        109          425        26% lost
-    men          338       1352         1690        80% lost
-    children      56         53          109        49% lost
+```text
+            saved       lost        total
+women        316        109          425        26% lost
+men          338       1352         1690        80% lost
+children      56         53          109        49% lost
+```
 
 Women were still proportionally under-represented in the death toll, yes, but by three-to-one rather than thirteen-to-one.  Oh, and _half_ the children were lost, which is fascinating given the mention of "women and children first" in the next paragraph.
 

@@ -20,6 +20,7 @@ The bot can try to notify without joining the channel, but i couldn't find a way
 
 Until [habnabit][] proposed the following.
 
+    :::text
     /mode #veekun -n
     /mode #veekun +b m:*!*@*
     /mode #veekun +e m:j:#veekun
@@ -42,6 +43,7 @@ Using the above modes is a super easy way for GitHub's IRC bot to notify your ch
 
 I'm using Inspircd 2.0, but other ircds tend to have similar matching and muting.  For UnrealIRCd:
 
+    :::text
     /mode #veekun -n
     /mode #veekun +b ~q:*!*@*
     /mode #veekun +e ~q:~c:#veekun
@@ -57,10 +59,12 @@ First register the bot's nick with NickServ.  You can either set its password as
 
 Then, only allow the bot to talk to your channel if it's identified.  Replace the fourth line with this for Inspircd:
 
+    :::text
     /mode #veekun +e m:R:github
 
 Or this for Unreal:
 
+    :::text
     /mode #veekun +e ~q:~R:github
 
 If you don't have IRC services and/or don't want to futz with them, you can instead change `github!*@*` to something like `github!*@*.github.com` or even `*!*@*.github.com`, so the exception only applies to connections from GitHub servers.  But going through NickServ has the advantage that you can have anyone using the nick automatically KILLed if they don't identify for it, preventing someone from stealing the nick and blocking your notifications.

@@ -127,7 +127,7 @@ For the uniform distribution, which is what a classic `rand()` gives you, the PD
 
 If there were a calculus bit, it would go here!  Instead, we can cheat.  Sometimes.  Mathematica knows how to work with probability distributions in the abstract, and there's a [free web version](https://sandbox.open.wolframcloud.com/app/) you can use.  For the example of squaring a uniform variable, try this out:
 
-```
+```mathematica
 PDF[TransformedDistribution[u^2, u \[Distributed] UniformDistribution[{0, 1}]], u]
 ```
 
@@ -135,7 +135,7 @@ PDF[TransformedDistribution[u^2, u \[Distributed] UniformDistribution[{0, 1}]], 
 
 This will tell you that the distribution is…  $\frac{1}{2\sqrt{u}}$.  Weird!  You can plot it:
 
-```
+```mathematica
 Plot[%, {u, 0, 1}]
 ```
 
@@ -270,7 +270,7 @@ for gaps, count in sorted(histogram.items()):
     print(f"{gaps:3d} | {count / TRIALS * 100:6.2f}%", '#' * (count // (TRIALS // 100)))
 ```
 
-```
+```text
   1 |   0.98%
   2 |   9.91% #########
   3 |  17.00% ################
@@ -292,7 +292,7 @@ We've got kind of a hilly distribution, skewed to the left, which is up in this 
 
 Of course, this simulated a single continuous playthrough; when starting the game from scratch, your chance at a reward always starts fresh at 1%, the worst it can be.  If you want to know about how many rewards a player will get on the first floor, hey, Just Simulate The Damn Thing.
 
-```
+```text
   0 |   0.01%
   1 |  13.01% #############
   2 |  56.28% ########################################################

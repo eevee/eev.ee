@@ -261,7 +261,7 @@ If only there were a book that could explain it to beginners in more depth than 
 
 The complaint is that this happens in Python 3, whereas it's accepted in Python 2:
 
-```
+```python-console
 >>> b"hello" + "hello"
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -274,7 +274,7 @@ The programmer section is called "Statically Typed Strings".  But this is not st
 
 That would be nice, but it's not like this is a new problem.  Try this in Python 2.
 
-```
+```python-console
 >>> 3 + "hello"
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -297,7 +297,7 @@ print "Hi, my name is Łukasz Langa."
 print "Hi, my name is Łukasz Langa."[::-1]
 ```
 
-```
+```text
 Hi, my name is Łukasz Langa.
 .agnaL zsaku�� si eman ym ,iH
 ```
@@ -338,7 +338,7 @@ print(f"{number:02x}")
 This isn't "very different".  A frequently-used method is being promoted to syntax.
 
 > I _really_ like this new style, and I have no idea why this wasn't the formatting for Python 3 instead of that stupid `.format` function. String interpolation is natural for most people and easy to explain.
-> 
+>
 > The problem is that beginner will now how to know all three of these formatting styles, and that's too many.
 
 I could swear Zed, an experienced professional programmer, just said he couldn't easily figure out these new formatting systems.  Note also that `str.format()` has existed in Python 2 since Python 2.6 was released in 2008, so I don't know why Zed said "new formatting _systems_", plural.

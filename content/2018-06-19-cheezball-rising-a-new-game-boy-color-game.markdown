@@ -71,7 +71,7 @@ The extra `rgbfix` step is new, though — it adds the Nintendo logo (the one yo
 
 All I need now is a source file, `main.rgbasm`, which I populate with:
 
-```
+```text
 
 ```
 

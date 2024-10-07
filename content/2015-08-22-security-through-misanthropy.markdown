@@ -61,6 +61,7 @@ We don't test for failure cases because we assume the state of the world will al
 
 As it turns out, this is one of the most common kinds of security flaw: dumping arbitrary user data into the string form of a structured format.  The raw IRC message would look something like this:
 
+    :::text
     PRIVMSG #channel :{response}\r\n
 
 We might treat this like a string because it's convenient, but this is actually a serialized data structure (albeit a terrible one) for storing a sequence of strings.  You can look at this and immediately tell that spaces and newlines need to be handled with care, because they're part of the format itself.  IRC actually has no escaping mechanism (except that prefixing with a colon treats the entire rest of the line as a single argument), so there simply is no way to send a newline as part of a command.  If you just slop IRC messages together with string concatenation, you risk injecting a bogus argument and creating a malformed message...  which may do anything.

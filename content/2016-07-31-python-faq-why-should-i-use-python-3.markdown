@@ -87,15 +87,18 @@ Python 3.0 was released shortly after Python 2.6, and a number of features were 
 
 - Set literals:
 
+        :::python
         {1, 2, 3}
 
 - Dict and set comprehensions:
 
+        :::python
         {word.lower() for word in words}
         {value: key for (key, value) in dict_to_invert.items()}
 
 - Multi-`with`:
 
+        :::python
         with open("foo") as f1, open("bar") as f2:
             ...
 
@@ -384,6 +387,7 @@ This makes some APIs a little silly — `__exit__` still accepts the exception t
 
 A much more annoying property of Python 2's exception handling was that custom exception handling would lose track of where the problem actually occurred.  Consider the following call stack.
 
+    :::text
     A
     B
     C
@@ -392,6 +396,7 @@ A much more annoying property of Python 2's exception handling was that custom e
 
 Now say an exception happens in `E`, and it's caught by code like this in `C`.
 
+    :::python
     try:
         D()
     except Exception as e:
@@ -401,10 +406,12 @@ Because this creates and raises a new exception, the traceback will _start_ from
 
 Python 3.0 introduced _exception chaining_, which allows you to do this:
 
+    :::python
     raise CustomError("Failed to call D") from e
 
 Now, if this exception reaches the top level, Python will format it as:
 
+    :::pytb
     Traceback (most recent call last):
     File C, blah blah
     File D, blah blah
@@ -427,10 +434,12 @@ If you direly need to hide the original exception, Python 3.3 introduced `raise 
 
 Speaking of exceptions, the error messages for missing arguments have been improved.  Python 2 does this:
 
+    :::pytb
     TypeError: foo() takes exactly 1 argument (0 given)
 
 Python 3 does this:
 
+    :::pytb
     TypeError: foo() missing 1 required positional argument: 'a'
 
 Refs:
@@ -592,7 +601,6 @@ This is so great I am so happy you have no idea.
 Lastly, there's now an `__init_subclass__` class method, which is called when the class is _subclassed_.  A great many metaclasses exist just to do a little bit of work for each new subclass; now, you don't need a metaclass at all in many simple cases.  You want a plugin registry?  _No problem:_
 
 ```python
-
 class Plugin:
     _known_plugins = {}
 

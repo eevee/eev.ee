@@ -77,6 +77,7 @@ Lurking in there is a critical stop along the way to several flavors of enlighte
 
 I only remember one notable thing I made in QBasic in those days.  I must've still been in middle school, which would mean I was 9 or 10?  I got regular homework that involved taking a set of vocabulary words and making "word pyramids" out of them, like this:
 
+    :::text
     c    d
     ca   do
     cat  dog

@@ -337,20 +337,20 @@ Pop open SLADE's preferences and drill down to Scripting → ACS.  Set "Location
 
 Once you've done that, the rest is pretty easy.  In the map editor, choose View → Script Editor, and you're off to the races.  You usually want the first line to be
 
+    :::c
     #include "zcommon.acs"
 
 which defines the names of all the specials and various useful constants.
 
 The most common use for scripts is to have a switch that does more than one thing.  That's pretty easy:
 
-```
-#include "zcommon.acs"
+    :::c
+    #include "zcommon.acs"
 
-script "do some stuff" (void) {
-    Door_Open(4, 16, 0);
-    Floor_LowerInstant(5, 0, 512);
-}
-```
+    script "do some stuff" (void) {
+        Door_Open(4, 16, 0);
+        Floor_LowerInstant(5, 0, 512);
+    }
 
 Click "compile" to compile, and "save" to save.  ZDoom itself doesn't actually understand ACS, only the compiled bytecode.  It's entirely possible to ship a map with a compiled script and no source code.
 

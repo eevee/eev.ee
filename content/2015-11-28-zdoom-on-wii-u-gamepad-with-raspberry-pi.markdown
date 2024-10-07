@@ -66,6 +66,7 @@ If you're not familiar with hacking on Nintendo products, they seem to have a ha
 
 Well, that's easy enough according to Some Blog.  Just clone a repo and build it:
 
+    :::zsh
     make -C /usr/src/linux-headers-VERSION M=/home/USERNAME/drc/drc-mac80211/
 
 And here, we hit our first roadblock.  You see, Rasbian (the modified Debian used as the standard Raspberry Pi distro) doesn't ship with kernel headers.  And they're not in apt.  This seems really fucking weird for a tiny hacker computer intended for hacking on.
@@ -74,22 +75,26 @@ This is a problem that strangely few people seem to encounter, and I had to cobb
 
 First you need to get the git commit hash of the `firmware` the Pi is running.  These are listed in the bootloader changelog.
 
+    :::zsh
     firmware_hash=$(zcat /usr/share/doc/raspberrypi-bootloader/changelog.Debian.gz | grep -Pom 1 '(?<=firmware as of )[0-9a-f]{6,}')
 
 That's probably not totally reliable since the changelog might be typed by hand, but whatever.
 
 You can then use that to get the commit hash for the Linux kernel you're running:
 
+    :::zsh
     linux_hash=$(curl -L https://raw.github.com/raspberrypi/firmware/$firmware_hash/extra/git_hash)
 
 Now, uh, I don't really want to `git clone` the entire Linux kernel.  You'd think `git clone --depth=1` might help here, and you'd be wrong, because you can only `git clone` starting from a branch or tag — _not_ an arbitrary commit.  Alas.
 
 Turns out, though, that you can just ask GitHub to give us a tarball.
 
+    :::zsh
     wget -O rpi-linux.tar.gz https://github.com/raspberrypi/linux/tarball/$linux_hash
 
 Alas!  The Pi disk image only comes with half a gig of free space, and the Linux kernel source won't fit in that.  My card is 16GB, though, and expanding a live filesystem via command line is way less harrowing than ye olden days of `fdisk`.
 
+    :::zsh
     sudo parted /dev/mmcblk0 resizepart 2 100%
     sudo resize2fs /dev/mmcblk0p2
 
@@ -99,6 +104,7 @@ At this point I've long since forgotten what the hell I was even doing.  Right, 
 
 So now I have to "prepare the kernel for module builds".  Disclaimer: I've built a few Linux kernels in my time, but it is not a simple topic and I have no idea what I'm doing.  These shell commands I found on the Internet seem totally reasonable though.
 
+    :::zsh
     # this makes /proc/config.gz exist
     sudo modprobe configs
     zcat /proc/config.gz > .config
@@ -111,6 +117,7 @@ So now I have to "prepare the kernel for module builds".  Disclaimer: I've built
 
 Lastly I need `Module.symvers`, which, clearly, is about symbolic versions, of modules, I guess.  I think it lists module dependencies because I forgot to get it and the build complained it didn't know anything about module dependencies.  You can get it from the `firmware` repo:
 
+    :::zsh
     wget https://github.com/raspberrypi/firmware/raw/$firmware_hash/extra/Module.symvers
 
 Finally, we can—
@@ -126,6 +133,7 @@ Okay, sure, that sounds important.
 
 The provided repo is actually super ancient (very early 2014) and no longer builds against the current kernel.  It's a good thing that there's only a single patch, and it only adds a new function — it was super duper easy to just reapply the patch against my shiny new kernel sources.
 
+    :::zsh
     wget -O mac80211.patch https://bitbucket.org/memahaxx/drc-mac80211/commits/4a9823cf2a6733bc15a05cffaebd8850d07451a7/raw/
     cd net/mac80211
     patch -p1 < ../../mac80211.patch
@@ -133,10 +141,12 @@ The provided repo is actually super ancient (very early 2014) and no longer buil
 
 Aaaand finally build it.
 
+    :::zsh
     make M=net/mac80211
 
 Success!  Now I just have to unload the stock module and the various drivers using it, in the right order, then load the new module and drivers.
 
+    :::zsh
     sudo rmmod rt2800usb rt2x00usb rt2800lib rt2x00lib mac80211
     sudo insmod net/mac80211/mac80211.ko
     sudo modprobe rt2800usb
@@ -158,6 +168,7 @@ I needed `libssl-dev`, which Some Blog failed to mention.  Tut, tut.  I'd also l
 
 You can read the directions if you like.  The goal here was to get the Wii U to show up in a scan:
 
+    :::text
     18:2a:7b:89:4e:69       5180    -42     [ESS]   WiiU182a7b894e6182a7b894e69_STA1
 
 Success.  My Wii U said its code was ♥ ♦ ♦ ♥, which meant the pin was 12215678, which I supplied with `wps_pin`, which completely didn't work at all and only gave me `FAIL`.
@@ -168,6 +179,7 @@ Okay so the BSSID is the thing that looks like a MAC address, but isn't, because
 
 `wps_pin` succeeded this time, and some things happened, and now I had the PSK, which I assume stands for "pre-shared key" because it looks a lot like a key:
 
+    :::text
     psk=be0ae49c48579bef3dcfd28ce8014ba0947d572d2b7280296eace2a8ee5daecc
 
 Please don't hack my Wii U.  Or, please _do_ hack it and then tell me how on Earth you managed it.
@@ -179,6 +191,7 @@ Now we can pretend to be the console.  I had to build a modified `hostapd` from 
 
 I tried to run it and got this error:
 
+    :::text
     Line 53: unknown configuration item 'ieee80211n'
 
 Apparently you have to set `CONFIG_IEEE80211N=y` in the build config, which makes a lot of sense given that the pad uses 802.11n to communicate.  I have no idea why nobody mentioned this.
@@ -187,6 +200,7 @@ I hit some more minor stumbling blocks; that `WiiU182a7b894e6182a7b894e69_STA1` 
 
 I also had to compile a teeny-tiny DHCP server called `netboot` and give my wireless interface a static IP, and _finally_...
 
+    :::zsh
     sudo ./netboot 192.168.1.255 192.168.1.10 192.168.1.11 18:2a:7b:b0:5d:bd
     sudo ./hostapd -dd ../conf/wiiu_ap_normal.conf
 
@@ -229,6 +243,7 @@ This is really weird.  I left it _overnight_ and it still didn't finish.  It get
 
 Debugging GCC is not in my skillset, and Twitter wasn't sure what the problem was either.  It took a good few hours to bumble upon something that actually fixed it: patching `configure`.
 
+    :::diff
     -    echo $CFLAGS | grep -Eq '(-mcpu|-march|-mfpu)' || CFLAGS="$CFLAGS -mcpu=cortex-a8 -mfpu=neon"
     +    echo $CFLAGS | grep -Eq '(-mcpu|-march|-mfpu)' || CFLAGS="$CFLAGS -mcpu=native"
     
@@ -245,6 +260,7 @@ At some point I'd rebooted to free more RAM and modestly overclock the Pi, to se
 
 I ran `netboot` and `hostapd` again, aaand it refused to start.
 
+    :::text
     channel [0] (36) is disabled for use in AP mode, flags: 0x57 NO-IBSS PASSIVE-SCAN
 
 _Come on._  Nothing changed!
@@ -256,10 +272,12 @@ Long story short I was in the "00" regulatory domain, and I had to install `iw` 
 
 Right!  Here we go!  Let's pair the pad and run `demos/3dtest/3dtest` from the libdrc repo!
 
+    :::text
     Missing OpenGL extension: ARB_pixel_buffer_object
 
 Ha, ha!  No problem; I don't actually need OpenGL at all.  Let's try the `simpleaudio` demo, which shouldn't need GL either.
 
+    :::text
     Segmentation fault
 
 Uh oh.

@@ -22,6 +22,7 @@ But, hey, I'm sick of talking about PHP.  So let's talk about Python.  In honor 
 
 [Flask][] is the thing you use to get up and running quickly.  Let's do that.  I don't think I've actually built a real thing with Flask, so this will be fun times for me, too.  I'm even doing this in REAL TIME.
 
+    :::text
     eevee@perushian ~/dev/blog ⚘ cd ~/dev
     eevee@perushian ~/dev ⚘ mkdir guestbook_demo
     eevee@perushian ~/dev ⚘ cd guestbook_demo
@@ -37,7 +38,7 @@ Make a directory, make a git repository, make a blank Python namespace to stick 
 
 Okay, write some code.  Look at all this boilerplate I had to copy from Flask's front page oh no!
 
-###### [guestbook_demo/app.py](https://github.com/eevee/guestbook_demo/blob/7fa216c5dc0f73615434d3812d69cfc88a16cfa1/guestbook_demo/app.py)
+###### [`guestbook_demo/app.py`](https://github.com/eevee/guestbook_demo/blob/7fa216c5dc0f73615434d3812d69cfc88a16cfa1/guestbook_demo/app.py)
 ```python
 from __future__ import absolute_import, unicode_literals
 
@@ -49,7 +50,7 @@ app = Flask(__name__)
 def root():
     return "Wow this is totally useless so far!"
 ```
-###### [guestbook_demo/__main__.py](https://github.com/eevee/guestbook_demo/blob/7fa216c5dc0f73615434d3812d69cfc88a16cfa1/guestbook_demo/__main__.py)
+###### [`guestbook_demo/__main__.py`](https://github.com/eevee/guestbook_demo/blob/7fa216c5dc0f73615434d3812d69cfc88a16cfa1/guestbook_demo/__main__.py)
 ```python
 from __future__ import absolute_import
 
@@ -62,6 +63,7 @@ Again, half of what I've done here is unnecessary.  The [`__future__`][__future_
 
 Fire it up.
 
+    :::text
     eevee@perushian ~/dev/guestbook_demo ⚘ python2 -m guestbook_demo
      * Running on http://127.0.0.1:5000/
 
@@ -72,6 +74,7 @@ Click the link.  I have a website.  Hey, I didn't even have to install Apache.
 
 Well, no, first things first.
 
+    :::text
     eevee@perushian ~/dev/guestbook_demo ⚘ vim .gitignore
     # *.pyc
     # .*.swp
@@ -87,8 +90,8 @@ Well, no, first things first.
 
 Okay, now templates.  Hurriedly consult [documentation][flask docs: templates].  Blah, blah, autoescaping, how do I [use it][flask tutorial: views].  Okay, so Flask looks for templates in a `templates/` directory by default.  How eerily convenient.
 
-###### [guestbook_demo/templates/_base.html](https://github.com/eevee/guestbook_demo/blob/9aca69520bb5bd3dba18221ca2f2dab4161fa122/guestbook_demo/templates/_base.html)
-```python
+###### [`guestbook_demo/templates/_base.html`](https://github.com/eevee/guestbook_demo/blob/9aca69520bb5bd3dba18221ca2f2dab4161fa122/guestbook_demo/templates/_base.html)
+```html+jinja
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -105,8 +108,8 @@ Okay, now templates.  Hurriedly consult [documentation][flask docs: templates]. 
     </body>
 </html>
 ```
-###### [guestbook_demo/templates/index.html](https://github.com/eevee/guestbook_demo/blob/9aca69520bb5bd3dba18221ca2f2dab4161fa122/guestbook_demo/templates/index.html)
-```python
+###### [`guestbook_demo/templates/index.html`](https://github.com/eevee/guestbook_demo/blob/9aca69520bb5bd3dba18221ca2f2dab4161fa122/guestbook_demo/templates/index.html)
+```html+jinja
 {% extends "_base.html" %}
 
 {% block title %}Guestbook{% endblock %}
@@ -124,7 +127,7 @@ Okay, now templates.  Hurriedly consult [documentation][flask docs: templates]. 
 
 And update the Python side.
 
-###### [guestbook_demo/app.py](https://github.com/eevee/guestbook_demo/blob/9aca69520bb5bd3dba18221ca2f2dab4161fa122/guestbook_demo/app.py)
+###### [`guestbook_demo/app.py`](https://github.com/eevee/guestbook_demo/blob/9aca69520bb5bd3dba18221ca2f2dab4161fa122/guestbook_demo/app.py)
 ```python
 @app.route("/")
 def root():
@@ -138,7 +141,7 @@ Now we have some templates.  Hey, that wasn't too bad.  Could stand to have some
 
 I learned something doing this, because I made a typo in my template: Flask only does live debugging if I set `debug=True` when I run it.
 
-###### [guestbook_demo/__main__.py](https://github.com/eevee/guestbook_demo/blob/5f9e225ed3960ddd8685399ad4f11f195293bab0/guestbook_demo/__main__.py)
+###### [`guestbook_demo/__main__.py`](https://github.com/eevee/guestbook_demo/blob/5f9e225ed3960ddd8685399ad4f11f195293bab0/guestbook_demo/__main__.py)
 ```python
 app.run(debug=True)
 ```
@@ -147,7 +150,7 @@ This also provides automatic code reloading.  Unfortunately, due to some arcane 
 
 Incidentally, it seems that if I'm putting my code in a package, I oughta hardcode the package name instead of using `__name__`.  (The documentation for the `Flask` class explains this.)
 
-###### [guestbook_demo/app.py](https://github.com/eevee/guestbook_demo/blob/5f9e225ed3960ddd8685399ad4f11f195293bab0/guestbook_demo/app.py)
+###### [`guestbook_demo/app.py`](https://github.com/eevee/guestbook_demo/blob/5f9e225ed3960ddd8685399ad4f11f195293bab0/guestbook_demo/app.py)
 ```python
 app = Flask('guestbook_demo')
 ```
@@ -159,11 +162,12 @@ I like [SQLAlchemy][].  I could write a bunch of queries by hand for something s
 
 First, I need a database.  (`createdb` is a PostgreSQL thing.  I'm amazed at how ballsy they are, claiming a generic name like that.)
 
+    :::text
     eevee@perushian ~/dev/guestbook_demo ⚘ createdb guestbook_demo
 
 I don't need anything fancy for arranging the DB code, either.  Credentials should go in configuration, yadda yadda, but since I don't really need credentials here (Postgres can authenticate using my local Unixy login), who cares.
 
-###### [guestbook_demo/db.py](https://github.com/eevee/guestbook_demo/blob/92f112dc3701ed5bd68a68c48a3a50b91694a113/guestbook_demo/db.py)
+###### [`guestbook_demo/db.py`](https://github.com/eevee/guestbook_demo/blob/92f112dc3701ed5bd68a68c48a3a50b91694a113/guestbook_demo/db.py)
 ```python
 import datetime
 
@@ -205,7 +209,7 @@ Things to note:
 
 Also, `scoped_session` does some gross things to make a single session variable multiplex across threads, but it requires knowing when I'm done with a thread's session.  So I need this little guy in `app.py`.
 
-###### [guestbook_demo/app.py](https://github.com/eevee/guestbook_demo/blob/92f112dc3701ed5bd68a68c48a3a50b91694a113/guestbook_demo/app.py)
+###### [`guestbook_demo/app.py`](https://github.com/eevee/guestbook_demo/blob/92f112dc3701ed5bd68a68c48a3a50b91694a113/guestbook_demo/app.py)
 ```python
 @app.teardown_request
 def shutdown_session(exception=None):
@@ -216,6 +220,7 @@ This is one of those things `flask-sqlalchemy` would've done for me.  C'est la v
 
 Create some tables:
 
+    :::text
     eevee@perushian ~/dev/guestbook_demo ⚘ python2
     Python 2.7.3 (default, Apr 24 2012, 00:00:54)
     [GCC 4.7.0 20120414 (prerelease)] on linux2
@@ -238,10 +243,11 @@ Okay, getting somewhere, but it's not very useful yet.
 
 Let's add some data and display it.
 
+    :::psql
     guestbook_demo=# insert into guestbook_entries values (default, now() at time zone 'UTC', 'Eevee', 'hello ur web sight is gr8');
     INSERT 0 1
 
-###### [guestbook_demo/app.py](https://github.com/eevee/guestbook_demo/blob/d2206df584d42ed70665b5a03a8c890883a0acd7/guestbook_demo/app.py)
+###### [`guestbook_demo/app.py`](https://github.com/eevee/guestbook_demo/blob/d2206df584d42ed70665b5a03a8c890883a0acd7/guestbook_demo/app.py)
 ```python
 @app.route("/")
 def root():
@@ -251,8 +257,8 @@ def root():
 
     return render_template('index.html', entries=entries)
 ```
-###### [guestbook_demo/templates/index.html](https://github.com/eevee/guestbook_demo/blob/d2206df584d42ed70665b5a03a8c890883a0acd7/guestbook_demo/templates/index.html)
-```python
+###### [`guestbook_demo/templates/index.html`](https://github.com/eevee/guestbook_demo/blob/d2206df584d42ed70665b5a03a8c890883a0acd7/guestbook_demo/templates/index.html)
+```html+jinja
     <ul class="guests">
         {% for entry in entries %}
         <li>
@@ -277,8 +283,8 @@ Also, I have `import datetime` in my `db.py`, but it should be `from datetime im
 
 Finally, this isn't very useful unless someone can write in it.  No surprises here; we have all the infrastructure and just need to make use of it.
 
-###### [guestbook_demo/templates/index.html](https://github.com/eevee/guestbook_demo/blob/1b7c80fbd236923c17c14b0ace7bb3e741ca5ee1/guestbook_demo/templates/index.html)
-```python
+###### [`guestbook_demo/templates/index.html`](https://github.com/eevee/guestbook_demo/blob/1b7c80fbd236923c17c14b0ace7bb3e741ca5ee1/guestbook_demo/templates/index.html)
+```html+jinja
     <hr>
 
     <form action="{{ url_for('signme') }}" method="POST">
@@ -287,7 +293,7 @@ Finally, this isn't very useful unless someone can write in it.  No surprises he
         <p><button>Sign</button></p>
     </form>
 ```
-###### [guestbook_demo/app.py](https://github.com/eevee/guestbook_demo/blob/1b7c80fbd236923c17c14b0ace7bb3e741ca5ee1/guestbook_demo/app.py)
+###### [`guestbook_demo/app.py`](https://github.com/eevee/guestbook_demo/blob/1b7c80fbd236923c17c14b0ace7bb3e741ca5ee1/guestbook_demo/app.py)
 ```python
 from flask import Flask, redirect, render_template, request, url_for
 
@@ -343,6 +349,7 @@ Okay it has linked me to the [quickstart guide][heroku quickstart].  Let me remi
 
 First I have to install some Ruby thing, naturally.  Let us pause for twenty minutes of reflection while documentation is compiled.
 
+    :::text
     eevee@perushian ~/dev/blog ⚘ heroku login
     Enter your Heroku credentials.
     Email: eevee.heroku@veekun.com
@@ -360,15 +367,15 @@ First I have to install some Ruby thing, naturally.  Let us pause for twenty min
 
 I seem to need a pip-style `requirements.txt` (just a list of Python distributions, one per line) and a `Procfile` (which tells heroku how to launch my thing).  There are [instructions for Flask][heroku flask], but as I already made an app, I'm just beating what I have into submission with minimal changes.  And some trial and error.
 
-###### [requirements.txt](https://github.com/eevee/guestbook_demo/blob/e4ed3a09b271ba00db924391386dc701aa19e084/requirements.txt)
-```
+###### [`requirements.txt`](https://github.com/eevee/guestbook_demo/blob/e4ed3a09b271ba00db924391386dc701aa19e084/requirements.txt)
+```text
     Flask>=0.8
     SQLAlchemy>=0.7
     psycopg2
 ```
 
-###### [Procfile](https://github.com/eevee/guestbook_demo/blob/e4ed3a09b271ba00db924391386dc701aa19e084/Procfile)
-```
+###### [`Procfile`](https://github.com/eevee/guestbook_demo/blob/e4ed3a09b271ba00db924391386dc701aa19e084/Procfile)
+```text
     web: python -m guestbook_demo
 ```
 
@@ -381,6 +388,7 @@ I went through a couple cycles of `git push heroku master` and `heroku logs`, bu
 
 I have to add a web process before anything will run, I think:
 
+    :::text
     eevee@perushian ~/dev/guestbook_demo ⚘ heroku ps:scale web=1
     Scaling web processes... done, now running 1
     eevee@perushian ~/dev/guestbook_demo ⚘ heroku ps
@@ -389,6 +397,7 @@ I have to add a web process before anything will run, I think:
 
 And now I just need to reserve a database, make SQLAlchemy connect to it, and create the tables.
 
+    :::text
     eevee@perushian ~/dev/guestbook_demo ⚘ heroku addons:add heroku-postgresql:dev
     Adding heroku-postgresql:dev on whispering-beach-4961... done, v9 (free)
     Attached as HEROKU_POSTGRESQL_JADE
@@ -398,11 +407,12 @@ And now I just need to reserve a database, make SQLAlchemy connect to it, and cr
       !          send feedback to dod-feedback@heroku.com
     Use `heroku addons:docs heroku-postgresql:dev` to view documentation.
 
-###### [guestbook_demo/db.py](https://github.com/eevee/guestbook_demo/blob/e4ed3a09b271ba00db924391386dc701aa19e084/guestbook_demo/db.py)
+###### [`guestbook_demo/db.py`](https://github.com/eevee/guestbook_demo/blob/e4ed3a09b271ba00db924391386dc701aa19e084/guestbook_demo/db.py)
 ```python
 engine = create_engine(os.environ.get('HEROKU_POSTGRESQL_JADE_URL', 'postgresql:///guestbook_demo'))
 ```
 
+    :::text
     eevee@perushian ~/dev/guestbook_demo ⚘ heroku run python
     Running `python` attached to terminal... up, run.1
     from guesPython 2.7.2 (default, Oct 31 2011, 16:22:04) 

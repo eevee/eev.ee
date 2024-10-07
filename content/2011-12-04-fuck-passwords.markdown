@@ -44,6 +44,7 @@ While my key is still protected by a password, the experience is radically diffe
 
     Hell, here's what it looks like:
 
+        :::text
         eevee@perushian ~ $ ssh koiru.veekun.com
         eevee@koiru ~ $
 
@@ -100,11 +101,13 @@ Speaking of usernames, i've run into more than one bank that requires a digit in
 
 And then there are security questions.  Please tell me, what is the difference between this:
 
+    :::text
     password: freedom
     favorite color: red
 
 And this:
 
+    :::text
     password: freedom red
 
 Answer: the first case gives an attacker a big hint on what the answer might be!  Awesome, that's exactly what i want for my password.

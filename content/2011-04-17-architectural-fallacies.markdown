@@ -51,11 +51,10 @@ This is the Swiss Army Rock problem.
 The user has decided that the problem is simple, therefore only simple tools should be required to solve it.  I gave this attitude its name after summarizing it like this:
 
 > "I want to pound a nail, but hammers do too many other things; I don't need to pull nails out."
-    
+>
 > "Instead I'll just figure out how to tie this rock to the end of this stick."
-    
+>
 > "Hmm, now I need to pull a nail out.  I bet if the rock had a notch in it..."
-
 
 I remember being told about a UDP tracker protocol—a BitTorrent protocol for finding who has files available—that used UDP, for "high performance" and "low overhead".
 
@@ -104,6 +103,7 @@ That on its own is already a bad sign; when in Rome, etc etc.  I've seen Python 
 
 The real problem appears when I have this recurring conversation with someone:
 
+    :::text
     <dude> hey, how do I do anonymous functions in Python?
     <Eevee> you can't; python doesn't have them.  what are you trying to do?
     <dude> I need to pass callbacks to some library
@@ -235,9 +235,10 @@ I still fondly remember starting a project with a single collaborator, possibly 
 This and the following two make for a trilogy of related problems.  Let's see what we can find out about human nature and [our own measures of competence][dunning-kruger effect].
 
 > hey, guys, I think I found a bug in Python:
-
-    >>> 3 / 2
-    1
+>
+>     :::python-console
+>     >>> 3 / 2
+>     1
 
 I've actually seen this one several times, though usually the supposed bug is more complex.  The reasoning is confounding.  When I run across unexpected behavior, I start to suspect the following things _in this order_:
 
@@ -259,6 +260,7 @@ Blaming the platform _first_ indicates a strange sort of egocentrism.  We assume
 
 During the course of digging out the context of an XY Problem or similar, the following exchange sometimes happens:
 
+    :::text
     <inquirer> I'm writing a script/function/program to do X
     <regular> why? there's already library X
     <inquirer> oh cool! I didn't know this had been done before

@@ -42,6 +42,7 @@ Now, wait.  Before considering 3×3, bear in mind: nothing about this problem re
 * 0×1 and 0×2 also have only one path.  Naturally, any grid with either dimension of 0 will have only one possible path, because it's a straight line.
 * 1×2 has 3 paths: clockwise, counter-clockwise, and through the middle in an S shape.
 
+        :::text
         @@@@    @--+    @--+
         ¦  @    @  ¦    @  ¦
         +--@    @--+    @@@@
@@ -50,6 +51,7 @@ Now, wait.  Before considering 3×3, bear in mind: nothing about this problem re
 
 * Consider 1×3.  It has four horizontal grid lines, making for 4 possible paths: one for each horizontal line.
 
+        :::text
         @@@@    @--+    @--+    @--+
         ¦  @    @  ¦    @  ¦    @  ¦
         +--@    @@@@    @--+    @--+
@@ -60,6 +62,7 @@ Now, wait.  Before considering 3×3, bear in mind: nothing about this problem re
 
 Has a pattern emerged?
 
+    :::text
     · | 0   1   2   3
     --+--------------
     0 | 1   1   1   1
@@ -69,6 +72,7 @@ Has a pattern emerged?
 
 Oh ho ho.  Yes, yes it has.  Tilt that table diagonally.
 
+    :::text
             1
           1   1
         1   2   1
@@ -79,6 +83,7 @@ This is Pascal's Triangle.
 
 In retrospect, this makes perfect sense.  Consider the 3×3 grid.  Starting from the top left, there are only two possible directions to go: right, or down.  If you go right, you can only follow the possible paths for a 2×3 grid.  If you go down, you can only follow the possible paths for a 3×2 grid.  And none of them can overlap, because you started differently.
 
+    :::text
     +--+--+--+      @@@@--+--+    @
     ¦  ¦  ¦  ¦         ¦  ¦  ¦    @
     +--+--+--+         +--+--+    @--+--+--+
@@ -100,6 +105,7 @@ From here I could just figure it out with a calculator, but that's cheating.  Ti
 
 I'm on Arch, and the first thing I found was [OpenCOBOL][], [on the AUR][opencobol package], so I'm installing this bad boy.  Your results may vary, if for some reason you're following along.
 
+    :::text
     eevee@perushian ~ ⚘ sudo packer -S open-cobol
 
 Now I need to learn some COBOL.  OpenCOBOL's site helpfully links this [OpenCOBOL Programmer's Guide][].  Let's see what I have here.
@@ -113,16 +119,18 @@ My archaeological adventure is off to a fantastic start.
 
 Right, well, step two: what the hell does a program look like?  I am dimly aware that COBOL has a lot of wordy setup and DIVISIONs of code or data or something.  Section 2 starts to explain this setup.  The only required part of a COBOL program appears to be `PROGRAM-ID. {program-name}`, but that won't actually do anything.  So I think I'll actually need something more like this:
 
-    IDENTIFICATION DIVISION.
-    PROGRAM-ID. project-euler-15
+```cobol
+IDENTIFICATION DIVISION.
+PROGRAM-ID. project-euler-15
 
-    DATA DIVISION.
-    // something to specify 20 by 20
+DATA DIVISION.
+// something to specify 20 by 20
 
-    PROCEDURE DIVISION.
-    // make it go
+PROCEDURE DIVISION.
+// make it go
 
-    END PROGRAM project-euler-15.
+END PROGRAM project-euler-15.
+```
 
 That last part isn't actually necessary if I'm only building one file, but I like the feeling of talking to a computer with no prepositions or particles.  Reminds me a little of [Robotic][].
 
@@ -130,7 +138,7 @@ At this point I like to stick my no-op program in a file and compile it, just to
 
 * COBOL source is `.cob`.  Or `.cbl`, but that's not as funny.
 * vim has built-in COBOL syntax highlighting.
-* Because "indented block" is nonsense in COBOL, the shift operators (`<` and `>`) do nothing.  (The above block was indented, because my blog is all Markdown, and I had to outdent it manually.)
+* Because "indented block" is nonsense in COBOL, the shift operators (`<` and `>`) do nothing.
 * Everything about the code above is wrong.  Everything.  Every single character is syntax colored as an error.
 
 I'm having flashbacks to [MUMPS][wiki MUMPS] already.
@@ -141,7 +149,7 @@ Back to the website, and I find that the _online_ [User Manual][OpenCOBOL User M
 
 And, indeed, indenting everything by 7 spaces makes vim happy.  Now I have:
 
-```
+```cobol
        IDENTIFICATION DIVISION.
        PROGRAM-ID. project-euler-15
 
@@ -158,8 +166,10 @@ Haha, and people complain that Python has significant whitespace.  You assholes.
 
 At last, time to try running this thing.  The [hello world][] program comes with super simple instructions for that, too.
 
-    ⚘ cobc -x 015.cob
-    ⚘ ./015
+```zsh
+⚘ cobc -x 015.cob
+⚘ ./015
+```
 
 Success!  Nothing happened.
 
@@ -167,7 +177,7 @@ Success!  Nothing happened.
 
 First is the seed data, which here is just the size of the grid: 20×20.  I'm gonna go out on a limb here and guess that data goes in the `DATA DIVISION`.  This handy programmer guide has a page-sized diagram of the syntax for defining data and many more pages of the clusterfuck that is record syntax, but luckily there's a much simpler way to define _constants_:
 
-```
+```cobol
 78 foo VALUE IS bar.
 ```
 
@@ -175,7 +185,7 @@ The `78` is a "level", an ancient incantation used to specify just how deep in t
 
 Before trying to run this again, it'd be helpful to print out the constants and make sure I've actually defined them correctly.  This is done with `DISPLAY`.  (The same statement, inexplicably, also inspects command-like arguments and gets/sets environment variables.  What.)
 
-```
+```cobol
        IDENTIFICATION DIVISION.
        PROGRAM-ID. project-euler-15
 
@@ -203,7 +213,7 @@ The `UPON CONSOLE` is entirely optional but it looks like I'm hacking a mainfram
 
 And, whoops, this totally doesn't work.  Unsurprisingly, the `PROCEDURE DIVISION` needs code to be in...  procedures.  I had to give up and just look at the same programs here, but the short version is, do this:
 
-```
+```cobol
        PROCEDURE DIVISION.
        do-the-needful.
            DISPLAY width
@@ -235,7 +245,7 @@ There's a `CALL` statement, but it calls _subprograms_—that is, a whole other 
 
 Let's, um, just go with the globals.  Some fumbling produces:
 
-```
+```cobol
        n-choose-r.
            MOVE 1 TO numerator
            MOVE 1 TO denominator
@@ -251,7 +261,7 @@ A note on assignment in COBOL: there isn't any.  Instead, there are several diff
 
 Anyway, the idea here would be that you store the arguments into the `n` and `r` globals, `PERFORM` this procedure or paragraph or whatever, then get your result out of the `n-choose-r-result` global.  The globals are in the `DATA DIVISION` like this:
 
-```
+```cobol
        LOCAL-STORAGE SECTION.
 
       * used by n-choose-r
@@ -275,15 +285,17 @@ Well.  I could set out to see if COBOL does bignums or if the whole `PIC` thing 
 
 Consider that `nCr(n, r)` for any nonnegative integers `n` and `r` is always, itself, an integer.  (This isn't too hard to prove informally, but just accepting it is enough.)  So I know:
 
-    nCr(n, 1) = n / 1
-    nCr(n, 2) = n * (n - 1) / (2 * 1)
-              = n / 1 * (n - 1) / 2
-    nCr(n, 3) = n * (n - 1) * (n - 2) / (3 * 2 * 1)
-              = n / 1 * (n - 1) / 2 * (n - 2) / 3
+```text
+nCr(n, 1) = n / 1
+nCr(n, 2) = n * (n - 1) / (2 * 1)
+            = n / 1 * (n - 1) / 2
+nCr(n, 3) = n * (n - 1) * (n - 2) / (3 * 2 * 1)
+            = n / 1 * (n - 1) / 2 * (n - 2) / 3
+```
 
 I can take advantage of this to minimize the intermediate results without ever worrying about floating-point.  (Does COBOL support floating-point?  Christ, I don't want to know.)
 
-```
+```cobol
        n-choose-r.
            MOVE 1 TO n-choose-r-result
            PERFORM VARYING i FROM 1 BY 1 UNTIL i > r
@@ -318,7 +330,7 @@ I can't resist.  This programmer's guide is _amazing_.  I know COBOL is ass-old,
 On endianness.
 
 > All CPUs are capable of “understanding” big-endian format, which makes it the “most-compatible” form of binary storage across computer systems.
-> 
+>
 > Some CPUs – such as the Intel/AMD i386/x64 architecture processors such as those used in most Windows PCs – prefer to process binary data stored in a little-endian format. Since that format is more efficient on those systems, it is referred to as the “native” binary format.
 
 On working with libraries.
