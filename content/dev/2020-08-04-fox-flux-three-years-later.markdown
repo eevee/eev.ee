@@ -5,6 +5,8 @@ tags: tech, gamedev
 
 I'm working on a video game!  Like, a serious one.
 
+<!-- more -->
+
 ## The past
 
 I wrote [the original game](https://eevee.itch.io/fox-flux) (very slightly NSFW) for my own "horny" game jam, [Strawberry Jam](https://itch.io/jam/strawberry-jam) (more likely to be NSFW), way back in February 2017.

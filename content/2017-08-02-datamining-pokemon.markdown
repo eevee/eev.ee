@@ -37,7 +37,7 @@ A byte is made of eight bits, which gives it 2⁸ or 256 possible values.  It's 
 
 The Unix program `xxd` will print out bytes in a somewhat readable way.  Here's its output for a short chunk of English text.
 
-```text
+```hexdump
 00000000: 5468 6520 7175 6963 6b20 6272 6f77 6e20  The quick brown
 00000010: 666f 7820 6a75 6d70 7320 6f76 6572 2074  fox jumps over t
 00000020: 6865 206c 617a 7920 646f 6727 7320 6261  he lazy dog's ba

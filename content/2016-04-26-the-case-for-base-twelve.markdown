@@ -331,9 +331,9 @@ Adding all the digits works for $b - 1$.  To prove this, consider a simpler case
 
 $$
 \begin{align}
-n & = b x + y \\
-s & = x + y \\
-n - s & = (b x + y) - (x + y) = b x - x = (b - 1) × x
+n &= b x + y \\
+s &= x + y \\
+n - s &= (b x + y) - (x + y) = b x - x = (b - 1) × x
 \end{align}
 $$
 
@@ -349,11 +349,11 @@ If we split off two digits _separately_ this time, we get:
 
 $$
 \begin{align}
-n & = b² x + b y + z \\
-s & = x - y + z \\
-n - s & = (b² x + b y + z) - (x - y + z) \\
-      & = (b² - 1) x + (b + 1) y \\
-      & = (b + 1)(b - 1) x + (b + 1) y
+n &= b² x + b y + z \\
+s &= x - y + z \\
+n - s &= (b² x + b y + z) - (x - y + z) \\
+      &= (b² - 1) x + (b + 1) y \\
+      &= (b + 1)(b - 1) x + (b + 1) y
 \end{align}
 $$
 
@@ -368,9 +368,9 @@ Let's play with my rule for five (multiply the last digit by two, and subtract f
 
 $$
 \begin{align}
-n & = 10 x + y \\
-s & = x - 2 y \\
-2 n + s = 2 (10 x + y) + (x - 2 y) = 21 x
+n &= 10 x + y \\
+s &= x - 2 y \\
+2 n + s &= 2 (10 x + y) + (x - 2 y) = 21 x
 \end{align}
 $$
 
@@ -380,10 +380,10 @@ I came up with this by looking for a number $c$ that would work out nicely:
 
 $$
 \begin{align}
-n & = 10 x + y \\
-s & = x + c y \\
-c n - s & = (10 c - 1) x \\
-s - c n & = (-10 c + 1) x
+n &= 10 x + y \\
+s &= x + c y \\
+c n - s &= (10 c - 1) x \\
+s - c n &= (-10 c + 1) x
 \end{align}
 $$
 
