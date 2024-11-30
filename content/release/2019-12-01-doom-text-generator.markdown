@@ -1,6 +1,6 @@
 title: Doom text generator
 date: 2019-12-01 19:48
-category: release
+category: updates
 tags: doom
 
 <div class="prose-full-illustration">

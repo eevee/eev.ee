@@ -1,6 +1,6 @@
 title: Nazis, are bad
 date: 2017-08-13 19:58
-category: blog
+category: articles
 tags: culture, patreon
 
 Anonymous asks:

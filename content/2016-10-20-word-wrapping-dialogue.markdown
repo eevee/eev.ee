@@ -1,6 +1,6 @@
 title: Word-wrapping dialogue
 date: 2016-10-20 22:50
-category: blog
+category: articles
 tags: tech, gamedev
 
 I have a teeny tiny pet peeve with dialogue boxes.  Er, not _dialog_ boxes — dialogue boxes, the ones in video games with scrolling lines of dialogue.

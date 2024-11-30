@@ -1,6 +1,7 @@
 title: Python FAQ: Why should I use Python 3?
 date: 2016-07-31 22:24
-category: blog
+category: articles
+series: python faq
 tags: tech, python, unicode, patreon
 
 

@@ -1,7 +1,8 @@
 title: Cheezball Rising: A new Game Boy Color game
 date: 2018-06-19 18:49
-category: blog
-tags: tech, gamedev, cheezball rising
+category: process
+series: cheezball rising
+tags: tech, gamedev
 
 This is a series about [**Star Anise Chronicles: Cheezball Rising**](https://github.com/eevee/anise-cheezball-rising), an expansive adventure game about my cat for the Game Boy Color.  Follow along as I struggle to make something with this bleeding-edge console!
  

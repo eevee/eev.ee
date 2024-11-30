@@ -1,6 +1,6 @@
 title: Succeeding MegaZeux
 date: 2016-10-06 18:59
-category: blog
+category: articles
 tags: tech, gamedev
 
 In the beginning, there was ZZT.  ZZT was a set of little shareware games for DOS that used VGA text mode for all the graphics, leading to such whimsical Rogue-like choices as `ä` for ammo pickups, `Ω` for lions, and `♀` for keys.  It also came with an _editor_, including a small programming language for creating totally custom objects, which gave it the status of "game creation system" and a legacy that [survives even today](https://twitter.com/worldsofzzt).

@@ -1,6 +1,6 @@
 title: Eevee mugshot set for Doom
 date: 2017-11-23 01:46
-category: release
+category: updates
 tags: making things, doom
 
 <div class="prose-full-illustration">

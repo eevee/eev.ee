@@ -1,6 +1,6 @@
 title: Digital painter rundown
 date: 2017-06-17 00:58
-category: blog
+category: articles
 tags: tech, patreon
 
 Another [patron](https://www.patreon.com/eevee) post!  [IndustrialRobot](https://www.patreon.com/user?u=199476) asks:

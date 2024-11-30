@@ -1,6 +1,6 @@
 title: Some memorable levels
 date: 2017-07-01 16:27
-category: blog
+category: articles
 tags: tech, patreon
 
 Another [Patreon](https://www.patreon.com/eevee) request from [Nova Dasterin](https://www.patreon.com/user?u=2491881):

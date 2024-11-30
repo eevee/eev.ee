@@ -1,6 +1,6 @@
 title: Embedding Lua in ZDoom
 date: 2016-11-26 17:16
-category: blog
+category: process
 tags: tech, doom, gamedev, lua
 
 

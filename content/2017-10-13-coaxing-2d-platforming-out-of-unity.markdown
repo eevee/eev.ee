@@ -1,6 +1,6 @@
 title: Coaxing 2D platforming out of Unity
 date: 2017-10-13 12:28
-category: blog
+category: process
 tags: tech, gamedev, unity
 
 An anonymous donor asked a question that I can't even _begin_ to figure out how to answer, but they also said anything else is fine, so here's anything else.

@@ -1,6 +1,6 @@
 title: Dimorphism
 date: 2012-12-10 21:29
-category: blog
+category: personal
 tags: culture, gender
 
 

@@ -1,7 +1,7 @@
 title: In which i use GitHub, and IRC is awesome
 date: 2011-10-17 21:36
 modified: 2013-01-11 14:28
-category: blog
+category: articles
 tags: git, tech
 
 I just wasted way too much time migrating all of my git repositories to [GitHub][github].  It's way less janky than the [old thing][gitweb], and the guys running it seem to be acceptably hipster-nerdy.

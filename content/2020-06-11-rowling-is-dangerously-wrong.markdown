@@ -1,7 +1,7 @@
 title: Rowling is dangerously wrong
 date: 2020-06-11 11:15
-category: blog
-tags: personal, culture, gender
+category: articles
+tags: culture, gender
 
 I read J.K. Rowling's [essay](https://www.jkrowling.com/opinions/j-k-rowling-writes-about-her-reasons-for-speaking-out-on-sex-and-gender-issues/).
 

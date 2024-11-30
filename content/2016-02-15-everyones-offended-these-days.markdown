@@ -1,6 +1,6 @@
 title: Everyone's offended these days
 date: 2016-02-15 21:51
-category: blog
+category: articles
 tags: tech, culture
 
 

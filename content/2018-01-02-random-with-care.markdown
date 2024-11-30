@@ -1,6 +1,6 @@
 title: Random with care
 date: 2018-01-02 17:34
-category: blog
+category: articles
 tags: tech, patreon, math
 
 Hi!  Here are a few loose thoughts about picking random numbers.

@@ -1,7 +1,6 @@
 title: Comment policy
 date: 2014-04-05 19:45
-category: blog
-tags: meta
+category: updates
 
 I'm _still_ dealing with cretins' comments on my PHP post, two years later.  I've always made an effort to never delete or ban any of them, in the interest of allowing discussion and all that jazz.
 

@@ -1,6 +1,6 @@
 title: A Rebuttal For Python 3
 date: 2016-11-23 17:41
-category: blog
+category: articles
 tags: tech, yelling, python
 
 Zed Shaw, of Learn Python the Hard Way fame, has now written [The Case Against Python 3](https://learnpythonthehardway.org/book/nopython3.html).

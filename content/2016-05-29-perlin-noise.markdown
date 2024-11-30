@@ -1,6 +1,6 @@
 title: Perlin noise
 date: 2016-05-29 19:26
-category: blog
+category: articles
 tags: tech, math
 
 I used Perlin noise for the fog effect and title screen in [Under Construction]({filename}/release/2016-05-25-under-construction-our-pico-8-game.markdown).  I [tweeted about my efforts to speed it up](https://twitter.com/eevee/status/731633681735917568), and several people replied either confused about how Perlin noise works or not clear on what it actually is.

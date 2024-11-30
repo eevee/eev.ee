@@ -1,6 +1,6 @@
 title: The tech diversity blind spot
 date: 2015-11-06 07:41
-category: blog
+category: articles
 tags: tech, culture
 
 Twitter [recently lost](https://medium.com/tech-diversity-files/thought-on-diversity-part-2-why-diversity-is-difficult-3dfd552fa1f7) its only black engineer in a management role.

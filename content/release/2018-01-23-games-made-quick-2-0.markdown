@@ -1,6 +1,6 @@
 title: GAMES MADE QUICK??? 2.0
 date: 2018-01-23 23:25
-category: release
+category: updates
 tags: gamedev
 
 <div class="prose-full-illustration">

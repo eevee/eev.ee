@@ -1,6 +1,6 @@
 title: Pyramid traversal: almost useful
 date: 2011-07-14 20:25:00
-category: blog
+category: articles
 tags: python, pyramid, squiggle, tech, yelling
 
 [Pyramid][] is, to skip a lot of history, a successor to [Pylons][].  It's a Web framework for Python.  (And there goes half my audience.)  This post is about dispatch: mapping URLs to the code you want to run.  (There goes the other half.)

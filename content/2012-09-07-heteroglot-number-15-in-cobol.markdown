@@ -1,7 +1,7 @@
 title: Heteroglot: #15 in COBOL
 date: 2012-09-07 23:17
+category: process
 tags: tech, math, project euler, cobol
-category: blog
 
 
 ## Introduction

@@ -1,6 +1,6 @@
 title: I entered Ludum Dare 36
 date: 2016-08-29 18:01
-category: release
+category: updates
 tags: tech, gamedev, making things
 
 Short story: I made a video game again!  This time it was for [Ludum Dare](http://ludumdare.com/compo/about-ludum-dare/), a game jam with some tight [rules](http://ludumdare.com/compo/rules/): solo only, 48 hours to make the game and all its (non-code) assets.

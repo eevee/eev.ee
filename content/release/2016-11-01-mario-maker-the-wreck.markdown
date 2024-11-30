@@ -1,6 +1,6 @@
 title: Mario Maker: The Wreck
 date: 2016-11-01 14:52
-category: release
+category: updates
 tags: mario maker
 
 <div class="prose-full-illustration">

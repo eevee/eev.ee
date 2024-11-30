@@ -1,6 +1,6 @@
 title: informative title
 date: 2011-08-24 21:20:00
-category: blog
+category: articles
 tags: linux, ui, veekun, squiggle, raidne, sanpera, status
 
 Hello here is what's going on.

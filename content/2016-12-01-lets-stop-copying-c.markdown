@@ -1,6 +1,6 @@
 title: Let's stop copying C
 date: 2016-12-01 03:51
-category: blog
+category: articles
 tags: tech, plt
 
 Ah, C.  The best _lingua franca_ we have...  because we have no other lingua francas.  Linguae franca.  Surgeons general?

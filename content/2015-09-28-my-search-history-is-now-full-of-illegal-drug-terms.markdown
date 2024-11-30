@@ -1,6 +1,6 @@
 title: My search history is now full of illegal drug terms
 date: 2015-09-28 21:30
-category: blog
+category: articles
 tags: law, patreon
 
 Someone has [generously pledged a pile of money](https://www.patreon.com/eevee) and asked me to write about the War on Drugs.  Preliminary research reveals that this is not actually anything to do with programming, which confuses and bewilders me, but I'll give it a try anyway.

@@ -1,7 +1,7 @@
 title: Perls of Wisdom
 date: 2011-07-22 16:17:00
 modified: 2011-07-23 12:52:00
-category: blog
+category: articles
 tags: perl, tech
 
 Ha, ha!  A hilarious and original pun.

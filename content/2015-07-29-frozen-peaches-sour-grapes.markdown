@@ -1,6 +1,6 @@
 title: Frozen peaches, sour grapes
 date: 2015-07-29 19:57
-category: blog
+category: articles
 tags: culture
 
 I've started and restarted writing this post so many times.  I've spent a week agonizing over it.  It's so hard to write.  There's so much I want to say, and I don't know how to say most of it or how to thread it together sensibly or how to draw any useful conclusions.

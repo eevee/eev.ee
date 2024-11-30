@@ -1,6 +1,6 @@
 title: Copyright is broken
 date: 2015-10-23 18:49
-category: blog
+category: articles
 tags: law
 
 [Undertale](http://store.steampowered.com/app/391540/) is a fantastic game.  I might even write about it sometime.  But not right now.

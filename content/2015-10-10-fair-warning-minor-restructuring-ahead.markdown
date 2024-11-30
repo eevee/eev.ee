@@ -1,7 +1,6 @@
 title: Fair warning: minor restructuring ahead
 date: 2015-10-10 20:49
-category: blog
-tags: meta
+category: updates
 
 I started using Tumblr some time ago to publish sporadic shorter writing, as a way to combat the feeling that everything I wrote in this "real blog" had to be long and semi-formal.  The short writing more or less migrated to Twitter, but Tumblr remained for some community-specific griping.  When I started learning to draw, it was an obvious place to stick my doodles as well.
 

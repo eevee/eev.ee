@@ -1,6 +1,6 @@
 title: Security through misanthropy
 date: 2015-08-22 18:03
-category: blog
+category: articles
 tags: infosec, tech
 
 I love programming.  It's like playing with Lego — here are some blocks, see what you can build with them.

@@ -1,6 +1,6 @@
 title: Learning to draw, learning to learn
 date: 2016-05-06 21:56
-category: blog
+category: process
 tags: making things
 
 On January 1, 2015, I started learning to draw.

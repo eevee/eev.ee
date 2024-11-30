@@ -1,6 +1,6 @@
 title: Physics cheats
 date: 2018-01-06 22:08
-category: blog
+category: articles
 tags: tech, patreon, math, gamedev, doom
 
 Anonymous asks:

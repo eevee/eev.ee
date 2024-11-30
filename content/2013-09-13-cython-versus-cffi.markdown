@@ -1,7 +1,7 @@
 title: Cython versus CFFI
 date: 2013-09-13 20:01
+category: articles
 tags: python, sanpera, tech
-category: blog
 
 _(This article has been translated into [Russian](http://www.everycloudtech.com/cython-gainst-cffi) by <a href="http://www.everycloudtech.com/" rel="nofollow">Everycloudtech</a>—thanks!)_
 

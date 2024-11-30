@@ -1,6 +1,6 @@
 title: Object models
 date: 2017-11-28 21:42
-category: blog
+category: articles
 tags: tech, plt, patreon
 
 Anonymous asks, with dollars:

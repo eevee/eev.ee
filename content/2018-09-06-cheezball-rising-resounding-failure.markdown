@@ -1,7 +1,8 @@
 title: Cheezball Rising: Resounding failure
 date: 2018-09-06 05:00
-category: blog
-tags: tech, gamedev, cheezball rising
+category: process
+series: cheezball rising
+tags: tech, gamedev
 
 This is a series about [**Star Anise Chronicles: Cheezball Rising**](https://github.com/eevee/anise-cheezball-rising), an expansive adventure game about my cat for the Game Boy Color.  Follow along as I struggle to make something with this bleeding-edge console!
  

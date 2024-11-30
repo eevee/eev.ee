@@ -1,6 +1,6 @@
 title: Tech wishes for 2018
 date: 2018-02-18 13:03
-category: blog
+category: articles
 tags: tech, patreon
 
 Anonymous asks, via money:

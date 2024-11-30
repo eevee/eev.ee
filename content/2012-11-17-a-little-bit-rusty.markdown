@@ -1,6 +1,6 @@
 title: A little bit Rusty
 date: 2012-11-17 23:57
-category: blog
+category: articles
 tags: rust, tech, plt
 
 [Yelp][] had a hackathon a couple weeks ago.  These affairs are mixed blessings for me: a fixed chunk of uninterrupted time to work on a single project is _great_, but I tend to have at least a dozen ideas that I want to do all at once, none of which can be reasonably "finished" in a scant 30 hours, and most of which are obscure enough that nobody can work on them with me.

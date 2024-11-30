@@ -1,7 +1,7 @@
 title: Introspection
 date: 2017-05-28 13:59
-category: blog
-tags: personal, patreon
+category: personal
+tags: patreon
 
 This month, IndustrialRobot has [generously donated](https://www.patreon.com/eevee) in order to ask:
 

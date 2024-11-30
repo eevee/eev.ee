@@ -1,6 +1,6 @@
 title: Shut Up, Paul Graham: The Simplified Version
 date: 2016-01-04 17:48
-category: blog
+category: articles
 tags: tech, yelling
 
 > _As often happens when you say something controversial, there have been some very adventurous interpretations of the essay I just wrote about economic inequality. I thought it might help clarify matters for the undecided if I tried to write [a version so simple](http://paulgraham.com/sim.html) that it leaves no room for misinterpretation._

@@ -1,7 +1,7 @@
 title: The curious case of the switch statement
 date: 2016-09-18 21:25
 modified: 2016-09-21 16:29
-category: blog
+category: articles
 tags: tech, plt
 
 Sometimes, I lie awake at night thinking about programming languages.

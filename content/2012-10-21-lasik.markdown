@@ -1,7 +1,6 @@
 title: Lasik
 date: 2012-10-21 16:02
-category: blog
-tags: personal
+category: personal
 
 This is a thing I got yesterday.  Not 24 hours ago, even.
 

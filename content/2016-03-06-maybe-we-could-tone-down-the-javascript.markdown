@@ -1,6 +1,6 @@
 title: Maybe we could tone down the JavaScript
 date: 2016-03-06 16:45
-category: blog
+category: articles
 tags: tech, web
 
 I'm having a _really weird_ browser issue, where scripts on some pages just won't run until about 20 seconds have passed.

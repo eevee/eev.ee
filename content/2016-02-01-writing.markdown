@@ -1,6 +1,6 @@
 title: Writing
 date: 2016-02-01 13:37
-category: blog
+category: articles
 tags: patreon
 
 This month Vladimir brings us:

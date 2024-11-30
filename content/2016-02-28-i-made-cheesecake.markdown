@@ -1,6 +1,6 @@
 title: I made cheesecake
 date: 2016-02-28 13:39
-category: blog
+category: personal
 tags: patreon, food
 
 If you were not aware, I have a [Patreon tier](https://www.patreon.com/eevee) that's essentially: I will work on whatever you want for a day, then write about it.  I made the tier assuming that people would force me to do programming, e.g. actually work on [veekun](http://veekun.com/) for once.  So far it's been about half that, and half "hey try this thing you haven't really done before".

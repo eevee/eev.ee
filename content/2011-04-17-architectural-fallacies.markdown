@@ -1,6 +1,6 @@
 title: Architectural Fallacies
 date: 2011-04-17 02:09:00
-category: blog
+category: articles
 tags: python, tech, popular
 
 I spend a lot of time in [#python][] and [#perl][].  Far more than is healthy, probably.  And I've noticed some patterns in the kinds of questions people ask.

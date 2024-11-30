@@ -1,6 +1,6 @@
 title: Advent calendar 2019
 date: 2019-12-01-19:48
-category: release
+category: updates
 tags: tech
 
 <div class="prose-full-illustration">

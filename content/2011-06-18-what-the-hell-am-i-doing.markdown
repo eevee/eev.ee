@@ -1,7 +1,6 @@
 title: What the hell am I doing
 date: 2011-06-18 23:22:00
-category: blog
-tags: personal
+category: personal
 
 I guess I started a bad habit of writing big long posts About Things, and then blogging became this self-imposed chore, and then I didn't do a lot of it.  Oops.  I'll make a deliberate effort to write shorter things when they come to mind.  (I also have half a dozen half-finished posts not committed, which by my count should equal three whole posts.)
 

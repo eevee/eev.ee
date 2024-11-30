@@ -1,7 +1,7 @@
 title: Hagane no Renkinjutsushi
 date: 2011-02-27 17:35:00
+category: articles
 tags: media
-category: blog
 
 Long, long ago, in the ancient forgotten year of 2005, I watched an anime series called Fullmetal Alchemist, and it was good.  Well...  it was _okay_.  I won't speak to whether the plot was really as confusing and contrived as my foggy memory tells me, but I know I was disappointed with the ending, and the subsequent movie didn't add much closure.
 

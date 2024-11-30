@@ -1,6 +1,6 @@
 title: How to drive your new project into irrelevance
 date: 2011-06-30 14:07:00
-category: blog
+category: articles
 tags: tech, identity, web, yelling
 
 Here's a question that should be really easy to answer: what is Diaspora?

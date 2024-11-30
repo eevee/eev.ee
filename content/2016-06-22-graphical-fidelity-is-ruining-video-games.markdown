@@ -1,6 +1,6 @@
 title: Graphical fidelity is ruining video games
 date: 2016-06-22 22:35
-category: blog
+category: articles
 tags: tech, gamedev
 
 I'm almost 30, so I have to start practicing being crotchety.

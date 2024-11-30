@@ -1,6 +1,6 @@
 title: Extracting music from the PICO-8
 date: 2016-05-30 23:56
-category: blog
+category: articles
 tags: tech, gamedev
 
 _Update 2016-07-27: PICO-8 0.1.8 supports music export — `export "foo%d.wav"` while the music tab is selected in the editor!_

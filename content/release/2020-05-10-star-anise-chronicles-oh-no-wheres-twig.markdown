@@ -1,6 +1,6 @@
 title: Star Anise Chronicles: Oh No Wheres Twig??
 date: 2020-05-10 21:54
-category: release
+category: updates
 tags: gamedev
 
 <div class="prose-full-illustration">

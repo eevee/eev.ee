@@ -1,6 +1,6 @@
 title: VD
 date: 2016-03-02 18:10
-category: blog
+category: articles
 tags: patreon
 
 This month — which I will pretend is still February, because time zones or something — Vladimir Costescu has [sponsored](https://www.patreon.com/eevee) a post on:

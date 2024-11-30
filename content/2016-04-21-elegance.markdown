@@ -1,6 +1,6 @@
 title: Elegance
 date: 2016-04-21 18:06
-category: blog
+category: articles
 tags: tech, tools
 
 Programmers sometimes like to compliment code as _elegant_, yet I can't recall ever seeing a satisfying explanation of what "elegant code" is.  Perhaps it's telling that I see "elegant" used much less often by more experienced programmers, who opt for more concrete commentary.

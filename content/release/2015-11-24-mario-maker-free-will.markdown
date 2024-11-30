@@ -1,6 +1,6 @@
 title: Mario Maker: Free Will
 date: 2015-11-24 01:04
-category: release
+category: updates
 tags: mario maker
 
 <div class="prose-full-illustration">

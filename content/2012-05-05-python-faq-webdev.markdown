@@ -1,7 +1,8 @@
 title: Python FAQ: Webdev
 date: 2012-05-05 21:22
+category: articles
+series: python faq
 tags: python, web
-category: blog
 
 Part of my [Python FAQ][].
 

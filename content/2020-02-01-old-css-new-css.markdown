@@ -1,7 +1,7 @@
 title: Old CSS, new CSS
 date: 2020-02-01 23:21
-category: blog
-tags: tech
+category: articles
+tags: tech, web
 
 I first got into web design/development in the late 90s, and only as I type this sentence do I realize how long ago that was.
 

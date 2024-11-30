@@ -1,7 +1,7 @@
 title: Goodbye, Pearl
 date: 2022-01-25 22:57
-category: blog
-tags: cats, pearl, personal, eulogy
+category: personal
+tags: cats, pearl, eulogy
 
 {% illus /media/2022-01-goodbye-pearl/pearl-radiant.jpg Pearl laying on carpet, bathed in a sunbeam that highlights her peach fuzz %}
 

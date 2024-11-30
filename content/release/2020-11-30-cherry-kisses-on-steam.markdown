@@ -1,6 +1,6 @@
 title: Cherry Kisses, on Steam
 date: 2020-11-30 16:44
-category: release
+category: updates
 tags: tech
 
 <div class="prose-full-illustration">

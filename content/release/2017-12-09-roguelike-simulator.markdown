@@ -1,6 +1,6 @@
 title: Roguelike Simulator
 date: 2017-12-09 22:59
-category: release
+category: updates
 tags: making things
 
 <div class="prose-full-illustration">

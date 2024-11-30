@@ -1,6 +1,6 @@
 title: JavaScript: A Horror Story
 date: 2016-10-31 00:00
-category: blog
+category: articles
 tags: tech
 
 Ever since writing [that one post about PHP]({filename}/2012-04-09-php-a-fractal-of-bad-design.markdown), I've had a steady trickle of people ask me to write a similar post for other languages or platforms.  The most common request by far is JavaScript.

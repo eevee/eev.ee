@@ -1,6 +1,6 @@
 title: The sad state of web app deployment
 date: 2015-09-17 18:41
-category: blog
+category: articles
 tags: systems, web, tech, yelling, popular
 
 I spent a good chunk of the last four days installing an Internet web forum, which claims it can be up and running in 30 minutes.

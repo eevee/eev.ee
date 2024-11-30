@@ -1,6 +1,6 @@
 title: ZDoom on a Wii U GamePad with a Raspberry Pi
 date: 2015-11-28 21:05
-category: blog
+category: articles
 tags: tech, linux, gadgets, gamedev, doom, patreon
 
 

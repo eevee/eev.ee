@@ -1,6 +1,6 @@
 title: Some stuff about color
 date: 2016-07-16 02:15
-category: blog
+category: articles
 tags: tech
 
 I've been trying to paint more lately, which means I have to actually think about color.  Like an artist, I mean.  I'm okay at thinking about color as a huge nerd, but I'm still figuring out how to adapt that.

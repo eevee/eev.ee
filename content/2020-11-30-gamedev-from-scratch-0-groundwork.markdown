@@ -1,6 +1,7 @@
 title: Gamedev from scratch 0: Groundwork
 date: 2020-11-30 14:58
-category: blog
+category: articles
+series: gamedev from scratch
 tags: tech, gamedev
 
 You may recall that I once had the ambitious idea to write a book on game development, walking the reader through making simple games _from scratch_ in a variety of different environments, starting from simple level editors and culminating in some "real" engine.

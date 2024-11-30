@@ -1,7 +1,7 @@
 title: One year later
 date: 2016-06-12
-category: blog
-tags: tech, personal
+category: personal
+tags: tech
 
 A year ago today was my [last day working a tech job](/blog/2015/06/09/i-quit-the-tech-industry/).
 

@@ -1,7 +1,7 @@
 title: Perl 5 is dead, Perl 6 is a disaster
 date: 2011-06-27 03:10:00
 modified: 2011-07-03 18:30:00
-category: blog
+category: articles
 tags: perl, tech, popular
 
 

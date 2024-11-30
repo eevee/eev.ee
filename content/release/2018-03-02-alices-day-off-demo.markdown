@@ -1,6 +1,6 @@
 title: Alice's Day Off demo
 date: 2018-03-02 16:00
-category: release
+category: updates
 tags: nsfw
 
 <div class="prose-full-illustration">

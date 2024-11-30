@@ -1,6 +1,6 @@
 title: Pokédex doodles, part 1
 date: 2015-10-12 19:25
-category: art
+category: updates
 tags: pokedex, pokemon, doodles
 gallery: {photo}pokedex-doodles/part-1
 

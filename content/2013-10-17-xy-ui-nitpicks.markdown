@@ -1,7 +1,7 @@
 title: XY UI nitpicks
 date: 2013-10-17 21:11
+category: articles
 tags: pokemon, ui, tech, yelling
-category: blog
 
 Game Freak, you are kinda bad at interfaces.  Don't get me wrong; Pokémon X and Y are absolutely the best in the series and even just showing the party Pokémon from within the bag is nothing short of genius.
 

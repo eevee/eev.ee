@@ -1,6 +1,6 @@
 title: Something is wrong with American culture
 date: 2011-06-27 17:10:00
-category: blog
+category: articles
 tags: culture
 
 Today, the [Supreme Court ruled][violent game decision] that the California law prohibiting the sale of violent video games to minors is unconstitutional, violating the First and Fourteenth Amendments.  The idea here is that the government can't prevent a group of people from being exposed to media they _want_ to see; freedom of expression goes both ways.

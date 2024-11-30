@@ -1,6 +1,6 @@
 title: Undertale
 date: 2015-11-08 09:01
-category: blog
+category: articles
 tags: gamedev, media, yelling
 
 

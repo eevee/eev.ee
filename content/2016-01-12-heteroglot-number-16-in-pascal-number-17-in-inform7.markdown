@@ -1,7 +1,7 @@
 title: Heteroglot: #16 in Pascal, #17 in Inform 7
 date: 2016-01-12 15:09
+category: process
 tags: tech, math, project euler, pascal, inform
-category: blog
 
 I was thinking about doing a problem for [heteroglot](https://github.com/eevee/project-euler/tree/master/heteroglot) — my quest to solve every [Project Euler](http://projecteuler.net/about) problem in a different programming language.  (They're adding new problems much more quickly than I'm solving them, so so far I've made _negative_ progress.)  Then I discovered I'd already done two, but never wrote about either of them.  Oops!  Here's a twofer, then.
 

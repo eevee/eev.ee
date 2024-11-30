@@ -1,6 +1,6 @@
 title: Storing Pokémon without SQL
 date: 2016-08-05 12:14
-category: blog
+category: process
 tags: tech, veekun, pokemon
 
 I run [veekun](http://veekun.com/), a little niche Pokédex website that mostly focuses on (a) very accurate data for every version, derived directly from the games and (b) a bunch of nerdy nerd tools.

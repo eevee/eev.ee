@@ -1,7 +1,8 @@
 title: Monday Night Itch #1: Mystery Trap Adventure
 date: 2022-01-31 21:15
-category: blog
-tags: games, monday night itch
+category: articles
+series: monday night itch
+tags: games
 
 **Welcome** to Monday Night Itch, a harebrained scheme to encourage folks to play more non-AAA games by adding a touch of social gamification.  I thought I would be tweeting my adventures here, but I just had an experience so profound it can only be captured within a blog post.
 

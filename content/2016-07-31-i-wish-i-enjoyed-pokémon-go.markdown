@@ -1,6 +1,6 @@
 title: I wish I enjoyed Pokémon Go
 date: 2016-07-31 23:59
-category: blog
+category: articles
 tags: gamedev, pokemon
 
 I've been trying really hard not to be a sourpuss about this, because everyone seems to enjoy it a lot and I don't want to be the jerk pissing in their cornflakes.

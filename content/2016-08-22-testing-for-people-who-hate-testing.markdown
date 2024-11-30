@@ -1,6 +1,6 @@
 title: Testing, for people who hate testing
 date: 2016-08-22 08:49
-category: blog
+category: articles
 tags: tech
 
 I _love_ having tests.

@@ -1,6 +1,6 @@
 title: Next steps for beginning programmers
 date: 2015-10-10 19:02
-category: blog
+category: articles
 tags: tech, reference
 
 Last month [@zandrmartin](https://twitter.com/zandrmartin) asked me on Twitter:

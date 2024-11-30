@@ -1,6 +1,6 @@
 title: Attribution on the web
 date: 2016-08-15 01:00
-category: blog
+category: articles
 tags: tech, web, culture
 
 The web is a great thing that's come a long way, yadda yadda.  It used to be an obscure nerd thing where you could read black Times New Roman text on a gray background.  Now, it's a hyper popular nerd thing where you can read black Helvetica Neue text on a white background.  I hear it can do other stuff, too.

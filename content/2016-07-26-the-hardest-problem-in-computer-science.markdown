@@ -1,6 +1,6 @@
 title: The hardest problem in computer science
 date: 2016-07-26 18:46
-category: blog
+category: articles
 tags: tech, plt
 
 ...is, of course, naming.

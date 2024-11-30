@@ -1,6 +1,6 @@
 title: Recommended GZDoom settings
 date: 2021-12-11 18:58
-category: blog
+category: articles
 tags: tech, doom
 
 [GZDoom](https://zdoom.org/index) is the fanciest way to play Doom.  Unfortunately, it has also historically been difficult to recommend to newcomers, because its default settings are...  _questionable_.

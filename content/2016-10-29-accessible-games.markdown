@@ -1,6 +1,6 @@
 title: Accessible games
 date: 2016-10-29 18:35
-category: blog
+category: articles
 tags: tech, gamedev, making things
 
 I've now made [a few small games](/projects/#games).  One of the trickiest and most interesting parts of designing them has been making them accessible.

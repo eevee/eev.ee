@@ -1,6 +1,6 @@
 title: Internet novelty: testing personality
 date: 2015-10-31 23:59
-category: blog
+category: articles
 tags: culture, identity, patreon
 
 This month, Vladimir Costescu has requested (_with dollars_):

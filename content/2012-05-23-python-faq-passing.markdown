@@ -1,7 +1,8 @@
 title: Python FAQ: Passing
 date: 2012-05-23 22:48
+category: articles
+series: python faq
 tags: python, tech
-category: blog
 
 Part of my [Python FAQ][].
 

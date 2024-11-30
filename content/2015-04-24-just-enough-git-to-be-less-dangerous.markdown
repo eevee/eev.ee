@@ -1,6 +1,6 @@
 title: Just enough Git to be (less) dangerous
 date: 2015-04-24 23:49
-category: blog
+category: articles
 tags: git, tech, reference
 
 Do you just _hate_ [Git][]?  Are you perfectly happy with Mercurial (or, yikes, Subversion) but once a month you have to brave Git because everyone and their damn dog is now using GitHub?  Are you vaguely aware that about half of all Git commands will probably delete all your work forever, but you don't know which ones and you don't want to spend three weeks poring over the documentation?

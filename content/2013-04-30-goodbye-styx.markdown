@@ -1,7 +1,7 @@
 title: Goodbye, Styx
 date: 2013-04-30 15:22
-category: blog
-tags: cats, styx, personal, eulogy
+category: personal
+tags: cats, styx, eulogy
 
 <div class="prose-illustration" markdown="1">
 {% photo /media/2013-04/styx-goodbye.jpg Styx wrapped up snug in a robe on my bed %}

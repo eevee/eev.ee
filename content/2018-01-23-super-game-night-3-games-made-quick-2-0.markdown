@@ -1,7 +1,7 @@
 title: SUPER game night 3: GAMES MADE QUICK??? 2.0
 date: 2018-01-23 23:03
-category: blog
-tags: game night
+category: articles
+series: game night
 
 [Game night](/everything/tags/game-night/) continues with a smorgasbord of games from my recent game jam, [GAMES MADE QUICK??? 2.0](https://itch.io/jam/games-made-quick-2)!
 

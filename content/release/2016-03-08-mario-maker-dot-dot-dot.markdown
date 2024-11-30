@@ -1,6 +1,6 @@
 title: Mario Maker: ...
 date: 2016-03-08 19:29
-category: release
+category: updates
 tags: mario maker
 
 <div class="prose-full-illustration">

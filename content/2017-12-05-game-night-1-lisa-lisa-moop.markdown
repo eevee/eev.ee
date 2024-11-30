@@ -1,7 +1,7 @@
 title: Game night 1: Lisa, Lisa, MOOP
 date: 2017-12-05 23:39
-category: blog
-tags: game night
+category: articles
+series: game night
 
 For the last few weeks, glip (my partner) and I have spent a couple hours most nights playing indie games together.  We started out intending to play a short list of games that had been recommended to glip, but this turns out to be a nice way to wind down, so we've been keeping it up and clicking on whatever looks interesting in the [itch app](https://itch.io/app).
 

@@ -1,6 +1,6 @@
 title: Mario Maker: The Works
 date: 2016-01-17 12:13
-category: release
+category: updates
 tags: mario maker
 
 <div class="prose-full-illustration">

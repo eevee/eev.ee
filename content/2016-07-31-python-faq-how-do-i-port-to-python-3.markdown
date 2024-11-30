@@ -1,6 +1,7 @@
 title: Python FAQ: How do I port to Python 3?
 date: 2016-07-31 22:25
-category: blog
+category: articles
+series: python faq
 tags: tech, python, unicode
 
 _Part of my [Python FAQ]({filename}2011-07-22-python-faq.markdown), which is doomed to never be finished._

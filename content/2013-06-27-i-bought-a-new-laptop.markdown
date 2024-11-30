@@ -1,7 +1,7 @@
 title: I bought a new laptop
 date: 2013-06-27 23:56
+category: articles
 tags: linux, gadgets, tech, yelling
-category: blog
 
 Wow, where the hell have I been.
 

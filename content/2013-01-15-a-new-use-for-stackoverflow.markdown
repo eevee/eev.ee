@@ -1,7 +1,7 @@
 title: A new use for StackOverflow
 date: 2013-01-15 16:39
+category: articles
 tags: php, pyramid, python, rust, web, plt
-category: blog
 
 It's hard to get a feel for a new tool.  Is it any good?  Does it do anything I can't already do?  What's the community like?  Tough questions to answer without diving in and using it for a significant amount of time—and then you risk not liking the answers you get.
 

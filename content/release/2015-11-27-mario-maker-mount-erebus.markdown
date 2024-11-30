@@ -1,6 +1,6 @@
 title: Mario Maker: Mount Erebus
 date: 2015-11-27 01:04
-category: release
+category: updates
 tags: mario maker
 
 <div class="prose-full-illustration">

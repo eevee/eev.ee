@@ -1,7 +1,7 @@
 title: Game night 2: Detention, Viatoree, Paletta
 date: 2018-01-16 11:04
-category: blog
-tags: game night
+category: articles
+series: game night
 
 [Game night](/everything/tags/game-night/) continues with:
 

@@ -1,6 +1,6 @@
 title: Conundrum
 date: 2018-03-20 12:31
-category: blog
+category: process
 tags: tech, doom
 
 Here's a problem I'm having.  Or, rather, a problem I'm _solving_, but so slowly that I wonder if I'm going about it very inefficiently.

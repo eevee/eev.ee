@@ -1,8 +1,8 @@
 title: Music theory for nerds
 date: 2016-09-15 19:29
 modified: 2016-09-21 16:29
-category: blog
-tags: music, math
+category: articles
+tags: music, math, reference
 
 Not _music_ nerds, obviously.
 

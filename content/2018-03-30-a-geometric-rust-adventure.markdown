@@ -1,6 +1,6 @@
 title: A geometric Rust adventure
 date: 2018-03-30 17:17
-category: blog
+category: process
 tags: tech, patreon, rust
 
 Hi.  Yes.  Sorry.  I've been trying to write this post for ages, but I've also been working on a huge writing project, and apparently I have a very limited amount of writing mana at my disposal.  I think this is supposed to be a Patreon reward from _January_.  My bad.  I hope it's super great to make up for the wait!

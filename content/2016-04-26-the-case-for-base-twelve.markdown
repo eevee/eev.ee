@@ -1,6 +1,6 @@
 title: The case for base twelve
 date: 2016-04-26 17:43
-category: blog
+category: articles
 tags: math
 
 Decimal sucks.

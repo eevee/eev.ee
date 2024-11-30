@@ -1,6 +1,6 @@
 title: Embedding Lua vs Python
 date: 2016-04-30 18:29
-category: blog
+category: articles
 tags: tech, python, gamedev, patreon
 
 Nova Dasterin asks, [with money](https://www.patreon.com/eevee?ty=h):

@@ -1,10 +1,11 @@
 title: Cheezball Rising: Drawing a sprite
 date: 2018-06-21 12:50
-category: blog
-tags: tech, gamedev, cheezball rising
+category: process
+series: cheezball rising
+tags: tech, gamedev
 
 This is a series about [**Star Anise Chronicles: Cheezball Rising**](https://github.com/eevee/anise-cheezball-rising), an expansive adventure game about my cat for the Game Boy Color.  Follow along as I struggle to make something with this bleeding-edge console!
- 
+
 GitHub has [intermittent prebuilt ROMs](https://github.com/eevee/anise-cheezball-rising/releases), or you can get them a week early [on Patreon](https://www.patreon.com/eevee/posts?tag=cheezball%20rising) if you pledge $4.  More details in the [README](https://github.com/eevee/anise-cheezball-rising)!
 
 ----

@@ -1,6 +1,6 @@
 title: Sylph: the programming language I want
 date: 2015-02-28 23:58
-category: blog
+category: articles
 tags: sylph, plt, tech, popular
 
 Creating a programming language is apparently all the rage these days, and it's got me thinking about what I would really like to see in one.  I'm starting to suspect the things I want are either impossible or mutually incompatible, so I'd better write them down and let smarter people tell me why I can't have everything and also a pony.

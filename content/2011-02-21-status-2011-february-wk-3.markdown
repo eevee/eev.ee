@@ -1,7 +1,7 @@
 title: Status, 2011 February wk 3
 date: 2011-02-21 09:12:00
+category: dev
 tags: veekun, squiggle, puzzles, web, status
-category: blog
 
 Mel lives here now, and I want to spend time with her whenever I can, naturally.  This is something I've never had in my life before, and it presents something of a complication.
 

@@ -1,6 +1,6 @@
 title: Teaching tech
 date: 2017-06-10 15:16
-category: blog
+category: articles
 tags: tech, patreon
 
 A [sponsored post](https://www.patreon.com/eevee) from an anonymous patron:

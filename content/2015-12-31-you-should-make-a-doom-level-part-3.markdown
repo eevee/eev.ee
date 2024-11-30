@@ -1,7 +1,8 @@
 title: You should make a Doom level, part 3: cheating
 date: 2015-12-31 23:20
 modified: 2016-03-19 19:10
-category: blog
+category: articles
+series: make a doom level
 tags: gamedev, tech, making things, doom
 
 <p style="text-align: center;" markdown="1">

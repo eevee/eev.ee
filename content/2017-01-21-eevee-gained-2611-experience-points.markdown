@@ -1,7 +1,7 @@
 title: Eevee gained 2611 experience points
 date: 2017-01-21 16:50
-category: blog
-tags: birthday, personal
+category: personal
+series: birthday
 
 Eevee grew to level 30!
 

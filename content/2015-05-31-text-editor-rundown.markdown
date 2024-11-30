@@ -1,6 +1,6 @@
 title: Text editor rundown
 date: 2015-05-31 19:27
-category: blog
+category: articles
 tags: linux, tools, patreon, tech
 
 As part of my experiment to [monetize my personal brand](https://www.patreon.com/eevee), or however we're describing this now, I have a milestone that lets a patron impose a blog topic of their choosing on me.  What could _possibly_ go wrong?

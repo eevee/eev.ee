@@ -1,6 +1,6 @@
 title: Why LÖVE?
 date: 2017-03-23 00:23
-category: blog
+category: articles
 tags: tech, gamedev, patreon
 
 This month, [IndustrialRobot](https://www.patreon.com/user/creators?u=199476) asked my opinion of FOSS game engines — or, more specifically, why I chose LÖVE.

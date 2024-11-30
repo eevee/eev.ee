@@ -1,6 +1,6 @@
 title: Strawberry Jam 2 🍓
 date: 2018-01-24 00:30
-category: release
+category: updates
 tags: nsfw
 
 <div class="prose-full-illustration">

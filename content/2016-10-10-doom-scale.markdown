@@ -1,6 +1,6 @@
 title: Doom scale
 date: 2016-10-10 20:26
-category: blog
+category: articles
 tags: doom, gamedev
 
 I've been dipping my toes into Doom mapping again recently.  Obviously I've [done it successfully once before]({filename}/release/2016-03-31-i-made-a-doom-level.markdown), but I'm having trouble doing it a second time.

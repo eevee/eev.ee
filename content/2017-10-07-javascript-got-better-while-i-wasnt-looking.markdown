@@ -1,6 +1,6 @@
 title: JavaScript got better while I wasn't looking
 date: 2017-10-07 10:05
-category: blog
+category: articles
 tags: tech, patreon
 
 [IndustrialRobot](https://www.patreon.com/user/creators?u=199476) has generously donated in order to inquire:

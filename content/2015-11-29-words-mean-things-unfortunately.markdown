@@ -1,6 +1,6 @@
 title: Words mean things, unfortunately
 date: 2015-11-29 18:09
-category: blog
+category: articles
 tags: culture, tech
 
 

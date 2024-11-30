@@ -1,6 +1,6 @@
 title: On a technicality
 date: 2016-07-22 20:05
-category: blog
+category: articles
 tags: people
 
 _Apropos of nothing_, I'd like to tell you a story.  I've [touched on this before](/blog/2015/07/29/frozen-peaches-sour-grapes/#the-freedom-of-speech), but this is the full version.  It's the story of hypothetical small-to-medium Internet community.

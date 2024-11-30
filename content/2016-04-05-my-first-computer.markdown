@@ -1,7 +1,7 @@
 title: My first computer
 date: 2016-04-05 14:59
 modified: 2016-04-06 11:43
-category: blog
+category: personal
 tags: tech, patreon
 
 This month — March, okay, today is March 36th — Vladimir Costescu is [sponsoring](https://www.patreon.com/eevee) an exciting post about:

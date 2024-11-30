@@ -1,6 +1,6 @@
 title: Apple did not invent emoji
 date: 2016-04-12 15:43
-category: blog
+category: articles
 tags: tech, unicode
 
 

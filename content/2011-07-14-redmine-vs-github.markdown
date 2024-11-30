@@ -1,6 +1,6 @@
 title: Redmine vs GitHub
 date: 2011-07-14 16:49:00
-category: blog
+category: articles
 tags: git, systems, veekun, squiggle, tech
 
 I'm currently hosting a small pile of projects on a combination of self-hosted [gitweb][] and self-hosted [Redmine][].  I keep glancing meaningfully in the direction of [GitHub][]; it's code-oriented, it has wiki support, it has an issue tracker, and it can do simple site hosting via [some contrived abuse of git][github pages].  So why am I bothering to host my own stuff?  There are actually a few reasons, thus I need the Internet to decide for me.

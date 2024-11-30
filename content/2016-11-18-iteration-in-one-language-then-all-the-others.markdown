@@ -1,6 +1,6 @@
 title: Iteration in one language, then all the others
 date: 2016-11-18 19:48
-category: blog
+category: articles
 tags: tech, plt
 
 You [may have noticed]({filename}/2016-09-18-the-curious-case-of-the-switch-statement.markdown) that I like comparing features across different languages.  I hope you like it too, because I'm doing it again.

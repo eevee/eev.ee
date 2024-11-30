@@ -1,6 +1,6 @@
 title: Datamining Pokémon
 date: 2017-08-02 22:44
-category: blog
+category: process
 tags: patreon
 
 A kind anonymous patron offers this prompt, which I totally fucked up getting done in July:

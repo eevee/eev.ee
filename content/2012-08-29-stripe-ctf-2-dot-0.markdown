@@ -1,7 +1,7 @@
 title: Stripe CTF 2.0
 date: 2012-08-29 19:59
+category: articles
 tags: infosec, tech
-category: blog
 
 
 This is [a thing I did][progress].  It was a [cracking contest][stripe ctf] held by [Stripe][] (who run a pretty neat service, btw), and it ended today.  I was third to beat level 7 and twentieth to beat level 8, so here is the tale of how I came upon the solutions.

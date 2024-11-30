@@ -1,6 +1,6 @@
 title: Converting a Git repo from tabs to spaces
 date: 2016-06-04 22:40
-category: blog
+category: process
 tags: tech, git, python
 
 This post is about the thing in the title.

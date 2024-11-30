@@ -1,6 +1,6 @@
 title: Lexy's Labyrinth
 date: 2020-09-26 19:28
-category: release
+category: updates
 tags: gamedev
 
 <div class="prose-full-illustration">

@@ -1,6 +1,6 @@
 title: CVs and file extensions
 date: 2013-01-09 14:10
-category: blog
+category: articles
 tags: humor, tech
 
 Like many employed engineers, I get roped into the hiring process from time to time.  I don't actually screen résumés, but I do grade some code tests, and the résumé is sent along with it—in case I find myself desperately seeking an explanation for receiving five hundred lines of JavaScript arranged as haiku.

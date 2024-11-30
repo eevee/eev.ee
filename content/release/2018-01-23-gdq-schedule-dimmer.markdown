@@ -1,6 +1,6 @@
 title: GDQ schedule dimmer
 date: 2018-01-23 23:35
-category: release
+category: updates
 
 <div class="prose-full-illustration">
 <img src="{static}/media/release/gdq-schedule-dimmer.png" alt="">

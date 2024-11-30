@@ -1,6 +1,6 @@
 title: Growing up alongside tech
 date: 2017-08-09 08:18
-category: blog
+category: articles
 tags: patreon
 
 [IndustrialRobot](https://www.patreon.com/user/creators?u=199476) asks...  or, uh, asked last month:

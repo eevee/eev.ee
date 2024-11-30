@@ -1,6 +1,6 @@
 title: Unity vs. GNOME Shell
 date: 2011-05-10 22:22:00
-category: blog
+category: articles
 tags: ui, linux, tech
 
 For those not aware, the [GNOME][] world is getting shaken up lately.  GNOME 3.0 was released last month, with a completely redesigned interface called [GNOME Shell][].  Meanwhile [Ubuntu][], the biggest GNOME-based distribution by a gigantic margin, decided that they are super special snowflakes and do not want to use GNOME Shell, so they [repurposed][nih] their [netbook interface, Unity][unity], and scrambled to make it tolerable on desktops for the [11.04 Ubuntu release][natty] next week.

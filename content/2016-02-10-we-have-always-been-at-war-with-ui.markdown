@@ -1,6 +1,6 @@
 title: We have always been at war with UI
 date: 2016-02-10 16:41
-category: blog
+category: articles
 tags: tech, culture, ui
 
 

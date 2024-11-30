@@ -1,6 +1,6 @@
 title: I made pretzels
 date: 2016-01-31 12:04
-category: blog
+category: personal
 tags: food, patreon
 
 [@amazingant](https://twitter.com/amazingant) has [bought a day of my time](https://www.patreon.com/eevee), and requested that I spend it on:

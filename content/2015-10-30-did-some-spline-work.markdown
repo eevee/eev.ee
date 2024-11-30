@@ -1,6 +1,6 @@
 title: Did some spline work
 date: 2015-10-30 03:22
-category: blog
+category: dev
 tags: tech, python, web, spline, making things, patreon
 
 Sketch bought a day of my time this month (and, er, last month) to work on adding "pull requests" to a git-backed wiki.  I picked `spline`, because, uh, I wrote it.

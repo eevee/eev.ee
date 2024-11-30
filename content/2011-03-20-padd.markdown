@@ -1,7 +1,7 @@
 title: P.A.D.D.
 date: 2011-03-20 21:00:00
+category: articles
 tags: gadgets, tech
-category: blog
 
 <div class="prose-illustration">
     <img src="http://images.wikia.com/memoryalpha/en/images/4/4e/Harrens_theorem.jpg" alt="Screenshot of a P.A.D.D. from Star Trek">

@@ -1,6 +1,6 @@
 title: Particle wipe generator
 date: 2019-04-20 09:08
-category: release
+category: updates
 
 <div class="prose-full-illustration">
 <img src="{static}/media/release/particle-wipe-generator.gif" alt="Animation of solid orange transitioning to green via a swirl of little fox face shapes">
