@@ -17,4 +17,4 @@ Getting momentum back after completely blowing it all on AGDQ was surprisingly d
 
 - **spline**: Less than I would have hoped for halfway through the month, but I did clean up the (minimal) docs a little bit and replace a bunch of code with a third-party module.
 
-- **Mario Maker**: Made [Purgatory]({filename}/release/2016-01-16-mario-maker-purgatory.markdown).
+- **Mario Maker**: Made [Purgatory]({filename}/updates/2016-01-16-mario-maker-purgatory.markdown).

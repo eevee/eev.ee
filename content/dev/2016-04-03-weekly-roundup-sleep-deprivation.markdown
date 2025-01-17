@@ -11,6 +11,6 @@ I performed my monthly ritual of completely ruining my sleep schedule and being 
 
 - **pokémon**: I started tinkering with a Pokémon Showdown CLI client for Sketch's [day of my time](https://www.patreon.com/eevee?ty=h) last month.  I got sort of a proof of concept, and I guess this month I'll try to turn it into a Python async API.
 
-- **blog**: I wrote about [the Doom map I made]({filename}/release/2016-03-31-i-made-a-doom-level.markdown), producing the second-wordiest post I've ever written.  I also slightly improved how Pelican handles thumbnails, and nuked a ton of old manually-created ones from git in favor of a plugin that generates them automatically.
+- **blog**: I wrote about [the Doom map I made]({filename}/updates/2016-03-31-i-made-a-doom-level.markdown), producing the second-wordiest post I've ever written.  I also slightly improved how Pelican handles thumbnails, and nuked a ton of old manually-created ones from git in favor of a plugin that generates them automatically.
 
 The short time limit of DUMP somehow got me to pour myself into a new thing and produce pretty decent (and ambitious) results, so April's theme is going to be: _finish Runed Awakening_.  I want it playable by the end of the month, at which point I'll share it on Patreon for some beta-testing.

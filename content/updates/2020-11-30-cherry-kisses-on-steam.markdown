@@ -4,7 +4,7 @@ category: updates
 tags: tech
 
 <div class="prose-full-illustration">
-<img src="{static}/media/release/cherry-kisses.png" alt="Cherry Kisses title screen, showing Cerise at a counter">
+<img src="{static}/media/updates/cherry-kisses.png" alt="Cherry Kisses title screen, showing Cerise at a counter">
 </div>
 
 🔗 [**Steam release**](https://store.steampowered.com/app/1259530/)  

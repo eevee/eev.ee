@@ -3,7 +3,7 @@ date: 2016-10-10 20:26
 category: articles
 tags: doom, gamedev
 
-I've been dipping my toes into Doom mapping again recently.  Obviously I've [done it successfully once before]({filename}/release/2016-03-31-i-made-a-doom-level.markdown), but I'm having trouble doing it a second time.
+I've been dipping my toes into Doom mapping again recently.  Obviously I've [done it successfully once before]({filename}/updates/2016-03-31-i-made-a-doom-level.markdown), but I'm having trouble doing it a second time.
 
 I have three major problems: drawing everything too small, drawing everything too rectangular, and completely blanking on what to do next.  Those last two are a bit tricky, but struggling with scale?  That sounds like a problem I can easily solve with _charts_ and _diagrams_ and _math_.
 

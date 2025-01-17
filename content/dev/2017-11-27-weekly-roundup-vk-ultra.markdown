@@ -7,7 +7,7 @@ tags: status
 
 - **music**: I wrote like half of a little chiptune song that I actually like so far!  I'm now seriously toying with the idea of doing my own music for fox flux.  Played a bit with more sound effects, too.
 
-- **blog**: I wrote up the [Eevee mugshot set for Doom]({filename}/release/2017-11-23-eevee-mugshot-set-for-doom.markdown) I made, as an inaugural post for the [release](/release/) category.
+- **blog**: I wrote up the [Eevee mugshot set for Doom]({filename}/updates/2017-11-23-eevee-mugshot-set-for-doom.markdown) I made, as an inaugural post for the [release](/blog/updates/) category.
 
 - **veekun**: Finished up Ultra Sun and Ultra Moon!  Pokémon sprites, box sprites, item sprites, and the same data as Sun/Moon.  I say "finished" but of course plenty of stuff is still missing, alas.
 

@@ -4,7 +4,7 @@ category: updates
 tags: tech
 
 <div class="prose-full-illustration">
-<img src="{static}/media/release/advent2019.png" alt="Calendar of things I made during December, with little screenshots">
+<img src="{static}/media/updates/advent2019.png" alt="Calendar of things I made during December, with little screenshots">
 </div>
 
 🔗 [**Advent calendar**, with links to individual projects](https://c.eev.ee/advent-2019/)
@@ -19,7 +19,7 @@ It didn't go quite as planned!  But some pretty good stuff still came out of it.
 
 ----
 
-**Day 1**: I started out well enough with the [Doom text generator](https://c.eev.ee/doom-text-generator/) (and [accompanying release post]({filename}/release/2019-12-01-doom-text-generator.markdown)), which does something simple that I've wanted for a long time but never seen anywhere: generate text using the Doom font.  Most of the effort here was just in hunting down the fonts and figuring out how they worked; the rest was gluing them together with the canvas API.  It could be improved further, but it's pretty solid and useful as-is!
+**Day 1**: I started out well enough with the [Doom text generator](https://c.eev.ee/doom-text-generator/) (and [accompanying release post]({filename}/updates/2019-12-01-doom-text-generator.markdown)), which does something simple that I've wanted for a long time but never seen anywhere: generate text using the Doom font.  Most of the effort here was just in hunting down the fonts and figuring out how they worked; the rest was gluing them together with the canvas API.  It could be improved further, but it's pretty solid and useful as-is!
 
 **Day 2**: I tried another thing I'd always wanted: making a [crossword](https://c.eev.ee/puzzles/the-nuclear-age.html)!  (Solve interactively on [squares.io](https://squares.io/info/3szq4vjmtk3e65j55uxp/info)!)  I didn't expect it to take _all day_, but it did, and _even then_ I found a typo that I didn't have time to fix, and I had to rush with the clues.  All in all, an entertaining but way too difficult first attempt.  I'd love to try doing this more, though.
 

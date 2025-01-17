@@ -9,7 +9,7 @@ I'm rapidly discovering that I'm just tired of web dev.
 
 - **art**: [The usual](http://lexyeevee.tumblr.com/tagged/daily-comic).  Also drew a new avatar, which I will probably be redrawing after some feedback.
 
-- **Mario Maker**: Finished and published [The Works]({filename}/release/2016-01-17-mario-maker-the-works.markdown).
+- **Mario Maker**: Finished and published [The Works]({filename}/updates/2016-01-17-mario-maker-the-works.markdown).
 
 - **spline**: Made some tiny inroads on getting [CKEditor](http://ckeditor.com/) to work with reStructuredText instead of HTML, then realized what a mountain of work it was going to be to make anything non-trivial work, and totally gave up.  Settled on storing HTML for now, and got the basic stub of a blog working for Mel.
 

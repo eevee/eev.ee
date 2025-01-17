@@ -11,7 +11,7 @@ Anyway, in the last _three weeks_, the longest span I've ever gone without writi
 
 - **blog**: I wrote [SUPER game night 3]({filename}/2018-01-23-super-game-night-3-games-made-quick-2-0.markdown), featuring a bunch of games from [GAMES MADE QUICK??? 2.0](https://itch.io/jam/games-made-quick-2)!  It's only a third of them though, oh my god, there were just so many.
 
-    I also backfilled some release posts, including [one for Strawberry Jam 2]({filename}/release/2018-01-24-strawberry-jam-2.markdown) — more on that momentarily.
+    I also backfilled some release posts, including [one for Strawberry Jam 2]({filename}/updates/2018-01-24-strawberry-jam-2.markdown) — more on that momentarily.
 
 - **???**: Figured out a little roadmap and started on an ???.
 

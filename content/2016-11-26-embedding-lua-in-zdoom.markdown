@@ -13,7 +13,7 @@ I've spent a little time trying to embed a Lua interpreter in ZDoom.  I didn't g
 
 ZDoom is a "source port" (read: fork) of the Doom engine, with all the changes from the commercial forks merged in (mostly Heretic, Hexen, Strife), and a lot of internal twiddles exposed.  It has a variety of mechanisms for customizing game behavior; two are major standouts.
 
-One is ACS, a vaguely C-ish language inherited from Hexen.  It's mostly used to automate level behavior — at the simplest, by having a single switch perform multiple actions.  It supports the usual loops and conditionals, it can store data persistently, and ZDoom exposes a number of functions to it for inspecting and altering the state of the world, so it can do some neat tricks.  Here's an arbitrary script from [my DUMP2 map]({filename}/release/2016-03-31-i-made-a-doom-level.markdown).
+One is ACS, a vaguely C-ish language inherited from Hexen.  It's mostly used to automate level behavior — at the simplest, by having a single switch perform multiple actions.  It supports the usual loops and conditionals, it can store data persistently, and ZDoom exposes a number of functions to it for inspecting and altering the state of the world, so it can do some neat tricks.  Here's an arbitrary script from [my DUMP2 map]({filename}/updates/2016-03-31-i-made-a-doom-level.markdown).
 
 ```c
 script "open_church_door" (int tag)

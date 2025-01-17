@@ -15,7 +15,7 @@ I'm working on it.  It's just hard.
 
 ----
 
-Ash and I made [Cherry Kisses](https://eevee.itch.io/cherry-kisses) (**nsfw**), probably the best puzzle game I've designed and the most polished game we've released, so that was nice.  I also made a [particle wipe generator]({filename}/release/2019-04-20-particle-wipe-generator.markdown) out of the screen wipe effect I used in the game.
+Ash and I made [Cherry Kisses](https://eevee.itch.io/cherry-kisses) (**nsfw**), probably the best puzzle game I've designed and the most polished game we've released, so that was nice.  I also made a [particle wipe generator]({filename}/updates/2019-04-20-particle-wipe-generator.markdown) out of the screen wipe effect I used in the game.
 
 I started on baz, a game creator meant to kinda blend the styles of MegaZeux and PuzzleScript and bitsy, but it's yet to see the light of day.
 
@@ -29,7 +29,7 @@ After half a year of pulling teeth, we managed to get Ash's divorce from Marl fi
 
 Ash and I married.
 
-I did the [advent calendar]({filename}/release/2020-01-02-advent-calendar-2019.markdown), which included a dozen or so smaller projects.  That was pretty fun, if a bit ambitious.
+I did the [advent calendar]({filename}/updates/2020-01-02-advent-calendar-2019.markdown), which included a dozen or so smaller projects.  That was pretty fun, if a bit ambitious.
 
 I drew more than the previous year, I think, and probably got better at it.  I even drew some character references, at long last.
 

@@ -3,9 +3,7 @@ date: 2013-04-30 15:22
 category: personal
 tags: cats, styx, eulogy
 
-<div class="prose-illustration" markdown="1">
-{% photo /media/2013-04/styx-goodbye.jpg Styx wrapped up snug in a robe on my bed %}
-</div>
+{% illus /media/2013-04/styx-goodbye.jpg Styx wrapped up snug in a robe on my bed %}
 
 I can hardly believe I posted a [bunch of photos of Styx][blog: styx photodump] earlier this year.
 

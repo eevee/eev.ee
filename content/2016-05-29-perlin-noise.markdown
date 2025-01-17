@@ -3,7 +3,7 @@ date: 2016-05-29 19:26
 category: articles
 tags: tech, math
 
-I used Perlin noise for the fog effect and title screen in [Under Construction]({filename}/release/2016-05-25-under-construction-our-pico-8-game.markdown).  I [tweeted about my efforts to speed it up](https://twitter.com/eevee/status/731633681735917568), and several people replied either confused about how Perlin noise works or not clear on what it actually is.
+I used Perlin noise for the fog effect and title screen in [Under Construction]({filename}/updates/2016-05-25-under-construction-our-pico-8-game.markdown).  I [tweeted about my efforts to speed it up](https://twitter.com/eevee/status/731633681735917568), and several people replied either confused about how Perlin noise works or not clear on what it actually is.
 
 I admit I only (somewhat) understand Perlin noise in the first place because I've implemented it before, for [flax](https://github.com/eevee/flax), and that took several days of poring over half a dozen clumsy explanations that were more interested in showing off tech demos than actually explaining what was going on.  The few helpful resources I found were often _wrong_, and left me with no real intuitive grasp of how and _why_ it works.  
 

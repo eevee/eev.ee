@@ -96,7 +96,7 @@ We've papered over some of this with SQLAlchemy's excellent ORM, but you have to
 
 So.  How about YAML?
 
-See, despite our hesitation to duplicate everything, the dataset really isn't that big.  All of the data combined are a paltry 17MB, which could fit in RAM without much trouble; then we could search and wrangle it with regular Python operations.  I could still have a schema, remember, because [I wrote a thing for that]({filename}/release/2015-10-15-dont-use-pickle-use-camel.markdown).  And other people could probably make more sense of some YAML files than CSV dumps (!) of a tangled relational database.
+See, despite our hesitation to duplicate everything, the dataset really isn't that big.  All of the data combined are a paltry 17MB, which could fit in RAM without much trouble; then we could search and wrangle it with regular Python operations.  I could still have a schema, remember, because [I wrote a thing for that]({filename}/updates/2015-10-15-dont-use-pickle-use-camel.markdown).  And other people could probably make more sense of some YAML files than CSV dumps (!) of a tangled relational database.
 
 The idea is to re-dump every game into its own set of YAML files, describing just the raw data in a form generic enough that it can handle every (main series) game.  I did a [proof of concept of this](https://gist.github.com/eevee/b53b4babd7a0fc8aead7) for Pokémon earlier this year, and it looks like:
 
@@ -172,7 +172,7 @@ Alas, I've seen this done before, and it does have a teeny bit of overhead, whic
 
 So I think what I'm going to do is load everything into objects, resolve duplicate strings, and then...  store it all in a pickle!  Then the next time the app goes to load the data, if the pickle is newer than any of the files, just load the pickle instead.  Pickle is a well-specified binary format (much faster to parse) and should be able to remember that strings have already been de-duplicated.
 
-I know, I know: I said [don't use pickle]({filename}/release/2015-10-15-dont-use-pickle-use-camel.markdown).  This is the _one_ case where pickle is actually useful: as a disposable cache.  It doesn't leave the machine, so there are no security concerns; it's not shared between multiple copies of the app at the same time; and if it fails to load for any reason at all, the app can silently trash it and load the data directly.
+I know, I know: I said [don't use pickle]({filename}/updates/2015-10-15-dont-use-pickle-use-camel.markdown).  This is the _one_ case where pickle is actually useful: as a disposable cache.  It doesn't leave the machine, so there are no security concerns; it's not shared between multiple copies of the app at the same time; and if it fails to load for any reason at all, the app can silently trash it and load the data directly.
 
 I just hope that pickle will be quick enough, or this whole idea falls apart.  Trouble is, I can't know for _sure_ until I'm halfway done.
 

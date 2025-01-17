@@ -4,7 +4,7 @@ category: updates
 tags: gamedev
 
 <div class="prose-full-illustration">
-<img src="{static}/media/release/anise-wheres-twig.png" alt="Title and logo for the game">
+<img src="{static}/media/updates/anise-wheres-twig.png" alt="Title and logo for the game">
 </div>
 
 🔗 [**Play it** on itch.io](https://eevee.itch.io/anise-wheres-twig)  
@@ -67,7 +67,7 @@ The bigger problem was designing the rooms _outside_ of the PICO-8 map editor.  
 I found a novel solution: I wrote a Python script to export the map to a PNG, opened it in Aseprite, and edited it there — with each pixel representing a tile and the grid size set to 16.  Now I knew exactly how much space I had, and rearranging rooms was easy: double-clicking a cell selects it, and holding Alt while dragging a selection snaps it to the grid.  Here's the beginning part of the game, screenshotted directly from Aseprite at 400% zoom:
 
 <div class="prose-full-illustration">
-<img src="{static}/media/release/anise-wheres-twig-mapdesign.png" alt="A very pixellated map, with bright pink lines to indicate odd connections">
+<img src="{static}/media/updates/anise-wheres-twig-mapdesign.png" alt="A very pixellated map, with bright pink lines to indicate odd connections">
 </div>
 
 When it came time to pack it all back into a rectangle, I copied the whole map, rearranged the rooms, and numbered them all so I could keep track of connections.  Surprisingly, it wasn't _that_ bad a workflow.
@@ -89,7 +89,7 @@ But since I last used it, PICO-8 gained a "secret palette" — an _extra_ 16 col
 I didn't want to completely change the palette, so I tried to keep the alterations minor.  For the most part, I gave up reds and pinks for a better spread of greens, purples, and yellows.  Here's the core PICO-8 palette, the secret PICO-8 palette, and the game's palette, respectively:
 
 <div class="prose-full-illustration">
-<img src="{static}/media/release/anise-wheres-twig-palette.png" alt="A very bright palette, a softer and warmer version of the same colors, and a mix of them">
+<img src="{static}/media/updates/anise-wheres-twig-palette.png" alt="A very bright palette, a softer and warmer version of the same colors, and a mix of them">
 </div>
 
 I think I did a decent job of preserving the overall color aesthetic while softening the harsh contrasts of the original palette, and the cool colors really helped the mood.

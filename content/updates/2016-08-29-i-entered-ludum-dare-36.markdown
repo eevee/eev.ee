@@ -17,7 +17,7 @@ But wait!  Read on a bit first.
 
 ## Foreword
 
-I've never entered a game jam before, and I slightly regretted that I missed a PICO-8 jam that was happening while I was making [Under Construction]({filename}/release/2016-05-25-under-construction-our-pico-8-game.markdown).  I've _certainly_ never made a game in 48 hours, so that seemed exciting.
+I've never entered a game jam before, and I slightly regretted that I missed a PICO-8 jam that was happening while I was making [Under Construction]({filename}/updates/2016-05-25-under-construction-our-pico-8-game.markdown).  I've _certainly_ never made a game in 48 hours, so that seemed exciting.
 
 More specifically, I have some trouble with shaking ideas loose.  I don't know a more specific word than "idea" for this, but I mean creative, narrative ideas: worldbuilding, characters, events, gameplay mechanics, and the like.  They have a different texture from "how could I solve this technical problem" ideas or "what should I work on today" ideas.
 

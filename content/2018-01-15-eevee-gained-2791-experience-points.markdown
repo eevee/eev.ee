@@ -35,11 +35,11 @@ Somewhere along the line, I put out a call for a "potluck" project, where everyo
 
 veekun, alas, consumed _months_ of my life.  I finally got Sun and Moon loaded, but it took weeks of work since I was basically reinventing _all_ the tooling we'd ever had from scratch, without even having most of that tooling available as a reference.  It was worth it in the end, at least: Ultra Sun and Ultra Moon only took a few days to get loaded.  But veekun itself is still missing some obvious Sun/Moon features, and the whole site needs an overhaul, and I just don't know if I want to dedicate that much time to it when I have so much other stuff going on that's much more interesting to me right now.
 
-I finally turned my blog into more of a website, giving it a neat [front page](https://eev.ee/) that lists a bunch of stuff I've done.  I made a [release category](https://eev.ee/release/) at last, though I'm still not quite in the habit of using it.
+I finally turned my blog into more of a website, giving it a neat [front page](https://eev.ee/) that lists a bunch of stuff I've done.  I made a [release category](https://eev.ee/blog/updates/) at last, though I'm still not quite in the habit of using it.
 
 I wrote some blog posts, of course!  I think the most interesting were [JavaScript got better while I wasn't looking]({filename}/2017-10-07-javascript-got-better-while-i-wasnt-looking.markdown) and [Object models]({filename}/2017-11-28-object-models.markdown).  I was also asked to write a couple pieces _for money_ for a column that then promptly shut down.
 
-On a whim, I made a set of [Eevee mugshots for Doom]({filename}/release/2017-11-23-eevee-mugshot-set-for-doom.markdown), which I think is a decent indication of my (pixel) art progress over the year?
+On a whim, I made a set of [Eevee mugshots for Doom]({filename}/updates/2017-11-23-eevee-mugshot-set-for-doom.markdown), which I think is a decent indication of my (pixel) art progress over the year?
 
 I started [idchoppers](https://github.com/eevee/idchoppers), a Doom parsing and manipulation library written in Rust, though it didn't get very far and I've spent most of the time fighting with Rust because it won't let me implement all my extremely bad ideas.  It can do a couple things, at least, like flip maps very quickly and render maps to SVG.
 

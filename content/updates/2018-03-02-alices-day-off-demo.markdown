@@ -4,7 +4,7 @@ category: updates
 tags: nsfw
 
 <div class="prose-full-illustration">
-<img src="{static}/media/release/alices-day-off-demo.png" alt="">
+<img src="{static}/media/updates/alices-day-off-demo.png" alt="">
 </div>
 
 🔗 [**Alice's Day Off demo on itch**](https://floraverse.itch.io/alices-day-off-demo)

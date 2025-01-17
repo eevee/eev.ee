@@ -11,7 +11,7 @@ Nova Dasterin asks, [with money](https://www.patreon.com/eevee?ty=h):
 
 There are a couple ways I can interpret this, so I'll go with: _all of them_.
 
-_(edit: you may be interested in a subsequent post about [the game I actually made for the PICO-8]({filename}/release/2016-05-25-under-construction-our-pico-8-game.markdown)!)_
+_(edit: you may be interested in a subsequent post about [the game I actually made for the PICO-8]({filename}/updates/2016-05-25-under-construction-our-pico-8-game.markdown)!)_
 
 <!-- more -->
 

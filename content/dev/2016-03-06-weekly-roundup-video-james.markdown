@@ -11,7 +11,7 @@ March's theme is...  is...  I don't know yet.
 
 - **veekun**: I came up with a rough YAML schema for Pokémon data and faked a Red dump.  The idea is to try replacing the relational database with just in-memory data, stored separately _per-game_ and in a way that can be reproduced easily.  There isn't very much data anyway, in the grand scheme of things, and trying to keep it relational is getting to be a huge headache.  I'd _really_ like to have a simple proof-of-concept of this sometime soon; Sun and Moon come out towards the end of the year, and I'd like to have a redesigned site ready to go.
 
-    I'm using [camel]({filename}/release/2015-10-15-dont-use-pickle-use-camel.markdown) for this, so I've found reason to hack a few more features into it already.  I'll clean them up and release them, ah, sometime.
+    I'm using [camel]({filename}/updates/2015-10-15-dont-use-pickle-use-camel.markdown) for this, so I've found reason to hack a few more features into it already.  I'll clean them up and release them, ah, sometime.
 
 - **floraverse**: Yahoo is rejecting the store mail for some reason, which led to my discovering that Google Apps "aliases" are totally different from GMail "aliases", and you need to have an address aliased in _both_ places for it to actually appear in the "From" field.
 

@@ -9,7 +9,7 @@ Oops, I seem to have missed a week.  I _was_ doing Ludum Dare 40, but then I sto
 
 - **fox flux**: Worked on some portraits and big text and [underground tiles](https://twitter.com/eevee/status/934937032912117760).  Made some sound effects.  Did a whole [pretty cool footstep thing](https://twitter.com/eevee/status/936086109435527168) that combines particles with footstep noises and is very great.
 
-- **other games**: I discovered [bitsy](https://ledoux.itch.io/bitsy), the teeniest game engine I've ever seen, and wanted to make something with it — so I made [Roguelike Simulator](https://eevee.itch.io/roguelike-simulator) (and also wrote a [release post]({filename}/release/2017-12-09-roguelike-simulator.markdown)).
+- **other games**: I discovered [bitsy](https://ledoux.itch.io/bitsy), the teeniest game engine I've ever seen, and wanted to make something with it — so I made [Roguelike Simulator](https://eevee.itch.io/roguelike-simulator) (and also wrote a [release post]({filename}/updates/2017-12-09-roguelike-simulator.markdown)).
 
 - **cc**: I got so frustrated with trying to find something in Unity Collab history that I cobbled together a thing for exporting Collab history to git.  No, you can't have it, I'm still not convinced it won't delete my entire hard drive or something.  Also I probably fixed a bug in the actual game somewhere in there.
 

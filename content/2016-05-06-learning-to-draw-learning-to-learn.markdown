@@ -163,7 +163,7 @@ I drew these one year apart.  I'm still not _great_ — I immediately see half a
 
 I think this is the most recent thing I've finished.  It's certainly a far cry from some pencil scribbles.
 
-I hope I can get much better at this.  Expressing ideas visually feels like a _superpower_ — I can take vague images in my head and inject them directly into other people's eyeballs.  It keeps turning out to be useful, too: I've drawn myself avatars and banners, I drew the header for this site, I can draw sprites and illustrations for my own little games.  It even taught me a few things that turned out to be useful for [level design]({filename}/release/2016-03-31-i-made-a-doom-level.markdown).
+I hope I can get much better at this.  Expressing ideas visually feels like a _superpower_ — I can take vague images in my head and inject them directly into other people's eyeballs.  It keeps turning out to be useful, too: I've drawn myself avatars and banners, I drew the header for this site, I can draw sprites and illustrations for my own little games.  It even taught me a few things that turned out to be useful for [level design]({filename}/updates/2016-03-31-i-made-a-doom-level.markdown).
 
 So, **learn a lot of things**.  Try _radically_ new things from time to time.  Write a poem, bake a cake, make a video game.  You'll have experienced making something new, and you never know when that experience might come in handy.  Doing rudimentary web design turned out to give me a head start at understanding color; who would've guessed?
 
