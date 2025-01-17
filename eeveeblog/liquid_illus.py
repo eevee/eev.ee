@@ -18,7 +18,7 @@ def photo(preprocessor, tag, markup):
 
     is_float, path, alt = m.groups()
 
-    if not alt.strip():
+    if not alt or not alt.strip():
         alt = ''
 
     if is_float:
