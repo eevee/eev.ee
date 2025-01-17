@@ -1,21 +1,34 @@
 {% extends 'base.html' %}
-{% import '_lib.html' as lib %}
 
-{% block title %}Archive / {{ SITENAME }}{% endblock %}
+{% block title %}Archive {{ TITLE_DELIMITER }} {{ SITENAME }}{% endblock %}
+
+{% block pagetitle %}
+    <h1>Archive</h1>
+    <ol class="-breadcrumbs">
+        <li><a href="{{ SITEURL }}/{{ INDEX_URL }}">Blog</a></li>
+    </ol>
+{% endblock %}
 
 {% block content %}
 <section class="archives">
-    <h1>Archive</h1>
+<ul class="category-filter">
+    {% for category, articles in categories | sort %}
+    <li><label>
+        <input type="checkbox" data-category="{{ category.slug }}" checked>
+        {{ lib.category_glyph(category, alt=False) }}
+        {{ CATEGORY_NAMES[category.slug] }}
+    </label></li>
+    {% endfor %}
+</ul>
+{% for article in articles %}
+    {% if loop.index0 == 0 or articles[loop.index0 - 1].date.year != article.date.year %}
+    {% if loop.index0 > 0 %}
+    <hr>
+    {% endif %}
+    <h2>{{ article.date.year }}</h2>
+    {% endif %}
 
-    {% for article in articles %}
-        {% if loop.index0 == 0 or articles[loop.index0 - 1].date.year != article.date.year %}
-        {% if loop.index0 > 0 %}
-        <hr>
-        {% endif %}
-        <h2>{{ article.date.year }}</h2>
-        {% endif %}
-
-    <article>
+    <article{% if article.category %} data-category="{{ article.category.slug }}"{% endif %}>
         <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.date | strftime("%b %d") }}</time>
         <h1{% if article.category %} class="category-{{ article.category.slug }}"{% endif %}>
             <a href="{{ SITEURL }}/{{ article.url }}">
@@ -23,19 +36,7 @@
                 {{ article.title | striptags }}
             </a>
         </h1>
-
-        <footer>
-            <ul class="meta">
-                {% if article.tags %}
-                <li class="tags">
-                    {% for tag in article.tags %}
-                    <a class="tag" href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }}</a>
-                    {% endfor %}
-                </li>
-                {% endif %}
-            </ul>
-        </footer>
     </article>
-    {% endfor %}
+{% endfor %}
 </section>
 {% endblock %}

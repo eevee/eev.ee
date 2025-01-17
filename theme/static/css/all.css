@@ -1,1 +1,1914 @@
-h1,h2,h3,h4,h5,h6{margin:0 0 .5em;font-family:Lusitana,serif;text-align:left}h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{text-decoration:none}h1 a,h1 a:visited,h2 a,h2 a:visited,h3 a,h3 a:visited,h4 a,h4 a:visited,h5 a,h5 a:visited,h6 a,h6 a:visited{color:inherit}h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover{text-decoration:underline;color:#cf4078}h1{font-size:2rem}h2{font-size:1.75em}h3{font-size:1.5em}h4{font-size:1.25em}p,li{margin-bottom:1em;line-height:1.5}a{transition:color .1s linear;color:#4078cf}a:visited{color:#9740cf}a:hover{color:#cf4078}html{font-size:16px;background:url(/theme/images/concrete_seamless.png) #0d1521}body{width:100%;max-width:1120px;margin:0 auto;font-family:'Source Sans Pro',Ubuntu,sans-serif;color:#202020}body > header{position:relative;margin:1em 0 0;min-height:128px;background:url(/theme/images/home-eevee2.png) no-repeat left bottom / 96px;image-rendering:-moz-crisp-edges;image-rendering:pixelated;-ms-interpolation-mode:nearest-neighbor}@media (max-width: 400px){body > header{margin-top:1em;min-height:auto;background:none}}body > header h1{position:absolute;font-size:4em;margin:0 2rem;bottom:0;right:0;padding:0;font-family:'Love Ya Like A Sister',cursive;font-weight:normal;color:#cfddf3}body > header h1 > a,body > header h1 > a:visited,body > header h1 > a:hover,body > header h1 > a:active{color:inherit;text-decoration:none}@media (max-width: 400px){body > header h1{position:static;margin:.25em;font-size:2em;padding:1rem}}body > header nav{position:absolute;right:1em;bottom:0;padding:0;text-align:right}body > header nav .site-search{order:2}body > header nav .subscription{order:3}body > header nav form{margin:.5em 0}body > header nav ul,body > header nav ol{margin:0;padding:0;list-style-type:none}body > header nav li{display:inline-block;margin:0}body > header nav a,body > header nav a:visited,body > header nav a:hover{color:#cfddf3}body > header nav a:hover{background:#2d3d53}body > header nav img,body > header nav input{vertical-align:middle}body > #main{display:flex;border:1px solid #6b5337}body > #main #content{flex:1;min-width:0;background:url(/theme/images/textured_paper.png) #fcfbf7}body > #main #sidebar{width:20em;background:url(/theme/images/textured_paper.png) #f8efdc}@media (max-width: 900px){body > #main{flex-direction:column}body > #main #sidebar{width:auto}}body > footer{margin:.5em 0 4em;color:#cfddf3;text-transform:lowercase;display:flex;justify-content:space-between}@media (max-width: 900px){body > footer{display:block}}body > footer p{margin:0}body > footer a{color:#79a1dd}body > footer a:visited{color:#b679dd}body > footer a:hover{color:#dd79a0}body > footer img{vertical-align:middle}#content > h1,#content > section > h1{font-size:2.5rem;border-bottom:1px solid #ac885e}#content > h1{margin:2.5rem 2.5rem 0}#content > h1 .category-atom{display:block;float:right}@media (max-width: 900px){#content > h1{margin:2rem 2rem 0}}@media (max-width: 400px){#content > h1{margin:1rem 1rem 0}}#content > footer{margin:2em 4em 4em;padding-top:2em;border-top:1px dotted #ac885e}#content > footer.pagination{display:flex}#content > footer.pagination > a,#content > footer.pagination > span{display:block;flex:1;text-align:center}#content > footer.pagination > a.next,#content > footer.pagination > span.next{text-align:right}#content > footer.pagination > a.prev,#content > footer.pagination > span.prev{text-align:left}@media (max-width: 400px){#content > footer{margin:1em;padding-top:1em}}.oh-wow-patreon{overflow:hidden;font-style:italic}.oh-wow-patreon figure{float:left;margin:0;margin-right:1em}.oh-wow-patreon figure img{height:93px}.oh-wow-patreon figcaption{font-size:.83em}#sidebar{font-size:.9rem;font-family:'Source Sans Pro',Ubuntu,sans-serif;border-left:1px solid #d2bc9d}#sidebar header > a{font-size:2em;display:block;float:right;padding:.5em .75em;line-height:1;border:1px solid transparent;text-decoration:none;background:#f2ede1;color:#85663f;padding:.25em}#sidebar header > a:hover{border-color:#cab08e}#sidebar section{margin:1.5em}#sidebar h1{font-size:1.5em}#sidebar h1,#sidebar a{text-shadow:1px 1px 0 #fcfbf7}#sidebar ul,#sidebar ol{margin:0;padding:0;list-style-type:none}#sidebar li{margin-bottom:.67em}#sidebar a{text-decoration:none}#sidebar .eevee-navigation{position:relative;margin:1em 0}#sidebar .eevee-navigation > li.-empty{margin-top:1em;padding-top:1em;border-top:1px dotted #d2bc9d}#sidebar .eevee-navigation > li{margin:0 0 -1px;vertical-align:bottom}#sidebar .eevee-navigation > li:not(:hover){background-color:transparent !important}#sidebar .eevee-navigation > li > a{display:flex;align-items:center;padding:.25rem 1.5em;border:1px solid transparent}#sidebar .eevee-navigation > li > a .-glyph{flex:0 0 1.5rem;margin-right:.5em}#sidebar .eevee-navigation > li > a .-glyph > img{display:block;max-height:1.5rem;max-width:1.5rem;margin:0 auto;opacity:.9;filter:grayscale(100%) contrast(60%) brightness(1.25);-webkit-filter:grayscale(100%) contrast(60%) brightness(1.25)}#sidebar .eevee-navigation > li > a .-label h2{font-size:1.2em;font-weight:normal;font-family:'Source Sans Pro',Ubuntu,sans-serif}#sidebar .eevee-navigation > li > a .-label p{font-size:.9em;color:gray}#sidebar .eevee-navigation > li > a .-label h2,#sidebar .eevee-navigation > li > a .-label p{margin:0;line-height:1.1}#sidebar .eevee-navigation > li > a .-label .-details{display:none}#sidebar .eevee-navigation > li:hover > a{background-image:linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));border-top-color:rgba(0,0,0,0.1);border-bottom-color:rgba(0,0,0,0.15);z-index:2}#sidebar .eevee-navigation > li:hover > a .-glyph img{filter:none;-webkit-filter:none}#sidebar .eevee-navigation > li:hover > a .-label h2{color:#202020}#sidebar .eevee-navigation > li:hover > a .-label p{color:#404040}#sidebar #recent_posts li{margin-left:2.5em}#sidebar #recent_posts .category-glyph{clear:left;float:left;margin-top:2px;margin-left:-2.5em}#sidebar .sidebar-tags{line-height:1.5}#sidebar .sidebar-tags a{padding-right:.33em;white-space:nowrap}article,#content section{padding:2.5em 3em;font-family:Merriweather,serif}@media (max-width: 900px){article,#content section{padding:2em}}@media (max-width: 400px){article,#content section{padding:1em}}article{text-align:justify}article + article{border-top:1px dotted #ac885e}article > header{display:flex;flex-direction:row-reverse;flex-wrap:wrap}article > header .meta{flex:1 1 auto;margin:0;text-align:right;color:#ac885e}article > header h1{flex:1 1 auto}article > footer{margin-top:2em;font-family:'Source Sans Pro',Ubuntu,sans-serif}article > footer ul.meta{margin:0;padding:0}article > footer ul.meta li{display:inline}article > footer ul.meta li::before{content:' • ';margin:0 .33em}article > footer ul.meta li:first-child::before{content:none;margin:0}article > footer a[rel="full-article"]{padding:.5em .75em;line-height:1;border:1px solid transparent;text-decoration:none;background:#f2ede1;color:#85663f}article > footer a[rel="full-article"]:hover{border-color:#cab08e}.entry-content img,.entry-content object,.gallery img{max-width:100%;box-shadow:0 1px 2px 1px #0009;outline:1px solid #0009;transition:box-shadow linear .1s}a:hover .entry-content img,.entry-content a:hover img,a:hover .entry-content object,.entry-content a:hover object,a:hover .gallery img,.gallery a:hover img{box-shadow:0 1px 2px 1px #000c}.entry-content h2{margin-top:1em;padding-top:1em;border-top:1px dotted #ac885e}.entry-content ul{margin:1em 0;margin-left:2em;padding-left:0;list-style-type:none}.entry-content ul > li::before{content:'▸';display:block;float:left;margin-left:-1em}.entry-content blockquote{margin:1em 0;padding:1px 1em 1px 1.17em;border-left:.33em solid #cab08e;background:#f2ede1}.entry-content hr{border:none}.entry-content hr::after{content:'✩    ✩    ✩';display:block;text-align:center;font-size:1.2em;margin:1em 0}.entry-content kbd{font-size:.83em;padding:0 .25em;border-radius:.33em;border:1px solid #cab08e;border-width:1px 2px;box-shadow:0 2px #cab08e;background:#f2ede1}.entry-content kbd + kbd{margin-left:.25em}.entry-content aside{margin:1em 0;padding:1em;background:var(--bg-color);border-left:.25em solid var(--fg-color);--quip:"Note";--fg-color:#d0d0d0;--bg-color:#d0d0d020;--image:url(/theme/images/asides/note.png)}.entry-content aside p:last-child{margin-bottom:0}.entry-content aside::before{content:var(--image) var(--quip);font-size:1.2em;display:flex;gap:.33rem;align-items:center;height:1.25em;margin-bottom:.5em;border-bottom:1px solid var(--fg-color);color:var(--fg-color)}.entry-content aside.aside--well-actually{--quip:"Well, actually,";--fg-color:#d77bba;--bg-color:#d77bba20;--image:url(/theme/images/asides/well-actually.png)}.entry-content aside.aside--note-from-future{--quip:"Note from the future";--fg-color:#5b6ee1;--bg-color:#5b6ee120;--image:url(/theme/images/asides/note-from-the-future.png)}.entry-content aside.aside--computers-are-bad{--quip:"Computers are bad";--fg-color:#ac3232;--bg-color:#ac323220;--image:url(/theme/images/asides/computers-are-bad.png)}.entry-content aside.aside--fascinating-tangent{--quip:"Fascinating tangent";--fg-color:#3f3f74;--bg-color:#3f3f7420;--image:url(/theme/images/asides/fascinating-tangent.png)}.entry-content aside.aside--matter-of-taste{--quip:"A matter of taste";--fg-color:#76428a;--bg-color:#76428a20;--image:url(/theme/images/asides/matter-of-taste.png)}.entry-content aside.aside--look-out{--quip:"Look out!";--fg-color:#df7126;--bg-color:#df712620;--image:url(/theme/images/asides/look-out.png)}.entry-content aside.aside--tricky-tradeoff{--quip:"Tricky tradeoff";--fg-color:#45283c;--bg-color:#45283c20;--image:url(/theme/images/asides/tricky-tradeoff.png)}.entry-content aside.aside--deceptively-difficult{--quip:"Deceptively difficult";--fg-color:#4b692f;--bg-color:#4b692f20;--image:url(/theme/images/asides/deceptively-difficult.png)}a.photo{line-height:1}.gallery{display:flex;flex-wrap:wrap;justify-content:space-around;justify-content:space-evenly;align-items:center;margin:1em 0;padding:.5em 0;border:1px dotted #ac885e;border-width:1px 0}.entry-content .gallery + h2{border-top:none}.gallery a{flex:0 auto;margin:.25em;text-align:center}.category-glyph{max-height:1.2em;margin-right:.25em;vertical-align:-10%}@media (max-width: 400px){h1 .category-glyph{max-height:.6em;max-width:.6em;margin-right:0;vertical-align:middle}}.prose-illustration{float:right;margin:0 0 .5em 1em}@media (max-width: 400px){.prose-illustration{float:none;margin:1em 0;text-align:center}}.prose-full-illustration{margin:0 0 1em;text-align:center}.prose-full-illustration img,.prose-full-illustration object{max-width:100%}.homepage{margin:1em}.homepage + footer{margin:1em}.homepage h1{font-size:3em;margin:.75em 0 .25em;font-weight:normal;font-family:'Love Ya Like A Sister',cursive;text-align:center;color:#cfddf3}.homepage h1::before,.homepage h1::after{content:'';display:inline-block;position:absolute;border-top:4px dotted currentColor;margin-top:.6em;width:10%;opacity:.33}@media (max-width: 400px){.homepage h1::before,.homepage h1::after{display:none}}.homepage h1::before{margin-left:-12%}.homepage h1::after{margin-left:2%}.homepage p{color:#fff;text-shadow:1px 1px 1px #000}.homepage a{color:#a8beff}.homepage a:visited{color:#cca8ff}.homepage a:hover{color:#ffa8a8}.homepage code{background:none}.homepage .intro{font-size:1.25em;margin:.5em;min-height:128px;padding-left:96px;border-bottom:2px solid #000;background:url(/theme/images/home-eevee2.png) no-repeat left bottom / 96px;image-rendering:-moz-crisp-edges;image-rendering:pixelated;-ms-interpolation-mode:nearest-neighbor}@media (max-width: 400px){.homepage .intro{background-size:auto;padding-left:48px}}.homepage .intro p{margin:1em}.homepage .account-buttons{font-size:1.25em;position:relative;top:0;left:0;right:0;display:flex;align-items:start}.homepage a.button{color:#fff}.homepage .button{flex:1 0;display:inline-block;margin:.25em 1%;padding:.33em .5em;height:1.2em;min-width:0;line-height:1;text-align:center;white-space:nowrap;color:#fff;border:2px solid rgba(0,0,0,0.75);border-radius:1em;background:gray;box-shadow:inset 0 2em 1em -1em rgba(255,255,255,0.125),inset 0 -2em 1em -1em rgba(0,0,0,0.25),inset 0 0 .25em rgba(255,255,255,0.5);text-decoration:none;transition:box-shadow .1s linear,padding-top .1s linear}.homepage .button:hover{box-shadow:inset 0 2em 1em -1em rgba(255,255,255,0.25),inset 0 -2em 1em -1em rgba(0,0,0,0.0625),inset 0 0 .25em rgba(255,255,255,0.5),0 1px 2px 1px rgba(0,0,0,0.5)}.homepage .button label{display:inline-block;white-space:nowrap;cursor:inherit;vertical-align:middle}@media (max-width: 900px){.homepage .button label{display:none}}.homepage .button img{margin-right:.125em;max-width:1em;max-height:1em;vertical-align:middle}.homepage .button .button-tooltip{display:none}.homepage .tile-container{display:grid;grid-template-columns:repeat(auto-fill, minmax(320px, auto));row-gap:1em;column-gap:1em}.homepage .tile{box-sizing:border-box;position:relative;color:#cfddf3}.homepage .tile header{width:100%}.homepage .tile header .tile-illus{display:block;width:100%;margin-bottom:1em;box-shadow:0 0 .125em #000}.homepage .tile header time{display:block;position:absolute;top:.25em;right:.5em;font-size:.66em;line-height:1;font-family:monospace;color:rgba(255,255,255,0.5)}.homepage .tile header h2{margin:0;color:#fff;text-shadow:.5px .5px .5px #000,-0.5px .5px .5px #000,.5px -0.5px .5px #000,-0.5px -0.5px .5px #000;font-family:'Source Sans Pro',Ubuntu,sans-serif}.homepage .tile header p{display:none;margin:0;text-shadow:-0.5px .5px 1px #000}.homepage .cool-button{position:relative;display:block;padding:.5em .75em;border:1px solid #000;border-radius:4px;background:#666;color:#fff;box-shadow:inset 0 0 0 40em rgba(0,0,0,0.1),inset 0 -4em 8em -3.6em rgba(0,0,0,0.5),inset 0 0 3px 1px rgba(255,255,255,0.5);text-decoration:none;transition:box-shadow linear .2s}.homepage .cool-button:hover{box-shadow:inset 0 0 0 40em transparent,inset 0 -4em 8em -3.6em rgba(0,0,0,0.5),inset 0 0 3px 1px rgba(255,255,255,0.5)}.homepage ul.see-also{display:block;margin:1em 0;padding:.5em 0 0;border-top:1px dotted rgba(255,255,255,0.25)}.homepage ul.see-also::before{content:'🔗  '}.homepage ul.see-also li{margin:0;display:inline-block;list-style-type:none}.homepage ul.see-also li + li::before{content:' •  '}@media (max-width: 900px){.homepage body{margin:1em}}@media (max-width: 400px){.homepage body{margin:.5em}}section.archives > h2{font-size:1.5rem;float:left;width:5rem;margin:0;line-height:1.8rem;vertical-align:baseline;font-weight:normal;color:#ac885e}@media (max-width: 400px){section.archives > h2{float:none;margin-bottom:1.5rem}}section.archives > hr{border:none;border-top:1px dotted #ac885e;margin-bottom:1.5rem}section.archives article{display:flex;padding:0 0 .5rem;margin-left:5rem}@media (max-width: 400px){section.archives article{flex-wrap:wrap;margin-left:0}}section.archives article + article{border:none}section.archives article > time[pubdate]{flex:0 0 5rem;line-height:1.8rem;vertical-align:baseline;color:#ac885e}@media (max-width: 400px){section.archives article > time[pubdate]{flex:0 0 auto}}section.archives article h1{flex:4 4 auto;font-size:1.33rem;margin:0;padding-left:1.5em;text-indent:-1.5em;line-height:1.8rem;vertical-align:baseline;font-weight:normal}section.archives article h1.category-dev{font-size:1rem;color:#606060}@media (max-width: 400px){section.archives article h1{flex:0 0 100%;order:-1}}section.archives article > footer{flex:1 1 auto;font-size:.85em;margin:0;line-height:1.8rem;text-align:right;color:#ac885e}@media (max-width: 400px){section.archives article > footer{flex:1 1 0}}section.archives article > footer .meta a{margin-left:.33em}section.archives article > footer .meta a,section.archives article > footer .meta a:visited,section.archives article > footer .meta a:active{color:#ac885e}section.archives article > footer .meta a:hover{color:#8d6d48}.projects-game{display:flex}.projects-game-pic img{max-width:100px}.projects-game-desc{flex:1;margin-left:1em}table.highlighttable{table-layout:fixed;width:100%;margin:1em 0;border-collapse:collapse;line-height:1.2;background:url(/theme/images/textured_paper.png) #fdf6e3;box-shadow:0 0 1em #eee8d5}table.highlighttable pre{margin:0}table.highlighttable td{padding:.5em;border:1px solid #eee8d5}table.highlighttable td.linenos{width:2em;width:-moz-min-content;padding-left:1em;text-align:right;color:#93a1a1;background:url(/theme/images/textured_paper.png) #eee8d5;vertical-align:top}table.highlighttable .highlight{overflow-x:auto}h6{position:relative;z-index:1;font-size:1rem;line-height:1.8;margin:1rem 0 0;font-family:sans-serif;font-weight:normal;text-align:center;background:#eee8d5;text-shadow:1px 1px #fdf6e3;color:#93a1a1}h6 + table.hilighttable{margin-top:0}.highlight .hll{background-color:#ffc}.highlight .c{color:#93a1a1;font-style:italic}.highlight .err{color:#dc322f}.highlight .g{color:#657b83}.highlight .k{color:#dc322f}.highlight .l{color:#657b83}.highlight .n{color:#586e75}.highlight .o{color:#657b83}.highlight .x{color:#657b83}.highlight .p{color:#657b83}.highlight .cm{color:#93a1a1;font-style:italic}.highlight .cp{color:#93a1a1;font-style:italic}.highlight .c1{color:#93a1a1;font-style:italic}.highlight .cs{color:#93a1a1;font-style:italic}.highlight .gd{color:#657b83}.highlight .ge{color:#657b83}.highlight .gr{color:#657b83}.highlight .gh{color:#657b83}.highlight .gi{color:#657b83}.highlight .go{color:#657b83}.highlight .gp{color:#657b83}.highlight .gs{color:#657b83}.highlight .gu{color:#657b83}.highlight .gt{color:#657b83}.highlight .kc{color:#dc322f}.highlight .kd{color:#dc322f}.highlight .kn{color:#cb4b16}.highlight .kp{color:#cb4b16}.highlight .kr{color:#dc322f}.highlight .kt{color:#dc322f}.highlight .ld{color:#657b83}.highlight .m{color:#2aa198}.highlight .s{color:#2aa198}.highlight .na{color:#657b83}.highlight .nb{color:#268bd2}.highlight .nc{color:#268bd2}.highlight .no{color:#b58900}.highlight .nd{color:#cb4b16}.highlight .ni{color:#cb4b16}.highlight .ne{color:#cb4b16}.highlight .nf{color:#268bd2}.highlight .nl{color:#657b83}.highlight .nn{color:#b58900}.highlight .nx{color:#657b83}.highlight .py{color:#268bd2}.highlight .nt{color:#dc322f}.highlight .nv{color:#cb4b16}.highlight .ow{color:#dc322f}.highlight .w{color:#fdf6e3}.highlight .mf{color:#2aa198}.highlight .mh{color:#2aa198}.highlight .mi{color:#2aa198}.highlight .mo{color:#2aa198}.highlight .sb{color:#2aa198}.highlight .sc{color:#2aa198}.highlight .sd{color:#2aa198}.highlight .s2{color:#2aa198}.highlight .se{color:#cb4b16}.highlight .sh{color:#2aa198}.highlight .si{color:#cb4b16}.highlight .sx{color:#2aa198}.highlight .sr{color:#2aa198}.highlight .s1{color:#2aa198}.highlight .ss{color:#2aa198}.highlight .bp{color:#268bd2;font-weight:bold}.highlight .vc{color:#268bd2}.highlight .vg{color:#268bd2}.highlight .vi{color:#268bd2}.highlight .il{color:#2aa198}code{padding:.1em .25em;border-radius:.25em;background:#f2ede1}.highlight code{padding:0;background:none}#colorbox,#cboxOverlay,#cboxWrapper{position:absolute;top:0;left:0;z-index:9999;overflow:hidden}#cboxWrapper{max-width:none}#cboxOverlay{position:fixed;width:100%;height:100%}#cboxMiddleLeft,#cboxBottomLeft{clear:left}#cboxLoadedContent{overflow:auto;-webkit-overflow-scrolling:touch}#cboxTitle{margin:0}#cboxLoadingOverlay,#cboxLoadingGraphic{position:absolute;top:0;left:0;width:100%;height:100%}#cboxPrevious,#cboxNext,#cboxClose,#cboxSlideshow{cursor:pointer}.cboxPhoto{float:left;margin:auto;border:0;display:block;max-width:none;-ms-interpolation-mode:bicubic}.cboxIframe{width:100%;height:100%;display:block;border:0;padding:0;margin:0}#colorbox,#cboxContent,#cboxLoadedContent{box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box}#cboxOverlay{background:#000}#colorbox{outline:0}#cboxTopCenter{height:1.5rem}#cboxMiddleLeft,#cboxMiddleRight{width:.5rem}#cboxBottomCenter{height:4.5rem}#cboxContent{overflow:visible}.cboxIframe{background:#fff}#cboxError{padding:50px;border:1px solid #ccc}#cboxLoadedContent{box-shadow:0 1px 2px 1px #0009;outline:1px solid #0009}#cboxLoadedContent .cboxPhoto{background:#fff}#cboxTitle,#cboxPrevious,#cboxNext,#cboxCurrent,#cboxClose{position:fixed}#cboxCurrent{font-size:.8rem;top:0;left:0;right:0;line-height:1.5rem;text-align:center;color:#aaa}#cboxClose{font-size:2rem;top:0;right:0;padding:0;height:3rem;width:3rem;border:none;background:#0004;color:#fff;border-bottom-left-radius:1rem}#cboxClose:hover{background:#0008}#cboxTitle,#cboxPrevious,#cboxNext{text-align:center;background:#080808;color:#ddd;border:none;border-top:1px solid #181818}#cboxTitle{font-size:1.25rem;left:4rem;right:4rem;bottom:0;box-sizing:border-box;height:4rem;padding:.5rem;overflow:auto;line-height:1.5rem;text-shadow:0 1px 1px #000}@media (max-width: 400px){#cboxTitle{font-size:1rem;padding:.5rem;line-height:1rem}}#cboxPrevious,#cboxNext{font-size:2rem;bottom:0;height:4rem;width:4rem;padding:0}#cboxPrevious:hover,#cboxNext:hover{background:#101010}#cboxPrevious{left:0}#cboxNext{right:0}#cboxPrevious:active,#cboxNext:active,#cboxSlideshow:active,#cboxClose:active{outline:0}.cboxSlideshow_on #cboxSlideshow{background-position:-125px 0;right:27px}.cboxSlideshow_on #cboxSlideshow:hover{background-position:-150px 0}.cboxSlideshow_off #cboxSlideshow{background-position:-150px -25px;right:27px}.cboxSlideshow_off #cboxSlideshow:hover{background-position:-125px 0}
+/**************************************************************************************************/
+/* GENERAL */
+
+html {
+    /* Quicksand via Google Fonts, then "Rounded Sans" as the fallback via Modern Font Stacks */
+    --font-regular: Quicksand, ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
+    --font-header: var(--font-regular);
+    /* Not picky, so this is just the monospace code list from Modern Font Stacks */
+    --font-code: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; 
+
+    /* This has to be on the root element for rem to work */
+    font-size: 16px;
+    line-height: 1.5;
+
+    min-height: 100%;
+
+    background:
+        linear-gradient(to right, #0006, 60%, transparent, 60%, #0006),
+        url(/theme/images/asfalt-light.png),
+        linear-gradient(to bottom, hsl(270deg 40% 20%), hsl(240deg 40% 10%)) hsl(260deg 40% 10%);
+
+    --main-accent: hsl(315deg 75% 50%);
+    --block-border: hsl(320deg 75% 90%);
+
+    --content-outer-border: hsl(330deg 75% 85%);
+    --content-inner-border: hsl(330deg 75% 75%);
+    --content-bg: hsl(320deg 100% 97.5%);
+    --accent-dark: hsl(320deg 100% 80%);
+    --accent-light: hsl(320deg 80% 90%);
+    --accent-lightest: hsl(320deg 75% 95%);
+    --meta-color: hsl(315deg 25% 50%);
+    --colored-text: hsl(320deg 100% 35%);
+}
+@property --screen-width {
+    /* hack to convert 100vw to pixels so it works with the tan(atan2()) hack */
+    /* https://dev.to/janeori/css-type-casting-to-numeric-tanatan2-scalars-582j */
+    syntax: "<length>";
+    initial-value: 0px;
+    inherits: true;
+}
+/* width of the screen divided by 1000px, as a number */
+@property --screen-scale {
+    syntax: "<number>";
+    initial-value: 0;
+    inherits: true;
+}
+/* 0 at 600px up to 1 at 1000px */
+@property --flex-scale {
+    syntax: "<number>";
+    initial-value: 0;
+    inherits: true;
+}
+@property --body-width {
+    syntax: "<length>";
+    initial-value: 0px;
+    inherits: true;
+}
+body {
+    --screen-width: 100vw;
+    --screen-scale: calc(tan(atan2(var(--screen-width), 1000px)));
+    --flex-scale: calc((var(--screen-scale) - 0.6) / 0.4);
+
+    position: relative;
+    box-sizing: border-box;
+    /* try to leave space for the stack of logos on the right.  it's 1em plus some padding, so call
+     * it 1.5em, and it's mirrored which makes 3em, so with this there's space until 600px where it
+     * becomes part of the navigation */
+    --body-width: clamp(320px, 100vw - 6em * var(--screen-scale), 960px);
+    width: var(--body-width);
+    margin: 0 auto;
+
+    font-family: var(--font-regular);
+    font-weight: 500;  /* necessary for quicksand; XXX how does this work for others? */
+    color: #202020;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1rem;
+
+    font-family: var(--font-header);
+    text-align: left;  /* override the justify that comes later */
+
+    a {
+        text-decoration: none;
+        &, &:visited {
+            color: inherit;
+        }
+        &:hover {
+            text-decoration: underline;
+            color: $link-hover;
+        }
+    }
+}
+h1 {
+    font-size: 1.75rem;
+}
+h2 {
+    font-size: 1.5em;
+}
+h3 {
+    font-size: 1.25em;
+}
+h4 {
+    font-size: 1.125em;
+}
+
+a {
+    color: hsl(330deg 60% 50%);
+    text-decoration: 1px underline dotted;
+
+    transition: color 0.05s linear;
+
+    &:visited {
+        color: hsl(285deg 60% 45%);
+    }
+    &:hover {
+        color: hsl(300deg 80% 25%);
+        text-decoration-style: solid;
+    }
+}
+
+summary {
+    list-style: none;
+}
+/* Fucking Safari */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+input, select, button {
+    font-size: inherit;
+}
+
+/* completely generic animation, for low-effort shenanigans */
+@property --progress {
+    syntax: "<number>";
+    initial-value: 0;
+    inherits: false;
+}
+@keyframes generic {
+    from { --progress: 0; }
+    to { --progress: 1; }
+}
+
+
+/**************************************************************************************************/
+/* LAYOUT */
+
+body > header {
+    position: relative;
+    display: grid;
+    grid: auto / 1fr max-content;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    > .-lounge-eevee {
+        position: relative;
+        z-index: 2;  /* above the navigation */
+        max-width: 455px;
+        margin-right: calc(-104 / 455 * 100%);
+
+        > img {
+            display: block;
+            width: 100%;
+            margin-left: calc(-104 / 455 * 100%);
+            margin-bottom: calc(-128 / 455 * 100%);
+            /* clip out the rectangle at the bottom so the nav can be clicked through */
+            clip-path: polygon(0% 0%, 100% 0%, 100% 58%, 42% 58%, 35% 62%, 25% 62%, 25% 100%, 0% 100%);
+        }
+    }
+
+    /* main site title */
+    h1 {
+        font-size: clamp(1.5rem, 7.5vw, 4rem);
+        margin: 0;
+        margin-right: 1rem;
+        padding: 0;
+        font-family: 'Love Ya Like A Sister', cursive;
+        font-weight: normal;  /* bold doesn't work well with that font */
+        text-shadow: 0 4px 2px #000c, 0 0 4px black, 0 0 4px black;
+        color: var(--accent-lightest);
+        white-space: nowrap;
+
+        > a {
+            &, &:visited, &:hover, &:active {
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+
+        img {
+            height: 1em;
+            margin: 0 -0.125em;
+            vertical-align: middle;
+        }
+    }
+}
+
+@keyframes menu-hover {
+    from {
+        text-shadow: 0 0 0 var(--accent-dark);
+    }
+    to {
+        text-shadow: 0 0 0.5em transparent;
+    }
+}
+@keyframes menu-hover2 {
+    from {
+        transform: none;
+    }
+    50% {
+        transform: scale(2);
+    }
+    to {
+        transform: none;
+    }
+}
+body > nav .account-links {
+    img {
+        display: block;
+        max-width: min(100%, 2em);
+        max-height: min(100%, 2em);
+    }
+
+    @media (width > 600px) {
+        /* full-size: stack of little tabs peeking out the right side */
+        position: absolute;  /* relies on body being nearest positioned ancestor */
+        left: 100%;
+        margin-top: 4em;
+
+        display: flex;
+        flex-flow: column;
+        gap: 1px;
+        padding: 1px;
+        background: #222;
+        box-shadow: 0 2px 2px #0003;
+        list-style: none;
+        line-height: 1;
+
+        > li {
+            position: relative;
+            margin: 0;
+
+            a {
+                display: grid;
+                place-items: center;
+                height: 1em;
+                width: 1em;
+                padding: 0.25em;
+                background: linear-gradient(to bottom, #fff1, transparent 25% 75%, #0002) #666;
+                box-shadow: inset 0 0 1px #fff3;
+
+                transition: background-color 0.2s ease-out;
+            }
+            .-label {
+                font-size: 0.75em;
+                position: absolute;
+                z-index: 1;
+                top: 50%;
+                right: 100%;
+                transform: translateY(-50%) translateX(0) scale(0.75);
+                transform-origin: right center;
+                padding: 0.5em 0.75em;
+                border-radius: 0.5em;
+                background: white;
+                color: black;
+                white-space: nowrap;
+                filter: drop-shadow(0 1px 2px #0006);
+
+                visibility: hidden;
+                opacity: 0;
+                transition: 0.2s ease-out;
+                transition-property: visibility, opacity, transform;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    top: calc(50% - 0.5em);
+                    left: 100%;
+                    border: 0.5em solid transparent;
+                    border-left-color: white;
+                    border-right-width: 0;
+                }
+            }
+            &:hover a {
+                background-color: var(--color);
+                transition-timing-function: ease-in;
+            }
+            &:hover .-label {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(-50%) translateX(-1em) scale(1);
+                transition-timing-function: ease-in;
+            }
+        }
+    }
+
+    @media (width <= 600px) {
+        /* mini: innocuous part of the nav bar */
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0.5em;
+        margin: 0;
+        padding: 0.5em 0.5em 0;
+        background: var(--content-outer-border);
+        list-style: none;
+
+        > li {
+            flex: 1;
+
+            a {
+                max-width: clamp(1em, 100%, 2em);
+                aspect-ratio: 1 / 1;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    object-position: center;
+                    filter: drop-shadow(0 1px #0003);
+                }
+            }
+            .-label {
+                display: none;
+                position: absolute;
+                visibility: hidden;
+
+                &::before {
+                }
+            }
+            &:hover a {
+            }
+            &:hover .-label {
+            }
+        }
+    }
+}
+
+body > nav ul.main-navigation {
+    position: relative;
+    z-index: 1;  /* above the box-shadow of the body */
+    display: flex;
+    gap: 0.5em;
+    flex-flow: row wrap;
+    align-items: stretch;
+    margin: 0;
+    padding: 0.5em 0.5em 0;
+    list-style: none;
+    background: var(--content-outer-border);
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    white-space: nowrap;
+
+    > li {
+        --hue: 120;
+        flex: auto;
+
+        /* this is stupid, but i want the grandchildren to flex equally, which means *we* have to
+         * have a flex-grow of N, where N is the number of children we have */
+        &:has(:nth-child(2)) { flex-grow: 2; }
+        &:has(:nth-child(3)) { flex-grow: 3; }
+        &:has(:nth-child(4)) { flex-grow: 4; }
+        &:has(:nth-child(5)) { flex-grow: 5; }
+        &:has(:nth-child(6)) { flex-grow: 6; }
+        &:has(:nth-child(7)) { flex-grow: 7; }
+        &:has(:nth-child(8)) { flex-grow: 8; }
+    }
+    > li > ul {
+        display: flex;
+        gap: 0.25em 0;
+        /* i don't know how nested flexboxes decide who wraps first, but at least in firefox, the
+         * inner list doesn't wrap until extremely out of space */
+        flex-flow: row wrap;
+        justify-content: stretch;
+        align-items: stretch;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    > li > ul > li {
+        flex: auto;
+        margin-left: -1px;
+
+        &.-spacer {
+            flex: none;
+            margin-left: 0.5em;
+        }
+
+        > a,
+        > details > summary {
+            display: block;
+            position: relative;
+            z-index: 0;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0.25em;
+            border: 1px solid #333;
+            x-border-radius: 0.5em;
+            background: linear-gradient(to bottom, hsl(calc(var(--hue) + 30) 80% 92%), hsl(var(--hue) 100% 90%) 40%, hsl(var(--hue) 80% 80%));
+            background:
+                linear-gradient(45deg, transparent 0% calc(100% - 1em - 1px), #fff9 calc(100% - 1em) calc(100% - 0.75em), transparent calc(100% - 0.75em + 1px) calc(100% - 0.5em - 1px), #fff6 calc(100% - 0.5em)),
+                linear-gradient(45deg, #fff6 0% 0.5em, transparent calc(0.5em + 1px) 100%) hsl(var(--hue) 80% 90%);
+            background-repeat: no-repeat;
+            background-position: 1.5em 0, -0.75em 0;
+            box-shadow: inset 0 0 1px 1px #fff6, inset 0 1em 0.5em -0.25em #fff3;
+
+            color: black;
+            text-decoration: none;
+            text-shadow: 0 1px 2px #fff9;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s ease;
+
+            &:hover {
+                x-background: linear-gradient(to bottom, hsl(calc(var(--hue) + 30) 90% 95%), hsl(var(--hue) 95% 92%) 40%, hsl(var(--hue) 90% 90%));
+                x-background-image: linear-gradient(45deg, #fff6 0% 10%, transparent 11% 79%, #fff6 80% 85%, transparent 86% 89%, #fff6 90%);
+                background-position: 0 0, 0 0;
+                background-color: hsl(var(--hue) 90% 85%);
+            }
+
+            > img {
+                max-width: 1em;
+                max-height: 1em;
+                vertical-align: -0.125em;
+            }
+        }
+        &:first-child,
+        .-spacer + & {
+            > a,
+            details > summary {
+                border-top-left-radius: 0.5em;
+                border-bottom-left-radius: 0.5em;
+            }
+        }
+        &:last-child,
+        &:has(+ .-spacer) {
+            > a,
+            details > summary {
+                border-top-right-radius: 0.5em;
+                border-bottom-right-radius: 0.5em;
+            }
+        }
+
+
+        /* at last, a use for details crimes!
+            * - when the details is closed, it shouldn't show anything *
+            * - when the details is open, it should show the menu, AND expand the summary as a
+            *   full-screen fixed so that clicking outside the menu closes it again.
+            * on cohost this would be tricky because you can't make the summary act differently
+            * when the details is open, alas...  but this is a stylesheet so i can just use [open]
+            */
+        > details[open] > summary {
+            /* ensure an open details is above a neighboring closed details */
+            z-index: 1;
+
+            /* invert lightness */
+            background: linear-gradient(to bottom, hsl(calc(var(--hue) + 30deg) 80% 75%), hsl(var(--hue) 90% 80%) 80%, hsl(var(--hue) 60% 90%));
+            background: hsl(var(--hue) 100% 80%);
+            box-shadow: inset 0 2px 0 1px #fff3;
+
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-color: transparent;
+        }
+        /* click shield, so clicking anywhere closes the menu */
+        > details[open] > summary::after {
+            content: '';
+            position: fixed;
+            z-index: 998;
+            inset: 0;
+            cursor: default;
+        }
+        > details > ul {
+            position: absolute;
+            z-index: 999;
+            min-width: 8em;
+            margin: 0;
+            padding: 1em;
+            list-style: none;
+            background: hsl(var(--hue) 100% 95%);
+            border: 1px solid #333;
+            border-top: none;
+            border-bottom-left-radius: 0.5em;
+            border-bottom-right-radius: 0.5em;
+            box-shadow: 0 5px 4px 2px #0003, inset 0 0 0 0.5em hsl(var(--hue) 100% 80%);
+
+            > li.-divider {
+                height: 1px;
+                margin: 0.5em;
+                background: linear-gradient(to right, transparent, hsl(var(--hue) 25% 25% / 0.5) 50%, transparent);
+            }
+
+            a {
+                display: block;
+                padding: 0.125em 0.5em;
+
+                &:hover {
+                    animation: menu-hover 0.5s ease-out 1;
+                }
+                &:hover .category-glyph {
+                    animation: menu-hover2 0.5s ease-out 1;
+                }
+            }
+        }
+    }
+}
+
+/* Global footer */
+body > footer {
+    font-size: 0.875em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 0.5rem 4rem;
+    padding: 0.5rem 1rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    background: hsl(285deg 30% 15%);
+    box-shadow: inset 0 4px 2px -1px #0009, 0 1px 2px #0006;
+
+    color: hsl(255deg 100% 95%);
+    text-transform: lowercase;
+
+    @media (width <= 900px) {
+        flex-flow: row wrap;
+        white-space: nowrap;
+    }
+
+    p {
+        margin: 0;
+    }
+    a {
+        color: scale-color($link-normal, $lightness: 30%);
+
+        &:visited {
+            color: scale-color($link-visited, $lightness: 30%);
+        }
+        &:hover {
+            color: scale-color($link-hover, $lightness: 30%);
+        }
+    }
+    img {
+        /* just the CC-BY image */
+        display: block;
+    }
+}
+
+main {
+    isolation: isolate;
+    padding: 1px;
+    border: 0.5em solid var(--content-outer-border);
+    box-shadow:
+        inset 0 0 0 1px var(--content-inner-border);
+        /* keeps interfering with stuff like nav.  not visible on dark bg anyway?  maybe? */
+        /* 0 2px 4px 2px hsl(300deg 20% 10% / 0.4); */
+    background: url(/theme/images/clean-gray-paper.png) var(--content-bg);
+}
+
+/* page title */
+main > header {
+    /* Breadcrumbs should get their own row, but if the title is too long, it should break
+     * underneath the date.  Only way to do this automatically is some creative flexbox */
+    display: flex;
+    /* row-reverse makes the title break underneath even though it's on the left */
+    flex-flow: row-reverse wrap;
+    gap: 0 1em;
+    padding: 1em 1em 2em;
+    margin-bottom: -2em;
+    background: linear-gradient(to bottom, var(--accent-lightest) 0 calc(100% - 2em), transparent);
+
+    &:empty {
+        display: none;
+    }
+
+    > ol.-breadcrumbs {
+        flex: 0 0 100%;  /* flex-basis 100% so it always gets its own row */
+        order: 1;
+        display: flex;
+        gap: 0.5em;
+        margin: -0.5em 0 0.25em;
+        padding: 0;
+        list-style: none;
+        color: var(--meta-color);
+
+        > li {
+            margin: 0;
+            padding: 0;
+
+            &::after {
+                content: '⇒';
+                margin-left: 0.25em;
+                color: black;
+            }
+
+            &.-timestamp {
+                flex: 1;
+                text-align: right;
+
+                &::before {
+                    content: '';
+                }
+            }
+        }
+    }
+
+    > h1 {
+        flex: auto;
+        order: 3;
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1.125;
+    }
+
+    > time,
+    > .micro-paginator {
+        order: 2;
+        align-self: center;
+        justify-self: flex-end;
+    }
+
+    > time {
+        white-space: nowrap;
+        color: var(--meta-color);
+    }
+}
+.micro-paginator {
+    display: flex;
+    gap: 0.5em;
+    white-space: nowrap;
+
+    > span.-prev,
+    > span.-next {
+        color: #ccc;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+main,
+main > section {
+    /* XXX what is this and why is it BIGGER than the normal page title h1 above */
+    > h1 {
+        font-size: 2.5rem;
+        border-bottom: 1px solid var(--main-accent);
+    }
+}
+main > h1 {
+    /* Same padding as articles and sections, but without the excess bottom
+     * padding.  Using margin so the border doesn't run all the way across.
+     */
+    margin: 2.5rem 2.5rem 0;
+
+    .category-atom {
+        display: block;
+        float: right;
+    }
+
+    @media (width <= 900px) {
+        margin: 2rem 2rem 0;
+    }
+    @media (width <= 400px) {
+        margin: 1rem 1rem 0;
+    }
+}
+
+main > footer {
+    /* Used for e.g. pagination on the front page */
+    /* Use margin instead of padding so the border DOESN'T span the container */
+    padding: 1rem;
+    border-top: 1px dotted var(--main-accent);
+    background: var(--accent-lightest);
+
+    &.pagination {
+        display: grid;
+        grid:
+            "prev   page    next" 1fr
+            "prev   links   next" 1fr
+            / 1fr   1fr     1fr;
+        text-align: center;
+
+        > .-prev, > .-next {
+            font-size: 1.25em;
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+        }
+        > .-prev {
+            grid-area: prev;
+            justify-content: flex-start;
+            text-align: left;
+        }
+        > .-page { grid-area: page; }
+        > .-links { grid-area: links; }
+        > .-next {
+            grid-area: next;
+            justify-content: flex-end;
+            text-align: right;
+        }
+    }
+}
+
+.oh-wow-patreon {
+    contain: layout;
+    margin: 0;
+    /* the tip of my tail extends into the article's left padding, but on small screens, that
+     * padding shrinks and i overlap the text.  so smoothly give us a top margin at the same rate */
+    margin-top: clamp(0px, 2.5rem - 4vw, 1.5rem);
+    background: var(--accent-lightest);
+    color: hsl(320deg 50% 25%);
+
+    img {
+        float: left;
+        margin: -40px 1em 0.5em 0;
+        /* we extend into the body text above a bit, so trim out the upper-right space to avoid blocking mouse */
+        clip-path: polygon(0% 0%, 15% 0%, 35% 18%, 100% 18%, 100% 100%, 0% 100%);
+    }
+    figcaption {
+        padding: 1em;
+        align-self: center;
+
+        p:first-child {
+            margin-top: 0;
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+/**************************************************************************************************/
+/* ARTICLES */
+
+article, main section {
+    /* not a fan of padding usually, but i need it here to make the border-top
+     * span the entire width
+     */
+    padding: clamp(1rem, 4vw, 2rem);
+    font-family: var(--font-regular);
+
+    + article,
+    + section {
+        /* TODO front page only...? */
+        border-top: 1px dotted var(--main-accent);
+    }
+}
+
+article {
+    text-align: justify;
+    hyphens: auto;
+
+    > header {
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .meta {
+            flex: 1 1 auto;
+            margin: 0;
+            text-align: right;
+            color: var(--meta-color);
+        }
+        h1 {
+            flex: 1 1 auto;
+            margin: 0;
+        }
+    }
+
+    > footer {
+        margin-top: 2em;
+
+        ul.meta {
+            margin: 0;
+            padding: 0;
+
+            li {
+                display: inline;
+            }
+            li::before {
+                content: ' • ';
+                margin: 0 0.33em;
+            }
+            li:first-child::before {
+                content: none;
+                margin: 0;
+            }
+        }
+
+        a[rel="full-article"] {
+            --fill: var(--accent-lightest);
+            /* normal separation at 600px, down to completely gone at 320px */
+            --bubble-gap: clamp(-3em, -3em + 3.25em * ((var(--screen-scale) - 0.32) / (0.6 - 0.32)), 0.25em);
+            display: block;
+            position: relative;
+            isolation: isolate;
+            width: max-content;
+            margin: 1rem auto 0;
+            padding: 1em 2em;
+            border-radius: 2em;
+            background: var(--fill);
+            box-shadow: 0 0 var(--shadow);
+            line-height: 1;
+            text-decoration: none;
+
+            &::before, &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                z-index: -1;  /* under main link, when collapsed */
+                top: 0.25em;
+                background: var(--fill);
+                width: 1em;
+                height: 1em;
+                padding: 0.75em;
+                border-radius: 2em;
+                /* the box-shadow isn't hoverable so disable these circles too */
+                pointer-events: none;
+            }
+            &::before {
+                right: calc(100% + 0.25em + var(--bubble-gap));
+                box-shadow: calc(-2.5em - var(--bubble-gap)) 0 0 -0.25em var(--fill);
+            }
+            &::after {
+                left: calc(100% + 0.25em + var(--bubble-gap));
+                box-shadow: calc(2.5em + var(--bubble-gap)) 0 0 -0.25em var(--fill);
+            }
+
+            &:hover {
+                --fill: color-mix(in hsl, var(--accent-light), var(--accent-lightest));
+            }
+        }
+    }
+}
+
+.entry-content {
+    text-wrap: pretty;
+
+    h2, h3, h4, h5, h6 {
+        color: hsl(285deg 50% 20%);
+    }
+    h2 {
+        position: relative;
+        margin-top: 1em;
+        padding-top: 0.5em;
+        border-top: 2px solid var(--accent-light);
+
+        &::before {
+            content: '🔗';
+            position: absolute;
+            right: 100%;
+            margin-right: 0.25em;
+            transform: scale(0.5);
+            transform-origin: right center;
+            opacity: 0.25;
+        }
+    }
+    h3 {
+        margin-top: 1em;
+        padding-top: 0.5em;
+        border-top: 1px dotted var(--accent-dark);
+    }
+
+    p {
+        margin: 1em 0;
+    }
+    li {
+        margin: 0.5em 0;
+    }
+    p, li, ul, ol {
+        &:first-child {
+            margin-top: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    ul, ol {
+        margin: 1em 0;
+        margin-left: 1.5em;
+        padding-left: 0;
+    }
+    ul {
+        /* Use a custom marker.  This is the only way to give it a custom color alas */
+        list-style: none;
+
+        > li {
+            position: relative;
+        }
+        > li::before {
+            content: '✭';
+            position: absolute;
+            right: 100%;
+            width: 1.5em;
+            color: hsl(330deg 25% 50%);
+            text-align: center;
+        }
+    }
+
+    /* TODO seriously need a "plain" image style for the emoji post oops */
+    img, object {
+        max-width: 100%;
+        box-shadow: 0 1px 2px 1px #0009;
+        outline: 1px solid #0009;
+        transition: box-shadow linear 0.1s;
+
+        a:hover & {
+            box-shadow: 0 1px 2px 1px #000c;
+        }
+    }
+
+    blockquote {
+        margin: 1em 0;
+        /* 1.17em on the left makes 1.5em total on the left; 1px top/bottom
+         * just stops the paragraphs' margins from collapsing
+         */
+        padding: 0.5em 1em 0.5em 1em;
+        border-left: 0.25em solid var(--accent-light);
+        background: var(--accent-lightest);
+    }
+
+    hr {
+        border: none;
+
+        &::after {
+            --spacing: calc((var(--body-width) - 1em) / 10);
+            content: '❤️🧡💛💚💙💜';
+            font-size: 1.25em;
+            display: block;
+            margin: 0.5rem 0;
+            /* letter-spacing also appears after the last character, which noticeably throws off the
+             * centering; this margin undoes that */
+            margin-right: calc(-1 * var(--spacing));
+            opacity: 0.5;
+            letter-spacing: var(--spacing);
+            text-align: center;
+            white-space: nowrap;
+        }
+    }
+
+    kbd:not(:has(kbd)) {
+        font-size: 0.83em;
+        padding: 0 0.25em;
+        border-radius: 0.33em;
+        border: 1px solid var(--accent-light);
+        border-width: 1px 2px;
+        box-shadow: 0 2px var(--accent-light);
+        background: #fff9;
+        color: var(--colored-text);
+    }
+    kbd + kbd {
+        margin-left: 0.25em;
+    }
+
+    /* code, but not in a larger Pygments block */
+    code:not(.highlight code) {
+        padding: 0.125em 0.25em;
+        margin: -0.125em -0.25em;
+        border-radius: 0.5em;
+        color: var(--colored-text);
+        background: var(--accent-lightest);
+    }
+
+    /* Asides, styled like in my book with room for an icon on the left */
+    aside {
+        margin: 1em 0;
+        padding: 1em;
+        background: var(--bg-color);
+        border-left: 0.25em solid var(--fg-color);
+
+        --quip: "Note";
+        --fg-color: #999;
+        --bg-color: #9992;
+        --image: url(/theme/images/asides/note.png);
+    }
+    aside p:last-child {
+        margin-bottom: 0;
+    }
+    aside::before {
+        /* I can't believe I get away with this, but a flexbox allows me to
+         * align the image AND have it peek out below the border a bit
+         */
+        content: var(--image) var(--quip);
+
+        font-size: 1.2em;
+        display: flex;
+        gap: 0.33rem;
+        align-items: center;
+
+        height: 1.25em;
+        margin-bottom: 0.5em;
+        border-bottom: 1px solid var(--fg-color);
+        color: var(--fg-color);
+    }
+    aside.aside--well-actually {
+        --quip: "Well, actually,";
+        --fg-color: #d77bba;
+        --bg-color: #d77bba20;
+        --image: url(/theme/images/asides/well-actually.png);
+    }
+    aside.aside--note-from-future {
+        --quip: "Note from the future";
+        --fg-color: #5b6ee1;
+        --bg-color: #5b6ee120;
+        --image: url(/theme/images/asides/note-from-the-future.png);
+    }
+    aside.aside--computers-are-bad {
+        --quip: "Computers are bad";
+        --fg-color: #ac3232;
+        --bg-color: #ac323220;
+        --image: url(/theme/images/asides/computers-are-bad.png);
+    }
+    aside.aside--fascinating-tangent {
+        --quip: "Fascinating tangent";
+        --fg-color: #3f3f74;
+        --bg-color: #3f3f7420;
+        --image: url(/theme/images/asides/fascinating-tangent.png);
+    }
+    aside.aside--matter-of-taste {
+        --quip: "A matter of taste";
+        --fg-color: #76428a;
+        --bg-color: #76428a20;
+        --image: url(/theme/images/asides/matter-of-taste.png);
+    }
+    aside.aside--look-out {
+        --quip: "Look out!";
+        --fg-color: #df7126;
+        --bg-color: #df712620;
+        --image: url(/theme/images/asides/look-out.png);
+    }
+    aside.aside--tricky-tradeoff {
+        --quip: "Tricky tradeoff";
+        --fg-color: #45283c;
+        --bg-color: #45283c20;
+        --image: url(/theme/images/asides/tricky-tradeoff.png);
+    }
+    aside.aside--deceptively-difficult {
+        --quip: "Deceptively difficult";
+        --fg-color: #4b692f;
+        --bg-color: #4b692f20;
+        --image: url(/theme/images/asides/deceptively-difficult.png);
+    }
+
+    /* This only exists within a full-page entry, but it slides into the outer page */
+    @media (min-width: 1280px) {
+        .toc {
+            position: absolute;
+            right: 100%;
+            padding: 0.5em 0.75em;
+            max-width: calc(50vw - var(--body-width) / 2 - 2.5rem);
+            list-style: numeric;
+            box-shadow: inset -4px 0 2px -2px #0006;
+            background: var(--accent-lightest);
+            border-top-left-radius: 0.5em;
+            border-bottom-left-radius: 0.5em;
+            text-align: left;
+            white-space: nowrap;
+
+            ul {
+                margin: 0;
+
+                ul {
+                    margin-left: 0.5em;
+                }
+            }
+            li {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin: 0;
+                padding-left: 0.5em;
+                text-indent: -0.5em;
+            }
+
+            /* Undo the normal list markers */
+            li::before {
+                content: none;
+            }
+        }
+    }
+}
+
+/* Remove descendant space from an image link */
+/* TODO this feels hacky, unsure if it covers all cases like prose-illus */
+a.photo {
+    line-height: 1;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin: 1em 0;
+    padding: 0.5em 0;
+    border: 1px dotted var(--main-accent);
+    border-width: 1px 0;
+
+    /* If we're immediately followed by an <h2>, it has its own top border */
+    .entry-content & + h2 {
+        border-top: none;
+    }
+
+    a {
+        flex: 0 auto;
+        margin: 0.25em;
+        text-align: center;
+    }
+
+    /* TODO this is copied from .entry-content img */
+    img {
+        max-width: 100%;
+        box-shadow: 0 1px 2px 1px #0009;
+        outline: 1px solid #0009;
+        transition: box-shadow linear 0.1s;
+
+        a:hover & {
+            box-shadow: 0 1px 2px 1px #000c;
+        }
+    }
+}
+
+
+/**************************************************************************************************/
+/* WIDGETS */
+
+.category-glyph {
+    width: 1em;
+    vertical-align: -10%;  /* like baseline, but compensating for feet */
+}
+@media (width <= 400px) {
+    h1 .category-glyph {
+        max-height: 0.6em;
+        max-width: 0.6em;
+        margin-right: 0;
+        vertical-align: middle;
+    }
+}
+
+.prose-illustration {
+    float: right;
+    margin: 0 0 0.5em 1em;
+
+    @media (width <= 400px) {
+        float: none;
+        margin: 1em 0;
+        text-align: center;
+    }
+}
+
+.prose-full-illustration {
+    margin: 0 0 1em;
+    text-align: center;
+
+    img, object {
+        /* Don't let large images expand the main container's width */
+        max-width: 100%;
+    }
+}
+
+
+/**************************************************************************************************/
+/* SPECIFIC PAGES */
+
+/* ---------------------------------------------------------------------------------------------- */
+/* HOMEPAGE */
+
+.homepage {
+    margin: 1em;
+
+    /* silly hack to make footer look better */
+    & + footer {
+        margin: 1em;
+    }
+
+    h1 {
+        font-size: 3em;
+        margin: 0.75em 0 0.25em;
+        font-weight: normal;
+        font-family: 'Love Ya Like A Sister', cursive;
+        text-align: center;
+        color: #cfddf3;
+
+        /* dotted lines on either side of the heading */
+        &::before, &::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            border-top: 4px dotted currentColor;
+            margin-top: 0.6em;
+            width: 10%;
+            opacity: 0.33;
+
+            @media (width <= 400px) {
+                display: none;
+            }
+        }
+        &::before {
+            margin-left: -12%;
+        }
+        &::after {
+            margin-left: 2%;
+        }
+    }
+
+    p {
+        color: white;
+        text-shadow: 1px 1px 1px black;
+    }
+    a {
+        color: hsl(225, 100%, 83%);
+    }
+    a:visited {
+        color: hsl(265, 100%, 83%);
+    }
+    a:hover {
+        color: hsl(0, 100%, 83%);
+    }
+
+    .intro {
+        font-size: 1.25em;
+        margin: 0.5em;
+        /* image is 64 x 48, shown double size (except on phones) */
+        min-height: 128px;
+        padding-left: 96px;
+        border-bottom: 2px solid black;
+        background: url(/theme/images/home-eevee2.png) no-repeat left bottom / 96px;
+        /* lol css */
+        image-rendering: -moz-crisp-edges;  /* fx */
+        image-rendering: pixelated;  /* chrome, and the thing i actually mean */
+        -ms-interpolation-mode: nearest-neighbor; /* ie */
+
+        @media (width <= 400px) {
+            /* don't scale eevee background */
+            background-size: auto;
+            padding-left: 48px;
+        }
+
+        p {
+            margin: 1em;
+        }
+    }
+
+    .account-buttons {
+        font-size: 1.25em;
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: start;
+    }
+    a.button {
+        color: white;
+    }
+    .button {
+        flex: 1 0;
+        display: inline-block;
+        margin: 0.25em 1%;
+        padding: 0.33em 0.5em;
+        height: 1.2em;
+        min-width: 0;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        color: white;
+        border: 2px solid rgba(0, 0, 0, 0.75);
+        border-radius: 1em;
+        background: gray;
+        box-shadow:
+            /* white highlight from above */
+            inset 0 2em 1em -1em rgba(100%, 100%, 100%, 0.125),
+            /* black shadow from below */
+            inset 0 -2em 1em -1em rgba(0%, 0%, 0%, 0.25),
+            /* inset glow (rim highlight?) */
+            inset 0 0 0.25em rgba(100%, 100%, 100%, 0.5);
+        text-decoration: none;
+        transition: box-shadow 0.1s linear, padding-top 0.1s linear;
+
+        &:hover {
+            box-shadow:
+                /* idem. white highlight from above */
+                inset 0 2em 1em -1em rgba(100%, 100%, 100%, 0.25),
+                /* lessen black shadow from below */
+                inset 0 -2em 1em -1em rgba(0%, 0%, 0%, 0.0625),
+                /* idem. rim highlight */
+                inset 0 0 0.25em rgba(100%, 100%, 100%, 0.5),
+                /* new bottom outer shadow */
+                0px 1px 2px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        label {
+            display: inline-block;
+            white-space: nowrap;
+            cursor: inherit;
+            vertical-align: middle;
+
+            @media (width <= 900px) {
+                display: none;
+            }
+        }
+        img {
+            margin-right: 0.125em;
+            max-width: 1em;
+            max-height: 1em;
+            vertical-align: middle;
+        }
+        /* this commentary is dumb actually */
+        .button-tooltip {
+            display: none;
+        }
+    }
+
+    .tile-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, auto));
+        row-gap: 1em;
+        column-gap: 1em;
+    }
+    .tile {
+        box-sizing: border-box;
+        position: relative;
+
+        color: #cfddf3;
+
+        header {
+            width: 100%;
+
+            .tile-illus {
+                display: block;
+                width: 100%;
+                margin-bottom: 1em;
+                box-shadow: 0 0 0.125em black;
+            }
+
+            time {
+                display: block;
+                position: absolute;
+                top: 0.25em;
+                right: 0.5em;
+                font-size: 0.66em;
+                line-height: 1;
+                font-family: monospace;
+                color: rgba(100%, 100%, 100%, 0.5);
+            }
+            h2 {
+                margin: 0;
+                color: white;
+                text-shadow:
+                    0.5px 0.5px 0.5px black,
+                    -0.5px 0.5px 0.5px black,
+                    0.5px -0.5px 0.5px black,
+                    -0.5px -0.5px 0.5px black;
+            }
+            p {
+                display: none;
+                margin: 0;
+                text-shadow: -0.5px 0.5px 1px black;
+            }
+        }
+    }
+    .cool-button {
+        position: relative;
+        display: block;
+        padding: 0.5em 0.75em;
+        border: 1px solid black;
+        border-radius: 4px;
+        background: #666;
+        color: white;
+        box-shadow:
+            inset 0 0 0 40em rgba(0, 0, 0, 0.1),
+            inset 0 -4em 8em -3.6em rgba(0, 0, 0, 0.5),
+            inset 0 0 3px 1px rgba(100%, 100%, 100%, 0.5);
+                text-decoration: none;
+        transition: box-shadow linear 0.2s;
+
+        &:hover {
+            box-shadow:
+                inset 0 0 0 40em rgba(0, 0, 0, 0),
+                inset 0 -4em 8em -3.6em rgba(0, 0, 0, 0.5),
+                inset 0 0 3px 1px rgba(100%, 100%, 100%, 0.5);
+        }
+    }
+
+    ul.see-also {
+        display: block;
+        margin: 1em 0;
+        padding: 0.5em 0 0;
+        border-top: 1px dotted rgba(100%, 100%, 100%, 0.25);
+
+        &::before {
+            content: '🔗 \a0 ';
+        }
+
+        li {
+            margin: 0;
+            display: inline-block;
+            list-style-type: none;
+        }
+        li + li::before {
+            content: '\a0 • \a0';
+        }
+    }
+
+    /* tablet sizes */
+    @media (width <= 900px) {
+        body {
+            margin: 1em;
+        }
+    }
+    /* phone sizes */
+    @media (width <= 400px) {
+        body {
+            margin: 0.5em;
+        }
+    }
+}
+
+
+/* ---------------------------------------------------------------------------------------------- */
+/* ARCHIVES */
+
+section.archives {
+    contain: layout;
+
+    > h2, article h1, article time[pubdate] {
+        /* hopefully tall enough to contain everyone */
+        /*
+        line-height: 4rem;
+        */
+    }
+
+    --title-line-height: 1.2;
+    --row-height: calc(var(--title-line-height) * 1.5rem);  /* biggest size in a row */
+    --year-width: 5rem;  /* 4 chars max */
+    --date-width: 5rem;  /* 6 chars max */
+
+    /* Each <h2> is a year separator */
+    > h2 {
+        font-size: 1.5rem;
+        float: left;
+        width: var(--year-width);
+        margin: 0;
+        line-height: var(--row-height);
+        vertical-align: baseline;
+
+        font-weight: normal;
+        color: var(--colored-text);
+        text-align: center;
+
+        @media (width <= 400px) {
+            float: none;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    > hr {
+        clear: left;
+        border: none;
+        border-top: 1px dotted var(--content-inner-border);
+        margin-bottom: 1.5rem;
+    }
+
+    /* Each <article> is a listing; float the date to the right */
+    article {
+        /* display: flex; */
+        display: none;  /* overridden below */
+
+        /* override default padding; just want breathing room */
+        padding: 0 0 0.5rem;
+        margin-left: var(--year-width);
+
+        @media (width <= 400px) {
+            flex-wrap: wrap;
+            margin-left: 0;
+        }
+
+        & + article {
+            /* TODO remove this once the rule is fixed */
+            border: none;
+        }
+
+        /* Month and date */
+        > time[pubdate] {
+            flex: 0 0 var(--date-width);
+
+            line-height: var(--row-height);
+            vertical-align: baseline;
+            color: var(--colored-text);
+            text-align: center;
+
+            @media (width <= 400px) {
+                flex: 0 0 auto;
+            }
+        }
+
+        /* Article title */
+        h1 {
+            flex: 4 4 auto;
+
+            font-size: 1.33rem;
+            margin: 0;
+            padding-left: 1.5em;
+            text-indent: -1.5em;
+            line-height: var(--row-height);
+            vertical-align: baseline;
+            font-weight: normal;
+
+            /* Make the weekly roundups less overt */
+            &.category-dev {
+                color: #606060;
+            }
+
+            @media (width <= 400px) {
+                flex: 0 0 100%;
+                order: -1;
+            }
+        }
+    }
+}
+
+/* Category filter */
+ul.category-filter {
+    display: flex;
+    gap: 1em;
+    flex-wrap: row wrap;
+    justify-content: space-around;
+    margin: 0 0 1em;
+    padding: 0;
+    list-style: none;
+
+    &:has(input[data-category=articles]:checked) ~ article[data-category=articles],
+    &:has(input[data-category=bleats]:checked) ~ article[data-category=bleats],
+    &:has(input[data-category=corral]:checked) ~ article[data-category=corral],
+    &:has(input[data-category=dev]:checked) ~ article[data-category=dev],
+    &:has(input[data-category=personal]:checked) ~ article[data-category=personal],
+    &:has(input[data-category=process]:checked) ~ article[data-category=process],
+    &:has(input[data-category=updates]:checked) ~ article[data-category=updates] {
+        display: flex;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+/* TAGS */
+
+.tag-cloud {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.5em 1em;
+    align-items: center;
+    justify-content: center;
+    margin: 1em 0;
+    padding: 0;
+    line-height: 1;
+    list-style: none;
+
+    --min-size: 0.5em;
+    --max-size: 4em;
+
+    li {
+        font-size: calc(var(--min-size) + (var(--max-size) - var(--min-size)) * pow(var(--count) / var(--total), 0.333));
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+/* PROJECTS */
+
+.projects-game {
+    display: flex;
+}
+.projects-game-pic img {
+    max-width: 100px;
+}
+.projects-game-desc {
+    flex: 1;
+    margin-left: 1em;
+}
+
+
+/**************************************************************************************************/
+/* PYGMENTS -- custom color scheme based on https://github.com/ccharles/Tomorrow-Theme */
+
+.highlight {
+    --pygments-bg: hsl(45deg 100% 98%);
+    --pygments-hl: #49483e;
+    --pygments-default: hsl(330deg 50% 10%);
+    --pygments-magenta: hsl(330deg 100% 40%);
+    --pygments-errorbg: hsl(330deg 100% 10%);
+    --pygments-beige: hsl(40deg 20% 40%);
+    --pygments-azure: hsl(195deg 80% 25%);
+    --pygments-pink: hsl(345deg 80% 50%);
+    --pygments-lime: hsl(90deg 75% 25%);
+    --pygments-lavender: hsl(270deg 50% 50%);
+    --pygments-yellow: hsl(50deg 80% 25%);
+
+    --pygments-bg: hsl(300deg 100% 99%);  /* adjusted from white */
+    --pygments-hl: #efefef;
+    --pygments-selection: #d6d6d6;
+    --pygments-fg: #4d4d4c;
+    --pygments-comment: #8e908c;
+    --pygments-red: #c82829;
+    --pygments-orange: #f5871f;
+    --pygments-yellow: #eab700;
+    --pygments-green: #718c00;
+    --pygments-aqua: #3e999f;
+    --pygments-blue: #4271ae;
+    --pygments-purple: #8959a8;
+    --pygments-errorbg: #ecc3d8;  /* custom */
+
+    margin: 1em 0;
+    line-height: 1.2;
+    background: url(/theme/images/clean-gray-paper.png) var(--pygments-bg);
+    box-shadow: 0 2px 0.25em #0003, 0 0 0 1px #0006;
+    overflow-x: auto;
+
+    pre {
+        position: relative;
+        margin: 0;
+        /* padding goes here to avoid overflow not including it */
+        padding: 0.75em 1em;
+        padding-left: 2em;
+        /* otherwise technically a long line is just overflowing and we still lose the padding */
+        min-width: min-content;
+    }
+
+    .linenos {
+        font-size: 0.8em;
+        position: absolute;
+        right: calc(100% - 2rem);
+        margin-top: 0.25em;  /* compensate for the loss in line height */
+        padding-right: 0.5em;
+        text-align: right;
+        color: #ccc;
+        /* normally an awful property but avoids fucking up copy/paste */
+        user-select: none;
+        pointer-events: none;
+    }
+}
+
+/* h6 is special and used to indicate filenames for code blocks */
+h6 {
+    position: relative;
+    z-index: 1;  /* stay above the table's box-shadow */
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 1rem 0 0;
+    font-family: sans-serif;
+    font-weight: normal;
+    text-align: center;
+    background: $solarized-base2;
+    text-shadow: 1px 1px $solarized-base3;
+    color: $solarized-base1;
+}
+h6 + .highlight {
+    margin-top: 0;
+}
+
+/* Pygments theme */
+.highlight {
+    color: var(--pygments-default);
+
+    /* (highlighted line)       */ .hll { background-color: var(--pygments-hl); }
+    /* Whitespace               */ .w   {}
+    /* Escape                   */ .esc {}
+    /* Error                    */ .err { color: var(--pygments-red); background-color: var(--pygments-errorbg); }
+    /* Other                    */ .x   {}
+                                        
+    /* Operator                 */ .o   { color: var(--pygments-aqua); }
+    /* Operator.Word            */ .ow  { color: var(--pygments-aqua); }
+    /* Punctuation              */ .p   {}
+    /* Punctuation.Marker       */ .pm  {}
+                                        
+    /* Comment                  */ .c   { color: var(--pygments-comment); }
+    /* Comment.Hashbang         */ .ch  { color: var(--pygments-comment); }
+    /* Comment.Multiline        */ .cm  { color: var(--pygments-comment); }
+    /* Comment.Preproc          */ .cp  { color: var(--pygments-comment); }
+    /* Comment.PreprocFile      */ .cpf { color: var(--pygments-comment); }
+    /* Comment.Single           */ .c1  { color: var(--pygments-comment); }
+    /* Comment.Special          */ .cs  { color: var(--pygments-comment); }
+                                        
+    /* Generic                  */ .g   {}
+    /* Generic.Deleted          */ .gd  { color: var(--pygments-red); }
+    /* Generic.Emph             */ .ge  { font-style: italic; }
+    /* Generic.Error            */ .gr  {}
+    /* Generic.Heading          */ .gh  {}
+    /* Generic.Inserted         */ .gi  { color: var(--pygments-green); }
+    /* Generic.Output           */ .go  { color: var(--pygments-blue); }
+    /* Generic.Prompt           */ .gp  { color: var(--pygments-purple); font-weight: bold; }
+    /* Generic.Strong           */ .gs  { font-weight: bold; }
+    /* Generic.EmphStrong       */ .ges { font-style: italic; font-weight: bold; }
+    /* Generic.Subheading       */ .gu  { color: var(--pygments-comment); }
+    /* Generic.Traceback        */ .gt  { color: var(--pygments-red); }
+                                        
+    /* Keyword                  */ .k   { color: var(--pygments-red); }
+    /* Keyword.Constant         */ .kc  { color: var(--pygments-red); }
+    /* Keyword.Declaration      */ .kd  { color: var(--pygments-red); }
+    /* Keyword.Namespace        */ .kn  { color: var(--pygments-red); }
+    /* Keyword.Pseudo           */ .kp  { color: var(--pygments-red); }
+    /* Keyword.Reserved         */ .kr  { color: var(--pygments-red); }
+    /* Keyword.Type             */ .kt  { color: var(--pygments-blue); }
+                                        
+    /* Literal                  */ .l   { color: var(--pygments-orange); }
+    /* Literal.Date             */ .ld  { color: var(--pygments-orange); }
+
+    /* Name                     */ .n   {}
+    /* Name.Attribute           */ .na  { color: var(--pygments-blue); }
+    /* Name.Builtin             */ .nb  { color: var(--pygments-purple); }
+    /* Name.Builtin.Pseudo      */ .bp  {}
+    /* Name.Class               */ .nc  { color: var(--pygments-blue); }
+    /* Name.Constant            */ .no  { color: var(--pygments-orange); }
+    /* Name.Decorator           */ .nd  { color: var(--pygments-blue); }
+    /* Name.Entity              */ .ni  {}
+    /* Name.Exception           */ .ne  { color: var(--pygments-blue); }
+    /* Name.Function            */ .nf  { color: var(--pygments-blue); }
+    /* Name.Function.Magic      */ .fm  { color: var(--pygments-blue); }
+    /* Name.Label               */ .nl  {}
+    /* Name.Namespace           */ .nn  {}
+    /* Name.Other               */ .nx  { color: var(--pygments-blue); }
+    /* Name.Property            */ .py  {}
+    /* Name.Tag                 */ .nt  { color: var(--pygments-orange); }
+    /* Name.Variable            */ .nv  {}
+    /* Name.Variable.Class      */ .vc  {}
+    /* Name.Variable.Global     */ .vg  {}
+    /* Name.Variable.Instance   */ .vi  {}
+    /* Name.Variable.Magic      */ .vm  {}
+                                        
+    /* Number                   */ .m   { color: var(--pygments-orange); }
+    /* Number.Bin               */ .mb  { color: var(--pygments-orange); }
+    /* Number.Float             */ .mf  { color: var(--pygments-orange); }
+    /* Number.Hex               */ .mh  { color: var(--pygments-orange); }
+    /* Number.Integer           */ .mi  { color: var(--pygments-orange); }
+    /* Number.Integer.Long      */ .il  { color: var(--pygments-orange); }
+    /* Number.Oct               */ .mo  { color: var(--pygments-orange); }
+                                        
+    /* String                   */ .s   { color: var(--pygments-green); }
+    /* String.Affix             */ .sa  { color: var(--pygments-green); }
+    /* String.Backtick          */ .sb  { color: var(--pygments-green); }
+    /* String.Char              */ .sc  { color: var(--pygments-green); }
+    /* String.Delimiter         */ .dl  { color: var(--pygments-green); }
+    /* String.Doc               */ .sd  { color: var(--pygments-green); }
+    /* String.Double            */ .s2  { color: var(--pygments-green); }
+    /* String.Escape            */ .se  { color: var(--pygments-red); }
+    /* String.Heredoc           */ .sh  { color: var(--pygments-green); }
+    /* String.Interpol          */ .si  { color: var(--pygments-green); }
+    /* String.Other             */ .sx  { color: var(--pygments-green); }
+    /* String.Regex             */ .sr  { color: var(--pygments-green); }
+    /* String.Single            */ .s1  { color: var(--pygments-green); }
+    /* String.Symbol            */ .ss  { color: var(--pygments-green); }
+}
+
+
+/**************************************************************************************************/
+/* COLORBOX -- based on the example themes */
+
+/* Base CSS, shared between all the example themes */
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxWrapper {max-width:none;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+/*
+#cboxContent{position:relative;}
+*/
+#cboxLoadedContent{overflow:auto; -webkit-overflow-scrolling: touch;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block; max-width:none; -ms-interpolation-mode:bicubic;}
+.cboxIframe{width:100%; height:100%; display:block; border:0; padding:0; margin:0;}
+#colorbox, #cboxContent, #cboxLoadedContent{box-sizing:content-box; -moz-box-sizing:content-box; -webkit-box-sizing:content-box;}
+
+#cboxOverlay {
+    background: black;
+}
+#colorbox{outline:0;}
+
+/* Due to the goofy way colorbox determines the space available for the image, I can't use padding
+ * on anything; instead I have to resize these extra border elements
+ */
+body {
+    /* Enough space for the "image X of Y" */
+    --colorbox-top-margin: 1.5rem;
+    /* Enough space for two lines of caption at 1.5 lh */
+    --colorbox-bottom-margin: 4rem;
+}
+#cboxTopCenter {
+    height: var(--colorbox-top-margin);
+}
+#cboxMiddleLeft,
+#cboxMiddleRight {
+    width: 0.5rem;
+}
+#cboxBottomCenter {
+    height: calc(var(--colorbox-bottom-margin) + 0.5rem);
+}
+#cboxContent {
+    overflow: visible;
+}
+
+.cboxIframe{background:#fff;}
+#cboxError{padding:50px; border:1px solid #ccc;}
+#cboxLoadedContent {
+    box-shadow: 0 1px 2px 1px #0009;
+    outline: 1px solid #0009;
+
+    .cboxPhoto {
+        background: white;
+    }
+}
+#cboxLoadingOverlay {}
+#cboxLoadingGraphic {}
+
+/* All the interesting stuff is in the same positioned container, so a lot of
+ * fixed positioning is needed to put things where I want them and in a
+ * consistent position on screen
+ */
+#cboxTitle, #cboxPrevious, #cboxNext, #cboxCurrent, #cboxClose {
+    position: fixed;
+}
+
+/* "image X of Y" goes at the top */
+#cboxCurrent {
+    font-size: 0.8rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    line-height: var(--colorbox-top-margin);
+    text-align: center;
+    color: #aaa;
+}
+
+/* Close button goes in the top right */
+#cboxClose {
+    font-size: 2rem;
+    top: 0;
+    right: 0;
+    padding: 0;
+    height: 3rem;
+    width: 3rem;
+
+    border: none;
+    background: #0004;
+    color: white;
+    border-bottom-left-radius: 1rem;
+
+    &:hover {
+        background: #0008;
+    }
+}
+
+/* Caption and the prev/next buttons go at the bottom */
+/* XXX this doesn't adjust to caption height, but i don't see how to do that with this layout */
+#cboxTitle, #cboxPrevious, #cboxNext {
+    text-align: center;
+    background: #080808;
+    color: #ddd;
+    border: none;  /* remove other button borders */
+    border-top: 1px solid #181818;
+}
+#cboxTitle {
+    font-size: 1.25rem;
+    /* leave room for buttons on either side */
+    left: var(--colorbox-bottom-margin);
+    right: var(--colorbox-bottom-margin);
+    bottom: 0;
+    box-sizing: border-box;  /* padding should NOT add to height */
+    height: var(--colorbox-bottom-margin);
+    padding: 0.5rem;
+    overflow: auto;
+    line-height: 1.5rem;
+
+    text-shadow: 0 1px 1px black;
+
+    /* Shrink the caption size to fit three lines on phones */
+    @media (width <= 400px) {
+        font-size: 1rem;
+        padding: 0.5rem;
+        line-height: calc((var(--colorbox-bottom-margin) - 1rem) / 3);
+    }
+}
+#cboxPrevious,
+#cboxNext {
+    font-size: 2rem;
+    bottom: 0;
+    height: var(--colorbox-bottom-margin);
+    width: var(--colorbox-bottom-margin);
+    padding: 0;
+
+    &:hover {
+        background: #101010;
+    }
+}
+#cboxPrevious {
+    left: 0;
+}
+#cboxNext {
+    right: 0;
+}
+
+/* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+#cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {outline:0;}
+
+.cboxSlideshow_on #cboxSlideshow{background-position:-125px 0px; right:27px;}
+.cboxSlideshow_on #cboxSlideshow:hover{background-position:-150px 0px;}
+.cboxSlideshow_off #cboxSlideshow{background-position:-150px -25px; right:27px;}
+.cboxSlideshow_off #cboxSlideshow:hover{background-position:-125px 0px;}

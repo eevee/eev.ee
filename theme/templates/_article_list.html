@@ -6,7 +6,7 @@
     <article>
         <header>
             <p class="meta">
-                <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
+                {{ lib.article_time(article) }}
             </p>
             <h1>
                 <a href="{{ SITEURL }}/{{ article.url }}">
@@ -26,7 +26,12 @@
         {{ lib.article_gallery(article) }}
         {% else %}
         <footer>
-            <a rel="full-article" href="{{ SITEURL }}/{{ article.url }}">📖 But wait, there's more...</a>
+            <a rel="full-article" href="{{ SITEURL }}/{{ article.url }}">
+                Keep reading
+                {% if article.readtime %}
+                (about {{ article.readtime.minutes }} min.)
+                {% endif %}
+            </a>
         </footer>
         {% endif %}
     </article>
@@ -34,18 +39,25 @@
 
     {# pagination #}
     <footer class="pagination">
-        {% if articles_page.has_next() %}
-            <a class="prev" href="{{ SITEURL }}/{{ articles_next_page.url }}">&larr; Older</a>
+        {% if articles_page.has_previous() %}
+            <a class="-prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}">❮ Newer</a>
         {% else %}
-            <span class="prev"></span>
+            <span class="-prev"></span>
         {% endif %}
 
-        <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Blog archive</a>
+        <div class="-page">Page {{ articles_page.number }}</div>
+        <div class="-links">
+            <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archive</a>
+            / <a href="{{ SITEURL }}/site-index/">Index</a>
+            {% if articles_page.number > 1 %}
+                / <a href="{{ SITEURL }}/{{ articles_paginator.page(1).url }}">Newest</a>
+            {% endif %}
+        </div>
 
-        {% if articles_page.has_previous() %}
-            <a class="next" href="{{ SITEURL }}/{{ articles_previous_page.url }}">Newer &rarr;</a>
+        {% if articles_page.has_next() %}
+            <a class="-next" href="{{ SITEURL }}/{{ articles_next_page.url }}">Older ❯</a>
         {% else %}
-            <span class="next"></span>
+            <span class="-next"></span>
         {% endif %}
     </footer>
 {% endblock %}

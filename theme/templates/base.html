@@ -2,13 +2,61 @@
 
 {% block entirebody %}
     <header role="banner">
-        <h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
-        <nav role="navigation">{% include '_navigation.html' %}</nav>
-    </header>
-    <div id="main">
-        <div id="content">
-            {% block content %}{% endblock %}
+        <div class="-lounge-eevee">
+            <img src="{{ SITEURL }}/theme/images/eevee-header.png" alt="logo: drawing of an eevee lounging atop the website">
         </div>
-        {% include '_sidebar.html' %}
-    </div>
+        <h1><a href="{{ SITEURL }}/">fuzzy <img src="{{ SITEURL }}/favicon.png" alt=""> notepad</a></h1>
+    </header>
+    <nav role="navigation">
+        <ul class="main-navigation">
+            <li style="--hue: 330;"><ul>
+                <li><a href="{{ SITEURL }}/">Home</a></li>
+                <li><a href="{{ SITEURL }}/site-index/">Index</a></li>
+                <li><a href="https://t.eev.ee/">Tame art</a></li>
+                <li><a href="https://d.eev.ee/">🔞 Spicy art</a></li>
+                <li><a href="https://c.eev.ee/">Everything</a></li>
+            </ul></li>
+
+            <li style="--hue: 350;"><ul>
+                <li><a href="{{ SITEURL }}/{{ INDEX_URL }}">Blog</a></li>
+                <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archive</a></li>
+                <li>
+                    <details>
+                        <summary>Categories</summary>
+                        <ul>
+                            {% for category, articles in categories | sort %}
+                            <li>
+                                <a href="{{ SITEURL }}/{{ category.url }}">
+                                    {{ lib.category_glyph(category, alt=False) }}
+                                    {{ CATEGORY_NAMES[category.slug] }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </details>
+                </li>
+                <li><a href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a></li>
+            </ul></li>
+
+            <li style="--hue: 10;"><ul>
+                <li><a href="{{ SITEURL }}/site-index/#pages">Pages</a></li>
+            </ul></li>
+        </ul>
+        <ul class="account-links">
+        {% for label, color, logo, url in SOCIAL_EX %}
+            <li>
+                <a href="{{ url }}" style="--color: {{ color }};">
+                    <img src="{{ SITEURL }}/theme/images/{{ logo }}" alt="{{ label }}">
+                </a>
+                <div class="-label">{{ label }}</div>
+            </li>
+        {% endfor %}
+        </ul>
+    </nav>
+    <main>
+        <header>
+            {% block pagetitle %}{% endblock %}
+        </header>
+        {% block content %}{% endblock %}
+    </main>
 {% endblock %}

@@ -10,7 +10,13 @@ SITEURL = ''
 TIMEZONE = 'America/Los_Angeles'
 DEFAULT_DATE_FORMAT = '%a %b %d, %Y'
 
-DEFAULT_LANG = u'en'
+DEFAULT_LANG = 'en'
+
+# Most of our time spent is on markdown parsing and Typogrify and whatnot, so, avoid redoing those
+# constantly
+CACHE_CONTENT = True
+LOAD_CONTENT_CACHE = True
+#CONTENT_CACHING_LAYER = 'generator'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -19,102 +25,46 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Links and social cruft
+# Custom: Consistent delimiter in <title> tags
+TITLE_DELIMITER = '/'
+
+# Custom: Pretty names and descriptions for categories and series
+CATEGORY_NAMES = {
+    'articles': "Articles",
+    'bleats': "Bleats",
+    'corral': "Corral",
+    'dev': "Dev log",
+    'personal': "Personal",
+    'process': "Process",
+    'updates': "Updates",
+}
+CATEGORY_BLURBS = {
+    'articles': "Longform stuff.  Effortposting.",
+    'bleats': "Short, sweet, and slightly too long for Bluesky.",
+    'corral': "Collections of recent links I saw and enjoyed.",
+    'dev': "Brief, low-context updates on recent work.  Mostly deprecated.",
+    'personal': "Very specific to me.",
+    'process': "Deep dives into my own work, either a small project or a piece of a larger one.",
+    'updates': "New releases or major updates of games, tools, the website, etc.",
+}
+SERIES_NAMES = {}
+SERIES_BLURBS = {}
+
+# Custom: Links and social cruft
 # NOTE: These aren't called just LINKS and SOCIAL because those are assumed by
 # the default theme to be 2-tuples, but I need more info.
-LINKS_EX = ((
-    'blog',
-    '/blog/',
-    '#f6b441', 'category-blog.png',
-    "detailed, thoughtful prose about why computers are the worst",
-), (
-    'dev',
-    '/dev/',
-    '#ee7300', 'category-dev.png',
-    "updates on what i'm doing lately",
-), (
-    'release',
-    '/release/',
-    '#4a83c5', 'category-release.png',
-    "things i've released into the wild, and maybe my thoughts on them",
-), (
-#    'art',
-#    '/art/',
-#    '#41c518', 'category-art.png',
-#    "i'm learning to draw, here are the results",
-#), (
-#    'cats',
-#    'http://lexyeevee.tumblr.com/tagged/sphynx',
-#    '#deb46a', 'category-cat-photos.png',
-#    "our house is overrun with them and they are the best",
-#), (
-    'everything',
-    '/everything/',
-    '#c57be6', 'category-everything.png',
-    "why limit yourself when you can have it all",
-), (
-    'archives',
-    '/everything/archives/',
-    '#399ccd', 'category-archives.png',
-    "turn the clock back to æons past",
-))
-# FIXME this is duplicated from home.html; maybe consolidate
-SOCIAL_EX = ((
-    'email',
-    'mailto:eevee.fuzzynotepad@veekun.com',
-    '#9966cc', 'logo-email.png',
-    "do people still use this",
-), (
-    'twitter',
-    'https://twitter.com/eevee',
-    '#55acee', 'logo-twitter.png',
-    "firehose of bad jokes",
-), (
-    'mastodon',
-    'https://mastodon.social/@eevee',
-    '#3088d4', 'logo-mastodon.png',
-    "trickle of bad jokes",
-), (
-    'patreon',
-    'https://www.patreon.com/eevee',
-    '#ff5900', 'logo-patreon.png',
-    "help pay my salary",
-), (
-    'square',
-    'https://cash.me/$eevee',
-    '#29c501', 'logo-square-cash.png',
-    "just give me money?",
-), (
-    'paypal',
-    'https://www.paypal.me/lexyeevee',
-    '#009cde', 'logo-paypal.png',
-    "just give me money, again?",
-), (
-    'github',
-    'https://github.com/eevee',
-    '#4183c4', 'logo-github.png',
-    "lots of abandoned code",
-), (
-    'art tumblr',
-    'https://lexyeevee.tumblr.com/',
-    '#35465c', 'logo-tumblr.png',
-    "just art",
-), (
-    'itch.io',
-    'https://eevee.itch.io/',
-    '#fa5c5c', 'logo-itch.png',
-    "indie games",
-), (
-    'twitch',
-    'https://twitch.tv/lexyeevee',
-    '#6441a4', 'logo-twitch.png',
-    "occasional old game streams",
-), (
-    'youtube',
-    'https://www.youtube.com/user/lexyeevee',
-    '#cc181e', 'logo-youtube.png',
-    "mostly cat videos",
-))
+SOCIAL_EX = (
+    ("email", '#9966cc', 'logo-email.png', 'mailto:eevee.fuzzynotepad@veekun.com'),
+    ("Bluesky", '#1185fe', 'logo-bluesky.svg', 'https://bsky.app/profile/eev.ee'),
+    ("Discord", '#5865F2', 'logo-discord.svg', 'https://discord.gg/W7aumDVTgE'),
+    ("itch.io", '#fa5c5c', 'logo-itch.png', 'https://eevee.itch.io/'),
+    ("GitHub", '#4183c4', 'logo-github.png', 'https://github.com/eevee'),
+    ("Twitch", '#6441a4', 'logo-twitch.png', 'https://twitch.tv/lexyeevee'),
+    ("YouTube", '#cc181e', 'logo-youtube.png', 'https://www.youtube.com/user/lexyeevee'),
+    ("Patreon", '#ff5900', 'logo-patreon.png', 'https://www.patreon.com/eevee'),
+    ("Square", '#29c501', 'logo-square-cash.png', 'https://cash.me/$eevee'),
+    ("PayPal", '#009cde', 'logo-paypal.png', 'https://www.paypal.me/lexyeevee'),
+)
 TWITTER_USERNAME = 'eevee'
 GITHUB_URL = 'https://github.com/eevee'
 # i hate this stupid eyesore and i'm pretty sure my audience knows how to
@@ -140,7 +90,7 @@ JINJA_FILTERS = dict(
 EXTRA_HEADER = """
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
-<script type="text/javascript">
+<script>
     $(function() {
         $('article').each(function(index, article) {
             $(article).find('a.photo').colorbox({
@@ -169,7 +119,7 @@ MARKDOWN = dict(
     extension_configs={
         'markdown.extensions.codehilite': dict(
             css_class='highlight',
-            linenums=True,
+            linenos='inline',
             guess_lang=False,
             # Tell the PHP lexer not to require <?php, so snippets work
             startinline=True,
@@ -183,9 +133,9 @@ MARKDOWN = dict(
     },
 )
 
-PATH = 'content/'
-PAGE_PATHS = ['../pages/']
-PATH_METADATA = '../pages/(?P<fullpath>.+)[.].+'
+PATH = 'content'
+PAGE_PATHS = ['pages']
+PATH_METADATA = 'pages/(?P<fullpath>.+)[.].+'
 STATIC_PATHS = ['favicon.png', 'media/', 'dev/media/']
 
 # Leave .html alone; I only use it for static attachments, not posts
@@ -197,28 +147,30 @@ TEMPLATE_PAGES = {
 }
 
 # URL schema; compatible with Octopress, but i happen to like it anyway
-ARCHIVES_URL = 'everything/archives/'
-ARCHIVES_SAVE_AS = 'everything/archives/index.html'
-ARTICLE_URL = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
-ARTICLE_SAVE_AS = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
-AUTHOR_SAVE_AS = False
-AUTHORS_SAVE_AS = False
-CATEGORIES_URL = 'everything/categories/'
-CATEGORIES_SAVE_AS = 'everything/categories/index.html'
-CATEGORY_URL = '{slug}/'
-CATEGORY_SAVE_AS = '{slug}/index.html'
-# This is the /blog/ index specifically
-INDEX_SAVE_AS = 'everything/index.html'
-INDEX_URL = 'everything/'
+ARCHIVES_URL = 'blog/archive/'
+ARCHIVES_SAVE_AS = 'blog/archive/index.html'
+ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+AUTHOR_SAVE_AS = ''
+AUTHORS_SAVE_AS = ''
+# Skipping these; they're at the top of the blog index
+CATEGORIES_URL = ''
+CATEGORIES_SAVE_AS = ''
+CATEGORY_URL = 'blog/{slug}/'
+CATEGORY_SAVE_AS = 'blog/{slug}/index.html'
+INDEX_URL = 'blog/'
+INDEX_SAVE_AS = 'blog/index.html'
 PAGE_URL = '{fullpath}/'
 PAGE_SAVE_AS = '{fullpath}/index.html'
-TAG_URL = 'everything/tags/{slug}/'
-TAG_SAVE_AS = 'everything/tags/{slug}/index.html'
-TAGS_URL = 'everything/tags/'
-TAGS_SAVE_AS = 'everything/tags/index.html'
+TAG_URL = 'blog/tags/{slug}/'
+TAG_SAVE_AS = 'blog/tags/{slug}/index.html'
+TAGS_URL = 'blog/tags/'
+TAGS_SAVE_AS = 'blog/tags/index.html'
 
 # Octopress-compatible filename metadata parsing
-FILENAME_METADATA = '(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)'
+FILENAME_METADATA = r'(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)'
+# Slug fallback for pages
+SLUGIFY_SOURCE = 'basename'
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
@@ -234,7 +186,8 @@ import eeveeblog.liquid_gallery
 import eeveeblog.liquid_illus
 import eeveeblog.liquid_photo
 
-# Add a Pygments lexer, which seems to require hacking Pygments guts?
+# Add a Pygments lexer, which seems to require hacking Pygments guts.  It's also possible to do this
+# with, like, package metadata, but I don't have a package lol
 from eeveeblog.rgbasm_lexer import RGBASMLexer
 import pygments.lexers._mapping
 pygments.lexers._mapping.LEXERS['RGBASMLexer'] = (
@@ -244,16 +197,23 @@ pygments.lexers._mapping.LEXERS['RGBASMLexer'] = (
     tuple(RGBASMLexer.filenames),
     tuple(RGBASMLexer.mimetypes))
 
-PLUGIN_PATHS = ["pelican-plugins.git"]
+PLUGIN_PATHS = ["pelican-plugins.git", "render-math.git"]
 PLUGINS = [
+    # Mine
     eeveeblog.liquid_gallery,
     eeveeblog.liquid_illus,
     eeveeblog.liquid_photo,
-    'summary',
-    'custom_article_urls',
-    'photos',
-    'render_math',
-    'thumbnailer',
+
+    # Old pelican-plugins repo
+    'summary',                      # not ported
+    # nb: there's a third-party version of this but the pelican-plugins one seems to override it
+    'pelican.plugins.readtime',
+
+    # New individual pelican plugins
+    'pelican.plugins.photos',       # installed, but, i think i altered locally...
+    'pelican.plugins.render_math',  # installed
+    'pelican.plugins.series',       # installed
+    'pelican.plugins.thumbnailer',  # installed
 ]
 
 # Plugin config for summary
@@ -262,15 +222,6 @@ SUMMARY_END_MARKER = '<!-- more -->'  # octopress compat
 # This is actually a stock setting; I don't want an automatic summary if I
 # don't use an explicit marker
 SUMMARY_MAX_LENGTH = None
-
-# Plugin config for custom article urls
-# Preserve the old blog URL for blog stuff
-CUSTOM_ARTICLE_URLS = {
-    'blog': dict(
-        URL='{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/',
-        SAVE_AS='{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html',
-    ),
-}
 
 # Plugin config for photos
 PHOTO_LIBRARY = 'content/galleries/'
@@ -290,3 +241,6 @@ THUMBNAIL_DIR = 'media'
 THUMBNAIL_SIZES = dict(m='?x150')
 THUMBNAIL_KEEP_NAME = False
 THUMBNAIL_KEEP_TREE = True
+
+# Plugin config for readtime
+READTIME_WPM = 240

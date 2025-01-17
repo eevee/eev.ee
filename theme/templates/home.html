@@ -1,707 +1,1903 @@
-{% extends '_base.html' %}
-{% import '_lib.html' as lib with context %}
+{% import '_lib.html' as lib %}
+<!DOCTYPE html>
+<!-- nb: all the SVG here is hand-written -->
+<html lang="en">
+<head>
+<meta charset="utf8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ SITENAME }}</title>
 
-{% block twitter_card %}
+{% if FEED_ATOM %}
+<link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }}">
+{% endif %}
+{% if FEED_RSS %}
+<link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }}">
+{% endif %}
+
+<link href="{{ SITEURL }}/favicon.png" rel="icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@eevee">
 <meta name="og:type" content="website">
 <meta name="og:title" content="{{ SITENAME }}">
-<meta name="og:description" content="hello!  i'm eevee and this is my website.  i hope you enjoy it!">
-<meta name="og:image" content="{{ SITEURL }}/theme/images/home-eevee2.png">
-{% endblock %}
+<meta name="og:description" content="i'm eevee and this is my website.  it's got toys and puzzles and articles about computers and other stuff i like">
+<meta name="og:image" content="{{ SITEURL }}/theme/images/home-photo.webp">
+<style>
+html {
+    min-height: 100%;
+    font-size: 20px;
+    --font-normal:
+        Quicksand,
+        /* "Rounded Sans" via modern font stacks...  hey look there's quicksand */
+        ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
+    --font-scribble: 'Love Ya Like A Sister',
+        /* "Handwritten" via modern font stacks */
+        'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
+    font-family: var(--font-normal);
+    font-weight: 500;  /* quicksand really needs it, hopefully minimal impact on fallbacks */
+    line-height: 1.5;
 
-{% block entirebody %}
-<main class="homepage">
+    --normal-shadow: -1px 1px 1px #0009;
+    --normal-shadow: 0px 1px 2px #0009;
+}
+@property --screen-width {
+    /* hack to convert 100vw to pixels so it works with the tan(atan2()) hack */
+    /* https://dev.to/janeori/css-type-casting-to-numeric-tanatan2-scalars-582j */
+    syntax: "<length>";
+    initial-value: 0px;
+    inherits: true;
+}
+/* width of the screen divided by 1000px, as a number */
+@property --screen-scale {
+    syntax: "<number>";
+    initial-value: 0;
+    inherits: true;
+}
+/* 0 at 600px up to 1 at 1000px */
+@property --flex-scale {
+    syntax: "<number>";
+    initial-value: 0;
+    inherits: true;
+}
+body {
+    margin: 0;
+    /* i refuse to go smaller than this */
+    min-width: 320px;
+
+    --body-bg-clouds-fg: white;
+    --body-bg-clouds-bg: hsl(210deg 100% 95%);
+    --body-bg-sky: linear-gradient(to bottom, hsl(205, 60%, 90%), hsl(210, 60%, 80%) 10%, hsl(215, 60%, 60%));
+    background:
+        radial-gradient(circle at 4em 0, var(--body-bg-clouds-fg) 5.9em, transparent 6em) repeat-x center top / 8em 6em,
+        radial-gradient(circle at 4em 1em, var(--body-bg-clouds-bg) 5.9em, transparent 6em) repeat-x calc(50% + 4em) top / 8em 7em,
+        var(--body-bg-sky);
+    @media (prefers-color-scheme: dark) {
+        --body-bg-clouds-fg: hsl(280deg 30% 50%);
+        --body-bg-clouds-bg: hsl(260deg 40% 40%);
+        --body-bg-sky: linear-gradient(to bottom, hsl(260deg 40% 30%), 10%, hsl(240deg 30% 10%));
+    }
+
+    --screen-width: 100vw;
+    --screen-scale: calc(tan(atan2(var(--screen-width), 1000px)));
+    --flex-scale: calc((var(--screen-scale) - 0.6) / 0.4);
+    --corkboard-padding: clamp(1rem, 0.5rem + 1.5rem * var(--flex-scale), 3rem);
+    --main-horiz-margin: clamp(0.25rem, 5% * var(--screen-scale), 10%);
+}
+/* corkboard */
+main {
+    position: relative;
+    margin:
+        clamp(0.25rem, 5vmin, 4rem)
+        var(--main-horiz-margin)
+        0;
+    padding: var(--corkboard-padding);
+    background: url({{ SITEURL }}/theme/images/wine-cork.png) hsl(20, 40%, 40%);
+    border-width: clamp(0.5rem, 2vw, 1rem);  /* 500px - 1000px */
+    border-style: solid;
+    border-color:
+        hsl(20, 50%, 70%)
+        hsl(20, 50%, 65%)
+        hsl(20, 50%, 50%)
+        hsl(20, 50%, 55%);
+    box-shadow:
+        inset 0 0 0.125em 1px #000c,
+        0 0.5em 0 hsl(10, 60%, 25%),
+        0 0 0 2px black,
+        0 0.5em 0 2px black;
+
+    @media (max-width: 600px) {
+        --corkboard-padding: 0.5rem;
+    }
+}
+.postscript {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1em var(--main-horiz-margin) 4rem;
+    color: hsl(215deg 50% 25%);
+
+    @media (max-width: 1000px) {
+        flex-flow: column;
+        align-items: stretch;
+    }
+
+    p {
+        margin: 0;
+    }
+    p:last-child {
+        text-align: right;
+    }
+}
+.background-emoji {
+    font-size: 3em;
+    position: absolute;
+    margin: -0.5em;
+    line-height: 1;
+}
+/* grassy background */
+body > footer {
+    font-size: 0.875em;
+    position: relative;
+    /* above footer-emoji */
+    z-index: 1;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0 1em;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(50px + 0.5rem) 5% 0.5rem;
+    color: hsl(255deg 100% 95%);
+    text-transform: lowercase;
+
+    --grass-back: hsl(150deg 30% 15%);
+    --grass-front-top: hsl(105deg 50% 50%);
+    --grass-front-bottom: hsl(105deg 50% 30%);
+    @media (prefers-color-scheme: dark) {
+        --grass-back: hsl(180deg 30% 10%);
+        --grass-front-top: hsl(135deg 50% 40%);
+        --grass-front-bottom: hsl(135deg 50% 20%);
+    }
+
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        /* This can't be an inline SVG because url(#foo) for a mask image MUST be a real */
+        /* <mask> element, and those can't be repeated or resized! */
+        /* Also using 'exclude' here to take bites out of an otherwise solid mask */
+        mask:
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M0,0 l10,40 l10,-30 l10,30 l10,-40 z"/></svg>') exclude repeat-x center top / 30px 30px,
+                linear-gradient(black 0 0);
+    }
+    &::before {
+        background: var(--grass-back);
+    }
+    &::after {
+        background: linear-gradient(to bottom, var(--grass-front-top), var(--grass-front-bottom) calc(50px + 1.5rem)) var(--grass-front-top);
+        top: 30px;
+        mask-size: 20px 20px;
+    }
+
+    p {
+        margin: 0;
+    }
+    a:link, a:visited, a:hover {
+        color: hsl(105deg 50% 75%);
+    }
+}
+
+h2 {
+    font-size: 2em;
+    margin: 0;
+    font-family: var(--font-scribble);
+    font-weight: normal;
+}
+hr {
+    position: relative;
+    margin: var(--corkboard-padding) 0;
+    border: none;
+    height: 1px;  /* need to avoid total margin collapse */
+    overflow: visible;
+
+    /*
+    &::before, &::after {
+        /* need a leading space to stay centered; i guess letter-spacing also adds trailing space /
+        content: '\a0* * * * *';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        font-family: var(--font-scribble);
+        font-size: 3em;
+        -webkit-text-stroke: 0.125em white;
+        text-stroke: 0.125em white;
+        paint-order: stroke fill;
+        text-shadow: -1px 1px 1px #0003;
+        letter-spacing: 4vw;
+        text-align: center;
+    }
+    &::before {
+        color: hsl(40deg 100% 50%);
+        transform: translate(-0.25em, -0.25em) translate(-2vw, -50%);
+    }
+    &::after {
+        color: hsl(330deg 100% 75%);
+        transform: translate(0.25em, 0.25em) translate(2vw, -50%);
+    }
+    */
+
+    /* yarn attempt, was ok but looked weird being straight across */
+    /*
+    height: 5px;
+    background: repeating-linear-gradient(30deg, #0003 0, transparent 2px 14px, #fff3 16px, transparent 18px 30px, #0003 32px) hsl(315deg 60% 60%);
+    background-blend-mode: overlay;
+    box-shadow: inset 0 0 1px #0006, -1px 2px 2px #0004;
+    filter: blur(1px);
+    */
+
+    /* painter's tape attempt, mostly distracting */
+    /*
+    height: 2em;
+    background: repeating-linear-gradient(to right, transparent 0, hsl(0deg 0% 100% / 0.05) 0.5em, transparent 1em) hsl(225deg 60% 50%);
+    background-blend-mode: overlay;
+    box-shadow: inset 0 0 1px #0006, -1px 2px 2px #0004;
+    */
+}
+
+.entropic-children {
+    > :nth-child(4n+0) { --entropy: 0.833; }
+    > :nth-child(4n+1) { --entropy: 0.0; }
+    > :nth-child(4n+2) { --entropy: 1.0; }
+    > :nth-child(4n+3) { --entropy: 0.41; }
+}
+
+@keyframes link-hover-cursor {
+    0% {
+        border-image-outset: 5px;
+    }
+    50% {
+        border-image-outset: 6px;
+    }
+}
+p:first-child,
+.emoji-sticker + p {
+    margin-top: 0;
+}
+p:last-child {
+    margin-bottom: 0;
+}
+
+a {
+    text-decoration: underline dotted 1px;
+}
+a:link {
+    color: hsl(330, 100%, 45%);
+}
+a:active {
+    color: hsl(330, 100%, 45%);
+}
+a:visited {
+    color: hsl(270, 90%, 40%);
+}
+a:hover {
+    text-decoration-thickness: 2px;
+
+    /*
+    border: 0 solid transparent;
+    border-image: repeating-conic-gradient(
+        from calc(var(--progress) * 30deg) at 50% 300%,
+        gold 0deg, transparent 15deg, gold 30deg)
+        27;
+    border-image-width: 4px;
+    border-image-outset: 2px;
+    */
+
+    /*
+    &::before {
+        content: '★';
+        display: block;
+        width: 1em;
+        height: 1em;
+        margin: -0.5em;
+        line-height: 1;
+        position: absolute;
+        left: calc(50% + cos(var(--progress) * 6.283) * 70%);
+        top: calc(50% + sin(var(--progress) * 6.283) * 70%);
+        transform: rotate(calc(var(--progress) * -0.8turn));
+        animation: link-hover-outline 1s linear infinite;
+    }
+    */
+    border: 0 solid transparent;
+    border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" stroke-linejoin="round" stroke-linecap="round" fill="none"><path d="M2,7 v-5 h5 M33,2 h5 v5 M38,33 v5 h-5 M8,38 h-5 v-5" stroke="black" stroke-width="4"/><path d="M2,7 v-5 h5 M33,2 h5 v5 M38,33 v5 h-5 M8,38 h-5 v-5" stroke="hsl(25deg 100% 80%)" stroke-width="2"/></svg>') 30%;
+    border-image-width: 12px;
+    border-image-outset: 5px;
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: link-hover-cursor 0.6s step-end infinite both;
+    }
+}
+
+
+
+.top-block {
+    display: grid;
+    grid:
+        "title  title   accounts" auto
+        "photo  intro   intro" min-content
+        /* the photo is 375px wide, plus 1px borders. */
+        /* i can't use min/max-content here because it factors in the title too! */
+        /* don't know of any easier approach so fuck it, here's this */
+        / minmax(20%, 377px) auto auto;
+    place-items: center;
+
+    > .photo { grid-area: photo; }
+    > .account-buttons { grid-area: accounts; }
+    > h1 {
+        grid-area: title;
+        position: relative;
+        z-index: 1;  /* above photo */
+        margin: 0;
+        justify-self: flex-end;
+        /* when there's an excess of space, push us away from the account buttons */
+        margin-right: clamp(0px, 10% * var(--screen-scale) - 1em, 20%);
+    }
+    > .intro { grid-area: intro; }
+
+    @media (max-width: 1000px) {
+        /* rearrange to make room for all my fuckin links */
+        grid:
+            "photo accounts"
+            "photo title"
+            "intro intro"
+            / 1fr max-content;
+
+        > .photo { place-self: flex-end; }
+    }
+}
+.photo {
+    position: relative;
+    margin-top: -20%;  /* allow to poke under title */
+    margin-bottom: calc(-0.5 * var(--corkboard-padding));  /* allow to poke into separation margin */
+    transform: rotate(-5deg);
+    border: 1px solid black;
+    box-shadow: var(--normal-shadow);
+
+    @media (max-width: 1000px) {
+        /* drop negative margin when grid is rearranged */
+        margin-top: 0;
+    }
+
+    > img {
+        display: block;
+        width: 100%;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 25% 75%, transparent 0% 75%, #fff9);
+        box-shadow: inset -1px 1px 1px #fff3, inset 1px -1px 1px #0003;
+        pointer-events: none;
+    }
+}
+h1 {
+    font-size: clamp(1rem, 4rem * var(--screen-scale), 3rem);
+    font-family: var(--font-scribble);
+    font-weight: normal;
+    max-width: max-content;
+    margin: 0 auto;
+    padding: 0.25em 0.75em;
+    border: 1px solid hsl(45, 50%, 20%);
+    line-height: 1.25;
+    color: #444;
+    background: hsl(45, 100%, 90%);
+    background-clip: padding-box;
+    text-align: center;
+    transform: rotate(4deg);
+    box-shadow: -1px 3px 4px 2px #0004;
+}
+/* currently inside the h1.  looks like a sticker */
+.feed-link {
+    display: block;
+    position: absolute;
+    top: -1rem;
+    right: 2rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    background: white;
+    box-shadow: var(--normal-shadow);
+    transform: rotate(-10deg);
+
+    img {
+        display: block;
+    }
+}
+/* like lined binder paper */
+.intro {
+    position: relative;
+    isolation: isolate;
+    z-index: 0;
+    max-width: max-content;
+    padding: 0.5em;
+    padding-left: 3.5em;
+    color: #202020;
+    filter: drop-shadow(0 1px 2px #0009);
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        --red-margin-gradient: linear-gradient(to right,
+            transparent 0 calc(3em - 2px), hsl(345, 100%, 90%) 0 3em, transparent 3em);
+        --blue-lines-gradient: repeating-linear-gradient(to bottom,
+            transparent 0 calc(0.5em - 2px), hsl(225, 100%, 95%) 0 0.5em, transparent 0 1.5em)
+            hsl(225, 50%, 98%);
+        background: var(--red-margin-gradient), var(--blue-lines-gradient);
+
+        /* Can't be inline SVG for the same reason as the footer */
+        --ragged-edge-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 12"><circle cx="0" cy="6" r="4"/></svg>') exclude no-repeat space top left / 4px 12px;
+        --punched-hole-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 100"><circle cx="25" cy="50" r="10"/></svg>') exclude no-repeat space center left / 40px 100px;
+        mask: var(--ragged-edge-mask), var(--punched-hole-mask), linear-gradient(white 0 0);
+
+    }
+
+    @media (max-width: 600px) {
+        /* drop the left margin on very small screens */
+        padding-left: 1em;
+
+        &::before {
+            background: var(--blue-lines-gradient);
+            mask: var(--ragged-edge-mask), linear-gradient(white 0 0);
+        }
+    }
+
+    > .-everything-link {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        transform: translate(0.5em, -50%) rotate(-1deg);
+    }
+}
+
+.account-buttons {
+    position: relative;
+    isolation: isolate;
+    place-self: flex-start flex-end;
+    margin-top: calc(-1 * var(--corkboard-padding) + 0.5rem);
+    margin-right: calc(-1 * var(--corkboard-padding) + 0.5rem);
+    /* only matters on small screens, but allows extending into left padding */
+    x-margin-left: calc(-1 * var(--corkboard-padding));
+    /* fucking chrome and safari don't support this so i have to do it the hard way */
+    /* writing-mode: sideways-lr; */
+    writing-mode: vertical-lr;
+    text-transform: lowercase;
+
+    display: flex;
+    flex-flow: column;
+    /* these do not fit well on small screens so wring space out aggressively */
+    gap: clamp(1px, 0.5vw, 0.25em);
+
+    &::before {
+        /* paper bit they get torn from */
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: -1;
+        height: 0.5em;
+        top: -0.5em;
+        right: 0;
+        left: 0;
+        background: white;
+        border-bottom: 1px dashed #999;
+        box-shadow:
+            var(--normal-shadow),
+            /* contrived to match the <main> box-shadow */
+            inset 0 1rem 0.125rem calc(-1rem + 1px) #000c;
+    }
+    & > a {
+        font-size: clamp(0.75em, 0.75em + 0.25em * var(--flex-scale), 1em);
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        /* nb: not necessary for sideways-lr */
+        justify-content: space-between;
+        gap: 0.5em;
+        padding-top: 1em;
+
+        border-top: 1px dashed #ccc;
+        box-shadow: var(--normal-shadow);
+        color: #444;
+        background: white;
+        text-decoration: none;
+
+        transition: transform 0.1s ease-in;
+        &:hover {
+            transform: translateY(1em);
+            transition-timing-function: ease-out;
+        }
+
+        /* nb: with sideways-lr, this should be ::before */
+        &::after {
+            content: '';
+            display: inline-block;
+            background:
+                var(--platform-icon) no-repeat content-box center / contain,
+                var(--platform-color);
+            width: 1em;
+            height: 1em;
+            padding: 0.25em;
+        }
+        > span {
+            flex: 1;
+            font-size: 0.8em;
+            /* flip to match sideways-lr orientation, with the baseline on the right */
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.sites-block {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: var(--corkboard-padding) 0;
+
+    > .patreon-plea { flex: 1; }
+}
+/* looks like a stamp/punch card, sort of */
+.sites-list {
+    position: relative;
+    padding: 0.5rem clamp(1rem, 5vw, 2rem);
+    background: hsl(40deg 100% 99%);
+    box-shadow: var(--normal-shadow);
+    line-height: 1.25;
+
+    > h3 {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 0 1.5em;
+        justify-content: space-between;
+        margin: 0 0 0.25rem;
+        font-family: var(--font-scribble);
+        color: hsl(255deg 20% 60%);
+
+        > * {
+            flex: auto;
+        }
+        > :last-child {
+            text-wrap: balance;
+            text-align: right;
+        }
+    }
+
+    > ol {
+        list-style: none;
+        display: grid;
+        grid: auto / repeat(4, 1fr);
+        justify-items: center;
+        /* extend into the card's padding a bit, since the stamp squares are smaller */
+        margin: 0 -0.75rem;
+        padding: 0;
+
+        /* XXX i don't want this to wrap as three/one, so do it manually at a
+         * ridiculous width, before the card and plea break on their own.
+         * possibly could hack this with nested flexboxes of 2 items? */
+        @media (max-width: 1400px) {
+            grid: repeat(2, 1fr) / repeat(2, 1fr);
+        }
+        /*
+        @media (max-width: 600px) {
+            grid: auto auto auto auto / 1fr;
+        }
+        */
+
+        > li {
+            display: grid;
+            grid:
+                "link" max-content
+                "desc" max-content
+                ;
+            gap: 0.5rem;
+            align-items: center;
+            max-width: 8rem;
+            padding: 0.5rem;
+
+            > .-emoji {
+                grid-area: link;
+                display: grid;
+                place-items: center;
+                font-size: 2em;
+                aspect-ratio: 1 / 1;
+                border: 0.2em dashed #666;
+                border-radius: 0.5em;
+                filter: grayscale(100%);
+                opacity: 0.15;
+            }
+            > a {
+                grid-area: link;
+                font-size: clamp(1em, 1em * (var(--screen-scale) / 0.4), 1.5em);
+                padding: 1em 0.5em;
+                border-radius: 0.5em;
+                /* use box-shadow instead of border so the generic hover still works */
+                box-shadow: inset 0 0 0 0.2em currentcolor;
+                color: hsl(345deg 100% 50%);
+                text-align: center;
+                font-weight: bold;
+                transform: rotate(calc(-20deg + 29deg * var(--entropy)));
+                mask: url({{ SITEURL }}/theme/images/stamp-mask.png) luminance exclude, linear-gradient(white 0 0);
+                mask-position: calc(1em * var(--entropy)) calc(1em * var(--entropy));
+
+                &:hover {
+                    /* this ensures the text can be made readable...
+                     * but it also allows the hover chevrons to work */
+                    mask: none;
+                }
+            }
+            > p {
+                font-size: clamp(0.75rem, 0.75rem + 0.25rem * var(--flex-scale), 1rem);
+                grid-area: desc;
+                margin: 0;
+                text-align: center;
+                color: #666;
+            }
+        }
+    }
+}
+/* patreon plea.  sort of like a chalkboard with a fancy outline.
+ * it's the only dark bg so it's a bit eyecatching */
+@property --initial-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+@keyframes spin-conic {
+    0% {
+        --initial-angle: 0deg;
+    }
+    100% {
+        --initial-angle: 90deg;
+    }
+}
+.patreon-plea {
+    position: relative;
+    min-width: 10em;
+    max-width: 15em;
+    padding: 0.5rem;
+    border: 3px solid transparent;
+    border-radius: 0.5rem;
+    box-shadow: inset 0 0 0 1px black, inset 0 0 2px 1px #fffc, 0 0 0 1px black, -1px 1px 1px 1px #0009;
+    --initial-angle: 0deg;
+    background:
+        linear-gradient(hsl(255deg 10% 10%) 0 0) padding-box,
+        repeating-conic-gradient(
+            hsl(345deg 100% 80%) var(--initial-angle), hsl(45deg 100% 80%), hsl(135deg 100% 80%),
+            hsl(225deg 100% 80%), hsl(300deg 100% 80%), hsl(345deg 100% 80%) calc(var(--initial-angle) + 90deg)) #111 border-box;
+    color: #eee;
+    text-shadow: 0 2px #000c;
+    font-family: var(--font-scribble);
+    text-wrap: balance;
+    text-align: center;
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: spin-conic 1s linear infinite;
+    }
+
+    a {
+        display: block;
+        font-size: 1.5em;
+        line-height: 1.25;
+    }
+}
+
+.category-glyph {
+    width: 1em;
+    vertical-align: -10%;
+}
+.blog-block {
+    display: grid;
+    grid:
+        "blog post"
+        / max-content 1fr;
+    align-items: flex-start;
+    gap: var(--corkboard-padding);
+    margin: var(--corkboard-padding) 0;
+
+    @media (max-width: 1000px) {
+        grid: "blog" "post";
+        gap: 1em;
+    }
+
+    > header {
+        grid-area: blog;
+        z-index: 2;  /* be above latest post */
+        padding: 1em;
+        font-family: var(--font-scribble);
+        text-align: center;
+
+        @media (max-width: 1000px) and (min-width: 600px) {
+            /* in vertical mode, arrange this horizontally, when there's room */
+            display: grid;
+            grid:
+                "emoji emoji"
+                "h2    h2"
+                "p     ul";
+            place-items: center;
+            > .emoji-sticker { grid-area: emoji; }
+            > h2 { grid-area: h2; }
+            > p { grid-area: p; }
+            > .pulltab-list { grid-area: ul; }
+        }
+    }
+
+    > .-latest-post {
+        grid-area: post;
+        align-self: flex-start;
+        /* make overlap but only on widescreen layout */
+        margin-left: calc(-1 * (1em + var(--corkboard-padding)));
+        /* always leave space for "keep reading" */
+        margin-bottom: 2em;
+
+        @media (max-width: 1000px) {
+            margin-left: 0;
+        }
+
+        > article {
+            position: relative;
+            padding: 1em;
+            padding-left: 2em;
+            background: url({{ SITEURL }}/theme/images/clean-gray-paper.png), hsl(45, 100%, 97%);
+            background-blend-mode: multiply, normal;
+            box-shadow: var(--normal-shadow);
+
+            @media (max-width: 1000px) {
+                /* yet another horizontal-only bit */
+                padding-left: 1em;
+            }
+
+            > header {
+                position: relative;
+
+                > time {
+                    font-size: 0.625em;
+                    /* tuck into the padding */
+                    position: absolute;
+                    top: -0.75rem;
+                    right: -0.5rem;
+                    text-align: right;
+                    color: hsl(40deg 100% 25%);
+                }
+                > h3 {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+.blog-categories {
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0 clamp(0.25em, 0.5vw, 0.5em);
+    margin: 0;
+    /* counteract negative margin below */
+    margin-top: 0.125em;
+    padding: 0 0.5em;
+    white-space: nowrap;
+    text-align: center;
+
+    @media (max-width: 600px) {
+    }
+
+    > li {
+        --hue: 30deg;
+        flex: 1;
+        margin: 0;
+        /* make tabs overlap slightly when they wrap */
+        margin-top: -0.125em;
+        padding: 0.25em clamp(0.5em, 1vw, 1em);
+        background: hsl(var(--hue) 75% 80%);
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+        box-shadow: 0 0 2px 1px #0009, inset 0 -3px 2px -2px #0006;
+
+        &:nth-child(1) { --hue: 30deg; }
+        &:nth-child(2) { --hue: 40deg; }
+        &:nth-child(3) { --hue: 60deg; }
+        &:nth-child(4) { --hue: 80deg; }
+        &:nth-child(5) { --hue: 100deg; }
+        &:nth-child(6) { --hue: 120deg; }
+    }
+}
+
+.pages-block {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: stretch;
+    gap: 2em;
+    margin: var(--corkboard-padding) 0;
+    padding: 1em;
+
+    @media (max-width: 600px) {
+        gap: 1em;
+        padding: 0;
+    }
+
+    h2, h3 {
+        margin: 0;
+        text-align: center;
+        font-family: var(--font-scribble);
+        font-weight: normal;
+        color: #222;
+    }
+
+    > header {
+        /* peek over the edge of the container */
+        margin-left: calc(-0.25 * var(--corkboard-padding));
+        margin-top: calc(-0.5 * var(--corkboard-padding));
+        padding: 1em;
+        font-family: var(--font-scribble);
+    }
+
+    > div {
+        flex: 1 1 max-content;
+        position: relative;
+        padding: 0.5em;
+        --paper1-angle: calc(-2deg + 4deg * var(--entropy));
+
+        @media (min-width: 600px) {
+            /* only do this for relatively large screens */
+            top: calc(-1em + 2em * var(--entropy));
+            left: calc(-1em + 2em * (1 - var(--entropy)));
+        }
+
+        > h3 {
+            width: max-content;
+            margin: -1em 0 -0.25em;
+            padding: 0 1rem;
+            transform: rotate(calc(-15deg + 12deg * var(--entropy)));
+        }
+        > ul {
+            list-style: none;
+            box-sizing: border-box;
+            height: 100%;
+            margin: 0;
+            padding: 1em;
+            background: #f4f4f4;
+            box-shadow: var(--normal-shadow);
+
+            > li {
+                padding-left: 0.5em;
+                text-indent: -0.5em;
+            }
+        }
+    }
+}
+
+.construction-paper {
+    position: relative;
+    isolation: isolate;
+    padding: 1em;
+    font-family: var(--font-scribble);
+    color: #222;
+    text-align: center;
+    --paper-color-top: #ddd;
+    --paper-angle-top: 0deg;
+    --paper-color-bottom: #aaa;
+    --paper-angle-bottom: 0deg;
+
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        box-shadow: -1px 1px 2px 1px #0006;
+        background: url({{ SITEURL }}/theme/images/handmade-paper.png);
+    }
+    &::before {
+        inset: -0.25em;
+        transform: rotate(var(--paper-angle-bottom));
+        background-color: var(--paper-color-bottom);
+    }
+    &::after {
+        inset: 0;
+        transform: rotate(var(--paper-angle-top));
+        background-color: var(--paper-color-top);
+    }
+
+    > .emoji-sticker {
+        margin-top: 0;
+    }
+
+    > h3 {
+        position: relative;  /* for pushpin */
+        font-size: 1.5rem;
+        margin: 0 0 0.5rem;
+        text-align: center;
+        font-weight: normal;
+        color: black;
+    }
+    p {
+        margin: 0.25em 0;
+    }
+}
+
+.misc-block {
+    padding: 1rem;
+    text-align: center;
+
+    h2 {
+        font-size: 1.5rem;
+        text-wrap: balance;
+    }
+}
+ul.misc-grid {
+    list-style: none;
+    margin: 0.5rem 0;
+    padding: 0;
+    font-family: var(--font-normal);
+
+    --item-size: 6rem;
+    --padding: 0.5rem;
+    display: grid;
+    grid: auto-flow 1fr / repeat(auto-fit, minmax(calc(var(--item-size) + 2 * var(--padding)), 1fr));
+    gap: 1rem;
+    text-align: center;
+
+    > li {
+        padding: var(--padding);
+        background: #f4f4f4;
+        box-shadow: 0 1px 2px #0006;
+    }
+    > li > a {
+        display: block;
+
+        > img {
+            display: block;
+            margin: 0 auto 0.25rem;
+            width: var(--item-size);
+            height: var(--item-size);
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+}
+
+/* note: this assumes three images */
+@keyframes carousel {
+    0% {
+        opacity: 0;
+        z-index: 2;
+    }
+    5% {
+        opacity: 1;
+    }
+
+    33% {
+        z-index: 1;
+    }
+
+    50% {
+        opacity: 1;
+        z-index: 0;
+    }
+    50.1% {
+        opacity: 0;
+    }
+}
+.games-header {
+    display: grid;
+    grid: ". h2 more" / 1fr auto 1fr;
+    gap: 0.5em;
+    place-items: center;
+    margin: var(--corkboard-padding) 0 0;
+
+    @media (max-width: 800px) {
+        grid:
+            "h2"
+            "more";
+    }
+
+    > h2 {
+        grid-area: h2;
+        font-size: clamp(2rem, 2rem + 2rem * var(--flex-scale), 4rem);
+        font-family: var(--font-scribble);
+        font-weight: normal;
+        margin: 0;
+        filter: url(#dilate) drop-shadow(var(--normal-shadow));
+        color: hsl(315deg 75% 50%);
+        letter-spacing: clamp(0.125em, 2vw, 0.75em);
+        text-align: center;
+        white-space: nowrap;
+
+        /* each letter has its own color */
+        > span {
+            display: inline-block;
+        }
+    }
+
+    > .-itch-link {
+        grid-area: more;
+        padding: 1em clamp(1em, 1em * var(--screen-scale), 2em);
+
+        @media (max-width: 800px) {
+            padding: 0.5em 1em;
+        }
+    }
+}
+.games-block {
+    display: grid;
+    grid: auto-flow / repeat(auto-fill, minmax(30em, 1fr));
+    gap: 1em;
+
+    @media (max-width: 800px) {
+        grid: auto-flow / 1fr;
+    }
+}
+.games-block > div {
+    display: grid;
+    grid:
+        "header header" min-content
+        "image  desc" min-content
+        "links  desc" 1fr
+        / min-content 1fr;
+    align-items: start;
+    gap: 0.5em 1em;
+
+    @media (max-width: 800px) {
+        grid: "header" "image" "desc" "links";
+        justify-items: center;
+    }
+
+    > h3 {
+        grid-area: header;
+        font-size: clamp(1em, 1em + 0.5em * var(--flex-scale), 1.5em);
+        z-index: 2;  /* above both screenshots and card (and tape) */
+        margin: 0;
+        max-width: max-content;
+        line-height: 1.25;
+        text-align: center;
+        text-wrap: balance;
+        transform: rotate(calc(-3deg + 4deg * var(--entropy)));
+    }
+
+    /* cycles through several screenshots */
+    > aside {
+        grid-area: image;
+        isolation: isolate;
+        position: relative;
+        z-index: 1;  /* above index card tape */
+        width: 256px;
+        height: 192px;
+        border: 0.25em solid white;
+        box-shadow:
+            0 0 0 1px #444,
+            0 2px 2px 1px #0009;
+        overflow: hidden;
+
+        @media (max-width: 600px) {
+            /* these just BARELY don't fit with all the margins; shave off some border */
+            border-width: 0.125em;
+        }
+
+        > img {
+            position: absolute;
+            display: block;
+            max-width: 256px;
+            max-height: 192px;
+            animation: carousel 15s linear infinite;
+
+            /* Animation starts with the fade-in, so have the first act like it just faded in */
+            &:nth-child(1) {
+                animation-delay: -1s;
+            }
+            &:nth-child(2) {
+                animation-delay: 4s;
+            }
+            &:nth-child(3) {
+                animation-delay: 9s;
+            }
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            inset: 0;
+            z-index: 99;
+            box-shadow: inset 0 0 1px 1px #0004;
+            pointer-events: none;
+        }
+    }
+
+    > img {
+        grid-area: image;
+        position: relative;
+        width: 256px;
+        border: 0.25em solid white;
+        box-shadow:
+            0 0 0 1px black,
+            0 2px 2px 3px #0009;
+    }
+
+    /* index card */
+    > article {
+        grid-area: desc;
+        place-self: stretch;
+        position: relative;
+        margin: 0;
+        --horiz-padding: 1rem;
+        padding: 0.5em var(--horiz-padding);
+
+        background: repeating-linear-gradient(to bottom, transparent 0 calc(1.5em - 1px), hsl(225deg 100% 92%) calc(1.5em - 1px) 1.5em) #f4f4f4;
+        box-shadow: -1px 1px 2px #0009;
+
+        @media (max-width: 600px) {
+            --horiz-padding: 0.5em;
+        }
+
+        /* tape on the corners */
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            height: 1.5em;
+            width: 4em;
+            background: hsl(210deg 100% 90%);
+            border: 1px solid hsl(210deg 100% 80%);
+            mix-blend-mode: soft-light;
+            pointer-events: none;
+        }
+        &::before {
+            top: 0.5em;
+            left: 0.5em;
+            transform: translate(-50%, -50%) rotate(calc(-60deg + 30deg * var(--entropy)));
+        }
+        &::after {
+            bottom: 0.5em;
+            right: 0.5em;
+            transform: translate(50%, 50%) rotate(calc(-50deg + 40deg * (1 - var(--entropy))));
+        }
+
+        > .-stats {
+            list-style: none;
+            /* nb: each row should be exactly 1.5rem so the lined bg doesn't get thrown off */
+            font-size: 0.75rem;
+            display: flex;
+            flex-flow: row wrap;
+            gap: 0 0.5rem;
+            margin: -0.5rem calc(-1 * var(--horiz-padding));
+            /* bottom margin counteracts border, to put the main text exactly between lines */
+            margin-bottom: -3px;
+            padding: 0;
+            line-height: 1;
+            color: #666;
+            background: #f4f4f4;  /* hide any lines underneath */
+            border-bottom: 3px double hsl(345deg 75% 85%);
+
+            > li {
+                position: relative;
+                padding: 0.375rem;
+
+                > .-emoji {
+                    position: relative;
+                    top: -0.125em;
+                    margin-right: -0.5em;
+                    opacity: 0.25;
+                }
+            }
+        }
+
+        p {
+            margin: 1.5em 0;
+        }
+        > .-stats + p {
+            margin-top: 0;
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .pulltab-list {
+        grid-area: links;
+        align-self: flex-start;
+
+        > li > a {
+            display: block;
+        }
+    }
+}
+
+ul.pulltab-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a.pulltab {
+    /*
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: dotted;
+    background: hsl(40, 100%, 90%);
+    border: 1px solid hsl(35, 100%, 80%);
+    border-left-width: 1em;
+    */
+    position: relative;
+    display: inline-block;
+    margin: 0.25em;
+    padding: 0.125em 0.5em;
+    padding-left: 1em;
+    background: hsl(20deg 100% 92%);
+    box-shadow: var(--normal-shadow);
+
+    /* can't use border, the global hover effect uses it */
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 0.5em;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background: hsl(40deg 100% 75%);
+    }
+}
+a.tape {
+    position: relative;
+    isolation: isolate;
+    z-index: 0;
+    display: block;
+    padding: 0.25em 1.5em;
+    font-family: var(--font-scribble);
+    color: hsl(345deg 50% 25%);
+    text-decoration: none;
+    filter: drop-shadow(0 1px 1px #0009);
+
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        z-index: -1;
+        inset: 0;
+        background: linear-gradient(to bottom,
+                transparent 0 2px, hsl(330deg 75% 92%) 2px 4px, transparent 4px calc(100% - 4px),
+                hsl(330deg 75% 95%) calc(100% - 4px) calc(100% - 2px), transparent calc(100% - 2px) 100%)
+            hsl(315deg 100% 90%);
+        clip-path: polygon(
+            0 0,
+            100% 0, calc(100% - 0.125em) 10%,
+            100% 20%, calc(100% - 0.125em) 30%,
+            100% 40%, calc(100% - 0.125em) 50%,
+            100% 60%, calc(100% - 0.125em) 70%,
+            100% 80%, calc(100% - 0.125em) 90%,
+            100% 100%,
+            0 100%, 0.125em 90%,
+            0 80%, 0.125em 70%,
+            0 60%, 0.125em 50%,
+            0 40%, 0.125em 30%,
+            0 20%, 0.125em 10%);
+    }
+
+    &:hover::before {
+        background-color: hsl(330deg 100% 85%);
+    }
+
+    @media (max-width: 600px) {
+        padding: 0.25em 0.5em;
+    }
+}
+a.tape.tape-along-bottom {
+    position: absolute;
+    right: -0.5rem;
+    bottom: -0.5rem;
+    transform: rotate(-3deg);
+    transform-origin: 75% 50%;
+}
+
+.paper1, .paper2 {
+    position: relative;
+    isolation: isolate;
+    color: #222;
+}
+.paper1::before, .paper2::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    box-shadow: -1px 1px 2px 1px #0006;
+    background: url({{ SITEURL }}/theme/images/handmade-paper.png);
+}
+/* bottom */
+.paper1 {
+    --paper1-color: #aaa;
+    --paper1-angle: 0deg;
+    &::before {
+        inset: -0.25em;
+        transform: rotate(var(--paper1-angle));
+        background-color: var(--paper1-color);
+    }
+}
+/* top */
+.paper2 {
+    --paper2-color: #ddd;
+    --paper2-angle: 0deg;
+    &::after {
+        inset: 0;
+        transform: rotate(var(--paper2-angle));
+        background-color: var(--paper2-color);
+    }
+}
+
+.staple1 {
+    --staple1-angle: -30deg;
+    --staple1-x: 2em;
+    --staple1-y: 2em;
+    &::before {
+        content: '';
+        position: absolute;
+        width: 1rem;
+        height: 0.125rem;
+        top: calc(var(--staple1-y) - 0.0625rem);
+        left: calc(var(--staple1-x) - 0.5rem);
+        border-radius: 2px;
+        background: #999;
+        box-shadow:
+            var(--normal-shadow),
+            inset -1px 1px 0 #fff4;
+        transform: rotate(var(--staple1-angle));
+    }
+}
+.pushpin1 {
+    --pushpin1-hue: 0;
+    --pushpin1-radius: 0.375rem;
+    --pushpin1-x: 50%;
+    --pushpin1-y: 0%;
+    &::before {
+        content: '';
+        position: absolute;
+        width: calc(var(--pushpin1-radius) * 2);
+        height: calc(var(--pushpin1-radius) * 2);
+        top: calc(var(--pushpin1-y) - var(--pushpin1-radius));
+        left: calc(var(--pushpin1-x) - var(--pushpin1-radius));
+        border-radius: 2rem;
+        background: hsl(var(--pushpin1-hue), 100%, 50%);
+        box-shadow:
+            inset -1px 1px 1px #fff9,
+            0 0.125rem 0 0.25rem hsl(var(--pushpin1-hue), 100%, 40%),
+            -1px 0.2rem 1px 0.25rem #0009,
+            -0.25rem 0.25rem 3px 0.25rem #0006;
+    }
+}
+.pushpin2 {
+    --pushpin2-hue: 0;
+    --pushpin2-radius: 0.375rem;
+    --pushpin2-x: 50%;
+    --pushpin2-y: 100%;
+    &::after {
+        content: '';
+        position: absolute;
+        width: calc(var(--pushpin2-radius) * 2);
+        height: calc(var(--pushpin2-radius) * 2);
+        top: calc(var(--pushpin2-y) - var(--pushpin2-radius));
+        left: calc(var(--pushpin2-x) - var(--pushpin2-radius));
+        border-radius: 2rem;
+        background: hsl(var(--pushpin2-hue), 100%, 40%);
+        box-shadow:
+            inset -1px 2px #fff6,
+            0 0.125rem 0 0.25rem hsl(var(--pushpin2-hue), 100%, 30%),
+            0 0.25rem 1px 0.25rem #0009;
+    }
+}
+
+.emoji-sticker,
+.emoji-sticker-left,
+.emoji-sticker-right {
+    font-size: clamp(2rem, 5rem * var(--screen-scale), 3rem);
+    line-height: 1;
+    transform: rotate(5deg);
+    filter: url(#dilate) drop-shadow(var(--normal-shadow));
+}
+.emoji-sticker {
+    position: absolute;
+    /* make inset props approximately place the center */
+    margin: -0.5em;
+}
+.emoji-sticker-left {
+    float: left;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.emoji-sticker-right {
+    float: right;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+svg.sticker {
+    position: absolute;
+    display: block;
+    width: 6em;
+    height: 6em;
+    filter: drop-shadow(var(--normal-shadow));
+
+    stroke: white;
+    stroke-linejoin: round;
+    stroke-width: 8;
+}
+</style>
+</head>
+
+<body>
+<!--
+TODO, here
+- better intro
+- link update: +bluesky, ~tumblr
+- beg for money
+
+- link to art things
+
+- advent calendar things
+
+- more games?  my favorites?
+- puzzles (my crosswords, ...?)
+
+- blog bit is a mess
+- need a section for pages too i guess?
+
+TODO, c.eev.ee
+- at least list everything from itch come on
+- puzzles (my crosswords, ...?)
+-->
+
+<svg width="0" height="0" style="display: block;" viewBox="-40 -40 80 80">
+<defs>
+    <!--
+    five-pointed star by hand.  see also https://mathworld.wolfram.com/RegularPentagon.html
+    assume one point is top center (so, horizontal symmetry).
+    let √5 be 2.25 ((9/4)² = 81/16 = 5.0625 which is pretty close.)
+    then the two points on the right are
+    right: ¼(√(10 + 2√5), √5 - 1) ≈ ¼(√14.5, 1.25) ≈ ¼(3.8, 1.25)
+    bottom: ¼(√(10 - 2√5), -√5 - 1) ≈ ¼(√5.5, -3.25) ≈ ¼(2.4, -3.25)
+    scale up by 40 (for an 80×80 viewbox), to get rid of both ¼s and most decimals
+    for dimples, use ⅔ from origin to side, to make a "fat" pentagram
+    (midpoints are 19,-26 / 31,10 / 0,32.5)
+    -->
+    <path id="sticker-star" d="M0,-40 L12,-18 L38,-12.5 L20,6 L24,32.5  L0,22  L-24,32.5 L-20,6 L-38,-12.5 L-12,-18 z"/>
+    <!-- heart: square tilted 45° with semicircles on two adjacent edgea.  also round bottom corner and squish a bit -->
+    <!-- 10 is too small of a radius but it gets automatically scaled up to the minimum -->
+    <path id="sticker-heart" d="M0,-30 A 10,10 0 0 1 30,0 L10,20 A 15,15 0 0 1 -10,20 L-30,0 A 10,10 0 0 1 0,-30 z" transform="scale(0.9 1)"/>
+    <filter id="dilate">
+        <feFlood flood-color="white" result="solid"/>
+        <feMorphology in="SourceAlpha" result="dilated" operator="dilate" radius="3"/>
+        <feComposite in="solid" in2="dilated" operator="in"/>
+        <feComposite in="SourceGraphic"/>
+    </filter>
+</defs>
+</svg>
+
+<main>
+
+<div class="emoji-sticker" style="left: 2em; transform: rotate(-9deg) translateY(0);">🦊</div>
+
+<div class="top-block">
+    <h1 class="pushpin1" style="--pushpin1-hue: 40deg;">
+        fuzzy notepad
+        <a class="feed-link" href="{{ SITEURL }}/{{ FEED_ATOM }}"><img src="{{ SITEURL }}/theme/images/feed-icon-28x28.png" alt="Atom feed"></a>
+    </h1>
+    <div class="photo pushpin1" style="
+        --pushpin1-hue: 315deg; --pushpin1-x: 10%; --pushpin1-y: 5%;
+        "><img src="{{ SITEURL }}/theme/images/home-photo.webp"></div>
+    <div class="account-buttons">
+        {% for label, color, logo, url in SOCIAL_EX %}
+        <a href="{{ url }}" class="button" style="--platform-color: {{ color }}; --platform-icon: url({{ SITEURL }}/theme/images/{{ logo }});">
+            <span>{{ label }}</span>
+        </a>
+        {% endfor %}
+    </div>
+
     <div class="intro">
-        <p>Hey!  I'm Eevee.  I make stuff.  Here's some stuff I made.</p>
-        <p>You can keep up with what I'm doing by following my very active <a href="https://twitter.com/eevee">Twitter</a> (hint: you can turn retweets off per-user), or by following the feed for my <a href="/dev/">dev log</a>.</p>
-        <p>If you like my work, you can <a href="https://www.patreon.com/eevee">help pay my salary</a>!</p>
+        Hello!  I'm Eevee♀️.  I write and draw and make games and toys and thingamabobs.
+        <div class="emoji-sticker-left" style=" margin-left: -1rem; margin-top: 0.5rem;">😎</div>
+        Here's a mix of the latest and greatest.  There's a <a href="https://c.eev.ee/">more complete list</a>, too.
+        <br><br>
+        Sexually explicit work is marked with a 🔞.
+        <br><br>
+        <!-- TODO list current priorities maybe? -->
+        <div class="emoji-sticker-right" style="margin-top: -0.25rem;">🧡</div>
+        Want to keep up with whatever I'm doing?
+        Pop <a href="{{ SITEURL }}/{{ FEED_ATOM }}">the Atom feed</a> into your feed reader,
+        follow me on <a href="https://bsky.app/profile/eev.ee">Bluesky</a> and hope for the best,
+        or chip in a few bucks on <a href="https://patreon.com/eevee">Patreon</a> for semi-regular updates.
+    </div>
+</div>
+
+<div class="sites-block">
+    <div class="sites-list pushpin1 pushpin2" style="
+        --pushpin1-hue: 315deg; --pushpin1-x: 30%; --pushpin1-y: 1em;
+        --pushpin2-hue: 195deg; --pushpin2-x: 99%; --pushpin2-y: 90%;
+    ">
+    <h3><span>Websites</span> <span>Collect All 4, Get 1 FREE</span></h3>
+        <ol class="entropic-children">
+            <li>
+                <div class="-emoji">🧭</div>
+                <a href="{{ SITEURL }}/site-index/">full site index</a>
+                <p>all posts, manual hierarchy</p>
+            </li>
+            <li>
+                <div class="-emoji">🏭</div>
+                <a href="https://c.eev.ee/">full body of work</a>
+                <p>more or less.  commentated!</p>
+            </li>
+            <li>
+                <div class="-emoji">🏛️</div>
+                <a href="https://t.eev.ee/">tame artwork</a>
+                <p>rarely updated oops</p>
+            </li>
+            <li>
+                <div class="-emoji">🏩</div>
+                <a href="https://d.eev.ee/">🔞 spicy artwork</a>
+                <p>warning: weird.  and neglected</p>
+            </li>
+        </ol>
     </div>
 
-    <div class="account-buttons">
-    <a href="mailto:eevee.fuzzynotepad@veekun.com" class="button" style="background-color: #9966cc;">
-        <img src="/theme/images/logo-email.png" alt="">
-        <label>email</label>
-    </a>
-    <a href="https://twitter.com/eevee" class="button" style="background-color: #55acee;">
-        <img src="/theme/images/logo-twitter.png" alt="">
-        <label>twitter</label>
-    </a>
-    <a rel="me" href="https://mastodon.social/@eevee" class="button" style="background-color: #3088d4;">
-        <img src="/theme/images/logo-mastodon.png" alt="">
-        <label>mastodon</label>
-    </a>
-    <a href="https://twitch.tv/lexyeevee" class="button" style="background-color: #6441a4;">
-        <img src="/theme/images/logo-twitch.png" alt="">
-        <label>twitch</label>
-    </a>
-    <a href="https://www.youtube.com/user/lexyeevee" class="button" style="background-color: #cc181e;">
-        <img src="/theme/images/logo-youtube.png" alt="">
-        <label>youtube</label>
-    </a>
+    <div class="patreon-plea">
+        <div class="emoji-sticker" style="left: -0.25rem; transform: rotate(-15deg);">💰</div>
+        <div class="emoji-sticker" style="right: -1rem; bottom: 0.5rem; transform: rotate(12deg);">🏦</div>
+        <p>like my stuff?</p>
+        <p><a href="https://patreon.com/eevee">please give me money thanks</a></p>
+        <p>making things is my job and i spent an hour just on this box</p>
+    </div>
+</div>
+
+<div class="blog-block">
+<header class="paper1 paper2" style="
+    --paper2-color: hsl(195deg 90% 75%); --paper2-angle: 1deg;
+    --paper1-color: hsl(345deg 75% 60%); --paper1-angle: -2deg;
+">
+    <div class="emoji-sticker" style="left: 10%; transform: rotate(-20deg) translateY(0rem);">📔</div> 
+    <h2 class="pushpin1" style="--pushpin1-x: 80%; --pushpin1-y: 1em; --pushpin1-hue: 45;">blog</h2>
+    <p>- one-offs<br>- artifact of their time<br>- vulnerable to entropy</p>
+
+    <ul class="pulltab-list">
+        <li><a class="pulltab" style="transform: rotate(2deg);" href="{{ SITEURL }}/{{ INDEX_URL }}">browse by date</a></li>
+        <li><a class="pulltab" style="transform: rotate(-1deg);" href="{{ SITEURL }}/{{ TAGS_URL }}">tag cloud</a></li>
+    </ul>
+</header>
+<div class="-latest-post">
+    <ul class="blog-categories">
+        {% for category, articles in categories | sort %}
+        <li><a href="{{ SITEURL }}/{{ category.url }}">{{ lib.category_glyph(category, alt=False) }} {{ CATEGORY_NAMES[category.slug] }}</a></li>
+        {% endfor %}
+    </ul>
+    <article class="latest-post">
+        <header>
+            {{ lib.article_time(articles[0]) }}
+            <h3><a href="{{ SITEURL }}/{{ articles[0].url }}">{{ lib.category_glyph(articles[0].category) }} {{ articles[0].title | striptags }}</a></h3>
+        </header>
+
+        <div class="entry-content">
+            {{ lib.article_illustration(articles[0]) }}
+            {{ articles[0].summary }}
+        </div>
+
+        {% if articles[0].content != articles[0].summary %}
+        <footer>
+            <a class="read-more tape tape-along-bottom" href="{{ SITEURL }}/{{ articles[0].url }}">
+                Keep reading
+                {% if articles[0].readtime %}
+                (about {{ articles[0].readtime.minutes }} min.)
+                {% endif %}
+            </a>
+        </footer>
+        {% endif %}
+    </article>
+</div>
+</div>
+
+<div class="pages-block paper1 pushpin2 entropic-children" style="
+    --paper1-color: hsl(300deg 60% 25%);
+    --paper1-angle: -1deg;
+    --pushpin2-hue: 160deg;
+    --pushpin2-x: calc(100% - 4em);
+    --pushpin2-y: 1em;
+">
+    <header class="paper1 pushpin2" style="
+        --paper1-color: hsl(45deg 100% 80%);
+        --paper1-angle: 3deg;
+        --pushpin2-hue: 240deg;
+        --pushpin2-x: 35%; --pushpin2-y: 4em;
+    ">
+        <div class="emoji-sticker" style="left: 80%; transform: rotate(15deg) translateY(-1rem);">📖</div> 
+        <h2>pages</h2>
+        <p>- maintained, maybe<br>- higher effort (?)<br>- "timeless" (???)</p>
+        <!--
+        TODO probably not necessary to repeat this link until there's a ton of stuff here
+        <a class="tape tape-along-bottom" href="{{ SITEURL }}/site-index/">full site index</a>
+        -->
+    </header>
+
+    <div class="paper1" style="--paper1-color: hsl(330deg 80% 20%);">
+        <h3 class="paper2" style="--paper2-color: hsl(330deg 100% 80%);">toys</h3>
+        <ul>
+            <li><a href="/toys/lights-out/">Lights Out — in pure CSS</a></li>
+            <li><a href="/toys/rush-hour/">Rush Hour — in pure CSS</a></li>
+            <!--
+            <li><a href="...">Minesweeper — in pure CSS</a></li>
+            <li><a href="...">RNG — in pure CSS</a></li>
+            <li><a href="...">Magnetic poetry — in pure CSS</a></li>
+            -->
+        </ul>
     </div>
 
-    <div class="account-buttons">
-    <a href="https://github.com/eevee" class="button" style="background-color: #4183c4;">
-        <img src="/theme/images/logo-github.png" alt="">
-        <label>github</label>
-    </a>
-    <a href="https://eevee.itch.io/" class="button" style="background-color: #fa5c5c;">
-        <img src="/theme/images/logo-itch.png" alt="">
-        <label>itch.io</label>
-    </a>
-    <a href="https://www.patreon.com/eevee" class="button" style="background-color: #ff5900;">
-        <img src="/theme/images/logo-patreon.png" alt="">
-        <label>patreon</label>
-    </a>
-    <a href="https://cash.me/$eevee" class="button" style="background-color: #29c501;">
-        <img src="/theme/images/logo-square-cash.png" alt="">
-        <label>square</label>
-    </a>
-    <a href="https://www.paypal.me/lexyeevee" class="button" style="background-color: #009cde;">
-        <img src="/theme/images/logo-paypal.png" alt="">
-        <label>paypal</label>
-    </a>
+    <div class="paper1" style="--paper1-color: hsl(105deg 80% 20%);">
+        <h3 class="paper2" style="--paper2-color: hsl(105deg 80% 75%);">fyi</h3>
+        <ul>
+            <li><a href="/fyi/variant-sudoku/">variant sudoku reference</a></li>
+        </ul>
     </div>
 
-    <h1>Writing</h1>
-    <section class="tile-container">
-        <section class="tile">
-            <header>
-                <a href="https://eev.ee/blog/" class="cool-button" style="background-color: #f6b441;">
-                    <h2>blog</h2>
-                </a>
-            </header>
-            <p>I write about game development, learning to draw, and miscellaneous technical stuff.  I like to explore a single topic in depth, so my writing can be a bit long-winded.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://eev.ee/dev/" class="cool-button" style="background-color: #ee7300;">
-                    <h2>dev log</h2>
-                </a>
-            </header>
-            <p>Every week, I write up what I've been working on.  It helps me see how much I'm getting done, and it's lower-volume than Twitter if you're curious what I'm up to.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://eev.ee/release/" class="cool-button" style="background-color: #4a83c5;">
-                    <h2>releases</h2>
-                </a>
-            </header>
-            <p>Announcements of things I've released into the wild.  Varies from a quick link to extensive commentary that you may find interesting.</p>
-        </section>
-    </section>
+    <div class="paper1" style="--paper1-color: hsl(285deg 80% 20%);">
+        <h3 class="paper2" style="--paper2-color: hsl(285deg 60% 60%);">???</h3>
+        <ul>
+            <li>more soon?  probably?</li>
+        </ul>
+    </div>
+</div>
 
-    <h1>Art</h1>
-    <section class="tile-container">
-        <section class="tile">
-            <header>
-                <a href="https://t.eev.ee/" class="cool-button" style="background-color: #306ba5;">
-                    <h2>clean art</h2>
-                </a>
-            </header>
-            <p>I'm gradually teaching myself to draw and here are some of the results!</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://d.eev.ee/" class="cool-button" style="background-color: #a5306b;">
-                    <h2>🔞 weird porn 🔞</h2>
-                </a>
-            </header>
-            <p>Honestly, what's the point in drawing if not for this?  <strong>NSFW</strong> and not suitable for younguns, obviously.</p>
-            <p>I post more frequently to my <a href="https://twitter.com/squishfox">porn Twitter</a>.</p>
-        </section>
-    </section>
+<div class="misc-block paper1 paper2" style="
+    --paper1-color: hsl(245deg 60% 40%); --paper1-angle: clamp(0.5deg, 2.5deg * var(--flex-scale), 2.5deg);
+    --paper2-color: hsl(105deg 60% 70%); --paper2-angle: -0.5deg;
+">
+    <div class="emoji-sticker" style="left: 10%; transform: rotate(-11deg) translateY(-0.25rem);">🧩</div> 
+    <h2>some offsite puzzles and doohickeys and other diversions</h2>
+    <ul class="misc-grid">
+        <li><a href="https://sudokupad.app/cb5yikms2b">
+            <img src="https://c.eev.ee/puzzles/sudoku-20241018-1.svg">
+            1
+        </a></li>
+        <li><a href="https://squares.io/info/sctopp2qbtt9fu9ygtka">
+            <img src="https://c.eev.ee/puzzles/crossword.roundabout.svg">
+            Roundabout
+        </a></li>
+        <li><a href="https://c.eev.ee/primesieve/">
+            <img src="{{ SITEURL }}/theme/images/work/prime-sieve.png">
+            PICO-8 prime sieve
+        </a></li>
+        <li><a href="https://c.eev.ee/doom-text-generator/">
+            <img src="{{ SITEURL }}/theme/images/work/doom-text-generator.png">
+            Doom text generator
+        </a></li>
+        <li><a href="https://c.eev.ee/digitle/">
+            <img src="{{ SITEURL }}/theme/images/work/digitle.png">
+            Digitle
+        </a></li>
+    </ul>
+    <p>
+        <a class="pulltab" href="https://squares.io/p/eevee">all my crosswords on squares.io</a>
+        <a class="pulltab" href="https://c.eev.ee/puzzles/">full puzzle index, with commentary</a>
+        <a class="pulltab" href="https://c.eev.ee/">more miscellany</a>
+    </p>
+</div>
 
-    <h1>Games</h1>
-    <section class="tile-container">
-        <section class="tile">
-            <header>
-                <a href="https://c.eev.ee/lexys-labyrinth/">
-                    <img src="/theme/images/work/lexys-labyrinth.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://c.eev.ee/lexys-labyrinth/" class="cool-button" style="background-color: #f4b88a;">
-                    <time datetime="2020-09-25">2020-09-25</time>
-                    <h2>Lexy's Labyrinth</h2>
-                </a>
-            </header>
-            <p>A free reimplementation of Chip's Challenge, with entirely new art, music, sounds, and community levels.  Can also load the original levels if you've got them, and has partial support for creating your own.  Chip's Challenge 2 support underwary.</p>
-            <ul class="see-also">
-                <li><a href="https://github.com/eevee/lexys-labyrinth">source code</a></li>
-                <li><a href="https://eevee.itch.io/lexys-labyrinth">also on itch.io</a></li>
-            </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://eevee.itch.io/anise-wheres-twig">
-                    <img src="/theme/images/work/anise-wheres-twig.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://eevee.itch.io/anise-wheres-twig" class="cool-button" style="background-color: #125359;">
-                    <time datetime="2020-05-10">2020-05-10</time>
-                    <h2>Star Anise Chronicles: Oh No Wheres Twig??</h2>
-                </a>
-            </header>
-            <p>A small charming puzzle-platformer for the PICO-8.  Play as Star Anise and run around trying to find your best friend and also causing minor mischief.</p>
-            <ul class="see-also">
-                <li><a href="https://www.lexaloffle.com/bbs/?tid=37868">also on PICO-8 BBS (with source code)</a></li>
-            </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://eevee.itch.io/wastenot">
-                    <img src="/theme/images/work/wastenot.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://eevee.itch.io/wastenot" class="cool-button" style="background-color: #676c41;">
-                    <time datetime="2019-08-27">2019-08-27</time>
-                    <h2>WasteNot</h2>
-                </a>
-            </header>
-            <p>This ZDoom mod tracks how much of the stuff you pick up is lost because you were too close to the carry limit.  A tribute to the surge of adrenaline I get when I watch someone else play Doom and they grab a shell box at 99/100.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://eevee.itch.io/plutmode">
-                    <img src="/theme/images/work/plutmode.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://eevee.itch.io/plutmode" class="cool-button" style="background-color: #681414;">
-                    <time datetime="2019-07-28">2019-07-28</time>
-                    <h2>Plutonia mode</h2>
-                </a>
-            </header>
-            <p>This tongue-in-cheek ZDoom mod will turn any map into The Plutonia Experiment.  Play with Plutonia for Double Plutonia!</p>
-            <p>Even _I_ haven't played this.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://store.steampowered.com/app/1259530/Cherry_Kisses/">
-                    <img src="/theme/images/work/cherry-kisses.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://store.steampowered.com/app/1259530/Cherry_Kisses/" class="cool-button" style="background-color: #ff4687;">
-                    <time datetime="2019-03-23">2019-03-23</time>
-                    <h2>Cherry Kisses</h2>
-                </a>
-            </header>
-            <p>In this <strong>wildly NSFW</strong> game, you run a sex shop and can have various sex with various customers.  Hm, that sounds familiar.  Also contains a narrative meta-puzzle that I'm very pleased with.</p>
-            <p>Made for <a href="https://itch.io/jam/strawberry-jam-3">Strawberry Jam 3</a>, but ran like three weeks late, oops?  Then we polished it up and put it on Steam!</p>
-            <ul class="see-also">
-                <li><a href="https://store.steampowered.com/app/1259530/Cherry_Kisses/">also on itch.io</a></li>
-            </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://floraverse.itch.io/alices-day-off-demo">
-                    <img src="/theme/images/work/alices-day-off-demo.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://floraverse.itch.io/alices-day-off-demo" class="cool-button" style="background-color: #7a9086;">
-                    <time datetime="2018-03-01">2018-03-01</time>
-                    <h2>Alice's Day Off [demo]</h2>
-                </a>
-            </header>
-            <p><strong>Very NSFW.</strong>  A visual novel about running a sex shop and trying to have sex with your customers.  Made for my own <a href="https://itch.io/jam/strawberry-jam-2">Strawberry Jam 2</a>.</p>
-            <p>This is a short demo; the full game is still in progress and expected to be much bigger.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://eevee.itch.io/lunar-depot-38">
-                    <img src="/theme/images/work/lunar-depot-38.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://eevee.itch.io/lunar-depot-38" class="cool-button" style="background-color: #4d948c;">
-                    <time datetime="2017-04-24">2017-04-24</time>
-                    <h2>Lunar Depot 38</h2>
-                </a>
-            </header>
-            <p>A short, shooty, tower defense-ish platformer made with glip in 72 hours for <a href="https://ldjam.com/events/ludum-dare/38">Ludum Dare 38</a>.</p>
-            <ul class="see-also">
-                <li><a href="https://ldjam.com/events/ludum-dare/38/lunar-depot-38">ludum dare entry</a></li>
-                <li><a href="https://github.com/eevee/lunar-depot-38">source code</a></li>
-                <li><a href="https://floraverse.bandcamp.com/album/lunar-depot-38-ost">soundtrack</a></li>
-            </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://eevee.itch.io/fox-flux">
-                    <img src="/theme/images/work/fox-flux.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://eevee.itch.io/fox-flux" class="cool-button" style="background-color: #ff82ce;">
-                    <time datetime="2017-02-28">2017-02-28</time>
-                    <h2>fox flux</h2>
-                </a>
-            </header>
-            <p><strong>Slightly NSFW.</strong>  A platformer about turning into stuff to solve puzzles, made for my own month-long <a href="https://itch.io/jam/strawberry-jam">Strawberry Jam</a>.</p>
-            <p>Music, title screen, and a couple sprites were provided by glip, but the rest of the artwork was all mine, which makes this a cool accomplishment.</p>
-            <ul class="see-also">
-                <li><a href="https://github.com/eevee/fox-flux">source code</a></li>
-                <li><a href="https://floraverse.bandcamp.com/album/fox-flux-demo-ost">soundtrack</a></li>
-            </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://eevee.itch.io/neon-phase">
-                    <img src="/theme/images/work/neon-phase.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://eevee.itch.io/neon-phase" class="cool-button" style="background-color: #e34a7b;">
-                    <time datetime="2017-01-19">2017-01-19</time>
-                    <h2>NEON PHASE</h2>
-                </a>
-            </header>
-            <p>My partner <a href="http://glitchedpuppet.com/">glip</a> and I made this exploratory platformer together for a week-long <a href="https://itch.io/jam/games-made-quick">game jam</a> I was running.</p>
-            <p>It's pretty chill, and is maybe our first "serious" game?  Big game?  Game not for the PICO-8.</p>
-            <ul class="see-also">
-                <li><a href="https://github.com/eevee/neon-phase">source code</a></li>
-                <li><a href="https://floraverse.bandcamp.com/album/neon-phase-ost">soundtrack</a></li>
-            </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://eevee.itch.io/realprop">
-                    <img src="/theme/images/work/realprop.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://eevee.itch.io/realprop" class="cool-button" style="background-color: #4b9f3f;">
-                    <time datetime="2016-10-11">2016-10-11</time>
-                    <h2>Realistic proportions</h2>
-                </a>
-            </header>
-            <p>This tongue-in-cheek ZDoom mod adjusts Doomguy's height to be more realistic, rendering the game largely unplayable.</p>
-            <ul class="see-also">
-                <li><a href="https://www.doomworld.com/idgames/utils/exe_edit/patches/realprop">on the idgames archive</a></li>
-            </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://eevee.itch.io/isaacs-descent">
-                    <img src="/theme/images/work/isaacs-descent.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://eevee.itch.io/isaacs-descent" class="cool-button" style="background-color: #008751;">
-                    <time datetime="2016-08-29">2016-08-29</time>
-                    <h2>Isaac's Descent</h2>
-                </a>
-            </header>
-            <p>
-                I made this short PICO-8 puzzle-platformer in 48 hours for <a href="http://ludumdare.com/compo/ludum-dare-36/?action=preview&uid=111773">Ludum Dare 36</a>.
-            </p>
-            <p>
-                It's the first standalone game I created 100% by myself, and I'm pretty happy with it!
-                Interesting mechanic, decent difficulty curve, and music that isn't entirely terrible.
-            </p>
-            <ul class="see-also">
-                <li><a href="https://eev.ee/blog/2016/08/29/i-entered-ludum-dare-36/">blog post</a></li>
-                <li><a href="http://ludumdare.com/compo/ludum-dare-36/?action=preview&uid=111773">ludum dare entry</a></li>
-                <li><a href="https://c.eev.ee/isaacs-descent/isaac.p8">source code</a></li>
-            </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://eevee.itch.io/under-construction">
-                    <img src="/theme/images/work/under-construction.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://eevee.itch.io/under-construction" class="cool-button" style="background-color: #5f574f;">
-                    <time datetime="2016-05-25">2016-05-25</time>
-                    <h2>Under Construction</h2>
-                </a>
-            </header>
-            <p>This surreal explorational <a href="http://www.lexaloffle.com/pico-8.php">PICO-8</a> platformer is the first game glip and I made together, and the first standalone game either of us really released.</p>
-            <ul class="see-also">
-                <li><a href="https://eev.ee/blog/2016/05/25/under-construction-our-pico-8-game/">blog post</a></li>
-                <li><a href="https://c.eev.ee/under-construction/under-construction.p8">source code</a></li>
-                <li><a href="https://floraverse.bandcamp.com/album/under-construction">soundtrack</a></li>
-            </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://eev.ee/blog/2016/03/31/i-made-a-doom-level/">
-                    <img src="/theme/images/work/thoroughfare.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://eev.ee/blog/2016/03/31/i-made-a-doom-level/" class="cool-button" style="background-color: #720000;">
-                    <time datetime="2016-03-16">2016-03-16</time>
-                    <h2>Throughfare</h2>
-                </a>
-            </header>
-            <p>After many years orbiting the <a href="https://zdoom.org/">ZDoom</a> community, I finally released a map for <a href="https://forum.zdoom.org/viewtopic.php?t=51072">DUMP 2</a>, a week-long newbie speedmapping project.</p>
-            <ul class="see-also">
-                <li><a href="https://eev.ee/blog/2016/03/31/i-made-a-doom-level/">blog post</a></li>
-            </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://c.eev.ee/dont-eat-cactus/">
-                    <img src="/theme/images/work/dont-eat-cactus.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://c.eev.ee/dont-eat-cactus/" class="cool-button" style="background-color: #999;">
-                    <time datetime="2016-02-23">2016-02-23</time>
-                    <h2>Don't Eat the Cactus</h2>
-                </a>
-            </header>
-            <p>This very short and silly text adventure is extremely based on true events.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://eev.ee/everything/tags/mario-maker/">
-                    <img src="/theme/images/work/mario-maker.png" alt="" class="tile-illus">
-                </a>
-                <a href="https://eev.ee/everything/tags/mario-maker/" class="cool-button" style="background-color: #00c500;">
-                    <time datetime="2015-09-18">2015-09-18</time>
-                    <h2>Mario Maker</h2>
-                </a>
-            </header>
-            <p>I used Mario Maker to dip my toes more seriously into level design.  In theory, these levels get more interesting over time.</p>
-            <p>You can find a less long-winded list on <a href="https://supermariomakerbookmark.nintendo.net/profile/lexyeevee?type=posted">the Mario Maker bookmark site</a>, assuming that still exists.</p>
-        </section>
-    </section>
+<!--
+<div class="emoji-sticker" style="left: 30%; transform: rotate(2deg) translateY(0);">🧠</div>
+<div class="emoji-sticker" style="left: 50%; transform: rotate(-9deg) translateY(0);">🌸</div>
+<div class="emoji-sticker" style="left: 70%; transform: rotate(6deg) translateY(0);">🎈</div>
 
-    <h1>Twitter bots</h1>
-    <section class="tile-container">
-        <section class="tile">
-            <header>
-                <a href="https://twitter.com/calloutbot" class="cool-button" style="background-color: #becc38;">
-                    <time datetime="2016-09-28">2016-09-28</time>
-                    <h2>@calloutbot</h2>
-                    <p>this is really an injoke</p>
-                </a>
-            </header>
-            <p>
-                This is a very complicated...  in-joke?
-                If it doesn't make any sense to you, count yourself lucky.
-            </p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://twitter.com/perlin_noise" class="cool-button" style="background-color: #b9c4cd;">
-                    <time datetime="2016-06-06">2016-06-06</time>
-                    <h2>@perlin_noise</h2>
-                    <p>beautiful, chaotic patterns built from perlin noise</p>
-                </a>
-            </header>
-            <p>
-                Inspired by my <a href="https://eev.ee/blog/2016/05/29/perlin-noise/">post explaining how Perlin noise works</a>, this bot tweets out Perlin noise in various ways:
-                ASCII, obscure Unicode, emoji, generated images, and even the occasional GIF.
-            </p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://twitter.com/unicodeveryword" class="cool-button" style="background-color: #f9c44a;">
-                    <time datetime="2016-04-14">2016-04-14</time>
-                    <h2>@unicodeveryword</h2>
-                    <p>every word in my dictionary, scrambled by unicode</p>
-                </a>
-            </header>
-            <p>
-                A bot in the <a href="https://twitter.com/everyword">every word</a> genre, with the added twist that each word is mangled somewhat by Unicode shenanigans.
-            </p>
-        </section>
-    </section>
+<div class="emoji-sticker" style="left: 30%; transform: rotate(2deg) translateY(0);">🗒️</div>
+<div class="emoji-sticker" style="left: 50%; transform: rotate(-9deg) translateY(0);">🦊</div>
+<div class="emoji-sticker" style="left: 70%; transform: rotate(6deg) translateY(0);">😎</div>
+-->
 
-    <h1>Web stuff</h1>
-    <section class="tile-container">
-        <section class="tile">
-            <header>
-                <a href="https://c.eev.ee/particle-wipe-generator/" class="cool-button" style="background-color: #ff8000;">
-                    <time datetime="2019-03-29">2019-03-29</time>
-                    <h2>particle wipe generator</h2>
-                </a>
-            </header>
-            <p>Creates masks that play out scene transitions for games.</p>
-            <ul class="see-also">
-                <li><a href="https://github.com/eevee/particle-wipe-generator">source code</a></li>
-                <li><a href="/release/2019/04/20/particle-wipe-generator/">release post</a></li>
+<svg class="sticker" viewBox="0 0 40 40"><text x="20" y="20" transform="rotate(20)" transform-origin="center" >︎</text></svg>
+<div class="emoji-sticker" style="left: 10%; transform: rotate(6deg) translateY(4rem);">🎮</div> 
+<div class="games-header">
+    <h2>
+        <span style="color: hsl(315deg 75% 60%); transform: rotate(11deg) translate(2px, 9px);">*</span><!--
+        --><span style="color: hsl(  0deg 75% 60%); transform: rotate(-25deg) translate(-4px, -8px);">g</span><!--
+        --><span style="color: hsl( 45deg 75% 50%); transform: rotate(18deg) translate(1px, 12px);">a</span><!--
+        --><span style="color: hsl( 90deg 75% 40%); transform: rotate(-12deg) translate(0px, -6px);">m</span><!--
+        --><span style="color: hsl(180deg 75% 40%); transform: rotate(38deg) translate(3px, 0px);">e</span><!--
+        --><span style="color: hsl(225deg 75% 60%); transform: rotate(-20deg) translate(0px, 9px);">s</span><!--
+        --><span style="color: hsl(315deg 75% 60%); transform: rotate(-2deg) translate(0px, -3px);">*</span>
+    </h2>
+    <div class="-itch-link pushpin1 paper2" style="
+        --pushpin1-hue: 345deg;
+        --paper2-color: hsl(40deg 100% 85%); --paper2-angle: -1deg;">
+        <a href="https://eevee.itch.io/">more on itch!</a>
+    </div>
+</div>
+<section class="games-block entropic-children">
+    <div>
+        <aside>
+            <img src="{{ SITEURL }}/theme/images/work/lexys-labyrinth-1.png">
+            <img src="{{ SITEURL }}/theme/images/work/lexys-labyrinth-2.png">
+            <img src="{{ SITEURL }}/theme/images/work/lexys-labyrinth-3.png">
+        </aside>
+        <h3><a class="tape" href="https://c.eev.ee/lexys-labyrinth/">Lexy's Labyrinth</a></h3>
+        <article>
+            <ul class="-stats">
+                <li><span class="-emoji">💰</span> free</li>
+                <li><span class="-emoji">🕹️</span> web (mobile OK)</li>
+                <li><span class="-emoji">🎲</span> sokoban-like</li>
+                <li><span class="-emoji">⏰</span> nearly endless</li>
             </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://c.eev.ee/PARTYMODE/" class="cool-button" style="background-color: #ef7bc5;">
-                    <time datetime="2016-01-12">2016-01-12</time>
-                    <h2>PARTYMODE</h2>
-                    <p>an incredibly stupid effect i use on my birthday</p>
-                </a>
-            </header>
-            <p>Every year on my birthday, I add this incredibly stupid snow effect to my website.</p>
-            <p>Used to be a decades-old "DHTML" thing from DynamicDrive (!).  I eventually rewrote it from scratch using CSS animations, which allowed for putting much more crap on the screen.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://c.eev.ee/pure-css-unown/" class="cool-button" style="background-color: #505050;">
-                    <time datetime="2014-12-24">2014-12-24</time>
-                    <h2>pure css unown</h2>
-                    <p>a datamined pokémon resource</p>
-                </a>
-            </header>
-            <p>Most of an <a href="https://veekun.com/dex/pokemon/unown">Unown</a> alphabet, implemented entirely with CSS — no images, no JavaScript.</p>
-            <p>Written on a whim one Christmas, inspired by a friend's...  Christmas NES cartridge.  Not sure how that leap happened.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://github.com/eevee/spline" class="cool-button" style="background-color: #f98131;">
-                    <time datetime="2013-08-01">2013-08-01</time>
-                    <h2>spline</h2>
-                    <p>a datamined pokémon resource</p>
-                </a>
-            </header>
-            <p>I started writing this as extensions to <a href="http://pyramid.readthedocs.io/en/latest/">Pyramid</a> to eliminate all the boring tedious parts of web development.</p>
-            <p>I didn't really finish it — turns out an easier solution was to stop doing web development — but it does power glip's webcomic site, <a href="http://floraverse.com/">Floraverse</a>.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="http://apps.veekun.com/flora-cutscenes/" class="cool-button" style="background-color: #5e3f5e;">
-                    <time datetime="2012-12-14">2012-12-14</time>
-                    <h2>flora cutscenes</h2>
-                    <p>a datamined pokémon resource</p>
-                </a>
-            </header>
-            <p>Several <a href="http://floraverse.com/">Flora</a> updates have taken the form of visual novels, using a little engine I wrote and have haphazardly enhanced as necessary.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://c.eev.ee/kouyou/" class="cool-button" style="background-color: #d98947;">
-                    <time datetime="2009-06-22">2009-06-22</time>
-                    <h2>kouyou</h2>
-                    <p>a color picker</p>
-                </a>
-            </header>
-            <p>Simple color picker I made because I was frustrated with the lack of HSL support in everything.  Don't really use it any more, now that CSS has HSL support built in.</p>
-            <ul class="see-also">
-                <li><a href="https://github.com/eevee/kouyou">source code</a></li>
+            <p>Free reimplementation of Chip's Challenge and its lesser-known sequel.</p>
+            <p>Tons of built-in community levels; nearly unlimited rewind and undo; a whole level editor; and support for loading just about anything.  Plus some more obscure extras.</p>
+        </article>
+        <ul class="pulltab-list">
+            <li><a class="pulltab" href="https://github.com/eevee/lexys-labyrinth">source code</a></li>
+        </ul>
+    </div>
+    <div>
+        <aside>
+            <img src="{{ SITEURL }}/theme/images/work/anise-wheres-twig.png">
+            <img src="{{ SITEURL }}/theme/images/work/anise-wheres-twig-2.png">
+            <img src="{{ SITEURL }}/theme/images/work/anise-wheres-twig-3.png">
+        </aside>
+        <h3><a class="tape" href="https://eevee.itch.io/anise-wheres-twig">Star Anise Chronicles 1½: Oh No Wheres Twig??</a></h3>
+        <article>
+            <ul class="-stats">
+                <li><span class="-emoji">💰</span> free</li>
+                <li><span class="-emoji">🕹️</span> pico-8 / web (mobile OK)</li>
+                <li><span class="-emoji">🎲</span> puzzle-platformer</li>
+                <li><span class="-emoji">⏰</span> half an hour</li>
             </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://veekun.com/" class="cool-button" style="background-color: #cbab81;">
-                    <time datetime="1999-11-19">1999-11-19</time>
-                    <h2>veekun</h2>
-                    <p>a datamined pokémon resource</p>
-                </a>
-            </header>
-            <p>A data-mined Pokémon reference that I've been working on, on and off, since I was 12.</p>
-        </section>
-    </section>
+            <p>Star Anise takes a short but heartfelt romp across the surface of the imaginary moon, in search of his super best friend Twig and also all the stuff he lost.</p>
+        </article>
+    </div>
+    <div>
+        <img src="{{ SITEURL }}/theme/images/work/fox-flux.png">
+        <h3><a class="tape" href="https://eevee.itch.io/fox-flux-deluxe">fox flux DELUXE</a></h3>
+        <article>
+            <ul class="-stats">
+                <li><span class="-emoji">💰</span> free demo</li>
+                <li><span class="-emoji">🕹️</span> löve / any desktop OS</li>
+                <li><span class="-emoji">🎲</span> puzzle-platformer</li>
+                <li><span class="-emoji">⏰</span> hour or two</li>
+            </ul>
+            <p>Play as Lexy the squishy fox and traverse a variety of puzzle levels by being turned to slime, inflated like a balloon, and who knows what else.</p>
+            <p>A work in progress, but you can play the first bit for free, and <a href="https://patreon.com/eevee">patrons</a> get occasional new builds.</p>
+        </article>
+        <ul class="pulltab-list">
+            <li><a class="pulltab" href="https://eevee.itch.io/fox-flux">🔞 the slightly spicier original jam game</a></li>
+        </ul>
+    </div>
+    <div>
+        <aside>
+            <img src="{{ SITEURL }}/theme/images/work/cherry-kisses.png">
+            <img src="{{ SITEURL }}/theme/images/work/cherry-kisses-2.png">
+            <img src="{{ SITEURL }}/theme/images/work/cherry-kisses-3.png">
+        </aside>
+        <h3><a class="tape" href="https://store.steampowered.com/app/1259530/Cherry_Kisses/">🔞 Cherry Kisses</a></h3>
+        <article>
+            <ul class="-stats">
+                <li><span class="-emoji">💰</span> $6.90</li>
+                <li><span class="-emoji">🕹️</span> löve / any desktop OS</li>
+                <li><span class="-emoji">🎲</span> conversation sim</li>
+                <li><span class="-emoji">⏰</span> several hours</li>
+            </ul>
+            <p>Run a sex shop and get spicy with your customers, in an illustrated...  talking simulator? with an optional narrative meta-puzzle that I'm very pleased with.</p>
+            <p>We made this for <a href="https://itch.io/jam/strawberry-jam-3">Strawberry Jam 3</a>, ran late, finished it anyway, and put it on Steam.</p>
+        </article>
+        <ul class="pulltab-list">
+            <li><a class="pulltab" href="https://eevee.itch.io/cherry-kisses">on itch.io if you prefer</a></li>
+        </ul>
+    </div>
+</section>
 
-    <h1>Libraries</h1>
-    <section class="tile-container">
-        <section class="tile">
-            <header>
-                <a href="https://pypi.python.org/pypi/camel" class="cool-button" style="background-color: #adc16f;">
-                    <time datetime="2015-09-10">2015-09-10</time>
-                    <h2>camel</h2>
-                </a>
-            </header>
-            <p>Simple Python library that makes it relatively easy to serialize objects to YAML in a more explicit, less magical, less dangerous way.</p>
-            <ul class="see-also">
-                <li><a href="https://eev.ee/blog/2015/10/15/dont-use-pickle-use-camel/">blog post</a></li>
-                <li><a href="http://camel.readthedocs.io/en/latest/">docs</a></li>
-                <li><a href="https://github.com/eevee/camel">source code</a></li>
-            </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://pypi.python.org/pypi/classtools" class="cool-button" style="background-color: #3a5eba;">
-                    <time datetime="2015-01-08">2015-01-08</time>
-                    <h2>classtools</h2>
-                </a>
-            </header>
-            <p>Small Python library with a few handy class-related utilities, in the vein of <code>functools</code> and <code>itertools</code>.</p>
-            <ul class="see-also">
-                <li><a href="http://classtools.readthedocs.io/en/latest/">docs</a></li>
-                <li><a href="https://github.com/eevee/classtools">source code</a></li>
-            </ul>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://pypi.python.org/pypi/dictproxyhack" class="cool-button" style="background-color: #eda61e;">
-                    <time datetime="2013-08-05">2013-08-05</time>
-                    <h2>dictproxyhack</h2>
-                </a>
-            </header>
-            <p>Microscopic Python library that exposes a <code>dictproxy</code> type for creating read-only dicts.</p>
-            <ul class="see-also">
-                <li><a href="http://classtools.readthedocs.io/en/latest/">docs</a></li>
-                <li><a href="https://eev.ee/blog/2013/08/05/dictproxyhack-or-activestate-code-considered-harmful/">blog post</a></li>
-                <li><a href="https://github.com/eevee/dictproxyhack">source code</a></li>
-            </ul>
-        </section>
-    </section>
+{#
+<h2>cool folks</h2>
+<a href="https://lucario.dev/">
+	<picture>
+        <source srcset="{{ SITEURL }}/theme/images/88x31/ebu.gif" media="(prefers-reduced-motion: no-preference)">
+        <img src="{{ SITEURL }}/theme/images/88x31/ebu.webp" alt="lucario.dev (ebu)">
+	</picture>
+</a>
+<a href="https://tuxedodragon.art/">
+	<picture>
+        <img src="{{ SITEURL }}/theme/images/88x31/tuxedodragon.gif" alt="tuxedodragon.art">
+	</picture>
+</a>
+<a href="https://foxblox.nekoweb.org/">
+	<picture>
+        <img src="{{ SITEURL }}/theme/images/88x31/foxblox.webp" alt="foxblox">
+	</picture>
+</a>
 
-    <h1>Miscellany</h1>
-    <section class="tile-container">
-        <section class="tile">
-            <header>
-                <a href="https://github.com/eevee/rc" class="cool-button" style="background-color: #9b1a20;">
-                    <time datetime="2009-05-22">2009-05-22</time>
-                    <h2>rc</h2>
-                </a>
-            </header>
-            <p>My dotfiles.  Pretty simple, but they contain a couple gems.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://github.com/eevee/project-euler/tree/master/heteroglot" class="cool-button" style="background-color: #ff9933;">
-                    <time datetime="2008-12-02">2008-12-02</time>
-                    <h2>heteroglot</h2>
-                </a>
-            </header>
-            <p>A (slow) ongoing quest to solve every Project Euler problem — in a different programming language.</p>
-            <ul class="see-also">
-                <li><a href="https://eev.ee/everything/tags/project-euler/">blog series</a></li>
-            </ul>
-        </section>
-    </section>
+<a href="https://wolf.observer/88x31">
+    <picture>
+        <img src="https://wolf.observer/images/wolf-88x31.png" alt="wolf.observer (atomicthumbs)">
+    </picture>
+</a>
 
-    <h1>Abandonware</h1>
-    <section class="tile-container">
-        <section class="tile">
-            <header>
-                <a href="http://starbindery.veekun.com/" class="cool-button" style="background-color: #2d425d;">
-                    <time datetime="2015-05-14">2015-05-14</time>
-                    <h2>starbindery</h2>
-                </a>
-            </header>
-            <p>I started working on this autogenerated Starbound database and did a few cool things with it.  I lost interest in Starbound before it got very far, and it no longer works against their data layout.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://github.com/eevee/flax" class="cool-button" style="background-color: #ede781;">
-                    <time datetime="2014-05-11">2014-05-11</time>
-                    <h2>flax</h2>
-                </a>
-            </header>
-            <p>I started writing a console roguelike in Python, mostly to play with randomness and entity-component and ways of expressing object interactions.  Then I lost interest.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://github.com/eevee/dywypi" class="cool-button" style="background-color: #c9427b;">
-                    <time datetime="2013-11-14">2013-11-14</time>
-                    <h2>dywypi</h2>
-                </a>
-            </header>
-            <p>I started writing a pluggable IRC bot atop Python's asyncio library.  Then I stopped doing that.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://github.com/eevee/sanpera" class="cool-button" style="background-color: #d4bb91;">
-                    <time datetime="2011-08-14">2011-08-14</time>
-                    <h2>sanpera</h2>
-                </a>
-            </header>
-            <p>Unfinished Python wrapper around ImageMagick that sought to hide the awfulness of the ImageMagick API.  Alas, that turned out to be much more tedious than expected.</p>
-        </section>
-    </section>
+<a href="https://foxgirl.systems/">
+    <picture>
+        <img src="{{ SITEURL }}/theme/images/88x31/kokoscript.gif" alt="foxgirl.systems (kokoscript)">
+    </picture>
+</a>
 
-    <h1>Open source</h1>
-    <section class="tile-container">
-        <section class="tile">
-            <header>
-                <a href="http://zdoom.org/" class="cool-button" style="background-color: #980011;">
-                    <time datetime="2015-06-06">2015-06-06</time>
-                    <h2>ZDoom</h2>
-                </a>
-            </header>
-            <p>A modern continuation of the Doom engine.  I added support for <code>TERRAIN</code>-based damage and friction to 3D floors; fixed texture scaling on 3D floors; and disabled using switches embedded in the floor when <code>checkswitchrange</code> is active.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="http://eblong.com/zarf/glulx/quixe/" class="cool-button" style="background-color: #ffd0a0;">
-                    <time datetime="2015-05-28">2015-05-28</time>
-                    <h2>Quixe / Glkote</h2>
-                </a>
-            </header>
-            <p>A web implementation of the glulx interactive fiction engine.  I sketched an initial implementation of graphics and audio support; fixed loading large games on some browsers; and found an overall 2× speedup in the VM.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="http://playstarbound.com/" class="cool-button" style="background-color: #2d425d;">
-                    <time datetime="2015-05-06">2015-05-06</time>
-                    <h2>Starbound</h2>
-                </a>
-            </header>
-            <p>A procedurally generated adventure game.  Not actually open source, but I sent one of their devs patches to fix some bugs in their data files, plus an initial implementation of a wiring object that later appeared in the game.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://github.com/Yelp/Testify" class="cool-button" style="background-color: #8a3030;">
-                    <time datetime="2015-02-05">2015-02-05</time>
-                    <h2>Testify</h2>
-                </a>
-            </header>
-            <p>A (deprecated?) Python test framework.  I sped up a few specific operations, which shaved entire minutes off a former employer's (very large) test runs.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="http://urwid.org/" class="cool-button" style="background-color: #6d96e8;">
-                    <time datetime="2014-05-11">2014-05-11</time>
-                    <h2>urwid</h2>
-                </a>
-            </header>
-            <p>A Python console UI toolkit.  I added support for using asyncio as the event loop.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="http://plumbum.readthedocs.io/en/latest/" class="cool-button" style="background-color: #58b383;">
-                    <time datetime="2014-04-08">2014-04-08</time>
-                    <h2>plumbum</h2>
-                </a>
-            </header>
-            <p>A Python library for expressing shell pipelines.  I added a <code>TEE</code> modifier for both capturing and piping a process's stdout.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="http://slade.mancubus.net/" class="cool-button" style="background-color: #7d91ba;">
-                    <time datetime="2014-02-10">2014-02-10</time>
-                    <h2>SLADE</h2>
-                </a>
-            </header>
-            <p>A Doom resource and map editor.  I fixed a lot of crashes, geometry bugs, and UI papercuts; and wrote most of the implementation of slopes and 3D floors in the map editor.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="http://parsley.readthedocs.io/en/latest/" class="cool-button" style="background-color: #44c621;">
-                    <time datetime="2013-07-19">2013-07-19</time>
-                    <h2>Parsley</h2>
-                </a>
-            </header>
-            <p>A Python PEG-based parser generator.  I made it more fast.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="http://www.sqlalchemy.org/" class="cool-button" style="background-color: #d71f00;">
-                    <time datetime="2013-06-10">2013-06-10</time>
-                    <h2>SQLAlchemy</h2>
-                </a>
-            </header>
-            <p>A Python database library and ORM.  I fixed an obscure bug with pooled connections.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="http://www.aaronsw.com/2002/html2text/" class="cool-button" style="background-color: #ffffdd;">
-                    <time datetime="2012-09-11">2012-09-11</time>
-                    <h2>html2text</h2>
-                </a>
-            </header>
-            <p>A Python library for converting HTML to Markdown.  I fixed the translation of <code>&lt;br&gt;</code>.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://github.com/Kronuz/pyScss" class="cool-button" style="background-color: #82cd17;">
-                    <time datetime="2012-08-16">2012-08-16</time>
-                    <h2>pyScss</h2>
-                </a>
-            </header>
-            <p>A Python implementation of Sass.  I did a ton of work porting it from immediate evaluation to an AST; fixed myriad bugs and Sass mismatches; and added support for a lot of newer Sass features.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="http://www.makotemplates.org/" class="cool-button" style="background-color: #d3deed;">
-                    <time datetime="2012-02-02">2012-02-02</time>
-                    <h2>Mako</h2>
-                </a>
-            </header>
-            <p>A Python templating language.  I fixed parsing of dict literals inside <code>${}</code>; fixed parsing of escaped quotes inside Python blocks; and added support for keyword-only arguments in <code>&lt;%def&gt;</code> blocks.</p>
-        </section>
-        <section class="tile">
-            <header>
-                <a href="https://www.mozilla.org/en-US/firefox/products/" class="cool-button" style="background-color: #d66a28;">
-                    <time datetime="2011-01-25">2011-01-25</time>
-                    <h2>Firefox</h2>
-                </a>
-            </header>
-            <p>A web browser.  I made a microscopic CSS patch to a feature that has since been removed.  My name ended up on their <a href="https://wiki.mozilla.org/Monument">obelisk</a>, so it still counts.</p>
-        </section>
-    </section>
+<a href="https://wavebeem.com">
+    <picture>
+        <img src="https://wavebeem.com/button.webp" alt="wavebeem.com">
+    </picture>
+</a>
+
+<a href="https://tanukicomputing.neocities.org/">
+    <picture>
+        <img src="{{ SITEURL }}/theme/images/88x31/tanuki-computing.gif" alt="tanuki-computing at neocities.org">
+    </picture>
+</a>
+
+<a href="https://moonbase.lgbt">
+    <picture>
+        <img src="https://moonbase.lgbt/88x31/moonbase.gif" alt="moonbase.lgbt (lunasorcery)">
+    </picture>
+</a>
+
+<a href="https://netizen.club/~wildweasel/index.html">
+    <picture>
+        <img src="{{ SITEURL }}/theme/images/88x31/wildweasel.png" alt="golfshrine online, et al (wildweasel)">
+    </picture>
+</a>
+
+<a href="https://bigdragon.neocities.org/">
+    <picture>
+        <img src="https://bigdragon.neocities.org/icons/brd88x31.png" alt="big red dragon (dvorakir)">
+    </picture>
+</a>
+
+<a href="https://codarobo.online/">
+    <picture>
+        <img src="{{ SITEURL }}/theme/images/88x31/codarobo.png" alt="codarobo.online">
+    </picture>
+</a>
+
+<a href="https://auratriolo.com/blog/">
+    <picture>
+        <img src="https://auratriolo.com/blog/wp-content/uploads/2024/09/Aura_PixelBanner-2.gif" alt="aura">
+    </picture>
+</a>
+
+<a href="https://surasshu.com/">
+    <picture>
+        <source srcset="{{ SITEURL }}/theme/images/88x31/surasshu.gif" media="(prefers-reduced-motion: no-preference)">
+        <img src="{{ SITEURL }}/theme/images/88x31/surasshu.png" alt="surasshu">
+    </picture>
+</a>
+
+<a href="https://www.plumpan.net">
+    <picture>
+        <img src="https://www.plumpan.net/8831.gif" alt="plumpan.net">
+    </picture>
+</a>
+
+
+<a href="">
+    <picture>
+        <img src="" alt="">
+    </picture>
+</a>
+
+#}
 </main>
-{% endblock %}
+
+<div class="postscript">
+    <p>no javascript.  few images.  one document.  handwritten.</p>
+    <p>...did you see that cool bug earlier?</p>
+</div>
+
+<div class="background-emoji" aria-hidden="true" style="left: 8%;">🌻</div>
+<div class="background-emoji" aria-hidden="true" style="left: 35%;">🌷</div>
+<div class="background-emoji" aria-hidden="true" style="left: 60%;">🌱</div>
+<div class="background-emoji" aria-hidden="true" style="left: 75%;">🐌</div>
+<div class="background-emoji" aria-hidden="true" style="left: 92%;">🍄</div>
+{{ lib.global_footer() }}
+</body>
+</html>

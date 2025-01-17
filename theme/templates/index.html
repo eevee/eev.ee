@@ -1,14 +1,50 @@
 {% extends '_article_list.html' %}
-{% block title %}{{ SITENAME }}{% endblock %}
+
+{% block title %}Blog {{ TITLE_DELIMITER }} {{ SITENAME }}{% endblock %}
+
+{% block pagetitle %}
+<h1><a href="{{ SITEURL }}/{{ articles_paginator.page(1).url }}">Blog</a></h1>
+{{ lib.micro_paginator() }}
+{% if FEED_ATOM %}
+<a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="subscribe-atom" class="category-atom">
+    <img src="/theme/images/feed-icon-28x28.png" alt="Atom feed" title="Atom feed"></a>
+{% endif %}
+{% endblock %}
 
 {% block content %}
-    <h1>
-        {% if FEED_ATOM %}
-        <a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="subscribe-atom" class="category-atom">
-            <img src="/theme/images/feed-icon-28x28.png" alt="Atom feed" title="Atom feed"></a>
-        {% endif %}
-        <img class="category-glyph" src="{{ SITEURL }}/theme/images/category-everything.png"> everything
-    </h1>
+{% if not articles_page.has_previous() %}
+<section>
+<p>One-off posts, artifacts of the moment they were written.  Also browseable <a href="/site-index/">hierarchically</a> or by category:</p>
+<ul>
+    {% for category, articles in categories | sort %}
+    <li>
+        <a href="{{ SITEURL }}/{{ category.url }}">
+            {{ lib.category_glyph(category, alt=False) }}
+            {{ CATEGORY_NAMES[category.slug] }}
+        </a>
+        ×{{ articles | length }}
+        — {{ CATEGORY_BLURBS[category.slug] }}
+    </li>
+    {% endfor %}
+    {#
+    <li>
+        <a href="{{ SITEURL }}/...">
+            <img class="category-glyph" src="{{ SITEURL }}/theme/images/category-corral.png" alt="[corral]">
+            {{ CATEGORY_NAMES['corral'] }}
+        </a>
+        ×0
+    </li>
+    <li>
+        <a href="{{ SITEURL }}/...">
+            <img class="category-glyph" src="{{ SITEURL }}/theme/images/category-bleats.png" alt="[bleats]">
+            {{ CATEGORY_NAMES['bleats'] }}
+        </a>
+        ×0
+    </li>
+    #}
+</ul>
+</section>
+{% endif %}
 
-    {{ super() }}
+{{ super() }}
 {% endblock %}

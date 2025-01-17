@@ -1,21 +1,39 @@
 {% extends 'base.html' %}
-{% import '_lib.html' as lib %}
-🔖
 
-{% block title %}Tags / {{ SITENAME }}{% endblock %}
+{% block title %}Tags and series {{ TITLE_DELIMITER }} {{ SITENAME }}{% endblock %}
+
+{% block pagetitle %}
+    <h1>Tags and series</h1>
+    <ol class="-breadcrumbs">
+        <li><a href="{{ SITEURL }}/{{ INDEX_URL }}">Blog</a></li>
+    </ol>
+{% endblock %}
 
 {% block content %}
-<section class="tags">
-    <h1>Tags</h1>
-    <p>This page sure is exciting, wow!</p>
-
-    <ul>
-        {% for tag, articles in tags | sort_by_article_count %}
-        <li>
+<section>
+    <h2>Tag cloud</h2>
+    <ul class="tag-cloud" style="--total: {{ articles | length }};">
+        {% for tag, articles in tags | sort %}
+        <li title="{{ articles | length }}" style="--count: {{ articles | length }};">
             <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }}</a>
-            — {{ articles | length }}
         </li>
         {% endfor %}
     </ul>
+    </section>
+
+    <section>
+    <h2>Series</h2>
+
+    {% for name, articles in article_series.items() %}
+    <h3>{{ name }}</h3>
+    <ul class="series">
+        {% for article in articles %}
+        <li>
+            <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
+            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
 </section>
 {% endblock %}

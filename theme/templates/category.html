@@ -1,16 +1,20 @@
 {% extends '_article_list.html' %}
-{% import '_lib.html' as lib with context %}
 
-{% block title %}{{ category.name }} / {{ SITENAME }}{% endblock %}
+{% block title %}{{ CATEGORY_NAMES[category.slug] }} {{ TITLE_DELIMITER }} Blog {{ TITLE_DELIMITER }} {{ SITENAME }}{% endblock %}
 
-{% block content %}
+{% block pagetitle %}
     <h1>
-        {% if CATEGORY_FEED_ATOM %}
-        <a href="{{ SITEURL }}/{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}" class="category-atom">
-            <img src="/theme/images/feed-icon-28x28.png" alt="Atom feed" title="Atom feed"></a>
-        {% endif %}
-        {{ lib.category_glyph(category) }} {{ category.name }}
+        <a href="{{ SITEURL }}/{{ articles_paginator.page(1).url }}">
+            {{ lib.category_glyph(category, alt=False) }}
+            {{ CATEGORY_NAMES[category.slug] }}
+        </a>
     </h1>
-
-    {{ super() }}
+    <ol class="-breadcrumbs">
+        <li><a href="{{ SITEURL }}/{{ INDEX_URL }}">Blog</a></li>
+    </ol>
+    {{ lib.micro_paginator() }}
+    {% if CATEGORY_FEED_ATOM %}
+    <a href="{{ SITEURL }}/{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}" class="category-atom">
+        <img src="/theme/images/feed-icon-28x28.png" alt="Atom feed" title="Atom feed"></a>
+    {% endif %}
 {% endblock %}
