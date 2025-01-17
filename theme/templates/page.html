@@ -4,9 +4,11 @@
 
 {% block pagetitle %}
     <h1>
-        <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title | striptags }}</a>
+        {# TODO can i make a hierarchy out of the page path?? #}
+        <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>
     </h1>
     {{ lib.article_time(page) }}
+    {{ lib.article_series_nav(page) }}
 {% endblock %}
 
 {% block content %}

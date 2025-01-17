@@ -626,6 +626,12 @@ main > header {
         white-space: nowrap;
         color: var(--meta-color);
     }
+
+    > .series-navigator {
+        flex: 0 0 100%;  /* flex-basis 100% so it always gets its own row */
+        box-sizing: border-box;
+        order: 4;
+    }
 }
 .micro-paginator {
     display: flex;
@@ -639,6 +645,36 @@ main > header {
 
     a {
         text-decoration: none;
+    }
+}
+.series-navigator {
+    display: flex;
+    align-items: center;
+    gap: 0.25em 1em;
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    border: 1px solid var(--accent-light);
+    background: var(--accent-lightest);
+    text-align: center;
+
+    @media (width <= 900px) {
+        flex-flow: column;
+        align-items: stretch;
+
+        > .-page {
+            order: -1;
+        }
+    }
+
+    > .-prev,
+    > .-next {
+        flex: 1 0 0;
+    }
+    > .-prev {
+        text-align: left;
+    }
+    > .-next {
+        text-align: right;
     }
 }
 
@@ -1568,6 +1604,20 @@ ul.category-filter {
 
     li {
         font-size: calc(var(--min-size) + (var(--max-size) - var(--min-size)) * pow(var(--count) / var(--total), 0.333));
+    }
+}
+
+.series {
+    /* very similar to the site index year things */
+    li time {
+        font-size: 0.75em;
+        display: inline-block;
+        width: 10ch;  /* yyyy-mm-dd; compensate for quicksand not having tabular figures */
+        padding: 0 0.25em;
+        border-radius: 0.5em;
+        background: hsl(from var(--accent-light) h s l / 0.5);
+        color: var(--meta-color);
+        text-align: center;
     }
 }
 

@@ -47,8 +47,24 @@ CATEGORY_BLURBS = {
     'process': "Deep dives into my own work, either a small project or a piece of a larger one.",
     'updates': "New releases or major updates of games, tools, the website, etc.",
 }
-SERIES_NAMES = {}
-SERIES_BLURBS = {}
+SERIES_NAMES = {
+    'birthday': "🎂 Eevee gained EXP",
+    'cheezball rising': "🎑 Cheezball Rising",
+    'game night': "🎲 Game night",
+    'gamedev from scratch': "🔩 Gamedev from scratch",
+    'make a doom level': "👺 You should make a Doom level",
+    'monday night itch': "🦠 Monday night Itch",
+    'python faq': "🐍 Python FAQ",
+}
+SERIES_BLURBS = {
+    'birthday': "",
+    'cheezball rising': "",
+    'game night': "",
+    'gamedev from scratch': "",
+    'make a doom level': "",
+    'monday night itch': "",
+    'python faq': "",
+}
 
 # Custom: Links and social cruft
 # NOTE: These aren't called just LINKS and SOCIAL because those are assumed by

@@ -25,15 +25,15 @@
     <h2>Series</h2>
 
     {% for name, articles in article_series.items() %}
-    <h3>{{ name }}</h3>
-    <ul class="series">
+    <h3 name="{{ name.replace(' ', '-') }}">{{ SERIES_NAMES[name] }}</h3>
+    <ol class="series">
         {% for article in articles %}
         <li>
-            <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
+            <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.date | strftime("%Y-%m-%d") }}</time>
             <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
         </li>
         {% endfor %}
-    </ul>
+    </ol>
     {% endfor %}
 </section>
 {% endblock %}
