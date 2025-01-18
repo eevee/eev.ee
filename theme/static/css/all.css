@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-header);
     text-align: left;  /* override the justify that comes later */
 
-    a {
+    & a {
         text-decoration: none;
         &, &:visited {
             color: inherit;
@@ -170,7 +170,7 @@ body > header {
     }
 
     /* main site title */
-    h1 {
+    & h1 {
         font-size: clamp(1.5rem, 7.5vw, 4rem);
         margin: 0;
         margin-right: 1rem;
@@ -188,7 +188,7 @@ body > header {
             }
         }
 
-        img {
+        & img {
             height: 1em;
             margin: 0 -0.125em;
             vertical-align: middle;
@@ -216,7 +216,7 @@ body > header {
     }
 }
 body > nav .account-links {
-    img {
+    & img {
         display: block;
         max-width: min(100%, 2em);
         max-height: min(100%, 2em);
@@ -241,7 +241,7 @@ body > nav .account-links {
             position: relative;
             margin: 0;
 
-            a {
+            & a {
                 display: grid;
                 place-items: center;
                 height: 1em;
@@ -312,11 +312,11 @@ body > nav .account-links {
         > li {
             flex: 1;
 
-            a {
+            & a {
                 max-width: clamp(1em, 100%, 2em);
                 aspect-ratio: 1 / 1;
 
-                img {
+                & img {
                     width: 100%;
                     height: 100%;
                     object-fit: contain;
@@ -494,7 +494,7 @@ body > nav ul.main-navigation {
                 background: linear-gradient(to right, transparent, hsl(var(--hue) 25% 25% / 0.5) 50%, transparent);
             }
 
-            a {
+            & a {
                 display: block;
                 padding: 0.125em 0.5em;
 
@@ -530,10 +530,10 @@ body > footer {
         white-space: nowrap;
     }
 
-    p {
+    & p {
         margin: 0;
     }
-    a {
+    & a {
         color: scale-color($link-normal, $lightness: 30%);
 
         &:visited {
@@ -543,7 +543,7 @@ body > footer {
             color: scale-color($link-hover, $lightness: 30%);
         }
     }
-    img {
+    & img {
         /* just the CC-BY image */
         display: block;
     }
@@ -643,7 +643,7 @@ main > header {
         color: #ccc;
     }
 
-    a {
+    & a {
         text-decoration: none;
     }
 }
@@ -750,13 +750,13 @@ main > footer {
     background: var(--accent-lightest);
     color: hsl(320deg 50% 25%);
 
-    img {
+    & img {
         float: left;
         margin: -40px 1em 0.5em 0;
         /* we extend into the body text above a bit, so trim out the upper-right space to avoid blocking mouse */
         clip-path: polygon(0% 0%, 15% 0%, 35% 18%, 100% 18%, 100% 100%, 0% 100%);
     }
-    figcaption {
+    & figcaption {
         padding: 1em;
         align-self: center;
 
@@ -804,7 +804,7 @@ article {
             text-align: right;
             color: var(--meta-color);
         }
-        h1 {
+        & h1 {
             flex: 1 1 auto;
             margin: 0;
         }
@@ -817,7 +817,7 @@ article {
             margin: 0;
             padding: 0;
 
-            li {
+            & li {
                 display: inline;
             }
             li::before {
@@ -882,7 +882,7 @@ article {
     h2, h3, h4, h5, h6 {
         color: hsl(285deg 50% 20%);
     }
-    h2 {
+    & h2 {
         position: relative;
         margin-top: 1em;
         padding-top: 0.5em;
@@ -898,16 +898,16 @@ article {
             opacity: 0.25;
         }
     }
-    h3 {
+    & h3 {
         margin-top: 1em;
         padding-top: 0.5em;
         border-top: 1px dotted var(--accent-dark);
     }
 
-    p {
+    & p {
         margin: 1em 0;
     }
-    li {
+    & li {
         margin: 0.5em 0;
     }
     p, li, ul, ol {
@@ -924,7 +924,7 @@ article {
         margin-left: 1.5em;
         padding-left: 0;
     }
-    ul {
+    & ul {
         /* Use a custom marker.  This is the only way to give it a custom color alas */
         list-style: none;
 
@@ -953,7 +953,7 @@ article {
         }
     }
 
-    blockquote {
+    & blockquote {
         margin: 1em 0;
         /* 1.17em on the left makes 1.5em total on the left; 1px top/bottom
          * just stops the paragraphs' margins from collapsing
@@ -963,7 +963,7 @@ article {
         background: var(--accent-lightest);
     }
 
-    hr {
+    & hr {
         border: none;
 
         &::after {
@@ -1006,7 +1006,7 @@ article {
     }
 
     /* Asides, styled like in my book with room for an icon on the left */
-    aside {
+    & aside {
         margin: 1em 0;
         padding: 1em;
         background: var(--bg-color);
@@ -1100,14 +1100,14 @@ article {
             text-align: left;
             white-space: nowrap;
 
-            ul {
+            & ul {
                 margin: 0;
 
-                ul {
+                & ul {
                     margin-left: 0.5em;
                 }
             }
-            li {
+            & li {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 margin: 0;
@@ -1146,14 +1146,14 @@ a.photo {
         border-top: none;
     }
 
-    a {
+    & a {
         flex: 0 auto;
         margin: 0.25em;
         text-align: center;
     }
 
     /* TODO this is copied from .entry-content img */
-    img {
+    & img {
         max-width: 100%;
         box-shadow: 0 1px 2px 1px #0009;
         outline: 1px solid #0009;
@@ -1218,7 +1218,7 @@ a.photo {
         margin: 1em;
     }
 
-    h1 {
+    & h1 {
         font-size: 3em;
         margin: 0.75em 0 0.25em;
         font-weight: normal;
@@ -1248,11 +1248,11 @@ a.photo {
         }
     }
 
-    p {
+    & p {
         color: white;
         text-shadow: 1px 1px 1px black;
     }
-    a {
+    & a {
         color: hsl(225, 100%, 83%);
     }
     a:visited {
@@ -1281,7 +1281,7 @@ a.photo {
             padding-left: 48px;
         }
 
-        p {
+        & p {
             margin: 1em;
         }
     }
@@ -1334,7 +1334,7 @@ a.photo {
                 0px 1px 2px 1px rgba(0, 0, 0, 0.5);
         }
 
-        label {
+        & label {
             display: inline-block;
             white-space: nowrap;
             cursor: inherit;
@@ -1344,7 +1344,7 @@ a.photo {
                 display: none;
             }
         }
-        img {
+        & img {
             margin-right: 0.125em;
             max-width: 1em;
             max-height: 1em;
@@ -1368,7 +1368,7 @@ a.photo {
 
         color: #cfddf3;
 
-        header {
+        & header {
             width: 100%;
 
             .tile-illus {
@@ -1378,7 +1378,7 @@ a.photo {
                 box-shadow: 0 0 0.125em black;
             }
 
-            time {
+            & time {
                 display: block;
                 position: absolute;
                 top: 0.25em;
@@ -1388,7 +1388,7 @@ a.photo {
                 font-family: monospace;
                 color: rgba(100%, 100%, 100%, 0.5);
             }
-            h2 {
+            & h2 {
                 margin: 0;
                 color: white;
                 text-shadow:
@@ -1397,7 +1397,7 @@ a.photo {
                     0.5px -0.5px 0.5px black,
                     -0.5px -0.5px 0.5px black;
             }
-            p {
+            & p {
                 display: none;
                 margin: 0;
                 text-shadow: -0.5px 0.5px 1px black;
@@ -1437,7 +1437,7 @@ a.photo {
             content: '🔗 \a0 ';
         }
 
-        li {
+        & li {
             margin: 0;
             display: inline-block;
             list-style-type: none;
@@ -1449,13 +1449,13 @@ a.photo {
 
     /* tablet sizes */
     @media (width <= 900px) {
-        body {
+        & body {
             margin: 1em;
         }
     }
     /* phone sizes */
     @media (width <= 400px) {
-        body {
+        & body {
             margin: 0.5em;
         }
     }
@@ -1507,7 +1507,7 @@ section.archives {
     }
 
     /* Each <article> is a listing; float the date to the right */
-    article {
+    & article {
         /* display: flex; */
         display: none;  /* overridden below */
 
@@ -1540,7 +1540,7 @@ section.archives {
         }
 
         /* Article title */
-        h1 {
+        & h1 {
             flex: 4 4 auto;
 
             font-size: 1.33rem;
@@ -1602,7 +1602,7 @@ ul.category-filter {
     --min-size: 0.5em;
     --max-size: 4em;
 
-    li {
+    & li {
         font-size: calc(var(--min-size) + (var(--max-size) - var(--min-size)) * pow(var(--count) / var(--total), 0.333));
     }
 }
@@ -1672,7 +1672,7 @@ ul.category-filter {
     box-shadow: 0 2px 0.25em #0003, 0 0 0 1px #0006;
     overflow-x: auto;
 
-    pre {
+    & pre {
         position: relative;
         margin: 0;
         /* padding goes here to avoid overflow not including it */
