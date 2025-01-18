@@ -98,7 +98,7 @@ I _love_ rigging game engines so that people can modify as much stuff as possibl
 
 ----
 
-Game code is [generally awful](/blog/2016/04/21/elegance/#inform-7), so I did my best to keep things tidy.  First, some brief background.
+Game code is [generally awful]({filename}/2016-04-21-elegance.markdown#inform-7), so I did my best to keep things tidy.  First, some brief background.
 
 A game has two major concerns: it has to simulate the world, and it has to draw that world to the screen.  The easiest and most obvious approach, then, is to alternate those steps: do a single update pass (where everyone takes one step, say), then draw, then do another update, and so on.  One round of updating and drawing is a frame, and the length of time it takes is a tic.  If you want your game to run at 60 fps, then a tic is 1/60 seconds, and you have to be sure you can both update once and draw once in that amount of time.
 

@@ -17,7 +17,7 @@ My interest in Doom waxes and wanes, but I did find time to finally [make a real
 
 I wrote a few Twitter bots!  [@perlin\_noise](https://twitter.com/perlin_noise) puts my [post on Perlin noise]({filename}/2016-05-29-perlin-noise.markdown) to use by tweeting images, GIFs, and emoji grids generated from various kinds of Perlin noise.  [@unicodeveryword](https://twitter.com/unicodeveryword) tweets every word in the English language that's also in my wordlist, slightly scrambled by Unicode shenanigans.  [@calloutbot](https://twitter.com/calloutbot) is mostly an injoke.
 
-I wrote [45 posts](/everything/archives/) comprising 195k words, which is about _four novels_, and that's not counting the couple of articles I was paid to write a few months ago.  I have [Patreon](https://www.patreon.com/eevee) to thank for getting me to write more often, though I recently dropped the writing obligation so I can spend more time on games and a book and other stuff.
+I wrote [45 posts](/blog/archive/) comprising 195k words, which is about _four novels_, and that's not counting the couple of articles I was paid to write a few months ago.  I have [Patreon](https://www.patreon.com/eevee) to thank for getting me to write more often, though I recently dropped the writing obligation so I can spend more time on games and a book and other stuff.
 
 Oh, yes, I actually started writing a book, in the sense that I have (quite a bit) more than a few pages written and a concept that I like and am sticking to.
 

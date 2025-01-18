@@ -11,7 +11,7 @@ I spent an embarrassingly large chunk of the week watching [AGDQ](https://gamesd
 
 - **art**: Keeping up the [daily comics](http://lexyeevee.tumblr.com/tagged/daily-comic).  They're definitely larger in scope than what I was scrawling in pencil a year ago.  Sort of like speedpaints, but the time limit is loosely defined as "I don't want to spend all day on this".  Trying to vary how I do them, too, though it ultimately comes down to whim.
 
-- **blog**: With some reservations, I wrote [a thing](/blog/2016/01/04/shut-up-paul-graham-the-simplified-version/) scoffing at how condescending Paul Graham's latest masterpiece was.
+- **blog**: With some reservations, I wrote [a thing]({filename}/2016-01-04-shut-up-paul-graham-the-simplified-version.markdown) scoffing at how condescending Paul Graham's latest masterpiece was.
 
 - **SLADE**: Bit of very minor work, fixing a few papercuts and trying to diagnose a couple others.
 

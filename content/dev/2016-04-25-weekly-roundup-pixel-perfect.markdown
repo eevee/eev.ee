@@ -19,4 +19,4 @@ Mel is out of town, so I'm being constantly harassed by cats.
 
 - **spline/flora**: I wrote a quick and dirty [chronological archive for Flora](http://floraverse.com/comic/@@by-date/).  I then did a bunch of witchcraft to replace 250-odd old comic pages with the touched-up versions that appear in [the printed book](https://store.floraverse.com/products/seeds-a-mini-story?taxon_id=48).
 
-- **blog**: I wrote about [elegance](/blog/2016/04/21/elegance/).  I also started on another post, which is not yet finished.  It's also terrible, sorry.
+- **blog**: I wrote about [elegance]({filename}/2016-04-21-elegance.markdown).  I also started on another post, which is not yet finished.  It's also terrible, sorry.

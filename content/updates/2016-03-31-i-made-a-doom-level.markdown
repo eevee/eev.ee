@@ -3,7 +3,7 @@ date: 2016-03-31 02:23
 category: updates
 tags: doom, gamedev, tech
 
-Yes, dear readers, I have a confession to make.  Despite spending 29,000 words explaining why and how [you should make a Doom level](/blog/2015/12/19/you-should-make-a-doom-level-part-1/), I've yet to actually publish one myself.
+Yes, dear readers, I have a confession to make.  Despite spending 29,000 words explaining why and how [you should make a Doom level]({filename}/2015-12-19-you-should-make-a-doom-level-part-1.markdown), I've yet to actually publish one myself.
 
 I've been...  orbiting? the ZDoom community for over a decade, but only really contributed in the form of minor wiki edits and occasional advice.  I started a good few maps when I was a teenager, but I tended to get bogged down in making some complicated contraption work, and then get bored with the whole idea and lose interest.
 
@@ -31,7 +31,7 @@ If you're not sold, here are some rave reviews:
 <!-- -->
 > how the fuck did u make this map in a week [...] DID U JUST LIKE NOT SLEEP ALL WEEK
 
-Anyway, you will need ZDoom and Doom II.  I covered getting those in the [first Doom mapping post](/blog/2015/12/19/you-should-make-a-doom-level-part-1/#you-will-need), and it still applies.  Recent ZDooms will even automatically find Doom II, on any platform, if it was installed by Steam or GOG.  Slick.
+Anyway, you will need ZDoom and Doom II.  I covered getting those in the [first Doom mapping post]({filename}/2015-12-19-you-should-make-a-doom-level-part-1.markdown#you-will-need), and it still applies.  Recent ZDooms will even automatically find Doom II, on any platform, if it was installed by Steam or GOG.  Slick.
 
 Per the project requirements, anything based on ZDoom 2.5+ should work, including Zandronum 2.1.2, if that's of interest to you.  If you don't know what that is, don't worry, just grab the latest ZDoom.
 
@@ -44,13 +44,13 @@ You can also play the [full mapping project](http://forum.zdoom.org/viewtopic.ph
 
 I'm structuring this as though it were real developer commentary: I ran through the map in normal progression and took screenshots of interesting things as I went.  Most of these were taken with `notarget` (which makes monsters ignore you) or `freeze` (which pauses all object AI).  I tried playing normally, but I kept getting wrapped up in shooting things and forgetting to actually take screenshots.  Oops.
 
-I also know that I said rather a lot of this before, in [the design part of the Doom series](/blog/2015/12/30/you-should-make-a-doom-level-part-2/), but oh well I'm saying it again.
+I also know that I said rather a lot of this before, in [the design part of the Doom series]({filename}/2015-12-30-you-should-make-a-doom-level-part-2.markdown), but oh well I'm saying it again.
 
 {% photo /media/2016-03-31-throughfare/throughfare01-opening.jpg Opening shot %}
 
 One thing John Romero said in his [IGN interview/playthrough](https://www.youtube.com/watch?v=YUU7_BthBWM) really stuck out to me: he always tries to design the opening shot so that the player has something interesting to look at.
 
-I realized, over the course of building this map, that that's not enough.  The "opening shot" of every part of the map should give the player something interesting to look at.  I've compared level design to composition in visual arts [before](/blog/2015/12/30/you-should-make-a-doom-level-part-2/#its-art-dummy), and that's a large part of (my limited understanding of) composition: arranging your work to guide the viewer's eye through the important parts.
+I realized, over the course of building this map, that that's not enough.  The "opening shot" of every part of the map should give the player something interesting to look at.  I've compared level design to composition in visual arts [before]({filename}/2015-12-30-you-should-make-a-doom-level-part-2.markdown#its-art-dummy), and that's a large part of (my limited understanding of) composition: arranging your work to guide the viewer's eye through the important parts.
 
 You could argue that I failed spectacularly with this opening shot, and you might be right.  I took inspiration from Sandy Petersen here, rather than Romero.  Sandy designed more than half of Doom II, and his maps are generally chaotic and sloppy and gimmicky.  They're also my favorites.
 
@@ -133,7 +133,7 @@ To the right are two other outcroppings.  The middle one has some door and switc
 
 Please take a moment to appreciate that the sky here is different from the sky in the city.  It's not particularly difficult to do, but I think it's an important touch.
 
-The lava, oh ho ho.  The lava gave me a bit of a headache.  If you'll recall [part 3 of the Doom series](/blog/2015/12/31/you-should-make-a-doom-level-part-3/), I turned a flat lava-textured surface into deep lava.  I don't know how obvious it was in the article, but I very abruptly realized I didn't know how to make the _top surface_ of the lava brighter than the rest of the room.  I think I ended up cheating and darkening the ceiling and walls, instead.
+The lava, oh ho ho.  The lava gave me a bit of a headache.  If you'll recall [part 3 of the Doom series]({filename}/2015-12-31-you-should-make-a-doom-level-part-3.markdown), I turned a flat lava-textured surface into deep lava.  I don't know how obvious it was in the article, but I very abruptly realized I didn't know how to make the _top surface_ of the lava brighter than the rest of the room.  I think I ended up cheating and darkening the ceiling and walls, instead.
 
 Here, I did it right.  The lava is a deep swimmable liquid using [`Sector_Set3dFloor`](http://zdoom.org/wiki/Sector_Set3dFloor) (the ZDoom feature that lets you stack multiple horizontal surfaces on top of each other), and it's lit by two layers of [`ExtraFloor_LightOnly`](http://zdoom.org/wiki/ExtraFloor_LightOnly) that extends slightly above it.  You can see the banding of light on the walls; those are the `EF_LO`s.  They're like 3D floors, but instead of drawing an actual floor, they just change the light level for a particular horizontal slice of an area.  (In vanilla Doom, an area can only have one light level, which applies to the floor, ceiling, walls, and objects.)
 
@@ -306,7 +306,7 @@ With both of those cool skull switches pressed, the eye switch in the chasm is n
 
 I'm really, really happy that this part of the map turned out to be truly non-linear.  I say "truly" to distinguish from "faux" non-linear, which is usually what people mean.  Maps like Downtown look linear at first blush, because there are a lot of places you can go...  but most of them are optional and won't help you progress.  To complete the level, you always need to go through the same sequence of critical events in the same order: blue key, blue door, red key, red door, yellow key, yellow door, exit.  Contrast with MAP19, [The Citadel](http://doomwiki.org/wiki/MAP19:_The_Citadel_%28Doom_II%29), where you always need the red key but can get _either_ the blue or yellow key, and order doesn't matter.  Likewise, you do have to press both switches in my map, but the map doesn't care which one you tackle first.
 
-I didn't use any scripting to do this, either.  I feel very strongly that scripting should be kept as minimal as possible, to keep the game feeling as Doom-like as possible.  I could've kept track of how many switches you'd pressed, and only released the monsters when you'd pressed both.  Or I could've done the straightforward thing: stuff the monsters behind _two_ doors, and have each switch open one door.  Then the monsters can only come out when both doors are open.  It's the same reasoning as [using native HTML instead of reinventing with JavaScript](/blog/2016/03/06/maybe-we-could-tone-down-the-javascript/).
+I didn't use any scripting to do this, either.  I feel very strongly that scripting should be kept as minimal as possible, to keep the game feeling as Doom-like as possible.  I could've kept track of how many switches you'd pressed, and only released the monsters when you'd pressed both.  Or I could've done the straightforward thing: stuff the monsters behind _two_ doors, and have each switch open one door.  Then the monsters can only come out when both doors are open.  It's the same reasoning as [using native HTML instead of reinventing with JavaScript]({filename}/2016-03-06-maybe-we-could-tone-down-the-javascript.markdown).
 
 {% photo /media/2016-03-31-throughfare/throughfare31-floating-bridge.jpg Floating rock bridge %}
 

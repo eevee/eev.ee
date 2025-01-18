@@ -291,7 +291,7 @@ I haven't thought too much about this.  Just throwing it out there.
 
 I don't want classes.
 
-Wait, wait, no, come back.  I don't want a thing I _call_ a class.  I don't want a `class` keyword.  I think it has way too much baggage.  People expect Java conventions and complain when they're missing.  "Why is there no `private`?  _Encapsulation!!_"  People (myself included) feel uncomfortable when the `class` keyword is used for things that [are not actually classes](/blog/2013/03/03/the-controller-pattern-is-awful-and-other-oo-heresy/).
+Wait, wait, no, come back.  I don't want a thing I _call_ a class.  I don't want a `class` keyword.  I think it has way too much baggage.  People expect Java conventions and complain when they're missing.  "Why is there no `private`?  _Encapsulation!!_"  People (myself included) feel uncomfortable when the `class` keyword is used for things that [are not actually classes]({filename}/2013-03-03-the-controller-pattern-is-awful-and-other-oo-heresy.markdown).
 
 Let's solve this problem and just not call them classes.  Call them _types_, because that's what they _are_.
 

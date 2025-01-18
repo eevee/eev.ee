@@ -307,7 +307,7 @@ If you want a little more weighting on the edges, you could try feeding the nois
 
 Surprisingly, adding octaves doesn't change the distribution all that much, assuming you scale back down to the same range.
 
-There are quite a lot of applications for Perlin noise.  I've seen wood grain faked by throwing in some modulus.  I've used it to make a path through a roguelike forest.  You can get easy clouds just by cutting it off at some arbitrary value.  [Under Construction](/blog/2016/05/25/under-construction-our-pico-8-game/)'s smoke is Perlin noise, where positive values are smoke and negative values are clear.
+There are quite a lot of applications for Perlin noise.  I've seen wood grain faked by throwing in some modulus.  I've used it to make a path through a roguelike forest.  You can get easy clouds just by cutting it off at some arbitrary value.  [Under Construction]({filename}/updates/2016-05-25-under-construction-our-pico-8-game.markdown)'s smoke is Perlin noise, where positive values are smoke and negative values are clear.
 
 Because it's continuous, you can use one axis as _time_, and get noise that also changes smoothly over time.  Here's a loop of some noise, where each frame is a 2-D slice of a (tiling) 3-D block of noise:
 

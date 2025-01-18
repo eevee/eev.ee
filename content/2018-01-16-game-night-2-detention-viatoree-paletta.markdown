@@ -3,7 +3,7 @@ date: 2018-01-16 11:04
 category: articles
 series: game night
 
-[Game night](/everything/tags/game-night/) continues with:
+Game night continues with:
 
 - Detention
 - Viatoree

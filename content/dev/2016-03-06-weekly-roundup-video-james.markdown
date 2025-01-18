@@ -5,7 +5,7 @@ tags: status, doom, veekun
 
 March's theme is...  is...  I don't know yet.
 
-- **blog**: I [made a cheesecake](/blog/2016/02/28/i-made-cheesecake/).  (By the way, it turns out I had enough leftover filling to make an entire second one!  Wow.)  And [wrote about Valentine's Day](/blog/2016/03/02/vd/).  _And_ [wrote about this eerie clone of tech Twitter](/blog/2016/03/03/the-nsa-is-trying-to-create-a-virtual-clone-of-me/).  I'm actually kind of ahead of the game this month!
+- **blog**: I [made a cheesecake]({filename}/2016-02-28-i-made-cheesecake.markdown).  (By the way, it turns out I had enough leftover filling to make an entire second one!  Wow.)  And [wrote about Valentine's Day]({filename}/2016-03-02-vd.markdown).  _And_ [wrote about this eerie clone of tech Twitter]({filename}/2016-03-03-the-nsa-is-trying-to-create-a-virtual-clone-of-me.markdown).  I'm actually kind of ahead of the game this month!
 
 - **art**: I started [documenting my adventures playing Pokémon Yellow](https://twitter.com/eevee/status/704381999172050944).  Very...  slowly.
 

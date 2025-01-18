@@ -6,12 +6,6 @@ series: make a doom level
 tags: gamedev, tech, making things, doom
 
 
-<p style="text-align: center;" markdown="1">
-[Part 1: the basics](/blog/2015/12/19/you-should-make-a-doom-level-part-1/)
-· **Part 2: design**
-· [Part 3: cheating](/blog/2015/12/31/you-should-make-a-doom-level-part-3/)
-</p>
-
 I assume you've read the introduction, which tells you the basics of putting a world together.
 
 This post is more narrative than mechanical; it's a tour of my thought process as I try to turn my previous map into something a little more fun to play.  I still touch on new editing things I do, but honestly, you already know the bulk of how to use an editor.  Poke through SLADE's keybindings (Edit → Preferences → Input) to see what hidden gems it has, click that "Show All" checkbox in the prop panel, and go wild.  But please do comment if I blatantly forgot to explain something new.
@@ -580,4 +574,4 @@ Triple-check that your doors actually work.  I have a bad habit of creating and 
 
 That's all for now, but I am hard at work on part 3, in which we shall break all the rules.  Or, a lot of the rules.
 
-Here's [my version of this map](/media/2015-12/doom2/part2.wad).  I even included a _surprise_, to encourage you to actually look at it in an editor.  Send me yours, so I can add it to the list at the bottom of [part 1](/blog/2015/12/19/you-should-make-a-doom-level-part-1/)!
+Here's [my version of this map]({static}/media/2015-12/doom2/part2.wad).  I even included a _surprise_, to encourage you to actually look at it in an editor.  Send me yours, so I can add it to the list at the bottom of [part 1]({filename}/2015-12-19-you-should-make-a-doom-level-part-1.markdown)!

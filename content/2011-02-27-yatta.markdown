@@ -5,7 +5,7 @@ tags: japanese
 
 I am now, officially, as literate as a native Japanese two-year-old.  Almost.  Maybe.
 
-![an image of my JLPT N5 certificate](/media/2011-02/jlpt-n5-certificate.jpg)
+![an image of my JLPT N5 certificate]({static}/media/2011-02/jlpt-n5-certificate.jpg)
 
 I actually meant to condense all the grammar I know down to bullet points that make sense to me, and post it before I took the test.  I kinda never did that.  Oops!  Maybe some other time.
 

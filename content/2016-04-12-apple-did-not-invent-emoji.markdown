@@ -88,7 +88,7 @@ I've encountered people who genuinely believed that Apple's emoji were some kind
 
 ----
 
-Along the same lines, **nothing defines an emoji**, as I've [mentioned before](/blog/2015/09/12/dark-corners-of-unicode/#theres-no-such-thing-as-emoji).  Whether a particular character appears as a colored graphic is purely a property of the fonts you have installed.  You could have a font that rendered all English text in sparkly purple letters, if you really wanted to.  Or you could have a font that rendered emoji as simple black-and-white outlines like other characters — which is in fact what I have.
+Along the same lines, **nothing defines an emoji**, as I've [mentioned before]({filename}/2015-09-12-dark-corners-of-unicode.markdown#theres-no-such-thing-as-emoji).  Whether a particular character appears as a colored graphic is purely a property of the fonts you have installed.  You could have a font that rendered all English text in sparkly purple letters, if you really wanted to.  Or you could have a font that rendered emoji as simple black-and-white outlines like other characters — which is in fact what I have.
 
 Well...  that _was_ true, but mere weeks before that post was published, the Unicode Consortium published a [list of characters with a genuine "Emoji" property](http://www.unicode.org/Public/emoji/2.0/emoji-data.txt).
 
@@ -267,7 +267,7 @@ But no one can do any of this, so long as there's no single extension that works
 
 Some miscellaneous thoughts:
 
-* I'm really glad that emoji have forced more developers to _actually_ handle Unicode correctly.  Having to deal with commonly-used characters outside of ASCII is a pretty big kick in the pants already, but most emoji are also in Plane 1, which means they don't fit in a single [JavaScript "character"](/blog/2015/09/12/dark-corners-of-unicode/#javascript-has-no-string-type) — an issue that would otherwise be really easy to overlook.
+* I'm really glad that emoji have forced more developers to _actually_ handle Unicode correctly.  Having to deal with commonly-used characters outside of ASCII is a pretty big kick in the pants already, but most emoji are also in Plane 1, which means they don't fit in a single [JavaScript "character"]({filename}/2015-09-12-dark-corners-of-unicode.markdown#javascript-has-no-string-type) — an issue that would otherwise be really easy to overlook.
 
 * On the other hand, it's a shame that the rise of emoji keyboards hasn't necessarily made the rest of Unicode accessible.  There are still plenty of common symbols, like ♫, that I can only type on my phone using the _Japanese_ keyboard.  I do finally have an input method on my desktop that lets me [enter characters by name](https://github.com/lalomartins/ibus-uniemoji/), which is nice.  We've certainly improved since the olden days, when you just had to memorize that <kbd>Alt</kbd><kbd>0233</kbd> produced an é...  or, wait, maybe English Windows users still have to do that.
 

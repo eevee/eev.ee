@@ -22,7 +22,7 @@ Conversely, I could define a _hack_ as something that doesn't remotely express w
 
 That's not to say all code lies on a linear spectrum between two extremes.  There's some complexity here, because "what you mean" is less concrete than the shape of your code or what happens when it executes.
 
-Consider my [recent example of links recreated in JavaScript](/blog/2016/03/06/maybe-we-could-tone-down-the-javascript/#reinventing-the-square-wheel).  You might implement such a faux link with some jQuery.
+Consider my [recent example of links recreated in JavaScript]({filename}/2016-03-06-maybe-we-could-tone-down-the-javascript.markdown#reinventing-the-square-wheel).  You might implement such a faux link with some jQuery.
 
 ```javascript
 $('#link').click(function() {

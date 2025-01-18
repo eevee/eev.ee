@@ -5,7 +5,7 @@ tags: patreon, food
 
 If you were not aware, I have a [Patreon tier](https://www.patreon.com/eevee) that's essentially: I will work on whatever you want for a day, then write about it.  I made the tier assuming that people would force me to do programming, e.g. actually work on [veekun](http://veekun.com/) for once.  So far it's been about half that, and half "hey try this thing you haven't really done before".
 
-Last month, [@amazingant](https://twitter.com/amazingant) asked me to cook something, so I decided to [try making pretzels](/blog/2016/01/31/i-made-pretzels/), and half-seriously ended the post suggesting that he should have me make cheesecake next.
+Last month, [@amazingant](https://twitter.com/amazingant) asked me to cook something, so I decided to [try making pretzels]({filename}/2016-01-31-i-made-pretzels.markdown), and half-seriously ended the post suggesting that he should have me make cheesecake next.
 
 Well, guess what I had to do this month.
 

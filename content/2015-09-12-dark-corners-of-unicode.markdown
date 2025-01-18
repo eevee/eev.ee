@@ -111,15 +111,15 @@ Hangul characters are actually blocks composed of exactly three parts called Jam
 
 And yet I ended up with four very different renderings.  In this blog post, with my default monospace font, I see the full sequence of six Jamo.  If I paste the same text somewhere with a proportional font, I see something very nearly identical to the original characters, albeit slightly fuzzier from being generated on the fly.  In Konsole, I see only the first Jamo for each character: `'ㅎㄱ'`.  (This has been [fixed](https://quickgit.kde.org/?p=konsole.git&a=commit&h=437440978bca1bd84e70ee61ba7974f63fe0630a) as of July 6, 2016, though I don't know what Konsole release contains the fix.)  And in my usual libvte-based terminal, the combining behavior falls apart, and I see a nonsensical mess that I can't even reproduce with Unicode:
 
-![Screenshot of mangled Hangul in a terminal; several characters overlap](/media/2015-09/bad-hangul.png)
+![Screenshot of mangled Hangul in a terminal; several characters overlap]({static}/media/2015-09/bad-hangul.png)
 
 I can only guess at what happened here.  Clearly both terminals decided that each set of three Jamo was only one character wide, but for some reason they didn't combine.  Konsole adamantly refuses to render any Jamo beyond the first, even if I enter them independently; VTE dutifully renders them all but tries to constrain them to the grid, leading to overlap.
 
 This is not the first width-related problem I've encountered with Unicode and terminals.  Consider emoji, which tend to be square in shape.  I might reasonably want to say to someone on IRC: "happy birthday! 🎁 hope it's a good one."  (That's U+1F380 WRAPPED PRESENT, if you didn't take my advice and install Symbola.)  But I use a terminal IRC client, and here's how that displays, in VTE and Konsole:
 
-![Screenshot of the sentence in VTE; the birthday gift overlaps the following space](/media/2015-09/emoji-vte.png)
+![Screenshot of the sentence in VTE; the birthday gift overlaps the following space]({static}/media/2015-09/emoji-vte.png)
 
-![Screenshot of the sentence in Konsole; the spacing is correct but the cursor position is wrong](/media/2015-09/emoji-konsole.png)
+![Screenshot of the sentence in Konsole; the spacing is correct but the cursor position is wrong]({static}/media/2015-09/emoji-konsole.png)
 
 You can see how VTE has done the same thing as with Hangul: it thinks the emoji should only take up one character cell, but dutifully renders the entire thing, allowing the contents to spill out and overlap the following space.  You might think Konsole has gotten this one right, but look carefully — the final quote is slightly overlapping the cursor.  Turns out that Konsole will print each line of text as regular text, so any character that doesn't fit the terminal grid will misalign every single character after it.  The cursor (and selection) is always fit to the grid, so if you have several emoji in the same row, the cursor might appear to be many characters away from its correct position.  There are [several bugs open on Konsole](https://bugs.kde.org/show_bug.cgi?id=297390) about this, dating back many years, with no response from developers.  I actually had to stop using Konsole because of this sole issue, because I use ⚘ U+2698 FLOWER as my shell prompt, which misaligned the cursor every time.
 
@@ -217,7 +217,7 @@ It's tempting to just say that those few astral plane blocks are emoji, but you 
 
 I stress, also, that a colored graphic _is not_ the only way emoji (however you define them) may be rendered.  Here's a screenshot of part of that table on my desktop:
 
-![Screenshot of emoji rendered as simple outlines](/media/2015-09/monochrome-emoji.png)
+![Screenshot of emoji rendered as simple outlines]({static}/media/2015-09/monochrome-emoji.png)
 
 That font is Symbola, which only has monochrome vector glyphs.  So they're no different than any other character.
 

@@ -13,6 +13,6 @@ June's theme is **clearing my plate**.
 
 - **zdoom**: On a total whim, I did an extremely simple [proof of concept of Lua in ZDoom](https://twitter.com/eevee/status/745010109282082816).  There's no approval or planned goals or anything for this; I just felt like trying it out.  May or may not continue it.  Ideally it would be able to replace ACS and at least massively enhance DECORATE.
 
-- **blog**: I wrote about [video games](/blog/2016/06/22/graphical-fidelity-is-ruining-video-games/) again.
+- **blog**: I wrote about [video games]({filename}/2016-06-22-graphical-fidelity-is-ruining-video-games.markdown) again.
 
 I think I ran out of _small_ things on my plate, and now I'm finding all the _large_ things a little daunting.  And here I've invented another one.  Argh.  Still, keep moving forward.

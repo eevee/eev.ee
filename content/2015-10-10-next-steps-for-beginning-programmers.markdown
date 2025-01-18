@@ -49,7 +49,7 @@ Something I frequently see new programmers trip over (but few resources address)
 
 This may sound trivial, especially to non-beginners, but it's exactly the same kind of pitfall as not understanding text versus bytes.  Text is a sequence of characters, whereas bytes are units of memory.  If you're used to ASCII, then there's no distinction here, because any one ASCII character will fit in one byte.  But plenty of other characters _don't_ fit in one byte, so we need to find a way to fit them in multiple bytes, and we call those ways character encodings.  It's really no different from how the number 500 might be stored in four bytes as `f4 01 00 00`, or as `00 00 01 f4`, or in some other order, or in some other number of bytes.
 
-Speaking of which, another good thing for beginners to learn about is **Unicode**!  I've [written about some curiosities in Unicode](/blog/2015/09/12/dark-corners-of-unicode/) before, though that's not necessarily aimed at beginners.
+Speaking of which, another good thing for beginners to learn about is **Unicode**!  I've [written about some curiosities in Unicode]({filename}/2015-09-12-dark-corners-of-unicode.markdown) before, though that's not necessarily aimed at beginners.
 
 Along similar lines, general **problem-solving** is always useful in programming.  I don't think you can just pick up a book and read about it, but it's good to pay attention to how you approach problems and see what gets you the furthest in the least time.  Off the top of my head:
 
@@ -159,7 +159,7 @@ A UI could be anything: a Qt GUI, a terminal UI, an Android app, a client-side W
 
 IRC bots are basically rites of passage, and come with some new and interesting concerns.
 
-* You're running a program that's exposed to the Internet and everyone on it.  [Some of those people are total assholes.](/blog/2015/08/22/security-through-misanthropy/)  How can you be sure those assholes don't break your program — or worse, use your program to break your computer?
+* You're running a program that's exposed to the Internet and everyone on it.  [Some of those people are total assholes.]({filename}/2015-08-22-security-through-misanthropy.markdown)  How can you be sure those assholes don't break your program — or worse, use your program to break your computer?
 * What do you do when your bot gets disconnected?  If you reconnect, how often do you retry, and when do you give up?
 * What do you do if your bot gets flooded with too many commands?
 * If your bot does something that involves talking over the network to something else, like finding the titles for YouTube links (and it totally should do something like that), how do you deal with a slow server?  If you're waiting too long on YouTube, other commands won't go through, or you might get disconnected from IRC!

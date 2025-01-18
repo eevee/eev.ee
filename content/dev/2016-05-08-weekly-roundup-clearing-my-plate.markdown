@@ -11,7 +11,7 @@ May's theme is **clearing my plate**.  I have a lot of small-to-medium-sized stu
 
 - **blog**: I rewrote the [list of work I've done](https://eev.ee/projects/) to be less, uh, unreadable garbage.  I also set up subdomains c.ee.vee for hosting hostable work, and t.ee.vee for maybe eventually hosting cat photos and the like.  I think these are pretty clever.
 
-    I also wrote about what it's been like trying to [learn to draw](/blog/2016/05/06/learning-to-draw-learning-to-learn/).
+    I also wrote about what it's been like trying to [learn to draw]({filename}/2016-05-06-learning-to-draw-learning-to-learn.markdown).
 
 - **pokémon**: I'm still working on a Pokémon Showdown client for Patreon reasons; I got a bit sidetracked trying to make urwid and asyncio play well together, but I'm well on my way to having a usable API.
 

@@ -5,7 +5,7 @@ series: birthday
 
 Another year gone by.  I don't think I even did one of these last year, but let me think about what I did while I was 26.
 
-* I [lost a cat](/blog/2013/04/30/goodbye-styx/) for the first time.  It had...  quite an impact.  Later I adopted a new little buddy, [Anise](http://lexyeevee.tumblr.com/post/68035288334/anise-up-to-no-good-taken-with-nexus-5-camera-if).
+* I [lost a cat]({filename}/2013-04-30-goodbye-styx.markdown) for the first time.  It had...  quite an impact.  Later I adopted a new little buddy, [Anise](http://lexyeevee.tumblr.com/post/68035288334/anise-up-to-no-good-taken-with-nexus-5-camera-if).
 
 * I bought a Soekris router and slapped pfSense on it.  No, really, you would not believe what a nightmare this was to actually make work.
 

@@ -13,6 +13,6 @@ It's started heating up here, and we're in the middle of our usual ritual of try
 
 - **art**: Lots of doodlin'.  I animated something for the first time, [for Mel's birthday](https://twitter.com/eevee/status/712960644492857344), and then [drew myself a new avatar](https://twitter.com/eevee/status/713212138265784320)!  I'm pretty happy with both of these, wow.
 
-- **blog**: Added some more suggestions to my [Twitter post](/blog/2016/02/20/twitters-missing-manual/).  Dabbled, briefly, in figuring out how to make Pelican host work I've done, like that Doom map.
+- **blog**: Added some more suggestions to my [Twitter post]({filename}/2016-02-20-twitters-missing-manual.markdown).  Dabbled, briefly, in figuring out how to make Pelican host work I've done, like that Doom map.
 
 I've got a few Patreon things to finish in the next few days, and along the way I'd very much like to work out a scheme for hosting other work on this domain.

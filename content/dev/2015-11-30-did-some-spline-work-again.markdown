@@ -3,7 +3,7 @@ date: 2015-11-30 21:46
 category: dev
 tags: patreon, spline, tech, making things, python
 
-Sketch is still buying days of my time, which is super cool of him.  [Continuing from last month](/blog/2015/10/30/did-some-spline-work/), he asked that I make it possible to disable normal editing and only accept proposals on the wiki.
+Sketch is still buying days of my time, which is super cool of him.  [Continuing from last month]({filename}/2015-10-30-did-some-spline-work.markdown), he asked that I make it possible to disable normal editing and only accept proposals on the wiki.
 
 After some internal debate about how to add a real configuration system, I realized this could just be expressed with permissions, so I wrote some little permissions UI.  And actually added them to the proposal code.  Which is good.
 

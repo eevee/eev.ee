@@ -9,7 +9,7 @@ It took a few days to clear my plate and get up to speed, and I'm a little worri
 
 - **twitter**: I installed Windows 95 in a VM and [documented the experience](https://twitter.com/eevee/status/719282027556511745).  I also wrote [a good Twitter bot](https://twitter.com/unicodeveryword) that tweets every word, distorted by some Unicode shenanigans.
 
-- **blog**: I wrote [about emoji](/blog/2016/04/12/apple-did-not-invent-emoji/), at considerable length.
+- **blog**: I wrote [about emoji]({filename}/2016-04-12-apple-did-not-invent-emoji.markdown), at considerable length.
 
 - **Runed Awakening**: Ehh.  I ran dry on major ideas and spent several days mostly struggling to drum up some more (or avoiding the question altogether, which is how the Twitter bot came to be).  I did end up making a _little_ progress, but not what I would call a week's worth.
 

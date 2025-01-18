@@ -20,7 +20,7 @@ As I [explained](https://twitter.com/eevee/status/477954452226203648) almost a y
 
 > i typed "☺foo" and then took a screenshot.  i stress that my cursor is /actually/ positioned AFTER the second "o".
 >
-> ![](/media/2015-05-fontconfig/cursor-size-tweet.png)
+> ![]({static}/media/2015-05-fontconfig/cursor-size-tweet.png)
 
 Now, there's definitely a [Konsole bug](https://bugs.kde.org/show_bug.cgi?id=297390) here — terminal text should _never_ be allowed to escape the grid, and the cursor should absolutely not get out of sync with the text.
 
@@ -238,8 +238,8 @@ I thought using a "weak" binding here would mean that someone could explicitly a
 
 I was celebrating the addition of ruby (furigana) support to Firefox, and went to go show someone that the prior version did not in fact support it very well.  But then I noticed something else curious.  Compare these screenshots of the same page, in Firefox (left) versus Chrome (right):
 
-![](/media/2015-05-fontconfig/japanese-firefox-before.png)
-![](/media/2015-05-fontconfig/japanese-chrome.png)
+![]({static}/media/2015-05-fontconfig/japanese-firefox-before.png)
+![]({static}/media/2015-05-fontconfig/japanese-chrome.png)
 
 Firefox's choice of font looks like total ass!  I wonder why.
 
@@ -280,7 +280,7 @@ Anyway, I went hunting for some really nice Japanese fonts, and I found two: [IP
 
 Result:
 
-![](/media/2015-05-fontconfig/japanese-firefox-after.png)
+![]({static}/media/2015-05-fontconfig/japanese-firefox-after.png)
 
 Gorgeous.
 
@@ -320,8 +320,8 @@ Well, fuck your Helvetica, and _doublefuck_ your Arial.  I installed Source Sans
 
 Here is Twitter Web, before and after.
 
-![](/media/2015-05-fontconfig/twitter-before.png)
-![](/media/2015-05-fontconfig/twitter-after.png)
+![]({static}/media/2015-05-fontconfig/twitter-before.png)
+![]({static}/media/2015-05-fontconfig/twitter-after.png)
 
 _DAMN._
 

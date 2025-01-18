@@ -74,7 +74,7 @@ Python, Ruby, JavaScript, Lua, Java, and probably several hundred other high-lev
 
 ## Pass by value, pass by reference
 
-Speaking of references.  I've [explained this before for Python](/blog/2012/05/23/python-faq-passing/), but here's the quick(ish) version.  I maintain that this dichotomy makes no sense in [almost all](https://en.wikipedia.org/wiki/Almost_all) languages, because the very question hinges on C's idea of what a value _is_, and it's a relatively rare attitude outside of the C family.
+Speaking of references.  I've [explained this before for Python]({filename}/2012-05-23-python-faq-passing.markdown), but here's the quick(ish) version.  I maintain that this dichotomy makes no sense in [almost all](https://en.wikipedia.org/wiki/Almost_all) languages, because the very question hinges on C's idea of what a value _is_, and it's a relatively rare attitude outside of the C family.
 
 The fundamental issue is that C has syntax to imply structure, but the semantics are all about _bytes_.  A `struct` looks and sounds like a container, a thing with a lid on it: it's wrapped in braces, and you have to use `.` to look inside it.  But C just sees a blob of bytes, not much different from an `int`, except that it lets you look at a few of those bytes at a time.  If you put one `struct` inside another, C will dump the inner's structure into the outer.  If you assign one `struct` to another, C will dutifully copy all the bytes over, same as it would for a `double`.  The boundary is illusory.  In effect, the only "true" container C has — the only form of containment that doesn't spill its contents all over the place — is the pointer!
 

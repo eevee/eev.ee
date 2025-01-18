@@ -7,7 +7,7 @@ April's theme is **finish Runed Awakening**.
 
 It took a few days to clear my plate and get up to speed, and I'm a little worried at how much time blog obligations seem to be eating this month, but I made some good progress.
 
-- **blog**: I scrapped a bunch of manual thumbnails from git and finally switched to Pelican's thumbnailer plugin.  I also wrote about [my first computer(s)](/blog/2016/04/05/my-first-computer/).
+- **blog**: I scrapped a bunch of manual thumbnails from git and finally switched to Pelican's thumbnailer plugin.  I also wrote about [my first computer(s)]({filename}/2016-04-05-my-first-computer.markdown).
 
 - **art**: I [painted an Eevee](https://twitter.com/eevee/status/717037513810903040), and it came out okay.  I also did [a quick painting inspired by Runed Awakening work](https://twitter.com/eevee/status/718299110131023872).
 

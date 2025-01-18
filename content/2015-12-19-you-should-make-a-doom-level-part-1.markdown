@@ -6,12 +6,6 @@ series: make a doom level
 tags: gamedev, tech, making things, doom
 
 
-<p style="text-align: center;" markdown="1">
-**Part 1: the basics**
-· [Part 2: design](/blog/2015/12/30/you-should-make-a-doom-level-part-2/)
-· [Part 3: cheating](/blog/2015/12/31/you-should-make-a-doom-level-part-3/)
-</p>
-
 I love Doom.  Or, well, I love Doom 2, which is the game we actually had when I was nostalgia years old.
 
 I love the aesthetic — pixely in a 3D(ish) environment, and consistent in a way that meshes together really well.  The classic levels are abstract (occasionally _too_ abstract), but still detailed enough to feel like they _could_ represent real places as long as you don't think about it too hard.  The environment is surprisingly dynamic: there are switches and devices everywhere.  That seems to have gotten much rarer over time, as climbing polygon counts have required ever-heavier optimizations on environments, which make it harder to move at runtime.
@@ -500,7 +494,7 @@ Right, so, about the map.  I'm going to have three imps on hard (4 and 5), two o
 
 ## Onwards
 
-And...  that's it!  A full and complete Doom level.  It's not very exciting yet, but it's a little world you built, and that's pretty cool.  You can [check mine out](/media/2015-12/part1.wad), if you like.  (You can play maps with `zdoom foo.wad`, or just drag the file onto ZDoom.)
+And...  that's it!  A full and complete Doom level.  It's not very exciting yet, but it's a little world you built, and that's pretty cool.  You can [check mine out]({static}/media/2015-12/part1.wad), if you like.  (You can play maps with `zdoom foo.wad`, or just drag the file onto ZDoom.)
 
 There's a _lot_ more you can do here.  You can discover a lot of it by poking around the various properties to see what they do, or by browsing the list of line and sector specials.  I'll try to cover the rest of the classic Doom stuff and some general design advice in part 2, and then part 3 can be all about _breaking the rules_, my favorite pastime.
 

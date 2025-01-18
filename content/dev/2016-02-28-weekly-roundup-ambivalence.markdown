@@ -11,7 +11,7 @@ February's theme is **writing**, and the major project is a **book**.
 
 - **SLADE**: Some more papercuts.  A microscopic amount of work on 3D floor rendering.  (Also, 3.1.1 is out now, so that's pretty cool.  I may update my Doom guides at some point to mention this.)
 
-- **blog**: [I made cheesecake.](/blog/2016/02/28/i-made-cheesecake/)
+- **blog**: [I made cheesecake.]({filename}/2016-02-28-i-made-cheesecake.markdown)
 
 - **art**: I drew some miscellaneous stuff.  Haven't really been in the mood for daily comics, and my inspiration has run a bit dry; all I do every day is work on stuff or not work on stuff.  I'm working on an art trade and a Pokémon 20th anniversary thing, though.
 

@@ -5,7 +5,7 @@ category: articles
 tags: popular, tech, php, plt, reference, yelling
 
 
-_(This article has been translated into [Spanish](/media/2012-04/PHP Anatomía del mal diseño.pdf) (PDF, with some additions) by Jorge Amado Soria Ramirez — thanks!)_
+_(This article has been translated into [Spanish]({static}/media/2012-04/PHP Anatomía del mal diseño.pdf) (PDF, with some additions) by Jorge Amado Soria Ramirez — thanks!)_
 
 ## Preface
 

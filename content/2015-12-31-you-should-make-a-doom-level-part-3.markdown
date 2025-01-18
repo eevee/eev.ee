@@ -5,12 +5,6 @@ category: articles
 series: make a doom level
 tags: gamedev, tech, making things, doom
 
-<p style="text-align: center;" markdown="1">
-[Part 1: the basics](/blog/2015/12/19/you-should-make-a-doom-level-part-1/)
-· [Part 2: design](/blog/2015/12/30/you-should-make-a-doom-level-part-2/)
-· **Part 3: cheating**
-</p>
-
 Tens of thousands of words later, you've watched me build a little world, and hopefully tried building your own.  All the way we've had to deal with Doom's limitations.  Flat surfaces.  No room over room.  The world can only move vertically.  The only tool we've found so far that can get around those restrictions is the sky hack, and even that's fairly limited.
 
 I've saved this for last because it's more complicated than anything else, by far.  It also finally, utterly, breaks compatibility with vanilla Doom.  You could apply everything I've said so far to vanilla with some tweaking — use line types instead of specials, make a Doom-format map, skip the separate light levels and other tricks.  But, this, all of this, is very much ZDoom only.
@@ -465,4 +459,4 @@ No, really, build a world.  I've hit Hacker News twice already and all the comme
 
 So do it.  Put something together.  Make creative use of all these little extensions.  Let people run around in your universe.  You don't even have to have monsters if you don't want to; just create a little contraption and appreciate it for its own sake.
 
-I'll be over here, chugging away at this little map set, which I'll release...  someday.  Until then, enjoy [the final version of this tutorial map](/media/2015-12/doom3/part3.wad), which is mostly the same except for these special effects.  And send me yours!  There's still a (sloowly) growing list at the bottom of [part 1](/blog/2015/12/19/you-should-make-a-doom-level-part-1/).
+I'll be over here, chugging away at this little map set, which I'll release...  someday.  Until then, enjoy [the final version of this tutorial map]({static}/media/2015-12/doom3/part3.wad), which is mostly the same except for these special effects.  And send me yours!  There's still a (sloowly) growing list at the bottom of [part 1]({filename}/2015-12-19-you-should-make-a-doom-level-part-1.markdown).

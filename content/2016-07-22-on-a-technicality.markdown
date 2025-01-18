@@ -3,7 +3,7 @@ date: 2016-07-22 20:05
 category: articles
 tags: people
 
-_Apropos of nothing_, I'd like to tell you a story.  I've [touched on this before](/blog/2015/07/29/frozen-peaches-sour-grapes/#the-freedom-of-speech), but this is the full version.  It's the story of hypothetical small-to-medium Internet community.
+_Apropos of nothing_, I'd like to tell you a story.  I've [touched on this before]({filename}/2015-07-29-frozen-peaches-sour-grapes.markdown#the-freedom-of-speech), but this is the full version.  It's the story of hypothetical small-to-medium Internet community.
 
 <!-- more -->
 
@@ -55,7 +55,7 @@ I think we forget that even real laws are somewhat subjective, often hinging on 
 
 (In an awkward twist, a lot of communities — especially very large platforms! — _don't_ explain their reasoning for punishing any particular behavior.  That somewhat protects them from being "but _technically_"-ed, but it also means there's no case law, and no one else can quite be sure what's expected behavior.)
 
-That's why I mostly now make quasirules like "don't be a dick" or "[keep your vitriol to your own blog](/blog/2014/04/05/comment-policy/)".  The general expectation is still clear, and it's obvious that I reserve the right to judge individual cases — which, in the case of a small community, is going to happen anyway.  Let's face it: small communities are monarchies, not democracies.
+That's why I mostly now make quasirules like "don't be a dick" or "[keep your vitriol to your own blog]({filename}/updates/2014-04-05-comment-policy.markdown)".  The general expectation is still clear, and it's obvious that I reserve the right to judge individual cases — which, in the case of a small community, is going to happen anyway.  Let's face it: small communities are monarchies, not democracies.
 
 I do have another reason for this, which is based on another observation I've made of small communities.  I've joined a few where I didn't bother reading the rules, made some conversation, never bothered anyone, and then later discovered that I'd pretty clearly violated a rule.  But no one ever pointed it out, and perhaps no one even _noticed_, because I wasn't being a dick.
 

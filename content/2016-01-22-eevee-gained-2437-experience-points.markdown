@@ -11,7 +11,7 @@ Wow, what a year.
 
 * I finally, seriously, started learning to draw.  I went from [this on Jan 1](http://lexyeevee.tumblr.com/post/106896848062/i-guess-ill-do-this-if-mels-doing-it) to [this on Dec 31](http://lexyeevee.tumblr.com/post/136319979417/shazam-i-had-to-draw-a-big-thing-for-the-end-of).  A lot of people have told me this is amazing progress, and I believe them, but it's sure weird to hear.  I spent 28 years not thinking I was terribly good at anything artistic, and while I know a lot of amazing artists, pretty much all of them started before high school.  Our mythos is full of that kind of thing too — here's Mozart, isn't he amazing, he was playing the piano far better than you can ever dream to when he was six years old.  There aren't too many inspiring tales of people who abruptly picked up a new and completely different skill around age 30.  Maybe I can be one?
 
-* [I left my job at Yelp](/blog/2015/06/09/i-quit-the-tech-industry/) seven months ago, intending not to work in the tech industry again.  So far, so good!  I thought by the end of the year I'd have come up with something I could actually sell, but I haven't yet.  I'm still afloat, though, and meanwhile trying to get a book and/or game actually finished.
+* [I left my job at Yelp]({filename}/2015-06-09-i-quit-the-tech-industry.markdown) seven months ago, intending not to work in the tech industry again.  So far, so good!  I thought by the end of the year I'd have come up with something I could actually sell, but I haven't yet.  I'm still afloat, though, and meanwhile trying to get a book and/or game actually finished.
 
 * I paid off our house?  That's pretty cool?  Damn?
 
@@ -19,7 +19,7 @@ Wow, what a year.
 
     I put a good bit of effort into sprucing up this site, too, and it's gradually turning into an actual little personal site.  Two years ago it was just a veekun subdomain and had nothing but a blog.  How far we've come!
 
-* I dipped a toe a little more seriously into game development.  Only a little.  I tried out [Godot](http://godotengine.org/projects/godot-engine) and had fun making a stub of a tiny platformer.  My incredible text adventure, Runed Awakening, has gotten some serious revamping and is coming along steadily.  I made [a bunch of Mario levels](/everything/tags/mario-maker/), partly to experiment with design concepts and how to make spaces that _feel_ like something, and partly to actually finish and release some small things.  I [wrote about design](/blog/2015/12/30/you-should-make-a-doom-level-part-2/) some in the second part of my Doom mapping series.  I worked on some Doom mapping of my own, but kept getting distracted by [fixing a bunch of SLADE papercuts](https://github.com/sirjuddington/SLADE/commits?author=eevee).
+* I dipped a toe a little more seriously into game development.  Only a little.  I tried out [Godot](http://godotengine.org/projects/godot-engine) and had fun making a stub of a tiny platformer.  My incredible text adventure, Runed Awakening, has gotten some serious revamping and is coming along steadily.  I made [a bunch of Mario levels]({tag}mario-maker), partly to experiment with design concepts and how to make spaces that _feel_ like something, and partly to actually finish and release some small things.  I [wrote about design]({filename}/2015-12-30-you-should-make-a-doom-level-part-2.markdown) some in the second part of my Doom mapping series.  I worked on some Doom mapping of my own, but kept getting distracted by [fixing a bunch of SLADE papercuts](https://github.com/sirjuddington/SLADE/commits?author=eevee).
 
 * I released [camel](https://pypi.python.org/pypi/camel), a [better serialization library for Python]({filename}/updates/2015-10-15-dont-use-pickle-use-camel.markdown).  I have absolutely no idea how many people are using it.  But it doesn't really matter — the real goal there was just to have something to show for my efforts for once, since I put a disproportionate amount of time into patches and experiments.  Still feels good to think about now.
 
@@ -31,7 +31,7 @@ Wow, what a year.
 
 ----
 
-Let's see what I said I wanted to do [last year](/blog/2015/01/29/eevee-gained-2269-experience-points/)...
+Let's see what I said I wanted to do [last year]({filename}/2015-01-29-eevee-gained-2269-experience-points.markdown)...
 
 - _Write more._  Success!
 

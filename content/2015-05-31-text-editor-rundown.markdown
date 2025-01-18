@@ -102,7 +102,7 @@ The welcome screen offers me a list of things I can do, and the first one is "op
 
 The welcome screen also starts out vertically split, with each pane having its own tab strip, so this is looking a whole lot like Sublime so far.
 
-I open a file and it becomes glaringly obvious, after my [recent font adventures](/blog/2015/05/20/i-stared-into-the-fontconfig-and-the-fontconfig-stared-back-at-me/), that Atom is not using my default monospace font!  [Apparently](https://discuss.atom.io/t/what-is-the-default-font-in-atom/374) (warning: page is totally blank with noscript, because it's the 21st century, which means JavaScript) the default is "Inconsolata, Monaco, Consolas, 'Courier New', Courier".  I have Inconsolata installed, so that's what I get.
+I open a file and it becomes glaringly obvious, after my [recent font adventures]({filename}/2015-05-20-i-stared-into-the-fontconfig-and-the-fontconfig-stared-back-at-me.markdown), that Atom is not using my default monospace font!  [Apparently](https://discuss.atom.io/t/what-is-the-default-font-in-atom/374) (warning: page is totally blank with noscript, because it's the 21st century, which means JavaScript) the default is "Inconsolata, Monaco, Consolas, 'Courier New', Courier".  I have Inconsolata installed, so that's what I get.
 
 This is kind of annoying, and I interpret it as the first sign of the Web platform leaking through.  A website can't reasonably be expected to serve different default fonts per client OS, but _local software_ generally can, and on Linux you should be using fontconfig's generic "monospace".  Atom, though, is styled with CSS, so all it has is a `font-family` somewhere.  Which doesn't even include "monospace" as a _fallback_.
 

@@ -15,7 +15,7 @@ A couple of other things happened.
 
 - **doom**: I tinkered a bit when very exhausted with working on UC.  I think I only really made a little progress on the pain elemental variant, and rigged ammo to drop smaller ammo if you didn't need all of it.
 
-- **blog**: I wrote about [making Under Construction]({filename}/updates/2016-05-25-under-construction-our-pico-8-game.markdown) and what it was like to work with the PICO-8.  I also wrote most of an extremely ambitious [Perlin noise](/blog/2016/05/29/perlin-noise/) post (with interactive gizmos!), which I just finished earlier today.
+- **blog**: I wrote about [making Under Construction]({filename}/updates/2016-05-25-under-construction-our-pico-8-game.markdown) and what it was like to work with the PICO-8.  I also wrote most of an extremely ambitious [Perlin noise]({filename}/2016-05-29-perlin-noise.markdown) post (with interactive gizmos!), which I just finished earlier today.
 
 I still have some obligations left for this month, like one more post (up to four now!  augh!), and then _next_ month I can finally spend clearing my plate.
 

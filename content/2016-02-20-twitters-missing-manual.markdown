@@ -5,7 +5,7 @@ category: articles
 tags: reference, tech, ui
 
 
-I mentioned recently, buried in [a post about UI changes](/blog/2016/02/10/we-have-always-been-at-war-with-ui/), that Twitter's latest earnings report [included this bombshell](http://venturebeat.com/2016/02/10/twitter-is-fixing-that-thing-where-you-type-for-everyone-to-see-your-tweet/):
+I mentioned recently, buried in [a post about UI changes]({filename}/2016-02-10-we-have-always-been-at-war-with-ui.markdown), that Twitter's latest earnings report [included this bombshell](http://venturebeat.com/2016/02/10/twitter-is-fixing-that-thing-where-you-type-for-everyone-to-see-your-tweet/):
 
 > We are going to fix the broken windows and confusing parts, like the .@name syntax and @reply rules, that we know inhibit usage and drive people away
 

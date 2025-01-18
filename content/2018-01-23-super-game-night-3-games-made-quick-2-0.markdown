@@ -3,7 +3,7 @@ date: 2018-01-23 23:03
 category: articles
 series: game night
 
-[Game night](/everything/tags/game-night/) continues with a smorgasbord of games from my recent game jam, [GAMES MADE QUICK??? 2.0](https://itch.io/jam/games-made-quick-2)!
+Game night continues with a smorgasbord of games from my recent game jam, [GAMES MADE QUICK??? 2.0](https://itch.io/jam/games-made-quick-2)!
 
 The idea was to make a game in only a week while watching AGDQ, as an alternative to doing absolutely nothing for a week while watching AGDQ.  (I didn't submit a game myself; I was chugging along on my Anise game, which isn't finished yet.)
 

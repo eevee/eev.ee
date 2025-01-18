@@ -7,7 +7,7 @@ April's theme was **finish Runed Awakening**, which I definitely did not do, but
 
 - **Runed Awakening**: Implemented _padlocks_, woohoo.  Did some more high-level planning; getting pretty close to a cohesive whole here, at least in theory.  Drew a couple more pixel items.  Then, uh, kinda didn't touch it again for most of the week because I had Patreon obligations to take care of, oops.
 
-- **blog**: I wrote about [dozenal](/blog/2016/04/26/the-case-for-base-twelve/) and [using Lua for game development](/blog/2016/04/30/embedding-lua-vs-python/), which somehow turned into a dissection of how to embed Lua and Python.
+- **blog**: I wrote about [dozenal]({filename}/2016-04-26-the-case-for-base-twelve.markdown) and [using Lua for game development]({filename}/2016-04-30-embedding-lua-vs-python.markdown), which somehow turned into a dissection of how to embed Lua and Python.
 
 - **art**: I spent a couple days drawing after not really doing so much of it for the last few weeks, resulting in [some cat complaints](https://twitter.com/eevee/status/725485690448834560), [some cat revenge](https://twitter.com/eevee/status/726189551010471936), and [my finishing this ancient art trade](https://twitter.com/eevee/status/726285837801918464).  At which point two more people asked to trade, sob.
 
