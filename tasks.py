@@ -24,7 +24,7 @@ CONFIG = {
     'publish_deploy_path': 'output-publish',
     # Remote server configuration
     'ssh_user': 'eevee',
-    'ssh_host': 'rankurusu.veekun.com',
+    'ssh_host': 'sutorindaa.eev.ee',
     'ssh_port': '22',
     'ssh_path': '/var/www/eev.ee',
     # Port for `serve`
