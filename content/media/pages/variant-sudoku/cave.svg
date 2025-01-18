@@ -1,0 +1,169 @@
+<!-- cave sudoku by phistomefel: https://sudokupad.app/Hph4Qn9fB9 -->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" draggable="false" viewBox="-16 -16 608 608" width="64" height="64" style="background: var(--body-bg);" class="">
+    <g class="defs">
+        <defs><style xmlns="http://www.w3.org/1999/xhtml" type="text/css"><![CDATA[:root { --icon-toggle: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" xmlns:v="https://vecta.io/nano"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7a4 4 0 1 1 0-8h10a4 4 0 1 1 0 8zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>'); }
+.cell-highlight { fill: rgba(255, 215, 0, 0.5); }
+.cell-grid { fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: bevel; vector-effect: non-scaling-stroke; }
+.cage-box { stroke-width: 3px; }
+.pm-0 { transform: translate(-15px, -15px); }
+.pm-1 { transform: translate(15px, -15px); }
+.pm-2 { transform: translate(-15px, 15px); }
+.pm-3 { transform: translate(15px, 15px); }
+.pm-4 { transform: translate(0px, -15px); }
+.pm-5 { transform: translate(0px, 15px); }
+.pm-6 { transform: translate(-15px); }
+.pm-7 { transform: translate(15px); }
+.pm-8 { transform: translate(-5px); }
+.pm-9 { transform: translate(5px); }
+.cell-given { font-size: 3rem; }
+.cell-value { font-size: 3rem; }
+.cell-candidate { font-size: 1.2rem; }
+.cell-pencilmark { font-size: 1.1rem; }
+.cell-candidate[data-count="6"], .setting-largedigits .cell-candidate[data-count="6"] { font-size: 97%; }
+.cell-candidate[data-count="7"], .setting-largedigits .cell-candidate[data-count="7"] { font-size: 90%; }
+.cell-candidate[data-count="8"], .setting-largedigits .cell-candidate[data-count="8"] { font-size: 80%; }
+.cell-candidate[data-count="9"], .setting-largedigits .cell-candidate[data-count="9"] { font-size: 70%; }
+.cell-candidate[data-count="10"], .setting-largedigits .cell-candidate[data-count="9"] { font-size: 65%; }
+svg text { text-anchor: middle; dominant-baseline: middle; stroke-width: var(--text-stroke-width); stroke-linecap: butt; stroke-linejoin: miter; paint-order: stroke; }
+svg .cage-label { font-size: 13px; text-anchor: start; }
+.cell-border { position: absolute; z-index: 4; top: 0px; left: 0px; }
+.box-t { border-top: 3px solid rgb(0, 0, 0); }
+.box-b { border-bottom: 3px solid rgb(0, 0, 0); }
+.box-l { border-left: 3px solid rgb(0, 0, 0); }
+.box-r { border-right: 3px solid rgb(0, 0, 0); }
+.killer-t { border-top: 1px dashed rgb(0, 0, 0); }
+.killer-b { border-bottom: 1px dashed rgb(0, 0, 0); }
+.killer-r { border-right: 1px dashed rgb(0, 0, 0); }
+.killer-l { border-left: 1px dashed rgb(0, 0, 0); }
+.puzzle-header { position: relative; display: flex; flex-direction: column; height: 4rem; margin: 0px 2rem; padding: 0px 0.5rem; background: rgb(131, 0, 63); }
+.puzzle-header .header-left, .puzzle-header .header-right { position: absolute; z-index: 0; }
+.puzzle-header .header-left { left: -2rem; }
+.puzzle-header .header-right { right: -2rem; }
+.puzzle-title, .puzzle-author { position: absolute; left: 50%; transform: translate(-50%); text-align: center; white-space: nowrap; line-height: 2rem; font-size: 1.5rem; font-weight: 400; font-family: Lobster, cursiv; color: rgb(234, 234, 234); z-index: 1; max-width: 100%; overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; }
+.puzzle-author { top: 50%; }
+.puzzle-rules { max-height: 14rem; max-width: 30rem; overflow-y: scroll; border-radius: 1rem; padding: 1rem; font-size: 1.1rem; margin: 0.2rem 0px; background: rgb(165, 224, 142); display: none; position: relative; }
+.puzzle-rules .puzzlenotes, .rulestext .puzzlenotes { margin: 1rem; }
+.setting-dashedgrid .cell-grid { stroke-dasharray: 3px, 10px; }
+.setting-nogrid .cell-grid { display: none; }
+:root { --color-white: #fff; --color-black: #000; --body-bg: #fff; --puzzle-selectioncage: rgba(0, 126, 255, 0.7); --puzzle-given: #000; --puzzle-givenCornermark: #000; --puzzle-givenCandidate: #000; --puzzle-givenoutlines: var(--body-bg); --puzzle-value: rgb(29,106,229); --puzzle-candidate: #1d6ae5; --puzzle-pencilmark: #1d6ae5; --puzzle-digitoutlines: rgba(255,255,255,0.7); --puzzle-cellerror: rgba(179, 58, 58, 0.5); --puzzle-pencilmarkerror: rgba(179, 58, 58, 1); --button-bg: #fff; --controls-button-text: #fff; --controls-button-bg: #6a1b9a; --controls-button-hover-text: #fff; --controls-button-hover-bg: #7b1fa2; --controls-button-selected-text: #fff; --controls-button-selected-bg: #6a1b9a; --controls-button-selected-hover-text: #fff; --controls-button-selected-hover-bg: #7b1fa2; --controls-button-selectedperm-text: #fff; --controls-button-selectedperm-bg: #6a1b9a; --controls-button-selectedperm-hover-text: #fff; --controls-button-selectedperm-hover-bg: #7b1fa2; --text-stroke-width: 0; --outlinefilter: url("#outlinefilter"); }
+svg text { fill: var(--color-black); stroke: var(--puzzle-digitoutlines); }
+svg .cell-given { color: var(--puzzle-given); fill: var(--puzzle-given); }
+svg .cell-value { color: var(--puzzle-value); fill: var(--puzzle-value); }
+svg .cell-candidate { color: var(--puzzle-candidate); fill: var(--puzzle-candidate); }
+svg .cell-pencilmark { color: var(--puzzle-pencilmark); fill: var(--puzzle-pencilmark); }
+svg .cell-pencilmark.givenCornermark { color: var(--puzzle-givenCornermark); fill: var(--puzzle-givenCornermark); }
+svg .cell-candidate .given { color: var(--puzzle-givenCandidate); fill: var(--puzzle-givenCandidate); }
+svg .cage-selectioncage { stroke: var(--puzzle-selectioncage); }
+svg rect.cage-label { fill: var(--body-bg); }
+svg text.cage-label { color: var(--puzzle-given); fill: var(--puzzle-given); }
+@font-face { font-family: "Lobster"; src: url("https://fonts.gstatic.com/s/lobster/v30/neILzCirqoswsqX9zo-mM5Ez.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: "Lobster"; src: url("https://fonts.gstatic.com/s/lobster/v30/neILzCirqoswsqX9zoamM5Ez.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+@font-face { font-family: "Lobster"; src: url("https://fonts.gstatic.com/s/lobster/v30/neILzCirqoswsqX9zo2mM5Ez.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+@font-face { font-family: "Lobster"; src: url("https://fonts.gstatic.com/s/lobster/v30/neILzCirqoswsqX9zoymM5Ez.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Lobster"; src: url("https://fonts.gstatic.com/s/lobster/v30/neILzCirqoswsqX9zoKmMw.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Mu72xKOzY.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Mu5mxKOzY.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Mu7mxKOzY.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+1F00-1FFF; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Mu4WxKOzY.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Mu7WxKOzY.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Mu7GxKOzY.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Mu4mxK.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmEU9fCRc4EsA.woff2") format("woff2"); font-style: normal; font-weight: 500; font-display: swap; unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmEU9fABc4EsA.woff2") format("woff2"); font-style: normal; font-weight: 500; font-display: swap; unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmEU9fCBc4EsA.woff2") format("woff2"); font-style: normal; font-weight: 500; font-display: swap; unicode-range: U+1F00-1FFF; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmEU9fBxc4EsA.woff2") format("woff2"); font-style: normal; font-weight: 500; font-display: swap; unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmEU9fCxc4EsA.woff2") format("woff2"); font-style: normal; font-weight: 500; font-display: swap; unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmEU9fChc4EsA.woff2") format("woff2"); font-style: normal; font-weight: 500; font-display: swap; unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Roboto"; src: url("https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmEU9fBBc4.woff2") format("woff2"); font-style: normal; font-weight: 500; font-display: swap; unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.cage-seencells { fill: rgb(255, 215, 0); opacity: 0.2; }
+svg .rowcollabel { font-size: 0.9rem; }
+svg .rowlabel { text-anchor: end; }
+.cell-error { background-color: var(--puzzle-cellerror); fill: var(--puzzle-cellerror); }
+:root { --fog-mask-white: #fff; --fog-mask-black: #000; }
+.fog-mask-white { fill: var(--fog-mask-white); }
+.fog-mask-black { fill: var(--fog-mask-black); }
+#fog-edge * { fill: var(--fog-mask-black); stroke-linecap: butt; stroke-linejoin: round; }
+#fog-fogcover { fill: rgb(175, 175, 175); }
+.cage-cellmarker { opacity: 0; animation: 1s ease-in-out markerbounce; }
+:root { --fog-mask-white: #fff; --fog-mask-black: #000; }
+.fog-mask-white { fill: var(--fog-mask-white); }
+.fog-mask-black { fill: var(--fog-mask-black); }
+#fog-edge * { fill: var(--fog-mask-black); stroke-linecap: butt; stroke-linejoin: round; }
+#fog-fogcover { fill: rgb(175, 175, 175); }
+:root { --cell-color-opacity: 0.6; }
+#cell-colors { opacity: var(--cell-color-opacity); }
+.color-0 { fill: var(--cell-color-0); }
+.color-1 { fill: var(--cell-color-1); }
+.color-2 { fill: var(--cell-color-2); }
+.color-3 { fill: var(--cell-color-3); }
+.color-4 { fill: var(--cell-color-4); }
+.color-5 { fill: var(--cell-color-5); }
+.color-6 { fill: var(--cell-color-6); }
+.color-7 { fill: var(--cell-color-7); }
+.color-8 { fill: var(--cell-color-8); }
+.color-9 { fill: var(--cell-color-9); }
+.color-a { fill: var(--cell-color-a); }
+.color-b { fill: var(--cell-color-b); }
+.color-c { fill: var(--cell-color-c); }
+.color-d { fill: var(--cell-color-d); }
+.color-e { fill: var(--cell-color-e); }
+.color-f { fill: var(--cell-color-f); }
+.color-g { fill: var(--cell-color-g); }
+.color-h { fill: var(--cell-color-h); }
+.color-i { fill: var(--cell-color-i); }
+.color-j { fill: var(--cell-color-j); }
+.color-k { fill: var(--cell-color-k); }
+.color-l { fill: var(--cell-color-l); }
+.color-m { fill: var(--cell-color-m); }
+.color-n { fill: var(--cell-color-n); }
+.color-o { fill: var(--cell-color-o); }
+.color-p { fill: var(--cell-color-p); }
+.color-q { fill: var(--cell-color-q); }
+.color-r { fill: var(--cell-color-r); }
+.color-s { fill: var(--cell-color-s); }
+.color-t { fill: var(--cell-color-t); }
+:root { --cell-color-0: transparent; --cell-color-1: rgb(214, 214, 214); --cell-color-2: rgb(124, 124, 124); --cell-color-3: rgb(-36, -36, -36); --cell-color-4: rgb(179, 229, 106); --cell-color-5: rgb(232, 124, 241); --cell-color-6: rgb(228, 150, 50); --cell-color-7: rgb(245, 58, 55); --cell-color-8: rgb(252, 235, 63); --cell-color-9: rgb(61, 153, 245); --cell-color-a: transparent; --cell-color-b: rgb(204, 51, 17); --cell-color-c: rgb(17, 119, 51); --cell-color-d: rgb(0, 68, 196); --cell-color-e: rgb(238, 153, 170); --cell-color-f: rgb(255, 255, 25); --cell-color-g: rgb(240, 70, 240); --cell-color-h: rgb(160, 90, 30); --cell-color-i: rgb(51, 187, 238); --cell-color-j: rgb(145, 30, 180); --cell-color-k: transparent; --cell-color-l: rgb(245, 58, 55); --cell-color-m: rgb(76, 175, 80); --cell-color-n: rgb(61, 153, 245); --cell-color-o: rgb(249, 136, 134); --cell-color-p: rgb(149, 208, 151); --cell-color-q: rgb(158, 204, 250); --cell-color-r: rgb(170, 12, 9); --cell-color-s: rgb(47, 106, 49); --cell-color-t: rgb(9, 89, 170); }
+:root { --puzzle-pencolor-1: rgb(31, 128, 32); --puzzle-pencolor-2: rgb(232, 124, 241); --puzzle-pencolor-3: rgb(228, 150, 50); --puzzle-pencolor-4: rgb(245, 58, 55); --puzzle-pencolor-5: rgb(210, 190, 50); --puzzle-pencolor-6: rgb(61, 153, 245); --puzzle-pencolor-7: rgb(214, 214, 214); --puzzle-pencolor-8: rgb(124, 124, 124); --puzzle-pencolor-9: rgb(-36, -36, -36); }
+.cell-pen { fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 5px; opacity: 0.8; }
+.pen-3, .pen-4, .pen-b, .pen-c { stroke-width: 2.5px; }
+.pencolor-erase { stroke: rgba(230, 38, 31, 0.8); opacity: 0.5; }
+.pencolor-1 { stroke: var(--puzzle-pencolor-1); }
+.pencolor-2 { stroke: var(--puzzle-pencolor-2); }
+.pencolor-3 { stroke: var(--puzzle-pencolor-3); }
+.pencolor-4 { stroke: var(--puzzle-pencolor-4); }
+.pencolor-5 { stroke: var(--puzzle-pencolor-5); }
+.pencolor-6 { stroke: var(--puzzle-pencolor-6); }
+.pencolor-7 { stroke: var(--puzzle-pencolor-7); }
+.pencolor-8 { stroke: var(--puzzle-pencolor-8); }
+.pencolor-9 { stroke: var(--puzzle-pencolor-9); }
+:root { --tool-text: ""; }
+#cell-givens, #cell-values, #cell-candidates, #cell-pencilmarks { text-transform: uppercase; }
+* {font-family: Roboto, Arial, sans-serif; vector-effect: none !important;}
+#cell-highlights { display: none; }]]></style>
+            <filter id="outlinefilter" class="viewboxsize" x="-16" y="-16" width="608" height="608" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feMorphology in="SourceGraphic" result="outline" operator="dilate" radius="0.65"/>
+                <feColorMatrix values="1000 1000 1000 1000 0 1000 1000 1000 1000 0 1000 1000 1000 1000 0 0 0 0 0.7 0" in="outline" result="outline"/>
+                <feBlend in="SourceGraphic" in2="outline" mode="normal"/>
+            </filter>
+            <filter id="outlinefilter_dark" class="viewboxsize" x="-16" y="-16" width="608" height="608" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feMorphology in="SourceGraphic" result="outline" operator="dilate" radius="0.65"/>
+                <feColorMatrix values="-1000 -1000 -1000 1000 0 -1000 -1000 -1000 1000 0 -1000 -1000 -1000 1000 0 0 0 0 0.7 0" in="outline" result="outline"/>
+                <feBlend in="SourceGraphic" in2="outline" mode="normal"/>
+            </filter>
+        </defs>
+    </g>
+    <g id="background"/>
+    <g id="underlay"><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="64" y="0" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="0" y="64" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="128" y="128" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="192" y="64" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="320" y="64" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="448" y="64" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="512" y="0" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="256" y="192" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="320" y="192" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="384" y="256" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="448" y="320" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="512" y="384" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="448" y="448" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="384" y="512" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="320" y="448" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="256" y="384" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="128" y="320" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="64" y="448" opacity="1"/><rect width="64" height="64" fill-opacity="0.5" stroke-opacity="0.5" fill="#F7D038" stroke="none" stroke-width="0" x="0" y="192" opacity="1"/></g>
+    <g id="cell-colors"/>
+    <g id="arrows"/>
+    <g id="cages"/>
+    <g id="cell-highlights"/>
+    <g id="cell-grids"><path class="cell-grid" d="M0 0 L576 0 M0 64 L576 64 M0 128 L576 128 M0 192 L576 192 M0 256 L576 256 M0 320 L576 320 M0 384 L576 384 M0 448 L576 448 M0 512 L576 512 M0 576 L576 576 M0 0 L0 576 M64 0 L64 576 M128 0 L128 576 M192 0 L192 576 M256 0 L256 576 M320 0 L320 576 M384 0 L384 576 M448 0 L448 576 M512 0 L512 576 M576 0 L576 576"/><path fill="none" stroke="rgba(0, 0, 0, 1)" stroke-width="3px" class="cage-box" shape-rendering="geometricprecision" vector-effect="non-scaling-stroke" d="M0 0 L96 0 L192 0 L192 96 L192 192 L96 192 L0 192 L0 96 Z"/><path fill="none" stroke="rgba(0, 0, 0, 1)" stroke-width="3px" class="cage-box" shape-rendering="geometricprecision" vector-effect="non-scaling-stroke" d="M0 192 L96 192 L192 192 L192 288 L192 384 L96 384 L0 384 L0 288 Z"/><path fill="none" stroke="rgba(0, 0, 0, 1)" stroke-width="3px" class="cage-box" shape-rendering="geometricprecision" vector-effect="non-scaling-stroke" d="M0 384 L96 384 L192 384 L192 480 L192 576 L96 576 L0 576 L0 480 Z"/><path fill="none" stroke="rgba(0, 0, 0, 1)" stroke-width="3px" class="cage-box" shape-rendering="geometricprecision" vector-effect="non-scaling-stroke" d="M192 0 L288 0 L384 0 L384 96 L384 192 L288 192 L192 192 L192 96 Z"/><path fill="none" stroke="rgba(0, 0, 0, 1)" stroke-width="3px" class="cage-box" shape-rendering="geometricprecision" vector-effect="non-scaling-stroke" d="M192 192 L288 192 L384 192 L384 288 L384 384 L288 384 L192 384 L192 288 Z"/><path fill="none" stroke="rgba(0, 0, 0, 1)" stroke-width="3px" class="cage-box" shape-rendering="geometricprecision" vector-effect="non-scaling-stroke" d="M192 384 L288 384 L384 384 L384 480 L384 576 L288 576 L192 576 L192 480 Z"/><path fill="none" stroke="rgba(0, 0, 0, 1)" stroke-width="3px" class="cage-box" shape-rendering="geometricprecision" vector-effect="non-scaling-stroke" d="M384 0 L480 0 L576 0 L576 96 L576 192 L480 192 L384 192 L384 96 Z"/><path fill="none" stroke="rgba(0, 0, 0, 1)" stroke-width="3px" class="cage-box" shape-rendering="geometricprecision" vector-effect="non-scaling-stroke" d="M384 192 L480 192 L576 192 L576 288 L576 384 L480 384 L384 384 L384 288 Z"/><path fill="none" stroke="rgba(0, 0, 0, 1)" stroke-width="3px" class="cage-box" shape-rendering="geometricprecision" vector-effect="non-scaling-stroke" d="M384 384 L480 384 L576 384 L576 480 L576 576 L480 576 L384 576 L384 480 Z"/></g>
+    <g id="cell-errors"/>
+    <g id="overlay"/>
+    <g id="cell-givens"><text x="352" y="227.8" style="" class="cell-given">3</text><text x="160" y="291.8" style="" class="cell-given">6</text><text x="544" y="291.8" style="" class="cell-given">1</text><text x="160" y="355.8" style="" class="cell-given">5</text><text x="480" y="355.8" style="" class="cell-given">3</text><text x="96" y="483.8" style="" class="cell-given">2</text><text x="544" y="483.8" style="" class="cell-given">3</text><text x="416" y="547.8" style="" class="cell-given">4</text></g>
+    <g id="cell-pen"/>
+    <g id="cell-pencilmarks"/>
+    <g id="cell-candidates"/>
+    <g id="cell-values"/>
+</svg>
