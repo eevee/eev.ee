@@ -1,4 +1,5 @@
 title: You should make a Doom level, part 2: design
+seriestitle: Design
 date: 2015-12-30 14:18
 modified: 2016-03-19 19:10
 category: articles

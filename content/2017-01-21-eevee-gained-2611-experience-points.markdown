@@ -1,4 +1,5 @@
 title: Eevee gained 2611 experience points
+seriestitle: 2017
 date: 2017-01-21 16:50
 category: personal
 series: birthday

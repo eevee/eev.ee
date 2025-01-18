@@ -1,4 +1,5 @@
 title: You should make a Doom level, part 1: the basics
+seriestitle: Basics
 date: 2015-12-19 12:10
 modified: 2016-03-19 19:10
 category: articles

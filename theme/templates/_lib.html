@@ -53,18 +53,18 @@
 {% if article.series %}
 <div class="series-navigator">
     {% if article.series.previous %}
-        <a class="-prev" href="{{ SITEURL }}/{{ article.series.previous.url }}">❮&nbsp;{{ article.series.previous.title }}</a>
+        <a class="-prev" href="{{ SITEURL }}/{{ article.series.previous.url }}">❮&nbsp;{{ article.series.previous.seriestitle or article.series.previous.title }}</a>
     {% else %}
         <span class="-prev">❮</span>
     {% endif %}
 
     <div class="-page">
-        #{{ article.series.index }} of {{ article.series.all | length }} in
+        {{ article.series.index }} / {{ article.series.all | length }} in
         <a href="{{ SITEURL }}/{{ TAGS_URL }}#{{ article.series.name.replace(' ', '-') }}">{{ SERIES_NAMES[article.series.name] }}</a>
     </div>
 
     {% if article.series.next %}
-        <a class="-next" href="{{ SITEURL }}/{{ article.series.next.url }}">{{ article.series.next.title }}&nbsp;❯</a>
+        <a class="-next" href="{{ SITEURL }}/{{ article.series.next.url }}">{{ article.series.next.seriestitle or article.series.next.title }}&nbsp;❯</a>
     {% else %}
         <span class="-next">❯</span>
     {% endif %}

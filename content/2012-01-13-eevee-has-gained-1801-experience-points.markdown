@@ -1,4 +1,5 @@
 title: Eevee has gained 1801 experience points...
+seriestitle: 2012
 date: 2012-01-13 18:20:00
 category: personal
 series: birthday
