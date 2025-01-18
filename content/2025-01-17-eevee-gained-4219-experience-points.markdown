@@ -114,7 +114,7 @@ Highlights include:
 
 - Compatibility is vastly improved, _and_ more of the built-in levels are beatable.  (Some of the built-in levels are designed for CC1, but the default rules are CC2-like and _slightly_ different.  A couple levels now have manual patches specifically to make them beatable, a tactic borrowed from ZDoom.)
 
-- Support for Lynx mode has gone from "very bad" to "pretty solid"!  It's still not speedrun legal, largely because it doesn't fully emulator frankly insane bugs like actors being able to teleport on top of each other, but it should be sufficiently accurate for normal purposes.
+- Support for Lynx mode has gone from "very bad" to "pretty solid"!  It's still not speedrun legal, largely because it doesn't fully emulate frankly insane bugs like actors being able to teleport on top of each other, but it should be sufficiently accurate for normal purposes.
 
 The editor is also vastly, _vastly_ better; it has multiple new tools for otherwise awkward tasks, it supports arbitrary selections (including a new wand select tool), it supports CC1-style tile connections, and it can export levels in CC1 format!
 
