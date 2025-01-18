@@ -312,6 +312,10 @@ dl.illustrated-list {
         }
         img {
             max-width: 256px;
+            border: 2px solid #fff6;
+        }
+        > a:hover img {
+            border-color: #fffc;
         }
     }
     > dd {
@@ -382,6 +386,45 @@ dl.illustrated-list > dd > h2 > a {
 .game-stats {
     color: hsl(330deg 50% 75%);
 }
+
+ol.jam-grid {
+    list-style: none;
+    display: grid;
+    grid: auto-flow / repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1em;
+    justify-items: center;
+    margin: 1em 0;
+    padding: 0;
+
+    > li {
+        display: grid;
+        grid:
+            "img  img"
+            "time games"
+            / auto auto;
+
+        > a {
+            display: block;
+            grid-area: img;
+
+            img {
+                border: 2px solid #fff6;
+            }
+            &:hover img {
+                border-color: #fffc;
+            }
+        }
+        > time {
+            grid-area: time;
+            font-size: inherit;
+            line-height: inherit;
+        }
+        > .-games {
+            grid-area: games;
+            text-align: right;
+        }
+    }
+}
 </style>
 </head>
 
@@ -415,7 +458,7 @@ dl.illustrated-list > dd > h2 > a {
 </section>
 </div>
 
-<section>
+<section id="games">
     <header>
         <h1>video's game's</h1>
         <hr>
@@ -660,7 +703,86 @@ dl.illustrated-list > dd > h2 > a {
     </dl>
 </section>
 
-<section>
+<section id="jams">
+    <header>
+        <h1>game jams</h1>
+        <hr>
+    </header>
+
+    <h2>🔞 Strawberry Jam</h2>
+
+    <p>A recurring jam whose sole theme is "make a horny game".  Despite the limited direction, it's developed an excellent and sex-positive vibe and has produced a number of bangers.  There are no prizes, but there <em>are</em> a bunch of ratings categories, to increase the chances that everyone will place highly.  The judging also encourages everyone to actually play each other's games.</p>
+
+    <p>You can browse the years individually, or check out my itch collection of <a href="https://itch.io/c/706234/strawberry-jam-finalists">every game that's ever placed top three in any category</a>.</p>
+
+    <ol class="jam-grid">
+        <li>
+            <a href="https://itch.io/jam/strawberry-jam"><img src="here/illus/strawberry-jam-1.png" title="Strawberry Jam" alt="Strawberry Jam (accompanied by an overflowing jam jar with a spoon in it, a recurring logo going forward)"></a>
+            <time datetime="2017-02-01">2017</time>
+            <span class="-games">40 games</span>
+        </li>
+        <li>
+            <a href="https://itch.io/jam/strawberry-jam-2"><img src="here/illus/strawberry-jam-2.png" title="Strawberry Jam 2" alt="Strawberry Jam 2 (depicting Cerise, a pink gel bunny, leaning over a sign with the logo on it, and Lexy, a scruffy fox, sitting on the sign but peering down at Cerise's boobs)"></a>
+            <time datetime="2018-02-01">2018</time>
+            <span class="-games">51 games</span>
+        </li>
+        <li>
+            <a href="https://itch.io/jam/strawberry-jam-3"><img src="here/illus/strawberry-jam-3.png" title="Strawberry Jam 3" alt="Strawberry Jam 3 (depicting Cerise in the background, and Lexy in the foreground with a sly expression and her legs spread, but the 3 obscuring her crotch)"></a>
+            <time datetime="2019-02-01">2019</time>
+            <span class="-games">37 games</span>
+        </li>
+        <li>
+            <a href="https://itch.io/jam/strawberry-jam-4"><img src="here/illus/strawberry-jam-4.png" title="Strawberry Jam 4" alt="Strawberry Jam 4 (depicting Lexy tipping over from trying to carry a 5 that's about as big as she is, and Cerise rushing towards her to help)"></a>
+            <time datetime="2020-02-01">2020</time>
+            <span class="-games">32 games</span>
+        </li>
+        <li>
+            <a href="https://itch.io/jam/strawberry-jam-5"><img src="here/illus/strawberry-jam-5.png" title="Strawberry Jam 5" alt="Strawberry Jam 5 (depicting Lexy bent through the bottom part of a large 5 to show her butt, and Cerise winding up a paddle, about to smack her with it)"></a>
+            <time datetime="2021-02-01">2021</time>
+            <span class="-games">43 games</span>
+        </li>
+        <li>
+            <a href="https://itch.io/jam/strawberry-jam-6"><img src="here/illus/strawberry-jam-6.png" title="Strawberry Jam 6" alt="Strawberry Jam 6 (depicting Cerise holding a large balloon 6, and Lexy looking amused and holding a hand-written sign with a 9 next to it)"></a>
+            <time datetime="2022-02-01">2022</time>
+            <span class="-games">37 games</span>
+        </li>
+        <li>
+            <a href="https://itch.io/jam/strawberry-jam-7"><img src="here/illus/strawberry-jam-7.png" title="Strawberry Jam 7" alt="Strawberry Jam 7 (depicting Lexy bent over towards the camera with her tail up, and Cerise holding a large 7 as if she were about to insert it into Lexy)"></a>
+            <time datetime="2023-02-01">2023</time>
+            <span class="-games">55 games</span>
+        </li>
+        <li>
+            <a href="https://itch.io/jam/strawberry-jam-8"><img src="here/illus/strawberry-jam-8.png" title="Strawberry Jam 8" alt="Strawberry Jam 8 (depicting a large number 8 decorated with ears like Cerise's, Lexy peeking through it like it's a carnival portrait with the face missing, and Cerise giggling in amusement)"></a>
+            <time datetime="2024-02-01">2024</time>
+            <span class="-games">74 games</span>
+        </li>
+    </ol>
+
+    <h2>GAMES MADE QUICK???</h2>
+
+    <p>This was a week-long jam I ran concurrently with <a href="https://gamesdonequick.com/">Games Done Quick</a>, in an attempt to nudge myself into doing something productive and not just watching a Twitch stream for a solid week.</p>
+
+    <p>I fell off of GDQ over the years, and neither watched GDQ nor participated in my own jam for the last few years this ran.  I took that as a sign it was time to draw this series to a close.</p>
+
+    <ol>
+        <li><a href="https://itch.io/jam/games-made-quick">GAMES MADE QUICK???</a> (AGDQ 2017) — 28 games</li>
+        <li><a href="https://itch.io/jam/games-made-quick-one-and-a-half">GAMES MADE QUICK??? 1½</a> (SGDQ 2017) — 62 games</li>
+        <li><a href="https://itch.io/jam/games-made-quick-2">GAMES MADE QUICK??? 2.0</a> (AGDQ 2018) — 27 games</li>
+        <li><a href="https://itch.io/jam/games-made-quick-25">GAMES MADE QUICK??? 2.5</a> (SGDQ 2018) — 21 games</li>
+        <li><a href="https://itch.io/jam/games-made-quick-iii">GAMES MADE QUICK??? III</a> (AGDQ 2019) — 32 games</li>
+        <li><a href="https://itch.io/jam/games-made-quick-iii-2">GAMES MADE QUICK??? III-2</a> (SGDQ 2019) — 26 games</li>
+        <li><a href="https://itch.io/jam/games-made-quick-four">GAMES MADE QUICK??? FOUR</a> (AGDQ 2020) — 39 games</li>
+        <li><a href="https://itch.io/jam/games-made-quick-four-plus">GAMES MADE QUICK??? FOUR+</a> (SGDQ 2020) — 17 games</li>
+        <li><a href="https://itch.io/jam/games-made-quick-go">GAMES MADE QUICK??? ＧＯ！！五〜☆</a> (AGDQ 2021) — 12 games</li>
+        <li><a href="https://itch.io/jam/games-made-quick-go-next">GAMES MADE QUICK??? ＧＯ！！五の次！〜☆</a> (SGDQ 2021) — 11 games</li>
+        <li><a href="https://itch.io/jam/6ames-made-quick">6AMES MADE QUICK???</a> (AGDQ 2022) — 24 games</li>
+        <li><a href="https://itch.io/jam/666ames-made-quick">666AMES MADE QUICK???</a> (SGDQ 2022) — 17 games</li>
+        <li><a href="https://itch.io/jam/games-made-qviick">GAMES MADE QVIICK???</a> (AGDQ 2023) — 16 games</li>
+        <li><a href="https://itch.io/jam/games-made-qviick-hd-remix">GAMES MADE QVIICK??? HD Remix</a> (SGDQ 2023) — 13 games</li>
+    </ol>
+</section>
+
+<section id="puzzles">
     <header>
         <h1>puzzles</h1>
         <hr>
@@ -750,7 +872,7 @@ dl.illustrated-list > dd > h2 > a {
     </dl>
 </section>
 
-<section>
+<section id="toys">
     <header>
         <h1>toys</h1>
         <hr>
@@ -785,7 +907,7 @@ dl.illustrated-list > dd > h2 > a {
     </dl>
 </section>
 
-<section>
+<section id="utilities">
     <header>
         <h1>utilities</h1>
         <hr>
@@ -834,7 +956,7 @@ dl.illustrated-list > dd > h2 > a {
     </dl>
 </section>
 
-<section>
+<section id="websites">
     <header>
         <h1>websites</h1>
         <hr>
@@ -861,7 +983,7 @@ dl.illustrated-list > dd > h2 > a {
     </dl>
 </section>
 
-<section>
+<section id="bots">
     <header>
         <h1>bots</h1>
         <hr>
@@ -902,7 +1024,7 @@ dl.illustrated-list > dd > h2 > a {
     </dl>
 </section>
 
-<section>
+<section id="libraries">
     <header>
         <h1>libraries</h1>
         <hr>
@@ -949,7 +1071,7 @@ dl.illustrated-list > dd > h2 > a {
     </dl>
 </section>
 
-<section>
+<section id="misc">
     <header>
         <h1>miscellaneous</h1>
         <hr>
@@ -977,7 +1099,7 @@ dl.illustrated-list > dd > h2 > a {
     </dl>
 </section>
 
-<section>
+<section id="abandonware">
     <header>
         <h1>selected abandonware</h1>
         <hr>
@@ -1021,7 +1143,7 @@ dl.illustrated-list > dd > h2 > a {
     </dl>
 </section>
 
-<section>
+<section id="open-source">
     <header>
         <h1>open source</h1>
         <hr>
