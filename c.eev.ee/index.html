@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>stuff eevee made</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://eev.ee/favicon.png" rel="icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<style>
+html {
+    font-size: 20px;
+    line-height: 1.4;
+    font-family:
+        Quicksand,
+        /* "Rounded Sans" via modern font stacks...  hey look there's quicksand */
+        ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
+
+    --section-margin: 2rem;
+}
+body {
+    margin: 4em 6em 10em;
+    background: url(here/flowers.png),
+        linear-gradient(to bottom in hsl, hsl(345, 80%, 10%), hsl(240, 60%, 15%));
+    color: hsl(255, 20%, 90%);
+
+    > footer {
+    }
+}
+section {
+    margin: var(--section-margin) auto;
+    padding: 1rem;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background: url(here/black-felt.png) hsl(255, 10%, 7.5%);
+    box-shadow: 0 0 0 1px #0c0c0c, 0 3px 0.5rem #000c;
+
+    > header {
+        position: sticky;
+        top: 0;
+
+        display: flex;
+        gap: 0.5em;
+        align-items: center;
+        margin: -1rem -1rem 0.5rem;
+        padding: 0.25em 1em;
+        color: #cfddf3;
+        border-radius: 3px;
+        background: url(here/black-felt.png) hsl(255, 5%, 1%);
+
+        > h1 {
+            flex: 0 0 max-content;
+            font-size: 2em;
+            margin: 0;
+            font-weight: bold;
+            filter: drop-shadow(0 2px 0 white);
+        }
+        > hr {
+            flex: 1 0 0;
+            border: none;
+            border-top: 4px dotted currentColor;
+            right: 0;
+            opacity: 0.33;
+        }
+        > p {
+            font-size: 0.8em;
+            margin: 0;
+            text-align: right;
+            font-style: italic;
+        }
+    }
+
+    > h2 {
+        margin: 1rem -1rem 0.5rem;
+        padding: 0.25rem 1rem;
+        background: url(here/black-felt.png) hsl(255, 7.5%, 2.5%);
+        color: hsl(270, 100%, 75%);
+        text-shadow: 0 0 1px black;
+    }
+}
+@supports (background-clip: text) {
+    section > header > h1 {
+        background: linear-gradient(to bottom right, hsl(345, 100%, 75%), hsl(270, 100%, 60%));
+        /* lol doesn't work */
+        /* background-attachment: fixed; */
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+@media (max-width: 1200px) {
+    html {
+        --section-margin: 1rem;
+    }
+    body {
+        margin: 2rem;
+    }
+}
+@media (max-width: 600px) {
+    html {
+        font-size: initial;
+        --section-margin: 0.5rem;
+    }
+    body {
+        margin: 0.5rem;
+    }
+    section {
+        > header {
+            flex-flow: column;
+            > h1 {
+                flex: 1;
+                font-size: 1.25em;
+                filter: drop-shadow(0 1px 0 white);
+            }
+            > hr {
+                display: none;
+            }
+        }
+    }
+}
+
+p {
+    text-shadow: 1px 1px 1px black;
+}
+p, dl {
+    margin: 0.5em 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+a {
+    color: hsl(225deg 60% 75%);
+    text-decoration: underline dotted 1px;
+}
+a:visited {
+    color: hsl(265deg 100% 80%);
+}
+a:hover {
+    color: hsl(0deg 100% 80%);
+    text-decoration: underline;
+}
+code {
+    color: hsl(300deg 50% 90%);
+}
+time {
+    font-size: 0.5em;
+    line-height: 1;
+    display: block;
+    color: #666;
+}
+
+.intro {
+    font-size: 1.25em;
+    background-color: hsl(345deg 50% 5% / 0.6);
+    backdrop-filter: blur(4px);
+}
+.intro p {
+    margin: 0.75em;
+}
+.indices {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 0 1em;
+    margin: 1em 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.section-columns {
+    display: grid;
+    grid: auto / repeat(2, 1fr);
+    gap: var(--section-margin);
+    margin: var(--section-margin) 0;
+
+    section {
+        margin: 0;
+
+        a {
+            display: grid;
+            gap: 0 1em;
+            margin: -1em;
+            padding: 1em;
+            text-decoration: none;
+        }
+
+        transition: 0.1s linear;
+        transition-property: border-color, background-color;
+
+        &:hover {
+            border-color: #666;
+        }
+
+        &.main-site {
+            background-color: hsl(225deg 25% 15%);
+
+            &:hover {
+                background-color: hsl(225deg 50% 20%);
+            }
+
+            a {
+                grid:
+                    "glyph link"
+                    "glyph subtext"
+                    / min-content auto;
+            }
+        }
+        &.patreon {
+            background-color: hsl(150deg 25% 15%);
+            text-align: right;
+
+            &:hover {
+                background-color: hsl(150deg 50% 20%);
+            }
+
+            a {
+                grid:
+                    "link    glyph"
+                    "subtext glyph"
+                    / auto min-content;
+            }
+        }
+
+        .-glyph {
+            font-size: 2em;
+            grid-area: glyph;
+            place-self: center;
+            color: white;
+        }
+        .-faux-link {
+            grid-area: link;
+            text-decoration: underline dotted 1px;
+        }
+        &:hover .-faux-link {
+            text-decoration: underline;
+        }
+        .-subtext {
+            grid-area: subtext;
+            color: white;
+        }
+        p {
+            margin: 0;
+        }
+    }
+}
+@media (max-width: 900px) {
+    .section-columns {
+        grid: repeat(2, auto) / 1fr;
+
+        section .-glyph {
+            font-size: 1em;
+        }
+    }
+}
+
+ul.see-also {
+    display: block;
+    margin: 0.5em 0 0;
+    padding: 0;
+    list-style: none;
+}
+ul.see-also li {
+    display: inline-block;
+}
+ul.see-also li + li::before {
+    content: '\a0 • \a0';
+}
+ul.see-also::before {
+    content: '🔗 \a0 ';
+    font-size: 0.75em;
+}
+
+dl.link-list {
+    display: grid;
+    grid: auto-flow / 10em 1fr;
+
+    > dt {
+        padding-top: 0.25em;
+        text-align: right;
+
+        a {
+        }
+    }
+    > dd {
+        margin: 0;
+        padding-top: 0.75em;
+        padding-left: 1em;
+        padding-bottom: 0.5em;
+    }
+
+    > dd + dt,
+    > dd + dt + dd {
+        border-top: 1px solid #9992;
+    }
+}
+dl.illustrated-list {
+    display: grid;
+    grid: auto-flow / min-content auto;
+
+    > dt {
+        padding: 1.5em 0;
+
+        > a {
+            display: block;
+        }
+        img {
+            max-width: 256px;
+        }
+    }
+    > dd {
+        margin: 0;
+        padding: 1.5em 0;
+        padding-left: 1em;
+
+        > h2 {
+            font-size: 1.5em;
+            margin: 0;
+
+            > a {
+                color: hsl(35, 100%, 75%);
+                x-text-decoration: none;
+            }
+        }
+    }
+
+    > dd + dt,
+    > dd + dt + dd {
+        border-top: 1px solid #9992;
+    }
+}
+dl.link-list > dt a,
+dl.illustrated-list > dd > h2 > a {
+    color: hsl(35, 100%, 75%);
+    x-text-decoration: none;
+
+    &:hover {
+        color: hsl(335, 100%, 75%);
+    }
+}
+@media (max-width: 900px) {
+    dl.link-list,
+    dl.illustrated-list {
+        grid: auto-flow / 1fr;
+
+        > dt {
+            text-align: left;
+
+            img {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        > dd {
+            padding-left: 0;
+        }
+        > dd + dt + dd {
+            border-top: none;
+        }
+    }
+
+    dl.link-list {
+        > dt > time {
+            font-size: 0.75em;
+            float: right;
+        }
+    }
+
+    dl.illustrated-list {
+        > dd > h2 {
+            font-size: 1.125em;
+        }
+    }
+}
+
+.game-stats {
+    color: hsl(330deg 50% 75%);
+}
+</style>
+</head>
+
+<body>
+<section class="intro">
+    <p>Hello!  I'm Eevee and you have reached the main index of almost everything I have ever put into the world.</p>
+    <p>My favorites are marked with 🧡.  Adult work is, of course, marked with 🔞.  Some genres have their own separate indices:</p>
+    <ul class="indices">
+        <li><a href="https://eev.ee/site-index/">📝 main site writing</a></li>
+        <li><a href="https://t.eev.ee/">🖼️ tame art</a></li>
+        <li><a href="https://d.eev.ee/">🔞 spicy art</a></li>
+        <li><a href="https://c.eev.ee/puzzles">🧩 puzzles</a></li>
+    </ul>
+    <p>For completeness, you may also want to check my <a href="https://github.com/eevee">GitHub</a> for code, <a href="https://eevee.itch.io/">itch</a> for games, or <a href="https://squares.io/p/eevee">squares</a> for crosswords.  Everything of note should be mentioned here somewhere, but maybe something slipped through the cracks.</p>
+</section>
+
+<div class="section-columns">
+<section class="main-site">
+<a href="https://eev.ee/">
+    <div class="-glyph">🏠</div>
+    <p class="-faux-link">return to main website</p>
+    <p class="-subtext">with a more curated list of recent work</p>
+</a>
+</section>
+<section class="patreon">
+<a href="https://patreon.com/eevee">
+    <div class="-glyph">💰</div>
+    <p class="-faux-link">support my work on patreon</p>
+    <p class="-subtext">if you would like me to make more of it</p>
+</a>
+</section>
+</div>
+
+<section>
+    <header>
+        <h1>video's game's</h1>
+        <hr>
+    </header>
+    <!--
+        TODO:
+        star anise chronicles 1: escape from the chamber of despair
+        fox flux deluxe
+        vignettes?
+        clover and over
+        rogue ike
+        a very tiny purrl game
+        fox flux advance
+        sandcastles
+        roguelike simulator
+
+        get screenshots for everything
+        mention the state of things i think, like, c&o and ado are basically not getting updated
+    -->
+
+    <p>I found out at one point that I really like making games, so I hope you like playing some of them!</p>
+
+    <p>Most of these are on <a href="https://eevee.itch.io/">my itch.io page</a>, so you can browse there too.  But here, I have the power to write more than a line and a half of text about each game!</p>
+
+    <p>"Desktop" means it's playable on just about any kind of real computer.  A couple holdouts don't have Mac <em>builds</em>, but you can still play those by getting a <a href="https://love2d.org/">Mac build of LÖVE</a> yourself.  BSD users, you're on your own, but I believe in you.  I've never released an Android or iOS game, but browser games work on small touchscreens where noted.</p>
+
+    <dl class="illustrated-list">
+        <dt>
+            <a href="https://c.eev.ee/lexys-labyrinth/">
+                <img src="here/illus/lexys-labyrinth.png" alt="">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2020-09-25">2020-09-25</time>
+            <h2><a href="https://c.eev.ee/lexys-labyrinth/">🧡 Lexy's Labyrinth</a></h2>
+            <p class="game-stats">free • browser (desktop + mobile) • sokoban-like • hours and hours long</p>
+            <p>A free reimplementation of Chip's Challenge 1 and 2, with entirely new art, music, sounds, and loads of community levels.  Can load the original levels too if you've got them, and has a built-in level editor where you can make your own levels and share them as a link.  Also undo/rewind, debug tools, demo recording and playback, compatibility settings, and more.</p>
+            <ul class="see-also">
+                <li><a href="https://github.com/eevee/lexys-labyrinth">source code</a></li>
+                <li><a href="https://eevee.itch.io/lexys-labyrinth">also on itch.io</a> (likely outdated)</li>
+            </ul>
+        </dd>
+
+        <dt>
+            <a href="https://eevee.itch.io/anise-wheres-twig">
+                <img src="here/illus/anise-wheres-twig.png" alt="">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2020-05-10">2020-05-10</time>
+            <h2><a href="https://eevee.itch.io/anise-wheres-twig">🧡 Star Anise Chronicles 1½: Oh No Wheres Twig??</a></h2>
+            <p class="game-stats">free • PICO-8 or browser (desktop + mobile) • 2D puzzle-platformer • half an hour</p>
+            <p>A small charming puzzle-platformer for the PICO-8.  Play as Star Anise and run around the imaginary moon, trying to find your best friend and also causing minor mischief.</p>
+            <ul class="see-also">
+                <li><a href="https://www.lexaloffle.com/bbs/?tid=37868">also on PICO-8 BBS (with source code)</a></li>
+            </ul>
+        </dd>
+
+        <dt>
+            <a href="https://eevee.itch.io/wastenot">
+                <img src="here/illus/wastenot.png" alt="">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2019-08-27">2019-08-27</time>
+            <h2><a href="https://eevee.itch.io/wastenot">WasteNot</a></h2>
+            <p class="game-stats">free • ZDoom mod • utility</p>
+            <p>This dumb ZDoom mod tracks how much of the stuff you pick up is lost because you were too close to the carry limit.  A tribute to the surge of adrenaline I get when I watch someone else play Doom and they grab a shell box at 99/100.</p>
+        </dd>
+
+        <dt>
+            <a href="https://eevee.itch.io/plutmode">
+                <img src="here/illus/plutmode.png" alt="">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2019-07-28">2019-07-28</time>
+            <h2><a href="https://eevee.itch.io/plutmode">Plutonia Mode</a></h2>
+            <p class="game-stats">free • ZDoom mod • utility</p>
+            <p>This tongue-in-cheek ZDoom mod will turn any map into The Plutonia Experiment.  Play with Plutonia for Double Plutonia!</p>
+            <p>Even <em>I</em> haven't played this.</p>
+        </dd>
+
+        <dt>
+            <a href="https://store.steampowered.com/app/1259530/Cherry_Kisses/">
+                <img src="here/illus/cherry-kisses.png" alt="">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2019-03-23">2019-03-23</time>
+            <h2><a href="https://store.steampowered.com/app/1259530/Cherry_Kisses/">🧡 🔞 Cherry Kisses</a></h2>
+            <p class="game-stats">$6.90, free demo on itch • desktop • conversation sim • several hours</p>
+            <p>In this <strong>wildly NSFW</strong> game, you run a sex shop and can have various sex with various customers.  Hm, that sounds familiar.  Also contains a narrative meta-puzzle that I'm very pleased with.</p>
+            <p>Made for <a href="https://itch.io/jam/strawberry-jam-3">Strawberry Jam 3</a>, but ran like three weeks late, oops?  Then we polished it up and put it on Steam!</p>
+            <ul class="see-also">
+                <li><a href="https://eevee.itch.io/cherry-kisses">also on itch.io</a></li>
+            </ul>
+        </dd>
+
+        <dt>
+            <a href="https://floraverse.itch.io/alices-day-off-demo">
+                <img src="here/illus/alices-day-off-demo.png" alt="">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2018-03-01">2018-03-01</time>
+            <h2><a href="https://floraverse.itch.io/alices-day-off-demo">🔞 Alice's Day Off</a></h2>
+            <p class="game-stats">free • desktop • visual novel • hour or two</p>
+            <p><strong>Very NSFW.</strong>  A visual novel about running a sex shop and trying to have sex with your customers.  Made for my own <a href="https://itch.io/jam/strawberry-jam-2">Strawberry Jam 2</a>.</p>
+            <p>This is a short demo with several routes; the full game never materialized.  But hey, it's free.</p>
+        </dd>
+
+        <dt>
+            <a href="https://eevee.itch.io/lunar-depot-38">
+                <img src="here/illus/lunar-depot-38.png" alt="" class="game-illus">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2017-04-24">2017-04-24</time>
+            <h2><a href="https://eevee.itch.io/lunar-depot-38">Lunar Depot 38</a></h2>
+            <p class="game-stats">free • desktop • 2D platformer wave defense • half an hour</p>
+            <p>A short, shooty, tower defense-ish platformer made with my spouse in 72 hours for <a href="https://ldjam.com/events/ludum-dare/38">Ludum Dare 38</a>.  We came in 204th!  Woo!</p>
+            <ul class="see-also">
+                <li><a href="https://ldjam.com/events/ludum-dare/38/lunar-depot-38">ludum dare entry</a></li>
+                <li><a href="https://github.com/eevee/lunar-depot-38">source code</a></li>
+                <li><a href="https://floraverse.bandcamp.com/album/lunar-depot-38-ost">soundtrack</a></li>
+            </ul>
+        </dd>
+
+        <dt>
+            <a href="https://eevee.itch.io/fox-flux">
+                <img src="here/illus/fox-flux.png" alt="">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2017-02-28">2017-02-28</time>
+            <h2><a href="https://eevee.itch.io/fox-flux">fox flux</a></h2>
+            <p class="game-stats">free • desktop • 2D puzzle-platformer • about an hour</p>
+            <p>A <strong>mildly NSFW</strong> puzzle platformer I made for my own month-long <a href="https://itch.io/jam/strawberry-jam">game jam</a>.  This is the initial iteration of fox flux DELUXE.</p>
+            <p>Music, title screen, and a couple sprites were provided by glip, but the rest of the artwork was all mine, which makes this a cool accomplishment.</p>
+            <ul class="see-also">
+                <li><a href="https://github.com/eevee/fox-flux">source code</a></li>
+                <li><a href="https://floraverse.bandcamp.com/album/fox-flux-demo-ost">soundtrack</a></li>
+            </ul>
+        </dd>
+
+        <dt>
+            <a href="https://eevee.itch.io/neon-phase">
+                <img src="here/illus/neon-phase.png" alt="">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2017-01-19">2017-01-19</time>
+            <h2><a href="https://eevee.itch.io/neon-phase">NEON PHASE</a></h2>
+            <p class="game-stats">free • desktop • exploratory 2D platformer • half an hour</p>
+            <p>My partner <a href="http://glitchedpuppet.com/">glip</a> and I made this exploratory platformer together for a week-long <a href="https://itch.io/jam/games-made-quick">game jam</a> I was running.</p>
+            <p>It's pretty chill, and is maybe our first "serious" game?  Big game?  Game not for the PICO-8.</p>
+            <ul class="see-also">
+                <li><a href="https://github.com/eevee/neon-phase">source code</a></li>
+                <li><a href="https://floraverse.bandcamp.com/album/neon-phase-ost">soundtrack</a></li>
+            </ul>
+        </dd>
+
+        <dt>
+            <a href="https://eevee.itch.io/isaacs-descent">
+                <img src="here/illus/isaacs-descent.png" alt="">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2016-08-29">2016-08-29</time>
+            <h2><a href="https://eevee.itch.io/isaacs-descent">Isaac's Descent</a></h2>
+            <p class="game-stats">free • PICO-8 or browser (desktop + mobile) • 2D puzzle-platformer • half an hour</p>
+            <p>
+                I made this short PICO-8 puzzle-platformer in 48 hours for <a href="http://ludumdare.com/compo/ludum-dare-36/?action=preview&uid=111773">Ludum Dare 36</a>.
+            </p>
+            <p>
+                It's the first standalone game I created 100% by myself, and I'm pretty happy with it!
+                Interesting mechanic, decent difficulty curve, and music that isn't entirely terrible.
+            </p>
+            <ul class="see-also">
+                <li><a href="https://eev.ee/blog/2016/08/29/i-entered-ludum-dare-36/">blog post</a></li>
+                <li><a href="http://ludumdare.com/compo/ludum-dare-36/?action=preview&uid=111773">ludum dare entry</a></li>
+                <li><a href="https://c.eev.ee/isaacs-descent/isaac.p8">source code</a></li>
+            </ul>
+        </dd>
+
+        <dt>
+            <a href="https://eevee.itch.io/under-construction">
+                <img src="here/illus/under-construction.png" alt="">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2016-05-25">2016-05-25</time>
+            <h2><a href="https://eevee.itch.io/under-construction">Under Construction</a></h2>
+            <p class="game-stats">free • PICO-8 or browser (desktop + mobile) • 2D puzzle-platformer • half an hour</p>
+            <p>This surreal explorational <a href="http://www.lexaloffle.com/pico-8.php">PICO-8</a> platformer is the first game glip and I made together, and the first standalone game either of us really released.</p>
+            <ul class="see-also">
+                <li><a href="https://eev.ee/blog/2016/05/25/under-construction-our-pico-8-game/">blog post</a></li>
+                <li><a href="https://c.eev.ee/under-construction/under-construction.p8">source code</a></li>
+                <li><a href="https://floraverse.bandcamp.com/album/under-construction">soundtrack</a></li>
+            </ul>
+        </dd>
+
+        <dt>
+            <a href="https://eev.ee/media/2016-03-31-throughfare/throughfare-v4.pk3">
+                <img src="here/illus/thoroughfare.png" alt="">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2016-03-16">2016-03-16</time>
+            <h2><a href="https://eev.ee/media/2016-03-31-throughfare/throughfare-v4.pk3">Throughfare</a></h2>
+            <p class="game-stats">free • ZDoom map • FPS • half an hour</p>
+            <p>After many years orbiting the <a href="https://zdoom.org/">ZDoom</a> community, I finally released a map for <a href="https://forum.zdoom.org/viewtopic.php?t=51072">DUMP 2</a>, a week-long newbie speedmapping project.</p>
+            <ul class="see-also">
+                <li><a href="https://eev.ee/blog/2016/03/31/i-made-a-doom-level/">blog post</a></li>
+            </ul>
+        </dd>
+
+        <dt>
+            <a href="https://c.eev.ee/dont-eat-cactus/">
+                <img src="here/illus/dont-eat-cactus.png" alt="">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2016-02-23">2016-02-23</time>
+            <h2><a href="https://c.eev.ee/dont-eat-cactus/">Don't Eat the Cactus</a></h2>
+            <p class="game-stats">free • GLULX or browser (desktop + mobile) • text adventure • few minutes</p>
+            <p>This very short and silly text adventure is extremely based on true events.</p>
+        </dd>
+
+        <dt>
+            <a href="https://eev.ee/everything/tags/mario-maker/">
+                <img src="here/illus/mario-maker.png" alt="">
+            </a>
+        </dt>
+        <dd>
+            <time datetime="2015-09-18">2015-09-18</time>
+            <h2><a href="https://eev.ee/everything/tags/mario-maker/">Mario Maker</a></h2>
+            <p>I used Mario Maker to dip my toes more seriously into level design.  In theory, these levels get more interesting over time.</p>
+            <p>You can find a less long-winded list on <a href="https://supermariomakerbookmark.nintendo.net/profile/lexyeevee?type=posted">the Mario Maker bookmark site</a>, assuming that still exists.</p>
+        </dd>
+    </dl>
+</section>
+
+<section>
+    <header>
+        <h1>puzzles</h1>
+        <hr>
+        <p>hmm...  makes u think</p>
+    </header>
+
+    <h2>sudoku</h2>
+
+    <dl class="link-list">
+        <dt>
+            <time datetime="2024-10-18">2024-10-18</time>
+            <a href="https://sudokupad.app/wdan1ojkkb">empty</a>
+        </dt>
+        <dd>
+            <p>Killer, very easy.  The previous puzzle drew a comment from someone who had never done an "empty" sudoku before, so I threw together the easiest killer I could manage.</p>
+        </dd>
+        <dt>
+            <time datetime="2024-10-18">2024-10-18</time>
+            <a href="https://sudokupad.app/cb5yikms2b">1</a>
+        </dt>
+        <dd>
+            <p>Killer + little killer, moderate.  Putting this page together made me wonder why I've never made a sudoku, so I dropped what I was doing to make a sudoku.  A compelling theme for my first attempt!</p>
+        </dd>
+    </dl>
+
+    <h2>crosswords</h2>
+
+    <p>All of these are theme puzzles.  I just don't know why you'd make a crossword without a theme.</p>
+
+    <p>Links go to <a href="https://squares.io/p/eevee">my crosswords on squares.io</a>, which I like because it allows collaborative solving — you can just pass around the URL to your solve (it should have a <code>/s/</code> in it) and have friends chime in.</p>
+
+    <p>You can also download the puzzles and play them in whatever crossword gizmo you like.  Most of them are in Crossword Compiler's XML format; a couple are in the ancient PUZ format.  Probably right click and Save As so you don't accidentally see the solution.</p>
+
+    <p>Puzzles all made with <a href="https://www.quinapalus.com/qxw.html">QXW</a>, mostly because it's the only open source Linux puzzle constructor I could find, but it's plenty solid.</p>
+
+    <dl class="link-list">
+        <dt>
+            <time datetime="2023-06-28">2023-06-28</time>
+            <a href="https://squares.io/info/z6n643sh3ao4wwfwmrbh">Regular Words</a>
+        </dt>
+        <dd>
+            <p>19×19, tough.  A puzzle containing only regular words.  (<a href="https://c.eev.ee/puzzles/regular-words-harder.xml">Download CCXML</a>)</p>
+            <p>This "canonical" version has some sassier clues, to the point that I felt compelled to also make an <a href="https://squares.io/info/52vj99zqtw7jssgs332o">easier version</a>.  (<a href="https://c.eev.ee/puzzles/regular-words-easier.xml">Download CCXML</a>)</p>
+        </dd>
+        <dt>
+            <time datetime="2022-11-12">2022-11-12</time>
+            <a href="https://squares.io/info/essd8w6sb7976m5hhowv">Demesne</a>
+        </dt>
+        <dd>
+            <p>15×15, devilish.  Kind of dorky clues and an equally dorky theme, and I still clue too hard, but I'm getting better.  (<a href="https://c.eev.ee/puzzles/demesne.xml">Download CCXML</a>)</p>
+        </dd>
+        <dt>
+            <time datetime="2022-11-09">2022-11-09</time>
+            <a href="https://squares.io/info/sctopp2qbtt9fu9ygtka">Roundabout</a>
+        </dt>
+        <dd>
+            <p>15×15, devilish.  Sometimes, an idea grips you, and you just have to see it through.  A little rough around the edges, but this is my first crossword that I really like.  (<a href="https://c.eev.ee/puzzles/untiled.xml">Download CCXML</a>)</p>
+        </dd>
+        <dt>
+            <time datetime="2020-12-01">2020-12-01</time>
+            <a href="https://squares.io/info/j622a3cfnjr">Unti'led</a>
+        </dt>
+        <dd>
+            <p>21×21, easyish.  I think I finally started to get the hang of cluing here.  I wish the theme were a bit stronger, though.  (<a href="https://c.eev.ee/puzzles/untiled.xml">Download CCXML</a>)</p>
+        </dd>
+        <dt>
+            <time datetime="2020-07-23">2020-07-23</time>
+            <a href="https://squares.io/info/r4aergi6ubb">Quicky</a>
+        </dt>
+        <dd>
+            <p>13×11, hard.  Tried to make a quicker, easier puzzle with less tech jargon in it.  It's quicker; not sure about easier.  I like the subtler theme on this one.  (<a href="https://c.eev.ee/puzzles/quicky.xml">Download CCXML</a>)</p>
+        </dd>
+        <dt>
+            <time datetime="2020-07-22">2020-07-22</time>
+            <a href="https://squares.io/info/o9e9hp6ehre">A Crafty One</a>
+        </dt>
+        <dd>
+            <p>19×19, tough.  A much better second attempt.  Less junk in the fill, but still a bit esoteric in places, and still harder than it ought to be.  (<a href="https://c.eev.ee/puzzles/a-crafty-one.xml">Download CCXML</a>)</p>
+        </dd>
+        <dt>
+            <time datetime="2019-12-02">2019-12-02</time>
+            <a href="https://squares.io/info/3szq4vjmtk3e65j55uxp">The Nuclear Age</a>
+        </dt>
+        <dd>
+            <p>15×15, devilish.  My first crack at crossword construction.  It's not <em>great</em>.  A couple answers are, um, dubious (wow, filling a grid is hard!), the clues are a bit cheeky and generally too terse, and there's a bunch of nerd stuff.  I think there might also be a typo in one of the answers.  Oops.  (<a href="https://c.eev.ee/puzzles/the-nuclear-age.puz">Download PUZ</a>)</p>
+        </dd>
+    </dl>
+</section>
+
+<section>
+    <header>
+        <h1>toys</h1>
+        <hr>
+        <p>simple curiosities</p>
+    </header>
+
+    <dl class="link-list">
+        <dt>
+            <time datetime="2018-02-05">2018-02-05</time>
+            <a href="https://c.eev.ee/primesieve/">PICO-8 prime clicker</a>
+        </dt>
+        <dd>
+            <p>A trivial PICO-8 cart that iterates through prime numbers, one for every press of the X/Z keys.</p>
+            <p>Made as a riff on the Numberphile video "<a href="https://www.youtube.com/watch?v=8UqCyepX3AI">WARNING: Contains Numbers</a>", which has a physical version of the same device.</p>
+        </dd>
+        <dt>
+            <time datetime="2016-01-12">2016-01-12</time>
+            <a href="https://c.eev.ee/PARTYMODE/">PARTYMODE</a>
+        </dt>
+        <dd>
+            <p>Every year on my birthday, I add this incredibly stupid snow effect to my website.</p>
+            <p>Used to be a decades-old "DHTML" thing from DynamicDrive (!).  I eventually rewrote it from scratch using CSS animations, which allowed for putting much more crap on the screen.</p>
+        </dd>
+        <dt>
+            <time datetime="2014-12-24">2014-12-24</time>
+            <a href="https://c.eev.ee/pure-css-unown/">pure css unown</a>
+        </dt>
+        <dd>
+            <p>Most of an <a href="https://veekun.com/dex/pokemon/unown">Unown</a> alphabet, implemented entirely with CSS — no images, no JavaScript.</p>
+            <p>Written on a whim one Christmas, inspired by a friend's...  Christmas NES cartridge.  Not sure how that leap happened.</p>
+        </dd>
+    </dl>
+</section>
+
+<section>
+    <header>
+        <h1>utilities</h1>
+        <hr>
+        <p>tools for making bigger things</p>
+    </header>
+
+    <dl class="link-list">
+        <dt>
+            <time datetime="2019-03-29">2019-03-29</time>
+            <a href="https://c.eev.ee/particle-wipe-generator/">particle wipe generator</a>
+        </dt>
+        <dd>
+            <p>Browser tool for turning a single symbol into an image you can feed to a shader to make a wipe transition out of it.  (Ren'Py and RPG Maker have built-in support for these.)  I'd written a bunch of fiddly code to make the heart wipe for Cherry Kisses, and it seemed a waste to only use once, so here it is as a little gizmo.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2019-12-01">2019-12-01</time>
+            <a href="https://c.eev.ee/doom-text-generator/">Doom text generator</a>
+        </dt>
+        <dd>
+            <p>Little browser tool for turning text into an image using a Doom-format font.  Has a bunch of built-in fonts, and can also load fonts from an arbitrary WAD/PK3.</p>
+            <ul class="see-also">
+                <li><a href="https://www.doomworld.com/forum/topic/147196-doom-text-generator/">Doomworld thread</a></li>
+                <li><a href="https://github.com/eevee/doom-text-generator">source code</a></li>
+            </ul>
+        </dd>
+
+        <dt>
+            <time datetime="2012-12-14">2012-12-14</time>
+            <a href="http://apps.veekun.com/flora-cutscenes/">flora cutscenes</a>
+        </dt>
+        <dd>
+            <p>Several <a href="http://floraverse.com/">Flora</a> updates have taken the form of visual novels, using a little engine I wrote and have haphazardly enhanced as necessary.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2009-06-22">2009-06-22</time>
+            <a href="https://c.eev.ee/kouyou/">kouyou</a>
+        </dt>
+        <dd>
+            <p>Simple color picker I made because I was frustrated with the lack of HSL support in everything.  Don't really use it any more, now that CSS has HSL support built in.</p>
+            <ul class="see-also">
+                <li><a href="https://github.com/eevee/kouyou">source code</a></li>
+            </ul>
+        </dd>
+    </dl>
+</section>
+
+<section>
+    <header>
+        <h1>websites</h1>
+        <hr>
+    </header>
+
+    <dl class="link-list">
+        <!-- FIXME change to be floraverse website itself -->
+        <dt>
+            <time datetime="2013-08-01">2013-08-01</time>
+            <a href="https://github.com/eevee/spline">spline</a>
+        </dt>
+        <dd>
+        <p>I started writing this as extensions to <a href="http://pyramid.readthedocs.io/en/latest/">Pyramid</a> to eliminate all the boring tedious parts of web development.</p>
+        <p>I didn't really finish it — turns out an easier solution was to stop doing web development — but it does power glip's webcomic site, <a href="http://floraverse.com/">Floraverse</a>.</p>
+        </dd>
+
+        <dt>
+            <time datetime="1999-11-19">1999-11-19</time>
+            <a href="https://veekun.com/">veekun</a>
+        </dt>
+        <dd>
+            <p>A data-mined Pokémon reference that I've been working on, on and off, since I was 12.</p>
+        </dd>
+    </dl>
+</section>
+
+<section>
+    <header>
+        <h1>bots</h1>
+        <hr>
+    </header>
+
+    <dl class="link-list">
+        <dt>
+            <time datetime="2016-09-28">2016-09-28</time>
+            <a href="https://twitter.com/calloutbot">@calloutbot</a>
+        </dt>
+        <dd>
+            <p>
+                This is a very complicated...  in-joke?
+                If it doesn't make any sense to you, count yourself lucky.
+            </p>
+        </dd>
+
+        <dt>
+            <time datetime="2016-06-06">2016-06-06</time>
+            <a href="https://twitter.com/perlin_noise">@perlin_noise</a>
+        </dt>
+        <dd>
+            <p>
+                Inspired by my <a href="https://eev.ee/blog/2016/05/29/perlin-noise/">post explaining how Perlin noise works</a>, this bot tweets out Perlin noise in various ways:
+                ASCII, obscure Unicode, emoji, generated images, and even the occasional GIF.
+            </p>
+        </dd>
+
+        <dt>
+            <time datetime="2016-04-14">2016-04-14</time>
+            <a href="https://twitter.com/unicodeveryword">@unicodeveryword</a>
+        </dt>
+        <dd>
+            <p>
+                A bot in the <a href="https://twitter.com/everyword">every word</a> genre, with the added twist that each word is mangled somewhat by Unicode shenanigans.
+            </p>
+        </dd>
+    </dl>
+</section>
+
+<section>
+    <header>
+        <h1>libraries</h1>
+        <hr>
+    </header>
+
+    <dl class="link-list">
+        <dt>
+            <time datetime="2015-09-10">2015-09-10</time>
+            <a href="https://pypi.python.org/pypi/camel">camel</a>
+        </dt>
+        <dd>
+            <p>Simple Python library that makes it relatively easy to serialize objects to YAML in a more explicit, less magical, less dangerous way.</p>
+            <ul class="see-also">
+                <li><a href="https://eev.ee/blog/2015/10/15/dont-use-pickle-use-camel/">blog post</a></li>
+                <li><a href="http://camel.readthedocs.io/en/latest/">docs</a></li>
+                <li><a href="https://github.com/eevee/camel">source code</a></li>
+            </ul>
+        </dd>
+
+        <dt>
+            <time datetime="2015-01-08">2015-01-08</time>
+            <a href="https://pypi.python.org/pypi/classtools">classtools</a>
+        </dt>
+        <dd>
+            <p>Small Python library with a few handy class-related utilities, in the vein of <code>functools</code> and <code>itertools</code>.</p>
+            <ul class="see-also">
+                <li><a href="http://classtools.readthedocs.io/en/latest/">docs</a></li>
+                <li><a href="https://github.com/eevee/classtools">source code</a></li>
+            </ul>
+        </dd>
+
+        <dt>
+            <time datetime="2013-08-05">2013-08-05</time>
+            <a href="https://pypi.python.org/pypi/dictproxyhack">dictproxyhack</a>
+        </dt>
+        <dd>
+            <p>Microscopic Python library that exposes a <code>dictproxy</code> type for creating read-only dicts.</p>
+            <ul class="see-also">
+                <li><a href="http://classtools.readthedocs.io/en/latest/">docs</a></li>
+                <li><a href="https://eev.ee/blog/2013/08/05/dictproxyhack-or-activestate-code-considered-harmful/">blog post</a></li>
+                <li><a href="https://github.com/eevee/dictproxyhack">source code</a></li>
+            </ul>
+        </dd>
+    </dl>
+</section>
+
+<section>
+    <header>
+        <h1>miscellaneous</h1>
+        <hr>
+    </header>
+
+    <dl class="link-list">
+        <dt>
+            <time datetime="2009-05-22">2009-05-22</time>
+            <a href="https://github.com/eevee/rc">rc</a>
+        </dt>
+        <dd>
+            <p>My dotfiles.  Nothing incredibly fancy in here — I don't do five-line rainbow shell prompts or anything — but I think they've been useful to a few folks getting into Linux for the first time.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2008-12-02">2008-12-02</time>
+            <a href="https://github.com/eevee/project-euler/tree/master/heteroglot">heteroglot</a>
+        </dt>
+        <dd>
+            <p>A (slow) ongoing quest to solve every Project Euler problem — in a different programming language.</p>
+            <ul class="see-also">
+                <li><a href="https://eev.ee/everything/tags/project-euler/">blog series</a></li>
+            </ul>
+        </dd>
+    </dl>
+</section>
+
+<section>
+    <header>
+        <h1>selected abandonware</h1>
+        <hr>
+        <p>well, i tried</p>
+    </header>
+
+    <p>Sometimes I have an idea and then it turns out not to be that good of an idea.  Actually I would say that's happened a lot.</p>
+
+    <dl class="link-list">
+        <dt>
+            <time datetime="2015-05-14">2015-05-14</time>
+            <a href="http://starbindery.veekun.com/">starbindery</a>
+        </dt>
+        <dd>
+            <p>I started working on this autogenerated Starbound database and did a few cool things with it.  I lost interest in Starbound before it got very far, and it no longer works against their data layout.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2014-05-11">2014-05-11</time>
+            <a href="https://github.com/eevee/flax">flax</a>
+        </dt>
+        <dd>
+            <p>I started writing a console roguelike in Python, mostly to play with randomness and entity-component and ways of expressing object interactions.  Then I lost interest.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2013-11-14">2013-11-14</time>
+            <a href="https://github.com/eevee/dywypi">dywypi</a>
+        </dt>
+        <dd>
+            <p>I started writing a pluggable IRC bot atop Python's asyncio library.  Then I stopped doing that.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2011-08-14">2011-08-14</time>
+            <a href="https://github.com/eevee/sanpera">sanpera</a>
+        </dt>
+        <dd>
+            <p>Unfinished Python wrapper around ImageMagick that sought to hide the awfulness of the ImageMagick API.  Alas, that turned out to be much more tedious than expected.</p>
+        </dd>
+    </dl>
+</section>
+
+<section>
+    <header>
+        <h1>open source</h1>
+        <hr>
+        <p>technically other people's stuff</p>
+    </header>
+
+    <p>I'm drawn more to working on my own stuff than to collaborating on existing codebases, alas, but I do upstream a patch or two now and then.</p>
+
+    <dl class="link-list">
+        <dt>
+            <time datetime="2015-06-06">2015-06-06</time>
+            <a href="http://zdoom.org/">ZDoom</a>
+        </dt>
+        <dd>
+            <p>A modern continuation of the Doom engine.  I added support for <code>TERRAIN</code>-based damage and friction to 3D floors; fixed texture scaling on 3D floors; and disabled using switches embedded in the floor when <code>checkswitchrange</code> is active.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2015-05-28">2015-05-28</time>
+            <a href="http://eblong.com/zarf/glulx/quixe/">Quixe / Glkote</a>
+        </dt>
+        <dd>
+            <p>A web implementation of the glulx interactive fiction engine.  I sketched an initial implementation of graphics and audio support; fixed loading large games on some browsers; and found an overall 2× speedup in the VM.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2015-05-06">2015-05-06</time>
+            <a href="http://playstarbound.com/">Starbound</a>
+        </dt>
+        <dd>
+            <p>A procedurally generated adventure game.  Not actually open source, but I sent one of their devs patches to fix some bugs in their data files, plus an initial implementation of a wiring object that later appeared in the game.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2015-02-05">2015-02-05</time>
+            <a href="https://github.com/Yelp/Testify">Testify</a>
+        </dt>
+        <dd>
+            <p>A (deprecated?) Python test framework.  I sped up a few specific operations, which shaved entire minutes off a former employer's (very large) test runs.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2014-05-11">2014-05-11</time>
+            <a href="http://urwid.org/">urwid</a>
+        </dt>
+        <dd>
+            <p>A Python console UI toolkit.  I added support for using asyncio as the event loop.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2014-04-08">2014-04-08</time>
+            <a href="http://plumbum.readthedocs.io/en/latest/">plumbum</a>
+        </dt>
+        <dd>
+            <p>A Python library for expressing shell pipelines.  I added a <code>TEE</code> modifier for both capturing and piping a process's stdout.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2014-02-10">2014-02-10</time>
+            <a href="http://slade.mancubus.net/">SLADE</a>
+        </dt>
+        <dd>
+            <p>A Doom resource and map editor.  I fixed a lot of crashes, geometry bugs, and UI papercuts; and wrote most of the implementation of slopes and 3D floors in the map editor.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2013-07-19">2013-07-19</time>
+            <a href="http://parsley.readthedocs.io/en/latest/">Parsley</a>
+        </dt>
+        <dd>
+            <p>A Python PEG-based parser generator.  I made it more fast.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2013-06-10">2013-06-10</time>
+            <a href="http://www.sqlalchemy.org/">SQLAlchemy</a>
+        </dt>
+        <dd>
+            <p>A Python database library and ORM.  I fixed an obscure bug with pooled connections.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2012-09-11">2012-09-11</time>
+            <a href="http://www.aaronsw.com/2002/html2text/">html2text</a>
+        </dt>
+        <dd>
+            <p>A Python library for converting HTML to Markdown.  I fixed the translation of <code>&lt;br&gt;</code>.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2012-08-16">2012-08-16</time>
+            <a href="https://github.com/Kronuz/pyScss">pyScss</a>
+        </dt>
+        <dd>
+            <p>A Python implementation of Sass.  I did a ton of work porting it from immediate evaluation to an AST; fixed myriad bugs and Sass mismatches; and added support for a lot of newer Sass features.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2012-02-02">2012-02-02</time>
+            <a href="http://www.makotemplates.org/">Mako</a>
+        </dt>
+        <dd>
+            <p>A Python templating language.  I fixed parsing of dict literals inside <code>${}</code>; fixed parsing of escaped quotes inside Python blocks; and added support for keyword-only arguments in <code>&lt;%def&gt;</code> blocks.</p>
+        </dd>
+
+        <dt>
+            <time datetime="2011-01-25">2011-01-25</time>
+            <a href="https://www.mozilla.org/en-US/firefox/products/">Firefox</a>
+        </dt>
+        <dd>
+            <p>A web browser.  I made a microscopic CSS patch to a feature that has since been removed.  My name ended up on their <a href="https://wiki.mozilla.org/Monument">obelisk</a>, so it still counts.</p>
+        </dd>
+    </dl>
+</section>
+
+<footer>
+    <p>backgrounds from <a href="https://www.transparenttextures.com/">transparent textures</a></p>
+</footer>
+</body>
+</html>
