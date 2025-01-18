@@ -15,7 +15,7 @@ html {
     min-height: 100%;
 
     background:
-        linear-gradient(to right, #0006, 60%, transparent, 60%, #0006),
+        linear-gradient(to right, #0009, transparent, #0009),
         url(/theme/images/asfalt-light.png),
         linear-gradient(to bottom, hsl(270deg 40% 20%), hsl(240deg 40% 10%)) hsl(260deg 40% 10%);
 
