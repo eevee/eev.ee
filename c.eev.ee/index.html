@@ -307,15 +307,8 @@ dl.illustrated-list {
     > dt {
         padding: 1.5em 0;
 
-        > a {
-            display: block;
-        }
         img {
             max-width: 256px;
-            border: 2px solid #fff6;
-        }
-        > a:hover img {
-            border-color: #fffc;
         }
     }
     > dd {
@@ -404,15 +397,7 @@ ol.jam-grid {
             / auto auto;
 
         > a {
-            display: block;
             grid-area: img;
-
-            img {
-                border: 2px solid #fff6;
-            }
-            &:hover img {
-                border-color: #fffc;
-            }
         }
         > time {
             grid-area: time;
@@ -422,6 +407,22 @@ ol.jam-grid {
         > .-games {
             grid-area: games;
             text-align: right;
+        }
+    }
+}
+
+ol.jam-grid > li,
+dl.illustrated-list > dt {
+    a {
+        display: block;
+
+        img {
+            display: block;
+            border: 1px solid black;
+            box-shadow: 0 0 0 1px #fff9, 0 0.25em 1em black;
+        }
+        &:hover img {
+            box-shadow: 0 0 0 2px white, 0 0.25em 1em black;
         }
     }
 }
@@ -755,6 +756,11 @@ ol.jam-grid {
             <a href="https://itch.io/jam/strawberry-jam-8"><img src="here/illus/strawberry-jam-8.png" title="Strawberry Jam 8" alt="Strawberry Jam 8 (depicting a large number 8 decorated with ears like Cerise's, Lexy peeking through it like it's a carnival portrait with the face missing, and Cerise giggling in amusement)"></a>
             <time datetime="2024-02-01">2024</time>
             <span class="-games">74 games</span>
+        </li>
+        <li>
+            <a href="https://itch.io/jam/strawberry-jam-9"><img src="here/illus/strawberry-jam-9.png" title="Strawberry Jam 9" alt="Strawberry Jam 9 (depicting Lexy strapped to a chair while Cerise hypnotizes her with a large watch, creating a huge swirl pattern that covers the whole image; the center of the swirl forms the number 9)"></a>
+            <time datetime="2025-02-01">2025</time>
+            <span class="-games">in progress</span>
         </li>
     </ol>
 
