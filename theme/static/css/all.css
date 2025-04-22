@@ -904,6 +904,12 @@ article {
         border-top: 1px dotted var(--accent-dark);
     }
 
+    p {
+        /* easy way to preserve two spaces between sentences */
+        /* TODO would be nice to do this for a bare <li> too, but that makes a mess with nested lists */
+        white-space-collapse: preserve-spaces;
+    }
+
     & p {
         margin: 1em 0;
     }
