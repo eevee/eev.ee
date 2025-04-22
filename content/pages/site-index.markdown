@@ -101,6 +101,7 @@ At one point I attempted to make a Game Boy Color game, in the style of Link's A
 - <time datetime="2020-05-10">2020</time> [Star Anise Chronicles: Oh No Wheres Twig??]({filename}/updates/2020-05-10-star-anise-chronicles-oh-no-wheres-twig.markdown)
 - <time datetime="2020-09-26">2020</time> [Lexy's Labyrinth]({filename}/updates/2020-09-26-lexys-labyrinth.markdown)
 - <time datetime="2020-11-30">2020</time> [Cherry Kisses, on Steam]({filename}/updates/2020-11-30-cherry-kisses-on-steam.markdown)
+- <time datetime="2025-04-21">2025</time> [🔞 vignettes]({filename}/updates/2025-04-21-vignettes.markdown)
 
 Mario Maker levels:
 
@@ -121,9 +122,9 @@ Mario Maker levels:
 Miscellaneous "here's what I'm doing at the moment" sorts of posts.
 
 - <time datetime="2011-02-12">2011</time> [Status recap]({filename}/2011-02-12-status-recap.markdown)
-  — Recent and future work on veekun (my Pokédex website), floof (an abandoned art website), raidne (an abandoned roguelike), and dywypi (an abandoned IRC bot framework).
+  Recent and future work on veekun (my Pokédex website), floof (an abandoned art website), raidne (an abandoned roguelike), and dywypi (an abandoned IRC bot framework).
 - <time datetime="2011-02-21">2011</time> [Status, 2011 February wk 3]({filename}/2011-02-21-status-2011-february-wk-3.markdown)
-  — This blog, veekun, floof, and dywypi.
+  This blog, veekun, floof, and dywypi.
 - <time datetime="2011-04-13">2011</time> [Status, 2011 March...  and April...  ahem]({filename}/2011-04-13-status-2011-march-and-april-ahem.markdown)
 - <time datetime="2012-10-16">2012</time> [Issues]({filename}/updates/2012-10-16-issues.markdown)  
   Attempting to untangle a mess of TODOs.
