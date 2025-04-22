@@ -771,10 +771,21 @@ h1 {
                     top: -0.75rem;
                     right: -0.5rem;
                     text-align: right;
-                    color: hsl(40deg 100% 25%);
+                    color: hsl(20deg 50% 50%);
                 }
                 > h3 {
                     margin: 0;
+                }
+            }
+
+            .entry-content {
+                .prose-full-illustration img {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 100%;
+                    max-height: 40vh;
+                    box-shadow: 0 1px 2px 1px #0009;
+                    outline: 1px solid #0009;
                 }
             }
         }
@@ -979,17 +990,14 @@ ul.misc-grid {
         opacity: 1;
     }
 
-    33% {
-        z-index: 1;
-    }
+    33% { z-index: 2; }
+    33.33% { z-index: 1; }
 
-    50% {
-        opacity: 1;
-        z-index: 0;
-    }
-    50.1% {
-        opacity: 0;
-    }
+    66% { z-index: 1; }
+    66.66% { z-index: 0; }
+
+    99% { opacity: 1; }
+    100% { opacity: 0; }
 }
 .games-header {
     display: grid;
@@ -1231,9 +1239,9 @@ a.pulltab {
     position: relative;
     display: inline-block;
     margin: 0.25em;
-    padding: 0.125em 0.5em;
+    padding: 0.25em 0.5em;
     padding-left: 1em;
-    background: hsl(20deg 100% 92%);
+    background: hsl(30deg 100% 93%);
     box-shadow: var(--normal-shadow);
 
     /* can't use border, the global hover effect uses it */
@@ -1561,7 +1569,7 @@ TODO, c.eev.ee
     --paper1-color: hsl(345deg 75% 60%); --paper1-angle: -2deg;
 ">
     <div class="emoji-sticker" style="left: 10%; transform: rotate(-20deg) translateY(0rem);">📔</div> 
-    <h2 class="pushpin1" style="--pushpin1-x: 80%; --pushpin1-y: 1em; --pushpin1-hue: 45;">blog</h2>
+    <h2 class="pushpin1" style="--pushpin1-x: 80%; --pushpin1-y: 1em; --pushpin1-hue: 45;"><a href="{{ SITEURL }}/{{ INDEX_URL }}">blog</a></h2>
     <p>- one-offs<br>- artifact of their time<br>- vulnerable to entropy</p>
 
     <ul class="pulltab-list">
@@ -1714,6 +1722,24 @@ TODO, c.eev.ee
     </div>
 </div>
 <section class="games-block entropic-children">
+    <div>
+        <aside>
+            <img src="{{ SITEURL }}/theme/images/work/vignettes-1.png">
+            <img src="{{ SITEURL }}/theme/images/work/vignettes-2.png">
+            <img src="{{ SITEURL }}/theme/images/work/vignettes-3.png">
+        </aside>
+        <h3><a class="tape" href="https://eevee.itch.io/vignettes">🔞 vignettes</a></h3>
+        <article>
+            <ul class="-stats">
+                <li><span class="-emoji">💰</span> $10</li>
+                <li><span class="-emoji">🕹️</span> any desktop OS</li>
+                <li><span class="-emoji">🎲</span> visual novel</li>
+                <li><span class="-emoji">⏰</span> two hours</li>
+            </ul>
+            <p>Stories about animal people being sad and working through it and also having weird sex.</p>
+            <p>An anthology of shorter related stories, updated over time.</p>
+        </article>
+    </div>
     <div>
         <aside>
             <img src="{{ SITEURL }}/theme/images/work/lexys-labyrinth-1.png">
