@@ -242,7 +242,7 @@ The most obnoxious people like to talk about how Stable Diffusion is "democratiz
 
 This is an incredibly weird moment.  There have always been inventions that make some craft easier (but sometimes a little more shoddy as well).  There have always been people who resented the idea that the thing they work very hard at is now more accessible.  America's Protestant work culture is deeply entangled with this as well, but I don't value sweat in and of itself — I have a broader objection.
 
-Because this is something else.  What's being sold to us is a machine that is promised to do _everything_.  That's far beyond a tiny question like "should you know how to manually focus in order to take a photography" — it gets at the notion of _thinking about, or doing,_ ***anything at all***.
+Because this is something else.  What's being sold to us is a machine that is promised to do _everything_.  That's far beyond a tiny question like "should you know how to manually focus in order to take a photograph" — it gets at the notion of _thinking about, or doing,_ ***anything at all***.
 
 I don't think anyone is obligated to do anything in particular.  If you don't want to draw, or write, or compose, or program, or whatever, then don't!  That's fine.
 
