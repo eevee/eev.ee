@@ -85,9 +85,6 @@ Did you know there were entire get-rich-quick schemes about this?  It's like [wr
 I say "were" because bothering to _write_ generic filler about nothing is passé — now the computer can do it for you!
 
 
-I tried Mastodon for a while, but it was fairly quiet, and the user experience was...  still...  not...  a good time.
-
-
 ## Artificial reality
 
 If you told me ten years ago that by 2025 we'd have the Star Trek computer, I would've been _ecstatic_.  How fucking cool is that!  You talk to your computer and it does things!
