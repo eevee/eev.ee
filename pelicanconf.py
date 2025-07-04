@@ -226,6 +226,7 @@ PLUGINS = [
     'pelican.plugins.readtime',
 
     # New individual pelican plugins
+    'pelican.plugins.featured_image',   # installed
     'pelican.plugins.photos',       # installed, but, i think i altered locally...
     'pelican.plugins.render_math',  # installed
     'pelican.plugins.series',       # installed
