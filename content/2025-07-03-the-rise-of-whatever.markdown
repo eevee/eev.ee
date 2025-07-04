@@ -184,6 +184,10 @@ I'm not trying to put the author on blast or anything, so let's leave it anonymo
 
 **What on earth are you talking about?**
 
+<aside class="aside--note-from-future" markdown="1">
+Okay so this was actually intended [the opposite way from what I thought](https://bsky.app/profile/simonwillison.net/post/3lt4ooecpls2i) because the author has apparently seen it suggested that LLMs are so incredible that programmers should just give up on their careers now (?????), but the "LLMs are just another tool!" thing is _absolutely_ a sentiment I've seen deployed countless times, so let's pretend someone else said this and meant it as "This is just the latest advancement in the trade!" so that I don't have to completely rewrite this part.  Ironically, I already rewrote it once to fit with this quote!  Anyway sorry Simon oops
+</aside>
+
 I don't know the context for this.  What I _do_ know is that a table saw quickly cuts straight lines.  That is the thing it does.  It doesn't do Whatever.  It doesn't sometimes cut wavy lines and sometimes glue pieces together instead.  It doesn't roll some dice and guess what shape of cut you are statistically likely to want based on an extensive database of previous cuts.  _It cuts a straight fucking line._
 
 If I _were_ a carpenter, and my colleagues got really into this new thing where you just chuck 2×4s at a spinning whirling mass of blades until a chair comes out the other side...  you know, I just might want to switch careers.
