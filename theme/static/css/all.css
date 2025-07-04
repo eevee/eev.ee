@@ -9,7 +9,7 @@ html {
     --font-code: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; 
 
     /* This has to be on the root element for rem to work */
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.5;
 
     min-height: 100%;
@@ -811,7 +811,7 @@ article {
     }
 
     > footer {
-        margin-top: 2em;
+        margin-top: 1em;
 
         ul.meta {
             margin: 0;
@@ -839,7 +839,7 @@ article {
             isolation: isolate;
             width: max-content;
             margin: 1rem auto 0;
-            padding: 1em 2em;
+            padding: 0.75em 2em;
             border-radius: 2em;
             background: var(--fill);
             box-shadow: 0 0 var(--shadow);
@@ -855,18 +855,18 @@ article {
                 background: var(--fill);
                 width: 1em;
                 height: 1em;
-                padding: 0.75em;
+                padding: 0.5em;
                 border-radius: 2em;
                 /* the box-shadow isn't hoverable so disable these circles too */
                 pointer-events: none;
             }
             &::before {
                 right: calc(100% + 0.25em + var(--bubble-gap));
-                box-shadow: calc(-2.5em - var(--bubble-gap)) 0 0 -0.25em var(--fill);
+                box-shadow: calc(-2em - var(--bubble-gap)) 0 0 -0.25em var(--fill);
             }
             &::after {
                 left: calc(100% + 0.25em + var(--bubble-gap));
-                box-shadow: calc(2.5em + var(--bubble-gap)) 0 0 -0.25em var(--fill);
+                box-shadow: calc(2em + var(--bubble-gap)) 0 0 -0.25em var(--fill);
             }
 
             &:hover {
