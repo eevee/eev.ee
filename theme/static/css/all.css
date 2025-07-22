@@ -1027,7 +1027,7 @@ article {
         margin-bottom: 0;
     }
     aside::before {
-        /* I can't believe I get away with this, but a flexbox allows me to
+        /* I can't believe I get away with this, but I can flexbox this to align the image
          * align the image AND have it peek out below the border a bit
          */
         content: var(--image) var(--quip);
@@ -1037,9 +1037,10 @@ article {
         gap: 0.33rem;
         align-items: center;
 
-        height: 1.25em;
+        min-height: 1.25em;
         margin-bottom: 0.5em;
         border-bottom: 1px solid var(--fg-color);
+        line-height: 1;
         color: var(--fg-color);
     }
     aside.aside--well-actually {
