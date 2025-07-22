@@ -1,5 +1,5 @@
 title: I am thirty-eight years old
-date: 2025-07-21
+date: 2025-07-21 20:56
 category: personal
 
 There are several old, personal events that I've been rotating in my head for a very long time.  I'm finally writing about them because I've just had the staggering realization that they all form _one_ singular story.  In some cases I'd never made the connection; in other cases I just plain forgot that things which happened within _hours_ of each other were related.
